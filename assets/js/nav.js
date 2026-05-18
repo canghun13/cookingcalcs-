@@ -127,13 +127,15 @@ document.addEventListener('DOMContentLoaded', function () {
         <div class="footer-col">
           <h4>Blog</h4>
           <ul>
-            ${BLOGS.slice(0, 6).map(b => `<li><a href="${b.url}">${b.name}</a></li>`).join('') || '<li>Coming soon</li>'}
+            ${[...BLOGS].sort((a,b) => (b.date||'') > (a.date||'') ? 1 : -1).slice(0, 6).map(b => `<li><a href="${b.url}">${b.name}</a></li>`).join('') || '<li>Coming soon</li>'}
+            <li><a href="/blog/">View All Posts →</a></li>
           </ul>
         </div>
         <div class="footer-col">
           <h4>Site</h4>
           <ul>
             <li><a href="/">Home</a></li>
+            <li><a href="/blog/">Blog</a></li>
             <li><a href="/about.html">About</a></li>
             <li><a href="/privacy-policy.html">Privacy Policy</a></li>
             <li><a href="/contact.html">Contact</a></li>

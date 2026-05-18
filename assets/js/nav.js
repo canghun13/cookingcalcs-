@@ -67,13 +67,13 @@ document.addEventListener('DOMContentLoaded', function () {
         <ul class="nav-list">
           <li><a href="/" class="nav-link">Home</a></li>
           <li class="nav-has-dropdown">
-            <button class="nav-link nav-btn" aria-expanded="false">Tools</button>
+            <button class="nav-link nav-btn" aria-expanded="false">Tools ▾</button>
             <ul class="nav-dropdown">
               ${toolItems || '<li class="nav-empty">Coming soon</li>'}
             </ul>
           </li>
           <li class="nav-has-dropdown">
-            <button class="nav-link nav-btn" aria-expanded="false">Blog</button>
+            <a href="/blog/" class="nav-link">Blog</a><button class="nav-arrow" aria-expanded="false">▾</button>
             <ul class="nav-dropdown nav-dropdown--right">
               ${blogItems || '<li class="nav-empty">Coming soon</li>'}
             </ul>
@@ -92,13 +92,13 @@ document.addEventListener('DOMContentLoaded', function () {
     <ul class="nav-list">
       <li><a href="/" class="nav-link">Home</a></li>
       <li class="nav-has-dropdown">
-        <button class="nav-link nav-btn" aria-expanded="false">Tools</button>
+        <button class="nav-link nav-btn" aria-expanded="false">Tools ▾</button>
         <ul class="nav-dropdown">
           ${toolItems || '<li class="nav-empty">Coming soon</li>'}
         </ul>
       </li>
       <li class="nav-has-dropdown">
-        <button class="nav-link nav-btn" aria-expanded="false">Blog</button>
+        <a href="/blog/" class="nav-link">Blog</a><button class="nav-arrow" aria-expanded="false">▾</button>
         <ul class="nav-dropdown nav-dropdown--right">
           ${blogItems || '<li class="nav-empty">Coming soon</li>'}
         </ul>
@@ -149,6 +149,17 @@ document.addEventListener('DOMContentLoaded', function () {
   document.querySelector('.site-header').insertAdjacentHTML('afterend', mobileNav);
   document.body.insertAdjacentHTML('beforeend', footer);
 
+  // 블로그 카드 자동 렌더링 (id="blog-grid" 또는 id="blog-list" 있는 페이지)
+  const blogGrid = document.getElementById('blog-grid') || document.getElementById('blog-list');
+  if (blogGrid && BLOGS.length > 0) {
+    blogGrid.innerHTML = BLOGS.map(b => `
+      <a href="${b.url}" class="blog-card">
+        <span class="blog-card-tag">Guide</span>
+        <h3>${b.name}</h3>
+      </a>
+    `).join('');
+  }
+
   // 현재 페이지 active 표시
   const currentPath = window.location.pathname;
 
@@ -164,31 +175,31 @@ document.addEventListener('DOMContentLoaded', function () {
   document.querySelectorAll('.nav-dropdown a').forEach(a => {
     if (a.getAttribute('href') === currentPath) {
       a.classList.add('active');
-      // 부모 1차 버튼도 active
+      // 부모 1차 링크도 active
       const parentLi = a.closest('.nav-has-dropdown');
       if (parentLi) {
-        const btn = parentLi.querySelector('.nav-btn');
-        if (btn) btn.classList.add('active');
+        const parentLink = parentLi.querySelector('a.nav-link');
+        if (parentLink) parentLink.classList.add('active');
       }
     }
   });
 
-  // 드롭다운 토글 (데스크탑 + 모바일 둘 다)
+  // 드롭다운 토글 (Tools: nav-btn, Blog: nav-arrow)
   document.querySelectorAll('.nav-has-dropdown').forEach(li => {
-    const btn = li.querySelector('.nav-btn');
-    btn.addEventListener('click', function (e) {
+    const trigger = li.querySelector('.nav-btn') || li.querySelector('.nav-arrow');
+    if (!trigger) return;
+    trigger.addEventListener('click', function (e) {
       e.stopPropagation();
       const isOpen = li.classList.contains('open');
       document.querySelectorAll('.nav-has-dropdown').forEach(el => el.classList.remove('open'));
       if (!isOpen) {
         li.classList.add('open');
-        btn.setAttribute('aria-expanded', 'true');
+        trigger.setAttribute('aria-expanded', 'true');
       } else {
-        btn.setAttribute('aria-expanded', 'false');
+        trigger.setAttribute('aria-expanded', 'false');
       }
     });
   });
-
   // 외부 클릭 시 닫기
   document.addEventListener('click', function () {
     document.querySelectorAll('.nav-has-dropdown').forEach(el => el.classList.remove('open'));

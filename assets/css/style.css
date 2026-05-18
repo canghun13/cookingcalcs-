@@ -108,6 +108,19 @@ a { color: inherit; text-decoration: none; }
 
 .nav-has-dropdown.open .nav-btn::after { transform: rotate(180deg); }
 
+.nav-arrow {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.65rem;
+  color: var(--mid);
+  padding: 0.25rem;
+  transition: transform 0.2s, color 0.2s;
+  line-height: 1;
+}
+.nav-arrow:hover { color: var(--tomato); }
+.nav-has-dropdown.open .nav-arrow { transform: rotate(180deg); color: var(--tomato); }
+
 .nav-link:hover,
 .nav-link.active {
   color: var(--tomato);

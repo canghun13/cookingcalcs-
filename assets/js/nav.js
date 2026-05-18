@@ -152,12 +152,12 @@ document.addEventListener('DOMContentLoaded', function () {
   // 블로그 카드 자동 렌더링 (id="blog-grid" 또는 id="blog-list" 있는 페이지)
   const blogGrid = document.getElementById('blog-grid') || document.getElementById('blog-list');
   if (blogGrid && BLOGS.length > 0) {
-    blogGrid.innerHTML = BLOGS.map(b => {
+    const sorted = [...BLOGS].sort((a, b) => (b.date || '') > (a.date || '') ? 1 : -1);
+    blogGrid.innerHTML = sorted.map(b => {
       const dateStr = b.date ? new Date(b.date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }) : '';
       return `
       <a href="${b.url}" class="blog-card">
         <div class="blog-card-body">
-          <span class="blog-card-tag">Guide</span>
           <h3>${b.name}</h3>
           ${b.desc ? `<p class="blog-card-desc">${b.desc}</p>` : ''}
         </div>

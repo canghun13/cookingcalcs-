@@ -123,25 +123,6 @@ a { color: inherit; text-decoration: none; }
 /* ── DROPDOWN ───────────────────────────────────────────────── */
 .nav-has-dropdown { position: relative; height: 68px; display: flex; align-items: center; }
 
-/* Blog: a + nav-arrow 묶어서 hover/active 처리 */
-.nav-has-dropdown > a.nav-link + .nav-arrow {
-  margin-left: -0.6rem;
-  padding-left: 0;
-}
-.nav-has-dropdown:has(> a.nav-link):hover > a.nav-link,
-.nav-has-dropdown:has(> a.nav-link):hover > .nav-arrow,
-.nav-has-dropdown:has(> a.nav-link.active) > a.nav-link,
-.nav-has-dropdown:has(> a.nav-link.active) > .nav-arrow {
-  color: var(--tomato);
-  background: var(--tomato-light);
-}
-.nav-has-dropdown:has(> a.nav-link):hover > a.nav-link {
-  border-radius: 8px 0 0 8px;
-}
-.nav-has-dropdown:has(> a.nav-link):hover > .nav-arrow {
-  border-radius: 0 8px 8px 0;
-}
-
 .nav-dropdown {
   display: none;
   position: absolute;

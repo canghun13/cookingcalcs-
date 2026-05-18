@@ -73,8 +73,9 @@ document.addEventListener('DOMContentLoaded', function () {
             </ul>
           </li>
           <li class="nav-has-dropdown">
-            <a href="/blog/" class="nav-link">Blog</a><button class="nav-arrow" aria-expanded="false">▾</button>
+            <button class="nav-link nav-btn" aria-expanded="false">Blog ▾</button>
             <ul class="nav-dropdown nav-dropdown--right">
+              <li><a href="/blog/" class="nav-dropdown-all">View All Posts →</a></li>
               ${blogItems || '<li class="nav-empty">Coming soon</li>'}
             </ul>
           </li>

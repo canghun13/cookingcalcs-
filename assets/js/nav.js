@@ -153,7 +153,9 @@ document.addEventListener('DOMContentLoaded', function () {
   const blogGrid = document.getElementById('blog-grid') || document.getElementById('blog-list');
   if (blogGrid && BLOGS.length > 0) {
     const sorted = [...BLOGS].sort((a, b) => (b.date || '') > (a.date || '') ? 1 : -1);
-    blogGrid.innerHTML = sorted.map(b => {
+    const isMainPage = blogGrid.id === 'blog-grid' && (currentPath === '/' || currentPath === '/index.html');
+    const list = isMainPage ? sorted.slice(0, 6) : sorted;
+    blogGrid.innerHTML = list.map(b => {
       const dateStr = b.date ? new Date(b.date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }) : '';
       return `
       <a href="${b.url}" class="blog-card">

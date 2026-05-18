@@ -85,7 +85,27 @@ document.addEventListener('DOMContentLoaded', function () {
         <span></span><span></span><span></span>
       </button>
     </div>
-  </header>
+  </header>`;
+
+  const mobileNav = `
+  <nav class="mobile-nav" id="mobileNav">
+    <ul class="nav-list">
+      <li><a href="/" class="nav-link">Home</a></li>
+      <li class="nav-has-dropdown">
+        <button class="nav-link nav-btn" aria-expanded="false">Tools</button>
+        <ul class="nav-dropdown">
+          ${toolItems || '<li class="nav-empty">Coming soon</li>'}
+        </ul>
+      </li>
+      <li class="nav-has-dropdown">
+        <button class="nav-link nav-btn" aria-expanded="false">Blog</button>
+        <ul class="nav-dropdown nav-dropdown--right">
+          ${blogItems || '<li class="nav-empty">Coming soon</li>'}
+        </ul>
+      </li>
+      <li><a href="/about.html" class="nav-link">About</a></li>
+    </ul>
+  </nav>
   <div class="nav-overlay" id="navOverlay"></div>`;
 
   const footer = `
@@ -126,6 +146,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // 삽입
   document.body.insertAdjacentHTML('afterbegin', header);
+  document.querySelector('.site-header').insertAdjacentHTML('afterend', mobileNav);
   document.body.insertAdjacentHTML('beforeend', footer);
 
   // 현재 페이지 active 표시
@@ -134,10 +155,9 @@ document.addEventListener('DOMContentLoaded', function () {
     if (a.getAttribute('href') === currentPath) a.classList.add('active');
   });
 
-  // 드롭다운 토글
+  // 드롭다운 토글 (데스크탑 + 모바일 둘 다)
   document.querySelectorAll('.nav-has-dropdown').forEach(li => {
     const btn = li.querySelector('.nav-btn');
-    const dropdown = li.querySelector('.nav-dropdown');
     btn.addEventListener('click', function (e) {
       e.stopPropagation();
       const isOpen = li.classList.contains('open');
@@ -158,11 +178,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // 햄버거
   const hamburger = document.getElementById('hamburger');
-  const mainNav = document.getElementById('mainNav');
+  const mobileNavEl = document.getElementById('mobileNav');
   const overlay = document.getElementById('navOverlay');
 
   function openNav() {
-    mainNav.classList.add('nav-open');
+    mobileNavEl.classList.add('nav-open');
     hamburger.classList.add('active');
     overlay.classList.add('active');
     hamburger.setAttribute('aria-expanded', 'true');
@@ -170,7 +190,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function closeNav() {
-    mainNav.classList.remove('nav-open');
+    mobileNavEl.classList.remove('nav-open');
     hamburger.classList.remove('active');
     overlay.classList.remove('active');
     hamburger.setAttribute('aria-expanded', 'false');
@@ -178,7 +198,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   hamburger.addEventListener('click', function () {
-    mainNav.classList.contains('nav-open') ? closeNav() : openNav();
+    mobileNavEl.classList.contains('nav-open') ? closeNav() : openNav();
   });
 
   overlay.addEventListener('click', closeNav);

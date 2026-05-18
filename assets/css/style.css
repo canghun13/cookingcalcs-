@@ -146,7 +146,8 @@ a { color: inherit; text-decoration: none; }
   transition: background 0.15s, color 0.15s;
 }
 
-.nav-dropdown li a:hover {
+.nav-dropdown li a:hover,
+.nav-dropdown li a.active {
   background: var(--tomato-light);
   color: var(--tomato-dark);
 }
@@ -645,7 +646,9 @@ a { color: inherit; text-decoration: none; }
   flex-direction: column;
   align-items: flex-start;
 }
-.mobile-nav.nav-open { display: flex; }
+@media (max-width: 768px) {
+  .mobile-nav.nav-open { display: flex; }
+}
 .mobile-nav .nav-list {
   flex-direction: column;
   align-items: flex-start;

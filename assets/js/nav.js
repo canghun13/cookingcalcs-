@@ -149,12 +149,27 @@ document.addEventListener('DOMContentLoaded', function () {
   document.querySelector('.site-header').insertAdjacentHTML('afterend', mobileNav);
   document.body.insertAdjacentHTML('beforeend', footer);
 
-  // 현재 페이지 active 표시 (PC + 모바일 전체)
+  // 현재 페이지 active 표시
   const currentPath = window.location.pathname;
+
+  // 1차 메뉴 a 태그
   document.querySelectorAll('a.nav-link').forEach(a => {
     const href = a.getAttribute('href');
     if (href === currentPath || (href === '/' && (currentPath === '/' || currentPath === '/index.html'))) {
       a.classList.add('active');
+    }
+  });
+
+  // 2차 메뉴 (드롭다운 안 링크) active
+  document.querySelectorAll('.nav-dropdown a').forEach(a => {
+    if (a.getAttribute('href') === currentPath) {
+      a.classList.add('active');
+      // 부모 1차 버튼도 active
+      const parentLi = a.closest('.nav-has-dropdown');
+      if (parentLi) {
+        const btn = parentLi.querySelector('.nav-btn');
+        if (btn) btn.classList.add('active');
+      }
     }
   });
 

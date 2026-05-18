@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tablespoon to Teaspoon Converter – CookingCalcs</title>
+  <meta name="description" content="Convert tablespoons to teaspoons (and vice versa) instantly. Includes ml, cups, and ounce conversions too.">
+  <link rel="canonical" href="https://cookingcalcs.com/tools/tablespoon-to-teaspoon.html">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script src="/assets/js/nav.js" defer></script>
+</head>
+<body>
+<main>
+  <div class="tool-page">
+    <h1>Tablespoon to Teaspoon Converter</h1>
+    <p class="tool-desc">Quickly convert between tablespoons, teaspoons, milliliters, and cups. 1 tablespoon = 3 teaspoons = 15ml.</p>
+
+    <div class="tool-box">
+      <div class="form-group">
+        <label for="amount">Amount</label>
+        <input type="number" id="amount" min="0" step="0.25" value="1" oninput="convert()">
+      </div>
+      <div class="form-group">
+        <label for="fromUnit">Convert from</label>
+        <select id="fromUnit" onchange="convert()">
+          <option value="tbsp">Tablespoon (tbsp)</option>
+          <option value="tsp">Teaspoon (tsp)</option>
+          <option value="ml">Milliliter (ml)</option>
+          <option value="cup">Cup</option>
+          <option value="floz">Fluid Ounce (fl oz)</option>
+        </select>
+      </div>
+
+      <div id="results" style="display:none; margin-top:1.5rem;">
+        <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:1rem;">
+          <div class="result-box"><div class="result-num" id="rTbsp"></div><div class="result-label">Tablespoons</div></div>
+          <div class="result-box"><div class="result-num" id="rTsp"></div><div class="result-label">Teaspoons</div></div>
+          <div class="result-box"><div class="result-num" id="rMl"></div><div class="result-label">Milliliters</div></div>
+          <div class="result-box"><div class="result-num" id="rCup"></div><div class="result-label">Cups</div></div>
+        </div>
+      </div>
+    </div>
+
+    <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin:2rem 0 1rem;">Quick Reference Chart</h2>
+    <div style="overflow-x:auto;">
+      <table style="width:100%; border-collapse:collapse; font-size:0.9rem; background:#fff; border-radius:12px; overflow:hidden;">
+        <thead>
+          <tr style="background:var(--sand-dark);">
+            <th style="padding:0.75rem 1rem; text-align:left; border-bottom:1px solid var(--border);">Tablespoons</th>
+            <th style="padding:0.75rem 1rem; text-align:center; border-bottom:1px solid var(--border);">Teaspoons</th>
+            <th style="padding:0.75rem 1rem; text-align:center; border-bottom:1px solid var(--border);">ml</th>
+            <th style="padding:0.75rem 1rem; text-align:center; border-bottom:1px solid var(--border);">Cup</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">¼ tbsp</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">¾ tsp</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">3.7 ml</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">1/64 cup</td></tr>
+          <tr style="background:var(--sand);"><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">½ tbsp</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">1½ tsp</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">7.4 ml</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">1/32 cup</td></tr>
+          <tr><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">1 tbsp</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">3 tsp</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">15 ml</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">1/16 cup</td></tr>
+          <tr style="background:var(--sand);"><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">2 tbsp</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">6 tsp</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">30 ml</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">⅛ cup</td></tr>
+          <tr><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">4 tbsp</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">12 tsp</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">60 ml</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">¼ cup</td></tr>
+          <tr style="background:var(--sand);"><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">8 tbsp</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">24 tsp</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">120 ml</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">½ cup</td></tr>
+          <tr><td style="padding:0.65rem 1rem;">16 tbsp</td><td style="text-align:center; padding:0.65rem;">48 tsp</td><td style="text-align:center; padding:0.65rem;">240 ml</td><td style="text-align:center; padding:0.65rem;">1 cup</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="margin-top:3rem; padding:1.5rem; background:var(--tomato-light); border-radius:var(--radius-lg);">
+      <h3 style="font-family:'Playfair Display',serif; margin-bottom:0.75rem;">Related Guides</h3>
+      <ul style="list-style:none; display:flex; flex-direction:column; gap:0.5rem;">
+        <li><a href="/blog/cooking-measurement-guide.html" style="color:var(--tomato-dark); font-weight:500;">→ Complete Cooking Measurement Guide</a></li>
+        <li><a href="/tools/cups-to-grams.html" style="color:var(--tomato-dark); font-weight:500;">→ Cups to Grams Calculator</a></li>
+      </ul>
+    </div>
+  </div>
+</main>
+
+<script>
+// All conversions relative to ml
+const toMl = { tbsp: 14.787, tsp: 4.929, ml: 1, cup: 240, floz: 29.574 };
+
+function round(n) { return Math.round(n * 100) / 100; }
+
+function convert() {
+  const amount = parseFloat(document.getElementById('amount').value);
+  const from = document.getElementById('fromUnit').value;
+  if (isNaN(amount) || amount < 0) { document.getElementById('results').style.display = 'none'; return; }
+
+  const ml = amount * toMl[from];
+  document.getElementById('rTbsp').textContent = round(ml / toMl.tbsp) + ' tbsp';
+  document.getElementById('rTsp').textContent = round(ml / toMl.tsp) + ' tsp';
+  document.getElementById('rMl').textContent = round(ml) + ' ml';
+  document.getElementById('rCup').textContent = round(ml / toMl.cup) + ' cup';
+  document.getElementById('results').style.display = 'block';
+}
+
+document.addEventListener('DOMContentLoaded', convert);
+</script>
+</body>
+</html>

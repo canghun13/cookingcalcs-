@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oven Temperature Converter (°F, °C, Gas Mark) – CookingCalcs</title>
+  <meta name="description" content="Convert oven temperatures between Fahrenheit, Celsius, and Gas Mark instantly. Includes a full conversion chart for baking and roasting.">
+  <link rel="canonical" href="https://cookingcalcs.com/tools/oven-temp-converter.html">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script src="/assets/js/nav.js" defer></script>
+</head>
+<body>
+<main>
+  <div class="tool-page">
+    <h1>Oven Temperature Converter</h1>
+    <p class="tool-desc">Convert between Fahrenheit, Celsius, and Gas Mark. Whether you're following a British recipe or baking from a US cookbook, get the right temperature instantly.</p>
+
+    <div class="tool-box">
+      <div class="form-group">
+        <label for="tempInput">Temperature</label>
+        <input type="number" id="tempInput" placeholder="e.g. 350" oninput="convertTemp()">
+      </div>
+      <div class="form-group">
+        <label for="tempUnit">Convert from</label>
+        <select id="tempUnit" onchange="convertTemp()">
+          <option value="F">Fahrenheit (°F)</option>
+          <option value="C">Celsius (°C)</option>
+          <option value="G">Gas Mark</option>
+        </select>
+      </div>
+
+      <div id="result" style="display:none;">
+        <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin-top:1.5rem;">
+          <div class="result-box">
+            <div class="result-num" id="resF"></div>
+            <div class="result-label">Fahrenheit</div>
+          </div>
+          <div class="result-box">
+            <div class="result-num" id="resC"></div>
+            <div class="result-label">Celsius</div>
+          </div>
+          <div class="result-box">
+            <div class="result-num" id="resG"></div>
+            <div class="result-label">Gas Mark</div>
+          </div>
+        </div>
+        <p id="heatDesc" style="text-align:center; margin-top:1rem; color:var(--mid); font-size:0.9rem;"></p>
+      </div>
+    </div>
+
+    <!-- Conversion Chart -->
+    <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin:2rem 0 1rem;">Full Oven Temperature Chart</h2>
+    <div style="overflow-x:auto;">
+      <table style="width:100%; border-collapse:collapse; font-size:0.9rem; background:#fff; border-radius:12px; overflow:hidden;">
+        <thead>
+          <tr style="background:var(--sand-dark);">
+            <th style="padding:0.75rem 1rem; text-align:left; border-bottom:1px solid var(--border);">Description</th>
+            <th style="padding:0.75rem 1rem; text-align:center; border-bottom:1px solid var(--border);">°F</th>
+            <th style="padding:0.75rem 1rem; text-align:center; border-bottom:1px solid var(--border);">°C</th>
+            <th style="padding:0.75rem 1rem; text-align:center; border-bottom:1px solid var(--border);">Gas Mark</th>
+          </tr>
+        </thead>
+        <tbody id="chartBody"></tbody>
+      </table>
+    </div>
+
+    <div style="margin-top:3rem; padding:1.5rem; background:var(--tomato-light); border-radius:var(--radius-lg);">
+      <h3 style="font-family:'Playfair Display',serif; margin-bottom:0.75rem;">Related Guides</h3>
+      <ul style="list-style:none; display:flex; flex-direction:column; gap:0.5rem;">
+        <li><a href="/blog/oven-temperature-guide.html" style="color:var(--tomato-dark); font-weight:500;">→ Oven Temperature Guide: What Every Setting Means</a></li>
+        <li><a href="/blog/baking-measurement-tips.html" style="color:var(--tomato-dark); font-weight:500;">→ Why Weighing Ingredients Makes You a Better Baker</a></li>
+      </ul>
+    </div>
+  </div>
+</main>
+
+<script>
+const chart = [
+  { desc: 'Very Cool', F: 225, C: 107, G: '¼' },
+  { desc: 'Very Cool', F: 250, C: 121, G: '½' },
+  { desc: 'Cool', F: 275, C: 135, G: 1 },
+  { desc: 'Cool', F: 300, C: 149, G: 2 },
+  { desc: 'Warm', F: 325, C: 163, G: 3 },
+  { desc: 'Moderate', F: 350, C: 177, G: 4 },
+  { desc: 'Moderately Hot', F: 375, C: 190, G: 5 },
+  { desc: 'Hot', F: 400, C: 204, G: 6 },
+  { desc: 'Hot', F: 425, C: 218, G: 7 },
+  { desc: 'Very Hot', F: 450, C: 232, G: 8 },
+  { desc: 'Very Hot', F: 475, C: 246, G: 9 },
+];
+
+// Build chart table
+const tbody = document.getElementById('chartBody');
+chart.forEach((row, i) => {
+  const tr = document.createElement('tr');
+  if (i % 2 !== 0) tr.style.background = 'var(--sand)';
+  tr.innerHTML = `
+    <td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">${row.desc}</td>
+    <td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">${row.F}°F</td>
+    <td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">${row.C}°C</td>
+    <td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">Gas ${row.G}</td>
+  `;
+  tbody.appendChild(tr);
+});
+
+function getHeatDesc(F) {
+  if (F <= 250) return 'Very cool oven — good for meringues and slow drying.';
+  if (F <= 300) return 'Cool oven — ideal for slow roasting and delicate pastries.';
+  if (F <= 325) return 'Warm oven — good for custards and cheesecakes.';
+  if (F <= 375) return 'Moderate oven — perfect for most cakes and cookies.';
+  if (F <= 400) return 'Moderately hot — great for bread, muffins, and roasted vegetables.';
+  if (F <= 425) return 'Hot oven — ideal for pizza and crispy roasted meats.';
+  return 'Very hot oven — great for searing and high-heat roasting.';
+}
+
+function convertTemp() {
+  const val = parseFloat(document.getElementById('tempInput').value);
+  const unit = document.getElementById('tempUnit').value;
+  if (isNaN(val)) { document.getElementById('result').style.display = 'none'; return; }
+
+  let F, C, G;
+  if (unit === 'F') {
+    F = val;
+    C = Math.round((F - 32) * 5 / 9);
+    G = Math.round((F - 250) / 25);
+  } else if (unit === 'C') {
+    C = val;
+    F = Math.round(C * 9 / 5 + 32);
+    G = Math.round((F - 250) / 25);
+  } else {
+    G = val;
+    F = Math.round(G * 25 + 250);
+    C = Math.round((F - 32) * 5 / 9);
+  }
+
+  document.getElementById('resF').textContent = F + '°F';
+  document.getElementById('resC').textContent = C + '°C';
+  document.getElementById('resG').textContent = 'Gas ' + (G < 1 ? '¼' : G);
+  document.getElementById('heatDesc').textContent = getHeatDesc(F);
+  document.getElementById('result').style.display = 'block';
+}
+</script>
+</body>
+</html>

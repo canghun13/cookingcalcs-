@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cooking Time Calculator – CookingCalcs</title>
+  <meta name="description" content="Calculate exact cooking times for chicken, beef, pork, lamb, and vegetables by weight, cut, and cooking method.">
+  <link rel="canonical" href="https://cookingcalcs.com/tools/cooking-time-calculator.html">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script src="/assets/js/nav.js" defer></script>
+</head>
+<body>
+<main>
+  <div class="tool-page">
+    <h1>Cooking Time Calculator</h1>
+    <p class="tool-desc">Get accurate cooking times based on the type of meat, weight, and cooking method. Always use a meat thermometer to verify doneness.</p>
+
+    <div class="tool-box">
+      <div class="form-group">
+        <label for="meat">Meat / Food</label>
+        <select id="meat" onchange="updateCuts()">
+          <option value="chicken">Chicken</option>
+          <option value="beef">Beef</option>
+          <option value="pork">Pork</option>
+          <option value="lamb">Lamb</option>
+          <option value="turkey">Turkey</option>
+          <option value="fish">Fish</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="cut">Cut / Type</label>
+        <select id="cut"></select>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+        <div class="form-group">
+          <label for="weight">Weight</label>
+          <input type="number" id="weight" min="0.1" step="0.1" value="2" oninput="calculate()">
+        </div>
+        <div class="form-group">
+          <label for="weightUnit">Unit</label>
+          <select id="weightUnit" onchange="calculate()">
+            <option value="lb">Pounds (lb)</option>
+            <option value="kg">Kilograms (kg)</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="method">Cooking Method</label>
+        <select id="method" onchange="calculate()">
+          <option value="oven">Oven / Roasting</option>
+          <option value="grill">Grill / BBQ</option>
+          <option value="pan">Pan / Stovetop</option>
+        </select>
+      </div>
+
+      <button class="btn-primary" onclick="calculate()" style="width:100%;">Calculate Time →</button>
+
+      <div id="result" style="display:none; margin-top:1.5rem;">
+        <div class="result-box">
+          <div class="result-num" id="timeResult"></div>
+          <div class="result-label" id="timeLabel"></div>
+        </div>
+        <div style="margin-top:1rem; padding:1rem; background:var(--sand-dark); border-radius:var(--radius); font-size:0.875rem; color:var(--ink);">
+          <strong>Safe internal temperature:</strong> <span id="safeTemp"></span><br>
+          <span style="color:var(--mid); margin-top:0.25rem; display:block;">Always verify with a meat thermometer. Times are estimates and vary by oven/grill.</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:3rem; padding:1.5rem; background:var(--tomato-light); border-radius:var(--radius-lg);">
+      <h3 style="font-family:'Playfair Display',serif; margin-bottom:0.75rem;">Related Tools & Guides</h3>
+      <ul style="list-style:none; display:flex; flex-direction:column; gap:0.5rem;">
+        <li><a href="/tools/meat-temperature-guide.html" style="color:var(--tomato-dark); font-weight:500;">→ Meat Temperature Guide</a></li>
+        <li><a href="/blog/how-long-to-cook-chicken-breast.html" style="color:var(--tomato-dark); font-weight:500;">→ How Long to Cook Chicken Breast at Every Temperature</a></li>
+      </ul>
+    </div>
+  </div>
+</main>
+
+<script>
+const data = {
+  chicken: {
+    cuts: [
+      { name:'Whole chicken', minsPerLb: 20, safeF: '165°F (74°C)' },
+      { name:'Chicken breast (bone-in)', minsPerLb: 30, safeF: '165°F (74°C)' },
+      { name:'Chicken breast (boneless)', minsPerLb: 25, safeF: '165°F (74°C)' },
+      { name:'Chicken thighs', minsPerLb: 30, safeF: '165°F (74°C)' },
+      { name:'Chicken wings', minsPerLb: 35, safeF: '165°F (74°C)' },
+      { name:'Chicken drumsticks', minsPerLb: 30, safeF: '165°F (74°C)' },
+    ]
+  },
+  beef: {
+    cuts: [
+      { name:'Ribeye steak (1")', minsPerLb: 10, safeF: '145°F (63°C) medium-rare' },
+      { name:'Sirloin steak', minsPerLb: 12, safeF: '145°F (63°C) medium-rare' },
+      { name:'Whole roast (medium-rare)', minsPerLb: 15, safeF: '135°F (57°C)' },
+      { name:'Whole roast (medium)', minsPerLb: 20, safeF: '145°F (63°C)' },
+      { name:'Whole roast (well done)', minsPerLb: 25, safeF: '160°F (71°C)' },
+      { name:'Brisket', minsPerLb: 60, safeF: '195–205°F (90–96°C)' },
+      { name:'Ground beef patties', minsPerLb: 14, safeF: '160°F (71°C)' },
+    ]
+  },
+  pork: {
+    cuts: [
+      { name:'Pork loin roast', minsPerLb: 20, safeF: '145°F (63°C)' },
+      { name:'Pork chops (1")', minsPerLb: 18, safeF: '145°F (63°C)' },
+      { name:'Pork shoulder / Boston butt', minsPerLb: 60, safeF: '195–205°F (90–96°C)' },
+      { name:'Pork tenderloin', minsPerLb: 25, safeF: '145°F (63°C)' },
+      { name:'Ribs (baby back)', minsPerLb: 40, safeF: '190°F (88°C)' },
+      { name:'Ham (pre-cooked)', minsPerLb: 15, safeF: '140°F (60°C)' },
+    ]
+  },
+  lamb: {
+    cuts: [
+      { name:'Leg of lamb (medium)', minsPerLb: 20, safeF: '145°F (63°C)' },
+      { name:'Leg of lamb (well done)', minsPerLb: 25, safeF: '160°F (71°C)' },
+      { name:'Rack of lamb', minsPerLb: 15, safeF: '145°F (63°C)' },
+      { name:'Lamb chops', minsPerLb: 12, safeF: '145°F (63°C)' },
+    ]
+  },
+  turkey: {
+    cuts: [
+      { name:'Whole turkey (unstuffed)', minsPerLb: 15, safeF: '165°F (74°C)' },
+      { name:'Whole turkey (stuffed)', minsPerLb: 18, safeF: '165°F (74°C)' },
+      { name:'Turkey breast', minsPerLb: 20, safeF: '165°F (74°C)' },
+    ]
+  },
+  fish: {
+    cuts: [
+      { name:'Salmon fillet', minsPerLb: 12, safeF: '145°F (63°C)' },
+      { name:'Whole fish', minsPerLb: 15, safeF: '145°F (63°C)' },
+      { name:'Cod / white fish', minsPerLb: 10, safeF: '145°F (63°C)' },
+      { name:'Shrimp', minsPerLb: 6, safeF: 'Pink and opaque' },
+    ]
+  }
+};
+
+function updateCuts() {
+  const meat = document.getElementById('meat').value;
+  const cutSel = document.getElementById('cut');
+  cutSel.innerHTML = data[meat].cuts.map(c => `<option value="${c.minsPerLb}|${c.safeF}">${c.name}</option>`).join('');
+  calculate();
+}
+
+function calculate() {
+  const weightInput = parseFloat(document.getElementById('weight').value);
+  const unit = document.getElementById('weightUnit').value;
+  const cutVal = document.getElementById('cut').value;
+  if (!cutVal || !weightInput) return;
+
+  const [minsPerLb, safeF] = cutVal.split('|');
+  const weightLb = unit === 'kg' ? weightInput * 2.205 : weightInput;
+  const totalMins = Math.round(weightLb * parseFloat(minsPerLb));
+  const hrs = Math.floor(totalMins / 60);
+  const mins = totalMins % 60;
+  const timeStr = hrs > 0 ? `${hrs}h ${mins}m` : `${mins} min`;
+
+  document.getElementById('timeResult').textContent = timeStr;
+  document.getElementById('timeLabel').textContent = `Estimated cooking time for ${weightInput} ${unit}`;
+  document.getElementById('safeTemp').textContent = safeF;
+  document.getElementById('result').style.display = 'block';
+}
+
+document.addEventListener('DOMContentLoaded', () => { updateCuts(); calculate(); });
+</script>
+</body>
+</html>

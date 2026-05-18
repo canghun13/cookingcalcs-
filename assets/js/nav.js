@@ -6,7 +6,7 @@
 
 // ── GA ──────────────────────────────────────────────────────
 // GA_ID는 Google Analytics 연결 후 교체
-const GA_ID = 'G-XXXXXXXXXX';
+const GA_ID = 'G-QZT8PVVY5E';
 (function () {
   var s = document.createElement('script');
   s.async = true;
@@ -20,14 +20,31 @@ gtag('config', GA_ID);
 
 // ── 툴 목록 (추가 시 여기만 수정) ───────────────────────────
 const TOOLS = [
-  // { name: "Cups to Grams", url: "/tools/cups-to-grams.html" },
-  // { name: "Oven Temperature Converter", url: "/tools/oven-temp-converter.html" },
-  // { name: "Recipe Multiplier", url: "/tools/recipe-multiplier.html" },
+  { name: "Cups to Grams", url: "/tools/cups-to-grams.html" },
+  { name: "Oven Temperature Converter", url: "/tools/oven-temp-converter.html" },
+  { name: "Tablespoon to Teaspoon", url: "/tools/tablespoon-to-teaspoon.html" },
+  { name: "Recipe Multiplier", url: "/tools/recipe-multiplier.html" },
+  { name: "Cooking Time Calculator", url: "/tools/cooking-time-calculator.html" },
+  { name: "Meal Cost Calculator", url: "/tools/meal-cost-calculator.html" },
+  { name: "Cost Per Serving", url: "/tools/cost-per-serving.html" },
 ];
 
 // ── 블로그 목록 (추가 시 여기만 수정) ──────────────────────
 const BLOGS = [
-  // { name: "Cups to Grams Guide", url: "/blog/cups-to-grams-guide.html" },
+  { name: "Cups to Grams Guide", url: "/blog/cups-to-grams-guide.html" },
+  { name: "Why Weigh Ingredients When Baking", url: "/blog/why-weigh-ingredients-baking.html" },
+  { name: "Oven Temperature Conversion Guide", url: "/blog/oven-temperature-conversion-guide.html" },
+  { name: "How to Scale a Recipe", url: "/blog/how-to-scale-a-recipe.html" },
+  { name: "Baking Measurement Mistakes", url: "/blog/baking-measurement-mistakes.html" },
+  { name: "Meat Internal Temperature Guide", url: "/blog/meat-internal-temperature-guide.html" },
+  { name: "How to Cut Your Grocery Bill", url: "/blog/how-to-cut-grocery-bill.html" },
+  { name: "Tablespoon to Teaspoon Guide", url: "/blog/tablespoon-to-teaspoon-guide.html" },
+  { name: "How to Calculate Cost Per Serving", url: "/blog/how-to-calculate-cost-per-serving.html" },
+  { name: "How Long to Cook Chicken Breast", url: "/blog/how-long-to-cook-chicken-breast.html" },
+  { name: "Cooking Measurement Guide", url: "/blog/cooking-measurement-guide.html" },
+  { name: "Meat Cooking Temperatures Explained", url: "/blog/meat-cooking-temperatures-explained.html" },
+  { name: "How to Meal Prep on a Budget", url: "/blog/how-to-meal-prep-on-a-budget.html" },
+  { name: "How to Reduce a Recipe", url: "/blog/how-to-reduce-a-recipe.html" },
 ];
 
 // ── 메뉴 렌더링 ─────────────────────────────────────────────

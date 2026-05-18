@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meal Cost Calculator – CookingCalcs</title>
+  <meta name="description" content="Calculate exactly how much your meal costs to make. Add ingredients and their prices to find total cost and cost per serving.">
+  <link rel="canonical" href="https://cookingcalcs.com/tools/meal-cost-calculator.html">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script src="/assets/js/nav.js" defer></script>
+  <style>
+    .cost-row { display:grid; grid-template-columns:1fr 90px 90px 36px; gap:0.5rem; align-items:center; margin-bottom:0.5rem; }
+    .cost-row input { padding:0.6rem 0.75rem; border:1.5px solid var(--border); border-radius:8px; font-size:0.9rem; font-family:'Plus Jakarta Sans',sans-serif; width:100%; }
+    .cost-row input:focus { border-color:var(--tomato); outline:none; }
+    .remove-btn { background:none; border:none; cursor:pointer; color:var(--muted); font-size:1.1rem; padding:0.4rem; border-radius:6px; }
+    .remove-btn:hover { color:var(--tomato); }
+    @media(max-width:600px) { .cost-row { grid-template-columns:1fr 80px 36px; } .cost-row input:nth-child(3) { display:none; } }
+  </style>
+</head>
+<body>
+<main>
+  <div class="tool-page">
+    <h1>Meal Cost Calculator</h1>
+    <p class="tool-desc">Add your ingredients and their costs to find out exactly how much your meal costs to make — and the cost per serving.</p>
+
+    <div class="tool-box">
+      <div class="form-group">
+        <label for="servings">Number of servings</label>
+        <input type="number" id="servings" value="4" min="1" oninput="calculate()">
+      </div>
+
+      <div style="display:grid; grid-template-columns:1fr 90px 90px 36px; gap:0.5rem; margin-bottom:0.5rem;">
+        <div style="font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--muted);">Ingredient</div>
+        <div style="font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--muted);">Cost ($)</div>
+        <div style="font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--muted);">Used (%)</div>
+        <div></div>
+      </div>
+
+      <div id="ingredientList"></div>
+
+      <button onclick="addRow()" style="background:none; border:2px dashed var(--border); border-radius:10px; padding:0.6rem 1rem; font-size:0.875rem; color:var(--mid); cursor:pointer; width:100%; margin-top:0.5rem; transition:border-color 0.2s, color 0.2s;" onmouseover="this.style.borderColor='var(--tomato)';this.style.color='var(--tomato)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--mid)'">+ Add ingredient</button>
+
+      <div id="resultSection" style="display:none; margin-top:1.5rem;">
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+          <div class="result-box">
+            <div class="result-num" id="totalCost"></div>
+            <div class="result-label">Total meal cost</div>
+          </div>
+          <div class="result-box">
+            <div class="result-num" id="costPerServing"></div>
+            <div class="result-label">Cost per serving</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:2rem; padding:1.5rem; background:var(--tomato-light); border-radius:var(--radius-lg);">
+      <h3 style="font-family:'Playfair Display',serif; margin-bottom:0.75rem;">Related Tools & Guides</h3>
+      <ul style="list-style:none; display:flex; flex-direction:column; gap:0.5rem;">
+        <li><a href="/tools/cost-per-serving.html" style="color:var(--tomato-dark); font-weight:500;">→ Cost Per Serving Calculator</a></li>
+        <li><a href="/blog/how-to-meal-prep-on-a-budget.html" style="color:var(--tomato-dark); font-weight:500;">→ How to Meal Prep on a Budget</a></li>
+      </ul>
+    </div>
+  </div>
+</main>
+
+<script>
+let rowCount = 0;
+
+function addRow(name='', cost='', used='100') {
+  rowCount++;
+  const id = rowCount;
+  const div = document.createElement('div');
+  div.className = 'cost-row';
+  div.id = 'crow-' + id;
+  div.innerHTML = `
+    <input type="text" placeholder="e.g. Chicken breast" value="${name}" oninput="calculate()">
+    <input type="number" placeholder="0.00" value="${cost}" min="0" step="0.01" oninput="calculate()">
+    <input type="number" placeholder="100" value="${used}" min="1" max="100" step="1" oninput="calculate()">
+    <button class="remove-btn" onclick="removeRow(${id})">✕</button>
+  `;
+  document.getElementById('ingredientList').appendChild(div);
+  calculate();
+}
+
+function removeRow(id) {
+  const el = document.getElementById('crow-' + id);
+  if (el) el.remove();
+  calculate();
+}
+
+function calculate() {
+  const servings = parseInt(document.getElementById('servings').value) || 1;
+  const rows = document.querySelectorAll('.cost-row');
+  let total = 0;
+  let hasData = false;
+
+  rows.forEach(row => {
+    const cost = parseFloat(row.querySelectorAll('input')[1].value) || 0;
+    const used = parseFloat(row.querySelectorAll('input')[2].value) || 100;
+    if (cost > 0) { total += cost * (used / 100); hasData = true; }
+  });
+
+  if (!hasData) { document.getElementById('resultSection').style.display = 'none'; return; }
+
+  document.getElementById('totalCost').textContent = '$' + total.toFixed(2);
+  document.getElementById('costPerServing').textContent = '$' + (total / servings).toFixed(2);
+  document.getElementById('resultSection').style.display = 'block';
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  addRow('Chicken breast', '6.50', '100');
+  addRow('Olive oil', '8.00', '10');
+  addRow('Garlic', '1.50', '50');
+  addRow('Pasta', '2.00', '100');
+  calculate();
+});
+</script>
+</body>
+</html>

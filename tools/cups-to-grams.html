@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cups to Grams Calculator – CookingCalcs</title>
+  <meta name="description" content="Convert cups to grams for flour, sugar, butter, rice, and 50+ ingredients. Accurate, instant results.">
+  <link rel="canonical" href="https://cookingcalcs.com/tools/cups-to-grams.html">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script src="/assets/js/nav.js" defer></script>
+</head>
+<body>
+<main>
+  <div class="tool-page">
+    <h1>Cups to Grams Calculator</h1>
+    <p class="tool-desc">Select an ingredient, enter the amount in cups, and get the exact weight in grams instantly. Different ingredients have different densities — this tool accounts for that.</p>
+
+    <div class="tool-box">
+      <div class="form-group">
+        <label for="ingredient">Ingredient</label>
+        <select id="ingredient">
+          <optgroup label="Flours">
+            <option value="120">All-purpose flour</option>
+            <option value="130">Bread flour</option>
+            <option value="100">Cake flour</option>
+            <option value="120">Whole wheat flour</option>
+            <option value="112">Almond flour</option>
+            <option value="128">Rye flour</option>
+            <option value="166">Rice flour</option>
+          </optgroup>
+          <optgroup label="Sugars">
+            <option value="200">White sugar (granulated)</option>
+            <option value="220">Brown sugar (packed)</option>
+            <option value="120">Powdered sugar (sifted)</option>
+            <option value="340">Honey</option>
+            <option value="322">Maple syrup</option>
+          </optgroup>
+          <optgroup label="Dairy & Fats">
+            <option value="227">Butter</option>
+            <option value="240">Milk</option>
+            <option value="240">Heavy cream</option>
+            <option value="245">Yogurt (plain)</option>
+            <option value="225">Cream cheese</option>
+          </optgroup>
+          <optgroup label="Grains & Starches">
+            <option value="185">White rice (uncooked)</option>
+            <option value="185">Brown rice (uncooked)</option>
+            <option value="90">Rolled oats</option>
+            <option value="128">Cornstarch</option>
+            <option value="170">Quinoa (uncooked)</option>
+          </optgroup>
+          <optgroup label="Nuts & Seeds">
+            <option value="140">Almonds (whole)</option>
+            <option value="120">Walnuts (chopped)</option>
+            <option value="145">Cashews</option>
+            <option value="135">Peanuts</option>
+            <option value="160">Sesame seeds</option>
+          </optgroup>
+          <optgroup label="Other">
+            <option value="240">Water</option>
+            <option value="240">Vegetable oil</option>
+            <option value="255">Peanut butter</option>
+            <option value="85">Shredded coconut</option>
+            <option value="170">Chocolate chips</option>
+            <option value="230">Sour cream</option>
+            <option value="260">Cream of tartar</option>
+          </optgroup>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="cups">Amount (cups)</label>
+        <input type="number" id="cups" min="0.125" max="100" step="0.125" value="1" placeholder="e.g. 1.5">
+      </div>
+
+      <button class="btn-primary" onclick="calculate()" style="width:100%;">Convert →</button>
+
+      <div class="result-box" id="result" style="display:none;">
+        <div class="result-num" id="resultNum"></div>
+        <div class="result-label" id="resultLabel"></div>
+      </div>
+    </div>
+
+    <!-- Quick Reference Table -->
+    <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin-bottom:1rem;">Quick Reference: Common Ingredients</h2>
+    <div style="overflow-x:auto;">
+      <table style="width:100%; border-collapse:collapse; font-size:0.9rem; background:#fff; border-radius:12px; overflow:hidden;">
+        <thead>
+          <tr style="background:var(--sand-dark);">
+            <th style="padding:0.75rem 1rem; text-align:left; border-bottom:1px solid var(--border);">Ingredient</th>
+            <th style="padding:0.75rem 1rem; text-align:center; border-bottom:1px solid var(--border);">¼ cup</th>
+            <th style="padding:0.75rem 1rem; text-align:center; border-bottom:1px solid var(--border);">½ cup</th>
+            <th style="padding:0.75rem 1rem; text-align:center; border-bottom:1px solid var(--border);">1 cup</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">All-purpose flour</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">30g</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">60g</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">120g</td></tr>
+          <tr style="background:var(--sand);"><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">White sugar</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">50g</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">100g</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">200g</td></tr>
+          <tr><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">Butter</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">57g</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">114g</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">227g</td></tr>
+          <tr style="background:var(--sand);"><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">Brown sugar</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">55g</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">110g</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">220g</td></tr>
+          <tr><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">Rolled oats</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">23g</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">45g</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">90g</td></tr>
+          <tr style="background:var(--sand);"><td style="padding:0.65rem 1rem;">White rice</td><td style="text-align:center; padding:0.65rem;">46g</td><td style="text-align:center; padding:0.65rem;">93g</td><td style="text-align:center; padding:0.65rem;">185g</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Related Blog -->
+    <div style="margin-top:3rem; padding:1.5rem; background:var(--tomato-light); border-radius:var(--radius-lg);">
+      <h3 style="font-family:'Playfair Display',serif; margin-bottom:0.5rem;">Related Guides</h3>
+      <ul style="list-style:none; display:flex; flex-direction:column; gap:0.5rem; margin-top:0.75rem;">
+        <li><a href="/blog/cups-to-grams-guide.html" style="color:var(--tomato-dark); font-weight:500;">→ Complete Cups to Grams Conversion Guide</a></li>
+        <li><a href="/blog/baking-measurement-tips.html" style="color:var(--tomato-dark); font-weight:500;">→ Why Weighing Ingredients Makes You a Better Baker</a></li>
+      </ul>
+    </div>
+  </div>
+</main>
+
+<script>
+function calculate() {
+  const gramsPerCup = parseFloat(document.getElementById('ingredient').value);
+  const cups = parseFloat(document.getElementById('cups').value);
+  const ingredientName = document.getElementById('ingredient').options[document.getElementById('ingredient').selectedIndex].text;
+
+  if (!cups || cups <= 0) return;
+
+  const grams = Math.round(gramsPerCup * cups * 10) / 10;
+  const oz = Math.round(grams / 28.35 * 10) / 10;
+
+  document.getElementById('resultNum').textContent = grams + 'g';
+  document.getElementById('resultLabel').textContent = `${cups} cup${cups !== 1 ? 's' : ''} of ${ingredientName} = ${grams}g (${oz} oz)`;
+  document.getElementById('result').style.display = 'block';
+}
+
+// Enter key support
+document.addEventListener('DOMContentLoaded', function() {
+  document.getElementById('cups').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') calculate();
+  });
+});
+</script>
+</body>
+</html>

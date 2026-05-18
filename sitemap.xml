@@ -1,20 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://cookingcalcs.com/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://cookingcalcs.com/about.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.4</priority>
-  </url>
-  <url>
-    <loc>https://cookingcalcs.com/blog/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <!-- 툴 추가 시 여기에 추가 -->
-  <!-- 블로그 추가 시 여기에 추가 -->
+  <url><loc>https://cookingcalcs.com/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://cookingcalcs.com/about.html</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://cookingcalcs.com/contact.html</loc><changefreq>monthly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://cookingcalcs.com/privacy-policy.html</loc><changefreq>monthly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://cookingcalcs.com/blog/</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://cookingcalcs.com/tools/cups-to-grams.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://cookingcalcs.com/tools/oven-temp-converter.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://cookingcalcs.com/tools/tablespoon-to-teaspoon.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://cookingcalcs.com/tools/recipe-multiplier.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://cookingcalcs.com/tools/cooking-time-calculator.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://cookingcalcs.com/tools/meal-cost-calculator.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://cookingcalcs.com/tools/cost-per-serving.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://cookingcalcs.com/blog/cups-to-grams-guide.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://cookingcalcs.com/blog/why-weigh-ingredients-baking.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://cookingcalcs.com/blog/oven-temperature-conversion-guide.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://cookingcalcs.com/blog/how-to-scale-a-recipe.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://cookingcalcs.com/blog/baking-measurement-mistakes.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://cookingcalcs.com/blog/meat-internal-temperature-guide.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://cookingcalcs.com/blog/how-to-cut-grocery-bill.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://cookingcalcs.com/blog/tablespoon-to-teaspoon-guide.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://cookingcalcs.com/blog/how-to-calculate-cost-per-serving.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://cookingcalcs.com/blog/how-long-to-cook-chicken-breast.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://cookingcalcs.com/blog/cooking-measurement-guide.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://cookingcalcs.com/blog/meat-cooking-temperatures-explained.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://cookingcalcs.com/blog/how-to-meal-prep-on-a-budget.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://cookingcalcs.com/blog/how-to-reduce-a-recipe.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
 </urlset>

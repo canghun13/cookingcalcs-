@@ -25,6 +25,7 @@ const TOOLS = [
   { name: "Tablespoon to Teaspoon", url: "/tools/tablespoon-to-teaspoon.html" },
   { name: "Recipe Multiplier", url: "/tools/recipe-multiplier.html" },
   { name: "Cooking Time Calculator", url: "/tools/cooking-time-calculator.html" },
+  { name: "Meat Temperature Guide", url: "/tools/meat-temperature-guide.html" },
   { name: "Meal Cost Calculator", url: "/tools/meal-cost-calculator.html" },
   { name: "Cost Per Serving", url: "/tools/cost-per-serving.html" },
 ];
@@ -84,7 +85,8 @@ document.addEventListener('DOMContentLoaded', function () {
         <span></span><span></span><span></span>
       </button>
     </div>
-  </header>`;
+  </header>
+  <div class="nav-overlay" id="navOverlay"></div>`;
 
   const footer = `
   <footer class="site-footer">
@@ -157,9 +159,27 @@ document.addEventListener('DOMContentLoaded', function () {
   // 햄버거
   const hamburger = document.getElementById('hamburger');
   const mainNav = document.getElementById('mainNav');
+  const overlay = document.getElementById('navOverlay');
+
+  function openNav() {
+    mainNav.classList.add('nav-open');
+    hamburger.classList.add('active');
+    overlay.classList.add('active');
+    hamburger.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeNav() {
+    mainNav.classList.remove('nav-open');
+    hamburger.classList.remove('active');
+    overlay.classList.remove('active');
+    hamburger.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+
   hamburger.addEventListener('click', function () {
-    const isOpen = mainNav.classList.toggle('nav-open');
-    hamburger.classList.toggle('active');
-    hamburger.setAttribute('aria-expanded', isOpen);
+    mainNav.classList.contains('nav-open') ? closeNav() : openNav();
   });
+
+  overlay.addEventListener('click', closeNav);
 });

@@ -630,6 +630,16 @@ a { color: inherit; text-decoration: none; }
 .mb-2 { margin-bottom: 1rem; }
 .mb-3 { margin-bottom: 1.5rem; }
 
+/* ── NAV OVERLAY (모바일) ───────────────────────────────────── */
+.nav-overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 399;
+}
+.nav-overlay.active { display: block; }
+
 /* ── RESPONSIVE ─────────────────────────────────────────────── */
 @media (max-width: 768px) {
   .hamburger { display: flex; }

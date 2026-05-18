@@ -151,6 +151,9 @@ document.addEventListener('DOMContentLoaded', function () {
   document.querySelector('.site-header').insertAdjacentHTML('afterend', mobileNav);
   document.body.insertAdjacentHTML('beforeend', footer);
 
+  // 현재 페이지 경로
+  const currentPath = window.location.pathname;
+
   // 블로그 카드 자동 렌더링 (id="blog-grid" 또는 id="blog-list" 있는 페이지)
   const blogGrid = document.getElementById('blog-grid') || document.getElementById('blog-list');
   if (blogGrid && BLOGS.length > 0) {
@@ -170,9 +173,6 @@ document.addEventListener('DOMContentLoaded', function () {
     `;
     }).join('');
   }
-
-  // 현재 페이지 active 표시
-  const currentPath = window.location.pathname;
 
   // 1차 메뉴 a 태그
   document.querySelectorAll('a.nav-link').forEach(a => {

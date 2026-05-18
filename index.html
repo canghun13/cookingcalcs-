@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CookingCalcs – Free Cooking Calculators & Kitchen Tools</title>
+  <meta name="description" content="Free cooking calculators for every kitchen. Convert cups to grams, scale recipes, calculate cooking time, meal cost, and more.">
+  <meta property="og:title" content="CookingCalcs – Free Cooking Calculators">
+  <meta property="og:description" content="Every cooking calculator you need, in one place. Free, fast, and easy to use.">
+  <link rel="canonical" href="https://cookingcalcs.com/">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script src="/assets/js/nav.js" defer></script>
+  <style>
+    /* ── INDEX-ONLY STYLES ── */
+    .stats-bar {
+      background: var(--white);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 1.75rem 2rem;
+      display: flex;
+      justify-content: center;
+      gap: 4rem;
+      flex-wrap: wrap;
+    }
+    .stat { text-align: center; }
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--tomato);
+    }
+    .stat-label {
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 0.25rem;
+    }
+
+    .category-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      margin-bottom: 1rem;
+      margin-top: 2rem;
+    }
+
+    .cta-strip {
+      background: var(--tomato);
+      color: var(--white);
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+    .cta-strip h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 3vw, 2.25rem);
+      margin-bottom: 0.75rem;
+    }
+    .cta-strip p {
+      font-size: 1rem;
+      opacity: 0.85;
+      margin-bottom: 2rem;
+    }
+    .btn-white {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--white);
+      color: var(--tomato);
+      padding: 0.9rem 2.25rem;
+      border-radius: 100px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      transition: opacity 0.2s, transform 0.2s;
+      text-decoration: none;
+    }
+    .btn-white:hover { opacity: 0.9; transform: translateY(-2px); }
+  </style>
+</head>
+<body>
+
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <span class="hero-badge">🍳 Free Kitchen Tools</span>
+    <h1>Every cooking calculator<br><em>you'll ever need</em></h1>
+    <p class="hero-sub">Convert measurements, scale recipes, calculate cooking times, meal costs, and more — all in one place.</p>
+    <a href="#tools" class="btn-primary">Explore Tools ↓</a>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats-bar">
+    <div class="stat">
+      <div class="stat-num">20+</div>
+      <div class="stat-label">Free Tools</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">0</div>
+      <div class="stat-label">Sign-ups needed</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">100%</div>
+      <div class="stat-label">Free forever</div>
+    </div>
+  </div>
+
+  <!-- TOOLS SECTION -->
+  <section class="section" id="tools">
+    <h2 class="section-title">Cooking Calculators</h2>
+    <p class="section-sub">Pick a tool and get your answer in seconds.</p>
+
+    <div class="category-label">📏 Unit Conversion</div>
+    <div class="tools-grid" id="tools-conversion">
+      <!-- nav.js TOOLS 배열에서 자동 생성되거나 직접 추가 -->
+      <a href="/tools/cups-to-grams.html" class="tool-card">
+        <div class="tool-card-icon">⚖️</div>
+        <h3>Cups to Grams</h3>
+        <p>Convert any ingredient from cups to grams instantly. Supports 100+ ingredients.</p>
+        <span class="tool-card-arrow">Use tool →</span>
+      </a>
+      <a href="/tools/oven-temp-converter.html" class="tool-card">
+        <div class="tool-card-icon">🌡️</div>
+        <h3>Oven Temperature Converter</h3>
+        <p>Convert between Fahrenheit, Celsius, and Gas Mark in one click.</p>
+        <span class="tool-card-arrow">Use tool →</span>
+      </a>
+      <a href="/tools/tablespoon-to-teaspoon.html" class="tool-card">
+        <div class="tool-card-icon">🥄</div>
+        <h3>Tablespoon to Teaspoon</h3>
+        <p>Quick and accurate spoon measurement converter.</p>
+        <span class="tool-card-arrow">Use tool →</span>
+      </a>
+    </div>
+
+    <div class="category-label">📋 Recipe & Servings</div>
+    <div class="tools-grid">
+      <a href="/tools/recipe-multiplier.html" class="tool-card">
+        <div class="tool-card-icon">✖️</div>
+        <h3>Recipe Multiplier</h3>
+        <p>Scale any recipe up or down. Enter your servings and we do the math.</p>
+        <span class="tool-card-arrow">Use tool →</span>
+      </a>
+      <a href="/tools/serving-size-calculator.html" class="tool-card">
+        <div class="tool-card-icon">🍽️</div>
+        <h3>Serving Size Calculator</h3>
+        <p>How much food do you need per person? Find out fast.</p>
+        <span class="tool-card-arrow">Use tool →</span>
+      </a>
+      <a href="/tools/baking-substitution.html" class="tool-card">
+        <div class="tool-card-icon">🔄</div>
+        <h3>Baking Substitution Calculator</h3>
+        <p>Out of an ingredient? Find the right substitute and amount.</p>
+        <span class="tool-card-arrow">Use tool →</span>
+      </a>
+    </div>
+
+    <div class="category-label">⏱️ Time & Temperature</div>
+    <div class="tools-grid">
+      <a href="/tools/cooking-time-calculator.html" class="tool-card">
+        <div class="tool-card-icon">⏰</div>
+        <h3>Cooking Time Calculator</h3>
+        <p>Get accurate cooking times by weight, cut, and method.</p>
+        <span class="tool-card-arrow">Use tool →</span>
+      </a>
+      <a href="/tools/meat-temperature-guide.html" class="tool-card">
+        <div class="tool-card-icon">🥩</div>
+        <h3>Meat Temperature Guide</h3>
+        <p>Safe internal temperatures for every type of meat.</p>
+        <span class="tool-card-arrow">Use tool →</span>
+      </a>
+    </div>
+
+    <div class="category-label">💰 Cost & Budget</div>
+    <div class="tools-grid">
+      <a href="/tools/meal-cost-calculator.html" class="tool-card">
+        <div class="tool-card-icon">💵</div>
+        <h3>Meal Cost Calculator</h3>
+        <p>Calculate exactly how much your meal costs per serving.</p>
+        <span class="tool-card-arrow">Use tool →</span>
+      </a>
+      <a href="/tools/grocery-budget-calculator.html" class="tool-card">
+        <div class="tool-card-icon">🛒</div>
+        <h3>Grocery Budget Calculator</h3>
+        <p>Plan your weekly grocery spend and stay on budget.</p>
+        <span class="tool-card-arrow">Use tool →</span>
+      </a>
+      <a href="/tools/cost-per-serving.html" class="tool-card">
+        <div class="tool-card-icon">📊</div>
+        <h3>Cost Per Serving</h3>
+        <p>Find out the true cost of each serving in your recipe.</p>
+        <span class="tool-card-arrow">Use tool →</span>
+      </a>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- BLOG SECTION -->
+  <section class="section" id="blog">
+    <h2 class="section-title">From the Blog</h2>
+    <p class="section-sub">Practical cooking guides and kitchen tips.</p>
+    <div class="blog-grid" id="blog-grid">
+      <!-- 블로그 추가 시 여기에 카드 추가 -->
+      <p style="color:var(--muted); font-size:0.9rem;">Blog posts coming soon.</p>
+    </div>
+    <div class="text-center mt-3">
+      <a href="/blog/" class="btn-secondary">View all posts →</a>
+    </div>
+  </section>
+
+  <!-- CTA STRIP -->
+  <div class="cta-strip">
+    <h2>Cook smarter, not harder.</h2>
+    <p>Bookmark CookingCalcs and have every kitchen tool at your fingertips.</p>
+    <a href="#tools" class="btn-white">Browse all tools →</a>
+  </div>
+</main>
+
+</body>
+</html>

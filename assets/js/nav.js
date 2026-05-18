@@ -149,10 +149,13 @@ document.addEventListener('DOMContentLoaded', function () {
   document.querySelector('.site-header').insertAdjacentHTML('afterend', mobileNav);
   document.body.insertAdjacentHTML('beforeend', footer);
 
-  // 현재 페이지 active 표시
+  // 현재 페이지 active 표시 (PC + 모바일 전체)
   const currentPath = window.location.pathname;
-  document.querySelectorAll('.nav-link[href]').forEach(a => {
-    if (a.getAttribute('href') === currentPath) a.classList.add('active');
+  document.querySelectorAll('a.nav-link').forEach(a => {
+    const href = a.getAttribute('href');
+    if (href === currentPath || (href === '/' && (currentPath === '/' || currentPath === '/index.html'))) {
+      a.classList.add('active');
+    }
   });
 
   // 드롭다운 토글 (데스크탑 + 모바일 둘 다)

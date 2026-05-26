@@ -23,6 +23,7 @@ const TOOLS = [
   { name: "Cups to Grams", url: "/tools/cups-to-grams.html" },
   { name: "Oven Temperature Converter", url: "/tools/oven-temp-converter.html" },
   { name: "Tablespoon to Teaspoon", url: "/tools/tablespoon-to-teaspoon.html" },
+  { name: "Weight Converter", url: "/tools/weight-converter.html" },
   { name: "Recipe Multiplier", url: "/tools/recipe-multiplier.html" },
   { name: "Cooking Time Calculator", url: "/tools/cooking-time-calculator.html" },
   { name: "Meat Temperature Guide", url: "/tools/meat-temperature-guide.html" },
@@ -46,6 +47,9 @@ const BLOGS = [
   { name: "Meat Cooking Temperatures Explained", url: "/blog/meat-cooking-temperatures-explained.html", desc: "Everything you need to know about cooking temperatures to get the right doneness every time.", date: "2026-05-12" },
   { name: "How to Meal Prep on a Budget", url: "/blog/how-to-meal-prep-on-a-budget.html", desc: "Plan and prep a week of meals for under $50 with these budget-friendly meal prep tips.", date: "2026-05-13" },
   { name: "How to Reduce a Recipe", url: "/blog/how-to-reduce-a-recipe.html", desc: "Cooking for one or two? Learn how to scale down any recipe without the math headache.", date: "2026-05-14" },
+  { name: "How Many Cups in a Pound of Flour?", url: "/blog/how-many-cups-in-a-pound-of-flour.html", desc: "Exact cup counts for all-purpose, bread, cake, and whole wheat flour — plus why the number varies.", date: "2026-05-26" },
+  { name: "How to Measure Butter", url: "/blog/how-to-measure-butter.html", desc: "Convert butter between sticks, cups, tablespoons, and grams with a full reference chart.", date: "2026-05-26" },
+  { name: "How Long to Cook Salmon", url: "/blog/how-long-to-cook-salmon.html", desc: "Exact cook times for salmon by method — oven, pan, air fryer, and poached. Plus the internal temperature that tells you it's done.", date: "2026-05-26" },
 ];
 
 // ── 메뉴 렌더링 ─────────────────────────────────────────────

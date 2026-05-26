@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weight Converter – g, oz, lb, kg | CookingCalcs</title>
+  <meta name="description" content="Convert between grams, ounces, pounds, and kilograms instantly. Perfect for cooking and baking with recipes that use different measurement systems.">
+  <link rel="canonical" href="https://cookingcalcs.com/tools/weight-converter.html">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script src="/assets/js/nav.js" defer></script>
+</head>
+<body>
+<main>
+  <div class="tool-page">
+    <h1>Weight Converter</h1>
+    <p class="tool-desc">Convert between grams, ounces, pounds, and kilograms instantly. Enter any amount in any unit and the rest update automatically.</p>
+
+    <div class="tool-card-inner">
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1.5rem;">
+
+        <div class="input-group">
+          <label for="grams">Grams (g)</label>
+          <input type="number" id="grams" min="0" step="any" placeholder="0" oninput="convertFrom('grams')">
+        </div>
+
+        <div class="input-group">
+          <label for="ounces">Ounces (oz)</label>
+          <input type="number" id="ounces" min="0" step="any" placeholder="0" oninput="convertFrom('ounces')">
+        </div>
+
+        <div class="input-group">
+          <label for="pounds">Pounds (lb)</label>
+          <input type="number" id="pounds" min="0" step="any" placeholder="0" oninput="convertFrom('pounds')">
+        </div>
+
+        <div class="input-group">
+          <label for="kg">Kilograms (kg)</label>
+          <input type="number" id="kg" min="0" step="any" placeholder="0" oninput="convertFrom('kg')">
+        </div>
+
+      </div>
+
+      <button class="btn-primary" onclick="clearAll()">Clear</button>
+    </div>
+
+    <!-- Reference Chart -->
+    <div style="margin-top:3rem;">
+      <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin-bottom:1rem;">Common Weight Conversions</h2>
+      <table style="width:100%; border-collapse:collapse;">
+        <thead>
+          <tr style="background:var(--sand-dark);">
+            <th style="padding:0.75rem 1rem; text-align:left; border-bottom:1px solid var(--border);">Grams</th>
+            <th style="padding:0.75rem 1rem; text-align:center; border-bottom:1px solid var(--border);">Ounces</th>
+            <th style="padding:0.75rem 1rem; text-align:center; border-bottom:1px solid var(--border);">Pounds</th>
+            <th style="padding:0.75rem 1rem; text-align:center; border-bottom:1px solid var(--border);">Kilograms</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">28g</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">1 oz</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">0.063 lb</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">0.028 kg</td></tr>
+          <tr style="background:var(--sand);"><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">100g</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">3.53 oz</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">0.22 lb</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">0.1 kg</td></tr>
+          <tr><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">113g</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">4 oz</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">0.25 lb</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">0.113 kg</td></tr>
+          <tr style="background:var(--sand);"><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">227g</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">8 oz</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">0.5 lb</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">0.227 kg</td></tr>
+          <tr><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">454g</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">16 oz</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">1 lb</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">0.454 kg</td></tr>
+          <tr style="background:var(--sand);"><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">500g</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">17.6 oz</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">1.1 lb</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">0.5 kg</td></tr>
+          <tr><td style="padding:0.65rem 1rem;">1000g</td><td style="text-align:center; padding:0.65rem;">35.3 oz</td><td style="text-align:center; padding:0.65rem;">2.2 lb</td><td style="text-align:center; padding:0.65rem;">1 kg</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Related -->
+    <div style="margin-top:3rem; padding:1.5rem; background:var(--tomato-light); border-radius:var(--radius-lg);">
+      <h3 style="font-family:'Playfair Display',serif; margin-bottom:0.75rem;">Related Tools & Guides</h3>
+      <ul style="list-style:none; display:flex; flex-direction:column; gap:0.5rem;">
+        <li><a href="/tools/cups-to-grams.html" style="color:var(--tomato-dark); font-weight:500;">→ Cups to Grams Calculator</a></li>
+        <li><a href="/blog/how-many-cups-in-a-pound-of-flour.html" style="color:var(--tomato-dark); font-weight:500;">→ How Many Cups in a Pound of Flour?</a></li>
+        <li><a href="/blog/how-to-measure-butter.html" style="color:var(--tomato-dark); font-weight:500;">→ How to Measure Butter: Sticks, Cups, and Grams</a></li>
+      </ul>
+    </div>
+
+    <div class="blog-content" style="margin-top:3rem;">
+      <h2>How to Use This Converter</h2>
+      <p>Type a number into any field and all other units update instantly. You can start from grams, ounces, pounds, or kilograms — whichever unit your recipe uses. Clear the fields with the Clear button to start a new conversion.</p>
+
+      <h2>When You Need Weight Conversions in the Kitchen</h2>
+      <p>The most common situation is following a recipe from a different country. US recipes often use pounds and ounces, while UK, Australian, and European recipes use grams and kilograms. Meat and produce labels at the grocery store are often in pounds, while cooking guides may give quantities in grams. This converter bridges all of those.</p>
+      <p>Weight conversions are also useful when scaling recipes. If a recipe calls for 8oz of chicken and you have a kitchen scale set to grams, knowing that 8oz = 227g saves you from doing mental math mid-cook.</p>
+
+      <h2>Frequently Asked Questions</h2>
+      <h3>How many grams in an ounce?</h3>
+      <p>1 ounce = 28.35 grams. In most cooking contexts, this is rounded to 28g.</p>
+
+      <h3>How many ounces in a pound?</h3>
+      <p>1 pound = 16 ounces = 453.6 grams. This is one of the most useful cooking conversions to memorize, since US recipes often switch between the two.</p>
+
+      <h3>How many grams in a pound?</h3>
+      <p>1 pound = 453.6 grams, almost always rounded to 454g in recipes.</p>
+
+      <h3>Is this for dry or liquid ingredients?</h3>
+      <p>This converter handles weight only — grams, ounces, pounds, and kilograms apply equally to any physical substance. For liquid volume conversions (cups, milliliters, fluid ounces), use our <a href="/tools/tablespoon-to-teaspoon.html">Tablespoon to Teaspoon Converter</a>.</p>
+    </div>
+  </div>
+</main>
+
+<script>
+const rates = { grams: 1, ounces: 28.3495, pounds: 453.592, kg: 1000 };
+
+function round(val) {
+  if (val === 0) return '';
+  if (val >= 100) return parseFloat(val.toFixed(2));
+  if (val >= 1) return parseFloat(val.toFixed(3));
+  return parseFloat(val.toFixed(4));
+}
+
+function convertFrom(source) {
+  const val = parseFloat(document.getElementById(source).value);
+  if (isNaN(val) || val < 0) { clearAll(); return; }
+  const grams = val * rates[source];
+  for (const unit in rates) {
+    if (unit !== source) {
+      document.getElementById(unit).value = round(grams / rates[unit]);
+    }
+  }
+}
+
+function clearAll() {
+  ['grams','ounces','pounds','kg'].forEach(id => document.getElementById(id).value = '');
+}
+</script>
+</body>
+</html>

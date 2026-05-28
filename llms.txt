@@ -1,0 +1,37 @@
+# CookingCalcs
+
+> CookingCalcs is a free collection of cooking calculators and kitchen tools for home cooks. Every tool is designed to answer one question fast — no sign-up required, no paywalls.
+
+CookingCalcs covers unit conversion, recipe scaling, cooking times and temperatures, and meal cost calculation. All tools run in the browser with no data collection.
+
+## Tools
+
+- [Cups to Grams Calculator](https://cookingcalcs.com/tools/cups-to-grams.html): Convert cups to grams for flour, sugar, butter, rice, and 50+ ingredients. Accounts for ingredient density.
+- [Oven Temperature Converter](https://cookingcalcs.com/tools/oven-temp-converter.html): Convert oven temperatures between Fahrenheit, Celsius, and Gas Mark instantly. Includes a full conversion chart.
+- [Tablespoon to Teaspoon Converter](https://cookingcalcs.com/tools/tablespoon-to-teaspoon.html): Convert tablespoons to teaspoons and vice versa. Includes ml, cups, and ounce conversions.
+- [Weight Converter](https://cookingcalcs.com/tools/weight-converter.html): Convert between grams, ounces, pounds, and kilograms instantly.
+- [Recipe Multiplier](https://cookingcalcs.com/tools/recipe-multiplier.html): Scale any recipe up or down by entering original and target serving counts.
+- [Cooking Time Calculator](https://cookingcalcs.com/tools/cooking-time-calculator.html): Calculate cooking times for chicken, beef, pork, lamb, and vegetables by weight, cut, and method.
+- [Meat Temperature Guide](https://cookingcalcs.com/tools/meat-temperature-guide.html): Safe internal cooking temperatures for all meat types. USDA-recommended temps in °F and °C.
+- [Meal Cost Calculator](https://cookingcalcs.com/tools/meal-cost-calculator.html): Calculate total meal cost and cost per serving by adding ingredients and their prices.
+- [Cost Per Serving Calculator](https://cookingcalcs.com/tools/cost-per-serving.html): Find the cost per serving of any recipe or packaged food by entering total cost and servings.
+
+## Blog
+
+- [The Complete Cups to Grams Conversion Guide](https://cookingcalcs.com/blog/cups-to-grams-guide.html): Full reference chart for converting cups to grams for flour, sugar, butter, and more.
+- [Why You Should Weigh Ingredients When Baking](https://cookingcalcs.com/blog/why-weigh-ingredients-baking.html): Why grams beat cups for baking accuracy and consistency.
+- [Oven Temperature Conversion Guide](https://cookingcalcs.com/blog/oven-temperature-conversion-guide.html): Reference guide for Fahrenheit, Celsius, and Gas Mark with common baking temperatures.
+- [How to Scale a Recipe Up or Down](https://cookingcalcs.com/blog/how-to-scale-a-recipe.html): Guide to scaling recipes with tips for baking, cooking times, and pan sizes.
+- [Common Baking Measurement Mistakes](https://cookingcalcs.com/blog/baking-measurement-mistakes.html): The most common measurement errors that ruin baked goods and how to avoid them.
+- [Safe Internal Meat Temperatures: Complete Guide](https://cookingcalcs.com/blog/meat-internal-temperature-guide.html): Safe cooking temperatures for beef, chicken, pork, fish, and more.
+- [How to Cut Your Grocery Bill Without Eating Less](https://cookingcalcs.com/blog/how-to-cut-grocery-bill.html): Practical strategies to reduce grocery spending without sacrificing meal quality.
+- [Tablespoons to Teaspoons: Full Conversion Guide](https://cookingcalcs.com/blog/tablespoon-to-teaspoon-guide.html): Complete conversion guide for tablespoons, teaspoons, cups, and fluid ounces.
+- [How to Calculate Cost Per Serving for Any Meal](https://cookingcalcs.com/blog/how-to-calculate-cost-per-serving.html): Step-by-step guide to calculating the exact cost per serving of home-cooked meals.
+- [How Long to Cook Chicken Breast at Every Temperature](https://cookingcalcs.com/blog/how-long-to-cook-chicken-breast.html): Exact cook times for chicken breast at 350°F, 375°F, 400°F, 425°F across all methods.
+- [Complete Cooking Measurement Guide](https://cookingcalcs.com/blog/cooking-measurement-guide.html): Full reference for cups, tablespoons, teaspoons, ounces, and metric conversions.
+- [Meat Cooking Temperatures Explained](https://cookingcalcs.com/blog/meat-cooking-temperatures-explained.html): Clear guide to safe cooking temperatures for all cuts with USDA guidelines.
+- [How to Meal Prep on a Budget](https://cookingcalcs.com/blog/how-to-meal-prep-on-a-budget.html): Tips for meal prepping on a tight budget with cost per serving guidance.
+- [How to Reduce a Recipe to Fewer Servings](https://cookingcalcs.com/blog/how-to-reduce-a-recipe.html): Step-by-step guide to scaling down recipes for 1 or 2 people.
+- [How Many Cups in a Pound of Flour?](https://cookingcalcs.com/blog/how-many-cups-in-a-pound-of-flour.html): Exact cup counts for all-purpose, bread, cake, and whole wheat flour by pound.
+- [How to Measure Butter: Sticks, Cups, Tablespoons, and Grams](https://cookingcalcs.com/blog/how-to-measure-butter.html): Full conversion chart for butter across all common units.
+- [How Long to Cook Salmon](https://cookingcalcs.com/blog/how-long-to-cook-salmon.html): Cook times for salmon by method — oven, pan, air fryer, and poached — with internal temperature guidance.

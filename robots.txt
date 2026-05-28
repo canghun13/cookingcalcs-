@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://cookingcalcs.com/sitemap.xml
+LLMs: https://cookingcalcs.com/llms.txt

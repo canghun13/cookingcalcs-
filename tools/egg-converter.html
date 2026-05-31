@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Egg Size Converter – Large to Medium, Small, Jumbo | CookingCalcs</title>
+  <meta name="description" content="Convert between egg sizes for any recipe. Swap large eggs for medium, jumbo, small, or extra large — with exact counts and adjustment tips for baking.">
+  <link rel="canonical" href="https://cookingcalcs.com/tools/egg-converter.html">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script src="/assets/js/nav.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Egg Size Converter",
+  "url": "https://cookingcalcs.com/tools/egg-converter.html",
+  "description": "Convert between egg sizes for any recipe. Swap large eggs for medium, jumbo, small, or extra large with exact counts and adjustment tips for baking.",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "provider": { "@type": "Organization", "name": "CookingCalcs", "url": "https://cookingcalcs.com" }
+}
+</script>
+</head>
+<body>
+<main>
+  <div class="tool-page">
+    <h1>Egg Size Converter</h1>
+    <p class="tool-desc">Convert between egg sizes for any recipe. Enter the number of eggs your recipe calls for, select the size it specifies, and choose the size you have on hand.</p>
+
+    <div class="tool-card-inner">
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.25rem; margin-bottom:1.5rem;">
+        <div class="form-group">
+          <label for="eggCount">Number of Eggs in Recipe</label>
+          <input type="number" id="eggCount" min="1" max="24" step="1" placeholder="e.g. 3" oninput="convertEggs()">
+        </div>
+        <div class="form-group">
+          <label for="recipeSize">Recipe Calls For</label>
+          <select id="recipeSize" onchange="convertEggs()">
+            <option value="">Select size</option>
+            <option value="small">Small</option>
+            <option value="medium">Medium</option>
+            <option value="large" selected>Large (most common)</option>
+            <option value="xl">Extra Large</option>
+            <option value="jumbo">Jumbo</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="haveSize">You Have</label>
+          <select id="haveSize" onchange="convertEggs()">
+            <option value="">Select size</option>
+            <option value="small">Small</option>
+            <option value="medium">Medium</option>
+            <option value="large">Large</option>
+            <option value="xl">Extra Large</option>
+            <option value="jumbo">Jumbo</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="result" style="display:none; background:var(--tomato-light); border:1.5px solid var(--tomato); border-radius:var(--radius); padding:1.5rem; margin-top:0.5rem;">
+        <div style="font-size:1.1rem; font-weight:700; color:var(--ink);" id="resultText"></div>
+        <div style="font-size:0.875rem; color:var(--mid); margin-top:0.5rem;" id="resultNote"></div>
+      </div>
+
+      <button class="btn-primary" onclick="clearAll()" style="margin-top:1.25rem;">Clear</button>
+    </div>
+
+    <!-- Egg Size Reference Chart -->
+    <div style="margin-top:3rem;">
+      <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin-bottom:1rem;">Egg Size Reference Chart</h2>
+      <table style="width:100%; border-collapse:collapse;">
+        <thead>
+          <tr style="background:var(--sand-dark);">
+            <th style="padding:0.75rem 1rem; text-align:left; border-bottom:1px solid var(--border);">Size</th>
+            <th style="padding:0.75rem 1rem; text-align:center; border-bottom:1px solid var(--border);">Min Weight (whole egg)</th>
+            <th style="padding:0.75rem 1rem; text-align:center; border-bottom:1px solid var(--border);">Approx. Volume (shelled)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">Small</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">1.5 oz (43g)</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">~3 tbsp</td></tr>
+          <tr style="background:var(--sand);"><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">Medium</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">1.75 oz (50g)</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">~3.5 tbsp</td></tr>
+          <tr><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">Large</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">2 oz (57g)</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">~4 tbsp</td></tr>
+          <tr style="background:var(--sand);"><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">Extra Large</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">2.25 oz (64g)</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">~4.5 tbsp</td></tr>
+          <tr><td style="padding:0.65rem 1rem;">Jumbo</td><td style="text-align:center; padding:0.65rem;">2.5 oz (71g)</td><td style="text-align:center; padding:0.65rem;">~5 tbsp</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Related -->
+    <div style="margin-top:3rem; padding:1.5rem; background:var(--tomato-light); border-radius:var(--radius-lg);">
+      <h3 style="font-family:'Playfair Display',serif; margin-bottom:0.75rem;">Related Tools & Guides</h3>
+      <ul style="list-style:none; display:flex; flex-direction:column; gap:0.5rem;">
+        <li><a href="/tools/recipe-multiplier.html" style="color:var(--tomato-dark); font-weight:500;">→ Recipe Multiplier</a></li>
+        <li><a href="/blog/how-to-scale-a-recipe.html" style="color:var(--tomato-dark); font-weight:500;">→ How to Scale a Recipe Up or Down</a></li>
+        <li><a href="/blog/baking-measurement-mistakes.html" style="color:var(--tomato-dark); font-weight:500;">→ Common Baking Measurement Mistakes</a></li>
+      </ul>
+    </div>
+
+    <div class="blog-content" style="margin-top:3rem;">
+      <h2>How to Use This Converter</h2>
+      <p>Enter the number of eggs your recipe calls for, select the size the recipe specifies, then choose the size you have. The converter calculates exactly how many eggs to use and notes any adjustment tips for baking.</p>
+      <p>Most recipes are written for large eggs. If your recipe doesn't specify, assume large.</p>
+
+      <h2>Does Egg Size Actually Matter?</h2>
+      <p>For most cooking — scrambled eggs, fried eggs, omelettes — the difference between sizes is small enough not to matter. For baking, it can matter significantly. Eggs provide structure, moisture, fat, and leavening in baked goods. Using fewer, larger eggs versus more, smaller ones changes the ratio of yolk to white, which changes texture.</p>
+      <p>For recipes using 1–2 eggs, swapping one size adjacent (large for extra large, or large for medium) is generally fine without adjustment. For recipes using 4+ eggs, precision matters more — especially in delicate cakes, custards, and soufflés.</p>
+
+      <h2>Frequently Asked Questions</h2>
+      <h3>Can I use 2 medium eggs instead of 1 large egg?</h3>
+      <p>Not exactly — 2 medium eggs is about 100g, while 1 large egg is about 57g. That would nearly double the egg content. For substituting 1 large egg with medium eggs, use 1 medium egg plus about 1 teaspoon of beaten egg from a second one.</p>
+
+      <h3>What size eggs do most recipes use?</h3>
+      <p>The vast majority of US baking and cooking recipes are written for large eggs. If a recipe doesn't specify size, large is the safe assumption.</p>
+
+      <h3>Are jumbo eggs worth using in baking?</h3>
+      <p>Not usually — the extra volume can throw off the liquid balance in baked goods. Jumbo eggs are better suited to savory cooking where precision matters less. For baking, stick to large or extra large.</p>
+    </div>
+  </div>
+</main>
+
+<script>
+const weights = { small: 43, medium: 50, large: 57, xl: 64, jumbo: 71 };
+const labels = { small: 'Small', medium: 'Medium', large: 'Large', xl: 'Extra Large', jumbo: 'Jumbo' };
+
+function convertEggs() {
+  const count = parseInt(document.getElementById('eggCount').value);
+  const recipeSize = document.getElementById('recipeSize').value;
+  const haveSize = document.getElementById('haveSize').value;
+  const result = document.getElementById('result');
+
+  if (!count || !recipeSize || !haveSize || count < 1) { result.style.display = 'none'; return; }
+  if (recipeSize === haveSize) {
+    document.getElementById('resultText').textContent = `Use ${count} ${labels[haveSize]} egg${count > 1 ? 's' : ''} — same size as the recipe calls for.`;
+    document.getElementById('resultNote').textContent = '';
+    result.style.display = 'block';
+    return;
+  }
+
+  const totalWeight = count * weights[recipeSize];
+  const exactCount = totalWeight / weights[haveSize];
+  const floorCount = Math.floor(exactCount);
+  const remainder = exactCount - floorCount;
+
+  let resultText = '';
+  let note = '';
+
+  if (remainder < 0.15) {
+    resultText = `Use ${floorCount} ${labels[haveSize]} egg${floorCount !== 1 ? 's' : ''}.`;
+  } else if (remainder >= 0.4 && remainder <= 0.6) {
+    resultText = `Use ${floorCount} ${labels[haveSize]} egg${floorCount !== 1 ? 's' : ''} + about half a beaten egg.`;
+    note = 'To measure half an egg: beat one egg lightly, then use approximately half by volume (about 2 tablespoons).';
+  } else if (remainder > 0.6 && remainder < 0.9) {
+    resultText = `Use ${floorCount + 1} ${labels[haveSize]} egg${floorCount + 1 !== 1 ? 's' : ''}.`;
+    note = `This is slightly more egg than the recipe calls for. For delicate baking (custards, soufflés), consider using ${floorCount} eggs and adding 1 tbsp of beaten egg to compensate.`;
+  } else {
+    resultText = `Use ${Math.round(exactCount)} ${labels[haveSize]} egg${Math.round(exactCount) !== 1 ? 's' : ''}.`;
+  }
+
+  if (!note && recipeSize !== haveSize) {
+    const diff = ((exactCount / count) - 1) * 100;
+    if (Math.abs(diff) > 15) {
+      note = 'For casual cooking this swap is fine. For precise baking, the difference may affect texture slightly.';
+    }
+  }
+
+  document.getElementById('resultText').textContent = resultText;
+  document.getElementById('resultNote').textContent = note;
+  result.style.display = 'block';
+}
+
+function clearAll() {
+  document.getElementById('eggCount').value = '';
+  document.getElementById('recipeSize').value = 'large';
+  document.getElementById('haveSize').value = '';
+  document.getElementById('result').style.display = 'none';
+}
+</script>
+</body>
+</html>

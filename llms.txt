@@ -15,6 +15,7 @@ CookingCalcs covers unit conversion, recipe scaling, cooking times and temperatu
 - [Meat Temperature Guide](https://cookingcalcs.com/tools/meat-temperature-guide.html): Safe internal cooking temperatures for all meat types. USDA-recommended temps in °F and °C.
 - [Meal Cost Calculator](https://cookingcalcs.com/tools/meal-cost-calculator.html): Calculate total meal cost and cost per serving by adding ingredients and their prices.
 - [Cost Per Serving Calculator](https://cookingcalcs.com/tools/cost-per-serving.html): Find the cost per serving of any recipe or packaged food by entering total cost and servings.
+- [Egg Size Converter](https://cookingcalcs.com/tools/egg-converter.html): Convert between egg sizes (small, medium, large, extra large, jumbo) for any recipe with exact counts and baking adjustment tips.
 
 ## Blog
 
@@ -35,3 +36,6 @@ CookingCalcs covers unit conversion, recipe scaling, cooking times and temperatu
 - [How Many Cups in a Pound of Flour?](https://cookingcalcs.com/blog/how-many-cups-in-a-pound-of-flour.html): Exact cup counts for all-purpose, bread, cake, and whole wheat flour by pound.
 - [How to Measure Butter: Sticks, Cups, Tablespoons, and Grams](https://cookingcalcs.com/blog/how-to-measure-butter.html): Full conversion chart for butter across all common units.
 - [How Long to Cook Salmon](https://cookingcalcs.com/blog/how-long-to-cook-salmon.html): Cook times for salmon by method — oven, pan, air fryer, and poached — with internal temperature guidance.
+- [How Many Grams in a Cup of Rice?](https://cookingcalcs.com/blog/how-many-grams-in-a-cup-of-rice.html): Exact gram weights for white, brown, basmati, jasmine, and sushi rice — dry and cooked.
+- [How Long to Cook Shrimp](https://cookingcalcs.com/blog/how-long-to-cook-shrimp.html): Exact cook times for shrimp by method and size — boiled, sautéed, baked, and grilled.
+- [How to Calculate Meal Prep Cost for a Week](https://cookingcalcs.com/blog/how-to-calculate-meal-prep-cost-for-a-week.html): Step-by-step guide to calculating weekly meal prep cost with a cost per serving formula.

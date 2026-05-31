@@ -24,6 +24,7 @@ const TOOLS = [
   { name: "Oven Temperature Converter", url: "/tools/oven-temp-converter.html" },
   { name: "Tablespoon to Teaspoon", url: "/tools/tablespoon-to-teaspoon.html" },
   { name: "Weight Converter", url: "/tools/weight-converter.html" },
+  { name: "Egg Size Converter", url: "/tools/egg-converter.html" },
   { name: "Recipe Multiplier", url: "/tools/recipe-multiplier.html" },
   { name: "Cooking Time Calculator", url: "/tools/cooking-time-calculator.html" },
   { name: "Meat Temperature Guide", url: "/tools/meat-temperature-guide.html" },
@@ -50,6 +51,9 @@ const BLOGS = [
   { name: "How Many Cups in a Pound of Flour?", url: "/blog/how-many-cups-in-a-pound-of-flour.html", desc: "Exact cup counts for all-purpose, bread, cake, and whole wheat flour — plus why the number varies.", date: "2026-05-26" },
   { name: "How to Measure Butter", url: "/blog/how-to-measure-butter.html", desc: "Convert butter between sticks, cups, tablespoons, and grams with a full reference chart.", date: "2026-05-26" },
   { name: "How Long to Cook Salmon", url: "/blog/how-long-to-cook-salmon.html", desc: "Exact cook times for salmon by method — oven, pan, air fryer, and poached. Plus the internal temperature that tells you it's done.", date: "2026-05-26" },
+  { name: "How Many Grams in a Cup of Rice?", url: "/blog/how-many-grams-in-a-cup-of-rice.html", desc: "Exact gram weights for white, brown, basmati, jasmine, and sushi rice — dry and cooked. Plus how much cooked rice one cup of dry yields.", date: "2026-05-31" },
+  { name: "How Long to Cook Shrimp", url: "/blog/how-long-to-cook-shrimp.html", desc: "Exact cook times for shrimp by method and size — boiled, sautéed, baked, and grilled. Plus visual cues and internal temperature guidance.", date: "2026-05-31" },
+  { name: "How to Calculate Meal Prep Cost for a Week", url: "/blog/how-to-calculate-meal-prep-cost-for-a-week.html", desc: "Step-by-step guide to calculating exactly how much your weekly meal prep costs, with a cost per serving formula and tips to reduce spend.", date: "2026-05-31" },
 ];
 
 // ── 메뉴 렌더링 ─────────────────────────────────────────────

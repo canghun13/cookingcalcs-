@@ -14,14 +14,6 @@ const GA_ID = 'G-QZT8PVVY5E';
   document.head.appendChild(s);
 })();
 
-// Google AdSense
-(function () {
-  var a = document.createElement('script');
-  a.async = true;
-  a.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350';
-  a.crossOrigin = 'anonymous';
-  document.head.appendChild(a);
-})();
 window.dataLayer = window.dataLayer || [];
 function gtag() { dataLayer.push(arguments); }
 gtag('js', new Date());

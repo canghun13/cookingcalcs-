@@ -31,6 +31,7 @@ const TOOLS = [
   { name: "Meat Temperature Guide", url: "/tools/meat-temperature-guide.html" },
   { name: "Meal Cost Calculator", url: "/tools/meal-cost-calculator.html" },
   { name: "Cost Per Serving", url: "/tools/cost-per-serving.html" },
+  { name: "Liquid Converter", url: "/tools/liquid-converter.html" },
 ];
 
 // ── 블로그 목록 (추가 시 여기만 수정) ──────────────────────
@@ -55,6 +56,11 @@ const BLOGS = [
   { name: "How Many Grams in a Cup of Rice?", url: "/blog/how-many-grams-in-a-cup-of-rice.html", desc: "Exact gram weights for white, brown, basmati, jasmine, and sushi rice — dry and cooked. Plus how much cooked rice one cup of dry yields.", date: "2026-05-31" },
   { name: "How Long to Cook Shrimp", url: "/blog/how-long-to-cook-shrimp.html", desc: "Exact cook times for shrimp by method and size — boiled, sautéed, baked, and grilled. Plus visual cues and internal temperature guidance.", date: "2026-05-31" },
   { name: "How to Calculate Meal Prep Cost for a Week", url: "/blog/how-to-calculate-meal-prep-cost-for-a-week.html", desc: "Step-by-step guide to calculating exactly how much your weekly meal prep costs, with a cost per serving formula and tips to reduce spend.", date: "2026-05-31" },
+  { name: "Grocery Budget Tips That Actually Work", url: "/blog/grocery-budget-tips.html", desc: "Practical grocery budgeting strategies to cut your food bill without eating badly.", date: "2026-05-15" },
+  { name: "Tablespoon vs Teaspoon: What's the Difference?", url: "/blog/tablespoon-vs-teaspoon.html", desc: "How many teaspoons in a tablespoon? Clear answers plus a full conversion chart.", date: "2026-05-15" },
+  { name: "How to Substitute Egg Sizes in Recipes", url: "/blog/how-to-substitute-egg-sizes.html", desc: "Learn how to substitute medium, large, extra-large, and jumbo eggs in any recipe. Includes a conversion chart.", date: "2026-06-07" },
+  { name: "How Long to Cook Ground Beef", url: "/blog/how-long-to-cook-ground-beef.html", desc: "Exact cook times for ground beef on the stovetop, in the oven, and in the air fryer.", date: "2026-06-07" },
+  { name: "What Is a Serving Size? A Practical Guide", url: "/blog/what-is-a-serving-size.html", desc: "What does a serving size actually mean? Learn how to estimate serving sizes and how it affects your cost per serving.", date: "2026-06-07" },
 ];
 
 // ── 메뉴 렌더링 ─────────────────────────────────────────────

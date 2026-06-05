@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Liquid Measurement Converter – ml, Cups, fl oz, Tbsp – CookingCalcs</title>
+  <meta name="description" content="Instantly convert between milliliters, cups, fluid ounces, tablespoons, and teaspoons. Free liquid measurement converter for cooking and baking.">
+  <link rel="canonical" href="https://cookingcalcs.com/tools/liquid-converter.html">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script src="/assets/js/nav.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Liquid Measurement Converter",
+  "url": "https://cookingcalcs.com/tools/liquid-converter.html",
+  "description": "Convert between milliliters, cups, fluid ounces, tablespoons, and teaspoons instantly.",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "provider": { "@type": "Organization", "name": "CookingCalcs", "url": "https://cookingcalcs.com" }
+}
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+</head>
+<body>
+<main>
+  <div class="tool-page">
+    <h1>Liquid Measurement Converter</h1>
+    <p class="tool-desc">Convert between milliliters, cups, fluid ounces, tablespoons, and teaspoons. Enter any value to instantly convert all units.</p>
+
+    <div class="tool-box">
+      <div class="form-group">
+        <label for="ml">Milliliters (ml)</label>
+        <input type="number" id="ml" placeholder="e.g. 250" min="0" step="any" oninput="convertFrom('ml')">
+      </div>
+      <div class="form-group">
+        <label for="cups">Cups</label>
+        <input type="number" id="cups" placeholder="e.g. 1" min="0" step="any" oninput="convertFrom('cups')">
+      </div>
+      <div class="form-group">
+        <label for="floz">Fluid Ounces (fl oz)</label>
+        <input type="number" id="floz" placeholder="e.g. 8" min="0" step="any" oninput="convertFrom('floz')">
+      </div>
+      <div class="form-group">
+        <label for="tbsp">Tablespoons (tbsp)</label>
+        <input type="number" id="tbsp" placeholder="e.g. 16" min="0" step="any" oninput="convertFrom('tbsp')">
+      </div>
+      <div class="form-group">
+        <label for="tsp">Teaspoons (tsp)</label>
+        <input type="number" id="tsp" placeholder="e.g. 48" min="0" step="any" oninput="convertFrom('tsp')">
+      </div>
+      <div class="form-group">
+        <label for="liters">Liters (L)</label>
+        <input type="number" id="liters" placeholder="e.g. 0.25" min="0" step="any" oninput="convertFrom('liters')">
+      </div>
+
+      <button onclick="clearAll()" style="margin-top:0.5rem; background:none; border:1.5px solid var(--border); border-radius:8px; padding:0.55rem 1.2rem; font-size:0.875rem; color:var(--mid); cursor:pointer;">Clear</button>
+    </div>
+
+    <div style="margin-top:2rem; padding:1.5rem; background:var(--tomato-light); border-radius:var(--radius-lg);">
+      <h3 style="font-family:'Playfair Display',serif; margin-bottom:0.75rem;">Related Tools & Guides</h3>
+      <ul style="list-style:none; display:flex; flex-direction:column; gap:0.5rem;">
+        <li><a href="/tools/tablespoon-to-teaspoon.html" style="color:var(--tomato-dark); font-weight:500;">→ Tablespoon to Teaspoon Converter</a></li>
+        <li><a href="/tools/cups-to-grams.html" style="color:var(--tomato-dark); font-weight:500;">→ Cups to Grams Converter</a></li>
+        <li><a href="/tools/weight-converter.html" style="color:var(--tomato-dark); font-weight:500;">→ Weight Converter</a></li>
+        <li><a href="/blog/tablespoon-vs-teaspoon.html" style="color:var(--tomato-dark); font-weight:500;">→ Tablespoon vs Teaspoon Guide</a></li>
+      </ul>
+    </div>
+
+    <div class="blog-content" style="margin-top:3rem;">
+      <h2>Quick Reference: Liquid Conversion Chart</h2>
+      <table>
+        <thead><tr><th>Milliliters</th><th>Cups</th><th>Fl oz</th><th>Tbsp</th><th>Tsp</th></tr></thead>
+        <tbody>
+          <tr><td>5 ml</td><td>1/48 cup</td><td>0.17 fl oz</td><td>1 tbsp (⅓)</td><td>1 tsp</td></tr>
+          <tr><td>15 ml</td><td>1/16 cup</td><td>0.5 fl oz</td><td>1 tbsp</td><td>3 tsp</td></tr>
+          <tr><td>30 ml</td><td>⅛ cup</td><td>1 fl oz</td><td>2 tbsp</td><td>6 tsp</td></tr>
+          <tr><td>60 ml</td><td>¼ cup</td><td>2 fl oz</td><td>4 tbsp</td><td>12 tsp</td></tr>
+          <tr><td>80 ml</td><td>⅓ cup</td><td>2.7 fl oz</td><td>5 tbsp + 1 tsp</td><td>16 tsp</td></tr>
+          <tr><td>120 ml</td><td>½ cup</td><td>4 fl oz</td><td>8 tbsp</td><td>24 tsp</td></tr>
+          <tr><td>180 ml</td><td>¾ cup</td><td>6 fl oz</td><td>12 tbsp</td><td>36 tsp</td></tr>
+          <tr><td>240 ml</td><td>1 cup</td><td>8 fl oz</td><td>16 tbsp</td><td>48 tsp</td></tr>
+          <tr><td>480 ml</td><td>2 cups (1 pint)</td><td>16 fl oz</td><td>32 tbsp</td><td>96 tsp</td></tr>
+          <tr><td>960 ml</td><td>4 cups (1 quart)</td><td>32 fl oz</td><td>64 tbsp</td><td>—</td></tr>
+          <tr><td>3785 ml</td><td>16 cups (1 gallon)</td><td>128 fl oz</td><td>256 tbsp</td><td>—</td></tr>
+        </tbody>
+      </table>
+
+      <h2>How to Use This Calculator</h2>
+      <p>Enter a value in any field — milliliters, cups, fluid ounces, tablespoons, teaspoons, or liters — and all other fields update instantly. This is useful when you need to scale a recipe, convert between metric and US measurements, or figure out how many tablespoons are in a third of a cup.</p>
+
+      <h2>Common Liquid Conversions in Cooking</h2>
+      <p>The most frequently needed conversions in everyday cooking are: 1 cup = 240ml, 1 tablespoon = 15ml, 1 teaspoon = 5ml, and 1 fluid ounce = 30ml. These are the four values worth memorizing — they come up constantly in both US and metric recipes.</p>
+      <p>For scaling recipes, the most useful thing to know is the relationship between tablespoons and cups: 16 tablespoons = 1 cup. So ¼ cup is 4 tablespoons, ⅓ cup is 5 tablespoons + 1 teaspoon, and ½ cup is 8 tablespoons.</p>
+
+      <h2>Fluid Ounces vs. Weight Ounces</h2>
+      <p>These are completely different units that happen to share the word "ounce." Fluid ounces measure volume — how much space a liquid takes up. Weight ounces measure mass. For water, they happen to be nearly equal: 1 fluid ounce of water weighs about 1.04 ounces. But for other liquids, they diverge significantly. 1 fluid ounce of honey weighs about 1.5 ounces because honey is much denser than water. Always check whether a recipe means fluid ounces (volume) or weight ounces when measuring liquids by ounces.</p>
+
+      <h2>Frequently Asked Questions</h2>
+      <h3>How many ml in a cup?</h3>
+      <p>1 US cup = 236.6ml, typically rounded to 240ml in cooking contexts. The metric cup (used in Australia and Canada) is exactly 250ml. For most recipes, the difference between 237ml and 240ml is negligible — use whichever is easier to measure with your equipment.</p>
+
+      <h3>How many tablespoons in ⅓ cup?</h3>
+      <p>⅓ cup equals 5 tablespoons + 1 teaspoon (79ml). This is one of the more awkward fractions because it doesn't divide evenly into tablespoons. To measure ⅓ cup without a ⅓ cup measure: use 5 tablespoons and then add 1 teaspoon more.</p>
+
+      <h3>Is 8 fl oz the same as 1 cup?</h3>
+      <p>Yes — in US measurements, 8 fluid ounces equals 1 cup (236.6ml). This is why an 8 oz glass of water is also described as 1 cup. The conversion 1 cup = 8 fl oz is one of the most reliable in US cooking measurement.</p>
+
+      <h3>How do I convert a recipe from cups to ml?</h3>
+      <p>Multiply the cup amount by 240 to get approximate milliliters, or by 236.6 for the precise conversion. For example: 1.5 cups × 240 = 360ml. For tablespoons: multiply by 15. For teaspoons: multiply by 5. These three conversions handle almost all liquid measurements in US recipes.</p>
+    </div>
+  </div>
+</main>
+
+<script>
+const factors = {
+  ml: 1,
+  liters: 1000,
+  cups: 236.588,
+  floz: 29.5735,
+  tbsp: 14.7868,
+  tsp: 4.92892
+};
+
+let updating = false;
+
+function convertFrom(source) {
+  if (updating) return;
+  updating = true;
+
+  const val = parseFloat(document.getElementById(source).value);
+  if (isNaN(val) || val < 0) {
+    updating = false;
+    return;
+  }
+
+  const ml = val * factors[source];
+
+  for (const unit in factors) {
+    if (unit === source) continue;
+    const result = ml / factors[unit];
+    const decimals = result < 1 ? 4 : result < 10 ? 3 : 2;
+    document.getElementById(unit).value = parseFloat(result.toFixed(decimals));
+  }
+
+  updating = false;
+}
+
+function clearAll() {
+  for (const unit in factors) {
+    document.getElementById(unit).value = '';
+  }
+}
+</script>
+</body>
+</html>

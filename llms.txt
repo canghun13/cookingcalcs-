@@ -16,6 +16,7 @@ CookingCalcs covers unit conversion, recipe scaling, cooking times and temperatu
 - [Meal Cost Calculator](https://cookingcalcs.com/tools/meal-cost-calculator.html): Calculate total meal cost and cost per serving by adding ingredients and their prices.
 - [Cost Per Serving Calculator](https://cookingcalcs.com/tools/cost-per-serving.html): Find the cost per serving of any recipe or packaged food by entering total cost and servings.
 - [Egg Size Converter](https://cookingcalcs.com/tools/egg-converter.html): Convert between egg sizes (small, medium, large, extra large, jumbo) for any recipe with exact counts and baking adjustment tips.
+- [Liquid Converter](https://cookingcalcs.com/tools/liquid-converter.html): Convert between milliliters, cups, fluid ounces, tablespoons, and teaspoons instantly. Includes a full reference chart.
 
 ## Blog
 
@@ -39,3 +40,8 @@ CookingCalcs covers unit conversion, recipe scaling, cooking times and temperatu
 - [How Many Grams in a Cup of Rice?](https://cookingcalcs.com/blog/how-many-grams-in-a-cup-of-rice.html): Exact gram weights for white, brown, basmati, jasmine, and sushi rice — dry and cooked.
 - [How Long to Cook Shrimp](https://cookingcalcs.com/blog/how-long-to-cook-shrimp.html): Exact cook times for shrimp by method and size — boiled, sautéed, baked, and grilled.
 - [How to Calculate Meal Prep Cost for a Week](https://cookingcalcs.com/blog/how-to-calculate-meal-prep-cost-for-a-week.html): Step-by-step guide to calculating weekly meal prep cost with a cost per serving formula.
+- [10 Grocery Budget Tips That Actually Work](https://cookingcalcs.com/blog/grocery-budget-tips.html): Practical strategies to cut your grocery bill without eating badly.
+- [Tablespoon vs Teaspoon: What's the Difference?](https://cookingcalcs.com/blog/tablespoon-vs-teaspoon.html): Clear answers plus a full conversion chart for tablespoons and teaspoons.
+- [How to Substitute Egg Sizes in Recipes](https://cookingcalcs.com/blog/how-to-substitute-egg-sizes.html): How to swap medium, large, extra-large, and jumbo eggs in any recipe with a conversion chart.
+- [How Long to Cook Ground Beef](https://cookingcalcs.com/blog/how-long-to-cook-ground-beef.html): Exact cook times for ground beef on the stovetop, oven, and air fryer with safety temperatures.
+- [What Is a Serving Size? A Practical Guide](https://cookingcalcs.com/blog/what-is-a-serving-size.html): What serving size means, reference amounts by food category, and how it affects cost per serving.

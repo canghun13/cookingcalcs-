@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Butter Converter – Sticks, Cups, Grams, Tablespoons | CookingCalcs</title>
+  <meta name="description" content="Convert butter between sticks, cups, tablespoons, teaspoons, grams, and ounces instantly. Enter any amount in any unit and get all equivalents at once.">
+  <link rel="canonical" href="https://cookingcalcs.com/tools/butter-converter.html">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script src="/assets/js/nav.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Butter Converter",
+  "url": "https://cookingcalcs.com/tools/butter-converter.html",
+  "description": "Convert butter between sticks, cups, tablespoons, teaspoons, grams, and ounces instantly.",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "provider": { "@type": "Organization", "name": "CookingCalcs", "url": "https://cookingcalcs.com" }
+}
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+</head>
+<body>
+<main>
+  <div class="tool-page">
+    <h1>Butter Converter</h1>
+    <p class="tool-desc">Enter any butter measurement and instantly see all equivalents — sticks, cups, tablespoons, teaspoons, grams, and ounces.</p>
+
+    <div class="tool-box">
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+
+        <div class="form-group">
+          <label for="sticks">Sticks</label>
+          <input type="number" id="sticks" placeholder="e.g. 1" min="0" step="0.25" oninput="convertFrom('sticks')">
+        </div>
+
+        <div class="form-group">
+          <label for="cups">Cups</label>
+          <input type="number" id="cups" placeholder="e.g. 0.5" min="0" step="0.125" oninput="convertFrom('cups')">
+        </div>
+
+        <div class="form-group">
+          <label for="tbsp">Tablespoons</label>
+          <input type="number" id="tbsp" placeholder="e.g. 8" min="0" step="0.5" oninput="convertFrom('tbsp')">
+        </div>
+
+        <div class="form-group">
+          <label for="tsp">Teaspoons</label>
+          <input type="number" id="tsp" placeholder="e.g. 24" min="0" step="1" oninput="convertFrom('tsp')">
+        </div>
+
+        <div class="form-group">
+          <label for="grams">Grams</label>
+          <input type="number" id="grams" placeholder="e.g. 113" min="0" step="1" oninput="convertFrom('grams')">
+        </div>
+
+        <div class="form-group">
+          <label for="oz">Ounces</label>
+          <input type="number" id="oz" placeholder="e.g. 4" min="0" step="0.25" oninput="convertFrom('oz')">
+        </div>
+
+      </div>
+
+      <button onclick="clearAll()" style="margin-top:1rem; background:none; border:1.5px solid var(--border); border-radius:8px; padding:0.5rem 1.2rem; font-size:0.875rem; color:var(--mid); cursor:pointer;">Clear</button>
+    </div>
+
+    <div style="margin-top:2rem; padding:1.5rem; background:var(--tomato-light); border-radius:var(--radius-lg);">
+      <h3 style="font-family:'Playfair Display',serif; margin-bottom:0.75rem;">Quick Reference Chart</h3>
+      <table>
+        <thead><tr><th>Sticks</th><th>Cups</th><th>Tablespoons</th><th>Grams</th><th>Ounces</th></tr></thead>
+        <tbody>
+          <tr><td>¼ stick</td><td>⅛ cup</td><td>2 tbsp</td><td>28g</td><td>1 oz</td></tr>
+          <tr><td>½ stick</td><td>¼ cup</td><td>4 tbsp</td><td>57g</td><td>2 oz</td></tr>
+          <tr><td>1 stick</td><td>½ cup</td><td>8 tbsp</td><td>113g</td><td>4 oz</td></tr>
+          <tr><td>1½ sticks</td><td>¾ cup</td><td>12 tbsp</td><td>170g</td><td>6 oz</td></tr>
+          <tr><td>2 sticks</td><td>1 cup</td><td>16 tbsp</td><td>227g</td><td>8 oz</td></tr>
+          <tr><td>4 sticks</td><td>2 cups</td><td>32 tbsp</td><td>454g</td><td>16 oz (1 lb)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="blog-content" style="margin-top:3rem;">
+      <h2>How to Use This Calculator</h2>
+      <p>Type a value in any field and all other units update instantly. Start with whatever your recipe or package gives you — sticks, grams, or tablespoons — and read off whichever unit you need.</p>
+
+      <h2>US Butter Sticks Explained</h2>
+      <p>In the United States, butter is sold in packages of 4 sticks, each weighing 113g (4 oz) and equal to ½ cup or 8 tablespoons. The wrapper is marked with tablespoon measurements — each line is 1 tablespoon. This makes it easy to cut off an exact amount without measuring spoons.</p>
+      <p>If your recipe is from outside the US, it will likely give butter in grams or specify "250g block" rather than sticks. Use the grams field to convert.</p>
+
+      <h2>European vs US Butter</h2>
+      <p>European-style butter has a higher fat content (82–84%) compared to US butter (80%). This matters for pastry and croissants where fat content affects layering and texture. For most everyday baking and cooking, they're interchangeable by weight.</p>
+      <p>European butter is often sold in 250g blocks rather than sticks. Enter 250 in the grams field to see the equivalent in US sticks and cups.</p>
+
+      <h2>Measuring Butter Without a Scale</h2>
+      <p>The most accurate method is to use the tablespoon markings printed on the US butter wrapper. If you've removed the wrapper:</p>
+      <ul>
+        <li>1 stick = ½ cup = 8 tablespoons</li>
+        <li>Use a tablespoon measure for small amounts</li>
+        <li>For softened butter, pack firmly into a dry measuring cup and level off</li>
+        <li>For melted butter, use a liquid measuring cup</li>
+      </ul>
+
+      <h2>Salted vs Unsalted Butter</h2>
+      <p>Most baking recipes specify unsalted butter so you can control the salt level precisely. Salted butter contains about ¼ tsp of salt per stick. If you substitute salted for unsalted, reduce the recipe's salt by ¼ tsp per stick of butter. For savory cooking, salted and unsalted are usually interchangeable without adjustment.</p>
+
+      <h2>Frequently Asked Questions</h2>
+      <h3>How many grams is one stick of butter?</h3>
+      <p>One US stick of butter weighs 113 grams (or 4 ounces). A full pound of butter (4 sticks) is 454 grams.</p>
+
+      <h3>How many tablespoons are in one stick of butter?</h3>
+      <p>One stick of butter equals 8 tablespoons or ½ cup. The tablespoon markings on the butter wrapper correspond to this — each graduation on the wrapper is 1 tablespoon.</p>
+
+      <h3>Can I substitute margarine or shortening for butter 1:1?</h3>
+      <p>For most recipes, yes — use the same weight or volume. But butter has more water and fat than shortening, which affects texture in pastry. In baking, butter and margarine are generally interchangeable; for laminated doughs (croissants, puff pastry), butter performs differently than shortening due to its melting point.</p>
+
+      <h3>How do I measure ⅓ cup of butter?</h3>
+      <p>⅓ cup of butter is 5 tablespoons + 1 teaspoon, or approximately 75 grams. Since US butter sticks don't have a ⅓ cup marking, use tablespoons or a scale for accuracy.</p>
+    </div>
+  </div>
+</main>
+
+<script>
+// Conversion factors relative to grams
+const toGrams = {
+  sticks: 113.398,   // 1 stick = 113.4g
+  cups:   226.796,   // 1 cup = 227g
+  tbsp:   14.1748,   // 1 tbsp = 14.2g
+  tsp:    4.72479,   // 1 tsp = 4.7g
+  grams:  1,
+  oz:     28.3495
+};
+
+function convertFrom(source) {
+  const val = parseFloat(document.getElementById(source).value);
+  if (isNaN(val) || val < 0) { clearAll(source); return; }
+
+  const inGrams = val * toGrams[source];
+
+  for (const unit in toGrams) {
+    if (unit === source) continue;
+    const converted = inGrams / toGrams[unit];
+    document.getElementById(unit).value = parseFloat(converted.toFixed(4));
+  }
+}
+
+function clearAll(except) {
+  ['sticks','cups','tbsp','tsp','grams','oz'].forEach(id => {
+    if (id !== except) document.getElementById(id).value = '';
+  });
+}
+</script>
+</body>
+</html>

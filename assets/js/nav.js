@@ -66,34 +66,6 @@ const BLOGS = [
   { name: "How Long to Cook Pork Chops", url: "/blog/how-long-to-cook-pork-chops.html", desc: "Exact cook times for pork chops by thickness and method — oven, pan, air fryer, and grill. Plus the safe internal temperature.", date: "2026-06-12" },
 ];
 
-// ── 블로그 목록 (추가 시 여기만 수정) ──────────────────────
-const BLOGS = [
-  { name: "Cups to Grams Guide", url: "/blog/cups-to-grams-guide.html", desc: "Convert cups to grams for flour, sugar, butter, and more with our complete reference guide.", date: "2026-05-01" },
-  { name: "Why Weigh Ingredients When Baking", url: "/blog/why-weigh-ingredients-baking.html", desc: "Discover why professional bakers always use a scale — and how it makes your recipes more consistent.", date: "2026-05-02" },
-  { name: "Oven Temperature Conversion Guide", url: "/blog/oven-temperature-conversion-guide.html", desc: "Quickly convert between Fahrenheit, Celsius, and Gas Mark oven temperatures for any recipe.", date: "2026-05-03" },
-  { name: "How to Scale a Recipe", url: "/blog/how-to-scale-a-recipe.html", desc: "Learn how to double, halve, or multiply any recipe without ruining the proportions.", date: "2026-05-04" },
-  { name: "Baking Measurement Mistakes", url: "/blog/baking-measurement-mistakes.html", desc: "The most common measurement errors home bakers make — and how to avoid them every time.", date: "2026-05-05" },
-  { name: "Meat Internal Temperature Guide", url: "/blog/meat-internal-temperature-guide.html", desc: "Safe internal cooking temperatures for beef, chicken, pork, and more. Never undercook again.", date: "2026-05-06" },
-  { name: "How to Cut Your Grocery Bill", url: "/blog/how-to-cut-grocery-bill.html", desc: "Practical strategies to spend less at the grocery store without sacrificing meal quality.", date: "2026-05-07" },
-  { name: "Tablespoon to Teaspoon Guide", url: "/blog/tablespoon-to-teaspoon-guide.html", desc: "Simple conversions between tablespoons, teaspoons, and milliliters for any recipe.", date: "2026-05-08" },
-  { name: "How to Calculate Cost Per Serving", url: "/blog/how-to-calculate-cost-per-serving.html", desc: "Figure out exactly how much each meal costs with our step-by-step cost per serving guide.", date: "2026-05-09" },
-  { name: "How Long to Cook Chicken Breast", url: "/blog/how-long-to-cook-chicken-breast.html", desc: "Oven, stovetop, or air fryer — exact cook times for perfectly juicy chicken breast every time.", date: "2026-05-10" },
-  { name: "Cooking Measurement Guide", url: "/blog/cooking-measurement-guide.html", desc: "A complete reference for cups, tablespoons, teaspoons, ounces, and metric conversions.", date: "2026-05-11" },
-  { name: "Meat Cooking Temperatures Explained", url: "/blog/meat-cooking-temperatures-explained.html", desc: "Everything you need to know about cooking temperatures to get the right doneness every time.", date: "2026-05-12" },
-  { name: "How to Meal Prep on a Budget", url: "/blog/how-to-meal-prep-on-a-budget.html", desc: "Plan and prep a week of meals for under $50 with these budget-friendly meal prep tips.", date: "2026-05-13" },
-  { name: "How to Reduce a Recipe", url: "/blog/how-to-reduce-a-recipe.html", desc: "Cooking for one or two? Learn how to scale down any recipe without the math headache.", date: "2026-05-14" },
-  { name: "How Many Cups in a Pound of Flour?", url: "/blog/how-many-cups-in-a-pound-of-flour.html", desc: "Exact cup counts for all-purpose, bread, cake, and whole wheat flour — plus why the number varies.", date: "2026-05-26" },
-  { name: "How to Measure Butter", url: "/blog/how-to-measure-butter.html", desc: "Convert butter between sticks, cups, tablespoons, and grams with a full reference chart.", date: "2026-05-26" },
-  { name: "How Long to Cook Salmon", url: "/blog/how-long-to-cook-salmon.html", desc: "Exact cook times for salmon by method — oven, pan, air fryer, and poached. Plus the internal temperature that tells you it's done.", date: "2026-05-26" },
-  { name: "How Many Grams in a Cup of Rice?", url: "/blog/how-many-grams-in-a-cup-of-rice.html", desc: "Exact gram weights for white, brown, basmati, jasmine, and sushi rice — dry and cooked. Plus how much cooked rice one cup of dry yields.", date: "2026-05-31" },
-  { name: "How Long to Cook Shrimp", url: "/blog/how-long-to-cook-shrimp.html", desc: "Exact cook times for shrimp by method and size — boiled, sautéed, baked, and grilled. Plus visual cues and internal temperature guidance.", date: "2026-05-31" },
-  { name: "How to Calculate Meal Prep Cost for a Week", url: "/blog/how-to-calculate-meal-prep-cost-for-a-week.html", desc: "Step-by-step guide to calculating exactly how much your weekly meal prep costs, with a cost per serving formula and tips to reduce spend.", date: "2026-05-31" },
-  { name: "Grocery Budget Tips That Actually Work", url: "/blog/grocery-budget-tips.html", desc: "Practical grocery budgeting strategies to cut your food bill without eating badly.", date: "2026-05-15" },
-  { name: "Tablespoon vs Teaspoon: What's the Difference?", url: "/blog/tablespoon-vs-teaspoon.html", desc: "How many teaspoons in a tablespoon? Clear answers plus a full conversion chart.", date: "2026-05-15" },
-  { name: "How to Substitute Egg Sizes in Recipes", url: "/blog/how-to-substitute-egg-sizes.html", desc: "Learn how to substitute medium, large, extra-large, and jumbo eggs in any recipe. Includes a conversion chart.", date: "2026-06-07" },
-  { name: "How Long to Cook Ground Beef", url: "/blog/how-long-to-cook-ground-beef.html", desc: "Exact cook times for ground beef on the stovetop, in the oven, and in the air fryer.", date: "2026-06-07" },
-  { name: "What Is a Serving Size? A Practical Guide", url: "/blog/what-is-a-serving-size.html", desc: "What does a serving size actually mean? Learn how to estimate serving sizes and how it affects your cost per serving.", date: "2026-06-07" },
-];
 
 // ── 메뉴 렌더링 ─────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', function () {

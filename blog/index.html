@@ -10,6 +10,54 @@
   <link rel="stylesheet" href="/assets/css/style.css">
   <script src="/assets/js/nav.js" defer></script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+<style>
+  .blog-search-wrap {
+    max-width: 520px;
+    margin: 0 auto 2rem;
+    position: relative;
+  }
+  .blog-search-wrap input {
+    width: 100%;
+    padding: 0.85rem 1rem 0.85rem 2.75rem;
+    font-size: 1rem;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-lg);
+    background: var(--white);
+    color: var(--ink);
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .blog-search-wrap input:focus {
+    border-color: var(--tomato);
+    box-shadow: 0 0 0 3px rgba(210,60,40,0.1);
+  }
+  .blog-search-wrap input::placeholder { color: var(--muted); }
+  .blog-search-icon {
+    position: absolute;
+    left: 0.9rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--muted);
+    pointer-events: none;
+    font-size: 1rem;
+  }
+  .blog-search-count {
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-bottom: 1.5rem;
+    min-height: 1.2em;
+  }
+  .blog-no-results {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: var(--muted);
+    font-size: 0.95rem;
+    display: none;
+  }
+</style>
 </head>
 <body>
 
@@ -17,12 +65,76 @@
   <section class="section">
     <h1 class="section-title">Cooking Blog</h1>
     <p class="section-sub">Guides, tips, and how-tos for every home cook.</p>
-    <div class="blog-grid" id="blog-list">
-      <!-- 블로그 추가 시 여기에 카드 추가 -->
-      <p style="color:var(--muted); font-size:0.9rem;">Blog posts coming soon.</p>
+
+    <div class="blog-search-wrap">
+      <span class="blog-search-icon">🔍</span>
+      <input type="text" id="blogSearch" placeholder="Search articles…" autocomplete="off" spellcheck="false">
     </div>
+    <p class="blog-search-count" id="blogCount"></p>
+
+    <div class="blog-grid" id="blog-list"></div>
+    <p class="blog-no-results" id="blogNoResults">No articles found for "<span id="blogNoResultsQuery"></span>". Try a different keyword.</p>
   </section>
 </main>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const input = document.getElementById('blogSearch');
+  const countEl = document.getElementById('blogCount');
+  const noResults = document.getElementById('blogNoResults');
+  const noResultsQuery = document.getElementById('blogNoResultsQuery');
+  const grid = document.getElementById('blog-list');
+
+  function renderCards(list) {
+    if (!list.length) {
+      grid.innerHTML = '';
+      noResultsQuery.textContent = input.value.trim();
+      noResults.style.display = 'block';
+      countEl.textContent = '';
+      return;
+    }
+    noResults.style.display = 'none';
+    const total = typeof BLOGS !== 'undefined' ? BLOGS.length : list.length;
+    const q = input.value.trim();
+    countEl.textContent = q
+      ? `${list.length} of ${total} articles`
+      : `${total} articles`;
+
+    grid.innerHTML = list.map(b => {
+      const dateStr = b.date
+        ? new Date(b.date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })
+        : '';
+      return `
+        <a href="${b.url}" class="blog-card">
+          <div class="blog-card-body">
+            <h3>${b.name}</h3>
+            ${b.desc ? `<p class="blog-card-desc">${b.desc}</p>` : ''}
+          </div>
+          ${dateStr ? `<div class="blog-card-footer"><time>${dateStr}</time></div>` : ''}
+        </a>`;
+    }).join('');
+  }
+
+  function filterBlogs(q) {
+    if (typeof BLOGS === 'undefined') return [];
+    const sorted = [...BLOGS].sort((a, b) => (b.date || '') > (a.date || '') ? 1 : -1);
+    if (!q) return sorted;
+    const lower = q.toLowerCase();
+    return sorted.filter(b =>
+      b.name.toLowerCase().includes(lower) ||
+      (b.desc && b.desc.toLowerCase().includes(lower))
+    );
+  }
+
+  // 초기 렌더링은 nav.js가 BLOGS 세팅한 직후
+  // nav.js는 defer라 DOMContentLoaded 이후 실행 보장됨
+  renderCards(filterBlogs(''));
+
+  input.addEventListener('input', function () {
+    renderCards(filterBlogs(this.value.trim()));
+  });
+});
+</script>
 
 </body>
 </html>

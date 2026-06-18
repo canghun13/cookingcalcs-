@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Baking Substitutions Calculator – CookingCalcs</title>
+  <meta name="description" content="Find exact substitutes for butter, eggs, milk, buttermilk, baking powder, and more. Enter your amount and get the right substitution instantly.">
+  <link rel="canonical" href="https://cookingcalcs.com/tools/baking-substitutions.html">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script src="/assets/js/nav.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Baking Substitutions Calculator",
+  "url": "https://cookingcalcs.com/tools/baking-substitutions.html",
+  "description": "Find exact substitutes for butter, eggs, milk, buttermilk, baking powder, and more.",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "provider": { "@type": "Organization", "name": "CookingCalcs", "url": "https://cookingcalcs.com" }
+}
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+</head>
+<body>
+<main>
+  <div class="tool-page">
+    <h1>Baking Substitutions Calculator</h1>
+    <p class="tool-desc">Choose an ingredient you need to substitute, enter the amount your recipe calls for, and get the exact substitution.</p>
+
+    <div class="tool-box">
+      <div class="form-group">
+        <label for="ingredient">Ingredient to substitute</label>
+        <select id="ingredient" onchange="updateResult()">
+          <option value="">— Select an ingredient —</option>
+          <optgroup label="Dairy">
+            <option value="butter">Butter</option>
+            <option value="milk">Whole milk</option>
+            <option value="buttermilk">Buttermilk</option>
+            <option value="heavy-cream">Heavy cream</option>
+            <option value="sour-cream">Sour cream</option>
+          </optgroup>
+          <optgroup label="Eggs">
+            <option value="egg-whole">Egg (whole)</option>
+            <option value="egg-white">Egg white</option>
+            <option value="egg-yolk">Egg yolk</option>
+          </optgroup>
+          <optgroup label="Leavening">
+            <option value="baking-powder">Baking powder</option>
+            <option value="baking-soda">Baking soda</option>
+            <option value="yeast-active">Active dry yeast</option>
+          </optgroup>
+          <optgroup label="Flour &amp; Sugar">
+            <option value="cake-flour">Cake flour</option>
+            <option value="self-rising-flour">Self-rising flour</option>
+            <option value="brown-sugar">Brown sugar</option>
+            <option value="powdered-sugar">Powdered sugar</option>
+          </optgroup>
+          <optgroup label="Other">
+            <option value="vanilla-extract">Vanilla extract</option>
+            <option value="cornstarch">Cornstarch (as thickener)</option>
+            <option value="lemon-juice">Lemon juice</option>
+          </optgroup>
+        </select>
+      </div>
+
+      <div class="form-group" id="amountGroup" style="display:none;">
+        <label for="amount" id="amountLabel">Amount</label>
+        <input type="number" id="amount" min="0.25" step="0.25" placeholder="Enter amount" oninput="updateResult()">
+      </div>
+
+      <div id="result" style="display:none; margin-top:1.5rem; padding:1.5rem; background:var(--sand); border-radius:var(--radius-lg);">
+        <h3 style="font-family:'Playfair Display',serif; margin-bottom:1rem;" id="resultTitle"></h3>
+        <div id="resultContent"></div>
+      </div>
+    </div>
+
+    <div class="blog-content" style="margin-top:3rem;">
+      <h2>How to Use This Tool</h2>
+      <p>Select the ingredient you're missing from the dropdown. Enter the amount your recipe requires. The calculator shows the best substitute and the exact amount to use, along with notes on how it affects the final result.</p>
+
+      <h2>Common Baking Substitutions Quick Reference</h2>
+      <table>
+        <thead><tr><th>Ingredient</th><th>Amount</th><th>Substitute</th></tr></thead>
+        <tbody>
+          <tr><td>Butter</td><td>1 cup</td><td>1 cup coconut oil, or ¾ cup vegetable oil, or 1 cup applesauce (for moisture)</td></tr>
+          <tr><td>Buttermilk</td><td>1 cup</td><td>1 cup milk + 1 tbsp lemon juice or white vinegar — stir and let sit 5 min</td></tr>
+          <tr><td>Whole egg</td><td>1 egg</td><td>1 tbsp ground flaxseed + 3 tbsp water (let sit 5 min); or ¼ cup unsweetened applesauce; or 3 tbsp aquafaba</td></tr>
+          <tr><td>Baking powder</td><td>1 tsp</td><td>¼ tsp baking soda + ½ tsp cream of tartar</td></tr>
+          <tr><td>Cake flour</td><td>1 cup</td><td>¾ cup + 2 tbsp all-purpose flour + 2 tbsp cornstarch — sifted together</td></tr>
+          <tr><td>Brown sugar</td><td>1 cup</td><td>1 cup white sugar + 1 tbsp molasses (light) or 2 tbsp molasses (dark)</td></tr>
+          <tr><td>Heavy cream</td><td>1 cup</td><td>¾ cup whole milk + ¼ cup melted butter — do not whip</td></tr>
+          <tr><td>Sour cream</td><td>1 cup</td><td>1 cup plain Greek yogurt (full fat)</td></tr>
+          <tr><td>Cornstarch</td><td>1 tbsp</td><td>2 tbsp all-purpose flour; or 2 tsp arrowroot powder</td></tr>
+          <tr><td>Vanilla extract</td><td>1 tsp</td><td>1 tsp vanilla paste; or ½ tsp almond extract; or 1 tbsp bourbon or rum</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Related Tools & Guides</h2>
+      <ul>
+        <li><a href="/tools/egg-converter.html">Egg Size Converter</a> — convert between egg sizes in recipes</li>
+        <li><a href="/tools/butter-converter.html">Butter Converter</a> — sticks, cups, grams, tablespoons</li>
+        <li><a href="/tools/cups-to-grams.html">Cups to Grams Converter</a> — convert any ingredient by weight</li>
+        <li><a href="/blog/baking-measurement-mistakes.html">Baking Measurement Mistakes</a> — common errors and how to avoid them</li>
+      </ul>
+
+      <h2>Frequently Asked Questions</h2>
+      <h3>Can I substitute oil for butter in any baking recipe?</h3>
+      <p>In most recipes, yes — use ¾ the amount of oil as butter (e.g. ¾ cup oil for 1 cup butter). Oil produces a moister, denser texture because it's 100% fat compared to butter's ~80%. It works well in muffins, quick breads, and cakes. It doesn't work as a 1:1 substitute in pastry, croissants, or anything that relies on butter for lamination or structure.</p>
+
+      <h3>What's the best egg substitute for baking?</h3>
+      <p>It depends on the role of the egg. For binding (cookies, dense cakes), a flax egg works well — 1 tbsp ground flaxseed mixed with 3 tbsp water, rested 5 minutes. For moisture and lift (muffins, quick breads), ¼ cup unsweetened applesauce per egg is reliable. For meringues and foam, aquafaba (the liquid from canned chickpeas) mimics egg whites closely — use 3 tbsp per white.</p>
+
+      <h3>How do I make a buttermilk substitute?</h3>
+      <p>Add 1 tablespoon of lemon juice or white vinegar to 1 cup of regular milk. Stir briefly and let sit for 5 minutes — the milk will curdle slightly and become acidic, which is what buttermilk does in recipes. Plain yogurt thinned with a little milk also works well.</p>
+
+      <h3>Can I substitute baking soda for baking powder?</h3>
+      <p>Only in specific amounts. Baking soda is about 3–4 times stronger than baking powder. To substitute 1 teaspoon of baking powder, use ¼ teaspoon baking soda plus an acid (½ tsp cream of tartar, or ½ tsp lemon juice). Do not use baking soda alone in a direct 1:1 swap — you'll get a metallic, soapy taste.</p>
+
+      <h3>Is Greek yogurt a good substitute for sour cream?</h3>
+      <p>Yes, full-fat plain Greek yogurt is an excellent 1:1 substitute for sour cream in most baking recipes. It has similar fat content, acidity, and thickness. In dips and toppings, it's also nearly indistinguishable. Low-fat yogurt can work but may produce a slightly tangier, less rich result.</p>
+    </div>
+  </div>
+</main>
+
+<script>
+const SUBS = {
+  "butter": {
+    label: "Butter",
+    unit: "cups",
+    subs: [
+      { name: "Coconut oil", ratio: 1, note: "Best 1:1 substitute. Produces slightly denser texture. Use refined coconut oil to avoid coconut flavor." },
+      { name: "Vegetable oil", ratio: 0.75, note: "Use ¾ the amount of butter. Adds moisture, produces softer crumb. Not suitable for pastry." },
+      { name: "Applesauce (unsweetened)", ratio: 1, note: "1:1 substitute for moisture. Reduces fat significantly. Best in muffins and quick breads — not for cookies or pastry." }
+    ]
+  },
+  "milk": {
+    label: "Whole milk",
+    unit: "cups",
+    subs: [
+      { name: "2% milk", ratio: 1, note: "Closest substitute. Slightly less fat, minimal difference in baked goods." },
+      { name: "Oat milk (unsweetened)", ratio: 1, note: "1:1 substitute. Works well in most baking recipes. Slight sweetness." },
+      { name: "Almond milk (unsweetened)", ratio: 1, note: "1:1 substitute. Lower fat, slightly thinner. Works well in cakes and muffins." },
+      { name: "Coconut milk (full fat)", ratio: 1, note: "Richer than dairy milk. Adds slight coconut flavor. Great in tropical or chocolate recipes." }
+    ]
+  },
+  "buttermilk": {
+    label: "Buttermilk",
+    unit: "cups",
+    subs: [
+      { name: "Milk + lemon juice", ratio: 1, note: "Add 1 tbsp lemon juice per cup of milk. Stir and let sit 5 minutes until slightly curdled. Works in all recipes." },
+      { name: "Milk + white vinegar", ratio: 1, note: "Add 1 tbsp white vinegar per cup of milk. Same as lemon juice method — use whichever you have." },
+      { name: "Plain Greek yogurt (thinned)", ratio: 1, note: "Thin full-fat Greek yogurt with a splash of milk to reach a pourable consistency. Best texture match." }
+    ]
+  },
+  "heavy-cream": {
+    label: "Heavy cream",
+    unit: "cups",
+    subs: [
+      { name: "Whole milk + butter", ratio: 1, note: "Mix ¾ cup whole milk + ¼ cup melted butter per cup needed. Works in sauces and baking — cannot be whipped." },
+      { name: "Full-fat coconut cream", ratio: 1, note: "1:1 substitute. Adds coconut flavor. Can be whipped when cold. Great for dairy-free recipes." },
+      { name: "Half-and-half", ratio: 1, note: "Lower fat, thinner result. Works in soups and sauces. Cannot be whipped." }
+    ]
+  },
+  "sour-cream": {
+    label: "Sour cream",
+    unit: "cups",
+    subs: [
+      { name: "Full-fat plain Greek yogurt", ratio: 1, note: "Best 1:1 substitute in baking and dips. Nearly identical in texture, acidity, and flavor." },
+      { name: "Crème fraîche", ratio: 1, note: "1:1 substitute. Richer and less tangy than sour cream. Works especially well in sauces." },
+      { name: "Plain yogurt (regular)", ratio: 1, note: "Works well but thinner than sour cream. In baking, results are nearly identical." }
+    ]
+  },
+  "egg-whole": {
+    label: "Whole egg",
+    unit: "eggs",
+    subs: [
+      { name: "Flax egg", ratio: 1, note: "Mix 1 tbsp ground flaxseed + 3 tbsp water per egg. Let sit 5 minutes. Best for binding in cookies and dense cakes." },
+      { name: "Unsweetened applesauce", ratio: 0.25, note: "¼ cup per egg. Best in muffins, quick breads, and spiced cakes. Adds moisture and light sweetness.", unitOverride: "cups" },
+      { name: "Aquafaba", ratio: 3, note: "3 tbsp of liquid from canned chickpeas per egg. Best for lift and binding in cakes and cookies.", unitOverride: "tbsp" },
+      { name: "Silken tofu (blended)", ratio: 0.25, note: "¼ cup blended smooth per egg. Best for dense baked goods — brownies, moist cakes.", unitOverride: "cups" }
+    ]
+  },
+  "egg-white": {
+    label: "Egg white",
+    unit: "whites",
+    subs: [
+      { name: "Aquafaba", ratio: 3, note: "3 tbsp liquid from canned chickpeas per egg white. Can be whipped to stiff peaks. Best egg white substitute.", unitOverride: "tbsp" },
+      { name: "Agar powder + water", ratio: 1, note: "1 tbsp agar powder dissolved in 1 tbsp water per white. Good for structure, cannot be whipped.", unitOverride: "tbsp (agar)" }
+    ]
+  },
+  "egg-yolk": {
+    label: "Egg yolk",
+    unit: "yolks",
+    subs: [
+      { name: "Full-fat coconut cream", ratio: 1, note: "1 tbsp per yolk. Adds richness and fat. Best in custards and cream-based recipes.", unitOverride: "tbsp" },
+      { name: "Soy lecithin", ratio: 1, note: "1 tbsp per yolk. Emulsifies like yolk. Works in mayonnaise and emulsified sauces.", unitOverride: "tbsp" }
+    ]
+  },
+  "baking-powder": {
+    label: "Baking powder",
+    unit: "tsp",
+    subs: [
+      { name: "Baking soda + cream of tartar", ratio: 1, note: "Use ¼ tsp baking soda + ½ tsp cream of tartar per 1 tsp baking powder. Most reliable substitute." },
+      { name: "Baking soda + lemon juice", ratio: 1, note: "Use ¼ tsp baking soda + ½ tsp lemon juice per 1 tsp baking powder. May add slight lemon flavor." },
+      { name: "Self-rising flour (partial)", ratio: 1, note: "Replace 1 cup all-purpose flour with self-rising flour and omit 1½ tsp baking powder + ¼ tsp salt per cup." }
+    ]
+  },
+  "baking-soda": {
+    label: "Baking soda",
+    unit: "tsp",
+    subs: [
+      { name: "Baking powder", ratio: 3, note: "Use 3 tsp baking powder per 1 tsp baking soda. The recipe may be slightly less airy and may taste different due to lower sodium." },
+      { name: "Potassium bicarbonate", ratio: 1, note: "1:1 substitute. No sodium. Nearly identical results. Less common to find in stores." }
+    ]
+  },
+  "yeast-active": {
+    label: "Active dry yeast",
+    unit: "tsp",
+    subs: [
+      { name: "Instant/rapid-rise yeast", ratio: 0.75, note: "Use ¾ tsp instant yeast per 1 tsp active dry. Can be mixed directly into dry ingredients — no proofing needed. Faster rise time." },
+      { name: "Fresh yeast", ratio: 3, note: "Use 3 tsp (about 9g) fresh yeast per 1 tsp active dry. Crumble into warm water and proceed as normal." }
+    ]
+  },
+  "cake-flour": {
+    label: "Cake flour",
+    unit: "cups",
+    subs: [
+      { name: "All-purpose flour + cornstarch", ratio: 1, note: "For each 1 cup cake flour: use ¾ cup + 2 tbsp all-purpose flour + 2 tbsp cornstarch. Sift together before using. Produces a tender crumb similar to cake flour." }
+    ]
+  },
+  "self-rising-flour": {
+    label: "Self-rising flour",
+    unit: "cups",
+    subs: [
+      { name: "All-purpose flour + baking powder + salt", ratio: 1, note: "Per 1 cup self-rising flour: use 1 cup all-purpose flour + 1½ tsp baking powder + ¼ tsp salt. Whisk together before using." }
+    ]
+  },
+  "brown-sugar": {
+    label: "Brown sugar",
+    unit: "cups",
+    subs: [
+      { name: "White sugar + molasses (light)", ratio: 1, note: "1 cup white sugar + 1 tbsp molasses = 1 cup light brown sugar. Mix until combined." },
+      { name: "White sugar + molasses (dark)", ratio: 1, note: "1 cup white sugar + 2 tbsp molasses = 1 cup dark brown sugar. Stronger molasses flavor." },
+      { name: "Coconut sugar", ratio: 1, note: "1:1 substitute by volume. Less sweet, caramel-like flavor, lower glycemic index. Works well in most recipes." }
+    ]
+  },
+  "powdered-sugar": {
+    label: "Powdered sugar",
+    unit: "cups",
+    subs: [
+      { name: "Granulated sugar (blended)", ratio: 1, note: "Blend 1 cup granulated sugar in a high-speed blender for 1–2 minutes until fine powder. Add 1 tbsp cornstarch per cup for frosting use." }
+    ]
+  },
+  "vanilla-extract": {
+    label: "Vanilla extract",
+    unit: "tsp",
+    subs: [
+      { name: "Vanilla paste", ratio: 1, note: "1:1 substitute. More intense flavor with visible bean specks. Best for custards, ice cream, and anything where appearance matters." },
+      { name: "Almond extract", ratio: 0.5, note: "Use ½ tsp almond extract per 1 tsp vanilla. Much stronger flavor — use sparingly. Changes the flavor profile noticeably." },
+      { name: "Bourbon or rum", ratio: 1, note: "1 tbsp per 1 tsp vanilla extract. Adds warm, complex flavor. Alcohol mostly cooks off during baking." }
+    ]
+  },
+  "cornstarch": {
+    label: "Cornstarch (as thickener)",
+    unit: "tbsp",
+    subs: [
+      { name: "All-purpose flour", ratio: 2, note: "Use 2 tbsp flour per 1 tbsp cornstarch. Creates a cloudier sauce, slightly heavier texture. Mix with cold water before adding to hot liquid." },
+      { name: "Arrowroot powder", ratio: 2, note: "Use 2 tsp arrowroot per 1 tbsp cornstarch. Clear, glossy result. Doesn't hold well when reheated.", unitOverride: "tsp" },
+      { name: "Tapioca starch", ratio: 2, note: "Use 2 tsp tapioca starch per 1 tbsp cornstarch. Produces a glossy, slightly stretchy gel. Great for fruit pie fillings.", unitOverride: "tsp" }
+    ]
+  },
+  "lemon-juice": {
+    label: "Lemon juice",
+    unit: "tbsp",
+    subs: [
+      { name: "White wine vinegar", ratio: 0.5, note: "Use ½ tbsp white wine vinegar per 1 tbsp lemon juice. Similar acidity, no citrus flavor." },
+      { name: "Apple cider vinegar", ratio: 0.5, note: "Use ½ tbsp ACV per 1 tbsp lemon juice. Slight apple flavor, good in dressings and marinades." },
+      { name: "Lime juice", ratio: 1, note: "1:1 substitute. Similar acidity and citrus character. Changes flavor slightly but works in most recipes." }
+    ]
+  }
+};
+
+function updateResult() {
+  const sel = document.getElementById('ingredient').value;
+  const amtGroup = document.getElementById('amountGroup');
+  const resultDiv = document.getElementById('result');
+
+  if (!sel) {
+    amtGroup.style.display = 'none';
+    resultDiv.style.display = 'none';
+    return;
+  }
+
+  const data = SUBS[sel];
+  document.getElementById('amountLabel').textContent = `Amount (${data.unit})`;
+  amtGroup.style.display = 'block';
+
+  const amt = parseFloat(document.getElementById('amount').value);
+  if (!amt || amt <= 0) {
+    resultDiv.style.display = 'none';
+    return;
+  }
+
+  const title = document.getElementById('resultTitle');
+  const content = document.getElementById('resultContent');
+
+  title.textContent = `Substitutes for ${formatAmount(amt)} ${data.unit} of ${data.label}`;
+
+  let html = '';
+  data.subs.forEach(s => {
+    const subAmt = amt * s.ratio;
+    const unit = s.unitOverride || data.unit;
+    html += `
+      <div style="margin-bottom:1.25rem; padding-bottom:1.25rem; border-bottom:1px solid var(--border);">
+        <strong style="color:var(--tomato-dark);">${s.name}</strong>
+        <div style="margin-top:0.25rem;">Use <strong>${formatAmount(subAmt)} ${unit}</strong></div>
+        <p style="margin-top:0.4rem; font-size:0.9rem; color:var(--mid);">${s.note}</p>
+      </div>`;
+  });
+  content.innerHTML = html;
+  resultDiv.style.display = 'block';
+}
+
+function formatAmount(n) {
+  if (n === Math.round(n)) return n.toString();
+  const fracs = [[0.25,'¼'],[0.333,'⅓'],[0.5,'½'],[0.667,'⅔'],[0.75,'¾']];
+  const whole = Math.floor(n);
+  const dec = n - whole;
+  let fracStr = '';
+  for (const [val, sym] of fracs) {
+    if (Math.abs(dec - val) < 0.05) { fracStr = sym; break; }
+  }
+  if (!fracStr) return n.toFixed(2);
+  return (whole > 0 ? whole + ' ' : '') + fracStr;
+}
+</script>
+</body>
+</html>

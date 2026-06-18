@@ -49,3 +49,7 @@ CookingCalcs covers unit conversion, recipe scaling, cooking times and temperatu
 - [How Many Eggs in a Cup?](https://cookingcalcs.com/blog/how-many-eggs-in-a-cup.html): Exact egg counts per cup by size for whole eggs, whites, and yolks — with volume measurement guide.
 - [How to Cut a Recipe in Half](https://cookingcalcs.com/blog/how-to-reduce-a-recipe-by-half.html): Complete halving guide with chart for every measurement, plus eggs, leavening, and pan size adjustments.
 - [How Long to Cook Pork Chops](https://cookingcalcs.com/blog/how-long-to-cook-pork-chops.html): Exact cook times by thickness and method — oven, pan, air fryer, grill — with internal temperature guidance.
+- [Baking Substitutions Calculator](https://cookingcalcs.com/tools/baking-substitutions.html): Find exact substitutes for butter, eggs, milk, buttermilk, baking powder, and more with precise amounts.
+- [How Many Grams in a Cup of Sugar?](https://cookingcalcs.com/blog/how-many-grams-in-a-cup-of-sugar.html): Exact gram weights for granulated, brown, powdered, and coconut sugar with full conversion tables.
+- [How Long to Cook Bacon](https://cookingcalcs.com/blog/how-long-to-cook-bacon.html): Exact cook times for bacon by method and thickness — oven, stovetop, and air fryer — with doneness guide.
+- [How Long to Cook Steak](https://cookingcalcs.com/blog/how-long-to-cook-steak.html): Steak cook times by thickness and doneness — pan-sear, grill, and oven — with internal temperature guide.

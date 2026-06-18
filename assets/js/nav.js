@@ -33,6 +33,7 @@ const TOOLS = [
   { name: "Cost Per Serving", url: "/tools/cost-per-serving.html" },
   { name: "Liquid Converter", url: "/tools/liquid-converter.html" },
   { name: "Butter Converter", url: "/tools/butter-converter.html" },
+  { name: "Baking Substitutions", url: "/tools/baking-substitutions.html" },
 ];
 
 const BLOGS = [
@@ -59,8 +60,11 @@ const BLOGS = [
   { name: "How to Substitute Egg Sizes in Recipes", url: "/blog/how-to-substitute-egg-sizes.html", desc: "Learn how to substitute medium, large, extra-large, and jumbo eggs in any recipe. Includes a conversion chart.", date: "2026-06-07" },
   { name: "How Long to Cook Ground Beef", url: "/blog/how-long-to-cook-ground-beef.html", desc: "Exact cook times for ground beef on the stovetop, in the oven, and in the air fryer.", date: "2026-06-07" },
   { name: "What Is a Serving Size? A Practical Guide", url: "/blog/what-is-a-serving-size.html", desc: "What does a serving size actually mean? Learn how to estimate serving sizes and how it affects your cost per serving.", date: "2026-06-07" },
-  { name: "Tablespoons to Teaspoons: Full Conversion Guide", url: "/blog/tablespoon-to-teaspoon-guide.html", desc: "Simple conversions between tablespoons, teaspoons, and milliliters for any recipe.", date: "2026-06-12" },
-  { name: "How to Reduce a Recipe to Fewer Servings", url: "/blog/how-to-reduce-a-recipe.html", desc: "Step-by-step guide to scaling down any recipe for 1 or 2 people. Covers eggs, leavening, pan size, and cook time.", date: "2026-06-12" },
+  { name: "Tablespoons to Teaspoons: Full Conversion Guide", url: "/blog/tablespoon-to-teaspoon-guide.html", desc: "Simple conversions between tablespoons, teaspoons, and milliliters for any recipe.", date: "2026-06-18" },
+  { name: "How to Reduce a Recipe to Fewer Servings", url: "/blog/how-to-reduce-a-recipe.html", desc: "Step-by-step guide to scaling down any recipe for 1 or 2 people. Covers eggs, leavening, pan size, cook time, and the ingredients you can't just divide.", date: "2026-06-18" },
+  { name: "How Many Grams in a Cup of Sugar?", url: "/blog/how-many-grams-in-a-cup-of-sugar.html", desc: "Exact gram weights for granulated, brown, powdered, and coconut sugar by cup. Includes a full conversion table for every common sugar type.", date: "2026-06-18" },
+  { name: "How Long to Cook Bacon", url: "/blog/how-long-to-cook-bacon.html", desc: "Exact cook times for bacon by method and thickness — oven, stovetop, and air fryer. Includes temperature guide and tips for crispy or chewy results.", date: "2026-06-18" },
+  { name: "How Long to Cook Steak", url: "/blog/how-long-to-cook-steak.html", desc: "Exact steak cook times by thickness, doneness level, and method — pan-sear, oven, and grill. Includes internal temperature guide for rare through well-done.", date: "2026-06-18" },
   { name: "How Many Eggs in a Cup?", url: "/blog/how-many-eggs-in-a-cup.html", desc: "4 large eggs = 1 cup. Exact egg counts by size for whole eggs, whites, and yolks — plus how to measure eggs by volume.", date: "2026-06-12" },
   { name: "How to Cut a Recipe in Half", url: "/blog/how-to-reduce-a-recipe-by-half.html", desc: "How to halve any recipe: exact amounts for eggs, leavening, spices, and canned goods. With a complete halving chart.", date: "2026-06-12" },
   { name: "How Long to Cook Pork Chops", url: "/blog/how-long-to-cook-pork-chops.html", desc: "Exact cook times for pork chops by thickness and method — oven, pan, air fryer, and grill. Plus the safe internal temperature.", date: "2026-06-12" },

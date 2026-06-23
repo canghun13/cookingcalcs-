@@ -53,3 +53,7 @@ CookingCalcs covers unit conversion, recipe scaling, cooking times and temperatu
 - [How Many Grams in a Cup of Sugar?](https://cookingcalcs.com/blog/how-many-grams-in-a-cup-of-sugar.html): Exact gram weights for granulated, brown, powdered, and coconut sugar with full conversion tables.
 - [How Long to Cook Bacon](https://cookingcalcs.com/blog/how-long-to-cook-bacon.html): Exact cook times for bacon by method and thickness — oven, stovetop, and air fryer — with doneness guide.
 - [How Long to Cook Steak](https://cookingcalcs.com/blog/how-long-to-cook-steak.html): Steak cook times by thickness and doneness — pan-sear, grill, and oven — with internal temperature guide.
+- [How Many Grams in a Cup of Oats?](https://cookingcalcs.com/blog/how-many-grams-in-a-cup-of-oats.html): Exact gram weights for rolled, quick, steel-cut, and instant oats — dry and cooked — with full conversion table.
+- [How Many Cups in a Pound of Sugar?](https://cookingcalcs.com/blog/how-many-cups-in-a-pound-of-sugar.html): Cup counts per pound for granulated, brown, powdered, and coconut sugar with a full conversion table.
+- [How Long to Cook Lamb Chops](https://cookingcalcs.com/blog/how-long-to-cook-lamb-chops.html): Exact lamb chop cook times by method and doneness — pan-sear, oven, grill, and air fryer — with internal temperature guide.
+- [Cups to Tablespoons Converter](https://cookingcalcs.com/tools/cups-to-tablespoons.html): Convert cups to tablespoons, teaspoons, and milliliters instantly. 1 cup = 16 tablespoons.

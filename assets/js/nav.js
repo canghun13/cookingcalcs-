@@ -34,6 +34,7 @@ const TOOLS = [
   { name: "Liquid Converter", url: "/tools/liquid-converter.html" },
   { name: "Butter Converter", url: "/tools/butter-converter.html" },
   { name: "Baking Substitutions", url: "/tools/baking-substitutions.html" },
+  { name: "Cups to Tablespoons", url: "/tools/cups-to-tablespoons.html" },
 ];
 
 const BLOGS = [
@@ -68,6 +69,9 @@ const BLOGS = [
   { name: "How Many Eggs in a Cup?", url: "/blog/how-many-eggs-in-a-cup.html", desc: "4 large eggs = 1 cup. Exact egg counts by size for whole eggs, whites, and yolks — plus how to measure eggs by volume.", date: "2026-06-12" },
   { name: "How to Cut a Recipe in Half", url: "/blog/how-to-reduce-a-recipe-by-half.html", desc: "How to halve any recipe: exact amounts for eggs, leavening, spices, and canned goods. With a complete halving chart.", date: "2026-06-12" },
   { name: "How Long to Cook Pork Chops", url: "/blog/how-long-to-cook-pork-chops.html", desc: "Exact cook times for pork chops by thickness and method — oven, pan, air fryer, and grill. Plus the safe internal temperature.", date: "2026-06-12" },
+  { name: "How Many Grams in a Cup of Oats?", url: "/blog/how-many-grams-in-a-cup-of-oats.html", desc: "1 cup of rolled oats = 90g. Exact gram weights for rolled, quick, steel-cut, and instant oats — dry and cooked. Includes a full conversion table.", date: "2026-06-23" },
+  { name: "How Many Cups in a Pound of Sugar?", url: "/blog/how-many-cups-in-a-pound-of-sugar.html", desc: "1 pound of granulated sugar = 2¼ cups. Exact cup counts for brown, powdered, and coconut sugar per pound, with a full conversion table for baking.", date: "2026-06-23" },
+  { name: "How Long to Cook Lamb Chops", url: "/blog/how-long-to-cook-lamb-chops.html", desc: "Exact lamb chop cook times by method and doneness — pan-sear, oven, grill, and air fryer. Internal temperature guide for rare through well-done.", date: "2026-06-23" },
 ];
 
 
@@ -95,13 +99,7 @@ document.addEventListener('DOMContentLoaded', function () {
               ${toolItems || '<li class="nav-empty">Coming soon</li>'}
             </ul>
           </li>
-          <li class="nav-has-dropdown">
-            <button class="nav-link nav-btn" aria-expanded="false">Blog ▾</button>
-            <ul class="nav-dropdown nav-dropdown--right">
-              <li><a href="/blog/" class="nav-dropdown-all">View All Posts →</a></li>
-              ${blogItems || '<li class="nav-empty">Coming soon</li>'}
-            </ul>
-          </li>
+          <li><a href="/blog/" class="nav-link">Blog</a></li>
           <li><a href="/about.html" class="nav-link">About</a></li>
         </ul>
       </nav>

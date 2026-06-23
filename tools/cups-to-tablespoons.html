@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cups to Tablespoons Converter – Free & Instant – CookingCalcs</title>
+  <meta name="description" content="Convert cups to tablespoons instantly. 1 cup = 16 tablespoons. Enter any amount and get tablespoons, teaspoons, and ml. Free kitchen conversion tool.">
+  <link rel="canonical" href="https://cookingcalcs.com/tools/cups-to-tablespoons.html">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script src="/assets/js/nav.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Cups to Tablespoons Converter",
+  "url": "https://cookingcalcs.com/tools/cups-to-tablespoons.html",
+  "description": "Convert cups to tablespoons, teaspoons, and milliliters instantly. 1 cup = 16 tablespoons. Free kitchen conversion tool.",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "provider": { "@type": "Organization", "name": "CookingCalcs", "url": "https://cookingcalcs.com" }
+}
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+</head>
+<body>
+<main>
+  <div class="tool-page">
+    <h1>Cups to Tablespoons Converter</h1>
+    <p class="tool-desc">Convert cups to tablespoons, teaspoons, and milliliters instantly. 1 cup = 16 tablespoons = 48 teaspoons = 240ml.</p>
+
+    <div class="tool-box">
+      <div class="form-group">
+        <label for="amount">Amount</label>
+        <input type="number" id="amount" min="0" step="0.125" value="1" oninput="convert()">
+      </div>
+      <div class="form-group">
+        <label for="fromUnit">Convert from</label>
+        <select id="fromUnit" onchange="convert()">
+          <option value="cup">Cup</option>
+          <option value="tbsp">Tablespoon (tbsp)</option>
+          <option value="tsp">Teaspoon (tsp)</option>
+          <option value="ml">Milliliter (ml)</option>
+          <option value="floz">Fluid Ounce (fl oz)</option>
+        </select>
+      </div>
+
+      <div id="results" style="display:none; margin-top:1.5rem;">
+        <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:1rem;">
+          <div class="result-box"><div class="result-num" id="rCup"></div><div class="result-label">Cups</div></div>
+          <div class="result-box"><div class="result-num" id="rTbsp"></div><div class="result-label">Tablespoons</div></div>
+          <div class="result-box"><div class="result-num" id="rTsp"></div><div class="result-label">Teaspoons</div></div>
+          <div class="result-box"><div class="result-num" id="rMl"></div><div class="result-label">Milliliters</div></div>
+        </div>
+      </div>
+    </div>
+
+    <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin:2rem 0 1rem;">Cups to Tablespoons Reference Chart</h2>
+    <div style="overflow-x:auto;">
+      <table style="width:100%; border-collapse:collapse; font-size:0.9rem; background:#fff; border-radius:12px; overflow:hidden;">
+        <thead>
+          <tr style="background:var(--sand-dark);">
+            <th style="padding:0.75rem 1rem; text-align:left; border-bottom:1px solid var(--border);">Cups</th>
+            <th style="padding:0.75rem 1rem; text-align:center; border-bottom:1px solid var(--border);">Tablespoons</th>
+            <th style="padding:0.75rem 1rem; text-align:center; border-bottom:1px solid var(--border);">Teaspoons</th>
+            <th style="padding:0.75rem 1rem; text-align:center; border-bottom:1px solid var(--border);">Milliliters</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">⅛ cup</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">2 tbsp</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">6 tsp</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">30 ml</td></tr>
+          <tr style="background:var(--sand);"><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">¼ cup</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">4 tbsp</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">12 tsp</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">60 ml</td></tr>
+          <tr><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">⅓ cup</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">5 tbsp + 1 tsp</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">16 tsp</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">79 ml</td></tr>
+          <tr style="background:var(--sand);"><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">½ cup</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">8 tbsp</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">24 tsp</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">120 ml</td></tr>
+          <tr><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">⅔ cup</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">10 tbsp + 2 tsp</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">32 tsp</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">158 ml</td></tr>
+          <tr style="background:var(--sand);"><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">¾ cup</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">12 tbsp</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">36 tsp</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">180 ml</td></tr>
+          <tr><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">1 cup</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">16 tbsp</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">48 tsp</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">240 ml</td></tr>
+          <tr style="background:var(--sand);"><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">1½ cups</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">24 tbsp</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">72 tsp</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">360 ml</td></tr>
+          <tr><td style="padding:0.65rem 1rem;">2 cups</td><td style="text-align:center; padding:0.65rem;">32 tbsp</td><td style="text-align:center; padding:0.65rem;">96 tsp</td><td style="text-align:center; padding:0.65rem;">480 ml</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="margin-top:3rem; padding:1.5rem; background:var(--tomato-light); border-radius:var(--radius-lg);">
+      <h3 style="font-family:'Playfair Display',serif; margin-bottom:0.75rem;">Related Tools & Guides</h3>
+      <ul style="list-style:none; display:flex; flex-direction:column; gap:0.5rem;">
+        <li><a href="/tools/tablespoon-to-teaspoon.html" style="color:var(--tomato-dark); font-weight:500;">→ Tablespoon to Teaspoon Converter</a></li>
+        <li><a href="/tools/liquid-converter.html" style="color:var(--tomato-dark); font-weight:500;">→ Liquid Converter</a></li>
+        <li><a href="/blog/tablespoon-to-teaspoon-guide.html" style="color:var(--tomato-dark); font-weight:500;">→ Tablespoons to Teaspoons: Full Guide</a></li>
+        <li><a href="/blog/cooking-measurement-guide.html" style="color:var(--tomato-dark); font-weight:500;">→ Complete Cooking Measurement Guide</a></li>
+      </ul>
+    </div>
+
+    <div class="blog-content" style="margin-top:3rem;">
+      <h2>How to Use This Converter</h2>
+      <p>Enter an amount, choose your starting unit, and the converter shows the equivalent in cups, tablespoons, teaspoons, and milliliters instantly. Works in both directions — convert cups to tablespoons or tablespoons back to cups.</p>
+
+      <h2>How Many Tablespoons in a Cup?</h2>
+      <p>There are 16 tablespoons in 1 US cup. This is one of the most useful kitchen conversions for scaling recipes when you're missing the right measuring cup. Quarter cup is 4 tablespoons, third cup is 5 tablespoons plus 1 teaspoon, and half cup is 8 tablespoons.</p>
+
+      <h2>Why ⅓ Cup Is an Odd Number of Tablespoons</h2>
+      <p>Most cup fractions divide evenly into tablespoons — except ⅓ cup. Because 16 tablespoons doesn't divide evenly by 3, one third of a cup equals 5 tablespoons plus 1 teaspoon (5.333 tablespoons). Similarly, ⅔ cup = 10 tablespoons plus 2 teaspoons. This is why recipes sometimes list ⅓ cup rather than trying to express it in tablespoons.</p>
+
+      <h2>Frequently Asked Questions</h2>
+      <h3>How many tablespoons is ¼ cup?</h3>
+      <p>¼ cup equals exactly 4 tablespoons. This is one of the most useful conversions to memorize — it comes up frequently in recipes that call for a small amount of butter, oil, or liquid that you'd rather measure with a tablespoon than a quarter-cup measure.</p>
+
+      <h3>How many tablespoons is ½ cup?</h3>
+      <p>½ cup equals 8 tablespoons. Half of 16 is 8, making this one of the easier conversions. For butter, ½ cup is also 1 stick of US butter (113g).</p>
+
+      <h3>How many tablespoons is ¾ cup?</h3>
+      <p>¾ cup equals 12 tablespoons. Three-quarters of 16 is 12. In teaspoons, that's 36 teaspoons — but at that volume it's more practical to use tablespoons or the ¾ cup measure directly.</p>
+
+      <h3>Are cups and tablespoons the same in all countries?</h3>
+      <p>No. This converter uses US measurements: 1 US cup = 240ml, 1 US tablespoon = 15ml, so 1 cup = 16 tablespoons. Australian tablespoons are 20ml, making 1 cup about 12 Australian tablespoons. UK and Canadian cups are also slightly different. For international recipes, check which country's measurements the recipe uses.</p>
+    </div>
+  </div>
+</main>
+
+<script>
+const toMl = { cup: 240, tbsp: 14.787, tsp: 4.929, ml: 1, floz: 29.574 };
+
+function round(n) {
+  if (n === 0) return '0';
+  if (n < 0.01) return n.toFixed(4);
+  return Math.round(n * 100) / 100;
+}
+
+function convert() {
+  const amount = parseFloat(document.getElementById('amount').value);
+  const from = document.getElementById('fromUnit').value;
+  if (isNaN(amount) || amount < 0) { document.getElementById('results').style.display = 'none'; return; }
+
+  const ml = amount * toMl[from];
+  document.getElementById('rCup').textContent = round(ml / toMl.cup) + ' cup';
+  document.getElementById('rTbsp').textContent = round(ml / toMl.tbsp) + ' tbsp';
+  document.getElementById('rTsp').textContent = round(ml / toMl.tsp) + ' tsp';
+  document.getElementById('rMl').textContent = round(ml) + ' ml';
+  document.getElementById('results').style.display = 'block';
+}
+
+document.addEventListener('DOMContentLoaded', convert);
+</script>
+</body>
+</html>

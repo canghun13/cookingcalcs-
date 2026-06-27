@@ -93,12 +93,7 @@ document.addEventListener('DOMContentLoaded', function () {
       <nav class="main-nav" id="mainNav">
         <ul class="nav-list">
           <li><a href="/" class="nav-link">Home</a></li>
-          <li class="nav-has-dropdown">
-            <button class="nav-link nav-btn" aria-expanded="false">Tools ▾</button>
-            <ul class="nav-dropdown">
-              ${toolItems || '<li class="nav-empty">Coming soon</li>'}
-            </ul>
-          </li>
+          <li><a href="/tools/" class="nav-link">Tools</a></li>
           <li><a href="/blog/" class="nav-link">Blog</a></li>
           <li><a href="/about.html" class="nav-link">About</a></li>
         </ul>
@@ -116,6 +111,7 @@ document.addEventListener('DOMContentLoaded', function () {
       <li class="nav-has-dropdown">
         <button class="nav-link nav-btn" aria-expanded="false">Tools ▾</button>
         <ul class="nav-dropdown">
+          <li><a href="/tools/" class="nav-dropdown-all">View All Tools →</a></li>
           ${toolItems || '<li class="nav-empty">Coming soon</li>'}
         </ul>
       </li>
@@ -143,6 +139,7 @@ document.addEventListener('DOMContentLoaded', function () {
           <h4>Tools</h4>
           <ul>
             ${TOOLS.slice(0, 6).map(t => `<li><a href="${t.url}">${t.name}</a></li>`).join('') || '<li>Coming soon</li>'}
+            <li><a href="/tools/">View All Tools →</a></li>
           </ul>
         </div>
         <div class="footer-col">

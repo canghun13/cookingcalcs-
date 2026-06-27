@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Cooking Calculators & Kitchen Tools – CookingCalcs</title>
+  <meta name="description" content="14 free cooking calculators for measurement conversions, recipe scaling, cooking times, and meal cost. No signup required.">
+  <link rel="canonical" href="https://cookingcalcs.com/tools/">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script src="/assets/js/nav.js" defer></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+<style>
+  .tool-search-wrap {
+    max-width: 520px;
+    margin: 0 auto 2rem;
+    position: relative;
+  }
+  .tool-search-wrap input {
+    width: 100%;
+    padding: 0.85rem 1rem 0.85rem 2.75rem;
+    font-size: 1rem;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-lg);
+    background: var(--white);
+    color: var(--ink);
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .tool-search-wrap input:focus {
+    border-color: var(--tomato);
+    box-shadow: 0 0 0 3px rgba(210,60,40,0.1);
+  }
+  .tool-search-wrap input::placeholder { color: var(--muted); }
+  .tool-search-icon {
+    position: absolute;
+    left: 0.9rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--muted);
+    pointer-events: none;
+    font-size: 1rem;
+  }
+  .tool-search-count {
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-bottom: 1.5rem;
+    min-height: 1.2em;
+  }
+  .tool-no-results {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: var(--muted);
+    font-size: 0.95rem;
+    display: none;
+  }
+</style>
+</head>
+<body>
+
+<main>
+  <section class="section">
+    <h1 class="section-title">Cooking Calculators</h1>
+    <p class="section-sub">Free kitchen tools for conversions, recipe scaling, cook times, and meal costs.</p>
+
+    <div class="tool-search-wrap">
+      <span class="tool-search-icon">🔍</span>
+      <input type="text" id="toolSearch" placeholder="Search tools…" autocomplete="off" spellcheck="false">
+    </div>
+    <p class="tool-search-count" id="toolCount"></p>
+
+    <div class="tools-grid" id="tool-list"></div>
+    <p class="tool-no-results" id="toolNoResults">No tools found for "<span id="toolNoResultsQuery"></span>". Try a different keyword.</p>
+  </section>
+</main>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const input = document.getElementById('toolSearch');
+  const countEl = document.getElementById('toolCount');
+  const noResults = document.getElementById('toolNoResults');
+  const noResultsQuery = document.getElementById('toolNoResultsQuery');
+  const grid = document.getElementById('tool-list');
+
+  const TOOL_ICONS = {
+    '/tools/cups-to-grams.html': '⚖️',
+    '/tools/oven-temp-converter.html': '🌡️',
+    '/tools/tablespoon-to-teaspoon.html': '🥄',
+    '/tools/weight-converter.html': '⚖️',
+    '/tools/egg-converter.html': '🥚',
+    '/tools/recipe-multiplier.html': '✖️',
+    '/tools/cooking-time-calculator.html': '⏱️',
+    '/tools/meat-temperature-guide.html': '🥩',
+    '/tools/meal-cost-calculator.html': '💰',
+    '/tools/cost-per-serving.html': '🍽️',
+    '/tools/liquid-converter.html': '💧',
+    '/tools/butter-converter.html': '🧈',
+    '/tools/baking-substitutions.html': '🔄',
+    '/tools/cups-to-tablespoons.html': '🥄',
+  };
+
+  function renderCards(list) {
+    if (!list.length) {
+      grid.innerHTML = '';
+      noResultsQuery.textContent = input.value.trim();
+      noResults.style.display = 'block';
+      countEl.textContent = '';
+      return;
+    }
+    noResults.style.display = 'none';
+    const total = typeof TOOLS !== 'undefined' ? TOOLS.length : list.length;
+    const q = input.value.trim();
+    countEl.textContent = q
+      ? `${list.length} of ${total} tools`
+      : `${total} tools`;
+
+    grid.innerHTML = list.map(t => {
+      const icon = TOOL_ICONS[t.url] || '🍳';
+      return `
+        <a href="${t.url}" class="tool-card">
+          <div class="tool-card-icon">${icon}</div>
+          <h3>${t.name}</h3>
+          <span class="tool-card-arrow">Use tool →</span>
+        </a>`;
+    }).join('');
+  }
+
+  function filterTools(q) {
+    if (typeof TOOLS === 'undefined') return [];
+    if (!q) return TOOLS;
+    const lower = q.toLowerCase();
+    return TOOLS.filter(t => t.name.toLowerCase().includes(lower));
+  }
+
+  renderCards(filterTools(''));
+
+  input.addEventListener('input', function () {
+    renderCards(filterTools(this.value.trim()));
+  });
+});
+</script>
+
+</body>
+</html>

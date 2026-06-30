@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Raw to Cooked Weight Converter – Free & Instant – CookingCalcs</title>
+  <meta name="description" content="Convert raw meat, rice, and pasta weight to cooked weight (or back). Accounts for shrinkage and water absorption by food type. Free, no signup.">
+  <link rel="canonical" href="https://cookingcalcs.com/tools/raw-to-cooked-weight.html">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script src="/assets/js/nav.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Raw to Cooked Weight Converter",
+  "url": "https://cookingcalcs.com/tools/raw-to-cooked-weight.html",
+  "description": "Convert raw meat, rice, and pasta weight to cooked weight, or cooked back to raw. Accounts for shrinkage and water absorption by food type.",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "provider": { "@type": "Organization", "name": "CookingCalcs", "url": "https://cookingcalcs.com" }
+}
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+</head>
+<body>
+<main>
+  <div class="tool-page">
+    <h1>Raw to Cooked Weight Converter</h1>
+    <p class="tool-desc">Convert raw weight to cooked weight (or cooked back to raw) for meat, rice, and pasta. Meat shrinks during cooking; rice and pasta absorb water and grow.</p>
+
+    <div class="tool-card-inner">
+      <div class="form-group">
+        <label for="foodType">Food Type</label>
+        <select id="foodType" onchange="convert()">
+          <option value="chicken">Chicken Breast</option>
+          <option value="groundbeef">Ground Beef</option>
+          <option value="steak">Beef Steak</option>
+          <option value="pork">Pork Chop</option>
+          <option value="salmon">Salmon</option>
+          <option value="shrimp">Shrimp</option>
+          <option value="bacon">Bacon</option>
+          <option value="rice">White Rice</option>
+          <option value="pasta">Pasta</option>
+          <option value="oats">Oats</option>
+        </select>
+      </div>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1.5rem;">
+        <div class="form-group">
+          <label for="amount">Amount</label>
+          <input type="number" id="amount" min="0" step="any" value="100" oninput="convert()">
+        </div>
+        <div class="form-group">
+          <label for="unit">Unit</label>
+          <select id="unit" onchange="convert()">
+            <option value="g">grams (g)</option>
+            <option value="oz">ounces (oz)</option>
+            <option value="lb">pounds (lb)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="direction">Convert</label>
+        <select id="direction" onchange="convert()">
+          <option value="rawToCooked">Raw → Cooked</option>
+          <option value="cookedToRaw">Cooked → Raw</option>
+        </select>
+      </div>
+
+      <div id="results" style="margin-top:1.5rem;">
+        <div class="result-box" style="text-align:center;">
+          <div class="result-num" id="rResult"></div>
+          <div class="result-label" id="rLabel"></div>
+        </div>
+        <p id="rNote" style="text-align:center; color:var(--muted); font-size:0.85rem; margin-top:0.75rem;"></p>
+      </div>
+    </div>
+
+    <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin:2rem 0 1rem;">Shrinkage & Yield Factors by Food</h2>
+    <div style="overflow-x:auto;">
+      <table style="width:100%; border-collapse:collapse; font-size:0.9rem; background:#fff; border-radius:12px; overflow:hidden;">
+        <thead>
+          <tr style="background:var(--sand-dark);">
+            <th style="padding:0.75rem 1rem; text-align:left; border-bottom:1px solid var(--border);">Food</th>
+            <th style="padding:0.75rem 1rem; text-align:center; border-bottom:1px solid var(--border);">Change</th>
+            <th style="padding:0.75rem 1rem; text-align:center; border-bottom:1px solid var(--border);">100g raw becomes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">Chicken breast</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">−25%</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">75g cooked</td></tr>
+          <tr style="background:var(--sand);"><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">Ground beef</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">−25%</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">75g cooked</td></tr>
+          <tr><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">Beef steak</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">−27%</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">73g cooked</td></tr>
+          <tr style="background:var(--sand);"><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">Pork chop</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">−25%</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">75g cooked</td></tr>
+          <tr><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">Salmon</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">−20%</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">80g cooked</td></tr>
+          <tr style="background:var(--sand);"><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">Shrimp</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">−15%</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">85g cooked</td></tr>
+          <tr><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">Bacon</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">−50%</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">50g cooked</td></tr>
+          <tr style="background:var(--sand);"><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">White rice</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">+200%</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">300g cooked</td></tr>
+          <tr><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">Pasta</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">+120%</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">220g cooked</td></tr>
+          <tr style="background:var(--sand);"><td style="padding:0.65rem 1rem;">Oats</td><td style="text-align:center; padding:0.65rem;">+140%</td><td style="text-align:center; padding:0.65rem;">240g cooked</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="margin-top:3rem; padding:1.5rem; background:var(--tomato-light); border-radius:var(--radius-lg);">
+      <h3 style="font-family:'Playfair Display',serif; margin-bottom:0.75rem;">Related Tools & Guides</h3>
+      <ul style="list-style:none; display:flex; flex-direction:column; gap:0.5rem;">
+        <li><a href="/tools/meat-temperature-guide.html" style="color:var(--tomato-dark); font-weight:500;">→ Meat Temperature Guide</a></li>
+        <li><a href="/tools/weight-converter.html" style="color:var(--tomato-dark); font-weight:500;">→ Weight Converter (g, oz, lb, kg)</a></li>
+        <li><a href="/blog/how-long-to-cook-chicken-breast.html" style="color:var(--tomato-dark); font-weight:500;">→ How Long to Cook Chicken Breast</a></li>
+        <li><a href="/blog/how-many-grams-in-a-cup-of-rice.html" style="color:var(--tomato-dark); font-weight:500;">→ How Many Grams in a Cup of Rice?</a></li>
+      </ul>
+    </div>
+
+    <div class="blog-content" style="margin-top:3rem;">
+      <h2>How to Use This Converter</h2>
+      <p>Select your food type, enter the raw or cooked weight, choose the unit, and pick a direction (raw to cooked or cooked to raw). The converter applies the typical shrinkage or expansion percentage for that food and shows the result instantly.</p>
+
+      <h2>Why Weight Changes When You Cook</h2>
+      <p>Meat loses weight during cooking because heat causes moisture and some fat to escape — this is called cooking loss or shrinkage. The amount varies by fat content, cooking method, and temperature. Leaner cuts and higher heat generally cause more moisture loss. Grains and pasta work the opposite way: they absorb water as they cook, which is why a cup of dry rice becomes roughly three cups of cooked rice.</p>
+      <p>These conversion factors are estimates based on standard cooking methods (pan-searing, roasting, boiling). Actual results vary with cooking time, temperature, and whether the food is covered or marinated.</p>
+
+      <h2>Why This Matters for Recipes and Macro Tracking</h2>
+      <p>If a recipe lists "8oz raw chicken breast" but you only have cooked chicken on hand, this converter tells you the cooked weight to expect — useful for portioning and meal prep. For calorie and macro tracking, nutrition labels are almost always based on raw weight, so weighing food cooked and looking up raw nutrition values without converting first will overstate calorie density. Converting cooked weight back to its raw equivalent gives a more accurate macro count.</p>
+
+      <h2>Frequently Asked Questions</h2>
+      <h3>How much weight does chicken lose when cooked?</h3>
+      <p>Chicken breast loses approximately 25% of its weight when cooked, regardless of method (baked, grilled, or pan-seared). 100g raw chicken breast yields about 75g cooked. This is the most commonly cited shrinkage figure and is consistent across USDA nutrition data.</p>
+
+      <h3>Why does rice weigh more after cooking?</h3>
+      <p>Rice absorbs water as it cooks, roughly tripling in weight. 100g of dry white rice becomes approximately 300g cooked. The calories and nutrients stay the same — the rice just contains more water, making it less calorie-dense per gram than the dry version.</p>
+
+      <h3>Should I weigh meat raw or cooked for tracking calories?</h3>
+      <p>Weighing raw is more accurate because nutrition databases (including USDA data) are almost always based on raw weight. If you only have cooked meat, use this converter to estimate the raw equivalent before looking up nutrition information, or look specifically for "cooked" nutrition entries if your tracking app provides them.</p>
+
+      <h3>Does cooking method affect how much weight is lost?</h3>
+      <p>Yes, somewhat. Grilling and high-heat methods tend to cause slightly more moisture loss than slow, moist-heat methods like braising or poaching. The percentages in this tool reflect typical results for common methods (roasting, pan-searing, boiling) and are accurate enough for everyday cooking and meal planning, though not for laboratory-precise tracking.</p>
+    </div>
+  </div>
+</main>
+
+<script>
+const FACTORS = {
+  chicken: 0.75, groundbeef: 0.75, steak: 0.73, pork: 0.75,
+  salmon: 0.80, shrimp: 0.85, bacon: 0.50,
+  rice: 3.0, pasta: 2.2, oats: 2.4
+};
+const FOOD_NAMES = {
+  chicken: 'Chicken Breast', groundbeef: 'Ground Beef', steak: 'Beef Steak', pork: 'Pork Chop',
+  salmon: 'Salmon', shrimp: 'Shrimp', bacon: 'Bacon',
+  rice: 'White Rice', pasta: 'Pasta', oats: 'Oats'
+};
+const toGrams = { g: 1, oz: 28.3495, lb: 453.592 };
+
+function convert() {
+  const food = document.getElementById('foodType').value;
+  const amount = parseFloat(document.getElementById('amount').value);
+  const unit = document.getElementById('unit').value;
+  const direction = document.getElementById('direction').value;
+
+  if (isNaN(amount) || amount < 0) return;
+
+  const grams = amount * toGrams[unit];
+  const factor = FACTORS[food];
+  let resultGrams;
+  let label;
+
+  if (direction === 'rawToCooked') {
+    resultGrams = grams * factor;
+    label = `Cooked weight (${FOOD_NAMES[food]})`;
+  } else {
+    resultGrams = grams / factor;
+    label = `Raw weight (${FOOD_NAMES[food]})`;
+  }
+
+  const resultInUnit = resultGrams / toGrams[unit];
+  document.getElementById('rResult').textContent = Math.round(resultInUnit * 100) / 100 + ' ' + unit;
+  document.getElementById('rLabel').textContent = label;
+
+  const pct = factor < 1 ? `${Math.round((1 - factor) * 100)}% loss` : `${Math.round((factor - 1) * 100)}% gain`;
+  document.getElementById('rNote').textContent = `Based on a typical ${pct} for ${FOOD_NAMES[food].toLowerCase()}.`;
+}
+
+document.addEventListener('DOMContentLoaded', convert);
+</script>
+</body>
+</html>

@@ -23,6 +23,15 @@
 }
 </script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+<style>
+  @media print {
+    body * { visibility:hidden; }
+    .pdf-print-area, .pdf-print-area * { visibility:visible; }
+    .pdf-print-area { position:absolute; left:0; top:0; width:100%; padding:2rem; box-sizing:border-box; }
+    .pdf-print-area::before { content:"CookingCalcs.com"; display:block; font-family:'Playfair Display',serif; font-size:1.25rem; color:#b91c1c; margin-bottom:1.5rem; padding-bottom:0.75rem; border-bottom:1.5px solid #b91c1c; visibility:visible; }
+    .pdf-btn { display:none !important; }
+  }
+</style>
 </head>
 <body>
 <main>
@@ -40,13 +49,14 @@
         <input type="number" id="servings" min="1" step="1" placeholder="e.g. 4" oninput="calculate()">
       </div>
 
-      <div id="result" style="display:none;">
+      <div id="result" class="pdf-print-area" style="display:none;">
         <div class="result-box">
           <div class="result-num" id="resultNum"></div>
           <div class="result-label">Cost per serving</div>
         </div>
 
         <div id="comparison" style="margin-top:1rem; padding:1rem; background:var(--sand-dark); border-radius:var(--radius); font-size:0.875rem;"></div>
+        <button class="pdf-btn" onclick="window.print()" style="margin-top:1.25rem; display:flex; align-items:center; gap:0.5rem; background:none; border:1.5px solid var(--tomato); color:var(--tomato-dark); border-radius:8px; padding:0.5rem 1rem; font-size:0.875rem; font-family:'Plus Jakarta Sans',sans-serif; cursor:pointer; font-weight:500; transition:background 0.2s,color 0.2s;" onmouseover="this.style.background='var(--tomato)';this.style.color='#fff'" onmouseout="this.style.background='none';this.style.color='var(--tomato-dark)'">⬇ Save as PDF</button>
       </div>
     </div>
 

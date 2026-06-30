@@ -21,6 +21,14 @@
       .ingredient-row, .result-row { grid-template-columns:1fr 80px; }
       .ingredient-row select, .ingredient-row .remove-btn, .result-row .result-unit, .result-row div:last-child { display:none; }
     }
+    .pdf-btn { display:none; }
+    @media print {
+      body * { visibility:hidden; }
+      .pdf-print-area, .pdf-print-area * { visibility:visible; }
+      .pdf-print-area { position:absolute; left:0; top:0; width:100%; padding:2rem; box-sizing:border-box; }
+      .pdf-print-area::before { content:"CookingCalcs.com"; display:block; font-family:'Playfair Display',serif; font-size:1.25rem; color:#b91c1c; margin-bottom:1.5rem; padding-bottom:0.75rem; border-bottom:1.5px solid #b91c1c; visibility:visible; }
+      .pdf-btn { display:none !important; }
+    }
   </style>
 <script type="application/ld+json">
 {
@@ -61,13 +69,14 @@
       <button onclick="addRow()" style="background:none; border:2px dashed var(--border); border-radius:10px; padding:0.6rem 1rem; font-size:0.875rem; color:var(--mid); cursor:pointer; width:100%; margin-top:0.5rem; transition:border-color 0.2s, color 0.2s;" onmouseover="this.style.borderColor='var(--tomato)';this.style.color='var(--tomato)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--mid)'">+ Add ingredient</button>
     </div>
 
-    <div id="resultSection" style="display:none;">
+    <div id="resultSection" class="pdf-print-area" style="display:none;">
       <div class="tool-box">
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
           <h2 style="font-family:'Playfair Display',serif; font-size:1.2rem;">Scaled Recipe</h2>
           <span id="multiplierBadge" style="background:var(--tomato-light); color:var(--tomato-dark); padding:0.3rem 0.75rem; border-radius:100px; font-size:0.8rem; font-weight:600;"></span>
         </div>
         <div id="resultList"></div>
+        <button class="pdf-btn" onclick="window.print()" style="margin-top:1.25rem; display:flex; align-items:center; gap:0.5rem; background:none; border:1.5px solid var(--tomato); color:var(--tomato-dark); border-radius:8px; padding:0.5rem 1rem; font-size:0.875rem; font-family:'Plus Jakarta Sans',sans-serif; cursor:pointer; font-weight:500; transition:background 0.2s,color 0.2s;" onmouseover="this.style.background='var(--tomato)';this.style.color='#fff'" onmouseout="this.style.background='none';this.style.color='var(--tomato-dark)'">⬇ Save as PDF</button>
       </div>
     </div>
 

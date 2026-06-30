@@ -23,6 +23,15 @@
 }
 </script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+<style>
+  @media print {
+    body * { visibility:hidden; }
+    .pdf-print-area, .pdf-print-area * { visibility:visible; }
+    .pdf-print-area { position:absolute; left:0; top:0; width:100%; padding:2rem; box-sizing:border-box; }
+    .pdf-print-area::before { content:"CookingCalcs.com"; display:block; font-family:'Playfair Display',serif; font-size:1.25rem; color:#b91c1c; margin-bottom:1.5rem; padding-bottom:0.75rem; border-bottom:1.5px solid #b91c1c; visibility:visible; }
+    .pdf-btn { display:none !important; }
+  }
+</style>
 </head>
 <body>
 <main>
@@ -68,7 +77,11 @@
     </div>
 
     <!-- Full Chart -->
-    <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin:2rem 0 1rem;">Complete Temperature Chart</h2>
+    <div class="pdf-print-area">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin:2rem 0 1rem;">
+      <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin:0;">Complete Temperature Chart</h2>
+      <button class="pdf-btn" onclick="window.print()" style="display:flex; align-items:center; gap:0.5rem; background:none; border:1.5px solid var(--tomato); color:var(--tomato-dark); border-radius:8px; padding:0.5rem 1rem; font-size:0.875rem; font-family:'Plus Jakarta Sans',sans-serif; cursor:pointer; font-weight:500; transition:background 0.2s,color 0.2s;" onmouseover="this.style.background='var(--tomato)';this.style.color='#fff'" onmouseout="this.style.background='none';this.style.color='var(--tomato-dark)'">⬇ Save as PDF</button>
+    </div>
     <div style="overflow-x:auto;">
       <table style="width:100%; border-collapse:collapse; font-size:0.875rem; background:#fff; border-radius:12px; overflow:hidden;">
         <thead>
@@ -97,6 +110,7 @@
         </tbody>
       </table>
     </div>
+    </div><!-- /pdf-print-area -->
 
     <div style="margin-top:3rem; padding:1.5rem; background:var(--tomato-light); border-radius:var(--radius-lg);">
       <h3 style="font-family:'Playfair Display',serif; margin-bottom:0.75rem;">Related Tools & Guides</h3>

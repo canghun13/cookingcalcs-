@@ -16,6 +16,16 @@
     .remove-btn { background:none; border:none; cursor:pointer; color:var(--muted); font-size:1.1rem; padding:0.4rem; border-radius:6px; }
     .remove-btn:hover { color:var(--tomato); }
     @media(max-width:600px) { .cost-row { grid-template-columns:1fr 80px 36px; } .cost-row input:nth-child(3) { display:none; } }
+    @media print {
+      body * { visibility:hidden; }
+      .pdf-print-area, .pdf-print-area * { visibility:visible; }
+      .pdf-print-area { position:absolute; left:0; top:0; width:100%; padding:2rem; box-sizing:border-box; }
+      .pdf-print-area::before { content:"CookingCalcs.com"; display:block; font-family:'Playfair Display',serif; font-size:1.25rem; color:#b91c1c; margin-bottom:1.5rem; padding-bottom:0.75rem; border-bottom:1.5px solid #b91c1c; visibility:visible; }
+      .pdf-btn { display:none !important; }
+      .remove-btn { display:none !important; }
+      .add-row-btn { display:none !important; }
+      .cost-row input { border:none; padding:0; background:transparent; font-family:'Plus Jakarta Sans',sans-serif; }
+    }
   </style>
 <script type="application/ld+json">
 {
@@ -39,6 +49,11 @@
     <p class="tool-desc">Add your ingredients and their costs to find out exactly how much your meal costs to make — and the cost per serving.</p>
 
     <div class="tool-box">
+      <div class="pdf-print-area" id="mealPrintArea">
+        <div style="margin-bottom:1rem;">
+          <label style="font-size:0.8rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--muted); display:block; margin-bottom:0.25rem;">Servings</label>
+          <div id="printServings" style="font-weight:600; font-size:1rem; display:none;"></div>
+        </div>
       <div class="form-group">
         <label for="servings">Number of servings</label>
         <input type="number" id="servings" value="4" min="1" oninput="calculate()">
@@ -53,7 +68,7 @@
 
       <div id="ingredientList"></div>
 
-      <button onclick="addRow()" style="background:none; border:2px dashed var(--border); border-radius:10px; padding:0.6rem 1rem; font-size:0.875rem; color:var(--mid); cursor:pointer; width:100%; margin-top:0.5rem; transition:border-color 0.2s, color 0.2s;" onmouseover="this.style.borderColor='var(--tomato)';this.style.color='var(--tomato)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--mid)'">+ Add ingredient</button>
+      <button onclick="addRow()" style="background:none; border:2px dashed var(--border); border-radius:10px; padding:0.6rem 1rem; font-size:0.875rem; color:var(--mid); cursor:pointer; width:100%; margin-top:0.5rem; transition:border-color 0.2s, color 0.2s;" onmouseover="this.style.borderColor='var(--tomato)';this.style.color='var(--tomato)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--mid)'" class="add-row-btn">+ Add ingredient</button>
 
       <div id="resultSection" style="display:none; margin-top:1.5rem;">
         <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
@@ -66,7 +81,9 @@
             <div class="result-label">Cost per serving</div>
           </div>
         </div>
+        <button class="pdf-btn" onclick="window.print()" style="margin-top:1.25rem; display:flex; align-items:center; gap:0.5rem; background:none; border:1.5px solid var(--tomato); color:var(--tomato-dark); border-radius:8px; padding:0.5rem 1rem; font-size:0.875rem; font-family:'Plus Jakarta Sans',sans-serif; cursor:pointer; font-weight:500; transition:background 0.2s,color 0.2s;" onmouseover="this.style.background='var(--tomato)';this.style.color='#fff'" onmouseout="this.style.background='none';this.style.color='var(--tomato-dark)'">⬇ Save as PDF</button>
       </div>
+      </div><!-- /pdf-print-area -->
     </div>
 
     <div style="margin-top:2rem; padding:1.5rem; background:var(--tomato-light); border-radius:var(--radius-lg);">

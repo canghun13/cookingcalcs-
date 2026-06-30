@@ -35,6 +35,7 @@ const TOOLS = [
   { name: "Butter Converter", url: "/tools/butter-converter.html" },
   { name: "Baking Substitutions", url: "/tools/baking-substitutions.html" },
   { name: "Cups to Tablespoons", url: "/tools/cups-to-tablespoons.html" },
+  { name: "Raw to Cooked Weight", url: "/tools/raw-to-cooked-weight.html" },
 ];
 
 const BLOGS = [
@@ -72,6 +73,9 @@ const BLOGS = [
   { name: "How Many Grams in a Cup of Oats?", url: "/blog/how-many-grams-in-a-cup-of-oats.html", desc: "1 cup of rolled oats = 90g. Exact gram weights for rolled, quick, steel-cut, and instant oats — dry and cooked. Includes a full conversion table.", date: "2026-06-23" },
   { name: "How Many Cups in a Pound of Sugar?", url: "/blog/how-many-cups-in-a-pound-of-sugar.html", desc: "1 pound of granulated sugar = 2¼ cups. Exact cup counts for brown, powdered, and coconut sugar per pound, with a full conversion table for baking.", date: "2026-06-23" },
   { name: "How Long to Cook Lamb Chops", url: "/blog/how-long-to-cook-lamb-chops.html", desc: "Exact lamb chop cook times by method and doneness — pan-sear, oven, grill, and air fryer. Internal temperature guide for rare through well-done.", date: "2026-06-23" },
+  { name: "How Long to Cook Turkey Breast", url: "/blog/how-long-to-cook-turkey-breast.html", desc: "Turkey breast cook times by weight, bone-in or boneless, oven and air fryer. Plan 20 minutes per pound at 325°F. Internal temperature guide included.", date: "2026-07-04" },
+  { name: "How Many Cups in a Quart, Pint, and Gallon?", url: "/blog/how-many-cups-in-a-quart-pint-gallon.html", desc: "1 quart = 4 cups, 1 pint = 2 cups, 1 gallon = 16 cups. Complete US liquid measurement conversion table with an interactive calculator.", date: "2026-07-04" },
+  { name: "How to Convert a Recipe to Metric", url: "/blog/how-to-convert-a-recipe-to-metric.html", desc: "Convert any US recipe to metric measurements step by step. Cups to grams, Fahrenheit to Celsius, and why weight beats volume for accurate metric conversion.", date: "2026-07-04" },
 ];
 
 

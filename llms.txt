@@ -57,3 +57,7 @@ CookingCalcs covers unit conversion, recipe scaling, cooking times and temperatu
 - [How Many Cups in a Pound of Sugar?](https://cookingcalcs.com/blog/how-many-cups-in-a-pound-of-sugar.html): Cup counts per pound for granulated, brown, powdered, and coconut sugar with a full conversion table.
 - [How Long to Cook Lamb Chops](https://cookingcalcs.com/blog/how-long-to-cook-lamb-chops.html): Exact lamb chop cook times by method and doneness — pan-sear, oven, grill, and air fryer — with internal temperature guide.
 - [Cups to Tablespoons Converter](https://cookingcalcs.com/tools/cups-to-tablespoons.html): Convert cups to tablespoons, teaspoons, and milliliters instantly. 1 cup = 16 tablespoons.
+- [Raw to Cooked Weight Converter](https://cookingcalcs.com/tools/raw-to-cooked-weight.html): Convert raw meat, rice, and pasta weight to cooked weight (or back). Accounts for shrinkage and water absorption by food type.
+- [How Long to Cook Turkey Breast](https://cookingcalcs.com/blog/how-long-to-cook-turkey-breast.html): Turkey breast cook times by weight, bone-in or boneless, oven and air fryer, with internal temperature guide.
+- [How Many Cups in a Quart, Pint, and Gallon?](https://cookingcalcs.com/blog/how-many-cups-in-a-quart-pint-gallon.html): Complete US liquid measurement conversion table — 1 quart = 4 cups, 1 pint = 2 cups, 1 gallon = 16 cups.
+- [How to Convert a Recipe to Metric](https://cookingcalcs.com/blog/how-to-convert-a-recipe-to-metric.html): Step-by-step guide to converting US recipes to metric — cups to grams, Fahrenheit to Celsius, pan sizes.

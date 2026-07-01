@@ -24,13 +24,11 @@
 </script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
 <style>
-    @media print {
-    header, footer { display:none !important; }
-    main > *:not(.tool-box) { display:none !important; }
-    .tool-box > *:not(#result) { display:none !important; }
-    #result { display:block !important; }
-    .pdf-btn { display:none !important; }
-    #result::before { content:"CookingCalcs.com"; display:block; font-family:'Playfair Display',serif; font-size:1.25rem; color:#b91c1c; margin-bottom:1.5rem; padding-bottom:0.75rem; border-bottom:1.5px solid #b91c1c; }
+      @media print {
+    body > *:not(#pdf-overlay) { display:none !important; }
+    #pdf-overlay { display:block; padding:2rem; box-sizing:border-box; }
+    #pdf-overlay .pdf-btn, #pdf-overlay .remove-btn, #pdf-overlay .add-row-btn { display:none !important; }
+    #pdf-overlay input { border:none !important; padding:0 !important; background:transparent !important; box-shadow:none !important; }
   }
 </style>
 </head>
@@ -89,7 +87,7 @@
           <strong>Safe internal temperature:</strong> <span id="safeTemp"></span><br>
           <span style="color:var(--mid); margin-top:0.25rem; display:block;">Always verify with a meat thermometer. Times are estimates and vary by oven/grill.</span>
         </div>
-        <button class="pdf-btn" onclick="window.print()" style="margin-top:1.25rem; display:flex; align-items:center; gap:0.5rem; background:none; border:1.5px solid var(--tomato); color:var(--tomato-dark); border-radius:8px; padding:0.5rem 1rem; font-size:0.875rem; font-family:'Plus Jakarta Sans',sans-serif; cursor:pointer; font-weight:500; transition:background 0.2s,color 0.2s;" onmouseover="this.style.background='var(--tomato)';this.style.color='#fff'" onmouseout="this.style.background='none';this.style.color='var(--tomato-dark)'">⬇ Save as PDF</button>
+        <button class="pdf-btn" onclick="printToPDF('result')" style="margin-top:1.25rem; display:flex; align-items:center; gap:0.5rem; background:none; border:1.5px solid var(--tomato); color:var(--tomato-dark); border-radius:8px; padding:0.5rem 1rem; font-size:0.875rem; font-family:'Plus Jakarta Sans',sans-serif; cursor:pointer; font-weight:500; transition:background 0.2s,color 0.2s;" onmouseover="this.style.background='var(--tomato)';this.style.color='#fff'" onmouseout="this.style.background='none';this.style.color='var(--tomato-dark)'">⬇ Save as PDF</button>
       </div>
     </div>
 
@@ -219,6 +217,25 @@ function calculate() {
 }
 
 document.addEventListener('DOMContentLoaded', () => { updateCuts(); calculate(); });
+</script>
+<script>
+function printToPDF(areaId) {
+  var source = document.getElementById(areaId);
+  var clone = source.cloneNode(true);
+  clone.style.display = 'block';
+  var pdfBtn = clone.querySelector('.pdf-btn');
+  if (pdfBtn) pdfBtn.style.display = 'none';
+  var overlay = document.createElement('div');
+  overlay.id = 'pdf-overlay';
+  var hdr = document.createElement('div');
+  hdr.style.cssText = "font-family:'Playfair Display',serif;font-size:1.25rem;color:#b91c1c;border-bottom:1.5px solid #b91c1c;padding-bottom:0.75rem;margin-bottom:1.5rem;";
+  hdr.textContent = 'CookingCalcs.com';
+  overlay.appendChild(hdr);
+  overlay.appendChild(clone);
+  document.body.appendChild(overlay);
+  window.addEventListener('afterprint', function(){ overlay.remove(); }, { once: true });
+  window.print();
+}
 </script>
 </body>
 </html>

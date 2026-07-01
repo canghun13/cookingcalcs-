@@ -27,7 +27,7 @@
   @media print {
     body * { visibility:hidden; }
     .pdf-print-area, .pdf-print-area * { visibility:visible; }
-    .pdf-print-area { position:absolute; left:0; top:0; width:100%; padding:2rem; box-sizing:border-box; }
+    .pdf-print-area { position:fixed; left:0; top:0; width:100%; padding:2rem; box-sizing:border-box; }
     .pdf-print-area::before { content:"CookingCalcs.com"; display:block; font-family:'Playfair Display',serif; font-size:1.25rem; color:#b91c1c; margin-bottom:1.5rem; padding-bottom:0.75rem; border-bottom:1.5px solid #b91c1c; visibility:visible; }
     .pdf-btn { display:none !important; }
   }

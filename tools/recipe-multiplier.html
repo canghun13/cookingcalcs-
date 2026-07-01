@@ -21,14 +21,13 @@
       .ingredient-row, .result-row { grid-template-columns:1fr 80px; }
       .ingredient-row select, .ingredient-row .remove-btn, .result-row .result-unit, .result-row div:last-child { display:none; }
     }
-    .pdf-btn { display:none; }
-    @media print {
-      body * { visibility:hidden; }
-      .pdf-print-area, .pdf-print-area * { visibility:visible; }
-      .pdf-print-area { position:fixed; left:0; top:0; width:100%; padding:2rem; box-sizing:border-box; }
-      .pdf-print-area::before { content:"CookingCalcs.com"; display:block; font-family:'Playfair Display',serif; font-size:1.25rem; color:#b91c1c; margin-bottom:1.5rem; padding-bottom:0.75rem; border-bottom:1.5px solid #b91c1c; visibility:visible; }
-      .pdf-btn { display:none !important; }
-    }
+      @media print {
+    header, footer { display:none !important; }
+    main > *:not(#resultSection) { display:none !important; }
+    #resultSection { display:block !important; }
+    .pdf-btn { display:none !important; }
+    #resultSection::before { content:"CookingCalcs.com"; display:block; font-family:'Playfair Display',serif; font-size:1.25rem; color:#b91c1c; margin-bottom:1.5rem; padding-bottom:0.75rem; border-bottom:1.5px solid #b91c1c; }
+  }
   </style>
 <script type="application/ld+json">
 {

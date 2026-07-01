@@ -186,18 +186,30 @@ function showTemp() {
 </script>
 <script>
 function printToPDF(areaId) {
-  var source = document.getElementById(areaId);
-  var clone = source.cloneNode(true);
-  clone.style.display = 'block';
-  var pdfBtn = clone.querySelector('.pdf-btn');
-  if (pdfBtn) pdfBtn.style.display = 'none';
   var overlay = document.createElement('div');
   overlay.id = 'pdf-overlay';
   var hdr = document.createElement('div');
   hdr.style.cssText = "font-family:'Playfair Display',serif;font-size:1.25rem;color:#b91c1c;border-bottom:1.5px solid #b91c1c;padding-bottom:0.75rem;margin-bottom:1.5rem;";
   hdr.textContent = 'CookingCalcs.com';
   overlay.appendChild(hdr);
+
+  // Include temp result if visible
+  var tempResult = document.getElementById('tempResult');
+  if (tempResult && tempResult.style.display !== 'none') {
+    var tempClone = tempResult.cloneNode(true);
+    tempClone.style.display = 'block';
+    tempClone.style.marginBottom = '2rem';
+    overlay.appendChild(tempClone);
+  }
+
+  // Include chart
+  var source = document.getElementById(areaId);
+  var clone = source.cloneNode(true);
+  clone.style.display = 'block';
+  var pdfBtn = clone.querySelector('.pdf-btn');
+  if (pdfBtn) pdfBtn.style.display = 'none';
   overlay.appendChild(clone);
+
   document.body.appendChild(overlay);
   window.addEventListener('afterprint', function(){ overlay.remove(); }, { once: true });
   window.print();

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meat Temperature Guide – Safe Internal Temps – CookingCalcs</title>
+  <meta name="description" content="Safe internal cooking temperatures for chicken, beef, pork, lamb, fish, and more. USDA-recommended temps in both °F and °C.">
+  <link rel="canonical" href="https://cookingcalcs.com/tools/meat-temperature-guide.html">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script src="/assets/js/nav.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Meat Temperature Guide",
+  "url": "https://cookingcalcs.com/tools/meat-temperature-guide.html",
+  "description": "Safe internal cooking temperatures for chicken, beef, pork, lamb, fish, and more. USDA-recommended temps in both °F and °C.",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "provider": { "@type": "Organization", "name": "CookingCalcs", "url": "https://cookingcalcs.com" }
+}
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+<style>
+  @media print {
+    body * { visibility:hidden; }
+    .pdf-print-area, .pdf-print-area * { visibility:visible; }
+    .pdf-print-area { position:fixed; left:0; top:0; width:100%; padding:2rem; box-sizing:border-box; }
+    .pdf-print-area::before { content:"CookingCalcs.com"; display:block; font-family:'Playfair Display',serif; font-size:1.25rem; color:#b91c1c; margin-bottom:1.5rem; padding-bottom:0.75rem; border-bottom:1.5px solid #b91c1c; visibility:visible; }
+    .pdf-btn { display:none !important; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <div class="tool-page">
+    <h1>Meat Temperature Guide</h1>
+    <p class="tool-desc">USDA-recommended safe internal cooking temperatures for all types of meat and poultry. Always use a meat thermometer — color alone is not a reliable indicator of doneness.</p>
+
+    <div style="padding:1rem 1.25rem; background:var(--tomato-light); border-left:4px solid var(--tomato); border-radius:var(--radius); margin-bottom:2rem; font-size:0.875rem; color:var(--ink);">
+      <strong>For informational purposes only.</strong> Always follow USDA guidelines and use a calibrated meat thermometer. Rest times are required for carryover cooking to complete.
+    </div>
+
+    <!-- Quick Lookup -->
+    <div class="tool-box">
+      <div class="form-group">
+        <label for="meatSearch">Quick lookup</label>
+        <select id="meatSearch" onchange="showTemp()">
+          <option value="">Select a meat...</option>
+          <option value="chicken-whole">Chicken (whole)</option>
+          <option value="chicken-parts">Chicken (parts/breasts)</option>
+          <option value="ground-chicken">Ground chicken / turkey</option>
+          <option value="turkey-whole">Turkey (whole)</option>
+          <option value="beef-steaks">Beef steaks / roasts (medium-rare)</option>
+          <option value="beef-medium">Beef steaks / roasts (medium)</option>
+          <option value="beef-welldone">Beef steaks / roasts (well done)</option>
+          <option value="ground-beef">Ground beef / pork / lamb</option>
+          <option value="pork-whole">Pork (chops, roasts, loin)</option>
+          <option value="ham-fresh">Ham (fresh / raw)</option>
+          <option value="ham-cooked">Ham (pre-cooked, to reheat)</option>
+          <option value="lamb">Lamb (chops, roasts)</option>
+          <option value="fish">Fish</option>
+          <option value="shrimp">Shrimp / lobster / crab</option>
+          <option value="eggs">Egg dishes</option>
+          <option value="leftovers">Leftovers / casseroles</option>
+        </select>
+      </div>
+      <div id="tempResult" style="display:none;">
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-top:0.5rem;">
+          <div class="result-box"><div class="result-num" id="tempF"></div><div class="result-label">Fahrenheit</div></div>
+          <div class="result-box"><div class="result-num" id="tempC"></div><div class="result-label">Celsius</div></div>
+        </div>
+        <p id="tempNote" style="margin-top:1rem; font-size:0.875rem; color:var(--mid); text-align:center;"></p>
+      </div>
+    </div>
+
+    <!-- Full Chart -->
+    <div class="pdf-print-area">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin:2rem 0 1rem;">
+      <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin:0;">Complete Temperature Chart</h2>
+      <button class="pdf-btn" onclick="window.print()" style="display:flex; align-items:center; gap:0.5rem; background:none; border:1.5px solid var(--tomato); color:var(--tomato-dark); border-radius:8px; padding:0.5rem 1rem; font-size:0.875rem; font-family:'Plus Jakarta Sans',sans-serif; cursor:pointer; font-weight:500; transition:background 0.2s,color 0.2s;" onmouseover="this.style.background='var(--tomato)';this.style.color='#fff'" onmouseout="this.style.background='none';this.style.color='var(--tomato-dark)'">⬇ Save as PDF</button>
+    </div>
+    <div style="overflow-x:auto;">
+      <table style="width:100%; border-collapse:collapse; font-size:0.875rem; background:#fff; border-radius:12px; overflow:hidden;">
+        <thead>
+          <tr style="background:var(--sand-dark);">
+            <th style="padding:0.75rem 1rem; text-align:left; border-bottom:1px solid var(--border);">Meat / Food</th>
+            <th style="padding:0.75rem 1rem; text-align:center; border-bottom:1px solid var(--border);">°F</th>
+            <th style="padding:0.75rem 1rem; text-align:center; border-bottom:1px solid var(--border);">°C</th>
+            <th style="padding:0.75rem 1rem; text-align:left; border-bottom:1px solid var(--border);">Rest Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td colspan="4" style="padding:0.6rem 1rem; background:var(--tomato-light); font-weight:700; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--tomato-dark);">Poultry</td></tr>
+          <tr><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">Chicken & Turkey (whole, parts, ground)</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">165°F</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">74°C</td><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">None required</td></tr>
+          <tr style="background:var(--sand);"><td colspan="4" style="padding:0.6rem 1rem; font-weight:700; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--tomato-dark);">Beef, Pork, Veal, Lamb</td></tr>
+          <tr><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">Steaks & Roasts (medium-rare)</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">135°F</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">57°C</td><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">3 min</td></tr>
+          <tr style="background:var(--sand);"><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">Steaks & Roasts (medium)</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">145°F</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">63°C</td><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">3 min</td></tr>
+          <tr><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">Steaks & Roasts (well done)</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">160°F</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">71°C</td><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">3 min</td></tr>
+          <tr style="background:var(--sand);"><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">Ground beef / pork / lamb</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">160°F</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">71°C</td><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">None required</td></tr>
+          <tr><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">Pork chops, roasts, loin</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">145°F</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">63°C</td><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">3 min</td></tr>
+          <tr style="background:var(--sand);"><td colspan="4" style="padding:0.6rem 1rem; font-weight:700; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--tomato-dark);">Seafood</td></tr>
+          <tr><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">Fish</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">145°F</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">63°C</td><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">None required</td></tr>
+          <tr style="background:var(--sand);"><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">Shrimp, lobster, crab</td><td colspan="2" style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">Flesh is pearly white / opaque</td><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">None required</td></tr>
+          <tr><td colspan="4" style="padding:0.6rem 1rem; background:var(--sand-dark); font-weight:700; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--tomato-dark);">Other</td></tr>
+          <tr><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">Egg dishes</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">160°F</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">71°C</td><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">None required</td></tr>
+          <tr style="background:var(--sand);"><td style="padding:0.65rem 1rem;">Leftovers / casseroles</td><td style="text-align:center; padding:0.65rem;">165°F</td><td style="text-align:center; padding:0.65rem;">74°C</td><td style="padding:0.65rem 1rem;">None required</td></tr>
+        </tbody>
+      </table>
+    </div>
+    </div><!-- /pdf-print-area -->
+
+    <div style="margin-top:3rem; padding:1.5rem; background:var(--tomato-light); border-radius:var(--radius-lg);">
+      <h3 style="font-family:'Playfair Display',serif; margin-bottom:0.75rem;">Related Tools & Guides</h3>
+      <ul style="list-style:none; display:flex; flex-direction:column; gap:0.5rem;">
+        <li><a href="/tools/cooking-time-calculator.html" style="color:var(--tomato-dark); font-weight:500;">→ Cooking Time Calculator</a></li>
+        <li><a href="/blog/how-long-to-cook-chicken-breast.html" style="color:var(--tomato-dark); font-weight:500;">→ How Long to Cook Chicken Breast at Every Temperature</a></li>
+        <li><a href="/blog/meat-cooking-temperatures-explained.html" style="color:var(--tomato-dark); font-weight:500;">→ Meat Cooking Temperatures Explained</a></li>
+      </ul>
+    </div>
+
+    <div class="blog-content" style="margin-top:3rem;">
+      <h2>How to Use This Guide</h2>
+      <p>Use the quick lookup to find the safe internal temperature for a specific cut, or refer to the full chart below. All temperatures follow current USDA food safety guidelines. Switch between Fahrenheit and Celsius using the toggle.</p>
+
+      <h2>Where to Insert the Thermometer</h2>
+      <p>Placement matters. For whole birds, insert into the thickest part of the thigh without touching bone. For steaks and chops, insert from the side into the center of the thickest part. For ground meat patties and meatloaf, insert from the top into the center. For roasts, go into the thickest part away from bone and fat pockets.</p>
+
+      <h2>Frequently Asked Questions</h2>
+      <h3>What temperature is chicken done?</h3>
+      <p>Chicken must reach 165°F (74°C) internally — this applies to whole birds, breasts, thighs, wings, and ground chicken. There is no safe "medium" for poultry.</p>
+
+      <h3>Can pork be a little pink?</h3>
+      <p>Yes. The USDA updated its guidelines in 2011 — whole cuts of pork are safe at 145°F (63°C) with a 3-minute rest, which may leave the center slightly pink. Ground pork must reach 160°F (71°C) throughout.</p>
+
+      <h3>What temperature is medium-rare steak?</h3>
+      <p>Medium-rare beef is typically 130–135°F (54–57°C). The USDA safe minimum for whole muscle beef is 145°F (63°C) with a 3-minute rest. Rare and medium-rare are widely accepted for healthy adults but carry higher risk for vulnerable populations.</p>
+
+      <h3>Why does temperature keep rising after I remove meat from heat?</h3>
+      <p>This is carryover cooking. The outer layers of the meat are hotter than the center, and heat continues moving inward after you remove the meat from the heat source. For steaks and roasts, pull off heat about 5°F below your target and rest for 3–5 minutes.</p>
+
+      <h2>Frequently Asked Questions</h2>
+      <h3>What temperature should chicken be cooked to?</h3>
+      <p>All chicken must reach 165°F (74°C) internally — breast, thighs, whole bird, or ground. This is the USDA safe temperature that eliminates salmonella. Unlike beef, there's no safe lower temperature for chicken.</p>
+
+      <h3>Is it safe to eat medium-rare pork?</h3>
+      <p>Yes. The USDA updated guidelines in 2011 — pork chops, roasts, and tenderloin are safe at 145°F (63°C) with a 3-minute rest. This allows a slightly pink center, which is normal and safe. Ground pork still requires 160°F throughout.</p>
+
+      <h3>How do I use a meat thermometer correctly?</h3>
+      <p>Insert the probe into the thickest part of the meat, away from bone, fat, or gristle — bones conduct heat faster and give falsely high readings. For thin cuts like chicken breasts, insert from the side through the center. Wait 2–3 seconds for the reading to stabilize before reading.</p>
+    
+    </div>
+  </div>
+</main>
+
+<script>
+const temps = {
+  'chicken-whole':   { F:'165°F', C:'74°C', note:'No rest time required. Check thickest part of thigh.' },
+  'chicken-parts':   { F:'165°F', C:'74°C', note:'No rest time required.' },
+  'ground-chicken':  { F:'165°F', C:'74°C', note:'No rest time required.' },
+  'turkey-whole':    { F:'165°F', C:'74°C', note:'Check innermost part of thigh and thickest part of breast.' },
+  'beef-steaks':     { F:'135°F', C:'57°C', note:'Rest 3 minutes before serving.' },
+  'beef-medium':     { F:'145°F', C:'63°C', note:'Rest 3 minutes before serving.' },
+  'beef-welldone':   { F:'160°F', C:'71°C', note:'Rest 3 minutes before serving.' },
+  'ground-beef':     { F:'160°F', C:'71°C', note:'No rest time required.' },
+  'pork-whole':      { F:'145°F', C:'63°C', note:'Rest 3 minutes before serving.' },
+  'ham-fresh':       { F:'145°F', C:'63°C', note:'Rest 3 minutes before serving.' },
+  'ham-cooked':      { F:'140°F', C:'60°C', note:'No rest time required.' },
+  'lamb':            { F:'145°F', C:'63°C', note:'Rest 3 minutes before serving.' },
+  'fish':            { F:'145°F', C:'63°C', note:'Flesh should be opaque and flake easily.' },
+  'shrimp':          { F:'—', C:'—', note:'Cook until flesh is pearly white/opaque and shells are pink.' },
+  'eggs':            { F:'160°F', C:'71°C', note:'Yolk and white should be firm.' },
+  'leftovers':       { F:'165°F', C:'74°C', note:'Reheat to steaming hot throughout.' },
+};
+
+function showTemp() {
+  const val = document.getElementById('meatSearch').value;
+  if (!val) { document.getElementById('tempResult').style.display = 'none'; return; }
+  const t = temps[val];
+  document.getElementById('tempF').textContent = t.F;
+  document.getElementById('tempC').textContent = t.C;
+  document.getElementById('tempNote').textContent = t.note;
+  document.getElementById('tempResult').style.display = 'block';
+}
+</script>
+</body>
+</html>

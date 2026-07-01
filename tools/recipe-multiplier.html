@@ -21,12 +21,11 @@
       .ingredient-row, .result-row { grid-template-columns:1fr 80px; }
       .ingredient-row select, .ingredient-row .remove-btn, .result-row .result-unit, .result-row div:last-child { display:none; }
     }
-      @media print {
-    header, footer { display:none !important; }
-    main > *:not(#resultSection) { display:none !important; }
-    #resultSection { display:block !important; }
-    .pdf-btn { display:none !important; }
-    #resultSection::before { content:"CookingCalcs.com"; display:block; font-family:'Playfair Display',serif; font-size:1.25rem; color:#b91c1c; margin-bottom:1.5rem; padding-bottom:0.75rem; border-bottom:1.5px solid #b91c1c; }
+        @media print {
+    body > *:not(#pdf-overlay) { display:none !important; }
+    #pdf-overlay { display:block; padding:2rem; box-sizing:border-box; }
+    #pdf-overlay .pdf-btn, #pdf-overlay .remove-btn, #pdf-overlay .add-row-btn { display:none !important; }
+    #pdf-overlay input { border:none !important; padding:0 !important; background:transparent !important; box-shadow:none !important; }
   }
   </style>
 <script type="application/ld+json">
@@ -75,7 +74,7 @@
           <span id="multiplierBadge" style="background:var(--tomato-light); color:var(--tomato-dark); padding:0.3rem 0.75rem; border-radius:100px; font-size:0.8rem; font-weight:600;"></span>
         </div>
         <div id="resultList"></div>
-        <button class="pdf-btn" onclick="window.print()" style="margin-top:1.25rem; display:flex; align-items:center; gap:0.5rem; background:none; border:1.5px solid var(--tomato); color:var(--tomato-dark); border-radius:8px; padding:0.5rem 1rem; font-size:0.875rem; font-family:'Plus Jakarta Sans',sans-serif; cursor:pointer; font-weight:500; transition:background 0.2s,color 0.2s;" onmouseover="this.style.background='var(--tomato)';this.style.color='#fff'" onmouseout="this.style.background='none';this.style.color='var(--tomato-dark)'">⬇ Save as PDF</button>
+        <button class="pdf-btn" onclick="printToPDF('resultSection')" style="margin-top:1.25rem; display:flex; align-items:center; gap:0.5rem; background:none; border:1.5px solid var(--tomato); color:var(--tomato-dark); border-radius:8px; padding:0.5rem 1rem; font-size:0.875rem; font-family:'Plus Jakarta Sans',sans-serif; cursor:pointer; font-weight:500; transition:background 0.2s,color 0.2s;" onmouseover="this.style.background='var(--tomato)';this.style.color='#fff'" onmouseout="this.style.background='none';this.style.color='var(--tomato-dark)'">⬇ Save as PDF</button>
       </div>
     </div>
 
@@ -197,6 +196,25 @@ document.addEventListener('DOMContentLoaded', () => {
   addRow('Eggs', 2, 'piece');
   calculate();
 });
+</script>
+<script>
+function printToPDF(areaId) {
+  var source = document.getElementById(areaId);
+  var clone = source.cloneNode(true);
+  clone.style.display = 'block';
+  var pdfBtn = clone.querySelector('.pdf-btn');
+  if (pdfBtn) pdfBtn.style.display = 'none';
+  var overlay = document.createElement('div');
+  overlay.id = 'pdf-overlay';
+  var hdr = document.createElement('div');
+  hdr.style.cssText = "font-family:'Playfair Display',serif;font-size:1.25rem;color:#b91c1c;border-bottom:1.5px solid #b91c1c;padding-bottom:0.75rem;margin-bottom:1.5rem;";
+  hdr.textContent = 'CookingCalcs.com';
+  overlay.appendChild(hdr);
+  overlay.appendChild(clone);
+  document.body.appendChild(overlay);
+  window.addEventListener('afterprint', function(){ overlay.remove(); }, { once: true });
+  window.print();
+}
 </script>
 </body>
 </html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weekly Meal Prep Cost Calculator – CookingCalcs</title>
+  <meta name="description" content="Calculate your total weekly meal prep cost across all meals. Add each meal's cost and how many times you'll eat it this week to get your weekly, daily, and monthly total.">
+  <link rel="canonical" href="https://cookingcalcs.com/tools/weekly-meal-prep-cost-calculator.html">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script src="/assets/js/nav.js" defer></script>
+  <style>
+    .meal-row { display:grid; grid-template-columns:1fr 100px 90px 36px; gap:0.5rem; align-items:center; margin-bottom:0.5rem; }
+    .meal-row input { padding:0.6rem 0.75rem; border:1.5px solid var(--border); border-radius:8px; font-size:0.9rem; font-family:'Plus Jakarta Sans',sans-serif; width:100%; }
+    .meal-row input:focus { border-color:var(--tomato); outline:none; }
+    .remove-btn { background:none; border:none; cursor:pointer; color:var(--muted); font-size:1.1rem; padding:0.4rem; border-radius:6px; }
+    .remove-btn:hover { color:var(--tomato); }
+    @media(max-width:600px) { .meal-row { grid-template-columns:1fr 80px 36px; } .meal-row input:nth-child(3) { display:none; } }
+    @media print {
+      body > *:not(#pdf-overlay) { display:none !important; }
+      #pdf-overlay { display:block; padding:2rem; box-sizing:border-box; }
+      #pdf-overlay .pdf-btn, #pdf-overlay .remove-btn, #pdf-overlay .add-row-btn { display:none !important; }
+      #pdf-overlay input { border:none !important; padding:0 !important; background:transparent !important; box-shadow:none !important; }
+    }
+  </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Weekly Meal Prep Cost Calculator",
+  "url": "https://cookingcalcs.com/tools/weekly-meal-prep-cost-calculator.html",
+  "description": "Calculate your total weekly meal prep cost across all meals. Add each meal's cost and how many times you'll eat it this week to get your weekly, daily, and monthly total.",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "provider": { "@type": "Organization", "name": "CookingCalcs", "url": "https://cookingcalcs.com" }
+}
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+</head>
+<body>
+<main>
+  <div class="tool-page">
+    <h1>Weekly Meal Prep Cost Calculator</h1>
+    <p class="tool-desc">Add each meal you're prepping this week along with its cost and how many times you'll eat it, and get your total weekly, daily, and monthly cost.</p>
+
+    <div class="tool-box">
+      <div class="pdf-print-area" id="weeklyPrintArea">
+        <div class="form-group">
+          <label for="people">Number of people</label>
+          <input type="number" id="people" value="1" min="1" oninput="calculate()">
+        </div>
+
+        <div style="display:grid; grid-template-columns:1fr 100px 90px 36px; gap:0.5rem; margin-bottom:0.5rem;">
+          <div style="font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--muted);">Meal</div>
+          <div style="font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--muted);">Cost ($)</div>
+          <div style="font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--muted);">Times/Week</div>
+          <div></div>
+        </div>
+
+        <div id="mealList"></div>
+
+        <button onclick="addRow()" class="add-row-btn" style="background:none; border:2px dashed var(--border); border-radius:10px; padding:0.6rem 1rem; font-size:0.875rem; color:var(--mid); cursor:pointer; width:100%; margin-top:0.5rem; transition:border-color 0.2s, color 0.2s;" onmouseover="this.style.borderColor='var(--tomato)';this.style.color='var(--tomato)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--mid)'">+ Add meal</button>
+
+        <div id="resultSection" style="display:none; margin-top:1.5rem;">
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+            <div class="result-box">
+              <div class="result-num" id="weeklyTotal"></div>
+              <div class="result-label">Weekly total</div>
+            </div>
+            <div class="result-box">
+              <div class="result-num" id="dailyAvg"></div>
+              <div class="result-label">Daily average</div>
+            </div>
+          </div>
+          <div style="margin-top:1rem; padding:1rem; background:var(--sand-dark); border-radius:var(--radius); font-size:0.875rem;">
+            <strong>Monthly estimate:</strong> <span id="monthlyEstimate"></span><br>
+            <strong>Per person, per week:</strong> <span id="perPersonWeek"></span>
+          </div>
+          <button class="pdf-btn" onclick="printToPDF('weeklyPrintArea')" style="margin-top:1.25rem; display:flex; align-items:center; gap:0.5rem; background:none; border:1.5px solid var(--tomato); color:var(--tomato-dark); border-radius:8px; padding:0.5rem 1rem; font-size:0.875rem; font-family:'Plus Jakarta Sans',sans-serif; cursor:pointer; font-weight:500; transition:background 0.2s,color 0.2s;" onmouseover="this.style.background='var(--tomato)';this.style.color='#fff'" onmouseout="this.style.background='none';this.style.color='var(--tomato-dark)'">⬇ Save as PDF</button>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:2rem; padding:1.5rem; background:var(--tomato-light); border-radius:var(--radius-lg);">
+      <h3 style="font-family:'Playfair Display',serif; margin-bottom:0.75rem;">Related Tools & Guides</h3>
+      <ul style="list-style:none; display:flex; flex-direction:column; gap:0.5rem;">
+        <li><a href="/tools/meal-cost-calculator.html" style="color:var(--tomato-dark); font-weight:500;">→ Meal Cost Calculator</a></li>
+        <li><a href="/tools/cost-per-serving.html" style="color:var(--tomato-dark); font-weight:500;">→ Cost Per Serving Calculator</a></li>
+        <li><a href="/blog/how-to-calculate-meal-prep-cost-for-a-week.html" style="color:var(--tomato-dark); font-weight:500;">→ How to Calculate Meal Prep Cost for a Week</a></li>
+        <li><a href="/blog/how-to-meal-prep-on-a-budget.html" style="color:var(--tomato-dark); font-weight:500;">→ How to Meal Prep on a Budget</a></li>
+      </ul>
+    </div>
+
+    <div class="blog-content" style="margin-top:3rem;">
+      <h2>How to Use This Calculator</h2>
+      <p>Add a row for each meal you're prepping this week — for example, "Chicken & rice bowls" at $2.75 per serving, eaten 5 times this week. Add as many meal types as you're planning (breakfast, lunch, dinner, snacks), and the calculator adds them all up into your total weekly, daily, and monthly cost.</p>
+
+      <h2>Why Calculate Meal Prep Cost by the Week Instead of Per Meal</h2>
+      <p>Looking at cost per serving in isolation tells you whether a single dish is cheap or expensive, but it doesn't tell you what your actual grocery budget needs to be. A $2 lunch sounds cheap until you realize you're eating it 5 times a week alongside a $4 dinner 7 times a week — the weekly total is what actually shows up on your bank statement. Calculating at the weekly level turns individual meal costs into a number you can budget against.</p>
+
+      <h2>What Counts as "Cost" Per Meal</h2>
+      <p>For the most accurate total, use the actual ingredient cost per serving rather than a rough guess — our <a href="/tools/cost-per-serving.html">Cost Per Serving Calculator</a> or <a href="/tools/meal-cost-calculator.html">Meal Cost Calculator</a> can help you get an exact figure for any recipe. If you're estimating, remember that protein usually makes up 50-70% of a meal's cost, so a rough estimate based on the main protein and portion size is often close enough for weekly budgeting.</p>
+
+      <h2>Typical Weekly Meal Prep Budgets</h2>
+      <table style="width:100%; border-collapse:collapse; margin:1.5rem 0;">
+        <thead>
+          <tr style="background:var(--sand-dark);">
+            <th style="padding:0.75rem 1rem; text-align:left; border-bottom:1px solid var(--border);">Budget Level</th>
+            <th style="padding:0.75rem 1rem; text-align:center; border-bottom:1px solid var(--border);">Per Person, Per Week</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">Tight budget</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">$35–50</td></tr>
+          <tr style="background:var(--sand);"><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">Moderate</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">$50–80</td></tr>
+          <tr><td style="padding:0.65rem 1rem;">Generous</td><td style="text-align:center; padding:0.65rem;">$80–120+</td></tr>
+        </tbody>
+      </table>
+      <p>These figures assume all three meals are home-cooked. Eating out even a few times a week typically adds $10-20 per meal on top of these numbers, which is why meal prepping is one of the most effective ways to lower a food budget without changing what you eat.</p>
+
+      <h2>Ways to Lower Your Weekly Total</h2>
+      <p><strong>Batch cook bases you can reuse.</strong> A pot of rice, a tray of roasted vegetables, or a batch of beans can be repurposed across 3-4 different meals during the week, spreading the cost of one cooking session across many servings.</p>
+      <p><strong>Repeat a smaller number of meals.</strong> Buying ingredients for 2-3 recipes in bulk is almost always cheaper per serving than buying small quantities for 5-6 different dishes, since bulk pricing and less food waste both work in your favor.</p>
+      <p><strong>Track your actual weekly total for a few weeks.</strong> Many people underestimate meal prep cost until they add it up — running this calculator for 3-4 consecutive weeks reveals your real average, which is more useful for budgeting than a single week's snapshot.</p>
+
+      <h2>Frequently Asked Questions</h2>
+      <h3>Should I include groceries I don't finish using that week?</h3>
+      <p>For a realistic weekly budget, yes — count the full package cost if you don't expect to use the leftover portion before it spoils. If you'll use the remainder next week, only count the fraction used this week, and factor in the rest when you calculate next week's total.</p>
+
+      <h3>How is this different from the Meal Cost Calculator?</h3>
+      <p>The <a href="/tools/meal-cost-calculator.html">Meal Cost Calculator</a> figures out the cost of one specific meal, ingredient by ingredient. This tool adds up costs across every meal you're eating in a week, so you get your total grocery-equivalent spend rather than a single dish's price.</p>
+
+      <h3>Does this account for pantry staples like oil, salt, and spices?</h3>
+      <p>Not unless you add them as their own row. For most home cooks, staple seasonings add only a few cents per meal and can reasonably be left out of a weekly estimate. If you're tracking a tight budget precisely, add a small "pantry staples" line item with your best estimate for the week.</p>
+
+      <h3>Can I use this to plan a family's weekly food budget?</h3>
+      <p>Yes — enter the number of people in your household, and the calculator will show the per-person weekly cost alongside the household total, which is useful for comparing your actual spending against typical per-person budget benchmarks.</p>
+    </div>
+  </div>
+</main>
+
+<script>
+let rowCount = 0;
+
+function addRow(meal, cost, freq) {
+  rowCount++;
+  const id = 'meal-' + rowCount;
+  const row = document.createElement('div');
+  row.className = 'meal-row';
+  row.id = id;
+  row.innerHTML = `
+    <input type="text" placeholder="e.g. Chicken & rice bowl" value="${meal || ''}" oninput="calculate()">
+    <input type="number" min="0" step="0.01" placeholder="2.75" value="${cost || ''}" oninput="calculate()">
+    <input type="number" min="0" step="1" placeholder="5" value="${freq || ''}" oninput="calculate()">
+    <button class="remove-btn" onclick="removeRow('${id}')">✕</button>
+  `;
+  document.getElementById('mealList').appendChild(row);
+  calculate();
+}
+
+function removeRow(id) {
+  document.getElementById(id).remove();
+  calculate();
+}
+
+function calculate() {
+  const rows = document.querySelectorAll('#mealList .meal-row');
+  let weeklyTotal = 0;
+  let hasData = false;
+
+  rows.forEach(row => {
+    const inputs = row.querySelectorAll('input');
+    const cost = parseFloat(inputs[1].value);
+    const freq = parseFloat(inputs[2].value);
+    if (cost > 0 && freq > 0) {
+      weeklyTotal += cost * freq;
+      hasData = true;
+    }
+  });
+
+  if (!hasData) {
+    document.getElementById('resultSection').style.display = 'none';
+    return;
+  }
+
+  const people = parseFloat(document.getElementById('people').value) || 1;
+  const dailyAvg = weeklyTotal / 7;
+  const monthlyEstimate = weeklyTotal * 4.33;
+  const perPersonWeek = weeklyTotal / people;
+
+  document.getElementById('weeklyTotal').textContent = '$' + weeklyTotal.toFixed(2);
+  document.getElementById('dailyAvg').textContent = '$' + dailyAvg.toFixed(2);
+  document.getElementById('monthlyEstimate').textContent = '$' + monthlyEstimate.toFixed(2);
+  document.getElementById('perPersonWeek').textContent = '$' + perPersonWeek.toFixed(2);
+  document.getElementById('resultSection').style.display = 'block';
+}
+
+// Seed with 3 example rows
+addRow('Breakfast', 1.50, 7);
+addRow('Lunch', 3.00, 5);
+addRow('Dinner', 4.50, 7);
+</script>
+<script>
+function printToPDF(areaId) {
+  var source = document.getElementById(areaId);
+  var clone = source.cloneNode(true);
+  clone.style.display = 'block';
+  var pdfBtn = clone.querySelector('.pdf-btn');
+  if (pdfBtn) pdfBtn.style.display = 'none';
+  var overlay = document.createElement('div');
+  overlay.id = 'pdf-overlay';
+  var hdr = document.createElement('div');
+  hdr.style.cssText = "font-family:'Playfair Display',serif;font-size:1.25rem;color:#b91c1c;border-bottom:1.5px solid #b91c1c;padding-bottom:0.75rem;margin-bottom:1.5rem;";
+  hdr.textContent = 'CookingCalcs.com';
+  overlay.appendChild(hdr);
+  overlay.appendChild(clone);
+  document.body.appendChild(overlay);
+  window.addEventListener('afterprint', function(){ overlay.remove(); }, { once: true });
+  window.print();
+}
+</script>
+</body>
+</html>

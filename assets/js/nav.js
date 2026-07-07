@@ -276,4 +276,39 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   overlay.addEventListener('click', closeNav);
+
+  // ── RESPONSIVE TABLES: wrap every table in a scrollable container
+  // with a left-pinned "scroll to see more" hint on narrow screens ──
+  (function () {
+    var tables = document.querySelectorAll('main table');
+    tables.forEach(function (table) {
+      if (table.closest('.table-scroll-wrap')) return; // already wrapped
+
+      var wrap = document.createElement('div');
+      wrap.className = 'table-scroll-wrap';
+
+      var hint = document.createElement('div');
+      hint.className = 'table-scroll-hint';
+      hint.textContent = '⇄ Scroll to see more';
+
+      table.parentNode.insertBefore(wrap, table);
+      wrap.appendChild(hint);
+      wrap.appendChild(table);
+
+      // Neutralize inline width:100% (used on some tool-page tables) so the
+      // table can grow to its natural content width instead of squishing.
+      table.style.width = '';
+      table.style.minWidth = '100%';
+      table.querySelectorAll('th, td').forEach(function (cell) {
+        if (!cell.style.whiteSpace) cell.style.whiteSpace = 'nowrap';
+      });
+
+      function updateHint() {
+        var overflowing = table.scrollWidth > wrap.clientWidth + 1;
+        hint.style.display = overflowing ? 'inline-block' : 'none';
+      }
+      updateHint();
+      window.addEventListener('resize', updateHint);
+    });
+  })();
 });

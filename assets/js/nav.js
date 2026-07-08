@@ -295,12 +295,27 @@ document.addEventListener('DOMContentLoaded', function () {
       wrap.appendChild(hint);
       wrap.appendChild(table);
 
-      // Neutralize inline width:100% (used on some tool-page tables) so the
-      // table can grow to its natural content width instead of squishing.
-      table.style.width = '';
-      table.style.minWidth = '100%';
+      // Give the table room to breathe instead of letting it cram every
+      // column into whatever narrow width the container happens to be.
+      // width:100% lets it stretch to fill wide containers; min-width in
+      // px (scaled by column count) guarantees comfortable per-column
+      // space, so on narrow screens it genuinely overflows and scrolls
+      // rather than squeezing padding down to fit.
+      var colCount = table.querySelectorAll('thead th').length || table.rows[0].cells.length;
+      table.style.width = '100%';
+      table.style.minWidth = Math.max(colCount * 90, 360) + 'px';
       table.querySelectorAll('th, td').forEach(function (cell) {
         if (!cell.style.whiteSpace) cell.style.whiteSpace = 'nowrap';
+      });
+
+      // Default value columns (everything after the first) to center
+      // alignment when no alignment was already set inline — bare <td>s
+      // otherwise default to left, which reads poorly for numbers/units
+      // packed tightly next to each other.
+      table.querySelectorAll('tr').forEach(function (row) {
+        Array.prototype.forEach.call(row.children, function (cell, i) {
+          if (i > 0 && !cell.style.textAlign) cell.style.textAlign = 'center';
+        });
       });
 
       function updateHint() {

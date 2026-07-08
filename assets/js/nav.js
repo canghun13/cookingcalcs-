@@ -303,25 +303,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!cell.style.whiteSpace) cell.style.whiteSpace = 'nowrap';
       });
 
-      // Label each cell with its column header so CSS can turn every row
-      // into a stacked "label: value" card on narrow screens instead of
-      // shrinking columns to fit (see .table-scroll-wrap mobile rules).
-      var headerCells = table.querySelectorAll('thead th');
-      if (headerCells.length) {
-        var labels = Array.prototype.map.call(headerCells, function (th) {
-          return th.textContent.trim();
-        });
-        table.querySelectorAll('tbody tr').forEach(function (row) {
-          Array.prototype.forEach.call(row.children, function (cell, i) {
-            if (labels[i]) cell.setAttribute('data-label', labels[i]);
-          });
-        });
-      }
-
       function updateHint() {
-        // Below the card-layout breakpoint, rows stack instead of
-        // scrolling, so the hint never applies.
-        if (window.innerWidth <= 700) { hint.style.display = 'none'; return; }
         var overflowing = table.scrollWidth > wrap.clientWidth + 1;
         hint.style.display = overflowing ? 'inline-block' : 'none';
       }

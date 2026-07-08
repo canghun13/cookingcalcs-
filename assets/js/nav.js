@@ -309,6 +309,15 @@ document.addEventListener('DOMContentLoaded', function () {
       }
       updateHint();
       window.addEventListener('resize', updateHint);
+
+      // Re-measure after layout settles and after web fonts finish loading —
+      // an early measurement (before fonts swap in) can read a stale, wider
+      // scrollWidth and show the hint even when the table actually fits.
+      requestAnimationFrame(function () { requestAnimationFrame(updateHint); });
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(updateHint);
+      }
+      setTimeout(updateHint, 400);
     });
   })();
 });

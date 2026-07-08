@@ -24,6 +24,7 @@
 </script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
 <style>
+      @media(max-width:600px) { .tool-form-grid { grid-template-columns:1fr !important; } }
       @media print {
     body > *:not(#pdf-overlay) { display:none !important; }
     #pdf-overlay { display:block; padding:2rem; box-sizing:border-box; }
@@ -54,7 +55,7 @@
         <label for="cut">Cut / Type</label>
         <select id="cut"></select>
       </div>
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+      <div class="tool-form-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
         <div class="form-group">
           <label for="weight">Weight</label>
           <input type="number" id="weight" min="0.1" step="0.1" value="2" oninput="calculate()">

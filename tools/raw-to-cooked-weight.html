@@ -23,6 +23,9 @@
 }
 </script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+<style>
+  @media(max-width:600px) { .tool-form-grid { grid-template-columns:1fr !important; } }
+</style>
 </head>
 <body>
 <main>
@@ -47,7 +50,7 @@
         </select>
       </div>
 
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1.5rem;">
+      <div class="tool-form-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1.5rem;">
         <div class="form-group">
           <label for="amount">Amount</label>
           <input type="number" id="amount" min="0" step="any" value="100" oninput="convert()">

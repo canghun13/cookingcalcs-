@@ -23,6 +23,11 @@
 }
 </script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+<style>
+  @media(max-width:600px) {
+    .egg-form-grid { grid-template-columns:1fr !important; }
+  }
+</style>
 </head>
 <body>
 <main>
@@ -31,7 +36,7 @@
     <p class="tool-desc">Convert between egg sizes for any recipe. Enter the number of eggs your recipe calls for, select the size it specifies, and choose the size you have on hand.</p>
 
     <div class="tool-card-inner">
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.25rem; margin-bottom:1.5rem;">
+      <div class="egg-form-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:1.25rem; margin-bottom:1.5rem;">
         <div class="form-group">
           <label for="eggCount">Number of Eggs in Recipe</label>
           <input type="number" id="eggCount" min="1" max="24" step="1" placeholder="e.g. 3" oninput="convertEggs()">

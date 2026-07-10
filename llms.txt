@@ -44,7 +44,7 @@ CookingCalcs covers unit conversion, recipe scaling, cooking times and temperatu
 - [How to Calculate Meal Prep Cost for a Week](https://cookingcalcs.com/blog/how-to-calculate-meal-prep-cost-for-a-week.html): Step-by-step guide to calculating weekly meal prep cost with a cost per serving formula.
 - [10 Grocery Budget Tips That Actually Work](https://cookingcalcs.com/blog/grocery-budget-tips.html): Practical strategies to cut your grocery bill without eating badly.
 - [Tablespoon vs Teaspoon: What's the Difference?](https://cookingcalcs.com/blog/tablespoon-vs-teaspoon.html): Clear answers plus a full conversion chart for tablespoons and teaspoons.
-- [How to Substitute Egg Sizes in Recipes](https://cookingcalcs.com/blog/how-to-substitute-egg-sizes.html): How to swap medium, large, extra-large, and jumbo eggs in any recipe with a conversion chart.
+- [How to Substitute Egg Sizes in Recipes](https://cookingcalcs.com/blog/how-to-substitute-egg-sizes.html): How to swap medium, large, extra-large, and jumbo eggs in any recipe with a conversion chart, including UK vs US egg size differences.
 - [How Long to Cook Ground Beef](https://cookingcalcs.com/blog/how-long-to-cook-ground-beef.html): Exact cook times for ground beef on the stovetop, oven, and air fryer with safety temperatures.
 - [What Is a Serving Size? A Practical Guide](https://cookingcalcs.com/blog/what-is-a-serving-size.html): What serving size means, reference amounts by food category, and how it affects cost per serving.
 - [Butter Converter](https://cookingcalcs.com/tools/butter-converter.html): Convert butter between sticks, cups, tablespoons, teaspoons, grams, and ounces instantly.

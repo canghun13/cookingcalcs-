@@ -30,6 +30,7 @@ CookingCalcs covers unit conversion, recipe scaling, cooking times and temperatu
 - [How to Cut Your Grocery Bill Without Eating Less](https://cookingcalcs.com/blog/how-to-cut-grocery-bill.html): Practical strategies to reduce grocery spending without sacrificing meal quality.
 - [Tablespoons to Teaspoons: Full Conversion Guide](https://cookingcalcs.com/blog/tablespoon-to-teaspoon-guide.html): Complete conversion guide for tablespoons, teaspoons, cups, and fluid ounces.
 - [How to Calculate Cost Per Serving for Any Meal](https://cookingcalcs.com/blog/how-to-calculate-cost-per-serving.html): Step-by-step guide to calculating the exact cost per serving of home-cooked meals.
+- [Average Cost of a Home-Cooked Meal](https://cookingcalcs.com/blog/average-cost-of-a-home-cooked-meal.html): Real US cost benchmarks for home-cooked meals by meal type and budget level, plus how to calculate your own instead of relying on a national average.
 - [How Long to Cook Chicken Breast at Every Temperature](https://cookingcalcs.com/blog/how-long-to-cook-chicken-breast.html): Exact cook times for chicken breast at 350°F, 375°F, 400°F, 425°F across all methods.
 - [Complete Cooking Measurement Guide](https://cookingcalcs.com/blog/cooking-measurement-guide.html): Full reference for cups, tablespoons, teaspoons, ounces, and metric conversions.
 - [Meat Cooking Temperatures Explained](https://cookingcalcs.com/blog/meat-cooking-temperatures-explained.html): Clear guide to safe cooking temperatures for all cuts with USDA guidelines.

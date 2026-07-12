@@ -1,6 +1,6 @@
-# CookingCalcs 현황 및 인수인계 (2026-07-10 기준)
+# CookingCalcs 현황 및 인수인계 (2026-07-13 기준)
 
-이 문서는 2026-07-04 버전 인수인계 문서를 기반으로, 이후 진행된 모든 작업 내역을 반영해 갱신한 버전입니다. 새 세션에서는 이 문서만 보고 바로 작업 이어가면 됩니다.
+이 문서는 2026-07-10 버전 인수인계 문서를 기반으로, 이후 진행된 모든 작업 내역을 반영해 갱신한 버전입니다. 새 세션에서는 이 문서만 보고 바로 작업 이어가면 됩니다.
 
 ---
 
@@ -112,6 +112,20 @@ echo "nav.js BLOGS: $(sed -n '/const BLOGS/,/^];/p' assets/js/nav.js | grep -c '
 - `raw-to-cooked-weight.html`에 빠져있던 법적 disclaimer(영양/칼로리 관련) 추가 완료.
 - 모바일에서 폼 입력 그리드가 고정 2열이라 반응형 깨지던 버그, 6개 파일에서 발견 및 수정 (`egg-converter`, `butter-converter`, `cooking-time-calculator`, `raw-to-cooked-weight`, `weight-converter` — `meat-temperature-guide`는 결과 숫자 박스라 2열 유지해도 문제없다고 판단해 그대로 둠).
 
+### 2026-07-13: 툴 페이지 콘텐츠 보강 (얇은 콘텐츠 3개 발견 및 수정)
+- 정기 GSC/GA 분석 중 전체 툴 16개 단어수를 스크립트로 재검사한 결과, **8개 툴이 800단어 기준 미달**로 드러남 (egg-converter 424, cooking-time-calculator 520, recipe-multiplier 600, baking-substitutions 662, cost-per-serving 699, weekly-meal-prep-cost-calculator 743, oven-temp-converter 765, meal-cost-calculator 769). 07-09~10 감사 때는 "미색인 대상 44개"만 전수조사했고, 이미 인덱스된/트래픽 있는 페이지는 그 조사에서 빠졌던 게 원인.
+- 이번 세션엔 우선순위 상위 3개만 처리 (트래픽/순위 기준):
+  - `cost-per-serving.html` (699→931단어): GSC 평균 순위 8.64위로 사이트에서 가장 좋은 페이지인데, **본문에 거의 동일한 벤치마크 표가 2번 중복**되어 있던 걸 발견 — 위쪽 표(빠른 참조용)는 남기고 본문 중복 표는 제거, 대신 "홈쿠킹 vs 테이크아웃/배달 비교", "벌크 구매가 서빙당 비용에 미치는 영향" 섹션으로 교체.
+  - `egg-converter.html` (424→870단어): GA 트래픽 2위 페이지인데 실질 본문이 3문단+FAQ 3개뿐이었음. "USDA 계란 사이즈 라벨링 방식", "사이즈 미표기 레시피 대처법" 섹션 추가, FAQ 1개(3medium→large eggs) 추가.
+  - `cooking-time-calculator.html` (520→825단어): 내부링크 14개로 사이트에서 가장 많이 연결된 핵심 툴. 이번 주 GSC 쿼리에 터키 브레스트/돼지고기 무게별 쿼리가 여전히 많아서 "터키 브레스트 무게별 표", "돼지고기 부위별 시간", FAQ 2개(10lb 터키, 돼지고기 안전온도 변경 이력) 추가.
+- 나머지 5개(recipe-multiplier, baking-substitutions, weekly-meal-prep-cost-calculator, oven-temp-converter, meal-cost-calculator)는 **아직 미착수** — 다음 세션에서 이어서 처리할 것. meal-cost-calculator(769)와 oven-temp-converter(765)는 기준치에 가까워 우선순위 낮음, recipe-multiplier(600)와 baking-substitutions(662)가 다음 순위.
+- 수정한 3개 파일 모두 div 밸런스/JSON-LD 유효성 재검증 완료, sitemap.xml lastmod를 07-13으로 갱신.
+
+### 2026-07-13: 신규 콘텐츠/신규 툴 후보 검토 (전부 기각, 신규 작업 없음)
+- GSC 쿼리 355개 전수 확인 결과 클릭 0건 지속 (노출은 있으나 대부분 순위 50~100위권). 이번 라운드에 검토한 콘텐츠 갭 후보(치킨 허벅지 온도 클러스터, half-a-recipe 계열)는 전부 기존 페이지에 이미 커버되어 있어 신규 작업 없음.
+- 신규 툴 후보 3개 웹서치로 경쟁도 확인 후 전부 기각: **베이킹 팬 사이즈 변환기**(Food Network/omnicalculator/miniwebtool/bakingscalepro 등 전용 계산기 다수 선점), **라이스-워터 비율 계산기**(omnicalculator/goodcalculators/gigacalculator 등 다수), **유닛프라이스/파운드당 가격 계산기**(omnicalculator/inchcalculator/calculator.academy 등 — inchcalculator는 이미 회피 리스트에 있음, 요리 특화가 아닌 범용 쇼핑 계산기라 포지셔닝도 안 맞음). **앞으로 이 3개는 다시 제안하지 말 것.**
+- 결론: 요리 계산기 니치 자체가 전반적으로 포화 — 새로운 단일 계산기 아이디어를 낼 때는 "이미 대형 사이트가 전용 계산기를 만들어놨는가"를 web_search로 먼저 걸러야 함 (7번 섹션 기각 목록과 동일 패턴 반복 확인됨).
+
 ### 2026-07-11: mywellnesscalc.com 교차 내부링크
 - `mywellnesscalc.com`에서 이미 우리 사이트로 링크 걸어놓은 상태(`protein-calculator.html`→`meal-cost-calculator.html`, `macro-calculator.html`→`weekly-meal-prep-cost-calculator.html`).
 - 반대 방향 링크를 `tools/meal-cost-calculator.html`, `tools/weekly-meal-prep-cost-calculator.html`의 "Related Tools & Guides" 리스트에 추가 완료 (`target="_blank" rel="noopener"`, 링크 텍스트에 "(MyWellnessCalc)" 명시).
@@ -222,6 +236,7 @@ const BLOGS = [
 | 06-18 | - | - | GSC 등록 초기 |
 | 07-04 | 53 | 9 | 최초 정밀 점검 |
 | 07-10 | (재확인 필요) | (재확인 필요) | 이번 세션 작업들이 아직 반영 안 됐을 가능성 높음 (크롤링 지연) |
+| 07-13 | 53 | 9 | Coverage 차트가 06-30 데이터까지만 나옴(크롤 지연 지속) — 06-30 스냅샷 기준 07-04와 동일. 단, Performance(검색실적) 리포트엔 13개 URL이 노출 데이터를 갖고 있어 실제로는 06-30 이후 더 인덱싱됐을 가능성 있음. 클릭수는 3개월간 0건 지속(노출 대부분 순위 50~100위권). |
 
 **핵심 발견 (07-07)**: sitemap.xml에 `lastmod` 태그가 전무했음. 구글은 `changefreq`/`priority`를 공식적으로 무시하고 `lastmod`만 크롤 스케줄링에 사용하는데, 이게 아예 없어서 구글이 페이지 갱신 여부를 전혀 알 수 없는 상태였음. `nav.js`의 블로그별 날짜 데이터를 이용해 전체 lastmod 채워 넣음. **이후 신규/보강 작업마다 lastmod 갱신은 항상 같이 처리할 것.**
 

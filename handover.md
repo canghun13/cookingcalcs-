@@ -129,6 +129,13 @@ echo "nav.js BLOGS: $(sed -n '/const BLOGS/,/^];/p' assets/js/nav.js | grep -c '
 - **주의**: FAQ 리치 결과는 구글이 2023년부터 대부분 사이트에 노출 제한을 걸어놔서 SERP에서 바로 안 보일 수 있음 — 리치스니펫보다는 구조화 데이터로 콘텐츠 이해도를 높이는 보강 성격. 리치 결과 노출 여부는 다음 세션에서 GSC "향상" 리포트로 확인해볼 것.
 - **세션 관련 참고**: 이 세션은 clone 시점(22:54) 직후 다른 세션이 `a701e66`을 푸시(23:06)해서, 두 세션이 동시에 같은 저장소에서 작업하고 있었음. handover.md 편집 중 `a701e66`이 이미 반영된 상태를 처음엔 "허위 내용"으로 오판해서 지웠다가, git log/git show로 재검증 후 원상복구함. **여러 세션을 동시에 돌릴 경우 이런 충돌 가능성 있으니 참고.**
 
+### 2026-07-13: 나머지 얇은 콘텐츠 5개 툴 마저 보강 (사용자 지적으로 재개, 23:xx)
+- 위 `a701e66`에서 미착수로 남겼던 5개 툴 전부 처리 완료: `recipe-multiplier.html`(595→882단어, "대량 배치 스케일링"/"스케일링 흔한 실수" 섹션 추가), `baking-substitutions.html`(657→812단어, "치환이 잘 안 통하는 경우" 섹션 추가), `weekly-meal-prep-cost-calculator.html`(736→833단어, 냉동/벌크 관련 FAQ 1개 추가), `oven-temp-converter.html`(756→849단어, 조리시간 조정 관련 FAQ 1개 추가), `meal-cost-calculator.html`(764→924단어, "스토어 브랜드 vs 네임 브랜드" 섹션 추가).
+- 실제 `<main>` 태그 기준으로 단어수 재측정해서 확인(억지로 채우지 않고 실질 정보로 800+ 확보).
+- 본문 변경에 맞춰 FAQPage 구조화 데이터도 재생성(새로 추가한 FAQ 포함), sitemap.xml lastmod 5개 URL 07-13으로 갱신.
+- 검증: 5개 파일 전체 JSON-LD 파싱 성공, div 밸런스 정상, sitemap XML 유효.
+- 이걸로 07-09~10 감사 때 발견된 "얇은 콘텐츠" 툴 8개(egg-converter, cooking-time-calculator, cost-per-serving + 이번에 처리한 5개) 전부 완료됨.
+
 ### 2026-07-11: mywellnesscalc.com 교차 내부링크
 - `mywellnesscalc.com`에서 이미 우리 사이트로 링크 걸어놓은 상태(`protein-calculator.html`→`meal-cost-calculator.html`, `macro-calculator.html`→`weekly-meal-prep-cost-calculator.html`).
 - 반대 방향 링크를 `tools/meal-cost-calculator.html`, `tools/weekly-meal-prep-cost-calculator.html`의 "Related Tools & Guides" 리스트에 추가 완료 (`target="_blank" rel="noopener"`, 링크 텍스트에 "(MyWellnessCalc)" 명시).

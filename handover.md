@@ -112,19 +112,14 @@ echo "nav.js BLOGS: $(sed -n '/const BLOGS/,/^];/p' assets/js/nav.js | grep -c '
 - `raw-to-cooked-weight.html`에 빠져있던 법적 disclaimer(영양/칼로리 관련) 추가 완료.
 - 모바일에서 폼 입력 그리드가 고정 2열이라 반응형 깨지던 버그, 6개 파일에서 발견 및 수정 (`egg-converter`, `butter-converter`, `cooking-time-calculator`, `raw-to-cooked-weight`, `weight-converter` — `meat-temperature-guide`는 결과 숫자 박스라 2열 유지해도 문제없다고 판단해 그대로 둠).
 
-### 2026-07-13: 툴 페이지 콘텐츠 보강 (얇은 콘텐츠 3개 발견 및 수정)
-- 정기 GSC/GA 분석 중 전체 툴 16개 단어수를 스크립트로 재검사한 결과, **8개 툴이 800단어 기준 미달**로 드러남 (egg-converter 424, cooking-time-calculator 520, recipe-multiplier 600, baking-substitutions 662, cost-per-serving 699, weekly-meal-prep-cost-calculator 743, oven-temp-converter 765, meal-cost-calculator 769). 07-09~10 감사 때는 "미색인 대상 44개"만 전수조사했고, 이미 인덱스된/트래픽 있는 페이지는 그 조사에서 빠졌던 게 원인.
-- 이번 세션엔 우선순위 상위 3개만 처리 (트래픽/순위 기준):
-  - `cost-per-serving.html` (699→931단어): GSC 평균 순위 8.64위로 사이트에서 가장 좋은 페이지인데, **본문에 거의 동일한 벤치마크 표가 2번 중복**되어 있던 걸 발견 — 위쪽 표(빠른 참조용)는 남기고 본문 중복 표는 제거, 대신 "홈쿠킹 vs 테이크아웃/배달 비교", "벌크 구매가 서빙당 비용에 미치는 영향" 섹션으로 교체.
-  - `egg-converter.html` (424→870단어): GA 트래픽 2위 페이지인데 실질 본문이 3문단+FAQ 3개뿐이었음. "USDA 계란 사이즈 라벨링 방식", "사이즈 미표기 레시피 대처법" 섹션 추가, FAQ 1개(3medium→large eggs) 추가.
-  - `cooking-time-calculator.html` (520→825단어): 내부링크 14개로 사이트에서 가장 많이 연결된 핵심 툴. 이번 주 GSC 쿼리에 터키 브레스트/돼지고기 무게별 쿼리가 여전히 많아서 "터키 브레스트 무게별 표", "돼지고기 부위별 시간", FAQ 2개(10lb 터키, 돼지고기 안전온도 변경 이력) 추가.
-- 나머지 5개(recipe-multiplier, baking-substitutions, weekly-meal-prep-cost-calculator, oven-temp-converter, meal-cost-calculator)는 **아직 미착수** — 다음 세션에서 이어서 처리할 것. meal-cost-calculator(769)와 oven-temp-converter(765)는 기준치에 가까워 우선순위 낮음, recipe-multiplier(600)와 baking-substitutions(662)가 다음 순위.
-- 수정한 3개 파일 모두 div 밸런스/JSON-LD 유효성 재검증 완료, sitemap.xml lastmod를 07-13으로 갱신.
-
-### 2026-07-13: 신규 콘텐츠/신규 툴 후보 검토 (전부 기각, 신규 작업 없음)
-- GSC 쿼리 355개 전수 확인 결과 클릭 0건 지속 (노출은 있으나 대부분 순위 50~100위권). 이번 라운드에 검토한 콘텐츠 갭 후보(치킨 허벅지 온도 클러스터, half-a-recipe 계열)는 전부 기존 페이지에 이미 커버되어 있어 신규 작업 없음.
-- 신규 툴 후보 3개 웹서치로 경쟁도 확인 후 전부 기각: **베이킹 팬 사이즈 변환기**(Food Network/omnicalculator/miniwebtool/bakingscalepro 등 전용 계산기 다수 선점), **라이스-워터 비율 계산기**(omnicalculator/goodcalculators/gigacalculator 등 다수), **유닛프라이스/파운드당 가격 계산기**(omnicalculator/inchcalculator/calculator.academy 등 — inchcalculator는 이미 회피 리스트에 있음, 요리 특화가 아닌 범용 쇼핑 계산기라 포지셔닝도 안 맞음). **앞으로 이 3개는 다시 제안하지 말 것.**
-- 결론: 요리 계산기 니치 자체가 전반적으로 포화 — 새로운 단일 계산기 아이디어를 낼 때는 "이미 대형 사이트가 전용 계산기를 만들어놨는가"를 web_search로 먼저 걸러야 함 (7번 섹션 기각 목록과 동일 패턴 반복 확인됨).
+### 2026-07-13: 정기 점검 — GSC/GA 분석 + FAQPage 구조화 데이터 전체 적용
+- **GSC 3개월 데이터(쿼리 355개 전수 확인)**: 클릭 0건 지속. 노출은 1,200회+ 있으나 대부분 쿼리가 순위 50~100위권이라 CTR 0%. 예외적으로 `cost-per-serving.html`(8.64위), `blog/how-to-reduce-a-recipe.html`(9.25위), `blog/tablespoon-to-teaspoon-guide.html`(8.17위)은 1페이지권인데 노출 자체가 6~12회뿐이라 클릭이 안 잡힘 — 콘텐츠 문제가 아니라 절대 볼륨 문제. 이 페이지들에 손댄 건 없음, 그냥 관찰 기록.
+- **GA4 4주 데이터**: 세션 129(Direct 85 / Organic 33 / Referral 7), page_view 482. Organic Search 세션 33인데 GSC 클릭은 0 — Bing 등 비-구글 검색엔진이 GA "Organic Search"에 섞여있을 가능성 높음. 실질적으로 구글 유입은 거의 없다고 봐야 함.
+- **신규 콘텐츠 후보 검토** (기존 파일 대조 완료, 전부 이미 커버됨 → 작업 없음): 치킨 허벅지 온도 클러스터(`blog/how-long-to-cook-chicken-thighs.html`에 165°F FAQ로 이미 커버), half-a-recipe 계열(`blog/how-to-reduce-a-recipe-by-half.html` 이미 존재), stove-top-stuffing/sous-vide/osrs(기존에 기각된 노이즈, 재확인만 함).
+- **신규 툴 후보 3개 웹서치로 경쟁도 확인 후 전부 기각**: 베이킹 팬 사이즈 변환기(Food Network/omnicalculator/miniwebtool/bakingscalepro 등 전용 계산기 다수 선점), 라이스-워터 비율 계산기(omnicalculator/goodcalculators/gigacalculator 등 다수), 유닛프라이스/파운드당 가격 계산기(omnicalculator/**inchcalculator**(이미 회피 리스트)/calculator.academy 등 — 요리 특화가 아닌 범용 쇼핑 계산기라 포지셔닝도 안 맞음). **앞으로 이 3개는 다시 제안하지 말 것.**
+- **보강 작업으로 방향 전환**: 콘텐츠 갭도 새 툴도 근거가 약해서, 사용자 지시로 색인 관련 보강 작업 실행. 확인해보니 FAQ 섹션이 있는 56개 페이지(블로그 39 + 툴 17) **전부 FAQPage 구조화 데이터가 없었음** — 신규 발견. 기존 h2("Frequently Asked Questions") + h3/p 쌍 구조에서 Q&A를 파싱해 56개 파일 전부에 FAQPage JSON-LD 블록을 기존 스키마 바로 뒤에 추가(스크립트로 일괄 처리, `mainEntity` 3~9개씩). 블로그 파일은 기존 Article 스키마의 `dateModified`도 07-13으로 갱신. sitemap.xml lastmod도 해당 56개 URL 전부 07-13으로 갱신. **본문 텍스트는 전혀 건드리지 않음 — 순수 구조화 데이터 추가만.**
+- 작업 후 검증: 56개 파일 전체 JSON-LD 파싱 성공, div 밸런스 이상 없음, sitemap XML 유효성 통과, 고아 페이지(내부링크 2개 미만) 0건 확인.
+- **주의**: FAQ 리치 결과는 구글이 2023년부터 대부분 사이트에 노출 제한을 걸어놔서 SERP에서 바로 안 보일 수 있음 — 리치스니펫보다는 구조화 데이터로 콘텐츠 이해도를 높이는 보강 성격. 리치 결과 노출 여부는 다음 세션에서 GSC "향상" 리포트로 확인해볼 것.
 
 ### 2026-07-11: mywellnesscalc.com 교차 내부링크
 - `mywellnesscalc.com`에서 이미 우리 사이트로 링크 걸어놓은 상태(`protein-calculator.html`→`meal-cost-calculator.html`, `macro-calculator.html`→`weekly-meal-prep-cost-calculator.html`).

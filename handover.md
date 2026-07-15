@@ -31,7 +31,7 @@
 
 ## 2. 현재 사이트 구조 (2026-07-10 기준, 실제 repo 확인값)
 
-### 툴 16개 (`/tools/`)
+### 툴 17개 (`/tools/`)
 ```
 index.html                          ← 툴 메인 (검색 기능, TOOL_ICONS 오브젝트 포함)
 cups-to-grams.html
@@ -50,6 +50,7 @@ baking-substitutions.html
 cups-to-tablespoons.html
 raw-to-cooked-weight.html
 weekly-meal-prep-cost-calculator.html   ← 2026-07-07 신규
+slow-cooker-converter.html              ← 2026-07-16 신규
 ```
 
 ### 블로그 40개 (`/blog/`)
@@ -65,10 +66,10 @@ nav.js BLOGS 배열에서 전체 목록 관리. 2026-07-07~10 신규/변경:
 
 ### 개수 검증 (반드시 최신 clone에서 재확인할 것)
 ```bash
-echo "tools: $(ls tools/*.html | grep -v index.html | wc -l)"       # 16
+echo "tools: $(ls tools/*.html | grep -v index.html | wc -l)"       # 17
 echo "blogs: $(ls blog/*.html | grep -v index.html | wc -l)"        # 40
-echo "sitemap: $(grep -c '<loc>' sitemap.xml)"                      # 62 (16+1 + 40+1 + 4정적페이지)
-echo "nav.js TOOLS: $(sed -n '/const TOOLS/,/];/p' assets/js/nav.js | grep -c 'url:')"   # 16
+echo "sitemap: $(grep -c '<loc>' sitemap.xml)"                      # 63 (17+1 + 40+1 + 4정적페이지)
+echo "nav.js TOOLS: $(sed -n '/const TOOLS/,/];/p' assets/js/nav.js | grep -c 'url:')"   # 17
 echo "nav.js BLOGS: $(sed -n '/const BLOGS/,/^];/p' assets/js/nav.js | grep -c 'url:')"  # 40
 ```
 이 5개 숫자가 서로 안 맞으면 드리프트가 생긴 것 — 바로 잡고 넘어갈 것.
@@ -155,6 +156,16 @@ echo "nav.js BLOGS: $(sed -n '/const BLOGS/,/^];/p' assets/js/nav.js | grep -c '
 - 클릭 0건 = 방문자 0명 = 광고 노출 0건. 지금 병목은 콘텐츠 품질이 아니라 색인 자체(80% 미색인)이고, 이건 콘텐츠를 더 쓴다고 해결되는 문제가 아니라 사이트 신뢰도가 쌓이면서 Google이 크롤 큐를 소화하는 시간의 문제에 가까움.
 - 따라서 이번 세션에서 새 페이지를 만드는 건 "일단 뭐라도 하자"식 작업이 되어 오히려 사이트에 크롤링될 페이지만 더 쌓이는 역효과가 날 수 있다고 판단해 보류함. **콘텐츠/코드 변경 없음, 이 handover.md 갱신만 커밋.**
 - 다음 세션에서 확인할 것: (1) Coverage 색인 개수가 13에서 늘었는지, (2) 실제 클릭이 발생했는지, (3) 07-12/13 노출 급증이 일시적이었는지 추세로 이어지는지. 이 세 가지 중 하나라도 유의미하게 바뀌면 그때 콘텐츠 작업 우선순위를 다시 판단.
+
+### 2026-07-16 (2차): 사용자 지적으로 신규 툴 1개 추가 — Slow Cooker Time Converter (커밋 `e264d47`)
+- 사용자가 "주간 작업엔 최소한 신규가 있어야 하는데 이번에도 안 했다"고 지적, 기준을 넓혀서 롱테일 키워드로 활로를 뚫으라고 지시. 위 07-16(1차) 분석에서 보수적으로 "신규 없음"으로 판단했던 걸 재검토함.
+- GSC 쿼리 494개를 다시 훑어서 "이미 커버된 클러스터의 롱테일 변형"이 아닌 항목을 추림: `seasoning calculator`, `curing calculator`(식품안전 민감 영역이라 제외), `roasting calculator`류(기존 cooking-time-calculator/meat-temperature-guide와 개념 중복이라 제외), **`slow cooking time calculator`**(사이트에 전혀 없는 개념, 순위도 49위로 상대적으로 양호) 를 최종 후보로 선정.
+- web_search로 "oven to slow cooker time conversion calculator" 경쟁 강도 확인: Pillsbury, ovenspot, myfearlesskitchen, recipetips, justapinch 등 상위 결과 대부분이 **정적 블로그 표**(Article 타입)이고, 실제 양방향 인터랙티브 계산기는 best-calculators.com 한 곳 정도뿐이었음. 사이트의 핵심 차별점이 "계산기(WebApplication) 포맷"이라는 점에서 상대적으로 유리한 틈새로 판단, 진행 결정.
+- **`tools/slow-cooker-converter.html` 신규 생성** (963단어): 오븐/스토브탑 시간 ↔ 슬로우쿠커 Low/High 양방향 변환기. 앵커 포인트(오븐 15분~4시간 구간별 Low/High 시간 범위) 기반 선형보간(interpolation)으로 값 계산 — 역방향(슬로우쿠커→오븐)도 같은 앵커의 중간값을 이용해 역보간하는 방식이라 양방향이 수학적으로 일관됨. 참고 전체 차트, FAQ 6개(정확 문구 매칭: "is 4 hours on high the same as 8 hours on low", "why did my slow cooker meal turn out watery" 등), 액체량 조절/부적합 음식(생선·유제품·바삭한 식감)/냉동육 위험(danger zone) 섹션 포함.
+- 체크리스트 전항목 반영: `nav.js` TOOLS 배열, `tools/index.html`의 `TOOL_ICONS`(🍲), `index.html` 홈 카드 + `stat-num` 16→17, `sitemap.xml`(lastmod 07-16), `llms.txt` 항목 추가.
+- 내부링크 5곳 확보: `tools/cooking-time-calculator.html`, `tools/meat-temperature-guide.html`, `tools/oven-temp-converter.html`의 "Related Tools & Guides" 박스 + `index.html` + `tools/index.html`.
+- 검증: 개수 정합(tools 17 / nav.js TOOLS 17 / sitemap 63), JSON-LD 파싱 성공(전체 수정 파일), div 밸런스 정상, sitemap XML 유효, 고아 페이지 아님.
+- **주의**: `llms.txt`의 기존 Tools 목록에 `butter-converter`, `baking-substitutions`, `cups-to-tablespoons`, `raw-to-cooked-weight` 4개가 이번 세션 이전부터 이미 누락되어 있었음(이번 세션에서 발견, 원인 불명 — 이번 작업 범위 밖이라 손 안 댐). 다음 세션에서 llms.txt 작업할 일 있으면 이 4개도 같이 채워 넣을 것.
 
 ### 2026-07-11: mywellnesscalc.com 교차 내부링크
 - `mywellnesscalc.com`에서 이미 우리 사이트로 링크 걸어놓은 상태(`protein-calculator.html`→`meal-cost-calculator.html`, `macro-calculator.html`→`weekly-meal-prep-cost-calculator.html`).

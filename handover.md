@@ -174,6 +174,13 @@ echo "nav.js BLOGS: $(sed -n '/const BLOGS/,/^];/p' assets/js/nav.js | grep -c '
 - 검증: 개수 정합(tools 17 / nav.js TOOLS 17 / sitemap 63), JSON-LD 파싱 성공(전체 수정 파일), div 밸런스 정상, sitemap XML 유효, 고아 페이지 아님.
 - **주의**: `llms.txt`의 기존 Tools 목록에 `butter-converter`, `baking-substitutions`, `cups-to-tablespoons`, `raw-to-cooked-weight` 4개가 이번 세션 이전부터 이미 누락되어 있었음(이번 세션에서 발견, 원인 불명 — 이번 작업 범위 밖이라 손 안 댐). 다음 세션에서 llms.txt 작업할 일 있으면 이 4개도 같이 채워 넣을 것.
 
+### 2026-07-16 (4차): 콘텐츠 보강 — turkey breast 가이드에 kg(메트릭) 표 추가 (커밋 `f8420da`)
+- 사용자가 footer 되돌리라고 지시하면서 "포화 상태면 롱테일로 틈새 키워드로 승부봐야지"라고 방향을 명확히 함. GSC 쿼리를 다시 훑어서 실제 보강 가능한 롱테일 갭을 찾음.
+- `turkey breast cooking times per kg`(노출 7, 순위 87위)가 전혀 커버되지 않고 있었음 확인. 이 페이지(`how-long-to-cook-turkey-breast.html`)는 사이트 2위 트래픽 페이지(251회 노출)인데 파운드 단위 표만 있었고, 국가별 데이터상 영국/호주/캐나다/뉴질랜드 등 미터법 국가 노출 합이 300회+로 작지 않았음.
+- 기존 lb 표 수치를 그대로 kg으로 환산해 새 표 추가(새로운 추정치를 만들지 않고 기존 권위있는 숫자를 재사용), FAQ 1개 추가(정확 문구 매칭), 분당 조리 비율 설명 문단 추가. 단어수 1210→1495, 읽기시간 9→10분, dateModified/sitemap lastmod 07-16 갱신. `how-to-convert-a-recipe-to-metric.html`로 상호링크도 추가.
+- 검증: JSON-LD 파싱 성공, div 밸런스 정상.
+- 이 방식(기존 고트래픽 페이지에 커버 안 된 국가별/단위별 롱테일 쿼리를 찾아 보강)이 이번 세션에서 가장 근거가 탄탄했던 작업 — 다음에 비슷하게 접근할 때 참고할 것: 페이지별 노출량이 큰 순서대로 먼저 보고, 그 페이지와 매칭되는 쿼리 중 "본문에 아예 없는 각도(단위, 국가, 특정 문구)"가 있는지부터 확인.
+
 ### 2026-07-11: mywellnesscalc.com 교차 내부링크
 - `mywellnesscalc.com`에서 이미 우리 사이트로 링크 걸어놓은 상태(`protein-calculator.html`→`meal-cost-calculator.html`, `macro-calculator.html`→`weekly-meal-prep-cost-calculator.html`).
 - 반대 방향 링크를 `tools/meal-cost-calculator.html`, `tools/weekly-meal-prep-cost-calculator.html`의 "Related Tools & Guides" 리스트에 추가 완료 (`target="_blank" rel="noopener"`, 링크 텍스트에 "(MyWellnessCalc)" 명시).

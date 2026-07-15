@@ -37,6 +37,7 @@ const TOOLS = [
   { name: "Cups to Tablespoons", url: "/tools/cups-to-tablespoons.html" },
   { name: "Raw to Cooked Weight", url: "/tools/raw-to-cooked-weight.html" },
   { name: "Weekly Meal Prep Cost Calculator", url: "/tools/weekly-meal-prep-cost-calculator.html" },
+  { name: "Slow Cooker Time Converter", url: "/tools/slow-cooker-converter.html" },
 ];
 
 const BLOGS = [

@@ -18,6 +18,7 @@ CookingCalcs covers unit conversion, recipe scaling, cooking times and temperatu
 - [Egg Size Converter](https://cookingcalcs.com/tools/egg-converter.html): Convert between egg sizes (small, medium, large, extra large, jumbo) for any recipe with exact counts and baking adjustment tips.
 - [Liquid Converter](https://cookingcalcs.com/tools/liquid-converter.html): Convert between milliliters, cups, fluid ounces, tablespoons, and teaspoons instantly. Includes a full reference chart.
 - [Weekly Meal Prep Cost Calculator](https://cookingcalcs.com/tools/weekly-meal-prep-cost-calculator.html): Calculate your total weekly meal prep cost across all meals. Add each meal's cost and frequency to get weekly, daily, and monthly totals.
+- [Slow Cooker Time Converter](https://cookingcalcs.com/tools/slow-cooker-converter.html): Convert oven or stovetop cooking times to slow cooker Low/High settings, or slow cooker times back to the oven. Includes a full reference chart and liquid adjustment guidance.
 
 ## Blog
 

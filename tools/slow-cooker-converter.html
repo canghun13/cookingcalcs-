@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slow Cooker Time Converter – Oven to Crockpot & Back – CookingCalcs</title>
+  <meta name="description" content="Convert oven or stovetop cooking times to slow cooker Low/High settings, or slow cooker times back to the oven. Free, instant, no signup.">
+  <link rel="canonical" href="https://cookingcalcs.com/tools/slow-cooker-converter.html">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script src="/assets/js/nav.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Slow Cooker Time Converter",
+  "url": "https://cookingcalcs.com/tools/slow-cooker-converter.html",
+  "description": "Convert oven or stovetop cooking times to slow cooker Low/High settings, or slow cooker times back to the oven.",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "provider": { "@type": "Organization", "name": "CookingCalcs", "url": "https://cookingcalcs.com" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is 4 hours on High the same as 8 hours on Low?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Roughly, yes — High cooks at about 300°F and Low at about 200°F, so 1 hour on High is approximately equal to 2 to 2.5 hours on Low. Most recipes that give both options follow this ratio, though dishes with dairy or delicate vegetables can turn out slightly better on Low since the gentler heat is more forgiving."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I convert any oven recipe to a slow cooker?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most braises, stews, soups, roasts, and casseroles convert well. Recipes that rely on dry-heat browning, crisping, or short cook times — like roasted vegetables, seared steaks, or anything meant to come out crispy — don't translate to a slow cooker's moist, low-heat environment no matter how you adjust the time."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to adjust the liquid when using a slow cooker?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Slow cookers trap nearly all their moisture with almost no evaporation, unlike an open oven or stovetop pot. Reduce the liquid in the original recipe by about a third to a half, or you'll end up with a much soupier result than intended."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I leave a slow cooker on Low all day while I'm at work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, that's exactly what Low is designed for — most slow cooker recipes on Low run 6 to 10 hours safely. Just make sure the dish starts from a fully thawed state and isn't left on a Warm or off setting for hours before you actually start cooking."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why did my slow cooker meal turn out watery?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This is almost always a liquid problem, not a time problem. Because slow cookers don't let steam escape, any liquid you add stays in the pot for the entire cook time instead of reducing the way it would in an open oven dish. Cut the recipe's liquid by a third to a half, and add thickeners like flour or cornstarch during the last 30 minutes rather than at the start."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long should a whole chicken cook in a slow cooker?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A whole chicken (roughly the same time as a 1.5-2 hour oven roast) generally needs 6-7 hours on Low or 3-4 hours on High, until the thigh meat reaches 165°F. Use this converter's oven-to-slow-cooker mode with your usual oven roasting time as a starting estimate, then confirm doneness with a meat thermometer."
+      }
+    }
+  ]
+}
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+<style>
+  @media(max-width:600px) { .sc-toggle { grid-template-columns:1fr !important; } }
+</style>
+</head>
+<body>
+<main>
+  <div class="tool-page">
+    <h1>Slow Cooker Time Converter</h1>
+    <p class="tool-desc">Turn any oven or stovetop cooking time into slow cooker Low and High settings — or go the other way and convert a slow cooker recipe back to the oven.</p>
+
+    <div class="tool-box">
+      <div class="sc-toggle" style="display:grid; grid-template-columns:1fr 1fr; gap:0.75rem; margin-bottom:1.25rem;">
+        <button type="button" id="btnOvenToSlow" onclick="setMode('ovenToSlow')" style="padding:0.65rem; border-radius:8px; border:1.5px solid var(--tomato); background:var(--tomato); color:#fff; font-weight:600; cursor:pointer;">Oven → Slow Cooker</button>
+        <button type="button" id="btnSlowToOven" onclick="setMode('slowToOven')" style="padding:0.65rem; border-radius:8px; border:1.5px solid var(--tomato); background:none; color:var(--tomato-dark); font-weight:600; cursor:pointer;">Slow Cooker → Oven</button>
+      </div>
+
+      <div id="ovenInputs">
+        <div class="form-group">
+          <label for="ovenHours">Oven / stovetop time — hours</label>
+          <input type="number" id="ovenHours" min="0" placeholder="e.g. 1" oninput="convert()">
+        </div>
+        <div class="form-group">
+          <label for="ovenMinutes">Minutes</label>
+          <input type="number" id="ovenMinutes" min="0" max="59" placeholder="e.g. 30" oninput="convert()">
+        </div>
+      </div>
+
+      <div id="slowInputs" style="display:none;">
+        <div class="form-group">
+          <label for="slowHours">Slow cooker time — hours</label>
+          <input type="number" id="slowHours" min="0" placeholder="e.g. 6" oninput="convert()">
+        </div>
+        <div class="form-group">
+          <label for="slowSetting">Setting</label>
+          <select id="slowSetting" onchange="convert()">
+            <option value="low">Low</option>
+            <option value="high">High</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="result" style="display:none; margin-top:1.5rem;">
+        <div id="resultOven" style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+          <div class="result-box">
+            <div class="result-num" id="resLow"></div>
+            <div class="result-label">Slow Cooker – Low</div>
+          </div>
+          <div class="result-box">
+            <div class="result-num" id="resHigh"></div>
+            <div class="result-label">Slow Cooker – High</div>
+          </div>
+        </div>
+        <div id="resultSlow" style="display:none;">
+          <div class="result-box">
+            <div class="result-num" id="resOvenOut"></div>
+            <div class="result-label">Oven / Stovetop (325°F)</div>
+          </div>
+        </div>
+        <p style="text-align:center; margin-top:1rem; color:var(--mid); font-size:0.9rem;">Approximate — always confirm doneness with a thermometer, especially for meat and poultry.</p>
+      </div>
+    </div>
+
+    <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin:2rem 0 1rem;">Full Conversion Chart</h2>
+    <table style="width:100%; border-collapse:collapse; font-size:0.9rem; background:#fff; border-radius:12px; overflow:hidden;">
+      <thead>
+        <tr style="background:var(--sand-dark);">
+          <th style="padding:0.75rem 1rem; text-align:left; border-bottom:1px solid var(--border);">Oven / Stovetop</th>
+          <th style="padding:0.75rem 1rem; text-align:center; border-bottom:1px solid var(--border);">Slow Cooker Low</th>
+          <th style="padding:0.75rem 1rem; text-align:center; border-bottom:1px solid var(--border);">Slow Cooker High</th>
+        </tr>
+      </thead>
+      <tbody id="chartBody"></tbody>
+    </table>
+
+    <div style="margin-top:3rem; padding:1.5rem; background:var(--tomato-light); border-radius:var(--radius-lg);">
+      <h3 style="font-family:'Playfair Display',serif; margin-bottom:0.75rem;">Related Tools & Guides</h3>
+      <ul style="list-style:none; display:flex; flex-direction:column; gap:0.5rem;">
+        <li><a href="/tools/cooking-time-calculator.html" style="color:var(--tomato-dark); font-weight:500;">→ Cooking Time Calculator</a></li>
+        <li><a href="/tools/oven-temp-converter.html" style="color:var(--tomato-dark); font-weight:500;">→ Oven Temperature Converter</a></li>
+        <li><a href="/tools/meat-temperature-guide.html" style="color:var(--tomato-dark); font-weight:500;">→ Meat Temperature Guide</a></li>
+      </ul>
+    </div>
+
+    <div class="blog-content" style="margin-top:3rem;">
+      <h2>How to Use This Converter</h2>
+      <p>Pick a direction — Oven → Slow Cooker if you're adapting a regular recipe for the crockpot, or Slow Cooker → Oven if you have a slow cooker recipe you want to make on the stovetop or in the oven instead. Enter the time you already know, and the converter estimates the equivalent Low and High slow cooker times (or the equivalent oven time). The chart below shows the same conversions across a wider range of cook times for quick reference.</p>
+
+      <h2>Why Slow Cookers Take So Much Longer</h2>
+      <p>A slow cooker's Low setting runs at roughly 190-200°F and High at roughly 290-300°F — both far below a typical oven's 325-425°F range. Lower, steadier heat breaks down connective tissue and tenderizes tougher cuts gradually rather than quickly, which is exactly why slow cookers are so good at pot roasts, pulled pork, and bean-heavy stews, but not suited to anything that needs a quick sear or a crisp exterior.</p>
+      <p>As a rough rule of thumb, 1 hour on High is close to 2 to 2.5 hours on Low, and both settings need considerably longer than the equivalent oven or stovetop time — short 15-30 minute oven dishes typically need 4-6 hours on Low, while longer 2-3 hour braises can stretch to 10-14 hours on Low in a slow cooker.</p>
+
+      <h2>Adjusting Liquid for the Slow Cooker</h2>
+      <p>Slow cookers seal in nearly all their moisture — almost nothing evaporates the way it does in an open pot or oven dish. If you're converting a recipe into the slow cooker, cut the liquid (broth, water, wine, sauce) by about a third to a half from what the original recipe calls for. Going the other direction — slow cooker to oven or stovetop — you'll usually need to add a little extra liquid back in, since the open cooking method allows more evaporation over the same time.</p>
+      <p>If a dish calls for rice, pasta, or other liquid-absorbing ingredients, add them later in the cook time rather than at the start, and expect to need slightly more liquid than the standard reduction suggests.</p>
+
+      <h2>What Doesn't Convert Well</h2>
+      <p>Not every recipe belongs in a slow cooker, no matter how the time is adjusted. Delicate fish, shrimp, and thin pasta turn mushy over hours of low heat — they're better added in the final 20-30 minutes if at all. Dishes that depend on browning, crisping, or a seared crust (roasted vegetables, seared steaks, crispy-skinned poultry) won't develop that texture in a slow cooker's moist, enclosed environment, even with a perfect time conversion. Dairy — milk, cream, soft cheese — can curdle or separate over a long cook, so it's best stirred in during the last 30-60 minutes rather than added at the start.</p>
+
+      <h2>Food Safety When Converting Times</h2>
+      <p>Never start a slow cooker recipe with frozen meat — it can sit in the 40-140°F bacterial danger zone too long before the slow cooker's gentle heat catches up. Thaw completely in the refrigerator first. Poultry needs to reach 165°F internally regardless of which method or time conversion you use, and most red meat and pork roasts intended for pulling or shredding are safest well past the minimum temperature, closer to 195-205°F, where connective tissue has fully broken down. A meat thermometer is the only reliable way to confirm doneness — treat every time conversion, including this one, as a starting estimate rather than a guarantee.</p>
+
+      <h2>Frequently Asked Questions</h2>
+      <h3>Is 4 hours on High the same as 8 hours on Low?</h3>
+      <p>Roughly, yes — High cooks at about 300°F and Low at about 200°F, so 1 hour on High is approximately equal to 2 to 2.5 hours on Low. Most recipes that give both options follow this ratio, though dishes with dairy or delicate vegetables can turn out slightly better on Low since the gentler heat is more forgiving.</p>
+
+      <h3>Can I convert any oven recipe to a slow cooker?</h3>
+      <p>Most braises, stews, soups, roasts, and casseroles convert well. Recipes that rely on dry-heat browning, crisping, or short cook times — like roasted vegetables, seared steaks, or anything meant to come out crispy — don't translate to a slow cooker's moist, low-heat environment no matter how you adjust the time.</p>
+
+      <h3>Do I need to adjust the liquid when using a slow cooker?</h3>
+      <p>Yes. Slow cookers trap nearly all their moisture with almost no evaporation, unlike an open oven or stovetop pot. Reduce the liquid in the original recipe by about a third to a half, or you'll end up with a much soupier result than intended.</p>
+
+      <h3>Can I leave a slow cooker on Low all day while I'm at work?</h3>
+      <p>Yes, that's exactly what Low is designed for — most slow cooker recipes on Low run 6 to 10 hours safely. Just make sure the dish starts from a fully thawed state and isn't left on a Warm or off setting for hours before you actually start cooking.</p>
+
+      <h3>Why did my slow cooker meal turn out watery?</h3>
+      <p>This is almost always a liquid problem, not a time problem. Because slow cookers don't let steam escape, any liquid you add stays in the pot for the entire cook time instead of reducing the way it would in an open oven dish. Cut the recipe's liquid by a third to a half, and add thickeners like flour or cornstarch during the last 30 minutes rather than at the start.</p>
+
+      <h3>How long should a whole chicken cook in a slow cooker?</h3>
+      <p>A whole chicken (roughly the same time as a 1.5-2 hour oven roast) generally needs 6-7 hours on Low or 3-4 hours on High, until the thigh meat reaches 165°F. Use this converter's oven-to-slow-cooker mode with your usual oven roasting time as a starting estimate, then confirm doneness with a meat thermometer.</p>
+    </div>
+  </div>
+</main>
+
+<script>
+// Anchor points: oven minutes -> slow cooker Low/High hour ranges (midpoints used for interpolation)
+const anchors = [
+  { oven: 15,  lowMin: 4,  lowMax: 6,  highMin: 1.5, highMax: 2.5 },
+  { oven: 30,  lowMin: 5,  lowMax: 7,  highMin: 2,   highMax: 3   },
+  { oven: 45,  lowMin: 6,  lowMax: 8,  highMin: 2.5, highMax: 3.5 },
+  { oven: 60,  lowMin: 7,  lowMax: 9,  highMin: 3,   highMax: 4   },
+  { oven: 90,  lowMin: 8,  lowMax: 10, highMin: 3.5, highMax: 4.5 },
+  { oven: 120, lowMin: 9,  lowMax: 12, highMin: 4,   highMax: 5   },
+  { oven: 180, lowMin: 10, lowMax: 14, highMin: 4.5, highMax: 6   },
+  { oven: 240, lowMin: 11, lowMax: 16, highMin: 5,   highMax: 7   },
+];
+
+function interp(x, xs, ys) {
+  if (x <= xs[0]) return ys[0];
+  if (x >= xs[xs.length - 1]) return ys[ys.length - 1];
+  for (let i = 0; i < xs.length - 1; i++) {
+    if (x >= xs[i] && x <= xs[i + 1]) {
+      const t = (x - xs[i]) / (xs[i + 1] - xs[i]);
+      return ys[i] + t * (ys[i + 1] - ys[i]);
+    }
+  }
+  return ys[ys.length - 1];
+}
+
+function ovenMinsArr() { return anchors.map(a => a.oven); }
+
+function formatHrs(h) {
+  const whole = Math.floor(h);
+  const mins = Math.round((h - whole) * 60);
+  if (mins === 0) return whole + ' hr';
+  return whole + ' hr ' + mins + ' min';
+}
+
+function formatMins(totalMin) {
+  const h = Math.floor(totalMin / 60);
+  const m = Math.round(totalMin % 60);
+  if (h === 0) return m + ' min';
+  if (m === 0) return h + ' hr';
+  return h + ' hr ' + m + ' min';
+}
+
+function ovenToSlow(ovenMin) {
+  const xs = ovenMinsArr();
+  const lowMin = interp(ovenMin, xs, anchors.map(a => a.lowMin));
+  const lowMax = interp(ovenMin, xs, anchors.map(a => a.lowMax));
+  const highMin = interp(ovenMin, xs, anchors.map(a => a.highMin));
+  const highMax = interp(ovenMin, xs, anchors.map(a => a.highMax));
+  return {
+    low: formatHrs(lowMin) + ' – ' + formatHrs(lowMax),
+    high: formatHrs(highMin) + ' – ' + formatHrs(highMax),
+  };
+}
+
+function slowToOven(slowHr, setting) {
+  const xs = ovenMinsArr();
+  const midKey = setting === 'low' ? ['lowMin', 'lowMax'] : ['highMin', 'highMax'];
+  const mids = anchors.map(a => (a[midKey[0]] + a[midKey[1]]) / 2);
+  // Inverse interpolate: find oven minutes for given slow-cooker hours against mids
+  let ovenMin;
+  if (slowHr <= mids[0]) {
+    ovenMin = xs[0];
+  } else if (slowHr >= mids[mids.length - 1]) {
+    ovenMin = xs[xs.length - 1];
+  } else {
+    ovenMin = xs[0];
+    for (let i = 0; i < mids.length - 1; i++) {
+      if (slowHr >= mids[i] && slowHr <= mids[i + 1]) {
+        const t = (slowHr - mids[i]) / (mids[i + 1] - mids[i]);
+        ovenMin = xs[i] + t * (xs[i + 1] - xs[i]);
+        break;
+      }
+    }
+  }
+  return formatMins(ovenMin);
+}
+
+let currentMode = 'ovenToSlow';
+function setMode(mode) {
+  currentMode = mode;
+  const ovenBtn = document.getElementById('btnOvenToSlow');
+  const slowBtn = document.getElementById('btnSlowToOven');
+  const ovenInputs = document.getElementById('ovenInputs');
+  const slowInputs = document.getElementById('slowInputs');
+  const resultOven = document.getElementById('resultOven');
+  const resultSlow = document.getElementById('resultSlow');
+
+  if (mode === 'ovenToSlow') {
+    ovenBtn.style.background = 'var(--tomato)'; ovenBtn.style.color = '#fff';
+    slowBtn.style.background = 'none'; slowBtn.style.color = 'var(--tomato-dark)';
+    ovenInputs.style.display = 'block';
+    slowInputs.style.display = 'none';
+    resultOven.style.display = 'grid';
+    resultSlow.style.display = 'none';
+  } else {
+    slowBtn.style.background = 'var(--tomato)'; slowBtn.style.color = '#fff';
+    ovenBtn.style.background = 'none'; ovenBtn.style.color = 'var(--tomato-dark)';
+    ovenInputs.style.display = 'none';
+    slowInputs.style.display = 'block';
+    resultOven.style.display = 'none';
+    resultSlow.style.display = 'grid';
+    resultSlow.style.gridTemplateColumns = '1fr';
+  }
+  document.getElementById('result').style.display = 'none';
+  convert();
+}
+
+function convert() {
+  if (currentMode === 'ovenToSlow') {
+    const h = parseFloat(document.getElementById('ovenHours').value) || 0;
+    const m = parseFloat(document.getElementById('ovenMinutes').value) || 0;
+    const totalMin = h * 60 + m;
+    if (totalMin <= 0) { document.getElementById('result').style.display = 'none'; return; }
+    const res = ovenToSlow(totalMin);
+    document.getElementById('resLow').textContent = res.low;
+    document.getElementById('resHigh').textContent = res.high;
+    document.getElementById('result').style.display = 'block';
+  } else {
+    const h = parseFloat(document.getElementById('slowHours').value);
+    const setting = document.getElementById('slowSetting').value;
+    if (!h || h <= 0) { document.getElementById('result').style.display = 'none'; return; }
+    document.getElementById('resOvenOut').textContent = slowToOven(h, setting);
+    document.getElementById('result').style.display = 'block';
+  }
+}
+
+// Build reference chart (oven times from 15 min to 4 hr)
+const chartRows = [15, 20, 30, 45, 60, 75, 90, 120, 150, 180, 210, 240];
+const tbody = document.getElementById('chartBody');
+chartRows.forEach((mins, i) => {
+  const res = ovenToSlow(mins);
+  const tr = document.createElement('tr');
+  if (i % 2 !== 0) tr.style.background = 'var(--sand)';
+  tr.innerHTML = `
+    <td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">${formatMins(mins)}</td>
+    <td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">${res.low}</td>
+    <td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">${res.high}</td>
+  `;
+  tbody.appendChild(tr);
+});
+
+setMode('ovenToSlow');
+</script>
+</body>
+</html>

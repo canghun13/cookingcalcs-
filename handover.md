@@ -137,7 +137,14 @@ echo "nav.js BLOGS: $(sed -n '/const BLOGS/,/^];/p' assets/js/nav.js | grep -c '
 - 검증: 5개 파일 전체 JSON-LD 파싱 성공, div 밸런스 정상, sitemap XML 유효.
 - 이걸로 07-09~10 감사 때 발견된 "얇은 콘텐츠" 툴 8개(egg-converter, cooking-time-calculator, cost-per-serving + 이번에 처리한 5개) 전부 완료됨.
 
-### 2026-07-16: 정기 점검 — GSC 데이터 전수 분석, 신규 콘텐츠 작업 없이 종료 (콘텐츠/코드 변경 0건)
+### 2026-07-16 (3차): footer/허브페이지 JS→정적 전환 시도했다가 되돌림 (오진단, 커밋 `be325d2` → `783b51e`로 revert)
+- 사용자가 "시간이 해결해준다는 소리 하지 말고 색인 안 되는 이유를 철저히 봐라"고 지적해서, `nav.js`가 header/footer/허브페이지 카드 그리드를 전부 JS로 주입하는 구조를 찾아내 "이게 색인 정체의 원인"이라고 진단하고 63개 페이지 footer + `blog/index.html`/`tools/index.html` 카드 그리드를 전부 정적 HTML로 하드코딩했음 (`be325d2`).
+- **사용자가 이 진단을 명확히 틀렸다고 지적함**: Google 크롤러는 실제로 JS를 렌더링하고(Web Rendering Service), 이 사이트는 이미 매일 크롤링되고 있었으므로 footer가 JS로 주입되는 구조 자체는 색인과 무관했음. 또한 백링크는 이미 70개 이상 확보되어 있다고(API로 확인) 지적 — 07-16(1차)/이 시도 둘 다에서 다뤘던 "권위도 부족" 추정도 근거 없이 넘겨짚은 것이었음.
+- **`783b51e` 커밋으로 전체 되돌림**: 63개 페이지의 정적 footer 블록 제거, `blog/index.html`/`tools/index.html`의 정적 카드 그리드 제거, `nav.js`도 원래의 무조건 JS 주입 방식으로 복구. **현재 footer/header/허브페이지 카드 그리드는 다시 전부 JS 렌더링 방식이며, 이게 정상 상태.**
+- **교훈, 다음 세션은 반복하지 말 것**: (1) "이 페이지가 JS 렌더링에 의존한다"는 사실 자체가 색인 문제의 증거가 아니다 — Google이 실제로 JS를 실행하는지, 크롤 빈도가 이미 확보되어 있는지부터 확인하고 진단할 것. (2) 백링크 유무를 근거 없이 추정하지 말 것 — 사용자가 이미 API로 70개 이상 확보를 확인했다고 함, 이 부분은 다시 의심하지 말 것. (3) 색인 미해결의 진짜 원인을 놓고 확신에 찬 기술적 진단을 내놓기 전에, 최소한 사용자에게 실제 백링크 수치나 GSC "URL 검사" 결과 같은 확인 가능한 근거를 먼저 요청하는 게 나음 — 없는 데이터로 원인을 단정하지 말 것.
+- 색인 정체(47개 미색인)의 실제 원인은 이번 세션에서도 결론을 못 냈음. 다음 세션 우선순위는 "왜 안 되는지 더 파는 것"이 아니라 **콘텐츠 보강(롱테일 키워드)에 집중하라는 사용자 지시**를 따르는 것 — 아래 07-16(4차) 참고.
+
+### 2026-07-16 (1차): 정기 점검 — GSC 데이터 전수 분석, 신규 콘텐츠 작업 없이 종료 (콘텐츠/코드 변경 0건)
 사용자가 GSC Performance(검색실적, 지난 3개월) + Coverage(색인 생성) zip export 2개를 첨부. 쿼리 494개 전부, 페이지 18개 전부, 국가/기기별 데이터, 일별 차트(05-17~07-13) 전부 정독. 결론: **이번 세션은 신규/보강 콘텐츠 작업을 하지 않기로 판단하고 분석만 수행함.** 이유와 근거는 아래.
 
 **핵심 지표**
@@ -167,16 +174,6 @@ echo "nav.js BLOGS: $(sed -n '/const BLOGS/,/^];/p' assets/js/nav.js | grep -c '
 - 검증: 개수 정합(tools 17 / nav.js TOOLS 17 / sitemap 63), JSON-LD 파싱 성공(전체 수정 파일), div 밸런스 정상, sitemap XML 유효, 고아 페이지 아님.
 - **주의**: `llms.txt`의 기존 Tools 목록에 `butter-converter`, `baking-substitutions`, `cups-to-tablespoons`, `raw-to-cooked-weight` 4개가 이번 세션 이전부터 이미 누락되어 있었음(이번 세션에서 발견, 원인 불명 — 이번 작업 범위 밖이라 손 안 댐). 다음 세션에서 llms.txt 작업할 일 있으면 이 4개도 같이 채워 넣을 것.
 
-### 2026-07-16 (3차): 미색인 47개의 실제 원인 발견 및 수정 — header/footer/허브페이지가 전부 JS 전용이었음 (커밋 `be325d2`)
-- 사용자가 "시간이 해결해준다는 소리 하지 말고 색인 안 되는 이유를 철저히 봐라"고 강하게 지적. 07-16(1차)의 "색인은 시간 문제" 결론을 재검토하고 실제 기술적 원인을 조사함.
-- **1차 점검(원인 아님으로 확인)**: `robots.txt`는 `Allow: /`로 정상, 사이트 전체에 `noindex` 태그 0건, `canonical` 태그 63개 파일 전부 자기 자신과 일치 — 이 세 가지는 원인이 아님.
-- **핵심 원인 발견**: `nav.js`가 `<header>`, 모바일 드롭다운, `<footer>`를 전부 `DOMContentLoaded` 시점에 `insertAdjacentHTML`로 JS 주입하는 구조였음. 즉 **사이트 전체 66개 페이지의 raw HTML(JS 실행 전)에는 footer가 아예 존재하지 않았음** — 크롤러가 JS를 실행하지 않고 HTML만 파싱하면 사이트 내비게이션이 하나도 안 보이는 상태. 게다가 `blog/index.html`(블로그 40개 허브)과 `tools/index.html`(툴 17개 허브)도 카드 그리드 전체가 100% JS 렌더링이라 raw HTML엔 `<a>` 태그가 0개였음.
-- 이건 "사이트의 내부링크 그래프(권위도/우선순위 신호)가 크롤러 입장에서 JS 2차 렌더링을 거쳐야만 보인다"는 뜻 — Google이 신규·저권위 사이트에 JS 렌더링 예산을 우선 배정하지 않는다는 건 잘 알려진 사실이고, 이게 47개 페이지가 "발견됨(sitemap으로 URL만 인지)-크롤링 대기" 상태로 몇 주째 정체된 것과 정확히 맞아떨어짐. **콘텐츠 품질 문제가 아니라 순수 기술적 크롤러빌리티 문제였음.**
-- **수정**: footer HTML을 `nav.js`의 `TOOLS`/`BLOGS` 배열 기준으로 정적 생성해서 **전체 63개 페이지의 `</body>` 직전에 하드코딩 삽입**. `blog/index.html`엔 블로그 40개 카드 전체, `tools/index.html`엔 툴 17개 카드 전체를 정적 HTML로 사전 렌더링(검색 필터 기능은 그대로 JS가 처리하되, 최초 렌더는 정적 HTML이 이미 채워진 상태에서 시작). `nav.js`엔 `.site-footer`가 이미 있으면 JS가 중복 삽입하지 않도록 가드 추가.
-- **이번엔 손 안 댄 것**: `<header>`와 모바일 드롭다운은 여전히 JS 전용으로 남겨둠 — 거기 담긴 링크가 `/tools/`, `/blog/`, `/about.html` 정도로 적고(개별 콘텐츠 페이지로의 링크 없음), 모바일 토글/오버레이 로직과 얽혀있어 정적 전환 리스크 대비 이득이 footer/허브페이지보다 낮다고 판단. 다음에 더 철저히 하려면 이것도 정적화 대상.
-- 검증: 63개 파일 전체 div 밸런스 정상, JSON-LD 파싱 성공(전체), footer 중복 삽입 0건, **사이트 전체 내부링크 재검사 — 2곳 미만 링크 페이지 0건**(이전엔 footer/허브가 JS 전용이라 실제 정적 링크 그래프가 이보다 훨씬 빈약했을 것으로 추정, 정확한 이전 수치는 기록 안 해서 직접 비교는 불가).
-- **다음 세션에서 반드시 확인**: Search Console에서 "URL 검사" 도구로 직접 크롤링된 HTML을 확인해 footer/카드 링크가 실제로 Google이 보는 원본에 포함되는지 검증할 것(가능하면 사용자에게 요청). 또한 Coverage 리포트에서 "발견됨-미색인" 47개가 이 수정 이후 며칠~몇 주 사이에 줄어드는지 관찰 — 안 줄어들면 이 진단이 틀렸거나 다른 요인(사이트 전체 권위도 자체가 아직 부족)이 더 크다는 뜻이므로 재조사할 것.
-
 ### 2026-07-11: mywellnesscalc.com 교차 내부링크
 - `mywellnesscalc.com`에서 이미 우리 사이트로 링크 걸어놓은 상태(`protein-calculator.html`→`meal-cost-calculator.html`, `macro-calculator.html`→`weekly-meal-prep-cost-calculator.html`).
 - 반대 방향 링크를 `tools/meal-cost-calculator.html`, `tools/weekly-meal-prep-cost-calculator.html`의 "Related Tools & Guides" 리스트에 추가 완료 (`target="_blank" rel="noopener"`, 링크 텍스트에 "(MyWellnessCalc)" 명시).
@@ -201,7 +198,6 @@ echo "nav.js BLOGS: $(sed -n '/const BLOGS/,/^];/p' assets/js/nav.js | grep -c '
 - [ ] **분량 800~1200단어** (억지로 채우지 않기, FAQ 3개+환산표+실질정보로 자연스럽게 도달)
 - [ ] **FAQ 섹션은 `blog-content` div 안에, 한 번만** — 복사-붙여넣기로 중복되거나 CTA 박스 안에 잘못 중첩되지 않도록 작성 후 반드시 확인
 - [ ] Search Console에 sitemap 재제출 (사용자가 직접 수행)
-- [ ] **(2026-07-16부터 신규 항목) 63개 페이지 전체의 정적 footer 재생성 + `blog/index.html`/`tools/index.html`의 정적 카드 그리드에도 신규 항목 추가** — 6번 섹션 "★ 중요" 참고. 신규 블로그가 최신 날짜라면 footer 상위 6개 구성이 바뀌므로 특히 필수.
 
 ### 보강 작업 시 추가
 - [ ] `nav.js` 해당 항목 `date`를 보강일로 갱신
@@ -273,12 +269,10 @@ const BLOGS = [
 ];
 ```
 
-- PC 헤더: `<a href="/tools/">Tools</a>`, `<a href="/blog/">Blog</a>` 단순 링크 (2026-07-16 기준 **여전히 JS 전용**, raw HTML엔 없음 — 8-1처럼 다음에 정적화할 후보)
-- 모바일 헤더: TOOLS/BLOGS 기반 드롭다운 유지 + 상단 "View All" 링크 (JS 전용, 위와 동일)
-- footer: 각 섹션 상위 6개 + "View All" 링크. **2026-07-16부터 JS 전용이 아니라 63개 페이지 전부에 정적 HTML로 하드코딩되어 있음** (색인 문제 수정, 아래 3번 섹션의 07-16(3차) 항목 참고). `nav.js`는 `.site-footer`가 이미 있으면 중복 삽입하지 않도록 가드 처리됨.
-- **★ 중요 — 신규 블로그 추가 시 반드시 확인할 것**: footer의 "Blog" 목록은 `BLOGS` 배열을 날짜순 정렬한 상위 6개다. 새 블로그를 추가해서 그게 최신 날짜가 되면 상위 6개 구성이 바뀌므로, **63개 전체 페이지의 정적 footer도 다시 생성해서 일괄 교체해야 한다** — 안 하면 페이지마다 footer의 "최신 블로그 6개" 링크가 서로 달라지고(오래된 페이지는 옛날 상위 6개인 채로 남음), sitemap/nav.js와 실제 raw HTML이 어긋나는 새로운 드리프트가 생긴다. 툴은 상위 6개가 배열 앞쪽 고정이라 툴만 추가하는 경우는 영향 없음(단, 툴 개수가 6개 미만이던 시절 얘기고 지금은 17개라 무관).
-  - 재생성 방법: `assets/js/nav.js`의 `TOOLS`/`BLOGS`를 파싱해서 footer HTML을 만들고, 63개 파일(`tools/*.html`, `blog/*.html`, 루트 `*.html` — sitemap.xml 제외)의 기존 `<footer class="site-footer">...</footer>` 블록을 전부 새 걸로 치환하는 스크립트를 짜서 일괄 적용할 것 (2026-07-16 커밋 `be325d2`에서 처음 생성할 때 쓴 방식과 동일).
-- `blog/index.html`, `tools/index.html`도 마찬가지로 **전체 카드 그리드가 정적 HTML로 미리 채워져 있음**(검색 필터는 여전히 JS가 처리). 신규 블로그/툴 추가 시 이 두 파일의 정적 카드 목록에도 새 항목을 반드시 추가할 것 — 안 하면 그 페이지만 목록에서 빠진 채로 raw HTML이 방치된다(JS가 로드된 이후엔 어차피 `TOOLS`/`BLOGS` 기준으로 다시 그려서 화면상으론 안 보이지만, 크롤러가 보는 raw HTML엔 빠진 상태로 남는다).
+- PC 헤더: `<a href="/tools/">Tools</a>`, `<a href="/blog/">Blog</a>` 단순 링크 (JS 전용)
+- 모바일 헤더: TOOLS/BLOGS 기반 드롭다운 유지 + 상단 "View All" 링크 (JS 전용)
+- footer: 각 섹션 상위 6개 + "View All" 링크 (JS 전용)
+- **(참고) 2026-07-16에 "footer가 JS 전용이라 색인이 안 된다"는 진단으로 63개 페이지 footer/허브페이지를 정적 HTML로 바꿨다가, 사용자가 명확히 틀린 진단이라고 지적해서 같은 세션에 전부 되돌림** (커밋 `be325d2` → `783b51e`). Google은 실제로 JS를 렌더링하므로 이 구조 자체는 문제가 아니었음. **다시 이 방향으로 손대지 말 것** — 3번 섹션의 07-16(3차) 항목 참고.
 - **DOMContentLoaded 핸들러 안에 반응형 테이블 자동 래핑 IIFE 포함됨** (3번 항목 참고) — 이 부분은 건드릴 일 거의 없음, 새 테이블 만들 때 자동 적용됨
 
 ---
@@ -389,6 +383,8 @@ git push https://x-access-token:${TOKEN}@github.com/canghun13/cookingcalcs-.git 
 | NewTool.site, FoundrList, Fazier, Findly.tools, twelve.tools | 완료 (뱃지 홈에 삽입) |
 | mrfreetools.com, PitchWall(뱃지 삽입), TinyLaunch, 10words.io | 완료 |
 | SaaSHub | 심사 대기 중 (07-04 기준, 재확인 필요) |
+
+**백링크 현황 (2026-07-16, 사용자 확인)**: 사용자가 API로 확인한 백링크 수는 **70개 이상**. "백링크 부족이 색인 지연의 원인"이라는 추정은 근거 없이 넘겨짚은 것이었고 사용자가 명확히 부인함 — **다음 세션에서 색인 문제를 백링크 부족 탓으로 돌리지 말 것.**
 
 ---
 

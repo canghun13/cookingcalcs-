@@ -178,7 +178,11 @@ document.addEventListener('DOMContentLoaded', function () {
   // 삽입
   document.body.insertAdjacentHTML('afterbegin', header);
   document.querySelector('.site-header').insertAdjacentHTML('afterend', mobileNav);
-  document.body.insertAdjacentHTML('beforeend', footer);
+  // footer는 이제 정적 HTML로 각 페이지에 미리 렌더링되어 있음 (2026-07-16, 색인 개선을 위해 크롤러가
+  // JS 실행 없이도 내부링크를 볼 수 있도록 변경). 이미 있으면 중복 삽입하지 않음.
+  if (!document.querySelector('.site-footer')) {
+    document.body.insertAdjacentHTML('beforeend', footer);
+  }
 
   // 현재 페이지 경로
   const currentPath = window.location.pathname;

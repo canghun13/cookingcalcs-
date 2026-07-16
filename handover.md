@@ -202,7 +202,18 @@ echo "nav.js BLOGS: $(sed -n '/const BLOGS/,/^];/p' assets/js/nav.js | grep -c '
 - **전체 사이트 단어수 감사도 수행**(57개 콘텐츠 페이지 `<main>` 태그 기준): 전부 800단어 이상 확인(최저 812단어, `tools/baking-substitutions.html`). 처음 측정 스크립트가 tool 페이지 경계를 잘못 잡아 "9개 페이지가 얇다"는 오탐이 나왔었는데, `<main>...</main>` 기준으로 다시 재본 결과 실제로는 문제 없었음 — **다음에 단어수 감사할 때는 반드시 `<main>` 태그를 기준으로 스크립트 짤 것, `tool-page` div 같은 하위 요소 기준으로 하면 오차 남.**
 - **이 세션(07-16) 전체에서 실제로 콘텐츠를 보강/신규 작성한 페이지 총 11개**: `tools/slow-cooker-converter.html`(신규), `blog/how-long-to-cook-turkey-breast.html`, `blog/how-long-to-cook-chicken-thighs.html`, `blog/how-long-to-cook-lamb-chops.html`, `blog/average-cost-of-a-home-cooked-meal.html`, `tools/egg-converter.html`, `blog/how-to-calculate-cooking-time.html`, `blog/how-to-convert-a-recipe-to-metric.html`, `tools/cost-per-serving.html`, `tools/raw-to-cooked-weight.html` (+ 사이트 인프라 파일들: index.html/tools/index.html/nav.js/sitemap.xml/llms.txt는 신규 툴 등록용).
 
+### 2026-07-16 (7차): 비교/경험/문제해결 프레이밍으로 4개 페이지 추가 보강 (커밋 `fed8766`)
+- 사용자 제안: 정확문구 매칭보다 "비교/경험/문제해결" 스타일 콘텐츠를 늘리는 방향이 나을 것 같다는 의견. vs/mistake/troubleshooting 패턴을 전체 페이지 대상으로 감사(`grep -ci "difference between\|vs\.\|versus\| vs "` + `"mistake\|wrong\|why did\|why is my\|turn out"`)해서 이미 이런 섹션이 있는 페이지(liquid-converter의 "Fluid Ounces vs Weight Ounces", butter-converter의 "European vs US Butter"/"Salted vs Unsalted", weight-converter의 "Price Per Pound vs Kilogram", cups-to-tablespoons의 "Tablespoons vs Cups" 등)는 건드리지 않고, 완전히 비어있던 페이지만 골라 추가:
+  - `tools/weekly-meal-prep-cost-calculator.html`: "Common Mistakes That Make Weekly Totals Look Wrong" (조미료/식용유 누락, 패키지 전체가격 vs 사용분 착오, 가구원수 미보정 비교 착시)
+  - `tools/cups-to-grams.html`: "The Measuring Mistake That Ruins the Most Baked Goods" (스쿱 vs 스푼-레벨 계량법 차이)
+  - `blog/how-many-cups-in-a-pound-of-flour.html`: "Scooping vs. Spooning" 비교 섹션
+  - `blog/how-to-calculate-meal-prep-cost-for-a-week.html`: "Where People Get Their Weekly Total Wrong"
+- dateModified/sitemap lastmod 07-16 갱신, JSON-LD/div밸런스 검증 통과, 전부 900+ 단어 유지.
+- **다음에 이 방향 더 갈 때 참고**: `how-many-grams-in-a-cup-of-oats.html`은 이미 스쿱/스푼 실수 언급 + 오트 종류별 비교표까지 있어서 스킵함 — 무조건 추가하지 말고 먼저 이미 있는지 확인부터 할 것(이번에도 grep 감사로 먼저 거른 덕에 중복 작업 안 함).
+
 ### 2026-07-11: mywellnesscalc.com 교차 내부링크
+
+
 
 
 - `mywellnesscalc.com`에서 이미 우리 사이트로 링크 걸어놓은 상태(`protein-calculator.html`→`meal-cost-calculator.html`, `macro-calculator.html`→`weekly-meal-prep-cost-calculator.html`).

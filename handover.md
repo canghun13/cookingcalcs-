@@ -225,7 +225,18 @@ echo "nav.js BLOGS: $(sed -n '/const BLOGS/,/^];/p' assets/js/nav.js | grep -c '
 - 재검색 결과 이 패턴의 다른 인스턴스는 없음 확인.
 - **★★★ 매우 중요, 다음 세션 필독**: `nth-child + display:none`으로 입력 필드를 숨기는 방식은 **절대 다시 쓰지 말 것.** 계산 로직이 그 필드값을 읽는 한, 화면에서 숨긴다고 계산에서 빠지는 게 아니라 오히려 "빈 값 → 계산 누락"으로 이어질 수 있다. 입력 필드가 여러 개인 grid를 모바일에서 재배치해야 할 때는 반드시 `grid-template-areas`로 순서/줄바꿈만 바꾸고, **모든 입력 필드는 항상 보이고 조작 가능하게 유지할 것.** 이번에 이 패턴으로 만든 게 아니라 이미 있던 코드에서 발견한 것이므로, 계산기형 툴(입력 행을 여러 개 추가하는 UI가 있는 모든 tools/*.html)을 새로 만들거나 손댈 때마다 `grep "display:none" FILE`로 입력 필드 숨김 여부를 확인하는 습관을 들일 것.
 
+### 2026-07-16 (10차): 반응형 전수 재점검 — slow-cooker-converter 오버플로우 + recipe-multiplier 필드숨김 버그 (커밋 `abcfd01`)
+- 사용자가 `slow-cooker-converter.html` 스크린샷으로 지적: 결과 2열(Low/High)이 모바일에서 너무 좁아 큰 세리프 숫자가 여러 줄로 깨짐. 한 줄에 하나씩 나오게 요청 — `#resultOven`에 클래스 부여, max-width:600px에서 1열 전환으로 수정.
+- 이 김에 "파일에 @media가 있나"가 아니라 **각 grid 요소별로 실제 커버되는지** 스크립트로 재검사(단순 존재 체크는 09d180f에서 이미 했었는데 부족했음 — 슬로우쿠커 파일도 `@media`는 있었지만 결과 그리드는 그 안 규칙에 안 걸려있었음). 이 재검사로 2건 더 발견:
+  - `tools/meat-temperature-guide.html`: F/C 결과 2열, 미디어쿼리 없었음 → max-width:420px에서 1열.
+  - `tools/recipe-multiplier.html`: **09d180f/78dbce6에서 고친 것과 똑같은 "필드 숨김" 안티패턴이 또 있었음.** 모바일에서 `.ingredient-row`의 단위 선택(`select`)과 삭제 버튼(`.remove-btn`)이 `display:none`으로 숨겨져 있어서, 모바일에서 새 재료 추가 시 단위를 cup 외로 바꿀 방법도, 잘못 추가한 행을 지울 방법도 없었음. `.result-row`의 단위 표시(`.result-unit`)까지 숨겨서 스케일링 결과가 숫자만 보이고 단위(cup/tbsp/g)가 안 보였음. 계산 자체는 안 깨졌지만(숨겨도 select.value는 유지되어 기본값 'cup'로 계산됨) 실사용 기능이 여러 개 막혀 있었음. `grid-template-areas`로 2줄 배치 전환.
+- `weekly-meal-prep-cost-calculator.html`/`meal-cost-calculator.html`의 컬럼 헤더 라벨 행(Meal/Cost/Times-Week)도 데이터 행이 2줄 레이아웃으로 바뀌면서 안 맞게 됐길래 모바일에서 헤더 자체를 숨김 처리(입력창 placeholder로 유추 가능하니 문제없음).
+- 전체 사이트 재검색: `nth-child + display:none`으로 입력을 숨기는 패턴 잔존 인스턴스 0건 최종 확인.
+- **다시 한번 필독**: `nth-child(N){display:none}`으로 계산기 입력 필드(select 포함)를 숨기는 패턴이 이번 세션에서만 벌써 3개 파일(`weekly-meal-prep-cost-calculator`, `meal-cost-calculator`, `recipe-multiplier`)에서 나왔다. 이게 처음부터 이 사이트의 계산기형 툴을 만들 때 쓰던 관행이었던 것으로 보임 — **`baking-substitutions.html`, `egg-converter.html` 등 다른 "여러 행 추가" 형 계산기도 다음 세션에서 한 번씩 `grep "display:none" FILE`로 확인해볼 것** (이번엔 시간상 grid-template-columns 있는 파일만 훑었고, 그 외 계산기는 전수 확인 못 함).
+
 ### 2026-07-11: mywellnesscalc.com 교차 내부링크
+
+
 
 
 

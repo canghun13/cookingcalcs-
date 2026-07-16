@@ -182,6 +182,17 @@ echo "nav.js BLOGS: $(sed -n '/const BLOGS/,/^];/p' assets/js/nav.js | grep -c '
 - 3개 파일 전부 dateModified/sitemap lastmod 07-16 갱신, JSON-LD 파싱 성공, div 밸런스 정상 검증 완료.
 - **다음에 롱테일 보강할 때 쓸 방법론(이번에 실제로 효과 있었던 접근)**: (1) 페이지별 노출량이 큰 순서로 먼저 훑는다. (2) 그 페이지와 매칭되는 쿼리 중 순위 50위 미만(비교적 양호)인데 "본문에 그 정확한 짧은 문구 자체가 없는" 경우를 `grep`으로 직접 확인한다 — 내용은 이미 다뤄도 문구가 다르면(예: "internal temperature" vs "internal temp") 안 잡히는 경우가 많음. (3) 국가/단위(kg vs lb) 같은 완전히 다른 "각도"가 빠진 것도 확인한다. (4) 이미 순위가 아주 나쁜(70위+) 쿼리 클러스터는 콘텐츠를 더 넣어도 대개 권위도 문제라 효과가 낮다 — 50위 미만 쿼리부터 우선순위를 둘 것.
 
+### 2026-07-16 (5차): 정확문구 자동 스캔으로 6개 페이지 추가 보강 (커밋 `6712474`)
+- 사용자가 "왜 이렇게 조금씩 하냐, 토큰도 많이 먹으면서"라고 재차 지적. 수작업 spot-check 대신 **스크립트로 순위<60 쿼리 전체를 사이트 전체 텍스트와 자동 대조**하는 방식으로 전환해서 훨씬 넓게 훑음 (아래 코드 패턴 참고, 다음에도 이 방식으로 시작할 것):
+  ```python
+  # GSC 쿼리 CSV(순위<N) vs 전체 blog/tools HTML 텍스트(소문자 변환) 부분일치 스캔
+  # 미매칭 목록만 뽑아서 그 중 "진짜 콘텐츠 갭"과 "이미 표현만 다른 근거없는 false positive"를 사람이 걸러냄
+  ```
+- 자동 스캔으로 나온 미매칭 리스트 중 진짜 갭만 골라 6개 페이지에 반영: `tools/egg-converter.html`(`how many small/medium eggs equal 2 large eggs` FAQ 2개, 기존 3medium→2.6large 계산 방식 그대로 재사용해서 2large→2.7small / 2large→2.3medium 산출), `blog/how-to-calculate-cooking-time.html`(`calculate meat cooking time`), `blog/how-to-convert-a-recipe-to-metric.html`(`metric baking conversion`), `blog/average-cost-of-a-home-cooked-meal.html`(`how much should each meal cost`/`average price of a meal`, 기존 페이지 수치와 일관되게 작성), `blog/how-long-to-cook-turkey-breast.html`(`how long to let turkey breast rest`), `tools/slow-cooker-converter.html`(meta description에 `slow cooking time calculator` 문구 반영).
+- 전부 dateModified/sitemap lastmod 07-16 갱신, JSON-LD/div밸런스/sitemap 검증 통과.
+- **주의 — 자동 스캔의 함정**: 단순 부분일치라 하이픈/공백 차이로 false positive가 남 (예: "average cost of a home cooked meal" 쿼리가 실제 제목 "Average Cost of a Home-**Cooked** Meal"과 하이픈 때문에 안 걸림 — 실제로는 이미 커버됨, 진짜 갭 아님). 스캔 결과를 그대로 다 작업하지 말고 반드시 사람이 한 번 더 확인할 것.
+- **차별화 후보 발견, 이번엔 손 안 댐**: `tools/raw-to-cooked-weight.html`의 `FACTORS` 객체가 chicken/groundbeef/pork 전부 동일하게 `0.75`(25% 손실)를 쓰고 있음 — 경쟁사 summerandcinnamon.com이 정확히 이 "flat 25% rule"을 업계 통념 오류로 지적하며 USDA 데이터 기반 부위별 수치로 차별화하고 있는 지점과 정면으로 겹침(예: 그쪽은 베이컨 69% 손실로 명시, 우리는 50%). **콘텐츠보다 계산기 자체의 정확도/출처를 USDA 1차 데이터 기준으로 재검증해서 부위별로 세분화하면 실질적 차별화가 될 수 있음** — 다만 계산기 핵심 수치를 바꾸는 작업이라 성급하게 하지 않고, 다음 세션에 USDA Table of Cooking Yields 원자료를 직접 찾아 근거 있게 진행할 것.
+
 ### 2026-07-11: mywellnesscalc.com 교차 내부링크
 - `mywellnesscalc.com`에서 이미 우리 사이트로 링크 걸어놓은 상태(`protein-calculator.html`→`meal-cost-calculator.html`, `macro-calculator.html`→`weekly-meal-prep-cost-calculator.html`).
 - 반대 방향 링크를 `tools/meal-cost-calculator.html`, `tools/weekly-meal-prep-cost-calculator.html`의 "Related Tools & Guides" 리스트에 추가 완료 (`target="_blank" rel="noopener"`, 링크 텍스트에 "(MyWellnessCalc)" 명시).

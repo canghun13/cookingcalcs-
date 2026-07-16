@@ -15,7 +15,17 @@
     .cost-row input:focus { border-color:var(--tomato); outline:none; }
     .remove-btn { background:none; border:none; cursor:pointer; color:var(--muted); font-size:1.1rem; padding:0.4rem; border-radius:6px; }
     .remove-btn:hover { color:var(--tomato); }
-    @media(max-width:600px) { .cost-row { grid-template-columns:1fr 80px 36px; } .cost-row input:nth-child(3) { display:none; } }
+    @media(max-width:600px) {
+      .cost-row {
+        grid-template-columns: 1fr 1fr 36px;
+        grid-template-areas: "name name name" "cost used remove";
+        row-gap: 0.4rem;
+      }
+      .cost-row input:nth-child(1) { grid-area: name; }
+      .cost-row input:nth-child(2) { grid-area: cost; }
+      .cost-row input:nth-child(3) { grid-area: used; }
+      .cost-row .remove-btn { grid-area: remove; }
+    }
         @media print {
     body > *:not(#pdf-overlay) { display:none !important; }
     #pdf-overlay { display:block; padding:2rem; box-sizing:border-box; }

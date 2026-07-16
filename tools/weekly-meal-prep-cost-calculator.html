@@ -15,7 +15,17 @@
     .meal-row input:focus { border-color:var(--tomato); outline:none; }
     .remove-btn { background:none; border:none; cursor:pointer; color:var(--muted); font-size:1.1rem; padding:0.4rem; border-radius:6px; }
     .remove-btn:hover { color:var(--tomato); }
-    @media(max-width:600px) { .meal-row { grid-template-columns:1fr 80px 36px; } .meal-row input:nth-child(3) { display:none; } }
+    @media(max-width:600px) {
+      .meal-row {
+        grid-template-columns: 1fr 1fr 36px;
+        grid-template-areas: "name name name" "cost freq remove";
+        row-gap: 0.4rem;
+      }
+      .meal-row input:nth-child(1) { grid-area: name; }
+      .meal-row input:nth-child(2) { grid-area: cost; }
+      .meal-row input:nth-child(3) { grid-area: freq; }
+      .meal-row .remove-btn { grid-area: remove; }
+    }
     @media print {
       body > *:not(#pdf-overlay) { display:none !important; }
       #pdf-overlay { display:block; padding:2rem; box-sizing:border-box; }

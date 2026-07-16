@@ -211,7 +211,15 @@ echo "nav.js BLOGS: $(sed -n '/const BLOGS/,/^];/p' assets/js/nav.js | grep -c '
 - dateModified/sitemap lastmod 07-16 갱신, JSON-LD/div밸런스 검증 통과, 전부 900+ 단어 유지.
 - **다음에 이 방향 더 갈 때 참고**: `how-many-grams-in-a-cup-of-oats.html`은 이미 스쿱/스푼 실수 언급 + 오트 종류별 비교표까지 있어서 스킵함 — 무조건 추가하지 말고 먼저 이미 있는지 확인부터 할 것(이번에도 grep 감사로 먼저 거른 덕에 중복 작업 안 함).
 
+### 2026-07-16 (8차): 모바일 반응형 버그 수정 — 결과 그리드 3개 툴 오버플로우 (커밋 `101072a`)
+- 사용자가 모바일 스크린샷으로 직접 지적: `oven-temp-converter.html`의 결과 박스(°F/°C/Gas Mark 3열)가 좁은 화면에서 그리드가 줄어들지 않고 오른쪽이 화면 밖으로 잘려나감. 미디어쿼리 자체가 없었음.
+- 사이트 전체에서 같은 패턴(`grid-template-columns:repeat(N,1fr)` 인라인 + `@media` 없음) 재검색 → `cups-to-tablespoons.html`, `tablespoon-to-teaspoon.html`(둘 다 2열 결과 그리드)에서도 동일 문제 확인, 3개 파일 전부 클래스 부여 후 미디어쿼리 추가(oven은 600px, 나머지 둘은 420px에서 1열 전환).
+- **원인 분석**: 07-09~10 감사 때 정리된 "폼 입력 그리드 반응형" 체크리스트가 좁게 적용되어서, 결과 박스처럼 "폼 입력"이 아닌 다른 grid 요소는 체크 대상에서 빠졌던 것으로 보임. 2번 섹션의 체크리스트 문구를 "grid-template-columns를 쓰는 모든 인라인 스타일"로 확장해뒀음 — 다음 세션은 반드시 이 확장된 문구로 이해할 것.
+- **검증 스크립트도 갱신**: 4번 섹션 "작업 완료 후 항상 실행할 검증"에 반응형 미디어쿼리 누락 체크 항목 추가함(`grid-template-columns` 있는데 `@media` 없는 파일 자동 탐지). 새 툴 만들거나 기존 그리드 손댈 때마다 이 체크를 실제로 돌려볼 것 — 이번처럼 사용자가 스크린샷 찍어서 지적하기 전에 먼저 잡아야 함.
+
 ### 2026-07-11: mywellnesscalc.com 교차 내부링크
+
+
 
 
 
@@ -259,6 +267,14 @@ python3 -c "import xml.etree.ElementTree as ET; ET.parse('sitemap.xml')"
 
 # 고아 페이지 체크 (내부링크 2개 미만이면 고아)
 for f in blog/*.html; do name=$(basename $f .html); count=$(grep -rl "$name" blog/*.html tools/*.html index.html 2>/dev/null | grep -v "/$name.html" | wc -l); [ "$count" -lt 2 ] && echo "$count $name"; done
+
+# 반응형 그리드 누락 체크 (2026-07-16 추가) — grid-template-columns를 인라인으로 쓰면서
+# 같은 파일에 @media 쿼리가 하나도 없으면 모바일에서 잘릴 위험. 새 파일 만들거나 그리드 손댈 때마다 실행.
+for f in FILE; do
+  if grep -q "grid-template-columns" "$f" && ! grep -q "@media" "$f"; then
+    echo "반응형 미디어쿼리 없음: $f"
+  fi
+done
 ```
 
 ---
@@ -268,7 +284,7 @@ for f in blog/*.html; do name=$(basename $f .html); count=$(grep -rl "$name" blo
 ### 툴 페이지 필수 구성
 1. `<head>` — title, description, canonical, AdSense 코드, JSON-LD WebApplication Schema
 2. 툴 본체 (계산기 UI) — input 클래스는 `form-group` (**input-group 아님**)
-3. 폼 입력이 그리드(2열 이상)면 **반드시 모바일 미디어쿼리로 1열 전환** (2026-07 초에 6개 파일에서 이거 누락돼서 모바일 깨졌던 적 있음 — 클래스명 붙이고 `@media(max-width:600px){ .클래스 { grid-template-columns:1fr !important; } }` 패턴 사용)
+3. **폼 입력이든 결과 표시든, 그리드(2열 이상)가 하나라도 있으면 반드시 모바일 미디어쿼리로 1열 전환.** (2026-07 초에 폼 입력 그리드 6개 파일에서 이거 누락돼서 모바일 깨졌던 적 있고, **2026-07-16엔 결과(result) 그리드 3개 파일에서 똑같은 실수가 또 나와서 사용자가 스크린샷으로 직접 지적함** — `oven-temp-converter.html`의 °F/°C/Gas Mark 3열, `cups-to-tablespoons.html`/`tablespoon-to-teaspoon.html`의 2열. "폼 입력"에만 적용되는 규칙이라고 좁게 해석하지 말 것 — **grid-template-columns를 쓰는 모든 인라인 스타일**에 적용됨.) 클래스명 붙이고 `@media(max-width:600px){ .클래스 { grid-template-columns:1fr !important; } }` 패턴 사용. **신규 툴 만들 때 결과 박스를 grid로 배치한다면 처음부터 이 미디어쿼리를 같이 넣을 것 — 나중에 발견되는 게 아니라 처음부터 체크리스트 항목으로 취급.**
 4. Related Tools & Guides 섹션 (내부 링크 2개 이상)
 5. How to Use 섹션
 6. **FAQ 섹션 최소 3개** (필수, 중복 생성 금지, CTA 박스 안에 중첩시키지 말 것)

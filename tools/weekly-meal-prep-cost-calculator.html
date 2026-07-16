@@ -25,6 +25,7 @@
       .meal-row input:nth-child(2) { grid-area: cost; }
       .meal-row input:nth-child(3) { grid-area: freq; }
       .meal-row .remove-btn { grid-area: remove; }
+      .meal-row-header { display:none; }
     }
     @media print {
       body > *:not(#pdf-overlay) { display:none !important; }
@@ -109,7 +110,7 @@
           <input type="number" id="people" value="1" min="1" oninput="calculate()">
         </div>
 
-        <div style="display:grid; grid-template-columns:1fr 100px 90px 36px; gap:0.5rem; margin-bottom:0.5rem;">
+        <div class="meal-row-header" style="display:grid; grid-template-columns:1fr 100px 90px 36px; gap:0.5rem; margin-bottom:0.5rem;">
           <div style="font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--muted);">Meal</div>
           <div style="font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--muted);">Cost ($)</div>
           <div style="font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--muted);">Times/Week</div>

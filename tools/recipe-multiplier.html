@@ -18,8 +18,25 @@
     .result-row { display:grid; grid-template-columns:1fr 100px 120px 36px; gap:0.5rem; align-items:center; padding:0.6rem 0; border-bottom:1px solid var(--border); font-size:0.9rem; }
     .result-amt { font-weight:600; color:var(--tomato-dark); }
     @media(max-width:600px) {
-      .ingredient-row, .result-row { grid-template-columns:1fr 80px; }
-      .ingredient-row select, .ingredient-row .remove-btn, .result-row .result-unit, .result-row div:last-child { display:none; }
+      .servings-grid { grid-template-columns:1fr !important; }
+      .ingredient-row {
+        grid-template-columns: 1fr 1fr 36px;
+        grid-template-areas: "name name name" "amount unit remove";
+        row-gap: 0.4rem;
+      }
+      .ingredient-row input[type="text"] { grid-area: name; }
+      .ingredient-row input[type="number"] { grid-area: amount; }
+      .ingredient-row select { grid-area: unit; display:block; }
+      .ingredient-row .remove-btn { grid-area: remove; display:block; }
+      .result-row {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: "name name" "amount unit";
+        row-gap: 0.2rem;
+      }
+      .result-row > div:nth-child(1) { grid-area: name; }
+      .result-row > div:nth-child(2) { grid-area: amount; }
+      .result-row .result-unit { grid-area: unit; display:block; }
+      .result-row > div:last-child { display:none; }
     }
         @media print {
     body > *:not(#pdf-overlay) { display:none !important; }
@@ -82,7 +99,7 @@
     <p class="tool-desc">Scale any recipe up or down. Add your ingredients, set the original and target servings, and get the scaled amounts instantly.</p>
 
     <div class="tool-box">
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1.5rem;">
+      <div class="servings-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1.5rem;">
         <div class="form-group" style="margin:0;">
           <label for="origServ">Original servings</label>
           <input type="number" id="origServ" value="4" min="1" oninput="calculate()">

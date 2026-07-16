@@ -64,6 +64,7 @@
 </script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
 <style>
+      @media(max-width:420px) { .temp-result-grid { grid-template-columns:1fr !important; } }
       @media print {
     body > *:not(#pdf-overlay) { display:none !important; }
     #pdf-overlay { display:block; padding:2rem; box-sizing:border-box; }
@@ -107,7 +108,7 @@
         </select>
       </div>
       <div id="tempResult" style="display:none;">
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-top:0.5rem;">
+        <div class="temp-result-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-top:0.5rem;">
           <div class="result-box"><div class="result-num" id="tempF"></div><div class="result-label">Fahrenheit</div></div>
           <div class="result-box"><div class="result-num" id="tempC"></div><div class="result-label">Celsius</div></div>
         </div>

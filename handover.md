@@ -193,7 +193,18 @@ echo "nav.js BLOGS: $(sed -n '/const BLOGS/,/^];/p' assets/js/nav.js | grep -c '
 - **주의 — 자동 스캔의 함정**: 단순 부분일치라 하이픈/공백 차이로 false positive가 남 (예: "average cost of a home cooked meal" 쿼리가 실제 제목 "Average Cost of a Home-**Cooked** Meal"과 하이픈 때문에 안 걸림 — 실제로는 이미 커버됨, 진짜 갭 아님). 스캔 결과를 그대로 다 작업하지 말고 반드시 사람이 한 번 더 확인할 것.
 - **차별화 후보 발견, 이번엔 손 안 댐**: `tools/raw-to-cooked-weight.html`의 `FACTORS` 객체가 chicken/groundbeef/pork 전부 동일하게 `0.75`(25% 손실)를 쓰고 있음 — 경쟁사 summerandcinnamon.com이 정확히 이 "flat 25% rule"을 업계 통념 오류로 지적하며 USDA 데이터 기반 부위별 수치로 차별화하고 있는 지점과 정면으로 겹침(예: 그쪽은 베이컨 69% 손실로 명시, 우리는 50%). **콘텐츠보다 계산기 자체의 정확도/출처를 USDA 1차 데이터 기준으로 재검증해서 부위별로 세분화하면 실질적 차별화가 될 수 있음** — 다만 계산기 핵심 수치를 바꾸는 작업이라 성급하게 하지 않고, 다음 세션에 USDA Table of Cooking Yields 원자료를 직접 찾아 근거 있게 진행할 것.
 
+### 2026-07-16 (6차): raw-to-cooked-weight 차별화 콘텐츠 + 정확도 버그 수정 + 추가 3건 (커밋 `2cb4a69`)
+- 사용자가 "53페이지 미색인인데 10페이지도 안 건드렸다, 제대로 해라"고 재차 지적. USDA 1차 데이터로 `raw-to-cooked-weight.html`의 `FACTORS` 정확도를 개선하라는 지시를 실행하려 시도.
+- **USDA 원자료 접근 시도, 실패**: `USDA Table of Cooking Yields for Meat and Poultry (Release 2)` PDF는 web_fetch로 확보했으나 이건 연구방법론 서술 문서였고, 실제 부위별 수치 테이블은 별도 CSV/Excel 파일이라 이 세션의 도구로는 확보 불가. **근거 없는 정밀 수치를 "USDA 검증"이라고 덧씌우는 건 하지 않았음** — 다음 세션에서 `bash_tool`로 직접 `USDA_CookingYields_MeatPoultry02.csv` 다운로드를 시도해볼 것(`https://www.ars.usda.gov/ARSUserFiles/80400535/Data/retn/USDA_CookingYields_MeatPoultry02.pdf` 등 관련 URL은 네트워크 허용 도메인 밖이라 이번엔 bash_tool로도 못 받음 — network_configuration의 allowed_domains에 ars.usda.gov 계열이 없음, 이것도 막힌 원인이었음).
+- 대신 실제로 발견한 버그부터 수정: 화면에 보이는 "Shrinkage Percentages by Food Type" 표가 계산기 JS의 `FACTORS` 객체 실제 값과 어긋나 있었음(Pork chops 표시 −20% vs 실제 계산 −25%, Pasta 표시 +150~175% vs 실제 계산 +120%). 표를 계산기 실값과 전부 일치시키고, 빠져있던 Salmon 행도 추가.
+- 신규 섹션 `Why a Single "25% Shrinkage" Number Isn't the Full Picture` 추가 — 경쟁사(summerandcinnamon.com)가 지적하는 "flat 25% 오류" 프레이밍을 다루되, 이 계산기가 이미 식품별로 다른 값(베이컨 50%, 새우 15% 등)을 쓰고 있다는 사실 기반으로만 서술, 새 수치는 만들지 않음.
+- 추가로 자동 스캔(rank<100, 노출≥2회로 확장)해서 진짜 갭 3개 더 발견해 반영: `tools/cost-per-serving.html`(`price per serving calculator`/`cost per portion calculator` FAQ), `blog/how-long-to-cook-turkey-breast.html`(기존 FAQ 답변에 `boneless turkey breast internal temperature` 문구 자연스럽게 삽입, 신규 FAQ 추가 대신 기존 문장 수정), `blog/how-to-convert-a-recipe-to-metric.html`(인트로 문단에 `recipes in metric measurements` 반영).
+- **전체 사이트 단어수 감사도 수행**(57개 콘텐츠 페이지 `<main>` 태그 기준): 전부 800단어 이상 확인(최저 812단어, `tools/baking-substitutions.html`). 처음 측정 스크립트가 tool 페이지 경계를 잘못 잡아 "9개 페이지가 얇다"는 오탐이 나왔었는데, `<main>...</main>` 기준으로 다시 재본 결과 실제로는 문제 없었음 — **다음에 단어수 감사할 때는 반드시 `<main>` 태그를 기준으로 스크립트 짤 것, `tool-page` div 같은 하위 요소 기준으로 하면 오차 남.**
+- **이 세션(07-16) 전체에서 실제로 콘텐츠를 보강/신규 작성한 페이지 총 11개**: `tools/slow-cooker-converter.html`(신규), `blog/how-long-to-cook-turkey-breast.html`, `blog/how-long-to-cook-chicken-thighs.html`, `blog/how-long-to-cook-lamb-chops.html`, `blog/average-cost-of-a-home-cooked-meal.html`, `tools/egg-converter.html`, `blog/how-to-calculate-cooking-time.html`, `blog/how-to-convert-a-recipe-to-metric.html`, `tools/cost-per-serving.html`, `tools/raw-to-cooked-weight.html` (+ 사이트 인프라 파일들: index.html/tools/index.html/nav.js/sitemap.xml/llms.txt는 신규 툴 등록용).
+
 ### 2026-07-11: mywellnesscalc.com 교차 내부링크
+
+
 - `mywellnesscalc.com`에서 이미 우리 사이트로 링크 걸어놓은 상태(`protein-calculator.html`→`meal-cost-calculator.html`, `macro-calculator.html`→`weekly-meal-prep-cost-calculator.html`).
 - 반대 방향 링크를 `tools/meal-cost-calculator.html`, `tools/weekly-meal-prep-cost-calculator.html`의 "Related Tools & Guides" 리스트에 추가 완료 (`target="_blank" rel="noopener"`, 링크 텍스트에 "(MyWellnessCalc)" 명시).
 - 앞으로 이 두 사이트 간 링크 교환이 더 있을 수 있음 — 요청 오면 기존 리스트 스타일(인라인 style, → 화살표) 그대로 맞춰서 추가.

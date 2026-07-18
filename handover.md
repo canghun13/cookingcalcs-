@@ -67,12 +67,12 @@ nav.js BLOGS 배열에서 전체 목록 관리. 2026-07-07~10 신규/변경:
 ### 개수 검증 (반드시 최신 clone에서 재확인할 것)
 ```bash
 echo "tools: $(ls tools/*.html | grep -v index.html | wc -l)"       # 17
-echo "blogs: $(ls blog/*.html | grep -v index.html | wc -l)"        # 40
-echo "guides: $(ls guides/*.html | grep -v index.html | wc -l)"     # 1 (2026-07-18 신설)
-echo "sitemap: $(grep -c '<loc>' sitemap.xml)"                      # 65
+echo "blogs: $(ls blog/*.html | grep -v index.html | wc -l)"        # 42
+echo "guides: $(ls guides/*.html | grep -v index.html | wc -l)"     # 4 (2026-07-18 신설, 4개 발행)
+echo "sitemap: $(grep -c '<loc>' sitemap.xml)"                      # 70
 echo "nav.js TOOLS: $(sed -n '/const TOOLS/,/];/p' assets/js/nav.js | grep -c 'url:')"   # 17
-echo "nav.js BLOGS: $(sed -n '/const BLOGS/,/^];/p' assets/js/nav.js | grep -c 'url:')"  # 40
-echo "nav.js GUIDES: $(sed -n '/const GUIDES/,/^];/p' assets/js/nav.js | grep -c 'url:')" # 1
+echo "nav.js BLOGS: $(sed -n '/const BLOGS/,/^];/p' assets/js/nav.js | grep -c 'url:')"  # 42
+echo "nav.js GUIDES: $(sed -n '/const GUIDES/,/^];/p' assets/js/nav.js | grep -c 'url:')" # 4
 ```
 이 숫자들이 서로 안 맞으면 드리프트가 생긴 것 — 바로 잡고 넘어갈 것.
 
@@ -279,6 +279,17 @@ echo "nav.js GUIDES: $(sed -n '/const GUIDES/,/^];/p' assets/js/nav.js | grep -c
 - **07-18(2차)에서 이미 6개 확인했던 것에 이번 2개를 더해 총 9개 후보 전부 포화로 확인됨** — 압력솥/Instant Pot, 커피 물비율, 이스트 환산, 케이크 팬 변환기, 파티 인원수별 음식량, 냉장/냉동 보관기간, 스테이크 두께/굽기 계산기, 고도별 베이킹 보정. **9개 중 9개 전부 콘텐츠팜/전용 사이트에 이미 선점됨.** 이 정도면 우연이 아니라 구조적 현상으로 판단해도 됨 — **"요리 계산기" 성격의 신규 독립 페이지는 당분간(다음 몇 세션) 기본적으로 시도하지 않는 쪽으로 방향을 굳힐 것.** 아주 구체적인 GSC 실제 쿼리 갭이 나오지 않는 한, 새 계산기 아이디어를 web_search 없이 제안하지 말 것.
 - **회피 대상 준-그룹에 신규 도메인 추가**: missvickie.com, tooliro.com, steakrecipe.org, bbqtoolbox.com, meatidentifier.com(ButcherIQ), beef.foodnutrify.com, elevationbaking.com, simplyaltitude.com, inclinebaked.com — 07-18(2차) 목록과 합쳐서 아래 9번 섹션에 통합 반영.
 - **결론 — 다음 세션 신규 전략**: (1) "독립 계산기 툴" 신규는 보류. (2) 대신 **Guides(필러 페이지)** 확장이 지금 가장 안전한 "신규" 경로 — 이미 사이트에 있는 콘텐츠를 재구성하는 거라 경쟁 리서치 부담이 없음. 다음 후보: "The Complete Baking Conversion Guide"(cups-to-grams/tablespoon-teaspoon/butter-converter/egg-converter/oven-temp-converter/baking-substitutions 통합). (3) 블로그는 계산기와 경쟁 구도가 다름(콘텐츠 자체로 경쟁, farm 사이트들도 결국 블로그 프로즈는 대량으로 못 찍어냄) — 롱테일 신규 블로그 주제는 계속 유효한 옵션이니 다음 세션에서 GSC 쿼리 재확인 후 시도할 것.
+
+### 2026-07-18 (6차): Guides 3호·4호 + 블로그 2건 신규 발행 — "최대한 늘려라" 지시 이행 (커밋 `d847f8f`, `1bed6e5`)
+- 사용자가 "경쟁 심하면 롱테일로 피하되, 블로그랑 가이드는 최대한 추가해봐"라고 지시. 07-18(5차)에서 정리한 방향(계산기 신규 보류 → Guides/블로그 중심)을 바로 실행.
+- **Guides 3호 "The Complete Baking Measurement & Conversion Guide"**(945단어): 사이트 최대 콘텐츠 클러스터(툴 9개+블로그 16개) 통합. 컨버터 선택표, 외워둘 핵심 수치 목록, 무게vs부피, 계량 실수 4가지 섹션.
+- **Guides 4호 "The Complete Recipe Scaling & Serving Guide"**(761단어): recipe-multiplier 툴 + 블로그 5개(scale/reduce/half/metric/serving-size) 통합. 상황별 선택표, 선형으로 안 늘어나는 것들(리빙제/소금/조리시간/팬사이즈), 계란 스케일링 문제 섹션.
+- **신규 블로그 1: "Is Your Oven Running Hot or Cold? How to Test It"**(866단어) — 오븐 다이얼 부정확성(25-50°F 오차 흔함), 오븐온도계 정확 테스트법, 설탕으로 온도계 없이 대략 테스트하는 법(설탕 캐러멜화 ~365°F 이용), 핫스팟 체크법, 오프셋 보정법. oven-temp-converter 툴과 직결되는데 사이트에 전혀 없던 트러블슈팅 주제.
+- **신규 블로그 2: "How Long Can Food Sit Out? The 2-Hour Rule Explained"**(936단어) — USDA 2시간 룰/90°F 이상 1시간 단축/데인저존(40-140°F)/누적 시간 계산/2시간룰 예외 식품/재가열의 한계/대용량 냉각법(얕은 용기 분산). 사이트 여러 페이지에 흩어져 있던 "danger zone"/"2 hours" 언급을 전용 페이지로 통합.
+- **경쟁 리서치 접근 구분**: 이 2개 블로그 주제는 web_search로 확인한 결과 계산기팜이 아니라 개별 에디토리얼 블로그/미디어(mrappliance, thermoworks, seattletimes 등)와 경쟁하는 영역 — 09번 섹션의 "계산기 회피 로직"과는 다른 카테고리로 판단, 콘텐츠 품질로 승부 가능하다고 보고 진행함. (참고: "계란 신선도 float test" 주제도 검토했으나 attainable-sustainable/tasteofhome/happyegg 등 이미 매우 많은 대형 에디토리얼 사이트가 있어 이번엔 보류 — 07-18(2차)에서 egg-converter에 이미 보관기간 FAQ를 추가한 상태라 우선순위를 낮춤.)
+- 전부 nav.js 등록(BLOGS 42개/GUIDES 4개), sitemap.xml 반영(70개 URL), llms.txt 반영, 각 신규 페이지당 내부링크 2곳 이상 확보(고아페이지 0건 확인).
+- **이 세션(07-18) 전체 신규/보강 총계**: Guides 4개 전부 신규, 블로그 신규 2개(is-your-oven-running-hot-or-cold, how-long-can-food-sit-out), 기존 페이지 보강 다수(cost-per-serving 워드프라블럼, raw-to-cooked-weight 감자, egg-converter 보관FAQ, turkey-breast 인분수FAQ). 카운트: tools 17(변동없음) / blogs 42(+2) / guides 4(신규) / sitemap 70.
+- **다음 세션 참고**: Guides 후보는 이번에 4개로 사실상 사이트 전체 콘텐츠를 다 커버함(meal-prep/meat-cooking/baking-conversion/recipe-scaling) — 당장 5번째 Guide를 만들 명확한 새 클러스터는 안 보임, 억지로 쪼개지 말 것. 블로그는 이번에 다룬 "트러블슈팅/식품안전" 계열이 반응 좋으면 유사한 각도(예: 도마/조리도구 관리, 냉장고 정리 등)로 더 발굴 가능 — 다음 GSC 데이터로 반응 확인 후 판단.
 
 ### 2026-07-11: mywellnesscalc.com 교차 내부링크
 

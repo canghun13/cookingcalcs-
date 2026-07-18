@@ -261,7 +261,7 @@ echo "nav.js BLOGS: $(sed -n '/const BLOGS/,/^];/p' assets/js/nav.js | grep -c '
   - **감자류 후속**: `raw-to-cooked-weight.html`에 추가한 감자 설명 섹션이 실제로 "potato" 관련 신규 노출을 만드는지 다음 세션에서 확인 — 늘면 감자를 FACTORS에 조리법별로 분리해서 추가하는 것도 재검토 가능(로스팅 전용으로 한정하면 단일 계수가 성립할 수 있음).
   - **계란 보관 FAQ 반응 확인**: `egg-converter.html`에 추가한 보관기간 FAQ가 노출을 만드는지 확인 후, 반응 있으면 `how-many-eggs-in-a-cup.html`이나 `how-to-substitute-egg-sizes.html`에도 유사 패턴(각 페이지 핵심 주제에 인접한 보관/안전 질문 1개씩)으로 확장 검토.
   - **카테고리 확장 후보 중 "완전 포화 확인"으로 폐기(재검토 금지)**: 압력솥/Instant Pot 시간변환기, 커피 물비율 계산기, 이스트 환산 계산기, 케이크 팬 사이즈 변환기, 파티 인원수별 음식량 계산기, 냉장/냉동 식품 보관기간 계산기(이상 6개, 위 07-18(2차) 항목 참고 — 이유는 전부 5개 이상 전용 경쟁 사이트 존재).
-  - **터키(칠면조) 인분수 계산기(`how much turkey per person`)**: 경쟁이 계산기팜이 아니라 Today/GoodHousekeeping/TasteOfHome 같은 대형 미디어 브랜드 + `inchcalculator.com`(기존 회피 리스트에 이미 있음)라 신규 독립 페이지는 무리. 다만 계절성(추수감사절, 11월) 콘텐츠라 `blog/how-long-to-cook-turkey-breast.html`에 "인분수" FAQ 1개 얹는 정도는 저위험 후보로 가을 시즌 전에 재검토.
+  - **터키(칠면조) 인분수 계산기(`how much turkey per person`)**: 경쟁이 계산기팜이 아니라 Today/GoodHousekeeping/TasteOfHome 같은 대형 미디어 브랜드 + `inchcalculator.com`(기존 회피 리스트에 이미 있음)라 신규 독립 페이지는 무리. 다만 계절성(추수감사절, 11월) 콘텐츠라 `blog/how-long-to-cook-turkey-breast.html`에 "인분수" FAQ 1개 얹는 정도는 저위험 후보로 가을 시즌 전에 재검토. **→ 07-18(3차)에서 실행 완료(커밋 `ef1c147`)** — "How many people does a turkey breast feed?" FAQ 추가, 기존 무게표 재사용(boneless 0.5lb/bone-in 0.75lb per person 기준). 추수감사절 전 인덱싱 시간 확보 목적으로 미리 반영.
 
 ### 2026-07-11: mywellnesscalc.com 교차 내부링크
 

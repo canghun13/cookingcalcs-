@@ -68,11 +68,13 @@ nav.js BLOGS 배열에서 전체 목록 관리. 2026-07-07~10 신규/변경:
 ```bash
 echo "tools: $(ls tools/*.html | grep -v index.html | wc -l)"       # 17
 echo "blogs: $(ls blog/*.html | grep -v index.html | wc -l)"        # 40
-echo "sitemap: $(grep -c '<loc>' sitemap.xml)"                      # 63 (17+1 + 40+1 + 4정적페이지)
+echo "guides: $(ls guides/*.html | grep -v index.html | wc -l)"     # 1 (2026-07-18 신설)
+echo "sitemap: $(grep -c '<loc>' sitemap.xml)"                      # 65
 echo "nav.js TOOLS: $(sed -n '/const TOOLS/,/];/p' assets/js/nav.js | grep -c 'url:')"   # 17
 echo "nav.js BLOGS: $(sed -n '/const BLOGS/,/^];/p' assets/js/nav.js | grep -c 'url:')"  # 40
+echo "nav.js GUIDES: $(sed -n '/const GUIDES/,/^];/p' assets/js/nav.js | grep -c 'url:')" # 1
 ```
-이 5개 숫자가 서로 안 맞으면 드리프트가 생긴 것 — 바로 잡고 넘어갈 것.
+이 숫자들이 서로 안 맞으면 드리프트가 생긴 것 — 바로 잡고 넘어갈 것.
 
 ---
 
@@ -262,6 +264,14 @@ echo "nav.js BLOGS: $(sed -n '/const BLOGS/,/^];/p' assets/js/nav.js | grep -c '
   - **계란 보관 FAQ 반응 확인**: `egg-converter.html`에 추가한 보관기간 FAQ가 노출을 만드는지 확인 후, 반응 있으면 `how-many-eggs-in-a-cup.html`이나 `how-to-substitute-egg-sizes.html`에도 유사 패턴(각 페이지 핵심 주제에 인접한 보관/안전 질문 1개씩)으로 확장 검토.
   - **카테고리 확장 후보 중 "완전 포화 확인"으로 폐기(재검토 금지)**: 압력솥/Instant Pot 시간변환기, 커피 물비율 계산기, 이스트 환산 계산기, 케이크 팬 사이즈 변환기, 파티 인원수별 음식량 계산기, 냉장/냉동 식품 보관기간 계산기(이상 6개, 위 07-18(2차) 항목 참고 — 이유는 전부 5개 이상 전용 경쟁 사이트 존재).
   - **터키(칠면조) 인분수 계산기(`how much turkey per person`)**: 경쟁이 계산기팜이 아니라 Today/GoodHousekeeping/TasteOfHome 같은 대형 미디어 브랜드 + `inchcalculator.com`(기존 회피 리스트에 이미 있음)라 신규 독립 페이지는 무리. 다만 계절성(추수감사절, 11월) 콘텐츠라 `blog/how-long-to-cook-turkey-breast.html`에 "인분수" FAQ 1개 얹는 정도는 저위험 후보로 가을 시즌 전에 재검토. **→ 07-18(3차)에서 실행 완료(커밋 `ef1c147`)** — "How many people does a turkey breast feed?" FAQ 추가, 기존 무게표 재사용(boneless 0.5lb/bone-in 0.75lb per person 기준). 추수감사절 전 인덱싱 시간 확보 목적으로 미리 반영.
+
+### 2026-07-18 (4차): 신규 카테고리 "Guides" 신설 — Tools/Blog 외 3번째 콘텐츠 축 (커밋 `0f87697`)
+- 사용자가 이전 세션에서 준 nav 스크린샷(Home/Tools/Blog/About)의 진짜 의도를 뒤늦게 파악: "Blog에 글 하나 더"가 아니라 **"Tools/Blog 외에 완전히 새로운 카테고리를 하나 더 만들자"**는 요청이었음. 07-16 이후 반복된 "신규 계산기 아이디어가 전부 콘텐츠팜에 선점됨" 문제를 우회하는 방향으로, 새 계산기 UI를 만드는 대신 **이미 있는 툴/블로그를 묶는 필러(pillar)/허브 페이지 카테고리**를 신설.
+- **사이트 구조 변경**: `nav.js`에 `GUIDES` 배열 신설(TOOLS/BLOGS와 동급). PC 헤더, 모바일 드롭다운, 푸터 컬럼에 "Guides" 항목 추가. `guides-grid` id 기반 자동 카드 렌더링 로직 추가(blog-grid와 카드 스타일 재사용, 카테고리 재정의 아님). `/guides/index.html`(허브 목록 페이지), `/guides/complete-meal-prep-budget-guide.html`(1호 가이드) 신설.
+- **1호 가이드 "The Complete Meal Prep & Grocery Budget Guide"**(1013단어): meal-cost-calculator/cost-per-serving/weekly-meal-prep-cost-calculator 3개 툴 + grocery-budget-tips 등 블로그 5개를 하나로 묶음. 단순 요약이 아니라 "어떤 계산기를 언제 쓸지" 비교표, 예산 벤치마크 통합, "그로서리 절약 전술을 실제 영향력 순으로 랭킹"(단백질 선택 > 배치쿠킹 > 완제품 회피 > 로열티/스토어브랜드) 같은 **기존 어느 페이지에도 없던 신규 종합/비교 콘텐츠**로 구성 — AI 검색이 콘텐츠 깊이를 중시한다는 방향성에 맞춤. Article + FAQPage JSON-LD 적용(FAQ 3개).
+- 체크리스트 반영: `index.html`에 Guides 섹션(guides-grid) 추가, `llms.txt`에 Guides 섹션 추가, `sitemap.xml` 2개 URL 추가(lastmod 07-18), `cost-per-serving.html`/`weekly-meal-prep-cost-calculator.html`의 Related 박스에 신규 가이드 링크 추가(내부링크 2곳 확보, 고아페이지 방지).
+- 검증: div 밸런스, JSON-LD 파싱, sitemap XML, `node --check`로 nav.js 구문 검사, 고아페이지 체크(guides 디렉토리 포함하도록 스크립트 자체도 확장), 반응형 그리드 — 전부 통과. 카운트: tools 17 / blogs 40 / **guides 1**(신규) / sitemap 65.
+- **다음 세션 참고**: 이제 신규 페이지 추가 시 카운트 검증 스크립트(2번 섹션)에 `guides: $(ls guides/*.html | grep -v index.html | wc -l)`도 추가해서 같이 확인할 것 — 지금은 1개뿐이라 드리프트 위험 낮지만 늘어나면 필요. 향후 Guides 후보(만들 때 참고): "The Complete Meat Cooking & Temperature Guide"(meat-temperature-guide/cooking-time-calculator/raw-to-cooked-weight + how-long-to-cook-* 블로그 다수 통합), "The Complete Baking Conversion Guide"(cups-to-grams/tablespoon-teaspoon/butter-converter/egg-converter/oven-temp-converter/baking-substitutions 통합) — 둘 다 기존 콘텐츠 재구성형이라 경쟁 리서치 부담 낮음, 다음 "신규" 요청 때 우선 후보로 검토할 것.
 
 ### 2026-07-11: mywellnesscalc.com 교차 내부링크
 

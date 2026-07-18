@@ -83,6 +83,11 @@ const BLOGS = [
   { name: "How to Calculate Cooking Time for Meat", url: "/blog/how-to-calculate-cooking-time.html", desc: "The formula for calculating cooking time by weight, cut, and method — plus why time alone isn't enough and what to check instead.", date: "2026-07-07" },
 ];
 
+// ── 가이드 목록 (Tools/Blog와 별개 — 여러 툴/블로그를 묶는 종합 허브 페이지) ──
+const GUIDES = [
+  { name: "The Complete Meal Prep & Grocery Budget Guide", url: "/guides/complete-meal-prep-budget-guide.html", desc: "Every cost-per-serving benchmark, weekly budget formula, and grocery-saving tactic on the site, pulled into one reference — with links to the calculators and deep-dive guides behind each number.", date: "2026-07-18" },
+];
+
 
 // ── 메뉴 렌더링 ─────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', function () {
@@ -95,6 +100,10 @@ document.addEventListener('DOMContentLoaded', function () {
     `<li><a href="${b.url}">${b.name}</a></li>`
   ).join('');
 
+  const guideItems = GUIDES.map(g =>
+    `<li><a href="${g.url}">${g.name}</a></li>`
+  ).join('');
+
   const header = `
   <header class="site-header">
     <div class="header-inner">
@@ -104,6 +113,7 @@ document.addEventListener('DOMContentLoaded', function () {
           <li><a href="/" class="nav-link">Home</a></li>
           <li><a href="/tools/" class="nav-link">Tools</a></li>
           <li><a href="/blog/" class="nav-link">Blog</a></li>
+          <li><a href="/guides/" class="nav-link">Guides</a></li>
           <li><a href="/about.html" class="nav-link">About</a></li>
         </ul>
       </nav>
@@ -129,6 +139,13 @@ document.addEventListener('DOMContentLoaded', function () {
         <ul class="nav-dropdown">
           <li><a href="/blog/" class="nav-dropdown-all">View All Posts →</a></li>
           ${blogItems || '<li class="nav-empty">Coming soon</li>'}
+        </ul>
+      </li>
+      <li class="nav-has-dropdown">
+        <button class="nav-link nav-btn" aria-expanded="false">Guides ▾</button>
+        <ul class="nav-dropdown">
+          <li><a href="/guides/" class="nav-dropdown-all">View All Guides →</a></li>
+          ${guideItems || '<li class="nav-empty">Coming soon</li>'}
         </ul>
       </li>
       <li><a href="/about.html" class="nav-link">About</a></li>
@@ -159,10 +176,18 @@ document.addEventListener('DOMContentLoaded', function () {
           </ul>
         </div>
         <div class="footer-col">
+          <h4>Guides</h4>
+          <ul>
+            ${[...GUIDES].sort((a,b) => (b.date||'') > (a.date||'') ? 1 : -1).slice(0, 6).map(g => `<li><a href="${g.url}">${g.name}</a></li>`).join('') || '<li>Coming soon</li>'}
+            <li><a href="/guides/">View All Guides →</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
           <h4>Site</h4>
           <ul>
             <li><a href="/">Home</a></li>
             <li><a href="/blog/">Blog</a></li>
+            <li><a href="/guides/">Guides</a></li>
             <li><a href="/about.html">About</a></li>
             <li><a href="/privacy-policy.html">Privacy Policy</a></li>
             <li><a href="/contact.html">Contact</a></li>
@@ -196,6 +221,24 @@ document.addEventListener('DOMContentLoaded', function () {
         <div class="blog-card-body">
           <h3>${b.name}</h3>
           ${b.desc ? `<p class="blog-card-desc">${b.desc}</p>` : ''}
+        </div>
+        ${dateStr ? `<div class="blog-card-footer"><time>${dateStr}</time></div>` : ''}
+      </a>
+    `;
+    }).join('');
+  }
+
+  // 가이드 카드 자동 렌더링 (id="guides-grid" 있는 페이지) — blog-card 스타일 재사용
+  const guidesGrid = document.getElementById('guides-grid');
+  if (guidesGrid && GUIDES.length > 0) {
+    const sorted = [...GUIDES].sort((a, b) => (b.date || '') > (a.date || '') ? 1 : -1);
+    guidesGrid.innerHTML = sorted.map(g => {
+      const dateStr = g.date ? new Date(g.date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }) : '';
+      return `
+      <a href="${g.url}" class="blog-card">
+        <div class="blog-card-body">
+          <h3>${g.name}</h3>
+          ${g.desc ? `<p class="blog-card-desc">${g.desc}</p>` : ''}
         </div>
         ${dateStr ? `<div class="blog-card-footer"><time>${dateStr}</time></div>` : ''}
       </a>

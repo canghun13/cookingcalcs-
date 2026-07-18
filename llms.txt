@@ -20,6 +20,10 @@ CookingCalcs covers unit conversion, recipe scaling, cooking times and temperatu
 - [Weekly Meal Prep Cost Calculator](https://cookingcalcs.com/tools/weekly-meal-prep-cost-calculator.html): Calculate your total weekly meal prep cost across all meals. Add each meal's cost and frequency to get weekly, daily, and monthly totals.
 - [Slow Cooker Time Converter](https://cookingcalcs.com/tools/slow-cooker-converter.html): Convert oven or stovetop cooking times to slow cooker Low/High settings, or slow cooker times back to the oven. Includes a full reference chart and liquid adjustment guidance.
 
+## Guides
+
+- [The Complete Meal Prep & Grocery Budget Guide](https://cookingcalcs.com/guides/complete-meal-prep-budget-guide.html): A single reference pulling together every cost-per-serving benchmark, weekly budget formula, and grocery-saving tactic on the site, with links to the exact calculator or article behind each number.
+
 ## Blog
 
 - [The Complete Cups to Grams Conversion Guide](https://cookingcalcs.com/blog/cups-to-grams-guide.html): Full reference chart for converting cups to grams for flour, sugar, butter, and more.

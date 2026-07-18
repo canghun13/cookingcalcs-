@@ -23,6 +23,7 @@ CookingCalcs covers unit conversion, recipe scaling, cooking times and temperatu
 ## Guides
 
 - [The Complete Meal Prep & Grocery Budget Guide](https://cookingcalcs.com/guides/complete-meal-prep-budget-guide.html): A single reference pulling together every cost-per-serving benchmark, weekly budget formula, and grocery-saving tactic on the site, with links to the exact calculator or article behind each number.
+- [The Complete Meat Cooking & Temperature Guide](https://cookingcalcs.com/guides/complete-meat-cooking-temperature-guide.html): Every safe internal temperature, cook time chart, and doneness troubleshooting tip on the site, organized by protein, with links to the exact calculator or article behind each number.
 
 ## Blog
 

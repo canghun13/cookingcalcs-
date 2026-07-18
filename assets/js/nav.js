@@ -86,6 +86,7 @@ const BLOGS = [
 // ── 가이드 목록 (Tools/Blog와 별개 — 여러 툴/블로그를 묶는 종합 허브 페이지) ──
 const GUIDES = [
   { name: "The Complete Meal Prep & Grocery Budget Guide", url: "/guides/complete-meal-prep-budget-guide.html", desc: "Every cost-per-serving benchmark, weekly budget formula, and grocery-saving tactic on the site, pulled into one reference — with links to the calculators and deep-dive guides behind each number.", date: "2026-07-18" },
+  { name: "The Complete Meat Cooking & Temperature Guide", url: "/guides/complete-meat-cooking-temperature-guide.html", desc: "Every safe internal temperature, cook time chart, and doneness troubleshooting tip on the site, organized by protein — with links to the exact calculator or guide behind each number.", date: "2026-07-18" },
 ];
 
 

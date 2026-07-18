@@ -81,6 +81,8 @@ const BLOGS = [
   { name: "How to Convert a Recipe to Metric", url: "/blog/how-to-convert-a-recipe-to-metric.html", desc: "Convert any US recipe to metric measurements step by step. Cups to grams, Fahrenheit to Celsius, and why weight beats volume for accurate metric conversion.", date: "2026-07-07" },
   { name: "How Long to Cook Chicken Thighs", url: "/blog/how-long-to-cook-chicken-thighs.html", desc: "Exact cook times for chicken thighs by method — oven, pan, air fryer, and grill. Bone-in and boneless, plus the internal temperature that tells you they're done.", date: "2026-07-07" },
   { name: "How to Calculate Cooking Time for Meat", url: "/blog/how-to-calculate-cooking-time.html", desc: "The formula for calculating cooking time by weight, cut, and method — plus why time alone isn't enough and what to check instead.", date: "2026-07-07" },
+  { name: "Is Your Oven Running Hot or Cold? How to Test It", url: "/blog/is-your-oven-running-hot-or-cold.html", desc: "Most home ovens are 25-50°F off their dial setting. How to test with a thermometer or a simple sugar test, and what to do once you know the offset.", date: "2026-07-18" },
+  { name: "How Long Can Food Sit Out? The 2-Hour Rule Explained", url: "/blog/how-long-can-food-sit-out.html", desc: "The USDA 2-hour rule, the 1-hour hot-weather exception, and what actually happens in the food safety danger zone.", date: "2026-07-18" },
 ];
 
 // ── 가이드 목록 (Tools/Blog와 별개 — 여러 툴/블로그를 묶는 종합 허브 페이지) ──

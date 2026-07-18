@@ -87,6 +87,8 @@ const BLOGS = [
 const GUIDES = [
   { name: "The Complete Meal Prep & Grocery Budget Guide", url: "/guides/complete-meal-prep-budget-guide.html", desc: "Every cost-per-serving benchmark, weekly budget formula, and grocery-saving tactic on the site, pulled into one reference — with links to the calculators and deep-dive guides behind each number.", date: "2026-07-18" },
   { name: "The Complete Meat Cooking & Temperature Guide", url: "/guides/complete-meat-cooking-temperature-guide.html", desc: "Every safe internal temperature, cook time chart, and doneness troubleshooting tip on the site, organized by protein — with links to the exact calculator or guide behind each number.", date: "2026-07-18" },
+  { name: "The Complete Baking Measurement & Conversion Guide", url: "/guides/complete-baking-conversion-guide.html", desc: "Every cups-to-grams table, tablespoon-to-teaspoon chart, oven temperature, egg size, and butter conversion on the site, organized in one reference.", date: "2026-07-18" },
+  { name: "The Complete Recipe Scaling & Serving Guide", url: "/guides/complete-recipe-scaling-guide.html", desc: "Everything about scaling a recipe up or down, halving, converting to metric, and figuring out real serving sizes, organized in one reference.", date: "2026-07-18" },
 ];
 
 

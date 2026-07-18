@@ -291,6 +291,18 @@ echo "nav.js GUIDES: $(sed -n '/const GUIDES/,/^];/p' assets/js/nav.js | grep -c
 - **이 세션(07-18) 전체 신규/보강 총계**: Guides 4개 전부 신규, 블로그 신규 2개(is-your-oven-running-hot-or-cold, how-long-can-food-sit-out), 기존 페이지 보강 다수(cost-per-serving 워드프라블럼, raw-to-cooked-weight 감자, egg-converter 보관FAQ, turkey-breast 인분수FAQ). 카운트: tools 17(변동없음) / blogs 42(+2) / guides 4(신규) / sitemap 70.
 - **다음 세션 참고**: Guides 후보는 이번에 4개로 사실상 사이트 전체 콘텐츠를 다 커버함(meal-prep/meat-cooking/baking-conversion/recipe-scaling) — 당장 5번째 Guide를 만들 명확한 새 클러스터는 안 보임, 억지로 쪼개지 말 것. 블로그는 이번에 다룬 "트러블슈팅/식품안전" 계열이 반응 좋으면 유사한 각도(예: 도마/조리도구 관리, 냉장고 정리 등)로 더 발굴 가능 — 다음 GSC 데이터로 반응 확인 후 판단.
 
+### 2026-07-18 (7차): Guides 내부링크 부실 지적 및 전면 보강 — 47개 페이지 (커밋 `544438c`)
+- 사용자가 정확히 지적: **Guides가 각각 6~16개 페이지를 참조/링크하는데, 정작 그 페이지들에서 가이드로 되돌아오는 링크는 페이지당 딱 2개뿐**이었음. 07-18(6차)에서 만든 4개 가이드 전부 "고아페이지 방지용 최소 2개" 기준만 채웠을 뿐, 필러페이지(허브-스포크) 전략에 필요한 "가이드가 참조하는 모든 스포크 페이지가 가이드로 되돌아 링크"는 안 되어 있었음 — 필러페이지 SEO/토픽 클러스터 전략의 핵심을 놓친 상태였음.
+- 각 가이드의 실제 참조 목록을 다시 추려서 47개 파일에 일괄 보강:
+  - meal-prep-budget 가이드 → +5개 페이지
+  - meat-cooking-temperature 가이드 → +14개 페이지
+  - baking-conversion 가이드 → +22개 페이지(사이트 최대 클러스터)
+  - recipe-scaling 가이드 → +4개 페이지
+- 작업 방식: 36개 파일은 기존 "Related Guides"/"Related Tools & Guides" `<h3>+<ul>` 패턴을 정규식으로 찾아 스크립트로 일괄 삽입, 나머지 11개(관련 박스가 아예 없거나 다른 텍스트 패턴("Related tools & guides:" strong 태그, 화살표 위치가 텍스트 뒤 등) 사용)는 개별 확인 후 수동 추가. `tools/butter-converter.html`, `tools/baking-substitutions.html`은 애초에 관련 섹션 자체가 없었어서 새로 만들어 추가함.
+- **결과(가이드별 실제 인바운드 링크 수, 기존 2개 → 보강 후)**: meal-prep-budget 9개, meat-cooking-temperature 17개, baking-conversion 26개, recipe-scaling 6개.
+- 검증: 사이트 전체 66개 콘텐츠 파일(blog+tools+guides) div밸런스/JSON-LD 파싱 전수 통과, sitemap XML 유효, nav.js 구문 정상, 고아페이지 0건.
+- **다음에 신규 Guide 만들 때 반드시 지킬 것**: 가이드 본문에 링크로 언급한 페이지는 **전부** 그 페이지에서도 가이드로 되돌아오는 링크를 넣을 것 — "최소 2개만 채우면 된다"는 고아페이지 방지 기준과, "필러페이지가 제대로 기능하려면 클러스터 전체가 상호링크되어야 한다"는 기준은 별개임. 신규 가이드 발행 체크리스트에 이 항목을 추가로 취급할 것.
+
 ### 2026-07-11: mywellnesscalc.com 교차 내부링크
 
 
@@ -322,6 +334,7 @@ echo "nav.js GUIDES: $(sed -n '/const GUIDES/,/^];/p' assets/js/nav.js | grep -c
 - [ ] `index.html`(홈) 툴 카드 섹션에 카드 추가 (툴인 경우만) + 개수 숫자(`stat-num`) 갱신
 - [ ] `tools/index.html`의 `TOOL_ICONS` 객체에 신규 툴 아이콘 추가 (툴인 경우만)
 - [ ] **내부 링크 최소 2곳 확보**: 관련된 기존 블로그/툴 본문에 "Related Guides"(블로그) 또는 "Related Tools & Guides"(툴) 형태로 역방향 링크 추가
+- [ ] **(Guides 신규 발행 시 추가 필수)** 가이드 본문에서 링크로 언급한 페이지는 "최소 2곳" 기준과 별개로 **전부 다** 가이드로 되돌아오는 링크를 넣을 것 — 07-18(7차)에서 이걸 빠뜨렸다가 사용자 지적으로 47개 파일 일괄 보강한 적 있음(3번 섹션 참고). 필러페이지는 클러스터 전체 상호링크가 핵심.
 - [ ] **분량 800~1200단어** (억지로 채우지 않기, FAQ 3개+환산표+실질정보로 자연스럽게 도달)
 - [ ] **FAQ 섹션은 `blog-content` div 안에, 한 번만** — 복사-붙여넣기로 중복되거나 CTA 박스 안에 잘못 중첩되지 않도록 작성 후 반드시 확인
 - [ ] Search Console에 sitemap 재제출 (사용자가 직접 수행)

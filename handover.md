@@ -273,6 +273,13 @@ echo "nav.js GUIDES: $(sed -n '/const GUIDES/,/^];/p' assets/js/nav.js | grep -c
 - 검증: div 밸런스, JSON-LD 파싱, sitemap XML, `node --check`로 nav.js 구문 검사, 고아페이지 체크(guides 디렉토리 포함하도록 스크립트 자체도 확장), 반응형 그리드 — 전부 통과. 카운트: tools 17 / blogs 40 / **guides 1**(신규) / sitemap 65.
 - **다음 세션 참고**: 이제 신규 페이지 추가 시 카운트 검증 스크립트(2번 섹션)에 `guides: $(ls guides/*.html | grep -v index.html | wc -l)`도 추가해서 같이 확인할 것 — 지금은 1개뿐이라 드리프트 위험 낮지만 늘어나면 필요. 향후 Guides 후보(만들 때 참고): "The Complete Meat Cooking & Temperature Guide"(meat-temperature-guide/cooking-time-calculator/raw-to-cooked-weight + how-long-to-cook-* 블로그 다수 통합), "The Complete Baking Conversion Guide"(cups-to-grams/tablespoon-teaspoon/butter-converter/egg-converter/oven-temp-converter/baking-substitutions 통합) — 둘 다 기존 콘텐츠 재구성형이라 경쟁 리서치 부담 낮음, 다음 "신규" 요청 때 우선 후보로 검토할 것.
 
+### 2026-07-18 (5차): 신규 툴 아이디어 9종 연속 포화 확인 — "신규 독립 계산기" 전략 사실상 종료 판단 + Guides 2호 발행 (커밋 `f140877`)
+- 사용자가 "경쟁 심하면 롱테일로 피하되, 일단 신규를 진행하라"고 지시. 먼저 지난 세션에 예고한 Guides 2호("The Complete Meat Cooking & Temperature Guide")를 발행(툴 3개+블로그 13개 통합, 962단어, "어떤 툴을 언제 쓸지" 비교표+단백질별 안전온도 요약+조리시간 인덱스+공통 트러블슈팅 4가지로 구성. 새 수치는 만들지 않고 기존 meat-temperature-guide 차트 재사용).
+- 이어서 신규 독립 툴 아이디어를 "롱테일 각도"로 다시 탐색: **스테이크 전용 두께+굽기별 계산기**(기존 cooking-time-calculator가 무게 기반이라 두께 기반 스테이크엔 구조적으로 안 맞는다는 진짜 갭을 찾아서 시도), **고도별 베이킹 보정 계산기**(완전히 새로운 카테고리, 우리 사이트에 전혀 없는 개념) — 둘 다 web_search로 확인한 결과 **각각 7개 이상의 전용 경쟁 계산기 사이트가 이미 존재**함을 확인하고 기각.
+- **07-18(2차)에서 이미 6개 확인했던 것에 이번 2개를 더해 총 9개 후보 전부 포화로 확인됨** — 압력솥/Instant Pot, 커피 물비율, 이스트 환산, 케이크 팬 변환기, 파티 인원수별 음식량, 냉장/냉동 보관기간, 스테이크 두께/굽기 계산기, 고도별 베이킹 보정. **9개 중 9개 전부 콘텐츠팜/전용 사이트에 이미 선점됨.** 이 정도면 우연이 아니라 구조적 현상으로 판단해도 됨 — **"요리 계산기" 성격의 신규 독립 페이지는 당분간(다음 몇 세션) 기본적으로 시도하지 않는 쪽으로 방향을 굳힐 것.** 아주 구체적인 GSC 실제 쿼리 갭이 나오지 않는 한, 새 계산기 아이디어를 web_search 없이 제안하지 말 것.
+- **회피 대상 준-그룹에 신규 도메인 추가**: missvickie.com, tooliro.com, steakrecipe.org, bbqtoolbox.com, meatidentifier.com(ButcherIQ), beef.foodnutrify.com, elevationbaking.com, simplyaltitude.com, inclinebaked.com — 07-18(2차) 목록과 합쳐서 아래 9번 섹션에 통합 반영.
+- **결론 — 다음 세션 신규 전략**: (1) "독립 계산기 툴" 신규는 보류. (2) 대신 **Guides(필러 페이지)** 확장이 지금 가장 안전한 "신규" 경로 — 이미 사이트에 있는 콘텐츠를 재구성하는 거라 경쟁 리서치 부담이 없음. 다음 후보: "The Complete Baking Conversion Guide"(cups-to-grams/tablespoon-teaspoon/butter-converter/egg-converter/oven-temp-converter/baking-substitutions 통합). (3) 블로그는 계산기와 경쟁 구도가 다름(콘텐츠 자체로 경쟁, farm 사이트들도 결국 블로그 프로즈는 대량으로 못 찍어냄) — 롱테일 신규 블로그 주제는 계속 유효한 옵션이니 다음 세션에서 GSC 쿼리 재확인 후 시도할 것.
+
 ### 2026-07-11: mywellnesscalc.com 교차 내부링크
 
 
@@ -486,7 +493,7 @@ git push https://x-access-token:${TOKEN}@github.com/canghun13/cookingcalcs-.git 
 
 - 롱테일 키워드 타겟 — 대형 사이트가 일반 페이지로만 대응하는 구체적 질문형
 - **회피 대상 대형 사이트**: allrecipes, epicurious, calculatorsoup, omnicalculator, inchcalculator
-- **회피 대상 준-그룹(2026-07-18 추가, "요리 계산기" 콘텐츠팜 클러스터)**: crunchmilk.com, cookingcalchub.co, cookcalculator.net, agentcalc.com, handychefdom.com, cosmomath.com, usecalcpro.com, best-calculators.com, calckitchen.com, kitchencalcs.com — 신규 계산기 아이디어를 낼 때마다 이 그룹이 이미 선점했을 가능성부터 web_search로 확인할 것 (3번 섹션 07-18(2차) 참고).
+- **회피 대상 준-그룹(2026-07-18 추가, "요리 계산기" 콘텐츠팜 클러스터)**: crunchmilk.com, cookingcalchub.co, cookcalculator.net, agentcalc.com, handychefdom.com, cosmomath.com, usecalcpro.com, best-calculators.com, calckitchen.com, kitchencalcs.com, missvickie.com, tooliro.com, steakrecipe.org, bbqtoolbox.com, meatidentifier.com, beef.foodnutrify.com, elevationbaking.com, simplyaltitude.com, inclinebaked.com — 신규 계산기 아이디어를 낼 때마다 이 그룹이 이미 선점했을 가능성부터 web_search로 확인할 것 (3번 섹션 07-18(2차)/(5차) 참고). **9개 후보 연속 포화 확인(07-18 기준) — 당분간 독립 계산기 신규는 기본적으로 보류, Guides/블로그 쪽으로 신규 방향 전환.**
 - 신규 콘텐츠 제안 전 반드시 web_search로 경쟁 강도 확인 (7번 "기각한 후보" 참고 — 실제로 이 과정에서 3개 걸러냄)
 - **thin content 절대 금지**: 환산표 + 설명 + FAQ 필수, 800~1200단어 (600에서 상향됨)
 - affiliate 홀더(빈 링크/배너) 미리 넣지 말 것 — AdSense 안정화 전까지 시작 금지

@@ -302,6 +302,7 @@ echo "nav.js GUIDES: $(sed -n '/const GUIDES/,/^];/p' assets/js/nav.js | grep -c
 - **결과(가이드별 실제 인바운드 링크 수, 기존 2개 → 보강 후)**: meal-prep-budget 9개, meat-cooking-temperature 17개, baking-conversion 26개, recipe-scaling 6개.
 - 검증: 사이트 전체 66개 콘텐츠 파일(blog+tools+guides) div밸런스/JSON-LD 파싱 전수 통과, sitemap XML 유효, nav.js 구문 정상, 고아페이지 0건.
 - **다음에 신규 Guide 만들 때 반드시 지킬 것**: 가이드 본문에 링크로 언급한 페이지는 **전부** 그 페이지에서도 가이드로 되돌아오는 링크를 넣을 것 — "최소 2개만 채우면 된다"는 고아페이지 방지 기준과, "필러페이지가 제대로 기능하려면 클러스터 전체가 상호링크되어야 한다"는 기준은 별개임. 신규 가이드 발행 체크리스트에 이 항목을 추가로 취급할 것.
+- **추가 자체 QA(같은 세션, 커밋 `18f388a`)**: 사용자가 "더 할 게 있냐"고 물어봐서 자체 점검하다가 읽기시간 오류 발견 — 오늘 만든 가이드 4개+블로그 2개 전부 실제 단어수(145wpm 기준) 대비 임의로 분 단위를 써놔서 최대 5분까지 어긋나 있었음(예: 761단어 가이드에 "9 min read"). 전체 48개 blog+guides 파일을 스크립트로 재검산해서 오늘 것 6개 + 기존부터 있던 드리프트 4개(oven-temperature-conversion-guide 등) 총 10개 수정. **다음 세션도 새 페이지 발행 후 이 방식으로 스윕 검사하는 습관 들일 것** — 체크리스트에 "읽기시간 실제 단어수 대비 검산"을 명시적 스크립트 항목으로 승격.
 
 ### 2026-07-11: mywellnesscalc.com 교차 내부링크
 
@@ -366,6 +367,20 @@ for f in FILE; do
     echo "반응형 미디어쿼리 없음: $f"
   fi
 done
+
+# 읽기시간(min read) 검산 (2026-07-18 추가) — blog-meta의 "N min read"가 실제 <main> 단어수 대비
+# 145wpm 기준과 1분 넘게 어긋나면 출력. 새 블로그/가이드 발행하거나 본문 분량 바꿀 때마다 실행.
+python3 -c "
+import re
+html = open('FILE').read()
+meta = re.search(r'blog-meta\">[^<]*·\s*(\d+)\s*min read', html)
+m2 = re.search(r'<main.*?</main>', html, re.S)
+text = re.sub('<[^>]+>', ' ', m2.group(0))
+words = len(text.split())
+expected = round(words/145)
+stated = int(meta.group(1)) if meta else None
+print(f'words={words} expected={expected}min stated={stated}min', '<<< 확인 필요' if stated and abs(stated-expected)>1 else 'OK')
+"
 ```
 
 ---

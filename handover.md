@@ -247,6 +247,22 @@ echo "nav.js BLOGS: $(sed -n '/const BLOGS/,/^];/p' assets/js/nav.js | grep -c '
 - **이번 세션에서 신규 툴/블로그는 만들지 않음** — 쿼리 상위 40개(노출 기준)를 전부 검토했으나 기존에 커버된 클러스터의 변형이거나(cooking calculator, kitchen calculator 등 제네릭 헤드텀, 순위 58~91위권) 이미 07-16에 기각한 후보(sous vide 등)와 동일 계열이었음. "신규가 반드시 있어야 한다"는 이전 세션의 지적은 07-16(2차)에서 이미 반영되었고, 이번 회차는 데이터가 신규보다 보강을 정당화하는 쪽이라 판단.
 - **수익화 관점 판단**: 병목은 여전히 콘텐츠가 아니라 색인(66개 중 13개만). 다만 이번 2건은 **이미 인덱싱되어 노출이 잡히고 있는 페이지**(cost-per-serving 154회 노출, raw-to-cooked-weight 349회 노출)에 대한 보강이라 색인 문제와 무관하게 클릭 전환에 바로 기여할 수 있는 작업으로 우선순위를 매김 — 미색인 상태인 페이지 확장보다 이런 "이미 노출되는데 클릭 안 되는" 지점을 계속 우선할 것을 다음 세션에도 권장.
 
+### 2026-07-18 (2차): 카테고리 확장 리서치 — "신규 계산기" 전략의 경쟁 지형 변화 확인 + 계란 보관 FAQ 1건 (커밋 예정)
+- 사용자가 GA(애널리틱스, 이번엔 자료 없이 구두로만)를 근거로 "Organic Search가 실제로는 1위인데 GSC는 구글만 잡아서 그렇다, 구글 데이터만으로 결론내지 말고 신규 확장 국면으로 봐야 한다"고 지시. 카테고리를 넓혀서 신규 계산기/콘텐츠 후보를 web_search로 탐색.
+- **핵심 발견 — 매우 중요, 다음 세션 필독**: 최근 몇 달 사이 "요리 계산기" 틈새 전체가 AI 생성형 콘텐츠팜 도메인들에 의해 빠르게 클로닝되고 있음. 이번 세션에서 확인한 6개 후보 카테고리(압력솥/Instant Pot 시간변환, 커피 물비율 계산기, 이스트 환산 계산기, 케이크 팬 사이즈 변환기, 파티 인원수별 음식량 계산기, 냉장/냉동 보관기간 계산기) **전부** 이미 5~9개의 전용 경쟁 사이트가 존재함을 확인. 특히 다음 도메인들이 여러 카테고리에 걸쳐 반복 등장 — `crunchmilk.com`, `cookingcalchub.co`, `cookcalculator.net`, `agentcalc.com`, `handychefdom.com`, `cosmomath.com`, `usecalcpro.com`, `best-calculators.com`, `calckitchen.com`(기존에 이름 유사 경쟁사로 이미 파악됨), `kitchencalcs.com`(마찬가지) — 이들은 짧은 기간에 요리 계산기 카테고리를 거의 전 영역에 걸쳐 프로그래매틱하게 찍어내고 있는 것으로 보임(메타데이터 age 값들이 대부분 2025년 말~2026년 초로 최근).
+- **결론**: "아직 없는 계산기 아이디어를 찾아서 만든다"는 07-16(2차)식 전략(그때는 slow-cooker-converter가 실제로 틈새였음)이 **이제는 거의 통하지 않음**. 확인한 6개 후보 전부 기각 — 새로 계산기 아이디어를 낼 때마다 이 목록의 도메인들이 이미 선점했을 가능성을 최우선으로 의심하고 시작할 것. **7번 섹션의 "회피 대상 대형 사이트" 리스트에 이 도메인 그룹도 사실상 준-회피 대상으로 추가해서 판단할 것.**
+- **그래도 진행한 것**: `tools/egg-converter.html`에 "How long do eggs last in the fridge, and does size change that?" FAQ 1개 추가(USDA 기준 3-5주, 삶은 계란 1주). 새 페이지를 만드는 대신 **이미 순위/노출이 잡혀있는 기존 페이지에 인접 롱테일 질문을 얹는 방식**(07-18 1차 세션과 동일 전략)으로 진행 — 이 방식은 계산기팜 경쟁과 무관하게 우리 페이지 자체의 토픽 권위를 넓히는 것이라 리스크가 낮음. sitemap lastmod 07-18 갱신, JSON-LD/div밸런스 검증 통과, 단어수 1020.
+- **다음 세션 방향 제안**: (1) 신규 "독립 계산기 페이지" 기획은 이제 기본값이 "일단 의심"으로 바뀌어야 함 — 반드시 위 도메인 그룹 포함해서 web_search 먼저. (2) 대신 이미 순위가 잡힌 페이지에 인접 롱테일 질문(보관기간, 안전 온도, 인분수 등)을 FAQ로 얹는 방식이 지금 국면에서 더 안전하고 효율적인 확장 경로. (3) GA에서 구글 외 유입이 늘고 있다는 사용자 언급은 GSC만으로 판단하지 말라는 근거가 됨 — 다음 세션에서 GA export를 실제로 받으면 채널별(Organic Search 세부 검색엔진 구분 가능하면) 데이터를 반드시 확인할 것.
+
+**롱테일 키워드 백로그 (다음 세션 즉시 활용 가능하도록 기록)**
+- 아래는 이번 세션 GSC 636개 쿼리 전수 분석 + 카테고리 확장 리서치에서 나온 것 중, 이번엔 반영 안 했지만 향후 후보로 남겨두는 것들:
+  - `steak calculator` / `cook time calculator` / `cook time converter` (제네릭 헤드텀, 순위 57~59) — 신규 스테이크 전용 계산기까지는 과함, 대신 `blog/how-long-to-cook-steak.html`에 두께별 요약표가 이미 있는지 다음 세션에서 재확인하고 없으면 보강 후보.
+  - `metric baking conversion` / `cooking conversion calculators` 계열 제네릭 쿼리 — 이미 커버됨, 재작업 불필요하나 노출 늘면 재점검.
+  - **감자류 후속**: `raw-to-cooked-weight.html`에 추가한 감자 설명 섹션이 실제로 "potato" 관련 신규 노출을 만드는지 다음 세션에서 확인 — 늘면 감자를 FACTORS에 조리법별로 분리해서 추가하는 것도 재검토 가능(로스팅 전용으로 한정하면 단일 계수가 성립할 수 있음).
+  - **계란 보관 FAQ 반응 확인**: `egg-converter.html`에 추가한 보관기간 FAQ가 노출을 만드는지 확인 후, 반응 있으면 `how-many-eggs-in-a-cup.html`이나 `how-to-substitute-egg-sizes.html`에도 유사 패턴(각 페이지 핵심 주제에 인접한 보관/안전 질문 1개씩)으로 확장 검토.
+  - **카테고리 확장 후보 중 "완전 포화 확인"으로 폐기(재검토 금지)**: 압력솥/Instant Pot 시간변환기, 커피 물비율 계산기, 이스트 환산 계산기, 케이크 팬 사이즈 변환기, 파티 인원수별 음식량 계산기, 냉장/냉동 식품 보관기간 계산기(이상 6개, 위 07-18(2차) 항목 참고 — 이유는 전부 5개 이상 전용 경쟁 사이트 존재).
+  - **터키(칠면조) 인분수 계산기(`how much turkey per person`)**: 경쟁이 계산기팜이 아니라 Today/GoodHousekeeping/TasteOfHome 같은 대형 미디어 브랜드 + `inchcalculator.com`(기존 회피 리스트에 이미 있음)라 신규 독립 페이지는 무리. 다만 계절성(추수감사절, 11월) 콘텐츠라 `blog/how-long-to-cook-turkey-breast.html`에 "인분수" FAQ 1개 얹는 정도는 저위험 후보로 가을 시즌 전에 재검토.
+
 ### 2026-07-11: mywellnesscalc.com 교차 내부링크
 
 
@@ -460,6 +476,7 @@ git push https://x-access-token:${TOKEN}@github.com/canghun13/cookingcalcs-.git 
 
 - 롱테일 키워드 타겟 — 대형 사이트가 일반 페이지로만 대응하는 구체적 질문형
 - **회피 대상 대형 사이트**: allrecipes, epicurious, calculatorsoup, omnicalculator, inchcalculator
+- **회피 대상 준-그룹(2026-07-18 추가, "요리 계산기" 콘텐츠팜 클러스터)**: crunchmilk.com, cookingcalchub.co, cookcalculator.net, agentcalc.com, handychefdom.com, cosmomath.com, usecalcpro.com, best-calculators.com, calckitchen.com, kitchencalcs.com — 신규 계산기 아이디어를 낼 때마다 이 그룹이 이미 선점했을 가능성부터 web_search로 확인할 것 (3번 섹션 07-18(2차) 참고).
 - 신규 콘텐츠 제안 전 반드시 web_search로 경쟁 강도 확인 (7번 "기각한 후보" 참고 — 실제로 이 과정에서 3개 걸러냄)
 - **thin content 절대 금지**: 환산표 + 설명 + FAQ 필수, 800~1200단어 (600에서 상향됨)
 - affiliate 홀더(빈 링크/배너) 미리 넣지 말 것 — AdSense 안정화 전까지 시작 금지

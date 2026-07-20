@@ -80,6 +80,26 @@ echo "nav.js GUIDES: $(sed -n '/const GUIDES/,/^];/p' assets/js/nav.js | grep -c
 
 ## 3. 사이트 구조 변경 이력
 
+### 2026-07-20 (2차): "공격적으로 신규 진행" 지시 — 신규 후보 7종 전수 경쟁검증 후 전부 기각, 대신 실제 갭 3건 발견해 보강
+- 사용자가 revoke는 알아서 하겠다며, "지금 organic search가 오르는 시점이니 롱테일 키워드를 선점해야 한다, 공격적으로 카테고리도 확장해라"고 지시. 1차 세션의 "니치 포화" 결론에 안주하지 말고 신규 후보를 다시 적극적으로 찾아보라는 취지.
+- **신규 독립 콘텐츠 후보 7종을 이번 세션에서 직접 web_search로 경쟁 검증 — 7개 전부 기각**:
+  1. `meat thawing time calculator`(해동시간 계산기): omnicalculator, agentcalc.com(기존 회피 리스트), mycalculatorsonline.com 등 8개+ 전용 계산기가 이미 장악.
+  2. `how long to thaw chicken`(해동 블로그): Perdue, Food Network, The Kitchn 등 대형 브랜드/미디어가 이미 장악 — 계산기뿐 아니라 에디토리얼 프레이밍도 이미 포화.
+  3. `why did my cake sink`(케이크 트러블슈팅): KitchenAid, Food Network 등 대형 브랜드가 이미 장악 — "베이킹 트러블슈팅"은 너무 제네릭해서 대형 미디어 영역.
+  4. `thermometer calibration`(온도계 캘리브레이션 방법): SDSU/Texas A&M 등 대학 extension·정부기관이 이미 표준 콘텐츠로 장악.
+  5. `grams in a cup of brown sugar`(컵당 그램 시리즈 확장): 이미 사이트 자체 `cups-to-grams.html`/`cups-to-grams-guide.html`이 30개 재료(브라운슈가/파우더슈가/코코아파우더 포함)를 이미 커버 중이었고, 외부는 traditionaloven.com, bakeprofit.com, cookingconverter.com 등 전용 사이트가 장악 — 자기잠식 + 외부경쟁 이중으로 기각.
+  6. `how long to cook a whole chicken by weight`(기존 "how-long-to-cook" 클러스터의 누락 부위): quickcooktime.com, howlongfor.com, cookrita.com 등 신규 콘텐츠팜 클러스터 + Food Network/BHG/AOL 대형 미디어까지 이중으로 장악.
+  7. `US to Australian/UK 계량 변환 가이드`(국가별 트래픽 3-4위 활용): bakefinder.com.au, eightforestlane.com, Nigella.com(셀럽 셰프) 등 9개+ 전용 사이트가 이미 장악.
+- **새로 발견해 9번 섹션에 추가할 회피 클러스터**: traditionaloven.com, aqua-calc.com, bakeprofit.com, cookingconverter.com, thebakingcalculator.com(재료 환산), quickcooktime.com, howlongfor.com, cookrita.com, butcherbbq.com(조리시간 계산기 신규 클러스터), justfridge.com, thecalculatedcook.com, howlongtodefrost.com(해동 계산기).
+- **결론**: 이번 세션에 한해 직접 검증한 신규 독립 콘텐츠 후보는 0/7 생존 — 3번 섹션에 기록된 기존 9/9 기각과 합치면 사실상 16/16. 니치 포화는 반복된 우연이 아니라 구조적 상태로 재확인. 사용자에게 이 사실을 있는 그대로 보고함.
+- **대신 실행한 것 — GSC 쿼리 그물을 순위&lt;100까지 넓혀 전수 재스캔(837개) 후 자동+수동 대조로 진짜 갭 3건 발견**:
+  1. `blog/how-long-to-cook-salmon.html`: "Cook Times by Method"에 오븐/팬/에어프라이어/포칭만 있고 **그릴(grill) 조리법이 통째로 빠져있었음** — 연어는 그릴이 매우 흔한 조리법인데 누락. 팬시어 시간 비례로 추정한 그릴 표 추가(¾"=4-5+1-2min, 1"=5-6+2-3min, 1¼"=6-7+2-3min).
+  2. `blog/how-long-to-cook-shrimp.html`: 삶기/소테/베이킹/그릴은 있는데 **에어프라이어가 빠져있었음**. 베이킹 시간 대비 오븐→에어프라이어 비율(연어 페이지에서 확인된 약 25% 단축 패턴)을 적용해 추정(Large 5-6min, XL 6-8min, Jumbo 8-10min).
+  3. `tools/oven-temp-converter.html`: 기존에 "moderate/hot/very hot oven" 용어는 있었는데 **"slow oven"(300-325°F, 영국 레시피에서 흔한 표현) 단어 자체가 빠져있었음** — 정적 본문 + FAQ(JSON-LD+h3) 3곳에 일관되게 반영.
+  4. 그 외 순위&lt;100 필터링된 186개 후보 대부분(recipe doubler, ground pork temperature, meat internal temp guide 등)은 재확인 결과 전부 이미 커버됨(문구 차이로 인한 자동스캔 오탐) — 진짜 갭은 위 3건이 전부였음.
+- 3개 파일 dateModified/sitemap lastmod 07-20 갱신, 읽기시간 재계산(둘 다 오차 1분 이내로 OK). 검증: div 밸런스 3파일 OK, JSON-LD 파싱 3파일 OK, sitemap XML 유효, 고아페이지 0건.
+- **다음 세션 참고**: (1) 이번에 확인한 "how-long-to-cook 시리즈 조리법 매트릭스"(팬/오븐/그릴/에어프라이어 중 어떤 게 있고 없는지) 방법론은 재사용 가치 높음 — steak 페이지가 에어프라이어 없음, bacon이 그릴 없음으로 나왔으나 이번엔 시간상 미착수, 다음 세션에서 실제 있는지 재확인 후 필요시 보강. (2) "카테고리 확장"은 이번 세션 기준으로는 근거를 못 찾음 — 신규 카테고리를 강행하기보다 GSC에서 진짜 새 쿼리 클러스터가 나타나는지 계속 관찰하는 게 맞다고 판단됨. 사용자가 이 판단에 동의하지 않으면 구체적으로 어떤 카테고리를 염두에 두고 있는지 물어보고 그 방향으로 경쟁 검증부터 시작할 것.
+
 ### 2026-07-20: 일요일 정기 점검 — GSC/GA 전수 분석, 신규 없이 고트래픽 페이지 3건 보강
 - 사용자가 "정기 작업을 일요일로 당겨서 한다"며 GSC Performance + Coverage export(07-20 기준, 지난 3개월) + GA4 리포트(07-20 기준, 최근 4주) 3개 첨부. 쿼리 845개 전수(CSV 파싱 스크립트로 rank<60 & impr≥2 필터링 후 39개 후보 개별 grep 대조), 페이지 20개, 국가/기기별, 일별 차트 전부 확인.
 - **핵심 지표(변화 거의 없음)**: 클릭 3개월 누적 **여전히 0건**. 노출은 계속 우상향 — 07-17 414회로 신고점(직전 최고 07-15 333회). Coverage 색인 수치(리디렉션 4/발견-미색인 47/크롤링됨-미색인 2, 색인 13)는 07-16/07-18과 **완전 동일** — Coverage 차트가 여전히 07-10 스냅샷에서 안 갱신됨(크롤 지연 지속, 확인만 하고 원인 재진단 시도 안 함 — 07-16(3차) 교훈 유지). 다만 Performance 리포트엔 18개 URL이 노출 데이터를 갖고 있어(07-18 세션엔 명시 안 됐던 수치) 실제 색인이 13개보다 늘었을 가능성은 있음 — 확정 아님, 다음 Coverage 갱신 때 재확인.
@@ -548,6 +568,7 @@ git push https://x-access-token:${TOKEN}@github.com/canghun13/cookingcalcs-.git 
 - **회피 대상 대형 사이트**: allrecipes, epicurious, calculatorsoup, omnicalculator, inchcalculator
 - **회피 대상 준-그룹(2026-07-18 추가, "요리 계산기" 콘텐츠팜 클러스터)**: crunchmilk.com, cookingcalchub.co, cookcalculator.net, agentcalc.com, handychefdom.com, cosmomath.com, usecalcpro.com, best-calculators.com, calckitchen.com, kitchencalcs.com, missvickie.com, tooliro.com, steakrecipe.org, bbqtoolbox.com, meatidentifier.com, beef.foodnutrify.com, elevationbaking.com, simplyaltitude.com, inclinebaked.com — 신규 계산기 아이디어를 낼 때마다 이 그룹이 이미 선점했을 가능성부터 web_search로 확인할 것 (3번 섹션 07-18(2차)/(5차) 참고). **9개 후보 연속 포화 확인(07-18 기준) — 당분간 독립 계산기 신규는 기본적으로 보류, Guides/블로그 쪽으로 신규 방향 전환.**
 - **회피 대상 추가(2026-07-20)**: calculators.org, calculator.me — 둘 다 "Meat/Beef Cost Per Serving Calculator"를 University of Nebraska-Lincoln 데이터 인용해서 운영 중, cost-per-serving/meal-cost 니치의 직접 경쟁자로 web_search 중 확인됨(3번 섹션 07-20 참고).
+- **회피 대상 추가(2026-07-20, 2차)**: 해동/재료환산/조리시간 3개 신규 콘텐츠팜 클러스터 발견 — traditionaloven.com, aqua-calc.com, bakeprofit.com, cookingconverter.com, thebakingcalculator.com(재료 그램/컵 환산), quickcooktime.com, howlongfor.com, cookrita.com, butcherbbq.com(조리시간 계산기), justfridge.com, thecalculatedcook.com, howlongtodefrost.com(해동 계산기). 신규 후보를 낼 때마다 위 9번(회피 리스트) 전체와 함께 확인할 것.
 - 신규 콘텐츠 제안 전 반드시 web_search로 경쟁 강도 확인 (7번 "기각한 후보" 참고 — 실제로 이 과정에서 3개 걸러냄)
 - **thin content 절대 금지**: 환산표 + 설명 + FAQ 필수, 800~1200단어 (600에서 상향됨)
 - affiliate 홀더(빈 링크/배너) 미리 넣지 말 것 — AdSense 안정화 전까지 시작 금지

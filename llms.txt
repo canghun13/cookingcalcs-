@@ -19,6 +19,7 @@ CookingCalcs covers unit conversion, recipe scaling, cooking times and temperatu
 - [Liquid Converter](https://cookingcalcs.com/tools/liquid-converter.html): Convert between milliliters, cups, fluid ounces, tablespoons, and teaspoons instantly. Includes a full reference chart.
 - [Weekly Meal Prep Cost Calculator](https://cookingcalcs.com/tools/weekly-meal-prep-cost-calculator.html): Calculate your total weekly meal prep cost across all meals. Add each meal's cost and frequency to get weekly, daily, and monthly totals.
 - [Slow Cooker Time Converter](https://cookingcalcs.com/tools/slow-cooker-converter.html): Convert oven or stovetop cooking times to slow cooker Low/High settings, or slow cooker times back to the oven. Includes a full reference chart and liquid adjustment guidance.
+- [Fresh to Dried Herb Converter](https://cookingcalcs.com/tools/herb-converter.html): Convert fresh herbs to dried, or dried herbs to fresh, using an accurate herb-specific ratio (not one generic 3:1 rule). Covers basil, rosemary, thyme, oregano, and 9 more.
 
 ## Guides
 
@@ -75,3 +76,4 @@ CookingCalcs covers unit conversion, recipe scaling, cooking times and temperatu
 - [How to Calculate Cooking Time for Meat](https://cookingcalcs.com/blog/how-to-calculate-cooking-time.html): The formula for calculating cooking time by weight, cut, and method, plus why time alone isn't enough.
 - [Is Your Oven Running Hot or Cold? How to Test It](https://cookingcalcs.com/blog/is-your-oven-running-hot-or-cold.html): Most home ovens are 25-50°F off their dial setting. How to test with a thermometer or a sugar test, and what to do once you know the offset.
 - [How Long Can Food Sit Out? The 2-Hour Rule Explained](https://cookingcalcs.com/blog/how-long-can-food-sit-out.html): The USDA 2-hour rule, the 1-hour hot-weather exception, and what happens in the food safety danger zone.
+- [Fresh vs Dried Herbs: When to Use Each and How to Swap Them](https://cookingcalcs.com/blog/fresh-vs-dried-herbs.html): When fresh herbs work better than dried, when dried actually wins, and exactly how to substitute one for the other without wrecking the flavor balance.

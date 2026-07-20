@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fresh to Dried Herb Converter – CookingCalcs</title>
+  <meta name="description" content="Convert fresh herbs to dried (or dried to fresh) for basil, rosemary, thyme, oregano, and 12+ more. Each herb uses its own accurate ratio, not one generic rule.">
+  <link rel="canonical" href="https://cookingcalcs.com/tools/herb-converter.html">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script src="/assets/js/nav.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Fresh to Dried Herb Converter",
+  "url": "https://cookingcalcs.com/tools/herb-converter.html",
+  "description": "Convert fresh herbs to dried, or dried herbs to fresh, using an accurate ratio for each individual herb rather than one generic 3:1 rule.",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "provider": { "@type": "Organization", "name": "CookingCalcs", "url": "https://cookingcalcs.com" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the general rule for converting fresh herbs to dried?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The standard rule of thumb is 3:1 — use one-third as much dried herb as fresh. If a recipe calls for 1 tablespoon of fresh herbs, start with 1 teaspoon of dried. This works for most common herbs, but sturdier herbs like rosemary can need even less dried, while delicate ones like parsley need relatively more."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do some herbs use a different ratio than 3:1?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Drying concentrates a herb's essential oils by removing water, so the flavor gets stronger per gram — but how much stronger depends on how the herb behaves as it dries. Woody, high-oil herbs like rosemary, oregano, and thyme intensify a lot, so a little dried goes a long way. Soft, high-moisture herbs like parsley and basil lose more of their character as they dry, so you need relatively more dried herb to match the fresh flavor."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which herbs should you avoid substituting dried for fresh?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Cilantro and chives don't dry well — both lose most of their distinctive flavor and aroma in the drying process, so dried versions taste like a faint, dusty version of the fresh herb. For cilantro, there's no good substitute for the fresh flavor; for chives, dried onion or a small amount of green onion works better than dried chives."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I convert fresh herb sprigs to a teaspoon measurement?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Strip the leaves from the stem and roughly chop them, then measure. As a rough guide, one 4-6 inch sprig of a leafy herb like thyme or rosemary yields about 1/2 to 1 teaspoon of chopped leaves — thicker, leafier sprigs like basil or parsley yield more per sprig. Measure the chopped leaves rather than guessing from sprig count for an accurate conversion."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do freeze-dried herbs use the same ratio as regular dried herbs?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No — freeze-dried herbs retain more of the original flavor, color, and volume than conventionally air-dried or oven-dried herbs, so they need a lower ratio, closer to 2:1 (fresh to freeze-dried) rather than 3:1. If a recipe or this converter's dried result seems too mild using freeze-dried herbs, start with roughly 1.5 times the calculated dried amount."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I add dried herbs at the same point in cooking as fresh?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Dried herbs need time and heat to release their concentrated oils, so add them early in cooking — with the aromatics, or at the start of a simmer. Fresh herbs lose their brightness and aroma if cooked too long, so add them in the last few minutes, or use them raw as a garnish."
+      }
+    }
+  ]
+}
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+</head>
+<body>
+<main>
+  <div class="tool-page">
+    <h1>Fresh to Dried Herb Converter</h1>
+    <p class="tool-desc">Choose your herb and direction, enter the amount, and get an accurate conversion. Every herb has its own ratio here — not one generic 3:1 rule for all of them.</p>
+
+    <div class="tool-box">
+      <div class="form-group">
+        <label for="direction">Direction</label>
+        <select id="direction">
+          <option value="freshToDried">Fresh → Dried</option>
+          <option value="driedToFresh">Dried → Fresh</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="herb">Herb</label>
+        <select id="herb">
+          <option value="3">Basil</option>
+          <option value="3">Bay leaf (whole leaves — see note below)</option>
+          <option value="4">Chives (drying not recommended — see note below)</option>
+          <option value="4">Cilantro (drying not recommended — see note below)</option>
+          <option value="3">Dill</option>
+          <option value="3">Marjoram</option>
+          <option value="3">Mint</option>
+          <option value="3">Oregano</option>
+          <option value="2">Parsley</option>
+          <option value="4">Rosemary</option>
+          <option value="2">Sage</option>
+          <option value="3">Tarragon</option>
+          <option value="3">Thyme</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="amount">Amount</label>
+        <input type="number" id="amount" min="0.125" max="100" step="0.125" value="1" placeholder="e.g. 1">
+      </div>
+
+      <div class="form-group">
+        <label for="unit">Unit</label>
+        <select id="unit">
+          <option value="tsp">Teaspoons</option>
+          <option value="tbsp">Tablespoons</option>
+        </select>
+      </div>
+
+      <button class="btn-primary" onclick="calculate()" style="width:100%;">Convert →</button>
+
+      <div class="result-box" id="result" style="display:none;">
+        <div class="result-num" id="resultNum"></div>
+        <div class="result-label" id="resultLabel"></div>
+      </div>
+    </div>
+
+    <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin-bottom:1rem;">Fresh-to-Dried Ratio by Herb</h2>
+    <table style="width:100%; border-collapse:collapse; font-size:0.9rem; background:#fff; border-radius:12px; overflow:hidden;">
+        <thead>
+          <tr style="background:var(--sand-dark);">
+            <th style="padding:0.75rem 1rem; text-align:left; border-bottom:1px solid var(--border);">Herb</th>
+            <th style="padding:0.75rem 1rem; text-align:center; border-bottom:1px solid var(--border);">Ratio (fresh : dried)</th>
+            <th style="padding:0.75rem 1rem; text-align:center; border-bottom:1px solid var(--border);">1 tbsp fresh =</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">Rosemary</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">4:1</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">¾ tsp dried</td></tr>
+          <tr style="background:var(--sand);"><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">Thyme</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">3:1</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">1 tsp dried</td></tr>
+          <tr><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">Oregano</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">3:1</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">1 tsp dried</td></tr>
+          <tr style="background:var(--sand);"><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">Basil</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">3:1</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">1 tsp dried</td></tr>
+          <tr><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">Sage</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">2:1</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">1½ tsp dried</td></tr>
+          <tr style="background:var(--sand);"><td style="padding:0.65rem 1rem;">Parsley</td><td style="text-align:center; padding:0.65rem;">2:1</td><td style="text-align:center; padding:0.65rem;">1½ tsp dried</td></tr>
+        </tbody>
+      </table>
+
+    <!-- Related Guides -->
+    <div style="margin-top:3rem; padding:1.5rem; background:var(--tomato-light); border-radius:var(--radius-lg);">
+      <h3 style="font-family:'Playfair Display',serif; margin-bottom:0.5rem;">Related Tools & Guides</h3>
+      <ul style="list-style:none; display:flex; flex-direction:column; gap:0.5rem; margin-top:0.75rem;">
+        <li><a href="/blog/fresh-vs-dried-herbs.html" style="color:var(--tomato-dark); font-weight:500;">→ Fresh vs Dried Herbs: When to Use Each</a></li>
+        <li><a href="/tools/baking-substitutions.html" style="color:var(--tomato-dark); font-weight:500;">→ Baking Substitutions Calculator</a></li>
+        <li><a href="/guides/complete-baking-conversion-guide.html" style="color:var(--tomato-dark); font-weight:500;">→ The Complete Baking Measurement & Conversion Guide</a></li>
+      </ul>
+    </div>
+
+    <!-- How to Use -->
+    <div class="blog-content" style="margin-top:3rem;">
+      <h2>How to Use This Calculator</h2>
+      <p>Pick the direction you're converting (fresh to dried, or dried back to fresh), choose your herb, enter the amount, and select teaspoons or tablespoons. Each herb uses its own ratio rather than a single blanket rule, since drying affects herbs differently depending on their oil content and leaf structure.</p>
+
+      <h2>Why One Ratio Doesn't Fit Every Herb</h2>
+      <p>The commonly repeated "3:1" rule is a reasonable average, but it papers over real differences between herbs. Rosemary and oregano are woody, high-oil herbs that concentrate heavily when dried — a little dried rosemary carries as much flavor as four times the amount fresh, so using the generic 3:1 ratio would leave a dish under-seasoned. Parsley and sage, on the other hand, are softer herbs that lose more of their character in the drying process, so they need a relatively higher dried amount (closer to 2:1) to match the fresh flavor. Treating every herb the same way is the most common reason a "1:1 dried for fresh" swap — or even a blanket 3:1 swap — tastes off.</p>
+
+      <h2>Common Mistakes When Substituting Dried for Fresh</h2>
+      <p><strong>Using a 1:1 substitution.</strong> This is the single most common mistake, and it usually results in an overpowering, bitter, or medicinal taste — dried herbs are concentrated, so an equal-volume swap adds far more flavor compound than the recipe intended.</p>
+      <p><strong>Adding dried herbs at the very end of cooking.</strong> Dried herbs need heat and moisture to release their oils and rehydrate. Adding them in the last minute, the way you would fresh herbs, leaves them tasting dusty and underdeveloped instead of blended into the dish.</p>
+      <p><strong>Using old, faded dried herbs.</strong> Dried herbs lose potency over time — most are past their prime after 6-12 months. If your dried herb doesn't smell strongly aromatic when you crush a pinch between your fingers, it's lost enough potency that even the correct ratio will taste weak; use more to compensate, or replace the jar.</p>
+      <p><strong>Trying to substitute cilantro or chives dried.</strong> These two herbs lose most of what makes them distinctive in the drying process. For cilantro, there isn't a good dried substitute — skip it or use a different fresh herb. For chives, dried minced onion or a small amount of scallion gets closer than dried chives will.</p>
+
+      <h2>Converting Sprigs and Bunches</h2>
+      <p>Recipes that call for sprigs rather than measured amounts require an extra step. Strip the leaves off the stem — discard woody stems for herbs like rosemary and thyme, though thinner stems on herbs like parsley and cilantro can be finely chopped and used along with the leaves. Roughly chop the leaves, then measure by the teaspoon or tablespoon as usual. A standard 4-6 inch sprig of thyme or rosemary yields roughly ½-1 teaspoon of chopped leaves; a similarly sized sprig of a leafier herb like basil or parsley yields more, often 1-2 teaspoons once chopped.</p>
+
+      <h2>Frequently Asked Questions</h2>
+      <h3>What is the general rule for converting fresh herbs to dried?</h3>
+      <p>The standard rule of thumb is 3:1 — use one-third as much dried herb as fresh. If a recipe calls for 1 tablespoon of fresh herbs, start with 1 teaspoon of dried. This works for most common herbs, but sturdier herbs like rosemary can need even less dried, while delicate ones like parsley need relatively more.</p>
+
+      <h3>Why do some herbs use a different ratio than 3:1?</h3>
+      <p>Drying concentrates a herb's essential oils by removing water, so the flavor gets stronger per gram — but how much stronger depends on how the herb behaves as it dries. Woody, high-oil herbs like rosemary, oregano, and thyme intensify a lot, so a little dried goes a long way. Soft, high-moisture herbs like parsley and basil lose more of their character as they dry, so you need relatively more dried herb to match the fresh flavor.</p>
+
+      <h3>Which herbs should you avoid substituting dried for fresh?</h3>
+      <p>Cilantro and chives don't dry well — both lose most of their distinctive flavor and aroma in the drying process, so dried versions taste like a faint, dusty version of the fresh herb. For cilantro, there's no good substitute for the fresh flavor; for chives, dried onion or a small amount of green onion works better than dried chives.</p>
+
+      <h3>How do I convert fresh herb sprigs to a teaspoon measurement?</h3>
+      <p>Strip the leaves from the stem and roughly chop them, then measure. As a rough guide, one 4-6 inch sprig of a leafy herb like thyme or rosemary yields about ½ to 1 teaspoon of chopped leaves — thicker, leafier sprigs like basil or parsley yield more per sprig. Measure the chopped leaves rather than guessing from sprig count for an accurate conversion.</p>
+
+      <h3>Do freeze-dried herbs use the same ratio as regular dried herbs?</h3>
+      <p>No — freeze-dried herbs retain more of the original flavor, color, and volume than conventionally air-dried or oven-dried herbs, so they need a lower ratio, closer to 2:1 (fresh to freeze-dried) rather than 3:1. If a recipe or this converter's dried result seems too mild using freeze-dried herbs, start with roughly 1.5 times the calculated dried amount.</p>
+
+      <h3>Should I add dried herbs at the same point in cooking as fresh?</h3>
+      <p>No. Dried herbs need time and heat to release their concentrated oils, so add them early in cooking — with the aromatics, or at the start of a simmer. Fresh herbs lose their brightness and aroma if cooked too long, so add them in the last few minutes, or use them raw as a garnish.</p>
+    </div>
+  </div>
+</main>
+
+<script>
+function calculate() {
+  const direction = document.getElementById('direction').value;
+  const ratio = parseFloat(document.getElementById('herb').value);
+  const herbName = document.getElementById('herb').options[document.getElementById('herb').selectedIndex].text.replace(/\s*\(.*?\)\s*/g, '');
+  const amount = parseFloat(document.getElementById('amount').value);
+  const unit = document.getElementById('unit').value;
+  const unitLabel = unit === 'tsp' ? 'tsp' : 'tbsp';
+
+  if (isNaN(amount) || amount <= 0) return;
+
+  let resultAmount, resultText;
+  if (direction === 'freshToDried') {
+    resultAmount = Math.round((amount / ratio) * 1000) / 1000;
+    resultText = `${amount} ${unitLabel} fresh ${herbName} = ${resultAmount} ${unitLabel} dried`;
+  } else {
+    resultAmount = Math.round((amount * ratio) * 1000) / 1000;
+    resultText = `${amount} ${unitLabel} dried ${herbName} = ${resultAmount} ${unitLabel} fresh`;
+  }
+
+  document.getElementById('resultNum').textContent = resultAmount + ' ' + unitLabel;
+  document.getElementById('resultLabel').textContent = resultText;
+  document.getElementById('result').style.display = 'block';
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  document.getElementById('amount').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') calculate();
+  });
+});
+</script>
+</body>
+</html>

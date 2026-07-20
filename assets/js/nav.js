@@ -38,6 +38,7 @@ const TOOLS = [
   { name: "Raw to Cooked Weight", url: "/tools/raw-to-cooked-weight.html" },
   { name: "Weekly Meal Prep Cost Calculator", url: "/tools/weekly-meal-prep-cost-calculator.html" },
   { name: "Slow Cooker Time Converter", url: "/tools/slow-cooker-converter.html" },
+  { name: "Fresh to Dried Herb Converter", url: "/tools/herb-converter.html" },
 ];
 
 const BLOGS = [
@@ -83,6 +84,7 @@ const BLOGS = [
   { name: "How to Calculate Cooking Time for Meat", url: "/blog/how-to-calculate-cooking-time.html", desc: "The formula for calculating cooking time by weight, cut, and method — plus why time alone isn't enough and what to check instead.", date: "2026-07-07" },
   { name: "Is Your Oven Running Hot or Cold? How to Test It", url: "/blog/is-your-oven-running-hot-or-cold.html", desc: "Most home ovens are 25-50°F off their dial setting. How to test with a thermometer or a simple sugar test, and what to do once you know the offset.", date: "2026-07-18" },
   { name: "How Long Can Food Sit Out? The 2-Hour Rule Explained", url: "/blog/how-long-can-food-sit-out.html", desc: "The USDA 2-hour rule, the 1-hour hot-weather exception, and what actually happens in the food safety danger zone.", date: "2026-07-18" },
+  { name: "Fresh vs Dried Herbs: When to Use Each and How to Swap Them", url: "/blog/fresh-vs-dried-herbs.html", desc: "When fresh herbs work better than dried, when dried actually wins, and exactly how to substitute one for the other without wrecking the flavor balance.", date: "2026-07-20" },
 ];
 
 // ── 가이드 목록 (Tools/Blog와 별개 — 여러 툴/블로그를 묶는 종합 허브 페이지) ──

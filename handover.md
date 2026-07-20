@@ -80,6 +80,13 @@ echo "nav.js GUIDES: $(sed -n '/const GUIDES/,/^];/p' assets/js/nav.js | grep -c
 
 ## 3. 사이트 구조 변경 이력
 
+### 2026-07-20 (4차): 조리법 매트릭스 잔여 갭 마무리 — steak 에어프라이어 + bacon 그릴 (커밋 예정)
+- 3차 완료 후 사용자가 "지금 할 수 있는 건 다 해"라고 지시. 2차 세션에서 발견해뒀던 "how-long-to-cook 시리즈 조리법 매트릭스" 잔여 항목(steak 에어프라이어 없음, bacon 그릴 없음) 마저 처리.
+- `blog/how-long-to-cook-steak.html`: "Air Fryer Steak Cook Times" 섹션 신규(400°F, 두께별×굽기별 표, 팬시어/그릴 시간대 사이로 보간 추정). 1006→1125단어.
+- `blog/how-long-to-cook-bacon.html`: "Grilled Bacon Cook Times" 섹션 신규(간접열 권장, 플레어업 주의 — lamb-chops 페이지에서 이미 쓴 동일 주의사항 패턴 재사용). 읽기시간 6→8분 갱신(오차 2분 발견해 수정). 909→1201단어.
+- dateModified/sitemap lastmod 2개 URL 07-20 갱신. 검증: div/JSON-LD/sitemap/고아페이지 전부 통과.
+- **이걸로 07-20(2차)에서 남겨뒀던 "how-long-to-cook 시리즈 조리법 매트릭스" 항목 전부 처리 완료** — salmon(그릴), shrimp(에어프라이어), steak(에어프라이어), bacon(그릴) 4건 전부 반영됨. 다음 세션에서 이 항목 재검토 불필요.
+
 ### 2026-07-20 (3차): "경쟁 있어도 롱테일로 뚫어라" 재지시 — 기준 완화 후 신규 툴 1개 + 블로그 1개 실제 발행
 - 사용자가 2차 세션의 "7개 후보 전부 기각" 결론에 강하게 반발: "가이드도 안 하고 블로그도 안 하고 툴도 안 하고 전부 포화라고만 하면 말이 안 된다, 롱테일로도 해보고 조금 넓혀도 봐라." **"경쟁자가 0인 아이디어만 통과"라는 기준 자체가 너무 엄격했다고 판단, 기준을 조정**: 경쟁이 어느 정도 있어도(콘텐츠팜 클러스터가 아니라 개별 미디어/범용 계산기 사이트 수준이면) 롱테일 문구량이 많고 사이트 정체성과 맞으면 진행하는 쪽으로 전환.
 - **`fresh to dried herb conversion calculator`** 재검토: Omnicalculator, TasteOfHome, ForksOverKnives 등 경쟁 있으나 기존 9번 섹션 회피 리스트의 콘텐츠팜 클러스터와는 무관한 개별 사이트들 — 허브별(바질/로즈마리/타임/오레가노/파슬리/세이지 등 13종) 롱테일 쿼리가 풍부하고, 인터랙티브 계산기 형태 + 사이트 기존 정체성(baking-substitutions 등 환산 계열)과 잘 맞아 진행 결정.

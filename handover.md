@@ -1,6 +1,6 @@
-# CookingCalcs 현황 및 인수인계 (2026-07-18 기준)
+# CookingCalcs 현황 및 인수인계 (2026-07-20 기준)
 
-이 문서는 2026-07-16 버전 인수인계 문서를 기반으로, 이후 진행된 모든 작업 내역을 반영해 갱신한 버전입니다. 새 세션에서는 이 문서만 보고 바로 작업 이어가면 됩니다.
+이 문서는 2026-07-18 버전 인수인계 문서를 기반으로, 이후 진행된 모든 작업 내역을 반영해 갱신한 버전입니다. 새 세션에서는 이 문서만 보고 바로 작업 이어가면 됩니다.
 
 ---
 
@@ -79,6 +79,19 @@ echo "nav.js GUIDES: $(sed -n '/const GUIDES/,/^];/p' assets/js/nav.js | grep -c
 ---
 
 ## 3. 사이트 구조 변경 이력
+
+### 2026-07-20: 일요일 정기 점검 — GSC/GA 전수 분석, 신규 없이 고트래픽 페이지 3건 보강
+- 사용자가 "정기 작업을 일요일로 당겨서 한다"며 GSC Performance + Coverage export(07-20 기준, 지난 3개월) + GA4 리포트(07-20 기준, 최근 4주) 3개 첨부. 쿼리 845개 전수(CSV 파싱 스크립트로 rank<60 & impr≥2 필터링 후 39개 후보 개별 grep 대조), 페이지 20개, 국가/기기별, 일별 차트 전부 확인.
+- **핵심 지표(변화 거의 없음)**: 클릭 3개월 누적 **여전히 0건**. 노출은 계속 우상향 — 07-17 414회로 신고점(직전 최고 07-15 333회). Coverage 색인 수치(리디렉션 4/발견-미색인 47/크롤링됨-미색인 2, 색인 13)는 07-16/07-18과 **완전 동일** — Coverage 차트가 여전히 07-10 스냅샷에서 안 갱신됨(크롤 지연 지속, 확인만 하고 원인 재진단 시도 안 함 — 07-16(3차) 교훈 유지). 다만 Performance 리포트엔 18개 URL이 노출 데이터를 갖고 있어(07-18 세션엔 명시 안 됐던 수치) 실제 색인이 13개보다 늘었을 가능성은 있음 — 확정 아님, 다음 Coverage 갱신 때 재확인.
+- **기기 격차 추적**: 모바일 평균순위 13.1위(07-18 14.71위에서 개선) vs 데스크톱 64.09위. 여전히 클릭 0 — 다만 새로운 원인 진단 없이 기록만 함(과거 raw-to-cooked-weight 사례처럼 노출 1~2회짜리 우연한 고순위가 평균을 끌어올리는 통계적 착시일 가능성이 여전히 가장 설득력 있는 설명).
+- **키워드 갭 재검증**: rank<60 & impr≥2 39개 후보를 사이트 콘텐츠와 자동+수동 대조 → **거의 전부 이미 커버됨** (word-problem 4종 전부 07-18에 이미 처리 완료 확인, lamb chop temperature 계열/rolled oats/1½ tbsp 등도 이미 커버 — 단순 substring 매칭의 오탐(하이픈·구두점 차이)이었음, grep으로 재확인 후 판정). **진짜 신규 갭은 사실상 0건** — 이번에도 니치 포화 판단 유지, 신규 독립 콘텐츠/툴 시도 안 함.
+- **신규 발견 및 실행한 보강 (수익화 우선순위: 이미 노출·순위가 잡힌 고트래픽 페이지 우선)**: 사이트 트래픽 상위 페이지 중 `raw-to-cooked-weight.html`(527회 노출, 순위 9.58 — 사이트 3위 트래픽)과 `how-long-to-cook-lamb-chops.html`(283회 노출, 사이트 6위 트래픽)에 "vs/mistake/troubleshoot" 패턴의 비교·문제해결형 콘텐츠가 전혀 없었음(전체 66개 콘텐츠 페이지 grep 감사로 확인). 사용자가 이번에 요청한 "AI검색은 콘텐츠 자체(문제해결·비교분석)가 중요하다"는 방향과 정확히 일치하는 지점이라 우선 반영:
+  1. `tools/raw-to-cooked-weight.html`(1339→1714단어): "Common Mistakes That Throw Off Your Raw-to-Cooked Conversion" 섹션 신규 — 트림/뼈 무게 혼동, 휴지 전후 무게 측정 차이, 조리된 무게를 raw 필드에 오입력, 부위별(지방함량) 차이 무시, 곡물 사전 세척/불림 후 측정 5개 케이스. 기존 FACTORS 수치(chicken/pork/groundbeef 0.75 등) 그대로 활용, 새 수치 발명 안 함.
+  2. `blog/how-long-to-cook-lamb-chops.html`(1217→1495단어): "Pan-Sear vs Oven vs Grill vs Air Fryer: Which Method Fits Your Chops?" 비교표 + 크러스트 비교 FAQ 신규 — 기존 4개 방법 섹션(pan-sear/oven/grill/air-fryer)에 이미 서술된 사실만 종합, 부위별(rib/loin/sirloin vs shoulder) 방법 적합도 매칭 포함. `dateModified` 07-20 갱신, blog-meta "8 min read"→"10 min read"(실제 단어수 대비 재계산, 날짜도 June→July 2026로 갱신).
+  3. `tools/tablespoon-to-teaspoon.html` + `blog/tablespoon-vs-teaspoon.html`: GSC "tbsp vs tbs"(순위 55.5, 노출 2 — 저노출이지만 무비용) 대응, 기존 약어 FAQ/본문에 "tbs" 약어를 tbsp와 동일하다고 명시하는 문구만 추가. `tablespoon-vs-teaspoon.html` dateModified도 07-20 갱신.
+- 4개 파일 전부 sitemap.xml lastmod 07-20 갱신. 검증: div 밸런스 4파일 전부 OK, JSON-LD 파싱 4파일 전부 OK, sitemap XML 유효, 고아페이지 0건, 반응형 그리드 미디어쿼리 누락 0건(이번 변경분은 표/텍스트 추가만이라 그리드 자체를 건드리지 않음).
+- **이번 세션에서 하지 않은 것과 이유**: 신규 독립 툴/블로그/가이드는 전혀 만들지 않음 — 키워드 갭이 사실상 없고(위 항목), Guides는 07-18에 이미 사이트 전체 클러스터를 커버했으며, 신규 계산기는 9/9 연속 포화 확인된 상태라 재검토 근거가 없었음. 리디렉션 4건 이슈는 사용자 지시대로 계속 손 안 댐.
+- **다음 세션 참고**: (1) Coverage 색인 수치가 다음에도 13개에서 안 바뀌어 있으면 이제 4번째 세션 연속 정체 — 원인 재진단보다는 "얼마나 더 기다려야 정상 범위인지" 자체를 사용자와 논의해볼 시점일 수 있음. (2) 오늘 보강한 raw-to-cooked-weight/lamb-chops가 다음 GSC에서 노출/순위 변화를 만드는지 확인. (3) `calculators.org`, `calculator.me`("Meat Cost Per Serving Calculator" 운영 중, University of Nebraska 데이터 인용), `beef.foodnutrify.com`(기존 회피 리스트에 이미 있음)이 cost-per-serving/meal-cost 니치의 직접 경쟁자로 web_search 중 재확인됨 — 9번 섹션 회피 리스트에 `calculators.org`, `calculator.me` 추가 검토.
 
 ### 2026-06-27: 네비게이션 구조 변경
 - PC 헤더: Tools ▾ / Blog ▾ 드롭다운 → 단순 링크(`/tools/`, `/blog/`)로 변경
@@ -451,6 +464,7 @@ const BLOGS = [
 | 07-13 | 53 | 9 | Coverage 차트가 06-30 데이터까지만 나옴(크롤 지연 지속) — 06-30 스냅샷 기준 07-04와 동일. 단, Performance(검색실적) 리포트엔 13개 URL이 노출 데이터를 갖고 있어 실제로는 06-30 이후 더 인덱싱됐을 가능성 있음. 클릭수는 3개월간 0건 지속(노출 대부분 순위 50~100위권).
 | 07-16 | 47(발견됨·미색인) + 2(크롤링됨·미색인) = 49 | 13 (07-01 기준, Coverage 차트가 07-10까지만 갱신됨 — 크롤 지연 여전) | 색인 13개는 07-13 기록의 "13개 URL 노출 데이터 보유" 추정과 정확히 일치, 실측 확인됨. sitemap 62개 + 리디렉션 포함 4개(http→https 버전) = 66개와 49+13+4(리디렉션은 별도 집계)로 대략 정합. **핵심 병목은 여전히 색인 자체** — 전체 66개 중 13개만 색인, 47개가 "발견됨(크롤링 큐 대기)" 상태로 몇 주째 정체. 클릭수는 3개월 누적 여전히 0건. |
 | 07-18 | 47+2=49 (변화 없음) | 13 (Coverage 차트가 여전히 07-10까지만 갱신 — 크롤 지연 지속, 숫자 자체는 갱신 안 됨) | 색인 개수는 07-16과 완전히 동일 — 진전 없음. 클릭 3개월 누적 여전히 0건. 노출은 계속 우상향(07-14/15 각 333회, 신고점). **신규 발견**: 모바일 평균 순위 14.71위 vs 데스크톱 64.64위로 기기간 격차 큼 — 모바일에서는 사실상 1페이지권인데도 클릭 0건, 다음 세션에서 원인 살펴볼 단서로 기록만 해둠. |
+| 07-20 | 47+2=49 (변화 없음) | 13 (Coverage 차트 여전히 07-10 스냅샷 — 3세션째 갱신 안 됨) | 색인 수치 3세션 연속 완전 동일 — 정체 지속. 클릭 3개월 누적 여전히 0건. 노출 신고점 갱신(07-17, 414회). 모바일 평균순위 13.1위(개선)로 격차는 좁혀지는 추세지만 클릭은 여전히 0. Performance 리포트 기준 노출 발생 URL이 18개로(13개보다 많음) 실제 색인이 늘었을 가능성 있으나 Coverage 미갱신으로 미확정. |
 
 **핵심 발견 (07-07)**: sitemap.xml에 `lastmod` 태그가 전무했음. 구글은 `changefreq`/`priority`를 공식적으로 무시하고 `lastmod`만 크롤 스케줄링에 사용하는데, 이게 아예 없어서 구글이 페이지 갱신 여부를 전혀 알 수 없는 상태였음. `nav.js`의 블로그별 날짜 데이터를 이용해 전체 lastmod 채워 넣음. **이후 신규/보강 작업마다 lastmod 갱신은 항상 같이 처리할 것.**
 
@@ -533,6 +547,7 @@ git push https://x-access-token:${TOKEN}@github.com/canghun13/cookingcalcs-.git 
 - 롱테일 키워드 타겟 — 대형 사이트가 일반 페이지로만 대응하는 구체적 질문형
 - **회피 대상 대형 사이트**: allrecipes, epicurious, calculatorsoup, omnicalculator, inchcalculator
 - **회피 대상 준-그룹(2026-07-18 추가, "요리 계산기" 콘텐츠팜 클러스터)**: crunchmilk.com, cookingcalchub.co, cookcalculator.net, agentcalc.com, handychefdom.com, cosmomath.com, usecalcpro.com, best-calculators.com, calckitchen.com, kitchencalcs.com, missvickie.com, tooliro.com, steakrecipe.org, bbqtoolbox.com, meatidentifier.com, beef.foodnutrify.com, elevationbaking.com, simplyaltitude.com, inclinebaked.com — 신규 계산기 아이디어를 낼 때마다 이 그룹이 이미 선점했을 가능성부터 web_search로 확인할 것 (3번 섹션 07-18(2차)/(5차) 참고). **9개 후보 연속 포화 확인(07-18 기준) — 당분간 독립 계산기 신규는 기본적으로 보류, Guides/블로그 쪽으로 신규 방향 전환.**
+- **회피 대상 추가(2026-07-20)**: calculators.org, calculator.me — 둘 다 "Meat/Beef Cost Per Serving Calculator"를 University of Nebraska-Lincoln 데이터 인용해서 운영 중, cost-per-serving/meal-cost 니치의 직접 경쟁자로 web_search 중 확인됨(3번 섹션 07-20 참고).
 - 신규 콘텐츠 제안 전 반드시 web_search로 경쟁 강도 확인 (7번 "기각한 후보" 참고 — 실제로 이 과정에서 3개 걸러냄)
 - **thin content 절대 금지**: 환산표 + 설명 + FAQ 필수, 800~1200단어 (600에서 상향됨)
 - affiliate 홀더(빈 링크/배너) 미리 넣지 말 것 — AdSense 안정화 전까지 시작 금지

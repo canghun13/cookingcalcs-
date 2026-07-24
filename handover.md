@@ -80,6 +80,12 @@ echo "nav.js GUIDES: $(sed -n '/const GUIDES/,/^];/p' assets/js/nav.js | grep -c
 
 ## 3. 사이트 구조 변경 이력
 
+### 2026-07-24 (3차): "거의 2달인데 신규가 너무 없다" — 신규 블로그 1건 발행
+- 사용자가 확장 부족을 강하게 지적. 신규 후보 재탐색: 설탕 대체재 변환(handychefdom.com 등 8개+ 경쟁, 회피 리스트에 이미 있던 클러스터 재확인 → 기각), 파운드당 컵-파스타(Daily Meal/Yahoo Lifestyle 등 미디어가 이미 장악 → 기각), 유닛프라이스 워드프라블럼(교육/소비자정보 사이트가 경쟁자 — 요리 콘텐츠팜과 다른 경쟁 구도 확인 → 진행).
+- **신규 발행**: `blog/unit-price-word-problems.html`(974단어) — 07-24(2차)에서 검증한 "요리사이트가 아니라 수학/교육 사이트가 경쟁자인 쿼리" 패턴을 cost-per-serving 하나에 국한하지 않고 독립 페이지로 확장. 유닛프라이스 워드프라블럼 7개(시리얼/오렌지주스/쌀/땅콩버터/올리브오일/커피/계란) — "큰 포장이 항상 싼 건 아니다"(시리얼 예시로 실제 반례 제시)를 포함한 흔한 실수 섹션, FAQ 4개.
+- 체크리스트: `nav.js` BLOGS 배열, `sitemap.xml`, `llms.txt` 반영. 내부링크는 `tools/cost-per-serving.html`과 `blog/grocery-budget-tips.html`의 Related 박스에 추가해서 인바운드 2개 확보. 개수검증(blogs 43→44, sitemap 73)·div·JSON-LD·고아페이지 전부 통과.
+- **판단 기준 갱신**: 지금까지 "요리 계산기 콘텐츠팜"(9번 섹션 회피 리스트)과 겹치는지만 확인해왔는데, 이번에 "경쟁자가 다른 카테고리(교육/소비자정보/미디어)"인 경우도 진행 여부를 별도로 판단해야 한다는 걸 배움 — 콘텐츠팜만 피하면 끝이 아니라, 그 쿼리를 실제로 누가 차지하고 있는지 매번 확인 필요.
+
 ### 2026-07-24 (2차): 웹서치로 저경쟁 키워드 재탐색 — cost-per-serving 워드프라블럼 확장
 - 사용자가 "웹 검색으로 문서수는 적은데 조회수는 많은 키워드를 직접 찾아보라"고 재지시. web_search로 4개 후보 실사 조사:
   1. `egg substitute liquid conversion`("how many eggs equal 1 cup liquid") — SERP 품질은 약함(Quora, 오래된 포럼, 칼로리 사이트뿐)이지만 확인해보니 **이미 우리 사이트에 커버되어 있었음**(`how-many-eggs-in-a-cup.html`에 液体egg 1:1 치환 FAQ 이미 존재).

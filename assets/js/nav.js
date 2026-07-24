@@ -85,6 +85,7 @@ const BLOGS = [
   { name: "Is Your Oven Running Hot or Cold? How to Test It", url: "/blog/is-your-oven-running-hot-or-cold.html", desc: "Most home ovens are 25-50°F off their dial setting. How to test with a thermometer or a simple sugar test, and what to do once you know the offset.", date: "2026-07-18" },
   { name: "How Long Can Food Sit Out? The 2-Hour Rule Explained", url: "/blog/how-long-can-food-sit-out.html", desc: "The USDA 2-hour rule, the 1-hour hot-weather exception, and what actually happens in the food safety danger zone.", date: "2026-07-18" },
   { name: "Fresh vs Dried Herbs: When to Use Each and How to Swap Them", url: "/blog/fresh-vs-dried-herbs.html", desc: "When fresh herbs work better than dried, when dried actually wins, and exactly how to substitute one for the other without wrecking the flavor balance.", date: "2026-07-20" },
+  { name: "Unit Price Word Problems: How to Find the Better Grocery Deal", url: "/blog/unit-price-word-problems.html", desc: "Step-by-step unit price word problems for groceries — rice, oil, coffee, eggs, and more. Learn to compare price per ounce, pound, and liter.", date: "2026-07-24" },
 ];
 
 // ── 가이드 목록 (Tools/Blog와 별개 — 여러 툴/블로그를 묶는 종합 허브 페이지) ──

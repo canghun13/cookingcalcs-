@@ -85,6 +85,8 @@ echo "nav.js GUIDES: $(sed -n '/const GUIDES/,/^];/p' assets/js/nav.js | grep -c
   1. `egg substitute liquid conversion`("how many eggs equal 1 cup liquid") — SERP 품질은 약함(Quora, 오래된 포럼, 칼로리 사이트뿐)이지만 확인해보니 **이미 우리 사이트에 커버되어 있었음**(`how-many-eggs-in-a-cup.html`에 液体egg 1:1 치환 FAQ 이미 존재).
   2. `meat per person party calculator` — Calculator Academy, whycalculator.com, letscalculator.com, thekitchn, thedailymeal, sonnysbbq 등 8개+ 이미 장악, 기각.
   3. **`cost per serving word problem worksheet`** — 검색해보니 이 쿼리 계열의 실제 경쟁자는 요리 사이트가 아니라 **수학 워크시트 사이트(Scribd, TES, mathworksheets4kids)**였음. 이게 바로 `cost-per-serving.html`의 "you purchase X at $Y per pound..." 워드프라블럼들이 순위 6~9위를 차지하는 이유 — 요리 콘텐츠 경쟁자가 이 쿼리 패턴을 아예 안 다룸. **이미 검증된 우리만의 저경쟁 구간**이라는 걸 재확인.
+  - **사용자가 Bing/Yahoo로 직접 재검증(2026-07-24)**: 두 엔진 모두 동일한 결과(TPT, Scoilnet, weebly, formsbank, ISBE, Scribd 등 전부 학습지/워크시트 계열, 요리 사이트 경쟁자 0). Google/Bing/Yahoo 3개 엔진 교차 확인 완료.
+  - **주의할 점(신규 발견)**: 연관 검색어에 "3rd grade", "grade 1", "grade 5" 등 학년 표기가 붙어있어, 이 쿼리들이 초등 수학 커리큘럼(단위가격/비율) 문제이고 실제 검색 주체가 "숙제 답 확인하는 학생"일 가능성이 있음 — 저희 원래 타겟(집에서 요리하는 성인)과 다를 수 있음. 노출/순위는 좋지만 애드센스 클릭률·수익 관점에서 실제 트래픽 품질은 다음 세션에서 지켜볼 것.
   4. 이 발견을 바탕으로 `tools/cost-per-serving.html`의 Worked Example Problems 섹션에 **다른 식재료 4개(치킨브레스트/쌀/연어/다짐육) 워드프라블럼 신규 추가**(기존 치즈/소고기/감자/버터 4개 → 총 8개로 확장). 1260→1414단어. sitemap lastmod 07-24 갱신, div/JSON-LD 검증 통과.
 - **패턴 확인**: "$X per pound, Y ounces per serving, cost per serving?" 형태의 소비자수학 워드프라블럼 클러스터는 요리 콘텐츠팜이 건드리지 않는 진짜 블루오션이었음 — 다음에 신규 워드프라블럼형 콘텐츠를 고민할 때는 "요리 사이트가 아니라 수학 워크시트/학습지 사이트가 경쟁자인 쿼리"를 우선적으로 찾아볼 것. 이 패턴을 cost-per-serving 외의 다른 계산기(recipe-multiplier의 배수 워드프라블럼 등)에도 적용할 여지 있음 — 다음 세션 후보.
 

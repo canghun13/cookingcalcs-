@@ -80,6 +80,17 @@ echo "nav.js GUIDES: $(sed -n '/const GUIDES/,/^];/p' assets/js/nav.js | grep -c
 
 ## 3. 사이트 구조 변경 이력
 
+### 2026-07-24 (4차): "카테고리 확장이 필요하다" — Word Problems 미니 카테고리로 발전, 신규 블로그 2건 추가
+- 사용자가 "100페이지까진 아니어도 카테고리/콘텐츠 다양화가 필요하다"고 재차 요청. "printable/reference chart" 계열(kitchen conversion chart printable, cooking abbreviations glossary) web_search 확인 → WebstaurantStore, LandOLakes, YourDictionary, KitchenCalculator.app 등 대형 브랜드까지 이미 장악 → 기각.
+- 대신 07-24(2~3차)에서 검증한 "요리사이트가 아니라 교육/워크시트 사이트가 경쟁자인 쿼리" 발견을 하나의 미니 카테고리로 formalize. `doubling a recipe fraction word problem` 재검증(TPT, Study.com, Scribd, Lesson Planet, Course Hero만 나옴 — 이번에도 요리 콘텐츠 경쟁자 0) → 진행.
+- **신규 발행 2건**:
+  1. `blog/unit-price-word-problems.html`(07-24 3차, 974단어) — 이미 발행됨(직전 항목 참고)
+  2. `blog/recipe-scaling-word-problems.html`(신규, 763단어) — 레시피 배수조정 워드프라블럼 8개(분수·대분수 곱셈: ¾컵 두배, 2⅓컵×1.5배, ⅔컵 절반, 서빙수 비율로 스케일링팩터 구하기, 어색한 분수를 작은 단위로 변환하는 예시 등). 흔한 실수 4개, FAQ 4개. `recipe-multiplier.html`/`how-to-scale-a-recipe.html`와 상호링크.
+  - 기존 `how-to-scale-a-recipe.html`의 "Worked Example"(레시피 1개 전체 스케일링)과는 형식이 다름(신규 페이지는 개별 분수 연산 위주 짧은 문제 8개) — 중복 아님, 확인 완료.
+- 체크리스트: `nav.js` BLOGS 배열, `sitemap.xml`(74개), `llms.txt` 전부 반영. 내부링크는 `tools/recipe-multiplier.html`과 `blog/how-to-scale-a-recipe.html` Related 박스에 추가(이 과정에서 recipe-multiplier.html str_replace 실수로 `</div>` 하나 누락됐다가 즉시 발견해 복구 — div 밸런스 검증이 실제로 잡아낸 사례, 검증 절차의 유효성 재확인).
+- 개수검증(blogs 45, sitemap 74, nav.js 일치)·div·JSON-LD·고아페이지 전부 통과.
+- **현재 사이트 구조(07-24 기준)**: 툴 18 + 블로그 45 + 가이드 4 = 총 67페이지. "Word Problems" 계열이 이번 세션에 2건 추가되며 사실상 새로운 콘텐츠 결(사고방식)로 자리잡음 — 다음 세션에서 이 결을 3번째(예: 온도 변환 워드프라블럼, 계량 단위 환산 워드프라블럼)로 이어갈지, 아니면 완전히 다른 신규 카테고리를 또 찾을지 판단 필요.
+
 ### 2026-07-24 (3차): "거의 2달인데 신규가 너무 없다" — 신규 블로그 1건 발행
 - 사용자가 확장 부족을 강하게 지적. 신규 후보 재탐색: 설탕 대체재 변환(handychefdom.com 등 8개+ 경쟁, 회피 리스트에 이미 있던 클러스터 재확인 → 기각), 파운드당 컵-파스타(Daily Meal/Yahoo Lifestyle 등 미디어가 이미 장악 → 기각), 유닛프라이스 워드프라블럼(교육/소비자정보 사이트가 경쟁자 — 요리 콘텐츠팜과 다른 경쟁 구도 확인 → 진행).
 - **신규 발행**: `blog/unit-price-word-problems.html`(974단어) — 07-24(2차)에서 검증한 "요리사이트가 아니라 수학/교육 사이트가 경쟁자인 쿼리" 패턴을 cost-per-serving 하나에 국한하지 않고 독립 페이지로 확장. 유닛프라이스 워드프라블럼 7개(시리얼/오렌지주스/쌀/땅콩버터/올리브오일/커피/계란) — "큰 포장이 항상 싼 건 아니다"(시리얼 예시로 실제 반례 제시)를 포함한 흔한 실수 섹션, FAQ 4개.

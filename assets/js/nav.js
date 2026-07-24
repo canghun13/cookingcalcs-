@@ -86,6 +86,7 @@ const BLOGS = [
   { name: "How Long Can Food Sit Out? The 2-Hour Rule Explained", url: "/blog/how-long-can-food-sit-out.html", desc: "The USDA 2-hour rule, the 1-hour hot-weather exception, and what actually happens in the food safety danger zone.", date: "2026-07-18" },
   { name: "Fresh vs Dried Herbs: When to Use Each and How to Swap Them", url: "/blog/fresh-vs-dried-herbs.html", desc: "When fresh herbs work better than dried, when dried actually wins, and exactly how to substitute one for the other without wrecking the flavor balance.", date: "2026-07-20" },
   { name: "Unit Price Word Problems: How to Find the Better Grocery Deal", url: "/blog/unit-price-word-problems.html", desc: "Step-by-step unit price word problems for groceries — rice, oil, coffee, eggs, and more. Learn to compare price per ounce, pound, and liter.", date: "2026-07-24" },
+  { name: "Recipe Scaling Word Problems: Doubling, Halving & Fractions", url: "/blog/recipe-scaling-word-problems.html", desc: "Step-by-step recipe scaling word problems — doubling, halving, tripling, and scaling with fractions and mixed numbers.", date: "2026-07-24" },
 ];
 
 // ── 가이드 목록 (Tools/Blog와 별개 — 여러 툴/블로그를 묶는 종합 허브 페이지) ──

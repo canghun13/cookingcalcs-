@@ -80,6 +80,15 @@ echo "nav.js GUIDES: $(sed -n '/const GUIDES/,/^];/p' assets/js/nav.js | grep -c
 
 ## 3. 사이트 구조 변경 이력
 
+### 2026-07-24 (7차): 사용자 제안 "해산물 아니면 라면" — Salmon vs Shrimp 조리시간 비교 신규 발행, 라면은 기각
+- 사용자가 직접 두 후보 제안. 검증 결과:
+  - **라면 계산기(시즈닝 비율/물양)**: usecalcpro.com, handychefdom.com — 둘 다 이미 9번 섹션 회피 리스트에 있는 콘텐츠팜이 이미 선점(ramen-noodle-calculator, ramen-calorie-calculator 형태로 존재). 기각.
+  - **salmon vs shrimp 조리시간**: lamb vs pork와 동일한 패턴 확인 — 기존 결과는 전부 영양/단백질 비교(foodstruct, soupersage, berrypatchfarms 등)뿐, 조리시간 비교 콘텐츠는 없음. 진행.
+- **신규 발행**: `blog/salmon-vs-shrimp.html`(692단어) — 자사 기존 데이터(salmon/shrimp 페이지) 재조합. **핵심 인사이트**: 둘 다 FDA 목표온도가 145°F로 동일(램/포크와 달리 온도차 없음) — 순전히 크기(연어 1인치 필렛 vs 새우 ½인치) 차이로 연어가 새우보다 조리시간이 약 2배 걸림. 같이 조리할 때 타이밍 맞추는 법, 오차 허용범위 차이(새우가 실수하기 더 쉬움) 등 FAQ 4개.
+- 체크리스트: nav.js/sitemap(77)/llms.txt 반영, `how-long-to-cook-salmon.html`/`how-long-to-cook-shrimp.html` 양쪽 Related 박스에 상호링크 추가. 개수검증(blogs 47)·div·JSON-LD·고아페이지 전부 통과.
+- **비교 콘텐츠 패턴 확정**: 이걸로 lamb vs pork, salmon vs shrimp 2건 연속 성공 — "영양/맛 비교는 이미 있지만 조리시간 비교는 없다"는 게 재현 가능한 패턴으로 보임(온도차 유무와 무관하게 통함). **자사에 이미 데이터 있는 단백질 조합을 신규 조사 없이 재조합하는 방식**이라 리스크와 비용이 매우 낮음. 다음 세션 후보: chicken thighs vs chicken breast(재검토), ground beef vs ground turkey(재검토), turkey breast vs whole chicken, bacon vs ground beef(온도 차이 큼) 등.
+- **현재 사이트 구조(07-24 최종)**: 툴 19 + 블로그 47 + 가이드 4 = **총 70페이지**.
+
 ### 2026-07-24 (6차): 사용자가 "비교 콘텐츠는 안 해본 것 같다" — Lamb Chops vs Pork Chops 조리시간 비교 신규 발행
 - 사용자가 "롱테일 키워드 중 비교하는 콘텐츠는 안 해본 것 같다"고 지적, 실제로 이 세션 전까지 "X vs Y" 형태의 단백질간 비교 콘텐츠는 시도한 적 없었음(herb-converter/oven-temp 같은 개념 비교는 있었으나 단백질 조리시간 비교는 없음). 확인 결과 정확함.
 - 후보 검증: `chicken breast vs chicken thighs 조리시간`(ThermoWorks, TheCookingBooks 등 이미 다수 존재 — 애매), `ground beef vs ground turkey 조리시간`(ShunGrill, THEKITCHENTODAY 등 SEO 콘텐츠팜 다수 — 포화), **`lamb chops vs pork chops 조리시간`**(기존 결과는 전부 맛/영양 비교뿐, "조리시간" 중심 비교 콘텐츠는 없음 — 진행 결정).

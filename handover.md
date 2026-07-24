@@ -80,6 +80,16 @@ echo "nav.js GUIDES: $(sed -n '/const GUIDES/,/^];/p' assets/js/nav.js | grep -c
 
 ## 3. 사이트 구조 변경 이력
 
+### 2026-07-24 (6차): 사용자가 "비교 콘텐츠는 안 해본 것 같다" — Lamb Chops vs Pork Chops 조리시간 비교 신규 발행
+- 사용자가 "롱테일 키워드 중 비교하는 콘텐츠는 안 해본 것 같다"고 지적, 실제로 이 세션 전까지 "X vs Y" 형태의 단백질간 비교 콘텐츠는 시도한 적 없었음(herb-converter/oven-temp 같은 개념 비교는 있었으나 단백질 조리시간 비교는 없음). 확인 결과 정확함.
+- 후보 검증: `chicken breast vs chicken thighs 조리시간`(ThermoWorks, TheCookingBooks 등 이미 다수 존재 — 애매), `ground beef vs ground turkey 조리시간`(ShunGrill, THEKITCHENTODAY 등 SEO 콘텐츠팜 다수 — 포화), **`lamb chops vs pork chops 조리시간`**(기존 결과는 전부 맛/영양 비교뿐, "조리시간" 중심 비교 콘텐츠는 없음 — 진행 결정).
+- **신규 발행**: `blog/lamb-chops-vs-pork-chops.html`(896단어) — 기존에 이미 발행된 `how-long-to-cook-lamb-chops.html`과 `how-long-to-cook-pork-chops.html`의 실제 데이터를 재조합해 만든 비교 콘텐츠(신규 사실 조사 없이 자사 기존 데이터 기반 — 정확성 리스크 낮음). 팬시어/그릴/에어프라이어 1인치 기준 나란히 비교(램은 목표온도가 10°F 낮아서 20-25% 더 빨리 익음), 대체 가능 여부, FAQ 4개.
+- **정확성 주의사항**: 오븐 시간은 두 원본 페이지의 방법론이 달라서(램은 "시어 후 오븐" 전제, 포크는 "생고기부터 오븐" 전제) 직접 비교표에 넣지 않고 텍스트로 caveat 처리 — 다른 데이터를 억지로 나란히 놓지 않고 방법론 불일치를 인지하고 처리한 사례.
+- 체크리스트: `nav.js`, `sitemap.xml`(76), `llms.txt` 반영. 내부링크는 `how-long-to-cook-lamb-chops.html`과 `how-long-to-cook-pork-chops.html` 양쪽 Related 박스에 추가(두 페이지가 원래도 서로 링크하고 있었음).
+- 개수검증(blogs 46)·div·JSON-LD·고아페이지 전부 통과.
+- **현재 사이트 구조(07-24 최종)**: 툴 19 + 블로그 46 + 가이드 4 = **총 69페이지**.
+- **다음 세션 참고 — 비교 콘텐츠 확장 여지**: chicken breast vs thighs, ground beef vs turkey는 이번엔 보류했지만 완전히 막힌 건 아님(콘텐츠팜 클러스터 수준까지는 아니고 개별 블로그들이라 롱테일 각도를 더 좁히면 진행 가능성 있음) — 다음에 재검토 여지 있음. 자사에 이미 데이터 있는 단백질 조합(예: salmon vs shrimp, steak vs ground beef)도 같은 방식(신규 조사 없이 기존 데이터 재조합)으로 저비용 확장 가능.
+
 ### 2026-07-24 (5차): 사용자가 "툴도 그렇게 좀 해보라" — Word Problems 결을 인터랙티브 툴로 확장, 신규 툴 1건 발행
 - 사용자가 07-24(4차)의 롱테일 전략을 재확인("포화된 카테고리 안에서 안 뚫린 좁은 각도 찾기"가 맞는 방향)하며, 이번엔 블로그뿐 아니라 툴에도 같은 전략 적용을 요청.
 - `recipe math word problem generator` 검색 → 일반 수학 문제 생성기(miniwebtool, Vondy, Knowt AI 등)는 이미 다수 존재하지만 **요리/장보기 특화 인터랙티브 생성기는 전무** — 문제 자체(kitchen math)는 TPT/Scribd 등에 워크시트로 많지만 전부 정적 PDF이고, 랜덤 생성 툴은 없었음. 좁은 각도 확인 후 진행.

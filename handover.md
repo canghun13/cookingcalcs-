@@ -80,6 +80,18 @@ echo "nav.js GUIDES: $(sed -n '/const GUIDES/,/^];/p' assets/js/nav.js | grep -c
 
 ## 3. 사이트 구조 변경 이력
 
+### 2026-07-24 (8차): 세션 마무리 — 추가 탐색 15개+ 기각, 클러스터 승격 전략 논의
+- (7차 이후) 사용자가 계속 다른 방향 요청 → 다수 후보 web_search로 검증했으나 전부 기각:
+  - **steak vs pork chops**: 구조상 유효(steak도 낮은 목표온도, doneness range 있음 — lamb vs pork와 동일 패턴)하지만, 같은 세션에 3번째로 똑같은 "온도차 때문에 시간차" 인사이트를 반복하는 건 콘텐츠 다양성보다 양산처럼 보일 위험 있어 **이번 세션엔 보류**. 다음 세션에서 만들 경우 다른 인사이트 프레이밍 고려할 것(예: 단순 온도차가 아니라 다른 각도).
+  - **ground beef vs ground pork 조리시간**: missvickie.com(회피리스트) 등 기존 다수 존재, 기각.
+  - **커피 원두:물 비율 계산기**: gigacalculator, goodcalculators, coffeebros, honestcoffeeguide, coffeeratiocalculator.com, coffeeratiocalculatorguru.com 등 전용 계산기 클러스터 7개+ 확인 — 빵 하이드레이션과 유사하게 매우 심하게 포화된 별도 니치. 요리보다 음료 계산기 쪽이 오히려 더 포화 상태.
+  - **라면 맛있게 먹는 법(브랜드별 레시피, 사용자 제안)**: "글로벌엔 별로 없을 것"이라는 사용자 가정과 달리 실제로는 Business Insider, AOL(2건), Epicurious, 개인 푸드블로그 다수가 이미 다룸(신라면 등 브랜드별로도 이미 존재: ET Food Voyage, ChefsLabo, FutureDish 등). **더 근본적으로 레시피 콘텐츠 자체가 사이트 정체성(계산기/변환기/비교)과 안 맞는다고 판단** — 사용자도 "라면 자체가 계산할 게 없다"며 동의, 이 방향 완전히 접음.
+- **클러스터 전략(사용자 제안, 합의)**: 오늘 만든 두 미니 클러스터를 향후 정식 5번째/6번째 Guide로 승격 검토:
+  - **Word Problems 클러스터**: `unit-price-word-problems.html`, `recipe-scaling-word-problems.html`, `kitchen-math-generator.html` (블로그2+툴1)
+  - **Comparisons 클러스터**: `lamb-chops-vs-pork-chops.html`, `salmon-vs-shrimp.html` (블로그2)
+  - 둘 다 아직 콘텐츠가 2~3개뿐이라 지금 허브(Guide) 페이지 만들기엔 이름 — **각 클러스터가 4~5개 이상으로 늘어나면 기존 4개 Guide와 같은 패턴으로 정식 승격 검토할 것.** 다음 세션에서 이 두 클러스터에 콘텐츠를 더 추가할 기회가 있으면 우선적으로 고려.
+- **이번 세션 최종 결산(07-24 전체, 1~8차 누적)**: 신규 페이지 5개(블로그4+툴1) 발행, 기존 페이지 보강 다수, 총 45개 이상의 신규 아이디어를 web_search로 검증(성공 5건, 기각 40건+) — 성공률은 낮지만 니치 자체가 원래 포화 상태였다는 게 반복 확인됨. 사이트 최종 규모: **툴 19 + 블로그 47 + 가이드 4 = 70페이지.**
+
 ### 2026-07-24 (7차): 사용자 제안 "해산물 아니면 라면" — Salmon vs Shrimp 조리시간 비교 신규 발행, 라면은 기각
 - 사용자가 직접 두 후보 제안. 검증 결과:
   - **라면 계산기(시즈닝 비율/물양)**: usecalcpro.com, handychefdom.com — 둘 다 이미 9번 섹션 회피 리스트에 있는 콘텐츠팜이 이미 선점(ramen-noodle-calculator, ramen-calorie-calculator 형태로 존재). 기각.
@@ -651,6 +663,7 @@ git push https://x-access-token:${TOKEN}@github.com/canghun13/cookingcalcs-.git 
 - **회피 대상 준-그룹(2026-07-18 추가, "요리 계산기" 콘텐츠팜 클러스터)**: crunchmilk.com, cookingcalchub.co, cookcalculator.net, agentcalc.com, handychefdom.com, cosmomath.com, usecalcpro.com, best-calculators.com, calckitchen.com, kitchencalcs.com, missvickie.com, tooliro.com, steakrecipe.org, bbqtoolbox.com, meatidentifier.com, beef.foodnutrify.com, elevationbaking.com, simplyaltitude.com, inclinebaked.com — 신규 계산기 아이디어를 낼 때마다 이 그룹이 이미 선점했을 가능성부터 web_search로 확인할 것 (3번 섹션 07-18(2차)/(5차) 참고). **9개 후보 연속 포화 확인(07-18 기준) — 당분간 독립 계산기 신규는 기본적으로 보류, Guides/블로그 쪽으로 신규 방향 전환.**
 - **회피 대상 추가(2026-07-20)**: calculators.org, calculator.me — 둘 다 "Meat/Beef Cost Per Serving Calculator"를 University of Nebraska-Lincoln 데이터 인용해서 운영 중, cost-per-serving/meal-cost 니치의 직접 경쟁자로 web_search 중 확인됨(3번 섹션 07-20 참고).
 - **회피 대상 추가(2026-07-20, 2차)**: 해동/재료환산/조리시간 3개 신규 콘텐츠팜 클러스터 발견 — traditionaloven.com, aqua-calc.com, bakeprofit.com, cookingconverter.com, thebakingcalculator.com(재료 그램/컵 환산), quickcooktime.com, howlongfor.com, cookrita.com, butcherbbq.com(조리시간 계산기), justfridge.com, thecalculatedcook.com, howlongtodefrost.com(해동 계산기). 신규 후보를 낼 때마다 위 9번(회피 리스트) 전체와 함께 확인할 것.
+- **회피 대상 추가(2026-07-24)**: 빵 하이드레이션(베이커스 퍼센트) 전용 계산기 클러스터 — breadhydrationcalculator.com, flourwise.com, bytesbreadbbq.com, thecalcs.com, breadhydration.com (6개+, 오늘 확인한 것 중 가장 심하게 포화). 커피 원두:물 비율 전용 계산기 클러스터 — gigacalculator.com, goodcalculators.com, coffeebros.com, honestcoffeeguide.com, coffeeratiocalculator.com, coffeeratiocalculatorguru.com (7개+). 라면 시즈닝/물양 계산기 — usecalcpro.com, handychefdom.com(이미 회피리스트에 있던 클러스터가 라면까지 확장되어 있음, ramen-noodle-calculator/ramen-calorie-calculator 형태로 존재). 캔디 온도 단계 계산기 — usecalcpro.com(중복 확인).
 - 신규 콘텐츠 제안 전 반드시 web_search로 경쟁 강도 확인 (7번 "기각한 후보" 참고 — 실제로 이 과정에서 3개 걸러냄)
 - **thin content 절대 금지**: 환산표 + 설명 + FAQ 필수, 800~1200단어 (600에서 상향됨)
 - affiliate 홀더(빈 링크/배너) 미리 넣지 말 것 — AdSense 안정화 전까지 시작 금지

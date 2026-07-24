@@ -80,6 +80,15 @@ echo "nav.js GUIDES: $(sed -n '/const GUIDES/,/^];/p' assets/js/nav.js | grep -c
 
 ## 3. 사이트 구조 변경 이력
 
+### 2026-07-24 (5차): 사용자가 "툴도 그렇게 좀 해보라" — Word Problems 결을 인터랙티브 툴로 확장, 신규 툴 1건 발행
+- 사용자가 07-24(4차)의 롱테일 전략을 재확인("포화된 카테고리 안에서 안 뚫린 좁은 각도 찾기"가 맞는 방향)하며, 이번엔 블로그뿐 아니라 툴에도 같은 전략 적용을 요청.
+- `recipe math word problem generator` 검색 → 일반 수학 문제 생성기(miniwebtool, Vondy, Knowt AI 등)는 이미 다수 존재하지만 **요리/장보기 특화 인터랙티브 생성기는 전무** — 문제 자체(kitchen math)는 TPT/Scribd 등에 워크시트로 많지만 전부 정적 PDF이고, 랜덤 생성 툴은 없었음. 좁은 각도 확인 후 진행.
+- **신규 발행**: `tools/kitchen-math-generator.html`(701단어) — 클릭할 때마다 랜덤 문제 생성하는 인터랙티브 툴. 3가지 문제 유형(유닛프라이스 비교/서빙당 비용/레시피 배수조정)을 JS로 매번 새로 생성, "정답 보기" 토글로 단계별 풀이 확인. 무제한·가입불필요. 07-24(2~4차) 발행한 워드프라블럼 블로그 3건과 상호링크로 하나의 클러스터 형성.
+- **검증**: JS 문제생성 로직을 Node.js로 1500회(3개 유형×500회) 반복 실행해 런타임 에러 0건 확인 — 신규 시도(인터랙티브 생성기는 이번이 처음이라 로직 검증을 별도로 추가함). div/JSON-LD/개수검증(tools 19, sitemap 75)/고아페이지 전부 통과.
+- 체크리스트: `nav.js` TOOLS 배열, `tools/index.html` TOOL_ICONS(🎲), `index.html` 카드+stat-num(18→19), `llms.txt`, `sitemap.xml` 전부 반영. 내부링크는 두 워드프라블럼 블로그의 Related 박스에 추가해서 인바운드 확보.
+- **현재 사이트 구조(07-24 최종)**: 툴 19 + 블로그 45 + 가이드 4 = **총 68페이지**. Word Problems 클러스터가 블로그 2개 + 인터랙티브 툴 1개로 완성됨.
+- **다음 세션 참고**: 이 인터랙티브 생성기는 사이트에서 처음 시도하는 "매번 다른 콘텐츠를 보여주는" 형태의 툴이라, Google이 이런 동적 생성 콘텐츠를 어떻게 색인하는지(정적 텍스트가 없어 색인에 불리할 수 있음) 다음 GSC에서 확인 필요. 같은 문제 유형이 계속 새로 나오는 페이지라 표준적인 "콘텐츠 텍스트 기반 색인"과는 다르게 동작할 수 있음.
+
 ### 2026-07-24 (4차): "카테고리 확장이 필요하다" — Word Problems 미니 카테고리로 발전, 신규 블로그 2건 추가
 - 사용자가 "100페이지까진 아니어도 카테고리/콘텐츠 다양화가 필요하다"고 재차 요청. "printable/reference chart" 계열(kitchen conversion chart printable, cooking abbreviations glossary) web_search 확인 → WebstaurantStore, LandOLakes, YourDictionary, KitchenCalculator.app 등 대형 브랜드까지 이미 장악 → 기각.
 - 대신 07-24(2~3차)에서 검증한 "요리사이트가 아니라 교육/워크시트 사이트가 경쟁자인 쿼리" 발견을 하나의 미니 카테고리로 formalize. `doubling a recipe fraction word problem` 재검증(TPT, Study.com, Scribd, Lesson Planet, Course Hero만 나옴 — 이번에도 요리 콘텐츠 경쟁자 0) → 진행.

@@ -39,6 +39,7 @@ const TOOLS = [
   { name: "Weekly Meal Prep Cost Calculator", url: "/tools/weekly-meal-prep-cost-calculator.html" },
   { name: "Slow Cooker Time Converter", url: "/tools/slow-cooker-converter.html" },
   { name: "Fresh to Dried Herb Converter", url: "/tools/herb-converter.html" },
+  { name: "Kitchen Math Practice Problem Generator", url: "/tools/kitchen-math-generator.html" },
 ];
 
 const BLOGS = [

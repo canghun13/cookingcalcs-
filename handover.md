@@ -80,6 +80,14 @@ echo "nav.js GUIDES: $(sed -n '/const GUIDES/,/^];/p' assets/js/nav.js | grep -c
 
 ## 3. 사이트 구조 변경 이력
 
+### 2026-07-24 (2차): 웹서치로 저경쟁 키워드 재탐색 — cost-per-serving 워드프라블럼 확장
+- 사용자가 "웹 검색으로 문서수는 적은데 조회수는 많은 키워드를 직접 찾아보라"고 재지시. web_search로 4개 후보 실사 조사:
+  1. `egg substitute liquid conversion`("how many eggs equal 1 cup liquid") — SERP 품질은 약함(Quora, 오래된 포럼, 칼로리 사이트뿐)이지만 확인해보니 **이미 우리 사이트에 커버되어 있었음**(`how-many-eggs-in-a-cup.html`에 液体egg 1:1 치환 FAQ 이미 존재).
+  2. `meat per person party calculator` — Calculator Academy, whycalculator.com, letscalculator.com, thekitchn, thedailymeal, sonnysbbq 등 8개+ 이미 장악, 기각.
+  3. **`cost per serving word problem worksheet`** — 검색해보니 이 쿼리 계열의 실제 경쟁자는 요리 사이트가 아니라 **수학 워크시트 사이트(Scribd, TES, mathworksheets4kids)**였음. 이게 바로 `cost-per-serving.html`의 "you purchase X at $Y per pound..." 워드프라블럼들이 순위 6~9위를 차지하는 이유 — 요리 콘텐츠 경쟁자가 이 쿼리 패턴을 아예 안 다룸. **이미 검증된 우리만의 저경쟁 구간**이라는 걸 재확인.
+  4. 이 발견을 바탕으로 `tools/cost-per-serving.html`의 Worked Example Problems 섹션에 **다른 식재료 4개(치킨브레스트/쌀/연어/다짐육) 워드프라블럼 신규 추가**(기존 치즈/소고기/감자/버터 4개 → 총 8개로 확장). 1260→1414단어. sitemap lastmod 07-24 갱신, div/JSON-LD 검증 통과.
+- **패턴 확인**: "$X per pound, Y ounces per serving, cost per serving?" 형태의 소비자수학 워드프라블럼 클러스터는 요리 콘텐츠팜이 건드리지 않는 진짜 블루오션이었음 — 다음에 신규 워드프라블럼형 콘텐츠를 고민할 때는 "요리 사이트가 아니라 수학 워크시트/학습지 사이트가 경쟁자인 쿼리"를 우선적으로 찾아볼 것. 이 패턴을 cost-per-serving 외의 다른 계산기(recipe-multiplier의 배수 워드프라블럼 등)에도 적용할 여지 있음 — 다음 세션 후보.
+
 ### 2026-07-24: 첫 클릭 발생 확인 + 신규 갭 재스캔(결과: 없음) + AdSense/제휴 판단권한 이관
 - 사용자가 GSC Performance export(07-24 기준, 지난 3개월) + GA4 스크린샷 3장 + CSV 제공. Coverage export는 이번엔 없음(색인 상태는 이번 세션에서 확인 불가).
 - **핵심 마일스톤 — 사이트 개설 후 첫 클릭 발생**: 07-20에 1건, 07-21에 1건 (둘 다 미국, 데스크톱 1 + 모바일 1). 페이지별로는 `cost-per-serving.html`(594회 노출, 순위 8.48)과 `cooking-time-calculator.html`(94회 노출, 순위 19.71, CTR 1.06%)에서 발생. 지난 세션들에서 반복 확인되던 "노출은 있는데 클릭 0" 현상이 드디어 깨짐.

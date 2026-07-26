@@ -66,6 +66,14 @@
         "@type": "Answer",
         "text": "Yes, full-fat plain Greek yogurt is an excellent 1:1 substitute for sour cream in most baking recipes. It has similar fat content, acidity, and thickness. In dips and toppings, it's also nearly indistinguishable. Low-fat yogurt can work but may produce a slightly tangier, less rich result."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I substitute natural cocoa powder for Dutch-process cocoa?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, 1:1 by weight or volume, but check the leavening. Natural cocoa is acidic and Dutch-process is not, so swapping one for the other can throw off how a recipe rises. If the recipe uses baking powder and you're substituting Dutch-process for natural, no change is needed. If you're using natural cocoa in place of Dutch-process, replace any baking powder with about half as much baking soda to balance the added acidity."
+      }
     }
   ]
 }
@@ -110,6 +118,8 @@
             <option value="vanilla-extract">Vanilla extract</option>
             <option value="cornstarch">Cornstarch (as thickener)</option>
             <option value="lemon-juice">Lemon juice</option>
+            <option value="cocoa-natural">Natural cocoa powder</option>
+            <option value="cocoa-dutch">Dutch-process cocoa powder</option>
           </optgroup>
         </select>
       </div>
@@ -154,6 +164,8 @@
           <tr><td>Sour cream</td><td>1 cup</td><td>1 cup plain Greek yogurt (full fat)</td></tr>
           <tr><td>Cornstarch</td><td>1 tbsp</td><td>2 tbsp all-purpose flour; or 2 tsp arrowroot powder</td></tr>
           <tr><td>Vanilla extract</td><td>1 tsp</td><td>1 tsp vanilla paste; or ½ tsp almond extract; or 1 tbsp bourbon or rum</td></tr>
+          <tr><td>Natural cocoa powder</td><td>3 tbsp</td><td>3 tbsp Dutch-process cocoa — swap baking soda for ~2x the amount of baking powder</td></tr>
+          <tr><td>Dutch-process cocoa powder</td><td>3 tbsp</td><td>3 tbsp natural cocoa — swap baking powder for ~½ the amount of baking soda</td></tr>
         </tbody>
       </table>
 
@@ -184,6 +196,9 @@
 
       <h3>Is Greek yogurt a good substitute for sour cream?</h3>
       <p>Yes, full-fat plain Greek yogurt is an excellent 1:1 substitute for sour cream in most baking recipes. It has similar fat content, acidity, and thickness. In dips and toppings, it's also nearly indistinguishable. Low-fat yogurt can work but may produce a slightly tangier, less rich result.</p>
+
+      <h3>Can I substitute natural cocoa powder for Dutch-process cocoa?</h3>
+      <p>Yes, 1:1 by weight or volume, but check the leavening. Natural cocoa is acidic and Dutch-process is not, so swapping one for the other can throw off how a recipe rises. If the recipe uses baking powder and you're substituting Dutch-process for natural, no change is needed. If you're using natural cocoa in place of Dutch-process, replace any baking powder with about half as much baking soda to balance the added acidity.</p>
     </div>
   </div>
 </main>
@@ -342,6 +357,20 @@ const SUBS = {
       { name: "White wine vinegar", ratio: 0.5, note: "Use ½ tbsp white wine vinegar per 1 tbsp lemon juice. Similar acidity, no citrus flavor." },
       { name: "Apple cider vinegar", ratio: 0.5, note: "Use ½ tbsp ACV per 1 tbsp lemon juice. Slight apple flavor, good in dressings and marinades." },
       { name: "Lime juice", ratio: 1, note: "1:1 substitute. Similar acidity and citrus character. Changes flavor slightly but works in most recipes." }
+    ]
+  },
+  "cocoa-natural": {
+    label: "Natural cocoa powder",
+    unit: "tbsp",
+    subs: [
+      { name: "Dutch-process cocoa powder", ratio: 1, note: "1:1 by weight or volume. Dutch-process has no acidity, so if the recipe uses baking soda, replace it with roughly double the amount of baking powder instead — baking powder doesn't need natural cocoa's acidity to activate. No change needed if the recipe already uses only baking powder, or uses both baking soda and baking powder." }
+    ]
+  },
+  "cocoa-dutch": {
+    label: "Dutch-process cocoa powder",
+    unit: "tbsp",
+    subs: [
+      { name: "Natural cocoa powder", ratio: 1, note: "1:1 by weight or volume. Natural cocoa is acidic, so if the recipe uses baking powder, replace it with about half as much baking soda to balance that acidity and help the bake rise correctly. No change needed if the recipe already uses baking soda, or uses both leaveners." }
     ]
   }
 };

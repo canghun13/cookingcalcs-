@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Egg Size Converter – Medium to Large, Small to Jumbo | CookingCalcs</title>
-  <meta name="description" content="Convert medium eggs to large, or any egg size to another. Enter your recipe's egg count, pick the size you have, and get the exact swap. Works for small, medium, large, extra-large, and jumbo eggs.">
+  <meta name="description" content="Convert medium eggs to large, or any egg size to another — plus duck, quail, goose, emu, and ostrich eggs to chicken egg equivalents. Enter your recipe's egg count and get the exact swap.">
   <link rel="canonical" href="https://cookingcalcs.com/tools/egg-converter.html">
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="/assets/css/style.css">
@@ -15,7 +15,7 @@
   "@type": "WebApplication",
   "name": "Egg Size Converter",
   "url": "https://cookingcalcs.com/tools/egg-converter.html",
-  "description": "Convert between egg sizes for any recipe. Swap large eggs for medium, jumbo, small, or extra large with exact counts and adjustment tips for baking.",
+  "description": "Convert between egg sizes for any recipe, and between chicken eggs and duck, quail, goose, emu, or ostrich eggs. Exact counts and adjustment tips for baking.",
   "applicationCategory": "UtilitiesApplication",
   "operatingSystem": "Any",
   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
@@ -81,6 +81,30 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Egg size doesn't affect shelf life. Fresh eggs in their shell keep for 3-5 weeks in the refrigerator (at or below 40°F) regardless of whether they're small, medium, large, or jumbo, per USDA guidance. Hard-boiled eggs, in or out of the shell, last about 1 week. Don't wash eggs before storing them — it removes the natural protective coating and shortens shelf life."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many duck eggs equal one chicken egg?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "About two-thirds of a duck egg equals one chicken egg by weight — the commonly used swap is 2 duck eggs for every 3 chicken eggs. Duck eggs run larger and richer than chicken eggs, so this ratio holds for volume, though duck eggs will add extra richness to baked goods regardless of the count."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I substitute quail eggs for chicken eggs in baking?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — use about 4 quail eggs for every 1 chicken egg the recipe calls for. Quail eggs are much smaller (roughly 12-15g each versus 57g for a large chicken egg), so the ratio scales up quickly for recipes that call for several eggs. Crack them into a small bowl first rather than directly into the batter, since the small size makes shell fragments easier to miss."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does one ostrich egg really replace?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "One ostrich egg is roughly equivalent to two dozen chicken eggs by weight — a single egg can weigh close to 3 pounds. For most home recipes, that means using a measured portion of a cracked ostrich egg rather than the whole thing, unless you're cooking for a large group."
       }
     }
   ]
@@ -158,6 +182,54 @@
       </table>
     </div>
 
+    <!-- Other Bird Eggs Converter -->
+    <div style="margin-top:3rem;">
+      <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin-bottom:1rem;">Other Bird Eggs to Chicken Egg Converter</h2>
+      <p style="margin-bottom:1.25rem;">Recipes almost always mean chicken eggs, but duck, quail, goose, emu, and ostrich eggs all show up in farmers' markets and specialty grocers. Each bird's egg needs its own ratio — enter how many large chicken eggs your recipe calls for and pick a bird to see the swap.</p>
+
+      <div class="tool-card-inner">
+        <div class="egg-form-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:1.25rem; margin-bottom:1.5rem;">
+          <div class="form-group">
+            <label for="chickenEggCount">Chicken Eggs in Recipe</label>
+            <input type="number" id="chickenEggCount" min="1" max="24" step="1" placeholder="e.g. 2" oninput="convertBirdEggs()">
+          </div>
+          <div class="form-group">
+            <label for="birdType">Convert To</label>
+            <select id="birdType" onchange="convertBirdEggs()">
+              <option value="">Select bird</option>
+              <option value="duck">Duck</option>
+              <option value="quail">Quail</option>
+              <option value="goose">Goose</option>
+              <option value="emu">Emu</option>
+              <option value="ostrich">Ostrich</option>
+            </select>
+          </div>
+        </div>
+        <div id="birdResult" style="display:none; background:var(--tomato-light); border:1.5px solid var(--tomato); border-radius:var(--radius); padding:1.5rem;">
+          <div style="font-size:1.1rem; font-weight:700; color:var(--ink);" id="birdResultText"></div>
+          <div style="font-size:0.875rem; color:var(--mid); margin-top:0.5rem;" id="birdResultNote"></div>
+        </div>
+      </div>
+
+      <table style="width:100%; border-collapse:collapse; margin-top:1.5rem;">
+        <thead>
+          <tr style="background:var(--sand-dark);">
+            <th style="padding:0.75rem 1rem; text-align:left; border-bottom:1px solid var(--border);">Bird</th>
+            <th style="padding:0.75rem 1rem; text-align:center; border-bottom:1px solid var(--border);">Approx. Weight</th>
+            <th style="padding:0.75rem 1rem; text-align:center; border-bottom:1px solid var(--border);">Equals (chicken eggs)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">Duck</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">~70g</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">2 duck ≈ 3 chicken</td></tr>
+          <tr style="background:var(--sand);"><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">Quail</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">~12-15g</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">4 quail ≈ 1 chicken</td></tr>
+          <tr><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">Goose</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">~150g</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">1 goose ≈ 3 chicken</td></tr>
+          <tr style="background:var(--sand);"><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">Emu</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">~600-700g</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">1 emu ≈ 12 chicken</td></tr>
+          <tr><td style="padding:0.65rem 1rem;">Ostrich</td><td style="text-align:center; padding:0.65rem;">~1.4-1.5kg</td><td style="text-align:center; padding:0.65rem;">1 ostrich ≈ 24 chicken</td></tr>
+        </tbody>
+      </table>
+      <p style="margin-top:1rem; font-size:0.9rem; color:var(--mid);">These are widely-cited approximations based on average weights — actual eggs vary by breed and individual bird, so use a kitchen scale for precision baking. All of these swap fine by weight in most cooked and baked dishes, but flavor and richness differ: duck and goose eggs have proportionally more yolk and taste noticeably richer, while quail eggs taste close to chicken but with a creamier texture.</p>
+    </div>
+
     <!-- Related -->
     <div style="margin-top:3rem; padding:1.5rem; background:var(--tomato-light); border-radius:var(--radius-lg);">
       <h3 style="font-family:'Playfair Display',serif; margin-bottom:0.75rem;">Related Tools & Guides</h3>
@@ -208,6 +280,15 @@
 
       <h3>How long do eggs last in the fridge, and does size change that?</h3>
       <p>Egg size doesn't affect shelf life. Fresh eggs in their shell keep for 3-5 weeks in the refrigerator (at or below 40°F) regardless of whether they're small, medium, large, or jumbo, per USDA guidance. Hard-boiled eggs, in or out of the shell, last about 1 week. Don't wash eggs before storing them — it removes the natural protective coating and shortens shelf life.</p>
+
+      <h3>How many duck eggs equal one chicken egg?</h3>
+      <p>About two-thirds of a duck egg equals one chicken egg by weight — the commonly used swap is 2 duck eggs for every 3 chicken eggs. Duck eggs run larger and richer than chicken eggs, so this ratio holds for volume, though duck eggs will add extra richness to baked goods regardless of the count.</p>
+
+      <h3>Can I substitute quail eggs for chicken eggs in baking?</h3>
+      <p>Yes — use about 4 quail eggs for every 1 chicken egg the recipe calls for. Quail eggs are much smaller (roughly 12-15g each versus 57g for a large chicken egg), so the ratio scales up quickly for recipes that call for several eggs. Crack them into a small bowl first rather than directly into the batter, since the small size makes shell fragments easier to miss.</p>
+
+      <h3>How much does one ostrich egg really replace?</h3>
+      <p>One ostrich egg is roughly equivalent to two dozen chicken eggs by weight — a single egg can weigh close to 3 pounds. For most home recipes, that means using a measured portion of a cracked ostrich egg rather than the whole thing, unless you're cooking for a large group.</p>
 
       </div>
   </div>
@@ -268,6 +349,39 @@ function clearAll() {
   document.getElementById('recipeSize').value = 'large';
   document.getElementById('haveSize').value = '';
   document.getElementById('result').style.display = 'none';
+}
+
+const birdRatios = {
+  duck: { perChicken: 2/3, label: 'Duck', note: 'Duck eggs are richer and higher in fat — great in baking, but expect a slightly denser crumb in delicate cakes.' },
+  quail: { perChicken: 4, label: 'Quail', note: 'Quail eggs are tiny — cracking this many takes a few extra minutes, but the ratio holds by weight.' },
+  goose: { perChicken: 1/3, label: 'Goose', note: 'Goose eggs are very rich with a thick yolk. Great for custards and pasta dough; can make delicate cakes dense.' },
+  emu: { perChicken: 1/12, label: 'Emu', note: 'One emu egg goes a long way — this is usually a fraction of a single egg unless your recipe calls for a large batch.' },
+  ostrich: { perChicken: 1/24, label: 'Ostrich', note: 'A single ostrich egg is equivalent to about two dozen chicken eggs — plan on using a measured portion rather than a whole egg for most home recipes.' }
+};
+
+function convertBirdEggs() {
+  const chickenCount = parseFloat(document.getElementById('chickenEggCount').value);
+  const bird = document.getElementById('birdType').value;
+  const box = document.getElementById('birdResult');
+
+  if (!chickenCount || !bird || chickenCount < 1) { box.style.display = 'none'; return; }
+
+  const ratio = birdRatios[bird];
+  const birdCount = chickenCount * ratio.perChicken;
+  let displayCount;
+
+  if (birdCount < 1) {
+    const fraction = Math.round(birdCount * 100);
+    displayCount = `about ${fraction}% of one ${ratio.label.toLowerCase()} egg`;
+  } else if (Math.abs(birdCount - Math.round(birdCount)) < 0.1) {
+    displayCount = `${Math.round(birdCount)} ${ratio.label.toLowerCase()} egg${Math.round(birdCount) !== 1 ? 's' : ''}`;
+  } else {
+    displayCount = `about ${birdCount.toFixed(1)} ${ratio.label.toLowerCase()} eggs`;
+  }
+
+  document.getElementById('birdResultText').textContent = `${chickenCount} chicken egg${chickenCount !== 1 ? 's' : ''} ≈ ${displayCount}`;
+  document.getElementById('birdResultNote').textContent = ratio.note;
+  box.style.display = 'block';
 }
 </script>
 </body>

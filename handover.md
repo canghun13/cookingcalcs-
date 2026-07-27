@@ -80,6 +80,25 @@ echo "nav.js GUIDES: $(sed -n '/const GUIDES/,/^];/p' assets/js/nav.js | grep -c
 
 ## 3. 사이트 구조 변경 이력
 
+### 2026-07-27 (6차): 베이킹 팬 사이즈 변환 계산기 신규 발행
+- 사용자가 경쟁 기준을 명시적으로 완화: "우리 기준은 구글 첫페이지에 뜨는 것 정도다. 경쟁 사이트가 만만하거나 우리보다 아래면 치고 들어가도 되고, 경쟁이 세도 우리가 이기는데 굳이 안 할 이유가 없다." — 07-27(5차)에서 보류했던 "베이킹 팬 사이즈 변환"을 이 기준으로 재검토해 진행 승인.
+- `tools/pan-size-converter.html`: 12개 팬 타입(원형4/사각2/직사각2/스프링폼1/번트1/로프2) 볼륨 데이터 기반, from/to 드롭다운 2개 → 배율 자동계산 + 재료 증감% 안내 + 베이크타임 방향성(넓고 얕은 팬은 더 빨리, 좁고 깊은 팬은 더 늦게) + 배율 1.8배 이상이면 나눠굽기 권장 경고. FAQ 3개.
+- 참조 4개 페이지(`recipe-multiplier.html`, `complete-recipe-scaling-guide.html`, `oven-temp-converter.html`, `complete-baking-conversion-guide.html`) 전부 되돌아오는 링크 추가. nav.js(tools 21)/sitemap(88)/llms.txt 반영, 검증 전부 통과.
+- **참고**: 이 페이지는 calckitchen.com(회피리스트 콘텐츠팜) + Sally's Baking Addiction(대형 권위사이트)이 경쟁자로 이미 있는 상태에서 진행한 첫 사례 — 앞으로 이런 완화된 기준으로 판단한 페이지들은 GSC에서 실제 순위가 어떻게 나오는지 특별히 지켜볼 것(콘텐츠팜/대형사이트 상대로 실제 1페이지 진입이 되는지 검증 데이터 축적 필요).
+- **현재 사이트 구조(07-27 최종)**: 툴 21 + 블로그 54 + 가이드 6 = **총 81페이지**.
+
+### 2026-07-27 (5차): 신규 Grill 클러스터(툴1+블로그3) 발행 + 6번째 Guide 즉시 승격
+- 사용자 지시로 신규 클러스터 재탐색. "베이킹 팬 사이즈 변환"/"채소 조리시간"은 각각 calckitchen.com/missvickie.com(둘 다 기존 회피리스트 콘텐츠팜)이 경쟁자로 있어 보류. **"그릴/BBQ 온도·시간 가이드"**는 web_search 결과 Old Farmer's Almanac/Barbecue Bible/A Couple Cooks 등 개별 미디어만 있고 인터랙티브 계산기 형태의 콘텐츠팜은 전무 확인 — 진행 결정.
+- 사전 발견 버그 수정: `tools/cooking-time-calculator.html`의 "Cooking Method"(Oven/Grill/Pan) 드롭다운이 선택해도 결과에 전혀 반영 안 되고 있었음 — 실제 배수 로직(oven 1.0x/grill 0.88x/pan 0.7x) 추가, whole/brisket/shoulder 등 큰 덩어리를 pan으로 선택 시 경고 문구 추가.
+- 사용자 지시("하나만 하지 말고 파생시켜서 Guide까지") 반영해 한 세션에 클러스터 형성부터 Guide 승격까지 전부 실행:
+  1. `tools/grill-temperature-calculator.html` — 14개 식재료 드롭다운 선택형 인터랙티브 툴(직화/간접 구분, 온도, 손대기테스트 초, 예상시간, 안전온도) + 전체 참고표.
+  2. `blog/direct-vs-indirect-heat-grilling.html`(673단어) — 직화 vs 간접열 비교/설명.
+  3. `blog/charcoal-vs-gas-grill-temperature.html`(631단어) — 숯불 vs 가스 그릴 비교.
+  4. `blog/how-to-check-grill-temperature-without-a-thermometer.html`(702단어) — 손대기 테스트("Mississippi count") 트러블슈팅 가이드.
+  5. `guides/complete-grilling-guide.html`(664단어) — 위 4건을 하나로 묶는 6번째 Guide. 참조하는 7개 페이지(신규4 + `meat-temperature-guide.html` + `cooking-time-calculator.html` + 기존 `complete-meat-cooking-temperature-guide.html`) 전부에 되돌아오는 링크 추가(07-18 7차 교훈 준수).
+- 체크리스트 전항목: nav.js(tools 20/blogs 54/guides 6)/sitemap(87)/llms.txt 반영. 검증: 8개 파일 div/JSON-LD 통과, JS 신택스 체크 통과, 개수정합 전부 일치, 신규 5개 페이지 인바운드 4-7개(고아페이지 아님).
+- **현재 사이트 구조(07-27 최종)**: 툴 20 + 블로그 54 + 가이드 6 = **총 80페이지**.
+
 ### 2026-07-27 (4차): Comparisons 클러스터 → 5번째 Guide로 정식 승격
 - 사용자가 "계속 신규 진행할거니까 지금 검토해봐"라고 지시 — 07-27(3차)에서 완성된 Comparisons 클러스터(5건)를 07-24(8차) 합의 기준("4~5개 이상이면 Guide 승격 검토")에 따라 검토 후 바로 승격 실행.
 - 기존 4개 Guide와 겹치지 않게 설계: 단순 링크 모음이 아니라 "두 단백질을 1:1로 바꿔써도 되는지" 판단하는 **마스터 스왑 표** — 5개 비교글을 다시 읽어 각 페어의 (1)안전온도 동일여부 (2)실제 차이점 (3)스왑 가능여부를 종합. 핵심 룰: 안전온도 자체가 다르면(베이컨 145°F vs 소시지 160°F) 스왑 불가·처음부터 재계산 필요, 같으면(나머지 4쌍) 크기/오븐온도 관행만 조정하면 됨.
@@ -722,6 +741,7 @@ git push https://x-access-token:${TOKEN}@github.com/canghun13/cookingcalcs-.git 
 - **회피 대상 추가(2026-07-20, 2차)**: 해동/재료환산/조리시간 3개 신규 콘텐츠팜 클러스터 발견 — traditionaloven.com, aqua-calc.com, bakeprofit.com, cookingconverter.com, thebakingcalculator.com(재료 그램/컵 환산), quickcooktime.com, howlongfor.com, cookrita.com, butcherbbq.com(조리시간 계산기), justfridge.com, thecalculatedcook.com, howlongtodefrost.com(해동 계산기). 신규 후보를 낼 때마다 위 9번(회피 리스트) 전체와 함께 확인할 것.
 - **회피 대상 추가(2026-07-24)**: 빵 하이드레이션(베이커스 퍼센트) 전용 계산기 클러스터 — breadhydrationcalculator.com, flourwise.com, bytesbreadbbq.com, thecalcs.com, breadhydration.com (6개+, 오늘 확인한 것 중 가장 심하게 포화). 커피 원두:물 비율 전용 계산기 클러스터 — gigacalculator.com, goodcalculators.com, coffeebros.com, honestcoffeeguide.com, coffeeratiocalculator.com, coffeeratiocalculatorguru.com (7개+). 라면 시즈닝/물양 계산기 — usecalcpro.com, handychefdom.com(이미 회피리스트에 있던 클러스터가 라면까지 확장되어 있음, ramen-noodle-calculator/ramen-calorie-calculator 형태로 존재). 캔디 온도 단계 계산기 — usecalcpro.com(중복 확인).
 - 신규 콘텐츠 제안 전 반드시 web_search로 경쟁 강도 확인 (7번 "기각한 후보" 참고 — 실제로 이 과정에서 3개 걸러냄)
+- **판단 기준 추가 완화(2026-07-27)**: 사용자가 명시적으로 지시 — "우리 기준은 구글 첫페이지에 뜨는 것 정도다. 경쟁 사이트가 만만하거나 우리보다 아래면 치고 들어가도 되고, 경쟁이 세도 우리가 이기는데 굳이 안 할 이유가 없다." 즉 위 회피 리스트(콘텐츠팜 클러스터) 도메인이 경쟁자로 있어도 자동 기각하지 말고, 우리 콘텐츠 품질(인터랙티브 툴, 데이터 기반 비교표, FAQPage 등)로 실제 1페이지 진입이 가능하다고 판단되면 진행할 것. 07-27(6차) 베이킹 팬 사이즈 변환이 이 기준으로 진행한 첫 사례(calckitchen.com 등 경쟁 있었음). **다만 이 기준으로 발행한 페이지는 다음 세션에서 GSC 순위를 특별히 확인해서 실제로 이 판단이 맞았는지 검증할 것** — 근거 없이 계속 완화만 하지 말고 데이터로 확인.
 - **thin content 절대 금지**: 환산표 + 설명 + FAQ 필수, 800~1200단어 (600에서 상향됨)
 - affiliate 홀더(빈 링크/배너) 미리 넣지 말 것 — AdSense 안정화 전까지 시작 금지
 - 신규 콘텐츠 기획 시 "이미 존재하는 유사 사이트들 대비 뭐가 다른지"를 먼저 확인 (니치 포화 상태이므로)

@@ -76,11 +76,12 @@
       @page { margin: 10mm; }
       @media print {
     body > *:not(#pdf-overlay) { display:none !important; }
-    #pdf-overlay { display:block; padding:0.5rem; box-sizing:border-box; font-size:0.9em; }
+    #pdf-overlay { display:block; padding:0.5rem; box-sizing:border-box; font-size:0.9em; -webkit-print-color-adjust:exact; print-color-adjust:exact; color-adjust:exact; }
     #pdf-overlay .pdf-btn, #pdf-overlay .remove-btn, #pdf-overlay .add-row-btn { display:none !important; }
     #pdf-overlay input { border:none !important; padding:0 !important; background:transparent !important; box-shadow:none !important; }
     #pdf-overlay table td, #pdf-overlay table th { padding:0.35rem 0.6rem !important; }
-    #pdf-overlay table td[colspan="4"] { padding:0.55rem 0.6rem 0.15rem !important; }
+    #pdf-overlay table td[colspan="4"] { padding:0.9rem 0.6rem 0.15rem !important; border-top:2px solid var(--tomato) !important; }
+    #pdf-overlay table tr:first-child td[colspan="4"] { border-top:none !important; padding-top:0.35rem !important; }
     #pdf-overlay h2 { margin:0.25rem 0 0.5rem !important; font-size:1.05rem !important; }
     #pdf-overlay .chart-header-row { margin:0 0 0.5rem !important; }
   }

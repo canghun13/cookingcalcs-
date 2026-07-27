@@ -92,6 +92,7 @@ const BLOGS = [
   { name: "Salmon vs Shrimp: Cooking Time Differences", url: "/blog/salmon-vs-shrimp.html", desc: "Salmon and shrimp cook to the same safe temperature but at very different speeds. Side-by-side cook times by method.", date: "2026-07-24" },
   { name: "Bacon vs Sausage: Cooking Time & Temperature Differences", url: "/blog/bacon-vs-sausage.html", desc: "Bacon and sausage cook by completely different logic — one is thin and cured, the other is thick and raw. Side-by-side cook times and target temperatures.", date: "2026-07-24" },
   { name: "Turkey Breast vs Chicken Breast: Cooking Time & Temperature Differences", url: "/blog/turkey-breast-vs-chicken-breast.html", desc: "Turkey breast and chicken breast both cook to 165°F, but the similarity ends there. Why one needs a hot, fast oven and the other needs a slow, gentle one.", date: "2026-07-24" },
+  { name: "Turkey Breast vs Whole Chicken: Which Cooks Faster?", url: "/blog/turkey-breast-vs-whole-chicken.html", desc: "Side-by-side cook times, servings, and cost for turkey breast vs whole chicken — plus the oven temperature habit that decides which finishes first.", date: "2026-07-27" },
   { name: "How Long to Cook Tempeh and Seitan", url: "/blog/how-long-to-cook-tempeh-seitan.html", desc: "Tempeh and seitan cook times for pan-searing, baking, air frying, and steaming — no recipe, just the times and temperatures you need.", date: "2026-07-24" },
 ];
 

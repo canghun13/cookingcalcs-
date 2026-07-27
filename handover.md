@@ -80,6 +80,21 @@ echo "nav.js GUIDES: $(sed -n '/const GUIDES/,/^];/p' assets/js/nav.js | grep -c
 
 ## 3. 사이트 구조 변경 이력
 
+### 2026-07-27 (3차): 신규 발행 — Turkey Breast vs Whole Chicken (Comparisons 클러스터 5번째, 마감)
+- 사용자 지시로 신규 비교 콘텐츠 후보 재탐색. `chicken drumsticks vs thighs`, `bone-in vs boneless chicken`, `pork tenderloin vs pork loin` 3건은 이번 세션 1차에서 이미 대형 푸드미디어 포화로 기각한 상태라 재시도 안 함.
+- **`turkey breast vs whole chicken`(조리시간 비교)**: web_search 결과 "터키 vs 치킨" 일반 비교(맛/영양/가격)나 각 단독 로스팅 가이드는 다수 있지만, 조리시간 중심의 직접 비교 콘텐츠는 없음을 확인 — 진행.
+- **신규 발행**: `blog/turkey-breast-vs-whole-chicken.html`(983단어, 7분). **핵심 인사이트**: 같은 무게 기준으로 통닭이 칠면조가슴살보다 보통 더 빨리 익음 — 고기 형태(뼈/공동구조) 때문이 아니라 오븐 온도 관행 차이(칠면조가슴살은 통칠면조 로스팅 습관을 그대로 물려받아 325°F 저속, 통닭은 껍질 바삭함 때문에 375-425°F 고속) 때문이라는 반직관적 설명. 자사 기존 칠면조가슴살 데이터(`how-long-to-cook-turkey-breast.html`)와 복수 소스로 교차검증한 통닭 로스팅 시간 범위를 나란히 비교, 인분수/비용 비교(통닭이 lb당 훨씬 저렴 — cost-per-serving 계산기 연결)까지 포함. FAQ 4개.
+- 체크리스트 전항목 반영(nav.js/sitemap 81/llms.txt), 내부링크 2곳(`how-long-to-cook-turkey-breast.html`, `turkey-breast-vs-chicken-breast.html` Related 박스 — 링크만 추가한 두 파일은 기존 관행대로 dateModified 갱신 안 함). div/JSON-LD/sitemap/개수정합(blogs 51)/고아페이지 전부 통과.
+- **Comparisons 클러스터 5건 완성**: lamb vs pork, salmon vs shrimp, bacon vs sausage, turkey breast vs chicken breast, turkey breast vs whole chicken. 07-24(8차)에서 논의했던 "4~5개 이상이면 Guide 승격 검토" 기준 충족 — 다음 세션에서 5번째 Guide로 정식 승격할지 검토할 시점.
+- **현재 사이트 구조(07-27 최종)**: 툴 19 + 블로그 51 + 가이드 4 = **총 74페이지**.
+
+### 2026-07-27 (2차): PDF 저장 시 2페이지로 넘어가는 버그 수정 — meat-temperature-guide.html
+- 사용자가 `tools/meat-temperature-guide.html`에서 "Save as PDF" 실행 시 내용은 1페이지 분량인데 2페이지로 출력된다고 스크린샷으로 지적.
+- 원인: `@page` 마진을 지정 안 해서 브라우저 기본 여백이 적용된 위에, `#pdf-overlay`의 `padding:2rem` + JS로 주입되는 헤더/결과박스 `margin-bottom:2rem` + 표 셀 패딩(`0.65rem`)이 누적되어 총 높이가 1페이지를 살짝 초과.
+- 수정: `@page { margin: 10mm; }` 명시, overlay `padding` 2rem→0.5rem + `font-size:0.9em`, 헤더/결과박스 margin 축소, 표 셀 패딩을 인쇄 시에만 `0.35rem`으로 축소(`!important`로 인라인 스타일 오버라이드), 차트 헤더줄(`chart-header-row` 클래스 신규 부여)/h2 margin도 인쇄 시 축소. **전부 `@media print` 안에서만 적용되어 평상시 화면 표시엔 영향 없음.**
+- wkhtmltopdf로 동일 구조를 별도 렌더링 테스트한 결과 1페이지로 확인(이 저장소 환경엔 Chrome이 없어 완전히 동일한 렌더러는 아니지만, 마진/패딩을 충분히 줄여 여유 있게 1페이지에 들어가는 것을 확인).
+- **다음 세션 참고**: 이 사이트에서 `printToPDF()` 함수와 동일한 패턴을 쓰는 툴이 5개 더 있음(`cooking-time-calculator.html`, `cost-per-serving.html`, `meal-cost-calculator.html`, `recipe-multiplier.html`, `weekly-meal-prep-cost-calculator.html`) — 이번엔 사용자가 지적한 `meat-temperature-guide.html`만 수정함. 나머지 5개도 같은 여백 누적 문제로 내용에 따라 페이지가 넘어갈 수 있으니, 사용자가 확인 요청하면 동일한 패턴(overlay padding 축소 + `@page` 마진 + 표 셀 패딩 인쇄시 축소)으로 고칠 것.
+
 ### 2026-07-27: 일요일 정기 점검 — GSC/GA 전수 분석, 신규 후보 4건 전부 기각 후 보강 2건 실행
 - 사용자가 GSC Coverage export + Performance export(지난 3개월) + GA4 CSV(보고서 개요, 06-29~07-26)를 제공. 세 자료 전체를 끝까지 정독(쿼리 1000행 전부 확인).
 - **GSC vs GA 수치 괴리 확인(신규 발견)**: GSC Performance는 3개월 누적 클릭 5건뿐인데, GA는 최근 28일만으로도 Organic Search 세션 118건(전체 세션 221건, page_view 555회)을 기록 — 자릿수 자체가 다름. GSC Performance는 구글 "웹" 검색 클릭만 잡고 GA의 Organic Search는 다른 검색엔진(빙 등) 유입까지 포함하는 채널 분류라 발생하는 차이로 판단됨. **그동안 반복돼온 "클릭 0건"이라는 프레이밍은 GSC 기준으로는 맞지만, 실제 방문자 유입(GA 기준)은 이미 상당히 있고 꾸준히 늘고 있다는 게 이번에 명확해짐** — 30일 활성 사용자가 기간 시작 98명→종료 179명으로 거의 2배 증가. 다음 세션에서도 이 두 지표를 같이 볼 것.
@@ -96,13 +111,6 @@ echo "nav.js GUIDES: $(sed -n '/const GUIDES/,/^];/p' assets/js/nav.js | grep -c
   2. `tools/meat-temperature-guide.html` — "Chicken vs Pork vs Beef: Why the Safe Numbers Are So Different" 비교 섹션 신규 추가. 닭고기 165°F(살모넬라/캄필로박터, 안전 마진 없음) vs 돼지고기 145°F(과거 160°F였으나 2011년 USDA가 트리키노시스 위험 감소 반영해 하향) vs 소고기 130~160°F 범위(E.coli가 표면에만 있어 시어링으로 처리되므로 내부 굽기 정도는 취향 문제) — 왜 안전온도 기준 자체가 다른지 설명하는 비교분석형 콘텐츠. FAQ 1건("Why can't chicken be medium-rare like steak?") 신규 추가(JSON-LD + 본문 양쪽). sitemap lastmod 07-27 갱신(이 페이지는 nav.js TOOLS 배열에 date 필드가 없어 해당 사항 없음).
   - 두 파일 모두 div 밸런스/JSON-LD 파싱/읽기시간 검산 통과. 개수검증(tools 19/blogs 50/guides 4/sitemap 80, nav.js 전부 일치) 통과. 고아페이지 체크 — 둘 다 기존에 이미 인바운드 다수 확보돼 있어 문제 없음(cost-per-serving 블로그 4곳, meat-temperature-guide 23곳에서 링크됨).
 - **현재 사이트 구조(07-27 최종)**: 툴 19 + 블로그 50 + 가이드 4 = **총 73페이지** (신규 발행 없음, 기존 페이지 2건만 보강).
-
-### 2026-07-27 (2차): PDF 저장 시 2페이지로 넘어가는 버그 수정 — meat-temperature-guide.html
-- 사용자가 `tools/meat-temperature-guide.html`에서 "Save as PDF" 실행 시 내용은 1페이지 분량인데 2페이지로 출력된다고 스크린샷으로 지적.
-- 원인: `@page` 마진을 지정 안 해서 브라우저 기본 여백이 적용된 위에, `#pdf-overlay`의 `padding:2rem` + JS로 주입되는 헤더/결과박스 `margin-bottom:2rem` + 표 셀 패딩(`0.65rem`)이 누적되어 총 높이가 1페이지를 살짝 초과.
-- 수정: `@page { margin: 10mm; }` 명시, overlay `padding` 2rem→0.5rem + `font-size:0.9em`, 헤더/결과박스 margin 축소, 표 셀 패딩을 인쇄 시에만 `0.35rem`으로 축소(`!important`로 인라인 스타일 오버라이드), 차트 헤더줄(`chart-header-row` 클래스 신규 부여)/h2 margin도 인쇄 시 축소. **전부 `@media print` 안에서만 적용되어 평상시 화면 표시엔 영향 없음.**
-- wkhtmltopdf로 동일 구조를 별도 렌더링 테스트한 결과 1페이지로 확인(이 저장소 환경엔 Chrome이 없어 완전히 동일한 렌더러는 아니지만, 마진/패딩을 충분히 줄여 여유 있게 1페이지에 들어가는 것을 확인).
-- **다음 세션 참고**: 이 사이트에서 `printToPDF()` 함수와 동일한 패턴을 쓰는 툴이 5개 더 있음(`cooking-time-calculator.html`, `cost-per-serving.html`, `meal-cost-calculator.html`, `recipe-multiplier.html`, `weekly-meal-prep-cost-calculator.html`) — 이번엔 사용자가 지적한 `meat-temperature-guide.html`만 수정함. 나머지 5개도 같은 여백 누적 문제로 내용에 따라 페이지가 넘어갈 수 있으니, 사용자가 확인 요청하면 동일한 패턴(overlay padding 축소 + `@page` 마진 + 표 셀 패딩 인쇄시 축소)으로 고칠 것.
 
 ### 2026-07-24 (9차): 음료/전통주/지역비교 30개+ 추가 검증 후 확정 6건 전부 실행
 - 사용자가 "음료 쪽은 있냐"고 질문 → 커피/차/칵테일/레몬즙/아몬드밀크/유자차/보이차/막걸리vs소주/고량주vs보드카 등 **9개 각도를 깊게 확인, 전부 포화** — 특히 tea ratio calculator는 회피리스트 멤버(missvickie.com/handychefdom.com/best-calculators.com) 3곳이 동시에 걸릴 정도로 심했음. 음료는 "비율 계산"이 쉬워서 콘텐츠팜이 요리보다 먼저 점유했고, 한식/중식 전통음료는 한류/중화 문화 콘텐츠 붐 때문에 오히려 이미 많이 다뤄진 상태.

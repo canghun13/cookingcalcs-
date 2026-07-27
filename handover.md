@@ -80,6 +80,15 @@ echo "nav.js GUIDES: $(sed -n '/const GUIDES/,/^];/p' assets/js/nav.js | grep -c
 
 ## 3. 사이트 구조 변경 이력
 
+### 2026-07-27 (7차): 경쟁 재검증 + Grill 클러스터 내부링크 강화 (신규 발행 없음)
+- 사용자가 그릴/팬사이즈 경쟁 판단을 재검증하라고 지시(Bing/Yahoo 포함).
+- **중요한 도구 한계 확인**: web_fetch로 bing.com/yahoo 직접 접근 시도했으나 "사전에 검색/fetch로 나온 URL만 fetch 가능" 제약에 막혀 실패 — **이 환경에는 Bing/Yahoo SERP을 별도로 조회할 방법이 없음**. web_search 툴은 단일 엔진(정확히 어떤 백엔드인지 불명)만 사용 가능. 다음 세션도 이 한계를 인지하고 "Bing/Yahoo 확인해봐" 요청이 오면 이 사실부터 알릴 것 — 할 수 있는 척하지 말 것.
+- **베이킹 팬 사이즈 변환 재검증 결과 — 07-27(6차) 판단이 부정확했음**: 헤드 키워드로 직접 재검색하니 처음에 놓쳤던 경쟁자가 대거 확인됨 — calckitchen.com·foodiebaker.com(둘 다 실제 작동하는 인터랙티브 계산기), Sally's Baking Addiction(초대형 권위 사이트, 자체 공식 보유), extension.missouri.edu(.edu 권위 도메인)까지 겹침. 이 프로젝트에서 확인한 것 중 가장 심하게 포화된 니치 — 지금 상태로는 첫페이지 진입 불가로 판단. **사용자 지시로 페이지 자체는 유지**(어차피 필요한 툴이므로), 다만 순위 기대는 낮게 잡을 것.
+- **그릴 계산기 재검증 결과 — 대체로 유효하나 놓친 경쟁자 있었음**: "grill temperature calculator" 헤드 키워드로 재검색해 gopathtomillions.com·thetoolcollective.com이라는 인터랙티브 계산기 2개를 추가로 발견(처음 검색 때 못 찾음, 검색 누락 인정). 다만 둘 다 스팸성/AI툴양산형 도메인으로 권위도 낮아 보임 — Old Farmer's Almanac/Weber/Barbecue Bible 등 진짜 권위 사이트는 여전히 계산기 없이 정적 차트만 보유. 사용자 판단: "해볼만하다"로 유지.
+- **롱테일 축소 시도 결과 — 오히려 역효과 확인**: "chicken breast on gas grill" 등으로 좁혀봤더니 Weber(그릴 제조사 본사)·America's Test Kitchen·Perdue Farms까지 붙어서 head term보다 더 세짐. "grilling mistakes" 계열도 Food Network가 장악. **결론: 이 니치는 좁힐수록 레시피 블로그가 더 촘촘해서 롱테일 전략이 안 통함** — 다음에 유사 상황 만나면 먼저 head term 그대로 web_search 한 번 더 정확히 돌려보고 판단할 것(원래 실수: guide성 문구로만 검색하고 "calculator/tool" 헤드텀 자체는 안 돌려봄).
+- **Grill 클러스터 강화 실행**(신규 발행 없이 순수 내부링크): 이미 그릴을 조리법 중 하나로 다루고 있던 기존 단백질 페이지 6개(`how-long-to-cook-bacon/chicken-thighs/pork-chops/salmon/steak/turkey-breast.html`)의 Grilled 섹션 본문 + Related 박스에 `grill-temperature-calculator.html` 링크 추가. 결과: 그릴 계산기 인바운드 링크 5개→11개로 증가.
+- **현재 사이트 구조**: 변동 없음(툴 21 + 블로그 54 + 가이드 6 = 81페이지). 이번 세션은 신규 발행 없이 검증+링크 강화만.
+
 ### 2026-07-27 (6차): 베이킹 팬 사이즈 변환 계산기 신규 발행
 - 사용자가 경쟁 기준을 명시적으로 완화: "우리 기준은 구글 첫페이지에 뜨는 것 정도다. 경쟁 사이트가 만만하거나 우리보다 아래면 치고 들어가도 되고, 경쟁이 세도 우리가 이기는데 굳이 안 할 이유가 없다." — 07-27(5차)에서 보류했던 "베이킹 팬 사이즈 변환"을 이 기준으로 재검토해 진행 승인.
 - `tools/pan-size-converter.html`: 12개 팬 타입(원형4/사각2/직사각2/스프링폼1/번트1/로프2) 볼륨 데이터 기반, from/to 드롭다운 2개 → 배율 자동계산 + 재료 증감% 안내 + 베이크타임 방향성(넓고 얕은 팬은 더 빨리, 좁고 깊은 팬은 더 늦게) + 배율 1.8배 이상이면 나눠굽기 권장 경고. FAQ 3개.

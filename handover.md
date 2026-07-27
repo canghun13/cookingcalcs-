@@ -1,6 +1,6 @@
-# CookingCalcs 현황 및 인수인계 (2026-07-24 기준)
+# CookingCalcs 현황 및 인수인계 (2026-07-27 기준)
 
-이 문서는 2026-07-20 버전 인수인계 문서를 기반으로, 이후 진행된 모든 작업 내역을 반영해 갱신한 버전입니다. 새 세션에서는 이 문서만 보고 바로 작업 이어가면 됩니다.
+이 문서는 2026-07-24 버전 인수인계 문서를 기반으로, 이후 진행된 모든 작업 내역을 반영해 갱신한 버전입니다. 새 세션에서는 이 문서만 보고 바로 작업 이어가면 됩니다.
 
 ---
 
@@ -79,6 +79,23 @@ echo "nav.js GUIDES: $(sed -n '/const GUIDES/,/^];/p' assets/js/nav.js | grep -c
 ---
 
 ## 3. 사이트 구조 변경 이력
+
+### 2026-07-27: 일요일 정기 점검 — GSC/GA 전수 분석, 신규 후보 4건 전부 기각 후 보강 2건 실행
+- 사용자가 GSC Coverage export + Performance export(지난 3개월) + GA4 CSV(보고서 개요, 06-29~07-26)를 제공. 세 자료 전체를 끝까지 정독(쿼리 1000행 전부 확인).
+- **GSC vs GA 수치 괴리 확인(신규 발견)**: GSC Performance는 3개월 누적 클릭 5건뿐인데, GA는 최근 28일만으로도 Organic Search 세션 118건(전체 세션 221건, page_view 555회)을 기록 — 자릿수 자체가 다름. GSC Performance는 구글 "웹" 검색 클릭만 잡고 GA의 Organic Search는 다른 검색엔진(빙 등) 유입까지 포함하는 채널 분류라 발생하는 차이로 판단됨. **그동안 반복돼온 "클릭 0건"이라는 프레이밍은 GSC 기준으로는 맞지만, 실제 방문자 유입(GA 기준)은 이미 상당히 있고 꾸준히 늘고 있다는 게 이번에 명확해짐** — 30일 활성 사용자가 기간 시작 98명→종료 179명으로 거의 2배 증가. 다음 세션에서도 이 두 지표를 같이 볼 것.
+- **색인 현황**: Coverage 심각한 문제 리포트 기준 47(발견됨·미색인)+2(크롤링됨·미색인)=49로 07-16부터 지금까지 완전히 동일 — 여전히 정체. 다만 Performance 페이지 리포트에 노출 있는 URL이 67개로 확인돼(13개보다 훨씬 많음), Coverage 수치가 갱신 안 되고 있을 뿐 실제 색인은 더 진행됐을 가능성이 높음 — 이 괴리 역시 다음 세션에서 Coverage export 새로 받으면 확인할 것.
+- **워드프라블럼 클러스터 재확인**: "you purchase beef at $6 per pound..." 등 순위 6~9위로 최상위권인데 클릭은 전부 0건 지속. 스니펫으로 답이 바로 노출되거나(zero-click), 숙제 답 확인용 학생 트래픽이라 클릭 유인이 낮을 가능성(07-24 세션에서도 같은 우려 제기됨, 이번에도 재확인됨). **수익화(AdSense) 관점에서 이 클러스터의 추가 확장은 우선순위 낮음으로 판단** — 순위는 좋아도 광고 노출로 이어지는 실질 트래픽 기여가 없음.
+- **신규 콘텐츠 후보 검증, 4건 전부 기각**: Comparisons 클러스터(현재 4건: lamb vs pork, salmon vs shrimp, bacon vs sausage, turkey vs chicken breast)를 5건으로 늘려 Guide 승격 요건을 채우려 web_search로 신규 후보 조사:
+  - `chicken drumsticks vs thighs 조리시간`: momswhothink.com, premierfamilyfoods.com, theonlinegrill.com, tatnuckmeatandsea.com, grillsimply.com, micheldumas.com, cychicken.com 등 7개+ 이미 심층 비교 — 포화.
+  - `bone-in vs boneless chicken 조리시간`: tastingtable.com, oureverydaylife.com, thedailymeal.com, laurafuentes.com, elizabethrider.com 등 5개+ — 포화.
+  - `pork tenderloin vs pork loin 조리시간`: MasterClass, Taste of Home(AOL 재게재 포함), Food Network, Smoked BBQ Source, TheMeatStick, BusyCooks 등 대형 푸드미디어 다수 — 포화.
+  - "serves 4 means"(순위 8.0), "is capital T tablespoon or teaspoon"(순위 10.0) 등 좋은 순위의 소형 후보도 확인 — grep으로 정확 문구는 없었지만 실제로는 `what-is-a-serving-size.html`("serves 4"라는 표현 이미 사용), `tablespoon-vs-teaspoon.html`("capital T is tablespoon" 이미 서술)에 다른 어순/표현으로 이미 커버되어 있음을 확인 — 진짜 갭 아님, 자동 스캔의 false positive였음(07-16 5차에서 지적된 함정과 동일 패턴).
+  - **결론**: 이번 세션은 신규 발행 없음. "단백질 vs 단백질" 조리시간 비교 니치는 대형 푸드미디어(MasterClass, Food Network, TasteOfHome, DailyMeal 등)가 이미 상당수 커버해서, 07-24 세션까지 성공했던 패턴("영양 비교는 있어도 조리시간 비교는 없다")이 이번에 시도한 조합들에서는 더 이상 통하지 않음. Comparisons 클러스터는 4건에서 정체 — 다음 세션에서 새 조합을 낼 때는 "부위(cut) 간 비교"보다 자사 데이터 재조합이 가능한 다른 각도를 우선 탐색할 것.
+- **보강 2건 실행**(신규 대신 고트래픽 페이지에 문제해결/비교분석 프레이밍 추가 — 사용자 지시사항 반영):
+  1. `blog/how-to-calculate-cost-per-serving.html`(사이트 전체 CTR 1위, 1.47%) — "Common Mistakes That Skew Your Cost Per Serving" 섹션 신규 추가. 단가 vs 패키지가격 혼동, 생중량/조리중량 혼동(raw-to-cooked-weight.html 링크 추가), 소량 재료 누락, 레시피 표기 서빙수 vs 실제 섭취량 혼동(what-is-a-serving-size.html 링크), cost-per-serving vs cost-per-pound 혼동 — 5개 실수 패턴. 1046→1321단어, 읽기시간 6→9분. dateModified/nav.js date/sitemap lastmod/llms.txt 전부 07-27로 갱신.
+  2. `tools/meat-temperature-guide.html` — "Chicken vs Pork vs Beef: Why the Safe Numbers Are So Different" 비교 섹션 신규 추가. 닭고기 165°F(살모넬라/캄필로박터, 안전 마진 없음) vs 돼지고기 145°F(과거 160°F였으나 2011년 USDA가 트리키노시스 위험 감소 반영해 하향) vs 소고기 130~160°F 범위(E.coli가 표면에만 있어 시어링으로 처리되므로 내부 굽기 정도는 취향 문제) — 왜 안전온도 기준 자체가 다른지 설명하는 비교분석형 콘텐츠. FAQ 1건("Why can't chicken be medium-rare like steak?") 신규 추가(JSON-LD + 본문 양쪽). sitemap lastmod 07-27 갱신(이 페이지는 nav.js TOOLS 배열에 date 필드가 없어 해당 사항 없음).
+  - 두 파일 모두 div 밸런스/JSON-LD 파싱/읽기시간 검산 통과. 개수검증(tools 19/blogs 50/guides 4/sitemap 80, nav.js 전부 일치) 통과. 고아페이지 체크 — 둘 다 기존에 이미 인바운드 다수 확보돼 있어 문제 없음(cost-per-serving 블로그 4곳, meat-temperature-guide 23곳에서 링크됨).
+- **현재 사이트 구조(07-27 최종)**: 툴 19 + 블로그 50 + 가이드 4 = **총 73페이지** (신규 발행 없음, 기존 페이지 2건만 보강).
 
 ### 2026-07-24 (9차): 음료/전통주/지역비교 30개+ 추가 검증 후 확정 6건 전부 실행
 - 사용자가 "음료 쪽은 있냐"고 질문 → 커피/차/칵테일/레몬즙/아몬드밀크/유자차/보이차/막걸리vs소주/고량주vs보드카 등 **9개 각도를 깊게 확인, 전부 포화** — 특히 tea ratio calculator는 회피리스트 멤버(missvickie.com/handychefdom.com/best-calculators.com) 3곳이 동시에 걸릴 정도로 심했음. 음료는 "비율 계산"이 쉬워서 콘텐츠팜이 요리보다 먼저 점유했고, 한식/중식 전통음료는 한류/중화 문화 콘텐츠 붐 때문에 오히려 이미 많이 다뤄진 상태.
@@ -594,6 +611,7 @@ const BLOGS = [
 | 07-18 | 47+2=49 (변화 없음) | 13 (Coverage 차트가 여전히 07-10까지만 갱신 — 크롤 지연 지속, 숫자 자체는 갱신 안 됨) | 색인 개수는 07-16과 완전히 동일 — 진전 없음. 클릭 3개월 누적 여전히 0건. 노출은 계속 우상향(07-14/15 각 333회, 신고점). **신규 발견**: 모바일 평균 순위 14.71위 vs 데스크톱 64.64위로 기기간 격차 큼 — 모바일에서는 사실상 1페이지권인데도 클릭 0건, 다음 세션에서 원인 살펴볼 단서로 기록만 해둠. |
 | 07-20 | 47+2=49 (변화 없음) | 13 (Coverage 차트 여전히 07-10 스냅샷 — 3세션째 갱신 안 됨) | 색인 수치 3세션 연속 완전 동일 — 정체 지속. 클릭 3개월 누적 여전히 0건. 노출 신고점 갱신(07-17, 414회). 모바일 평균순위 13.1위(개선)로 격차는 좁혀지는 추세지만 클릭은 여전히 0. Performance 리포트 기준 노출 발생 URL이 18개로(13개보다 많음) 실제 색인이 늘었을 가능성 있으나 Coverage 미갱신으로 미확정. |
 | 07-24 | (Coverage export 미제공 — 이번 세션은 확인 불가) | (Coverage export 미제공) | **첫 클릭 발생** — 07-20/07-21 각 1건씩 총 2건(미국, cost-per-serving.html + cooking-time-calculator.html). 노출 신고점 재경신(07-21, 863회). 모바일 평균순위 11.75위로 추가 개선. 다음 세션에서 Coverage export 받으면 색인 수치가 실제로 늘었는지 꼭 확인할 것 — Performance 기준 노출 URL 수가 계속 늘고 있어(18개→더 많을 가능성) 색인 정체가 풀렸을 가능성이 있음. |
+| 07-27 | 47+2=49 (07-16부터 완전히 동일, 변화 없음) | Coverage 차트 미갱신 지속 | **Performance 페이지 리포트 기준 노출 URL이 67개로 확인**(13개는 물론 07-24 추정치 18개보다도 훨씬 많음) — Coverage 수치가 그냥 안 갱신되고 있을 뿐 실제 색인은 상당히 진행됐을 가능성 높음. 3개월 누적 클릭 5건(07-20/21 첫 클릭 2건 이후 3건 추가 발생: raw-to-cooked-weight, cups-to-tablespoons, how-to-calculate-cost-per-serving 각 1건). **GA 기준으로는 28일간 Organic Search만 118세션** — GSC 클릭수와 자릿수 차이가 커서, "클릭 0/5건"에만 의존한 판단은 이제 지양하고 GA도 함께 볼 것. |
 
 **핵심 발견 (07-07)**: sitemap.xml에 `lastmod` 태그가 전무했음. 구글은 `changefreq`/`priority`를 공식적으로 무시하고 `lastmod`만 크롤 스케줄링에 사용하는데, 이게 아예 없어서 구글이 페이지 갱신 여부를 전혀 알 수 없는 상태였음. `nav.js`의 블로그별 날짜 데이터를 이용해 전체 lastmod 채워 넣음. **이후 신규/보강 작업마다 lastmod 갱신은 항상 같이 처리할 것.**
 

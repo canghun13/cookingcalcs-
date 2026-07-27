@@ -12,7 +12,7 @@ CookingCalcs covers unit conversion, recipe scaling, cooking times and temperatu
 - [Weight Converter](https://cookingcalcs.com/tools/weight-converter.html): Convert between grams, ounces, pounds, and kilograms instantly.
 - [Recipe Multiplier](https://cookingcalcs.com/tools/recipe-multiplier.html): Scale any recipe up or down by entering original and target serving counts.
 - [Cooking Time Calculator](https://cookingcalcs.com/tools/cooking-time-calculator.html): Calculate cooking times for chicken, beef, pork, lamb, and vegetables by weight, cut, and method.
-- [Meat Temperature Guide](https://cookingcalcs.com/tools/meat-temperature-guide.html): Safe internal cooking temperatures for all meat types. USDA-recommended temps in °F and °C.
+- [Meat Temperature Guide](https://cookingcalcs.com/tools/meat-temperature-guide.html): Safe internal cooking temperatures for all meat types. USDA-recommended temps in °F and °C, plus why chicken, pork, and beef have different safe-temperature rules.
 - [Meal Cost Calculator](https://cookingcalcs.com/tools/meal-cost-calculator.html): Calculate total meal cost and cost per serving by adding ingredients and their prices.
 - [Cost Per Serving Calculator](https://cookingcalcs.com/tools/cost-per-serving.html): Find the cost per serving of any recipe or packaged food by entering total cost and servings.
 - [Egg Size Converter](https://cookingcalcs.com/tools/egg-converter.html): Convert between egg sizes (small, medium, large, extra large, jumbo) for any recipe, plus duck, quail, goose, emu, and ostrich eggs to chicken egg equivalents.
@@ -39,7 +39,7 @@ CookingCalcs covers unit conversion, recipe scaling, cooking times and temperatu
 - [Safe Internal Meat Temperatures: Complete Guide](https://cookingcalcs.com/blog/meat-internal-temperature-guide.html): Safe cooking temperatures for beef, chicken, pork, fish, and more.
 - [How to Cut Your Grocery Bill Without Eating Less](https://cookingcalcs.com/blog/how-to-cut-grocery-bill.html): Practical strategies to reduce grocery spending without sacrificing meal quality.
 - [Tablespoons to Teaspoons: Full Conversion Guide](https://cookingcalcs.com/blog/tablespoon-to-teaspoon-guide.html): Complete conversion guide for tablespoons, teaspoons, cups, and fluid ounces.
-- [How to Calculate Cost Per Serving for Any Meal](https://cookingcalcs.com/blog/how-to-calculate-cost-per-serving.html): Step-by-step guide to calculating the exact cost per serving of home-cooked meals.
+- [How to Calculate Cost Per Serving for Any Meal](https://cookingcalcs.com/blog/how-to-calculate-cost-per-serving.html): Step-by-step guide to calculating the exact cost per serving of home-cooked meals, plus the most common mistakes that skew the result.
 - [Average Cost of a Home-Cooked Meal](https://cookingcalcs.com/blog/average-cost-of-a-home-cooked-meal.html): Real US cost benchmarks for home-cooked meals by meal type and budget level, plus how to calculate your own instead of relying on a national average.
 - [How Long to Cook Chicken Breast at Every Temperature](https://cookingcalcs.com/blog/how-long-to-cook-chicken-breast.html): Exact cook times for chicken breast at 350°F, 375°F, 400°F, 425°F across all methods.
 - [Complete Cooking Measurement Guide](https://cookingcalcs.com/blog/cooking-measurement-guide.html): Full reference for cups, tablespoons, teaspoons, ounces, and metric conversions.

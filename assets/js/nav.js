@@ -40,6 +40,7 @@ const TOOLS = [
   { name: "Slow Cooker Time Converter", url: "/tools/slow-cooker-converter.html" },
   { name: "Fresh to Dried Herb Converter", url: "/tools/herb-converter.html" },
   { name: "Kitchen Math Practice Problem Generator", url: "/tools/kitchen-math-generator.html" },
+  { name: "Grill Temperature & Time Calculator", url: "/tools/grill-temperature-calculator.html" },
 ];
 
 const BLOGS = [
@@ -93,6 +94,9 @@ const BLOGS = [
   { name: "Bacon vs Sausage: Cooking Time & Temperature Differences", url: "/blog/bacon-vs-sausage.html", desc: "Bacon and sausage cook by completely different logic — one is thin and cured, the other is thick and raw. Side-by-side cook times and target temperatures.", date: "2026-07-24" },
   { name: "Turkey Breast vs Chicken Breast: Cooking Time & Temperature Differences", url: "/blog/turkey-breast-vs-chicken-breast.html", desc: "Turkey breast and chicken breast both cook to 165°F, but the similarity ends there. Why one needs a hot, fast oven and the other needs a slow, gentle one.", date: "2026-07-24" },
   { name: "Turkey Breast vs Whole Chicken: Which Cooks Faster?", url: "/blog/turkey-breast-vs-whole-chicken.html", desc: "Side-by-side cook times, servings, and cost for turkey breast vs whole chicken — plus the oven temperature habit that decides which finishes first.", date: "2026-07-27" },
+  { name: "Direct vs Indirect Heat: When to Use Each", url: "/blog/direct-vs-indirect-heat-grilling.html", desc: "Direct heat sears, indirect heat cooks through. Which foods need which zone, how to set up both, and what happens if you use the wrong one.", date: "2026-07-27" },
+  { name: "Charcoal vs Gas Grill: Temperature Differences", url: "/blog/charcoal-vs-gas-grill-temperature.html", desc: "Charcoal and gas reach similar temperatures but behave very differently — how fast each heats up, how precisely you can control it, and what to cook on each.", date: "2026-07-27" },
+  { name: "How to Check Grill Temperature Without a Thermometer", url: "/blog/how-to-check-grill-temperature-without-a-thermometer.html", desc: "The hand test estimates grate temperature in seconds — how to do it, the full seconds-to-degrees chart, and when to trust it.", date: "2026-07-27" },
   { name: "How Long to Cook Tempeh and Seitan", url: "/blog/how-long-to-cook-tempeh-seitan.html", desc: "Tempeh and seitan cook times for pan-searing, baking, air frying, and steaming — no recipe, just the times and temperatures you need.", date: "2026-07-24" },
 ];
 
@@ -103,6 +107,7 @@ const GUIDES = [
   { name: "The Complete Baking Measurement & Conversion Guide", url: "/guides/complete-baking-conversion-guide.html", desc: "Every cups-to-grams table, tablespoon-to-teaspoon chart, oven temperature, egg size, and butter conversion on the site, organized in one reference.", date: "2026-07-18" },
   { name: "The Complete Recipe Scaling & Serving Guide", url: "/guides/complete-recipe-scaling-guide.html", desc: "Everything about scaling a recipe up or down, halving, converting to metric, and figuring out real serving sizes, organized in one reference.", date: "2026-07-18" },
   { name: "The Complete Protein Comparison & Swap Guide", url: "/guides/complete-protein-comparison-guide.html", desc: "Every protein-vs-protein comparison on the site in one place, plus the one rule that decides whether you can swap two proteins 1:1 or need to start over.", date: "2026-07-27" },
+  { name: "The Complete Grilling Guide", url: "/guides/complete-grilling-guide.html", desc: "Every grill zone, temperature, hand-test count, and time on the site in one reference — direct vs indirect heat, charcoal vs gas, and checking temperature without a thermometer.", date: "2026-07-27" },
 ];
 
 

@@ -120,6 +120,7 @@
           <strong>Safe internal temperature:</strong> <span id="safeTemp"></span><br>
           <span style="color:var(--mid); margin-top:0.25rem; display:block;">Always verify with a meat thermometer. Times are estimates and vary by oven/grill.</span>
         </div>
+        <div id="methodWarning" style="display:none; margin-top:0.75rem; padding:0.85rem 1rem; background:#fde8e8; border-left:3px solid var(--tomato); border-radius:6px; font-size:0.85rem; color:var(--ink);"></div>
         <button class="pdf-btn" onclick="printToPDF('result')" style="margin-top:1.25rem; display:flex; align-items:center; gap:0.5rem; background:none; border:1.5px solid var(--tomato); color:var(--tomato-dark); border-radius:8px; padding:0.5rem 1rem; font-size:0.875rem; font-family:'Plus Jakarta Sans',sans-serif; cursor:pointer; font-weight:500; transition:background 0.2s,color 0.2s;" onmouseover="this.style.background='var(--tomato)';this.style.color='#fff'" onmouseout="this.style.background='none';this.style.color='var(--tomato-dark)'">⬇ Save as PDF</button>
       </div>
     </div>
@@ -129,6 +130,8 @@
       <ul style="list-style:none; display:flex; flex-direction:column; gap:0.5rem;">
         <li><a href="/guides/complete-meat-cooking-temperature-guide.html" style="color:var(--tomato-dark); font-weight:500;">→ The Complete Meat Cooking & Temperature Guide</a></li>
         <li><a href="/guides/complete-protein-comparison-guide.html" style="color:var(--tomato-dark); font-weight:500;">→ The Complete Protein Comparison & Swap Guide</a></li>
+        <li><a href="/tools/grill-temperature-calculator.html" style="color:var(--tomato-dark); font-weight:500;">→ Grill Temperature & Time Calculator</a></li>
+        <li><a href="/guides/complete-grilling-guide.html" style="color:var(--tomato-dark); font-weight:500;">→ The Complete Grilling Guide</a></li>
         <li><a href="/tools/meat-temperature-guide.html" style="color:var(--tomato-dark); font-weight:500;">→ Meat Temperature Guide</a></li>
         <li><a href="/blog/how-long-to-cook-chicken-breast.html" style="color:var(--tomato-dark); font-weight:500;">→ How Long to Cook Chicken Breast at Every Temperature</a></li>
         <li><a href="/blog/meat-internal-temperature-guide.html" style="color:var(--tomato-dark); font-weight:500;">→ Safe Internal Meat Temperatures Guide</a></li>
@@ -142,6 +145,9 @@
       <h2>How to Use This Calculator</h2>
       <p>Select the type of meat, choose the cut, enter the weight, and select your cooking method. The calculator returns an estimated cooking time and the safe internal temperature to verify with a thermometer.</p>
       <p>Times are based on starting from room temperature. Cold meat straight from the fridge will take longer — add 10–15 minutes per pound for very cold cuts.</p>
+
+      <h2>Why the Cooking Method Changes the Time</h2>
+      <p>The base times above assume conventional oven roasting. Grilling runs hotter than most ovens, so direct-heat grilling typically finishes about 10-15% faster than the same cut in the oven — this calculator adjusts for that automatically when you select Grill/BBQ. Pan/stovetop cooking applies direct, concentrated heat to both sides, which is faster still, but only makes sense for thinner cuts (steaks, chops, patties, fillets) — a whole roast, brisket, or leg of lamb isn't practical to pan-cook, and the calculator will flag that if you select a large cut with the Pan/Stovetop method.</p>
 
       <h2>Why You Still Need a Thermometer</h2>
       <p>Cooking times are estimates. Actual time varies based on your oven's accuracy, the shape of the cut, whether it was at room temperature, and how full your oven is. The only reliable way to know meat is safe is to check the internal temperature with an instant-read thermometer. Times give you a starting point; temperature tells you when it's done.</p>
@@ -258,15 +264,32 @@ function updateCuts() {
 function calculate() {
   const weightInput = parseFloat(document.getElementById('weight').value);
   const unit = document.getElementById('weightUnit').value;
-  const cutVal = document.getElementById('cut').value;
+  const cutSel = document.getElementById('cut');
+  const cutVal = cutSel.value;
   if (!cutVal || !weightInput) return;
 
   const [minsPerLb, safeF] = cutVal.split('|');
   const weightLb = unit === 'kg' ? weightInput * 2.205 : weightInput;
-  const totalMins = Math.round(weightLb * parseFloat(minsPerLb));
+  const method = document.getElementById('method').value;
+  const methodMultiplier = { oven: 1.0, grill: 0.88, pan: 0.7 };
+  const mult = methodMultiplier[method] || 1.0;
+  const totalMins = Math.round(weightLb * parseFloat(minsPerLb) * mult);
   const hrs = Math.floor(totalMins / 60);
   const mins = totalMins % 60;
   const timeStr = hrs > 0 ? `${hrs}h ${mins}m` : `${mins} min`;
+
+  const cutName = cutSel.selectedOptions[0] ? cutSel.selectedOptions[0].text : '';
+  const isWholeRoast = /whole|brisket|shoulder|leg of|ham|ribs/i.test(cutName);
+  const warningEl = document.getElementById('methodWarning');
+  if (method === 'pan' && isWholeRoast) {
+    warningEl.textContent = `Pan/stovetop isn't practical for a large cut like "${cutName}" — use Oven or Grill (indirect heat) instead. This estimate assumes you're using the oven/grill method regardless of the selection above.`;
+    warningEl.style.display = 'block';
+  } else if (method === 'grill' && isWholeRoast) {
+    warningEl.textContent = `For a large cut like "${cutName}" on the grill, use indirect heat (food beside the fire, not over it) rather than direct heat, or it will burn outside before the center is done.`;
+    warningEl.style.display = 'block';
+  } else {
+    warningEl.style.display = 'none';
+  }
 
   document.getElementById('timeResult').textContent = timeStr;
   document.getElementById('timeLabel').textContent = `Estimated cooking time for ${weightInput} ${unit}`;

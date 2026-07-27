@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grill Temperature & Time Calculator – CookingCalcs</title>
+  <meta name="description" content="Find the right grill zone, temperature, hand-test count, and time for any food — burgers, steak, chicken, ribs, seafood, and vegetables. Direct vs indirect heat made simple.">
+  <link rel="canonical" href="https://cookingcalcs.com/tools/grill-temperature-calculator.html">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script src="/assets/js/nav.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Grill Temperature & Time Calculator",
+  "url": "https://cookingcalcs.com/tools/grill-temperature-calculator.html",
+  "description": "Find the right grill zone, temperature, hand-test count, and time for any food — burgers, steak, chicken, ribs, seafood, and vegetables.",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "provider": { "@type": "Organization", "name": "CookingCalcs", "url": "https://cookingcalcs.com" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I check my grill's temperature without a built-in thermometer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Hold your palm about 3-4 inches above the grate, over the zone you'll be cooking on, and count how many seconds you can hold it there before it's too hot to keep still. 2-3 seconds means high heat (450°F+), 4-5 seconds is medium-high (400-450°F), 6-7 seconds is medium (350-400°F), 8-10 seconds is medium-low (300-350°F), and 10-12+ seconds is low (250-300°F)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I know whether to use direct or indirect heat?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use direct heat (food right over the flame) for anything that cooks in under 20-25 minutes and is relatively thin — burgers, steaks, chops, fish, shrimp, and most vegetables. Use indirect heat (food beside the flame, not over it) for anything larger or longer-cooking — whole chickens, ribs, roasts, and brisket — so the outside doesn't burn before the center finishes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does a gas grill run at the same temperature as a charcoal grill?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "They can reach similar temperature ranges, but charcoal typically runs hotter at its peak for searing and holds heat more consistently over a long cook, while gas is faster to start and easier to dial to a precise, repeatable temperature. The hand test and target temperatures on this page apply to either type — set up two heat zones (direct and indirect) regardless of which grill you're using."
+      }
+    }
+  ]
+}
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+<style>
+      @media(max-width:420px) { .grill-result-grid { grid-template-columns:1fr !important; } }
+</style>
+</head>
+<body>
+<main>
+  <div class="tool-page">
+    <h1>Grill Temperature & Time Calculator</h1>
+    <p class="tool-desc">Pick what you're grilling to get the heat zone, temperature, hand-test count, and estimated time — for charcoal or gas.</p>
+
+    <div style="padding:1rem 1.25rem; background:var(--tomato-light); border-left:4px solid var(--tomato); border-radius:var(--radius); margin-bottom:2rem; font-size:0.875rem; color:var(--ink);">
+      <strong>For informational purposes only.</strong> These are standard grilling guidelines — always confirm doneness with a meat thermometer, since actual grill output varies by model and weather.
+    </div>
+
+    <div class="tool-box">
+      <div class="form-group">
+        <label for="grillSearch">What are you grilling?</label>
+        <select id="grillSearch" onchange="showGrill()">
+          <option value="">Select a food...</option>
+          <option value="burger">Beef burgers (4oz patty)</option>
+          <option value="steak-thin">Steak, thin (½-¾")</option>
+          <option value="steak-thick">Steak, thick (1-1.5")</option>
+          <option value="chicken-breast">Chicken breast (boneless)</option>
+          <option value="chicken-thighs">Chicken thighs (boneless)</option>
+          <option value="chicken-wings">Chicken wings</option>
+          <option value="whole-chicken">Whole chicken</option>
+          <option value="pork-chops">Pork chops (1")</option>
+          <option value="sausage">Sausage links</option>
+          <option value="salmon">Salmon fillet</option>
+          <option value="shrimp">Shrimp</option>
+          <option value="ribs">Ribs (baby back)</option>
+          <option value="veg-quick">Vegetables, quick-cooking (zucchini, peppers, asparagus)</option>
+          <option value="veg-dense">Vegetables, dense (potatoes, carrots, corn)</option>
+        </select>
+      </div>
+    </div>
+
+    <div id="grillResult" style="display:none; margin-top:1.5rem;">
+      <div class="grill-result-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+        <div class="result-box">
+          <div class="result-num" id="grillZone" style="font-size:1.5rem;"></div>
+          <div class="result-label">Heat Zone</div>
+        </div>
+        <div class="result-box">
+          <div class="result-num" id="grillTemp" style="font-size:1.3rem;"></div>
+          <div class="result-label">Grill Temperature</div>
+        </div>
+      </div>
+      <div style="margin-top:1rem; padding:1rem; background:var(--sand-dark); border-radius:var(--radius); font-size:0.875rem; color:var(--ink);">
+        <strong>Hand test:</strong> <span id="grillHandTest"></span><br>
+        <strong>Estimated time:</strong> <span id="grillTime"></span><br>
+        <strong>Safe internal temp:</strong> <span id="grillSafeF"></span>
+      </div>
+    </div>
+
+    <!-- Reference Chart -->
+    <div class="chart-header-row" style="display:flex; justify-content:space-between; align-items:center; margin:2rem 0 1rem;">
+      <h2>Complete Grill Reference Chart</h2>
+    </div>
+    <table>
+      <thead><tr><th>Food</th><th>Zone</th><th>Temp</th><th>Hand Test</th><th>Time</th><th>Safe Temp</th></tr></thead>
+      <tbody>
+        <tr><td colspan="6" style="font-weight:700; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.08em; background:var(--tomato-light); color:var(--tomato-dark);">Beef</td></tr>
+        <tr><td>Burgers (4oz)</td><td>Direct</td><td>450-500°F</td><td>2-3 sec</td><td>4 min/side</td><td>160°F</td></tr>
+        <tr><td>Steak, thin (½-¾")</td><td>Direct</td><td>450-550°F</td><td>2-3 sec</td><td>3-4 min/side</td><td>145°F+ (by doneness)</td></tr>
+        <tr><td>Steak, thick (1-1.5")</td><td>Direct sear + Indirect finish</td><td>450-550°F sear / 300-350°F finish</td><td>2-3 sec (sear)</td><td>3-5 min/side sear + 5-10 min indirect</td><td>145°F medium-rare</td></tr>
+        <tr><td colspan="6" style="font-weight:700; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.08em; background:var(--sand);">Poultry</td></tr>
+        <tr><td>Chicken breast (boneless)</td><td>Direct</td><td>375-450°F</td><td>4-5 sec</td><td>5-6 min/side</td><td>165°F</td></tr>
+        <tr><td>Chicken thighs (boneless)</td><td>Direct</td><td>375-450°F</td><td>4-5 sec</td><td>4-5 min/side</td><td>165°F</td></tr>
+        <tr><td>Chicken wings</td><td>Direct, then move if needed</td><td>350-400°F</td><td>6-7 sec</td><td>15-20 min, turning</td><td>165°F</td></tr>
+        <tr><td>Whole chicken</td><td>Indirect</td><td>350-375°F</td><td>6-7 sec</td><td>~20 min/lb</td><td>165°F</td></tr>
+        <tr><td colspan="6" style="font-weight:700; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.08em; background:var(--tomato-light); color:var(--tomato-dark);">Pork</td></tr>
+        <tr><td>Pork chops (1")</td><td>Direct</td><td>400-450°F</td><td>3-4 sec</td><td>4-5 min/side</td><td>145°F</td></tr>
+        <tr><td>Sausage links</td><td>Direct</td><td>400-450°F</td><td>3-4 sec</td><td>10-15 min, turning</td><td>160°F (165°F poultry)</td></tr>
+        <tr><td>Ribs (baby back)</td><td>Indirect</td><td>250-300°F</td><td>8-10 sec</td><td>4-6 hrs, low & slow</td><td>190-203°F (fall-off-bone)</td></tr>
+        <tr><td colspan="6" style="font-weight:700; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.08em; background:var(--sand);">Seafood</td></tr>
+        <tr><td>Salmon fillet</td><td>Direct</td><td>375-450°F</td><td>4-5 sec</td><td>4-6 min/side</td><td>145°F</td></tr>
+        <tr><td>Shrimp</td><td>Direct</td><td>450-500°F</td><td>2-3 sec</td><td>2-3 min total</td><td>Opaque, pink</td></tr>
+        <tr><td colspan="6" style="font-weight:700; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.08em; background:var(--sand-dark);">Vegetables</td></tr>
+        <tr><td>Quick-cooking (zucchini, peppers, asparagus)</td><td>Direct</td><td>375-450°F</td><td>4-5 sec</td><td>3-5 min</td><td>Tender-crisp</td></tr>
+        <tr><td>Dense (potatoes, carrots, corn)</td><td>Direct or Indirect</td><td>350-400°F</td><td>6-7 sec</td><td>15-25 min</td><td>Fork-tender</td></tr>
+      </tbody>
+    </table>
+
+    <div class="blog-content" style="margin-top:2rem;">
+      <h2>The Hand Test, Explained</h2>
+      <p>Hold your palm about 3-4 inches above the grate, over the zone you're about to cook on, and count how many seconds you can comfortably hold it there before pulling away. Match the count to the chart below:</p>
+      <table>
+        <thead><tr><th>Seconds</th><th>Heat Level</th><th>Approx. Temp</th></tr></thead>
+        <tbody>
+          <tr><td>2-3 sec</td><td>High</td><td>450-550°F+</td></tr>
+          <tr><td>4-5 sec</td><td>Medium-High</td><td>400-450°F</td></tr>
+          <tr><td>6-7 sec</td><td>Medium</td><td>350-400°F</td></tr>
+          <tr><td>8-10 sec</td><td>Medium-Low</td><td>300-350°F</td></tr>
+          <tr><td>10-12+ sec</td><td>Low</td><td>250-300°F</td></tr>
+        </tbody>
+      </table>
+      <p>The hand test is a quick estimate, not a precise reading — a grill thermometer or point-and-shoot infrared thermometer is more accurate, especially for longer cooks like ribs where a few degrees matter over several hours. For a deeper explanation of why direct and indirect zones exist and when to use each, see <a href="/blog/direct-vs-indirect-heat-grilling.html">Direct vs Indirect Heat: When to Use Each</a>.</p>
+
+      <h2>Frequently Asked Questions</h2>
+      <h3>How do I check my grill's temperature without a built-in thermometer?</h3>
+      <p>Hold your palm about 3-4 inches above the grate, over the zone you'll be cooking on, and count how many seconds you can hold it there before it's too hot to keep still. 2-3 seconds means high heat (450°F+), 4-5 seconds is medium-high (400-450°F), 6-7 seconds is medium (350-400°F), 8-10 seconds is medium-low (300-350°F), and 10-12+ seconds is low (250-300°F).</p>
+
+      <h3>How do I know whether to use direct or indirect heat?</h3>
+      <p>Use direct heat (food right over the flame) for anything that cooks in under 20-25 minutes and is relatively thin — burgers, steaks, chops, fish, shrimp, and most vegetables. Use indirect heat (food beside the flame, not over it) for anything larger or longer-cooking — whole chickens, ribs, roasts, and brisket — so the outside doesn't burn before the center finishes.</p>
+
+      <h3>Does a gas grill run at the same temperature as a charcoal grill?</h3>
+      <p>They can reach similar temperature ranges, but charcoal typically runs hotter at its peak for searing and holds heat more consistently over a long cook, while gas is faster to start and easier to dial to a precise, repeatable temperature. The hand test and target temperatures on this page apply to either type — set up two heat zones (direct and indirect) regardless of which grill you're using. See <a href="/blog/charcoal-vs-gas-grill-temperature.html">Charcoal vs Gas Grill: Temperature Differences</a> for the full comparison.</p>
+    </div>
+
+    <div style="margin-top:3rem; padding:1.5rem; background:var(--tomato-light); border-radius:var(--radius-lg);">
+      <h3 style="font-family:'Playfair Display',serif; margin-bottom:0.75rem;">Related Tools & Guides</h3>
+      <ul style="list-style:none; display:flex; flex-direction:column; gap:0.5rem;">
+        <li><a href="/tools/meat-temperature-guide.html" style="color:var(--tomato-dark); font-weight:500;">→ Meat Temperature Guide</a></li>
+        <li><a href="/tools/cooking-time-calculator.html" style="color:var(--tomato-dark); font-weight:500;">→ Cooking Time Calculator</a></li>
+        <li><a href="/blog/direct-vs-indirect-heat-grilling.html" style="color:var(--tomato-dark); font-weight:500;">→ Direct vs Indirect Heat: When to Use Each</a></li>
+        <li><a href="/blog/charcoal-vs-gas-grill-temperature.html" style="color:var(--tomato-dark); font-weight:500;">→ Charcoal vs Gas Grill: Temperature Differences</a></li>
+        <li><a href="/blog/how-to-check-grill-temperature-without-a-thermometer.html" style="color:var(--tomato-dark); font-weight:500;">→ How to Check Grill Temperature Without a Thermometer</a></li>
+        <li><a href="/guides/complete-grilling-guide.html" style="color:var(--tomato-dark); font-weight:500;">→ The Complete Grilling Guide</a></li>
+      </ul>
+    </div>
+  </div>
+</main>
+
+<script>
+const grillData = {
+  'burger': { zone:'Direct', temp:'450-500°F (232-260°C)', hand:'2-3 sec', time:'4 min per side', safe:'160°F (71°C)' },
+  'steak-thin': { zone:'Direct', temp:'450-550°F (232-288°C)', hand:'2-3 sec', time:'3-4 min per side', safe:'145°F+ (63°C+), by doneness' },
+  'steak-thick': { zone:'Direct sear, then Indirect', temp:'450-550°F sear / 300-350°F finish', hand:'2-3 sec (sear zone)', time:'3-5 min/side sear + 5-10 min indirect', safe:'145°F (63°C) medium-rare' },
+  'chicken-breast': { zone:'Direct', temp:'375-450°F (190-232°C)', hand:'4-5 sec', time:'5-6 min per side', safe:'165°F (74°C)' },
+  'chicken-thighs': { zone:'Direct', temp:'375-450°F (190-232°C)', hand:'4-5 sec', time:'4-5 min per side', safe:'165°F (74°C)' },
+  'chicken-wings': { zone:'Direct, then move to indirect if needed', temp:'350-400°F (177-204°C)', hand:'6-7 sec', time:'15-20 min, turning', safe:'165°F (74°C)' },
+  'whole-chicken': { zone:'Indirect', temp:'350-375°F (177-190°C)', hand:'6-7 sec', time:'~20 min per pound', safe:'165°F (74°C)' },
+  'pork-chops': { zone:'Direct', temp:'400-450°F (204-232°C)', hand:'3-4 sec', time:'4-5 min per side', safe:'145°F (63°C)' },
+  'sausage': { zone:'Direct', temp:'400-450°F (204-232°C)', hand:'3-4 sec', time:'10-15 min, turning', safe:'160°F (71°C) pork / 165°F (74°C) poultry' },
+  'salmon': { zone:'Direct', temp:'375-450°F (190-232°C)', hand:'4-5 sec', time:'4-6 min per side', safe:'145°F (63°C)' },
+  'shrimp': { zone:'Direct', temp:'450-500°F (232-260°C)', hand:'2-3 sec', time:'2-3 min total', safe:'Opaque, pink' },
+  'ribs': { zone:'Indirect', temp:'250-300°F (121-149°C)', hand:'8-10 sec', time:'4-6 hours, low and slow', safe:'190-203°F (88-95°C), fall-off-bone' },
+  'veg-quick': { zone:'Direct', temp:'375-450°F (190-232°C)', hand:'4-5 sec', time:'3-5 min', safe:'Tender-crisp' },
+  'veg-dense': { zone:'Direct or Indirect', temp:'350-400°F (177-204°C)', hand:'6-7 sec', time:'15-25 min', safe:'Fork-tender' },
+};
+
+function showGrill() {
+  const val = document.getElementById('grillSearch').value;
+  if (!val) { document.getElementById('grillResult').style.display = 'none'; return; }
+  const g = grillData[val];
+  document.getElementById('grillZone').textContent = g.zone;
+  document.getElementById('grillTemp').textContent = g.temp;
+  document.getElementById('grillHandTest').textContent = g.hand;
+  document.getElementById('grillTime').textContent = g.time;
+  document.getElementById('grillSafeF').textContent = g.safe;
+  document.getElementById('grillResult').style.display = 'block';
+}
+</script>
+</body>
+</html>

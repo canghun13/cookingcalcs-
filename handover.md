@@ -97,6 +97,13 @@ echo "nav.js GUIDES: $(sed -n '/const GUIDES/,/^];/p' assets/js/nav.js | grep -c
   - 두 파일 모두 div 밸런스/JSON-LD 파싱/읽기시간 검산 통과. 개수검증(tools 19/blogs 50/guides 4/sitemap 80, nav.js 전부 일치) 통과. 고아페이지 체크 — 둘 다 기존에 이미 인바운드 다수 확보돼 있어 문제 없음(cost-per-serving 블로그 4곳, meat-temperature-guide 23곳에서 링크됨).
 - **현재 사이트 구조(07-27 최종)**: 툴 19 + 블로그 50 + 가이드 4 = **총 73페이지** (신규 발행 없음, 기존 페이지 2건만 보강).
 
+### 2026-07-27 (2차): PDF 저장 시 2페이지로 넘어가는 버그 수정 — meat-temperature-guide.html
+- 사용자가 `tools/meat-temperature-guide.html`에서 "Save as PDF" 실행 시 내용은 1페이지 분량인데 2페이지로 출력된다고 스크린샷으로 지적.
+- 원인: `@page` 마진을 지정 안 해서 브라우저 기본 여백이 적용된 위에, `#pdf-overlay`의 `padding:2rem` + JS로 주입되는 헤더/결과박스 `margin-bottom:2rem` + 표 셀 패딩(`0.65rem`)이 누적되어 총 높이가 1페이지를 살짝 초과.
+- 수정: `@page { margin: 10mm; }` 명시, overlay `padding` 2rem→0.5rem + `font-size:0.9em`, 헤더/결과박스 margin 축소, 표 셀 패딩을 인쇄 시에만 `0.35rem`으로 축소(`!important`로 인라인 스타일 오버라이드), 차트 헤더줄(`chart-header-row` 클래스 신규 부여)/h2 margin도 인쇄 시 축소. **전부 `@media print` 안에서만 적용되어 평상시 화면 표시엔 영향 없음.**
+- wkhtmltopdf로 동일 구조를 별도 렌더링 테스트한 결과 1페이지로 확인(이 저장소 환경엔 Chrome이 없어 완전히 동일한 렌더러는 아니지만, 마진/패딩을 충분히 줄여 여유 있게 1페이지에 들어가는 것을 확인).
+- **다음 세션 참고**: 이 사이트에서 `printToPDF()` 함수와 동일한 패턴을 쓰는 툴이 5개 더 있음(`cooking-time-calculator.html`, `cost-per-serving.html`, `meal-cost-calculator.html`, `recipe-multiplier.html`, `weekly-meal-prep-cost-calculator.html`) — 이번엔 사용자가 지적한 `meat-temperature-guide.html`만 수정함. 나머지 5개도 같은 여백 누적 문제로 내용에 따라 페이지가 넘어갈 수 있으니, 사용자가 확인 요청하면 동일한 패턴(overlay padding 축소 + `@page` 마진 + 표 셀 패딩 인쇄시 축소)으로 고칠 것.
+
 ### 2026-07-24 (9차): 음료/전통주/지역비교 30개+ 추가 검증 후 확정 6건 전부 실행
 - 사용자가 "음료 쪽은 있냐"고 질문 → 커피/차/칵테일/레몬즙/아몬드밀크/유자차/보이차/막걸리vs소주/고량주vs보드카 등 **9개 각도를 깊게 확인, 전부 포화** — 특히 tea ratio calculator는 회피리스트 멤버(missvickie.com/handychefdom.com/best-calculators.com) 3곳이 동시에 걸릴 정도로 심했음. 음료는 "비율 계산"이 쉬워서 콘텐츠팜이 요리보다 먼저 점유했고, 한식/중식 전통음료는 한류/중화 문화 콘텐츠 붐 때문에 오히려 이미 많이 다뤄진 상태.
 - 사용자가 "지역별 요리 변형"(김치 지역별, 돼지고기 국가별 등) 제안 → 김치 지역별(Korea Herald 등 9개+), 생선회 국가별 안전기준(Sushi-Pedia가 이미 US/일본 비교), 소고기 굽기 용어 프랑스vs영미(Wikipedia에 통째로 비교표 있음) 전부 포화 확인. **유일하게 열린 것: 돼지고기 국가별 안전 조리온도 "규정" 비교**(문화 얘기가 아니라 규제 데이터라서 성격이 다름) — CooksInfo.com 하나만 오래된(2018) 일반 비교글이 있고 돼지고기 전용 국가비교는 없었음.

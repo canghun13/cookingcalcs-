@@ -41,6 +41,7 @@ const TOOLS = [
   { name: "Fresh to Dried Herb Converter", url: "/tools/herb-converter.html" },
   { name: "Kitchen Math Practice Problem Generator", url: "/tools/kitchen-math-generator.html" },
   { name: "Grill Temperature & Time Calculator", url: "/tools/grill-temperature-calculator.html" },
+  { name: "Baking Pan Size Converter", url: "/tools/pan-size-converter.html" },
 ];
 
 const BLOGS = [

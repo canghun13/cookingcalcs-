@@ -22,6 +22,7 @@ CookingCalcs covers unit conversion, recipe scaling, cooking times and temperatu
 - [Fresh to Dried Herb Converter](https://cookingcalcs.com/tools/herb-converter.html): Convert fresh herbs to dried, or dried herbs to fresh, using an accurate herb-specific ratio (not one generic 3:1 rule). Covers basil, rosemary, thyme, oregano, and 9 more.
 - [Kitchen Math Practice Problem Generator](https://cookingcalcs.com/tools/kitchen-math-generator.html): Generate unlimited random unit price, cost per serving, and recipe scaling word problems with step-by-step answers. Free, no sign-up.
 - [Grill Temperature & Time Calculator](https://cookingcalcs.com/tools/grill-temperature-calculator.html): Find the right grill zone, temperature, hand-test count, and time for burgers, steak, chicken, ribs, seafood, and vegetables.
+- [Baking Pan Size Converter](https://cookingcalcs.com/tools/pan-size-converter.html): Convert any baking recipe to a different pan size — exact scaling factor, whether to split into multiple pans, and how bake time changes.
 
 ## Guides
 

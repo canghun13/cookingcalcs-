@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Baking Pan Size Converter – CookingCalcs</title>
+  <meta name="description" content="Convert any baking recipe to a different pan size. Get the exact scaling factor, whether to split into multiple pans, and how bake time changes — for round, square, rectangular, bundt, and loaf pans.">
+  <link rel="canonical" href="https://cookingcalcs.com/tools/pan-size-converter.html">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script src="/assets/js/nav.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Baking Pan Size Converter",
+  "url": "https://cookingcalcs.com/tools/pan-size-converter.html",
+  "description": "Convert any baking recipe to a different pan size. Get the exact scaling factor, whether to split into multiple pans, and how bake time changes.",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "provider": { "@type": "Organization", "name": "CookingCalcs", "url": "https://cookingcalcs.com" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I convert a recipe from one pan size to another?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Divide the new pan's volume by the original pan's volume to get a scaling factor, then multiply every ingredient in the recipe by that number. For example, moving from an 8-inch round pan (6 cups) to a 9x13-inch pan (14 cups) means multiplying every ingredient by about 2.3."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if the new pan is much bigger than what the recipe needs?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "If the scaling factor is above roughly 1.8-2x, consider splitting the batter across two of the original pan size instead of scaling the recipe up — it's often more reliable than guessing at a large recipe multiplication, and you avoid ending up with an unusually thin layer in an oversized pan."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does pan size change the baking time?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. A wider, shallower pan spreads the same amount of batter thinner, so it bakes faster — start checking 10-15 minutes before the original recipe's time. A narrower, deeper pan holds batter thicker, so it takes longer — start checking 10-15 minutes after the original time. Either way, use a toothpick test rather than trusting the clock alone."
+      }
+    }
+  ]
+}
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+<style>
+  @media(max-width:600px) { .pan-form-grid { grid-template-columns:1fr !important; } }
+</style>
+</head>
+<body>
+<main>
+  <div class="tool-page">
+    <h1>Baking Pan Size Converter</h1>
+    <p class="tool-desc">Have a recipe for one pan but want to use another? Get the exact scaling factor and what changes about bake time.</p>
+
+    <div class="tool-box">
+      <div class="pan-form-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+        <div class="form-group">
+          <label for="fromPan">Recipe calls for</label>
+          <select id="fromPan" onchange="calculate()">
+            <option value="round6">6" Round (2" deep) — 4 cups</option>
+            <option value="round8">8" Round (2" deep) — 6 cups</option>
+            <option value="round9" selected>9" Round (2" deep) — 8 cups</option>
+            <option value="round10">10" Round (2" deep) — 11 cups</option>
+            <option value="square8">8" Square — 8 cups</option>
+            <option value="square9">9" Square — 10 cups</option>
+            <option value="rect9x13">9x13" Rectangular — 14 cups</option>
+            <option value="rect11x7">11x7" Rectangular — 8 cups</option>
+            <option value="springform9">9" Springform — 10 cups</option>
+            <option value="bundt10">10" Bundt — 12 cups</option>
+            <option value="loaf9x5">9x5" Loaf — 8 cups</option>
+            <option value="loaf8x4">8x4" Loaf — 6 cups</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="toPan">You want to use</label>
+          <select id="toPan" onchange="calculate()">
+            <option value="round6">6" Round (2" deep) — 4 cups</option>
+            <option value="round8">8" Round (2" deep) — 6 cups</option>
+            <option value="round9">9" Round (2" deep) — 8 cups</option>
+            <option value="round10">10" Round (2" deep) — 11 cups</option>
+            <option value="square8" selected>8" Square — 8 cups</option>
+            <option value="square9">9" Square — 10 cups</option>
+            <option value="rect9x13">9x13" Rectangular — 14 cups</option>
+            <option value="rect11x7">11x7" Rectangular — 8 cups</option>
+            <option value="springform9">9" Springform — 10 cups</option>
+            <option value="bundt10">10" Bundt — 12 cups</option>
+            <option value="loaf9x5">9x5" Loaf — 8 cups</option>
+            <option value="loaf8x4">8x4" Loaf — 6 cups</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div id="result" style="margin-top:1.5rem;">
+      <div class="result-box">
+        <div class="result-num" id="ratioResult"></div>
+        <div class="result-label" id="ratioLabel"></div>
+      </div>
+      <div style="margin-top:1rem; padding:1rem; background:var(--sand-dark); border-radius:var(--radius); font-size:0.875rem; color:var(--ink);" id="ratioNote"></div>
+      <div id="splitWarning" style="display:none; margin-top:0.75rem; padding:0.85rem 1rem; background:#fde8e8; border-left:3px solid var(--tomato); border-radius:6px; font-size:0.85rem; color:var(--ink);"></div>
+    </div>
+
+    <div class="blog-content" style="margin-top:2rem;">
+      <h2>How to Use This</h2>
+      <p>Select the pan your recipe was written for and the pan you actually want to use. The calculator divides the two pans' volumes to give you a single multiplier — apply that number to every ingredient in the recipe, including leavening (baking powder/soda), which scales the same as everything else.</p>
+
+      <h2>Pan Volume Reference</h2>
+      <table>
+        <thead><tr><th>Pan</th><th>Volume</th></tr></thead>
+        <tbody>
+          <tr><td>6" Round (2" deep)</td><td>4 cups</td></tr>
+          <tr><td>8" Round (2" deep)</td><td>6 cups</td></tr>
+          <tr><td>9" Round (2" deep)</td><td>8 cups</td></tr>
+          <tr><td>10" Round (2" deep)</td><td>11 cups</td></tr>
+          <tr><td>8" Square</td><td>8 cups</td></tr>
+          <tr><td>9" Square</td><td>10 cups</td></tr>
+          <tr><td>9x13" Rectangular</td><td>14 cups</td></tr>
+          <tr><td>11x7" Rectangular</td><td>8 cups</td></tr>
+          <tr><td>9" Springform</td><td>10 cups</td></tr>
+          <tr><td>10" Bundt</td><td>12 cups</td></tr>
+          <tr><td>9x5" Loaf</td><td>8 cups</td></tr>
+          <tr><td>8x4" Loaf</td><td>6 cups</td></tr>
+        </tbody>
+      </table>
+      <p>A round pan's volume doesn't scale the way its diameter suggests — area scales with the radius squared, so a 10" round pan (78 sq in) has more than 50% more surface area than an 8" round pan (50 sq in), not 25% more. This is why eyeballing pan swaps by diameter alone is unreliable, and why the volume-based multiplier above is the more accurate approach.</p>
+
+      <h2>Why Bake Time Changes With Pan Shape</h2>
+      <p>Even when two pans hold the exact same volume, they won't necessarily bake in the same time if their shapes differ. A wider, shallower pan spreads the batter thinner, so heat reaches the center faster — start checking 10-15 minutes before the original recipe's stated time. A narrower, deeper pan holds the batter thicker, so the center takes longer to set — start checking 10-15 minutes after the original time. Only fill any pan about ⅔ full regardless of size, and bake any leftover batter as a smaller side portion (muffins or a mini loaf) rather than overfilling.</p>
+
+      <h2>When to Split Into Multiple Pans Instead</h2>
+      <p>If the scaling factor comes out above roughly 1.8-2x, it's often more reliable to bake the recipe twice (or split the batter across two of the original pan) rather than doubling ingredients and guessing at a much longer bake time for an unfamiliar large batch. This is especially true for delicate bakes like sponge cakes, where scaling errors are harder to fix mid-bake than with a denser cake or bar recipe.</p>
+
+      <h2>Frequently Asked Questions</h2>
+      <h3>How do I convert a recipe from one pan size to another?</h3>
+      <p>Divide the new pan's volume by the original pan's volume to get a scaling factor, then multiply every ingredient in the recipe by that number. For example, moving from an 8-inch round pan (6 cups) to a 9x13-inch pan (14 cups) means multiplying every ingredient by about 2.3.</p>
+
+      <h3>What if the new pan is much bigger than what the recipe needs?</h3>
+      <p>If the scaling factor is above roughly 1.8-2x, consider splitting the batter across two of the original pan size instead of scaling the recipe up — it's often more reliable than guessing at a large recipe multiplication, and you avoid ending up with an unusually thin layer in an oversized pan.</p>
+
+      <h3>Does pan size change the baking time?</h3>
+      <p>Yes. A wider, shallower pan spreads the same amount of batter thinner, so it bakes faster — start checking 10-15 minutes before the original recipe's time. A narrower, deeper pan holds batter thicker, so it takes longer — start checking 10-15 minutes after the original time. Either way, use a toothpick test rather than trusting the clock alone.</p>
+    </div>
+
+    <div style="margin-top:3rem; padding:1.5rem; background:var(--tomato-light); border-radius:var(--radius-lg);">
+      <h3 style="font-family:'Playfair Display',serif; margin-bottom:0.75rem;">Related Tools & Guides</h3>
+      <ul style="list-style:none; display:flex; flex-direction:column; gap:0.5rem;">
+        <li><a href="/tools/recipe-multiplier.html" style="color:var(--tomato-dark); font-weight:500;">→ Recipe Multiplier Calculator</a></li>
+        <li><a href="/guides/complete-recipe-scaling-guide.html" style="color:var(--tomato-dark); font-weight:500;">→ The Complete Recipe Scaling & Serving Guide</a></li>
+        <li><a href="/tools/oven-temp-converter.html" style="color:var(--tomato-dark); font-weight:500;">→ Oven Temperature Converter</a></li>
+        <li><a href="/guides/complete-baking-conversion-guide.html" style="color:var(--tomato-dark); font-weight:500;">→ The Complete Baking Measurement & Conversion Guide</a></li>
+      </ul>
+    </div>
+  </div>
+</main>
+
+<script>
+const pans = {
+  round6: { name: '6" Round (2" deep)', cups: 4 },
+  round8: { name: '8" Round (2" deep)', cups: 6 },
+  round9: { name: '9" Round (2" deep)', cups: 8 },
+  round10: { name: '10" Round (2" deep)', cups: 11 },
+  square8: { name: '8" Square', cups: 8 },
+  square9: { name: '9" Square', cups: 10 },
+  rect9x13: { name: '9x13" Rectangular', cups: 14 },
+  rect11x7: { name: '11x7" Rectangular', cups: 8 },
+  springform9: { name: '9" Springform', cups: 10 },
+  bundt10: { name: '10" Bundt', cups: 12 },
+  loaf9x5: { name: '9x5" Loaf', cups: 8 },
+  loaf8x4: { name: '8x4" Loaf', cups: 6 },
+};
+
+function calculate() {
+  const from = pans[document.getElementById('fromPan').value];
+  const to = pans[document.getElementById('toPan').value];
+  if (!from || !to) return;
+  const ratio = to.cups / from.cups;
+  const pct = Math.round((ratio - 1) * 100);
+
+  document.getElementById('ratioResult').textContent = ratio.toFixed(2) + '×';
+  document.getElementById('ratioLabel').textContent = `${from.name} → ${to.name}`;
+
+  let note;
+  if (ratio > 1.05) {
+    note = `Multiply every ingredient by ${ratio.toFixed(2)} (about ${pct}% more of everything, including leavening).`;
+  } else if (ratio < 0.95) {
+    note = `Multiply every ingredient by ${ratio.toFixed(2)} (about ${Math.abs(pct)}% less of everything, including leavening).`;
+  } else {
+    note = `These pans hold nearly the same volume — use the recipe as written. Bake time may still shift slightly if the shapes differ a lot.`;
+  }
+  document.getElementById('ratioNote').textContent = note;
+
+  const warningEl = document.getElementById('splitWarning');
+  if (ratio >= 1.8) {
+    warningEl.textContent = `This is a large jump (${ratio.toFixed(2)}×) — consider baking two batches in the original pan instead of scaling ingredients this far up, especially for delicate cakes.`;
+    warningEl.style.display = 'block';
+  } else {
+    warningEl.style.display = 'none';
+  }
+}
+
+document.addEventListener('DOMContentLoaded', calculate);
+</script>
+</body>
+</html>

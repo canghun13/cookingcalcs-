@@ -102,6 +102,7 @@ const GUIDES = [
   { name: "The Complete Meat Cooking & Temperature Guide", url: "/guides/complete-meat-cooking-temperature-guide.html", desc: "Every safe internal temperature, cook time chart, and doneness troubleshooting tip on the site, organized by protein — with links to the exact calculator or guide behind each number.", date: "2026-07-18" },
   { name: "The Complete Baking Measurement & Conversion Guide", url: "/guides/complete-baking-conversion-guide.html", desc: "Every cups-to-grams table, tablespoon-to-teaspoon chart, oven temperature, egg size, and butter conversion on the site, organized in one reference.", date: "2026-07-18" },
   { name: "The Complete Recipe Scaling & Serving Guide", url: "/guides/complete-recipe-scaling-guide.html", desc: "Everything about scaling a recipe up or down, halving, converting to metric, and figuring out real serving sizes, organized in one reference.", date: "2026-07-18" },
+  { name: "The Complete Protein Comparison & Swap Guide", url: "/guides/complete-protein-comparison-guide.html", desc: "Every protein-vs-protein comparison on the site in one place, plus the one rule that decides whether you can swap two proteins 1:1 or need to start over.", date: "2026-07-27" },
 ];
 
 

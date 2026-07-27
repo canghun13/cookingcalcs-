@@ -28,6 +28,7 @@ CookingCalcs covers unit conversion, recipe scaling, cooking times and temperatu
 - [The Complete Meat Cooking & Temperature Guide](https://cookingcalcs.com/guides/complete-meat-cooking-temperature-guide.html): Every safe internal temperature, cook time chart, and doneness troubleshooting tip on the site, organized by protein, with links to the exact calculator or article behind each number.
 - [The Complete Baking Measurement & Conversion Guide](https://cookingcalcs.com/guides/complete-baking-conversion-guide.html): Every cups-to-grams table, tablespoon-to-teaspoon chart, oven temperature, egg size, and butter conversion on the site, organized in one reference.
 - [The Complete Recipe Scaling & Serving Guide](https://cookingcalcs.com/guides/complete-recipe-scaling-guide.html): Everything about scaling a recipe up or down, halving, converting to metric, and figuring out real serving sizes, organized in one reference.
+- [The Complete Protein Comparison & Swap Guide](https://cookingcalcs.com/guides/complete-protein-comparison-guide.html): Every protein-vs-protein comparison on the site in one place, plus the one rule that decides whether you can swap two proteins 1:1 or need to start over.
 
 ## Blog
 

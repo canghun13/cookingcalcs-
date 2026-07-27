@@ -80,6 +80,15 @@ echo "nav.js GUIDES: $(sed -n '/const GUIDES/,/^];/p' assets/js/nav.js | grep -c
 
 ## 3. 사이트 구조 변경 이력
 
+### 2026-07-27 (4차): Comparisons 클러스터 → 5번째 Guide로 정식 승격
+- 사용자가 "계속 신규 진행할거니까 지금 검토해봐"라고 지시 — 07-27(3차)에서 완성된 Comparisons 클러스터(5건)를 07-24(8차) 합의 기준("4~5개 이상이면 Guide 승격 검토")에 따라 검토 후 바로 승격 실행.
+- 기존 4개 Guide와 겹치지 않게 설계: 단순 링크 모음이 아니라 "두 단백질을 1:1로 바꿔써도 되는지" 판단하는 **마스터 스왑 표** — 5개 비교글을 다시 읽어 각 페어의 (1)안전온도 동일여부 (2)실제 차이점 (3)스왑 가능여부를 종합. 핵심 룰: 안전온도 자체가 다르면(베이컨 145°F vs 소시지 160°F) 스왑 불가·처음부터 재계산 필요, 같으면(나머지 4쌍) 크기/오븐온도 관행만 조정하면 됨.
+- **신규 발행**: `guides/complete-protein-comparison-guide.html`(887단어, 6분). Article+FAQPage(3개) JSON-LD.
+- **07-18(7차) 교훈 반영**: 가이드가 참조하는 페이지 전부(8개 — 비교글 5개 + `meat-temperature-guide.html` + `cooking-time-calculator.html` + 기존 `complete-meat-cooking-temperature-guide.html`)에 빠짐없이 되돌아오는 링크 추가(최소 2개 기준이 아니라 전체 상호링크).
+- 체크리스트 반영: nav.js GUIDES(5)/sitemap(82)/llms.txt. 9개 파일(신규 1 + 링크 추가 8) 전부 div/JSON-LD 검증 통과, 개수정합(guides 5/tools 19/blogs 51/sitemap 82) 통과, 신규 가이드 인바운드 링크 8개 확인.
+- **현재 사이트 구조(07-27 최종)**: 툴 19 + 블로그 51 + 가이드 5 = **총 75페이지**.
+- **다음 세션 참고**: Word Problems 클러스터는 아직 3건(변화 없음) — 4~5건으로 늘어나면 같은 방식으로 6번째 Guide 승격 검토.
+
 ### 2026-07-27 (3차): 신규 발행 — Turkey Breast vs Whole Chicken (Comparisons 클러스터 5번째, 마감)
 - 사용자 지시로 신규 비교 콘텐츠 후보 재탐색. `chicken drumsticks vs thighs`, `bone-in vs boneless chicken`, `pork tenderloin vs pork loin` 3건은 이번 세션 1차에서 이미 대형 푸드미디어 포화로 기각한 상태라 재시도 안 함.
 - **`turkey breast vs whole chicken`(조리시간 비교)**: web_search 결과 "터키 vs 치킨" 일반 비교(맛/영양/가격)나 각 단독 로스팅 가이드는 다수 있지만, 조리시간 중심의 직접 비교 콘텐츠는 없음을 확인 — 진행.

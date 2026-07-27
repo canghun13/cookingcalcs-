@@ -73,11 +73,15 @@
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
 <style>
       @media(max-width:420px) { .temp-result-grid { grid-template-columns:1fr !important; } }
+      @page { margin: 10mm; }
       @media print {
     body > *:not(#pdf-overlay) { display:none !important; }
-    #pdf-overlay { display:block; padding:2rem; box-sizing:border-box; }
+    #pdf-overlay { display:block; padding:0.5rem; box-sizing:border-box; font-size:0.9em; }
     #pdf-overlay .pdf-btn, #pdf-overlay .remove-btn, #pdf-overlay .add-row-btn { display:none !important; }
     #pdf-overlay input { border:none !important; padding:0 !important; background:transparent !important; box-shadow:none !important; }
+    #pdf-overlay table td, #pdf-overlay table th { padding:0.35rem 0.6rem !important; }
+    #pdf-overlay h2 { margin:0.25rem 0 0.5rem !important; font-size:1.05rem !important; }
+    #pdf-overlay .chart-header-row { margin:0 0 0.5rem !important; }
   }
 </style>
 </head>
@@ -126,7 +130,7 @@
 
     <!-- Full Chart -->
     <div class="pdf-print-area" id="chartPrintArea">
-    <div style="display:flex; justify-content:space-between; align-items:center; margin:2rem 0 1rem;">
+    <div class="chart-header-row" style="display:flex; justify-content:space-between; align-items:center; margin:2rem 0 1rem;">
       <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin:0;">Complete Temperature Chart</h2>
       <button class="pdf-btn" onclick="printToPDF('chartPrintArea')" style="display:flex; align-items:center; gap:0.5rem; background:none; border:1.5px solid var(--tomato); color:var(--tomato-dark); border-radius:8px; padding:0.5rem 1rem; font-size:0.875rem; font-family:'Plus Jakarta Sans',sans-serif; cursor:pointer; font-weight:500; transition:background 0.2s,color 0.2s;" onmouseover="this.style.background='var(--tomato)';this.style.color='#fff'" onmouseout="this.style.background='none';this.style.color='var(--tomato-dark)'">⬇ Save as PDF</button>
     </div>
@@ -252,7 +256,7 @@ function printToPDF(areaId) {
   var overlay = document.createElement('div');
   overlay.id = 'pdf-overlay';
   var hdr = document.createElement('div');
-  hdr.style.cssText = "font-family:'Playfair Display',serif;font-size:1.25rem;color:#b91c1c;border-bottom:1.5px solid #b91c1c;padding-bottom:0.75rem;margin-bottom:1.5rem;";
+  hdr.style.cssText = "font-family:'Playfair Display',serif;font-size:1.1rem;color:#b91c1c;border-bottom:1.5px solid #b91c1c;padding-bottom:0.4rem;margin-bottom:0.75rem;";
   hdr.textContent = 'CookingCalcs.com';
   overlay.appendChild(hdr);
 
@@ -261,7 +265,7 @@ function printToPDF(areaId) {
   if (tempResult && tempResult.style.display !== 'none') {
     var tempClone = tempResult.cloneNode(true);
     tempClone.style.display = 'block';
-    tempClone.style.marginBottom = '2rem';
+    tempClone.style.marginBottom = '0.75rem';
     overlay.appendChild(tempClone);
   }
 

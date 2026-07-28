@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Candy & Sugar Stage Temperature Calculator – CookingCalcs</title>
+  <meta name="description" content="Find the exact target temperature for any candy — fudge, caramel, taffy, brittle, and more — plus the cold water test, altitude adjustment, and every sugar stage explained.">
+  <link rel="canonical" href="https://cookingcalcs.com/tools/candy-temperature-calculator.html">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script src="/assets/js/nav.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Candy & Sugar Stage Temperature Calculator",
+  "url": "https://cookingcalcs.com/tools/candy-temperature-calculator.html",
+  "description": "Find the exact target temperature and sugar stage for any candy, plus the cold water test and altitude adjustment.",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "provider": { "@type": "Organization", "name": "CookingCalcs", "url": "https://cookingcalcs.com" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What temperature is the hard crack stage?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "300-310°F (149-154°C). This is a narrow 10-degree window compared to other stages, and the sugar syrup is at nearly 99% concentration by this point — just a few degrees past 310°F and it starts to caramelize and burn rather than staying clear. A candy thermometer that reads accurately at this range matters more here than at any other stage."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I tell candy stages without a thermometer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, with the cold water test: drop a small amount of hot syrup into a bowl of very cold water and see how it behaves. A soft ball flattens when removed from the water; a hard ball holds its shape; a soft crack forms threads that bend before breaking; a hard crack forms threads that snap cleanly. It's a reliable backup, but a thermometer is more precise, especially for the narrow hard crack window."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does altitude affect candy temperatures?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Water boils at a lower temperature at higher altitude, so a sugar syrup reaches the same actual concentration at a lower thermometer reading. Lower your target temperature by about 2°F for every 1,000 feet (305m) of elevation above sea level."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the difference between soft ball and firm ball stage?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Soft ball (234-240°F) forms a ball in cold water that flattens on its own when removed — used for fudge and fondant. Firm ball (244-248°F) holds its shape when removed but flattens if pressed — used for caramels. The 10-degree gap between them reflects a real difference in sugar concentration and final texture."
+      }
+    }
+  ]
+}
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+</head>
+<body>
+<main>
+  <div class="tool-page">
+    <h1>Candy & Sugar Stage Temperature Calculator</h1>
+    <p class="tool-desc">Pick what you're making to get the exact target temperature, sugar stage, and cold water test result.</p>
+
+    <div class="tool-box">
+      <div class="form-group">
+        <label for="candySelect">What are you making?</label>
+        <select id="candySelect" onchange="showCandy()">
+          <option value="">Select a candy...</option>
+          <option value="syrup">Syrup / glaze</option>
+          <option value="frosting">Frosting</option>
+          <option value="fudge">Fudge</option>
+          <option value="fondant">Fondant</option>
+          <option value="penuche">Penuche</option>
+          <option value="caramel-candy">Caramel candy</option>
+          <option value="marshmallow">Marshmallow / nougat</option>
+          <option value="divinity">Divinity</option>
+          <option value="taffy">Taffy</option>
+          <option value="butterscotch">Butterscotch</option>
+          <option value="brittle">Brittle / peanut brittle</option>
+          <option value="lollipop">Lollipop / hard candy</option>
+          <option value="caramel-sauce">Caramel sauce (browned)</option>
+        </select>
+      </div>
+    </div>
+
+    <div id="candyResult" style="display:none; margin-top:1.5rem;">
+      <div class="result-box">
+        <div class="result-num" id="candyTemp"></div>
+        <div class="result-label" id="candyStage"></div>
+      </div>
+      <div style="margin-top:1rem; padding:1rem; background:var(--sand-dark); border-radius:var(--radius); font-size:0.875rem; color:var(--ink);">
+        <strong>Cold water test:</strong> <span id="candyWaterTest"></span>
+      </div>
+    </div>
+
+    <div class="blog-content" style="margin-top:2rem;">
+      <div class="chart-header-row" style="display:flex; justify-content:space-between; align-items:center; margin:1rem 0 1rem;">
+        <h2>Complete Sugar Stage Chart</h2>
+      </div>
+      <table>
+        <thead><tr><th>Stage</th><th>°F</th><th>°C</th><th>Cold Water Test</th><th>Used For</th></tr></thead>
+        <tbody>
+          <tr><td>Thread</td><td>230-234°F</td><td>110-112°C</td><td>Forms a loose 2-inch thread</td><td>Syrups, glazes</td></tr>
+          <tr><td>Soft ball</td><td>234-240°F</td><td>112-116°C</td><td>Soft ball, flattens when removed</td><td>Fudge, fondant</td></tr>
+          <tr><td>Firm ball</td><td>244-248°F</td><td>118-120°C</td><td>Holds shape, flattens if pressed</td><td>Caramel candy</td></tr>
+          <tr><td>Hard ball</td><td>250-266°F</td><td>121-130°C</td><td>Firm ball, holds shape fully</td><td>Marshmallow, nougat, divinity</td></tr>
+          <tr><td>Soft crack</td><td>270-290°F</td><td>132-143°C</td><td>Threads bend before breaking</td><td>Taffy, butterscotch</td></tr>
+          <tr><td>Hard crack</td><td>300-310°F</td><td>149-154°C</td><td>Threads snap cleanly</td><td>Brittle, lollipops</td></tr>
+          <tr><td>Caramel</td><td>320-350°F</td><td>160-177°C</td><td>Turns golden to deep amber</td><td>Caramel sauce</td></tr>
+          <tr><td>Burnt</td><td>350°F+</td><td>177°C+</td><td>Dark, bitter, smells burnt</td><td>Not usable — discard</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Why Temperature Is Really About Water Content</h2>
+      <p>Every candy recipe is fundamentally the same process: boiling a sugar-water mixture until enough water evaporates to reach a target sugar concentration. The temperature you're aiming for is really a proxy for that concentration — at the thread stage, the syrup is only around 80% sugar; by hard crack, it's nearly 99%. The higher the concentration, the harder and more brittle the candy sets once it cools, which is why the same basic ingredients (sugar and water) can become anything from a soft caramel to a glass-like brittle depending purely on how far you cook it.</p>
+
+      <h2>The Cold Water Test</h2>
+      <p>If you don't have a reliable thermometer, drop a small spoonful of the hot syrup into a bowl of very cold water and observe how it behaves once it cools in the water:</p>
+      <table>
+        <thead><tr><th>Stage</th><th>What You'll See</th></tr></thead>
+        <tbody>
+          <tr><td>Soft ball</td><td>Forms a ball that flattens on its own once removed from the water</td></tr>
+          <tr><td>Firm ball</td><td>Forms a ball that holds its shape but flattens when pressed</td></tr>
+          <tr><td>Hard ball</td><td>Forms a ball that holds its shape firmly, resists pressing</td></tr>
+          <tr><td>Soft crack</td><td>Separates into threads that are pliable and bend before breaking</td></tr>
+          <tr><td>Hard crack</td><td>Separates into threads that are brittle and snap cleanly</td></tr>
+        </tbody>
+      </table>
+      <p>The cold water test is a reliable backup, but the gap between stages narrows as temperatures climb — hard crack is only a 10-degree window — so a dedicated candy thermometer clipped to the side of the pot is worth using for anything past the soft ball stage.</p>
+
+      <h2>Altitude Changes Your Target Temperature</h2>
+      <p>Water boils at a lower temperature the higher your elevation, which means a sugar syrup reaches the same actual concentration at a lower thermometer reading than the numbers above assume (those are calibrated for sea level). <strong>Lower every target temperature in this chart by about 2°F for every 1,000 feet (305m) of elevation above sea level.</strong> This is one of the most commonly overlooked adjustments in candy-making — a fudge recipe that consistently turns out grainy or won't set at higher elevations is very often an altitude problem, not a technique problem.</p>
+
+      <h2>Regular Thermometer vs. Candy Thermometer</h2>
+      <p>Most instant-read food thermometers are calibrated for meat and top out somewhere around 200-220°F — well short of the 300°F+ needed for hard crack candy. A dedicated candy thermometer, which clips to the side of the pot and reads well past 300°F, is the right tool for anything beyond the soft ball stage. Below that, an instant-read thermometer works fine.</p>
+
+      <h2>Frequently Asked Questions</h2>
+      <h3>What temperature is the hard crack stage?</h3>
+      <p>300-310°F (149-154°C). This is a narrow 10-degree window compared to other stages, and the sugar syrup is at nearly 99% concentration by this point — just a few degrees past 310°F and it starts to caramelize and burn rather than staying clear. A candy thermometer that reads accurately at this range matters more here than at any other stage.</p>
+
+      <h3>Can I tell candy stages without a thermometer?</h3>
+      <p>Yes, with the cold water test: drop a small amount of hot syrup into a bowl of very cold water and see how it behaves. A soft ball flattens when removed from the water; a hard ball holds its shape; a soft crack forms threads that bend before breaking; a hard crack forms threads that snap cleanly. It's a reliable backup, but a thermometer is more precise, especially for the narrow hard crack window.</p>
+
+      <h3>Does altitude affect candy temperatures?</h3>
+      <p>Yes. Water boils at a lower temperature at higher altitude, so a sugar syrup reaches the same actual concentration at a lower thermometer reading. Lower your target temperature by about 2°F for every 1,000 feet (305m) of elevation above sea level.</p>
+
+      <h3>What's the difference between soft ball and firm ball stage?</h3>
+      <p>Soft ball (234-240°F) forms a ball in cold water that flattens on its own when removed — used for fudge and fondant. Firm ball (244-248°F) holds its shape when removed but flattens if pressed — used for caramels. The 10-degree gap between them reflects a real difference in sugar concentration and final texture.</p>
+    </div>
+
+    <div style="margin-top:3rem; padding:1.5rem; background:var(--tomato-light); border-radius:var(--radius-lg);">
+      <h3 style="font-family:'Playfair Display',serif; margin-bottom:0.75rem;">Related Tools & Guides</h3>
+      <ul style="list-style:none; display:flex; flex-direction:column; gap:0.5rem;">
+        <li><a href="/tools/oven-temp-converter.html" style="color:var(--tomato-dark); font-weight:500;">→ Oven Temperature Converter</a></li>
+        <li><a href="/tools/meat-temperature-guide.html" style="color:var(--tomato-dark); font-weight:500;">→ Meat Temperature Guide</a></li>
+        <li><a href="/guides/complete-baking-conversion-guide.html" style="color:var(--tomato-dark); font-weight:500;">→ The Complete Baking Measurement & Conversion Guide</a></li>
+      </ul>
+    </div>
+  </div>
+</main>
+
+<script>
+const candyData = {
+  syrup: { temp: '230-234°F', stage: 'Thread Stage', water: 'Forms a loose 2-inch thread when dropped from a spoon.' },
+  frosting: { temp: '230-238°F', stage: 'Thread to Soft Ball', water: 'Forms loose threads to a soft ball that flattens when removed.' },
+  fudge: { temp: '234-238°F', stage: 'Soft Ball Stage', water: 'Forms a soft ball that flattens on its own once removed from the water.' },
+  fondant: { temp: '236-238°F', stage: 'Soft Ball Stage', water: 'Forms a soft ball that flattens on its own once removed from the water.' },
+  penuche: { temp: '236-238°F', stage: 'Soft Ball Stage', water: 'Forms a soft ball that flattens on its own once removed from the water.' },
+  'caramel-candy': { temp: '244-250°F', stage: 'Firm to Hard Ball', water: 'Forms a ball that holds its shape but may flatten slightly if pressed.' },
+  marshmallow: { temp: '250-266°F', stage: 'Hard Ball Stage', water: 'Forms a firm ball that holds its shape when removed from the water.' },
+  divinity: { temp: '250-266°F', stage: 'Hard Ball Stage', water: 'Forms a firm ball that holds its shape when removed from the water.' },
+  taffy: { temp: '270-290°F', stage: 'Soft Crack Stage', water: 'Separates into threads that bend slightly before breaking.' },
+  butterscotch: { temp: '270-290°F', stage: 'Soft Crack Stage', water: 'Separates into threads that bend slightly before breaking.' },
+  brittle: { temp: '300-310°F', stage: 'Hard Crack Stage', water: 'Separates into threads that are brittle and snap cleanly.' },
+  lollipop: { temp: '300-310°F', stage: 'Hard Crack Stage', water: 'Separates into threads that are brittle and snap cleanly.' },
+  'caramel-sauce': { temp: '320-350°F', stage: 'Caramel Stage', water: 'No water test — watch color instead; turns golden to deep amber.' },
+};
+
+function showCandy() {
+  const val = document.getElementById('candySelect').value;
+  if (!val) { document.getElementById('candyResult').style.display = 'none'; return; }
+  const c = candyData[val];
+  document.getElementById('candyTemp').textContent = c.temp;
+  document.getElementById('candyStage').textContent = c.stage;
+  document.getElementById('candyWaterTest').textContent = c.water;
+  document.getElementById('candyResult').style.display = 'block';
+}
+</script>
+</body>
+</html>

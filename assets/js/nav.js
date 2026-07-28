@@ -43,6 +43,7 @@ const TOOLS = [
   { name: "Grill Temperature & Time Calculator", url: "/tools/grill-temperature-calculator.html" },
   { name: "Baking Pan Size Converter", url: "/tools/pan-size-converter.html" },
   { name: "Can Size Converter", url: "/tools/can-size-converter.html" },
+  { name: "Candy & Sugar Stage Temperature Calculator", url: "/tools/candy-temperature-calculator.html" },
 ];
 
 const BLOGS = [

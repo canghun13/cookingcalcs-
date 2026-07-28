@@ -42,6 +42,7 @@ const TOOLS = [
   { name: "Kitchen Math Practice Problem Generator", url: "/tools/kitchen-math-generator.html" },
   { name: "Grill Temperature & Time Calculator", url: "/tools/grill-temperature-calculator.html" },
   { name: "Baking Pan Size Converter", url: "/tools/pan-size-converter.html" },
+  { name: "Can Size Converter", url: "/tools/can-size-converter.html" },
 ];
 
 const BLOGS = [
@@ -98,6 +99,8 @@ const BLOGS = [
   { name: "Direct vs Indirect Heat: When to Use Each", url: "/blog/direct-vs-indirect-heat-grilling.html", desc: "Direct heat sears, indirect heat cooks through. Which foods need which zone, how to set up both, and what happens if you use the wrong one.", date: "2026-07-27" },
   { name: "Charcoal vs Gas Grill: Temperature Differences", url: "/blog/charcoal-vs-gas-grill-temperature.html", desc: "Charcoal and gas reach similar temperatures but behave very differently — how fast each heats up, how precisely you can control it, and what to cook on each.", date: "2026-07-27" },
   { name: "How to Check Grill Temperature Without a Thermometer", url: "/blog/how-to-check-grill-temperature-without-a-thermometer.html", desc: "The hand test estimates grate temperature in seconds — how to do it, the full seconds-to-degrees chart, and when to trust it.", date: "2026-07-27" },
+  { name: "Vintage Recipe Measurements Decoded", url: "/blog/vintage-recipe-measurements.html", desc: "What is a gill, a teacup, or 'butter the size of an egg' in modern measurements? Decode every common vintage recipe term.", date: "2026-07-27" },
+  { name: "Vintage & British Ingredient Names Decoded", url: "/blog/vintage-ingredient-names.html", desc: "What is caster sugar, self-raising flour, or saleratus in modern American terms? Decode old and British ingredient names.", date: "2026-07-27" },
   { name: "How Long to Cook Tempeh and Seitan", url: "/blog/how-long-to-cook-tempeh-seitan.html", desc: "Tempeh and seitan cook times for pan-searing, baking, air frying, and steaming — no recipe, just the times and temperatures you need.", date: "2026-07-24" },
 ];
 
@@ -109,6 +112,7 @@ const GUIDES = [
   { name: "The Complete Recipe Scaling & Serving Guide", url: "/guides/complete-recipe-scaling-guide.html", desc: "Everything about scaling a recipe up or down, halving, converting to metric, and figuring out real serving sizes, organized in one reference.", date: "2026-07-18" },
   { name: "The Complete Protein Comparison & Swap Guide", url: "/guides/complete-protein-comparison-guide.html", desc: "Every protein-vs-protein comparison on the site in one place, plus the one rule that decides whether you can swap two proteins 1:1 or need to start over.", date: "2026-07-27" },
   { name: "The Complete Grilling Guide", url: "/guides/complete-grilling-guide.html", desc: "Every grill zone, temperature, hand-test count, and time on the site in one reference — direct vs indirect heat, charcoal vs gas, and checking temperature without a thermometer.", date: "2026-07-27" },
+  { name: "The Complete Vintage Recipe Guide", url: "/guides/complete-vintage-recipe-guide.html", desc: "Decode any old family recipe or vintage cookbook — can sizes, measurement terms, old oven temperatures, and British/vintage ingredient names, all in one reference.", date: "2026-07-27" },
 ];
 
 

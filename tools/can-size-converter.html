@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Can Size Converter (#10, #303, #2½ & More) – CookingCalcs</title>
+  <meta name="description" content="What does a #10 can, #303 can, or #2½ can actually hold in cups? Convert any standard US or metric can size to cups, ounces, and milliliters instantly.">
+  <link rel="canonical" href="https://cookingcalcs.com/tools/can-size-converter.html">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script src="/assets/js/nav.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Can Size Converter",
+  "url": "https://cookingcalcs.com/tools/can-size-converter.html",
+  "description": "Convert any standard US or metric can size to cups, ounces, and milliliters instantly.",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "provider": { "@type": "Organization", "name": "CookingCalcs", "url": "https://cookingcalcs.com" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How many cups are in a #10 can?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A #10 can holds about 12-13 cups (roughly 6.5-7 lbs / 109-117 oz of product). It's the large institutional size used by restaurants and food banks, not typically sold at grocery stores — if a recipe calls for one and you only have grocery-size cans, you'll need about six #303 (16 oz) cans to match it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the difference between a #303 can and a #2 can?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A #303 can holds about 2 cups (16-17 oz) and is the standard size for most canned vegetables and beans on grocery shelves. A #2 can is larger, holding about 2.5 cups (20 oz) — it's less common today but still shows up for pineapple and some juices."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do old recipes reference can sizes like #2½ instead of ounces?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The numbered can-size system dates to the early 1900s US canning industry and was standard on recipe cards and cookbooks through the mid-20th century. Modern cans are usually labeled in ounces instead, so a recipe written decades ago often needs converting — a #2½ can (28-29 oz, about 3.5 cups) was the standard size for canned tomatoes and fruit."
+      }
+    }
+  ]
+}
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+</head>
+<body>
+<main>
+  <div class="tool-page">
+    <h1>Can Size Converter</h1>
+    <p class="tool-desc">Old recipe calls for a "#303 can" or "#2½ can"? Look up any standard can size in cups, ounces, and milliliters.</p>
+
+    <div class="tool-box">
+      <div class="form-group">
+        <label for="canSelect">Select a can size</label>
+        <select id="canSelect" onchange="showCan()">
+          <option value="">Select a can size...</option>
+          <option value="c1">#1 / Picnic (10.5-12 oz)</option>
+          <option value="c1tall">#1 Tall (16 oz)</option>
+          <option value="c300">#300 (14-16 oz)</option>
+          <option value="c303">#303 (16-17 oz) — most common</option>
+          <option value="c2">#2 (20 oz)</option>
+          <option value="c2half">#2½ (28-29 oz)</option>
+          <option value="c3cyl">#3 Cylinder (46 oz)</option>
+          <option value="c10">#10 (6 lb 10 oz - 7 lb 5 oz)</option>
+          <option value="eu400">EU 400g can</option>
+          <option value="eu800">EU 800g can</option>
+        </select>
+      </div>
+    </div>
+
+    <div id="canResult" style="display:none; margin-top:1.5rem;">
+      <div class="result-box">
+        <div class="result-num" id="canCups"></div>
+        <div class="result-label">Cups</div>
+      </div>
+      <div style="margin-top:1rem; padding:1rem; background:var(--sand-dark); border-radius:var(--radius); font-size:0.875rem; color:var(--ink);">
+        <strong>Fluid ounces:</strong> <span id="canOz"></span><br>
+        <strong>Metric:</strong> <span id="canMl"></span><br>
+        <strong>Common uses:</strong> <span id="canUse"></span>
+      </div>
+    </div>
+
+    <div class="chart-header-row" style="display:flex; justify-content:space-between; align-items:center; margin:2rem 0 1rem;">
+      <h2>Complete Can Size Chart</h2>
+    </div>
+    <table>
+      <thead><tr><th>Can Size</th><th>Weight/Volume</th><th>Cups</th><th>Metric</th><th>Common Uses</th></tr></thead>
+      <tbody>
+        <tr><td>#1 / Picnic</td><td>10.5-12 oz</td><td>1¼ cups</td><td>~300 ml</td><td>Small vegetables, soup</td></tr>
+        <tr><td>#1 Tall</td><td>16 oz</td><td>2 cups</td><td>~473 ml</td><td>Salmon, some vegetables</td></tr>
+        <tr><td>#300</td><td>14-16 oz</td><td>1¾ cups</td><td>~415 ml</td><td>Pork and beans, cranberry sauce</td></tr>
+        <tr><td>#303</td><td>16-17 oz</td><td>2 cups</td><td>~473 ml</td><td>Most common — beans, corn, peas</td></tr>
+        <tr><td>#2</td><td>20 oz</td><td>2½ cups</td><td>~591 ml</td><td>Pineapple, some juices</td></tr>
+        <tr><td>#2½</td><td>28-29 oz</td><td>3½ cups</td><td>~822 ml</td><td>Tomatoes, fruit (older recipes)</td></tr>
+        <tr><td>#3 Cylinder</td><td>46 oz</td><td>5¾ cups</td><td>~1.36 L</td><td>Vegetable and fruit juices</td></tr>
+        <tr><td>#10</td><td>6 lb 10 oz - 7 lb 5 oz</td><td>12-13 cups</td><td>~2.84-3.07 L</td><td>Institutional/restaurant size</td></tr>
+        <tr><td>EU 400g can</td><td>400g</td><td>~1.7 cups</td><td>400 ml</td><td>Standard EU tomatoes, beans</td></tr>
+        <tr><td>EU 800g can</td><td>800g</td><td>~3.4 cups</td><td>800 ml</td><td>Standard EU large tomatoes</td></tr>
+      </tbody>
+    </table>
+
+    <div class="blog-content" style="margin-top:2rem;">
+      <h2>Why Can Sizes Use Numbers Instead of Ounces</h2>
+      <p>The numbered can-size system (#1, #303, #10, and so on) dates back to the early 1900s US canning industry, when can dimensions — not fluid volume — determined the number. It became the standard reference on recipe cards and cookbooks through the mid-20th century, which is why a lot of older recipes still say "one #2½ can of tomatoes" instead of a weight or cup measurement. Modern grocery cans are labeled in ounces, so converting an old recipe means matching the can number to its actual volume.</p>
+
+      <h2>What to Buy If You Don't Have the Exact Can</h2>
+      <p>Grocery stores mostly stock #303 (16 oz) and #2½ (28-29 oz) cans today — the other sizes are either historical, restaurant/institutional-only (#10), or region-specific. If a recipe calls for a size you can't find, use the chart above to match cups rather than guessing: two #303 cans (4 cups total) is close to one #2 can plus a bit extra, and roughly six #303 cans approximate one restaurant-size #10 can.</p>
+
+      <h2>Frequently Asked Questions</h2>
+      <h3>How many cups are in a #10 can?</h3>
+      <p>A #10 can holds about 12-13 cups (roughly 6.5-7 lbs / 109-117 oz of product). It's the large institutional size used by restaurants and food banks, not typically sold at grocery stores — if a recipe calls for one and you only have grocery-size cans, you'll need about six #303 (16 oz) cans to match it.</p>
+
+      <h3>What's the difference between a #303 can and a #2 can?</h3>
+      <p>A #303 can holds about 2 cups (16-17 oz) and is the standard size for most canned vegetables and beans on grocery shelves. A #2 can is larger, holding about 2.5 cups (20 oz) — it's less common today but still shows up for pineapple and some juices.</p>
+
+      <h3>Why do old recipes reference can sizes like #2½ instead of ounces?</h3>
+      <p>The numbered can-size system dates to the early 1900s US canning industry and was standard on recipe cards and cookbooks through the mid-20th century. Modern cans are usually labeled in ounces instead, so a recipe written decades ago often needs converting — a #2½ can (28-29 oz, about 3.5 cups) was the standard size for canned tomatoes and fruit.</p>
+    </div>
+
+    <div style="margin-top:3rem; padding:1.5rem; background:var(--tomato-light); border-radius:var(--radius-lg);">
+      <h3 style="font-family:'Playfair Display',serif; margin-bottom:0.75rem;">Related Tools & Guides</h3>
+      <ul style="list-style:none; display:flex; flex-direction:column; gap:0.5rem;">
+        <li><a href="/blog/vintage-recipe-measurements.html" style="color:var(--tomato-dark); font-weight:500;">→ Vintage Recipe Measurements Decoded</a></li>
+        <li><a href="/tools/liquid-converter.html" style="color:var(--tomato-dark); font-weight:500;">→ Liquid Measurement Converter</a></li>
+        <li><a href="/tools/weight-converter.html" style="color:var(--tomato-dark); font-weight:500;">→ Weight Converter</a></li>
+        <li><a href="/tools/recipe-multiplier.html" style="color:var(--tomato-dark); font-weight:500;">→ Recipe Multiplier Calculator</a></li>
+        <li><a href="/guides/complete-vintage-recipe-guide.html" style="color:var(--tomato-dark); font-weight:500;">→ The Complete Vintage Recipe Guide</a></li>
+      </ul>
+    </div>
+  </div>
+</main>
+
+<script>
+const canData = {
+  c1: { cups: '1¼ cups', oz: '10.5-12 fl oz', ml: '~300 ml', use: 'Small vegetables, soup' },
+  c1tall: { cups: '2 cups', oz: '16 fl oz', ml: '~473 ml', use: 'Salmon, some vegetables' },
+  c300: { cups: '1¾ cups', oz: '14-16 fl oz', ml: '~415 ml', use: 'Pork and beans, cranberry sauce' },
+  c303: { cups: '2 cups', oz: '16-17 fl oz', ml: '~473 ml', use: 'Most common size — beans, corn, peas' },
+  c2: { cups: '2½ cups', oz: '20 fl oz', ml: '~591 ml', use: 'Pineapple, some juices' },
+  c2half: { cups: '3½ cups', oz: '28-29 fl oz', ml: '~822 ml', use: 'Tomatoes, fruit (older recipes)' },
+  c3cyl: { cups: '5¾ cups', oz: '46 fl oz', ml: '~1.36 L', use: 'Vegetable and fruit juices' },
+  c10: { cups: '12-13 cups', oz: '~104-117 fl oz', ml: '~2.84-3.07 L', use: 'Institutional/restaurant size' },
+  eu400: { cups: '~1.7 cups', oz: '~13.5 fl oz', ml: '400 ml', use: 'Standard EU tomatoes, beans' },
+  eu800: { cups: '~3.4 cups', oz: '~27 fl oz', ml: '800 ml', use: 'Standard EU large tomatoes' },
+};
+
+function showCan() {
+  const val = document.getElementById('canSelect').value;
+  if (!val) { document.getElementById('canResult').style.display = 'none'; return; }
+  const c = canData[val];
+  document.getElementById('canCups').textContent = c.cups;
+  document.getElementById('canOz').textContent = c.oz;
+  document.getElementById('canMl').textContent = c.ml;
+  document.getElementById('canUse').textContent = c.use;
+  document.getElementById('canResult').style.display = 'block';
+}
+</script>
+</body>
+</html>

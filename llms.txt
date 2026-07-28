@@ -23,6 +23,7 @@ CookingCalcs covers unit conversion, recipe scaling, cooking times and temperatu
 - [Kitchen Math Practice Problem Generator](https://cookingcalcs.com/tools/kitchen-math-generator.html): Generate unlimited random unit price, cost per serving, and recipe scaling word problems with step-by-step answers. Free, no sign-up.
 - [Grill Temperature & Time Calculator](https://cookingcalcs.com/tools/grill-temperature-calculator.html): Find the right grill zone, temperature, hand-test count, and time for burgers, steak, chicken, ribs, seafood, and vegetables.
 - [Baking Pan Size Converter](https://cookingcalcs.com/tools/pan-size-converter.html): Convert any baking recipe to a different pan size — exact scaling factor, whether to split into multiple pans, and how bake time changes.
+- [Can Size Converter](https://cookingcalcs.com/tools/can-size-converter.html): What does a #10 can, #303 can, or #2½ can actually hold? Convert any standard US or metric can size to cups, ounces, and milliliters.
 
 ## Guides
 
@@ -32,6 +33,7 @@ CookingCalcs covers unit conversion, recipe scaling, cooking times and temperatu
 - [The Complete Recipe Scaling & Serving Guide](https://cookingcalcs.com/guides/complete-recipe-scaling-guide.html): Everything about scaling a recipe up or down, halving, converting to metric, and figuring out real serving sizes, organized in one reference.
 - [The Complete Protein Comparison & Swap Guide](https://cookingcalcs.com/guides/complete-protein-comparison-guide.html): Every protein-vs-protein comparison on the site in one place, plus the one rule that decides whether you can swap two proteins 1:1 or need to start over.
 - [The Complete Grilling Guide](https://cookingcalcs.com/guides/complete-grilling-guide.html): Every grill zone, temperature, hand-test count, and time in one reference, plus direct vs indirect heat, charcoal vs gas, and checking temperature without a thermometer.
+- [The Complete Vintage Recipe Guide](https://cookingcalcs.com/guides/complete-vintage-recipe-guide.html): Decode any old family recipe or vintage cookbook — can sizes, measurement terms, old oven temperatures, and British/vintage ingredient names.
 
 ## Blog
 
@@ -92,4 +94,6 @@ CookingCalcs covers unit conversion, recipe scaling, cooking times and temperatu
 - [Direct vs Indirect Heat: When to Use Each](https://cookingcalcs.com/blog/direct-vs-indirect-heat-grilling.html): Direct heat sears, indirect heat cooks through. Which foods need which zone, how to set up both, and what happens if you use the wrong one.
 - [Charcoal vs Gas Grill: Temperature Differences](https://cookingcalcs.com/blog/charcoal-vs-gas-grill-temperature.html): Charcoal and gas reach similar temperatures but behave very differently in practice, from preheat time to precision control.
 - [How to Check Grill Temperature Without a Thermometer](https://cookingcalcs.com/blog/how-to-check-grill-temperature-without-a-thermometer.html): The hand test estimates grate temperature in seconds. How to do it, the full seconds-to-degrees chart, and when to trust it.
+- [Vintage Recipe Measurements Decoded](https://cookingcalcs.com/blog/vintage-recipe-measurements.html): What is a gill, a teacup, or 'butter the size of an egg' in modern measurements? Decode every common vintage recipe term.
+- [Vintage & British Ingredient Names Decoded](https://cookingcalcs.com/blog/vintage-ingredient-names.html): What is caster sugar, self-raising flour, or saleratus in modern American terms? Decode old and British ingredient names.
 - [How Long to Cook Tempeh and Seitan](https://cookingcalcs.com/blog/how-long-to-cook-tempeh-seitan.html): Tempeh and seitan cook times for pan-searing, baking, air frying, and steaming — no recipe, just the times and temperatures you need.

@@ -104,6 +104,7 @@ const BLOGS = [
   { name: "How Long to Cook Brisket", url: "/blog/how-long-to-cook-brisket.html", desc: "Exact brisket cook times by weight and oven temperature, why it needs a much higher internal temp than other beef, and how to tell when it's done.", date: "2026-07-27" },
   { name: "Measurement Conversion Word Problems", url: "/blog/measurement-conversion-word-problems.html", desc: "Step-by-step measurement conversion word problems for cooking — cups to tablespoons, grams to cups, milliliters to cups, and more.", date: "2026-07-27" },
   { name: "How Long to Cook Ribs", url: "/blog/how-long-to-cook-ribs.html", desc: "Cook times for baby back, spare, St. Louis, and country-style ribs by oven temperature, plus why ribs need 190-203°F internal.", date: "2026-07-27" },
+  { name: "How Long to Cook Chicken Wings", url: "/blog/how-long-to-cook-chicken-wings.html", desc: "Wing cook times at 350, 400, 425, and 450°F, why wings are better above 165°F, and the baking powder trick for crisp skin.", date: "2026-07-27" },
   { name: "How Long to Cook Tempeh and Seitan", url: "/blog/how-long-to-cook-tempeh-seitan.html", desc: "Tempeh and seitan cook times for pan-searing, baking, air frying, and steaming — no recipe, just the times and temperatures you need.", date: "2026-07-24" },
 ];
 

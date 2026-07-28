@@ -60,7 +60,17 @@
       .ref-table { width:100%; border-collapse:collapse; font-size:0.875rem; background:#fff; }
       .ref-table th { background:var(--sand-dark); padding:0.7rem 0.9rem; text-align:left; font-weight:600; border:1px solid var(--border); }
       .ref-table td { padding:0.7rem 0.9rem; border:1px solid var(--border); vertical-align:top; }
-      .ref-table tbody tr:nth-child(even) td { background:#fbfaf8; }
+      .ref-table .cat-row td {
+        background:var(--tomato-light);
+        color:var(--tomato-dark);
+        font-weight:700;
+        font-size:0.72rem;
+        text-transform:uppercase;
+        letter-spacing:0.1em;
+        padding:0.5rem 0.9rem;
+        border-top:2px solid var(--tomato);
+        border-bottom:1px solid var(--tomato);
+      }
 </style>
 </head>
 <body>
@@ -121,23 +131,23 @@
     <table class="ref-table">
       <thead><tr><th>Food</th><th>Zone</th><th>Temp</th><th>Hand Test</th><th>Time</th><th>Safe Temp</th></tr></thead>
       <tbody>
-        <tr><td colspan="6" style="font-weight:700; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.08em; background:var(--tomato-light); color:var(--tomato-dark);">Beef</td></tr>
+        <tr class="cat-row"><td colspan="6">Beef</td></tr>
         <tr><td>Burgers (4oz)</td><td>Direct</td><td>450-500°F</td><td>2-3 sec</td><td>4 min/side</td><td>160°F</td></tr>
         <tr><td>Steak, thin (½-¾")</td><td>Direct</td><td>450-550°F</td><td>2-3 sec</td><td>3-4 min/side</td><td>145°F+ (by doneness)</td></tr>
         <tr><td>Steak, thick (1-1.5")</td><td>Direct sear + Indirect finish</td><td>450-550°F sear / 300-350°F finish</td><td>2-3 sec (sear)</td><td>3-5 min/side sear + 5-10 min indirect</td><td>145°F medium-rare</td></tr>
-        <tr><td colspan="6" style="font-weight:700; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.08em; background:var(--sand);">Poultry</td></tr>
+        <tr class="cat-row"><td colspan="6">Poultry</td></tr>
         <tr><td>Chicken breast (boneless)</td><td>Direct</td><td>375-450°F</td><td>4-5 sec</td><td>5-6 min/side</td><td>165°F</td></tr>
         <tr><td>Chicken thighs (boneless)</td><td>Direct</td><td>375-450°F</td><td>4-5 sec</td><td>4-5 min/side</td><td>165°F</td></tr>
         <tr><td>Chicken wings</td><td>Direct, then move if needed</td><td>350-400°F</td><td>6-7 sec</td><td>15-20 min, turning</td><td>165°F</td></tr>
         <tr><td>Whole chicken</td><td>Indirect</td><td>350-375°F</td><td>6-7 sec</td><td>~20 min/lb</td><td>165°F</td></tr>
-        <tr><td colspan="6" style="font-weight:700; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.08em; background:var(--tomato-light); color:var(--tomato-dark);">Pork</td></tr>
+        <tr class="cat-row"><td colspan="6">Pork</td></tr>
         <tr><td>Pork chops (1")</td><td>Direct</td><td>400-450°F</td><td>3-4 sec</td><td>4-5 min/side</td><td>145°F</td></tr>
         <tr><td>Sausage links</td><td>Direct</td><td>400-450°F</td><td>3-4 sec</td><td>10-15 min, turning</td><td>160°F (165°F poultry)</td></tr>
         <tr><td>Ribs (baby back)</td><td>Indirect</td><td>250-300°F</td><td>8-10 sec</td><td>4-6 hrs, low & slow</td><td>190-203°F (fall-off-bone)</td></tr>
-        <tr><td colspan="6" style="font-weight:700; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.08em; background:var(--sand);">Seafood</td></tr>
+        <tr class="cat-row"><td colspan="6">Seafood</td></tr>
         <tr><td>Salmon fillet</td><td>Direct</td><td>375-450°F</td><td>4-5 sec</td><td>4-6 min/side</td><td>145°F</td></tr>
         <tr><td>Shrimp</td><td>Direct</td><td>450-500°F</td><td>2-3 sec</td><td>2-3 min total</td><td>Opaque, pink</td></tr>
-        <tr><td colspan="6" style="font-weight:700; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.08em; background:var(--sand-dark);">Vegetables</td></tr>
+        <tr class="cat-row"><td colspan="6">Vegetables</td></tr>
         <tr><td>Quick-cooking (zucchini, peppers, asparagus)</td><td>Direct</td><td>375-450°F</td><td>4-5 sec</td><td>3-5 min</td><td>Tender-crisp</td></tr>
         <tr><td>Dense (potatoes, carrots, corn)</td><td>Direct or Indirect</td><td>350-400°F</td><td>6-7 sec</td><td>15-25 min</td><td>Fork-tender</td></tr>
       </tbody>

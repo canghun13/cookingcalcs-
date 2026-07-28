@@ -103,6 +103,7 @@ const BLOGS = [
   { name: "Vintage & British Ingredient Names Decoded", url: "/blog/vintage-ingredient-names.html", desc: "What is caster sugar, self-raising flour, or saleratus in modern American terms? Decode old and British ingredient names.", date: "2026-07-27" },
   { name: "How Long to Cook Brisket", url: "/blog/how-long-to-cook-brisket.html", desc: "Exact brisket cook times by weight and oven temperature, why it needs a much higher internal temp than other beef, and how to tell when it's done.", date: "2026-07-27" },
   { name: "Measurement Conversion Word Problems", url: "/blog/measurement-conversion-word-problems.html", desc: "Step-by-step measurement conversion word problems for cooking — cups to tablespoons, grams to cups, milliliters to cups, and more.", date: "2026-07-27" },
+  { name: "How Long to Cook Ribs", url: "/blog/how-long-to-cook-ribs.html", desc: "Cook times for baby back, spare, St. Louis, and country-style ribs by oven temperature, plus why ribs need 190-203°F internal.", date: "2026-07-27" },
   { name: "How Long to Cook Tempeh and Seitan", url: "/blog/how-long-to-cook-tempeh-seitan.html", desc: "Tempeh and seitan cook times for pan-searing, baking, air frying, and steaming — no recipe, just the times and temperatures you need.", date: "2026-07-24" },
 ];
 

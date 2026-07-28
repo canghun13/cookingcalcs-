@@ -80,6 +80,16 @@ echo "nav.js GUIDES: $(sed -n '/const GUIDES/,/^];/p' assets/js/nav.js | grep -c
 
 ## 3. 사이트 구조 변경 이력
 
+### 2026-07-27 (12차): 미트볼 신규 발행, 로스트비프 기각
+- **로스트비프 검증 후 기각**: web_search 결과 Certified Angus Beef(certifiedangusbeef.com/en/cooking/timetables), RecipeTips.com(recipetips.com/kitchen-tips/t--1542/roast-beef-cook-time.asp)이 이미 부위별·중량별 조리시간 차트를 보유 — 우리의 '레퍼런스 차트' 차별화 각도가 선점된 상태. 9번 섹션 회피 리스트에 추가할 것.
+- **미트볼 판단**: `how-long-to-cook-ground-beef.html`의 기존 미트볼 커버리지는 표 2행+문장 일부(~40단어)뿐이었음. 신규 스펙(크기×온도 12칸 교차표, 160/165°F 온도 혼선 정리, 오븐/팬/소스 비교, 냉동 처리, 퍽퍽함 원인, FAQ 4개)이 기존 대비 20배 이상 깊어져 **신규 페이지 발행**으로 진행(단순 확장 아님).
+- `blog/how-long-to-cook-meatballs.html`(895단어, 6분) 신규 발행. **차별화 핵심**: 미트볼 안전온도가 사이트마다 160°F 또는 165°F로 갈려서 서로 충돌하는 것처럼 보이는 문제를 "고기 종류 차이일 뿐"이라고 정면으로 정리(소/돼지/혼합=160°F, 칠면조/닭=165°F). 경쟁 레시피 블로그들은 이 혼선 자체를 다루지 않음.
+- `how-long-to-cook-ground-beef.html`의 기존 미트볼 표는 1인치 항목만 남기고 간략화, 신규 페이지로 링크. 두 페이지 간 수치 불일치 방지를 위해 시간 값(15-18분)을 신규 페이지 기준으로 통일.
+- 체크리스트: nav.js(blogs 62)/sitemap(98)/llms.txt, 상호링크 3곳(`ground-beef`, `complete-meat-cooking-temperature-guide`, `chicken-wings`).
+- 검증: div/JSON-LD/sitemap/개수정합/읽기시간(145wpm)/표스타일(unstyled 0)/인바운드(3개) 전부 통과.
+- **현재 사이트 구조**: 툴 22 + 블로그 62 + 가이드 7 = **총 91페이지**.
+- **다음 세션 남은 빈칸 후보**(미검증): 돼지 안심(pork tenderloin — 단 07-27 1차에 "pork tenderloin vs pork loin" 비교 각도는 이미 기각된 바 있음, 조리시간 단독 페이지는 별개로 재검증 필요), 관자/흰살생선 필렛. **how-long-to-cook 클러스터가 이제 12건(브리스킷/립스/윙/드럼스틱/미트볼 포함)까지 늘어나 별도 Guide 승격 검토 대상** — 단 `complete-meat-cooking-temperature-guide.html`가 이미 유사 역할을 하고 있어 중복 여부부터 확인할 것.
+
 ### 2026-07-27 (11차): 신규 클러스터 재탐색 실패 → 기존 클러스터 빈칸 메우기로 전환, 2건 발행
 - 사용자 지시: "신규를 해야 된다. 지금은 키워드/롱테일 키워드를 **먼저 점거**해야 뭘 해볼 수 있는 상황이다."
 - **신규 클러스터 후보 4건 추가 검증, 3건 기각**:
@@ -893,6 +903,7 @@ git push https://x-access-token:${TOKEN}@github.com/canghun13/cookingcalcs-.git 
   - **끈적한 재료 계량(꿀/시럽/당밀)**: 환산 데이터는 cookingconverter.com(기존 리스트) 선점, "측정 팁" 쪽은 Taste of Home·Serious Eats·Cuisine at Home 등 대형 미디어 장악 → 기각
   - **냉장/냉동 보관기간**: freshstoragetips.com, easytemperature.com(전용 도메인 2개) + thewholefork.com, statefoodsafety.com + **USDA/FSIS·GoodRx**. 포화 + 식품안전 YMYL이라 권위도 요구치 높음 → 기각
   - **조리시간 전용 도메인 추가 발견**: howlongtocook.org — 우리 `how-long-to-cook-*` 시리즈의 직접 경쟁자. 이 시리즈 확장할 때마다 확인할 것
+  - **로스트비프(roast beef) 조리시간**: certifiedangusbeef.com(부위별 타임테이블 보유), recipetips.com(중량별 차트 보유) — '레퍼런스 차트' 각도가 이미 선점됨. how-long-to-cook 시리즈 확장 시 이 항목은 건너뛸 것
 - **신규 후보 판정 시 1순위 체크(2026-07-27 확립)**: 경쟁 "강도"보다 경쟁자 "업종"을 먼저 볼 것. 계산기 콘텐츠팜이 차지한 쿼리는 뚫기 어렵고, 포럼/.edu/향수·역사사이트/교육워크시트 사이트가 차지한 쿼리는 우리가 인터랙티브 툴+구조화 콘텐츠로 이길 수 있음(워드프라블럼·캔사이즈·빈티지용어가 이 케이스).
 - **판단 기준 추가 완화(2026-07-27)**: 사용자가 명시적으로 지시 — "우리 기준은 구글 첫페이지에 뜨는 것 정도다. 경쟁 사이트가 만만하거나 우리보다 아래면 치고 들어가도 되고, 경쟁이 세도 우리가 이기는데 굳이 안 할 이유가 없다." 즉 위 회피 리스트(콘텐츠팜 클러스터) 도메인이 경쟁자로 있어도 자동 기각하지 말고, 우리 콘텐츠 품질(인터랙티브 툴, 데이터 기반 비교표, FAQPage 등)로 실제 1페이지 진입이 가능하다고 판단되면 진행할 것. 07-27(6차) 베이킹 팬 사이즈 변환이 이 기준으로 진행한 첫 사례(calckitchen.com 등 경쟁 있었음). **다만 이 기준으로 발행한 페이지는 다음 세션에서 GSC 순위를 특별히 확인해서 실제로 이 판단이 맞았는지 검증할 것** — 근거 없이 계속 완화만 하지 말고 데이터로 확인.
 - **thin content 절대 금지**: 환산표 + 설명 + FAQ 필수, 800~1200단어 (600에서 상향됨)

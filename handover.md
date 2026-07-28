@@ -80,6 +80,20 @@ echo "nav.js GUIDES: $(sed -n '/const GUIDES/,/^];/p' assets/js/nav.js | grep -c
 
 ## 3. 사이트 구조 변경 이력
 
+### 2026-07-27 (10차): 표 스타일 깨짐 버그 수정 — 신규 페이지 체크리스트에 추가할 항목 발견
+- 사용자가 `can-size-converter.html`의 "Complete Can Size Chart" 표가 간격 없이 좁게 나온다고 스크린샷 지적.
+- **원인**: `style.css`의 표 스타일(패딩/테두리/헤더배경)이 `.blog-content table/th/td`로 스코프돼 있어서, 표가 `.blog-content` div **밖**에 있으면 순수 마크업만 남아 스타일이 전혀 안 먹힘. 이 사이트는 표를 두 가지 방식으로 처리해왔음: (a) `<table style="...">`로 직접 인라인 스타일(구식 패턴), (b) `.blog-content` 안에 넣어서 CSS 상속(신식 패턴) — 이번에 `can-size-converter.html`과 `grill-temperature-calculator.html`을 만들 때 참고 표(Reference Chart)를 `.blog-content` 밖, `chart-header-row` 다음에 배치하면서 (a)도 (b)도 아닌 상태로 방치함.
+- 수정: 문제의 표를 `<div class="blog-content" style="margin:0;">`로 감싸서 정상화. `can-size-converter.html`, `grill-temperature-calculator.html`(이번 세션 발행) 외에 `butter-converter.html`(이전 세션부터 있던 버그, 이번에 처음 발견)도 동일 수정.
+- **전수 검사 방법 기록**: 정규식으로 div 밸런스를 셀 경우 `<script>` 안 JS 문자열에 들어있는 가짜 `<div...>` 텍스트(printToPDF 등에서 innerHTML 조립 시 사용)에 오탐지됨 — 반드시 BeautifulSoup 같은 실제 HTML 파서로 확인할 것. 이번에 정규식 방식은 폐기하고 bs4로 재검증해서 최종 3건만 확정.
+- **다음 세션 필수 체크리스트 추가**: 새 툴/블로그 페이지에 참고표(Reference Chart)를 넣을 때 반드시 (a) 표에 직접 `style="width:100%; border-collapse:collapse; ..."` 인라인 스타일을 주거나, (b) `.blog-content` div 안에 넣을 것. 발행 직후 아래 스니펫으로 확인:
+```python
+from bs4 import BeautifulSoup
+soup = BeautifulSoup(open('FILE').read(), 'html.parser')
+for table in soup.find_all('table'):
+    if not table.has_attr('style') and not table.find_parent(class_='blog-content'):
+        print('UNSTYLED TABLE FOUND')
+```
+
 ### 2026-07-27 (9차): 오후 작업 큐 실행 완료 — P1(신규 클러스터+7번째 Guide) + P4(브리스킷) + P2(워드프라블럼)
 - 08차에서 픽해둔 오후 작업 큐를 순서대로 실행. 시작 전 각 파일 실제 중복 확인은 08차에서 이미 끝내둔 상태였음(재확인 불필요, 그대로 반영).
 - **P1 — "옛날 레시피 해독" 신규 클러스터 + 7번째 Guide 승격**:

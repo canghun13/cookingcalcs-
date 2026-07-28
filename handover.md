@@ -80,6 +80,50 @@ echo "nav.js GUIDES: $(sed -n '/const GUIDES/,/^];/p' assets/js/nav.js | grep -c
 
 ## 3. 사이트 구조 변경 이력
 
+### 2026-07-27 (8차): 신규 클러스터 대규모 서칭 — 픽 확정 (작업은 오후 세션에서 실행)
+- 사용자 지시: "다양하게 다 뚫어보고 방향성 흐려지는 거 아니면 다 픽해놔. 롱테일 단 점거하는 게 좋다. 오늘 오후에 작업한다." → **이번 세션은 검증+픽만, 실제 발행은 다음(오후) 세션에서 진행할 것.**
+- 후보 11건을 head term으로 직접 web_search 검증(07-27 7차 교훈 반영 — guide성 문구가 아니라 "X calculator" 헤드텀 자체를 돌릴 것).
+
+#### ✅ 픽 확정 — 오후 작업 큐 (우선순위 순)
+
+**[P1] 신규 클러스터: "옛날 레시피 해독"(Decoding Old Recipes)** — 이번 서칭에서 가장 확실한 승산
+- 왜 되는가: **경쟁자가 계산기 콘텐츠팜이 아님.** 포럼·식자재업체·.edu 익스텐션·향수(nostalgia)사이트뿐. 우리 회피리스트 도메인(omnicalculator/missvickie/handychefdom/calckitchen 등)이 이 영역엔 아직 하나도 안 들어옴.
+- 만들 페이지(3~4개 → 7번째 Guide 승격까지):
+  1. **캔 사이즈 변환 툴**(`tools/can-size-converter.html` 예정) — #10 can, #303, 15oz 등 → 컵/oz/g. 경쟁: netcookingtalk(포럼), alpharubicon(포럼), levapack·qiequip(식자재업체), unl.edu·extension.missouri.edu(.edu), cupstogramscalculator.com(유일한 실질 경쟁자 1개).
+  2. **빈티지 계량 용어 변환**(gill, teacup, wineglass, "butter the size of an egg/walnut", knob, saltspoon 등) — 경쟁: clickamericana·dustyoldthing(향수사이트), eatingtheeras(소형블로그), classicfork.com(전용 변환기 1개), Tasting Table/Yahoo(대형 미디어지만 단일 기사 1건뿐).
+  3. **옛날 오븐 용어**(slow/moderate/quick/hot oven → °F/°C) — 경쟁: Wikipedia, clickamericana. **기존 `tools/oven-temp-converter.html` 확장으로 처리해도 됨**(신규 페이지로 뺄지 확장으로 붙일지는 오후에 판단).
+  4. (선택) 옛날 레시피 전반 해독 가이드 → Guide 승격용 허브
+- 주의: 캔 사이즈는 US 기준 외에 유럽 400g/800g 캔 대응도 넣으면 롱테일 확장됨(우리 사이트에 이미 metric 대응 관행 있음).
+
+**[P2] 기존 워드프라블럼 클러스터 확장: 계량 변환 워드프라블럼**
+- 경쟁: TPT(교사자료 마켓, 유료), studocu, scribd, 15worksheets.com, kids-cooking-activities — **전부 교육 사이트**. 기존 워드프라블럼 클러스터가 순위 6~9위를 찍은 것과 완전히 동일한 승리 패턴.
+- **단, 수익성 경고(사용자에게 이미 고지함)**: 기존 워드프라블럼 3건이 순위 6~9위인데 3개월간 클릭 0. 순위는 확실히 나오지만 AdSense 기여는 사실상 없음. "롱테일 점거" 목적이면 유효, "수익" 목적이면 후순위. 사용자가 "롱테일 점거가 좋다"고 명시해서 픽에 포함함.
+- 만들면 워드프라블럼 클러스터가 4건(unit-price / recipe-scaling / measurement-conversion + kitchen-math-generator 툴) → Guide 승격 요건 근접.
+
+**[P3] 기존 계량 클러스터 확장: 치즈 변환(컵↔파운드, 블럭↔슈레드)**
+- 경쟁: handychefdom(**회피리스트 도메인이 이미 전용 치즈 계산기 보유**), challengeanswer.com(계산기), texasrealfood·howmuchisin·eathealthy365(소형블로그), cooksrecipes(Q&A).
+- 판정: 위 두 개보다 확실히 불리함(회피리스트 도메인이 이미 선점). 다만 소형 블로그 위주라 완전 포화는 아니고, 우리 계량 클러스터(사이트 최대 클러스터, 툴9+블로그16)에 자연스럽게 붙음. **P1·P2 끝내고 여유 있으면 진행.**
+
+#### ❌ 이번 라운드 기각 (전부 head term 직접 검증함)
+| 후보 | 기각 사유 |
+|---|---|
+| 에어프라이어 변환 | 전용 도메인 3개(airfryercalculator.com, airfryerconversion.com, airfryerconverter.com) + **inchcalculator**(회피리스트). 최악 수준 |
+| 밥물 비율 | omnicalculator·gigacalculator·goodcalculators·best-calculators·cookcalculator.net·thecalcs.com — **6개 전부 회피리스트 도메인**. 최악 |
+| 건파스타→조리후 중량 | omnicalculator·missvickie·handychefdom·calculator.academy·cookcalcs·ctrlcalculator·axiscalc·instacart 8개+ |
+| 파티 인원수별 음식량 | bbqpartycalculator.com(전용 도메인) + summerandcinnamon(계산기+가이드 완비) + calculator.academy·whycalculator·calculate-this |
+| 인스턴트팟/압력솥 조리시간 | crunchmilk(회피리스트) + earthtoveg(전용계산기) + 유명 푸드블로그 6개+ |
+| 마리네이드 시간 | 전용 계산기 2개(miniwebtool, mycalcbuddy) + USU.edu + Jessica Gavin |
+| 와인 등 요리 대체재 | 재료 하나당 이미 블로그 6개+ — 재료별 확장 자체가 불가능 |
+| 푸드코스트%/수율(AP·EP) | 경쟁자가 레스토랑 SaaS(meez, MarketMan, Apicbase — 콘텐츠마케팅 예산 큰 B2B) + 조리학교 교재(CIA, pressbooks). **추가로 이건 B2B 식당용이라 우리 사이트(가정 요리) 방향성을 흐림 — 두 이유로 기각** |
+
+#### 📋 미검증 — 다음 라운드 후보 (아직 web_search 안 돌림, 넘겨짚지 말 것)
+- 고기 클러스터 갭: 갈비(ribs)/브리스킷/미트로프/닭날개 (통닭은 07-20에 콘텐츠팜으로 이미 기각됨)
+- 계량 클러스터 갭: 꿀·시럽 등 끈적한 재료 계량
+- 냉장/냉동 보관기간(신규 축) — FoodSafety.gov·USDA·StillTasty가 있을 가능성 높아 보이나 미확인
+
+#### 🔑 이번 서칭에서 확립된 판정 원칙 (다음 세션도 이걸 기준으로 쓸 것)
+**"계산기"로 검색되는 주제는 예외 없이 콘텐츠팜이 선점했다. 뚫리는 건 경쟁자가 계산기팜이 아닌 다른 업종(포럼 / .edu 익스텐션 / 향수·역사 사이트 / 교육·워크시트 사이트)인 주제뿐이다.** 워드프라블럼 클러스터(경쟁자=수학 학습지 사이트)가 성공한 것, 캔사이즈·빈티지용어(경쟁자=포럼·향수사이트)가 통과한 것 모두 같은 이유. **신규 후보를 낼 때 "이 쿼리를 지금 누가 차지하고 있는가"의 업종부터 확인할 것** — 경쟁 강도보다 경쟁자 업종이 더 정확한 신호.
+
 ### 2026-07-27 (7차): 경쟁 재검증 + Grill 클러스터 내부링크 강화 (신규 발행 없음)
 - 사용자가 그릴/팬사이즈 경쟁 판단을 재검증하라고 지시(Bing/Yahoo 포함).
 - **중요한 도구 한계 확인**: web_fetch로 bing.com/yahoo 직접 접근 시도했으나 "사전에 검색/fetch로 나온 URL만 fetch 가능" 제약에 막혀 실패 — **이 환경에는 Bing/Yahoo SERP을 별도로 조회할 방법이 없음**. web_search 툴은 단일 엔진(정확히 어떤 백엔드인지 불명)만 사용 가능. 다음 세션도 이 한계를 인지하고 "Bing/Yahoo 확인해봐" 요청이 오면 이 사실부터 알릴 것 — 할 수 있는 척하지 말 것.
@@ -749,7 +793,16 @@ git push https://x-access-token:${TOKEN}@github.com/canghun13/cookingcalcs-.git 
 - **회피 대상 추가(2026-07-20)**: calculators.org, calculator.me — 둘 다 "Meat/Beef Cost Per Serving Calculator"를 University of Nebraska-Lincoln 데이터 인용해서 운영 중, cost-per-serving/meal-cost 니치의 직접 경쟁자로 web_search 중 확인됨(3번 섹션 07-20 참고).
 - **회피 대상 추가(2026-07-20, 2차)**: 해동/재료환산/조리시간 3개 신규 콘텐츠팜 클러스터 발견 — traditionaloven.com, aqua-calc.com, bakeprofit.com, cookingconverter.com, thebakingcalculator.com(재료 그램/컵 환산), quickcooktime.com, howlongfor.com, cookrita.com, butcherbbq.com(조리시간 계산기), justfridge.com, thecalculatedcook.com, howlongtodefrost.com(해동 계산기). 신규 후보를 낼 때마다 위 9번(회피 리스트) 전체와 함께 확인할 것.
 - **회피 대상 추가(2026-07-24)**: 빵 하이드레이션(베이커스 퍼센트) 전용 계산기 클러스터 — breadhydrationcalculator.com, flourwise.com, bytesbreadbbq.com, thecalcs.com, breadhydration.com (6개+, 오늘 확인한 것 중 가장 심하게 포화). 커피 원두:물 비율 전용 계산기 클러스터 — gigacalculator.com, goodcalculators.com, coffeebros.com, honestcoffeeguide.com, coffeeratiocalculator.com, coffeeratiocalculatorguru.com (7개+). 라면 시즈닝/물양 계산기 — usecalcpro.com, handychefdom.com(이미 회피리스트에 있던 클러스터가 라면까지 확장되어 있음, ramen-noodle-calculator/ramen-calorie-calculator 형태로 존재). 캔디 온도 단계 계산기 — usecalcpro.com(중복 확인).
-- 신규 콘텐츠 제안 전 반드시 web_search로 경쟁 강도 확인 (7번 "기각한 후보" 참고 — 실제로 이 과정에서 3개 걸러냄)
+- **회피 대상 추가(2026-07-27, 8차 서칭)**: 이번에 head term 직접 검증으로 새로 확인한 포화 클러스터 —
+  - **에어프라이어 변환**: airfryercalculator.com, airfryerconversion.com, airfryerconverter.com(전용 도메인 3개) + inchcalculator(기존 리스트)
+  - **밥물 비율**: 기존 회피리스트 도메인 6개(omnicalculator, gigacalculator, goodcalculators, best-calculators, cookcalculator.net, thecalcs.com)가 전부 보유 — 확인된 것 중 가장 심함
+  - **건파스타→조리후 중량**: axiscalc.com, ctrlcalculator.com, cookcalcs.com, calculator.academy, instacart(company.instacart.com) 신규 + missvickie·handychefdom·omnicalculator(기존)
+  - **파티/BBQ 인원수별 음식량**: bbqpartycalculator.com, summerandcinnamon.com, whycalculator.com, calculate-this.com, calculator.academy
+  - **마리네이드 시간**: miniwebtool.com, mycalcbuddy.com
+  - **인스턴트팟/압력솥 시간**: earthtoveg.com + crunchmilk(기존)
+  - **치즈 변환**: handychefdom(기존 리스트, 전용 치즈계산기 보유), challengeanswer.com
+  - **푸드코스트%/수율(B2B)**: getmeez.com, marketman.com, apicbase.com, foodcosttools.com — **단 이건 경쟁 외에 "가정 요리 사이트 정체성을 벗어남"이라는 이유로도 기각한 건이니, 나중에 누가 다시 제안해도 방향성 문제부터 지적할 것**
+- **신규 후보 판정 시 1순위 체크(2026-07-27 확립)**: 경쟁 "강도"보다 경쟁자 "업종"을 먼저 볼 것. 계산기 콘텐츠팜이 차지한 쿼리는 뚫기 어렵고, 포럼/.edu/향수·역사사이트/교육워크시트 사이트가 차지한 쿼리는 우리가 인터랙티브 툴+구조화 콘텐츠로 이길 수 있음(워드프라블럼·캔사이즈·빈티지용어가 이 케이스).
 - **판단 기준 추가 완화(2026-07-27)**: 사용자가 명시적으로 지시 — "우리 기준은 구글 첫페이지에 뜨는 것 정도다. 경쟁 사이트가 만만하거나 우리보다 아래면 치고 들어가도 되고, 경쟁이 세도 우리가 이기는데 굳이 안 할 이유가 없다." 즉 위 회피 리스트(콘텐츠팜 클러스터) 도메인이 경쟁자로 있어도 자동 기각하지 말고, 우리 콘텐츠 품질(인터랙티브 툴, 데이터 기반 비교표, FAQPage 등)로 실제 1페이지 진입이 가능하다고 판단되면 진행할 것. 07-27(6차) 베이킹 팬 사이즈 변환이 이 기준으로 진행한 첫 사례(calckitchen.com 등 경쟁 있었음). **다만 이 기준으로 발행한 페이지는 다음 세션에서 GSC 순위를 특별히 확인해서 실제로 이 판단이 맞았는지 검증할 것** — 근거 없이 계속 완화만 하지 말고 데이터로 확인.
 - **thin content 절대 금지**: 환산표 + 설명 + FAQ 필수, 800~1200단어 (600에서 상향됨)
 - affiliate 홀더(빈 링크/배너) 미리 넣지 말 것 — AdSense 안정화 전까지 시작 금지

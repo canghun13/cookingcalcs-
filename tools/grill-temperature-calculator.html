@@ -57,6 +57,10 @@
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
 <style>
       @media(max-width:420px) { .grill-result-grid { grid-template-columns:1fr !important; } }
+      .ref-table { width:100%; border-collapse:collapse; font-size:0.875rem; background:#fff; }
+      .ref-table th { background:var(--sand-dark); padding:0.7rem 0.9rem; text-align:left; font-weight:600; border:1px solid var(--border); }
+      .ref-table td { padding:0.7rem 0.9rem; border:1px solid var(--border); vertical-align:top; }
+      .ref-table tbody tr:nth-child(even) td { background:#fbfaf8; }
 </style>
 </head>
 <body>
@@ -114,7 +118,7 @@
     <div class="chart-header-row" style="display:flex; justify-content:space-between; align-items:center; margin:2rem 0 1rem;">
       <h2>Complete Grill Reference Chart</h2>
     </div>
-    <table>
+    <table class="ref-table">
       <thead><tr><th>Food</th><th>Zone</th><th>Temp</th><th>Hand Test</th><th>Time</th><th>Safe Temp</th></tr></thead>
       <tbody>
         <tr><td colspan="6" style="font-weight:700; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.08em; background:var(--tomato-light); color:var(--tomato-dark);">Beef</td></tr>
@@ -208,6 +212,23 @@ function showGrill() {
   document.getElementById('grillSafeF').textContent = g.safe;
   document.getElementById('grillResult').style.display = 'block';
 }
+</script>
+<script>
+// nav.js forces white-space:nowrap and center alignment on every table after
+// load, which pushes wide reference charts into a horizontal scroll. Undo that
+// for .ref-table only, after nav.js has run (deferred scripts finish before
+// DOMContentLoaded fires).
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('.ref-table').forEach(function (t) {
+    t.style.minWidth = '0';
+    t.style.width = '100%';
+    t.querySelectorAll('th, td').forEach(function (c) {
+      c.style.whiteSpace = 'normal';
+      if (!c.hasAttribute('colspan')) c.style.textAlign = 'left';
+    });
+  });
+  window.dispatchEvent(new Event('resize'));
+});
 </script>
 </body>
 </html>

@@ -55,6 +55,12 @@
 }
 </script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+<style>
+      .ref-table { width:100%; border-collapse:collapse; font-size:0.875rem; background:#fff; }
+      .ref-table th { background:var(--sand-dark); padding:0.7rem 0.9rem; text-align:left; font-weight:600; border:1px solid var(--border); }
+      .ref-table td { padding:0.7rem 0.9rem; border:1px solid var(--border); vertical-align:top; }
+      .ref-table tbody tr:nth-child(even) td { background:#fbfaf8; }
+</style>
 </head>
 <body>
 <main>
@@ -96,8 +102,7 @@
     <div class="chart-header-row" style="display:flex; justify-content:space-between; align-items:center; margin:2rem 0 1rem;">
       <h2>Complete Can Size Chart</h2>
     </div>
-    <div class="blog-content" style="margin:0;">
-    <table>
+    <table class="ref-table">
       <thead><tr><th>Can Size</th><th>Weight/Volume</th><th>Cups</th><th>Metric</th><th>Common Uses</th></tr></thead>
       <tbody>
         <tr><td>#1 / Picnic</td><td>10.5-12 oz</td><td>1¼ cups</td><td>~300 ml</td><td>Small vegetables, soup</td></tr>
@@ -112,7 +117,6 @@
         <tr><td>EU 800g can</td><td>800g</td><td>~3.4 cups</td><td>800 ml</td><td>Standard EU large tomatoes</td></tr>
       </tbody>
     </table>
-    </div>
 
     <div class="blog-content" style="margin-top:2rem;">
       <h2>Why Can Sizes Use Numbers Instead of Ounces</h2>
@@ -169,6 +173,23 @@ function showCan() {
   document.getElementById('canUse').textContent = c.use;
   document.getElementById('canResult').style.display = 'block';
 }
+</script>
+<script>
+// nav.js forces white-space:nowrap and center alignment on every table after
+// load, which pushes wide reference charts into a horizontal scroll. Undo that
+// for .ref-table only, after nav.js has run (deferred scripts finish before
+// DOMContentLoaded fires).
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('.ref-table').forEach(function (t) {
+    t.style.minWidth = '0';
+    t.style.width = '100%';
+    t.querySelectorAll('th, td').forEach(function (c) {
+      c.style.whiteSpace = 'normal';
+      if (!c.hasAttribute('colspan')) c.style.textAlign = 'left';
+    });
+  });
+  window.dispatchEvent(new Event('resize'));
+});
 </script>
 </body>
 </html>

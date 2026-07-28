@@ -123,28 +123,40 @@ echo "nav.js GUIDES: $(sed -n '/const GUIDES/,/^];/p' assets/js/nav.js | grep -c
 | **끈적한 재료 계량(꿀/시럽/당밀)** | Taste of Home, Serious Eats(AOL), Cuisine at Home 등 대형 미디어의 "팁" 콘텐츠가 장악 + 실제 환산 데이터는 **cookingconverter.com(회피리스트)** 보유 | **기각** — 계산기 니치가 아니라 팁 콘텐츠 니치이고, 그 쪽은 대형 미디어가 잡고 있음. 환산 데이터 쪽은 회피리스트 도메인 선점 |
 | **냉장/냉동 보관기간** | **USDA/FSIS(정부 최상위 권위)** + GoodRx(대형 헬스 도메인) + statefoodsafety.com + freshstoragetips.com·easytemperature.com(전용 도메인 2개) + thewholefork.com | **기각** — 포화 + 식품안전=YMYL 영역이라 권위도 요구치가 특히 높음. 우리가 못 이김 |
 
-#### 📐 오후 작업 실제 페이지 구성 (확정)
+#### 📐 오후 작업 실제 페이지 구성 (확정 — 기존 파일 중복 확인까지 완료)
 **현재: 툴 21 + 블로그 54 + 가이드 6 = 81페이지**
+
+**⚠️ 작업 전 중복 확인 결과(2026-07-27 8차에서 grep으로 실제 확인함, 오후에 다시 안 해도 됨)**
+- `gill / teacup / wineglass / saltspoon / butter the size of an egg·walnut / knob of butter` → **사이트 전체에 0건. 진짜 갭 확정** ✅
+- `can size / #10 can / 15 oz can` → 0건("canned"라는 일반 단어만 12개 파일에 걸림, 실제 캔사이즈 환산 콘텐츠는 없음). **진짜 갭 확정** ✅
+- `slow/moderate/hot oven` → **`tools/oven-temp-converter.html` 176행대에 이미 FAQ 1건 존재**("Why do some recipes say 'slow,' 'moderate,' or 'hot' oven?"). → **P1-3은 신규 페이지로 만들지 말 것(자기잠식). 기존 FAQ를 정식 섹션으로 확장하는 방식으로 처리** ⚠️
+- `brisket` → 그릴 페이지들에 예시로만 언급, 조리시간 데이터 없음. 단 `cooking-time-calculator.html` 데이터에는 이미 있음(60분/lb). **블로그 갭 확정** ✅
+- `meatloaf` → **`how-long-to-cook-ground-beef.html`과 `meat-cooking-temperatures-explained.html`에 이미 언급**(수분 유지 팁, 온도계 삽입 위치). 무게별 조리시간은 없음. **부분 중복 — 미트로프는 결국 간고기라 ground-beef 페이지와 자기잠식 위험 있음. 오후에 (a)ground-beef 페이지 확장 (b)무게별 조리시간 중심의 별도 페이지 중 판단할 것** ⚠️
 
 | 순위 | 파일 | 종류 | 비고 |
 |---|---|---|---|
-| P1-1 | `tools/can-size-converter.html` | 툴 | #10/#303/#2½/15oz 등 → 컵·oz·g. 유럽 400g/800g 캔 대응 포함 |
-| P1-2 | `blog/vintage-recipe-measurements.html` | 블로그 | gill, teacup, wineglass, butter the size of an egg/walnut, knob, saltspoon |
-| P1-3 | `blog/old-oven-temperature-terms.html` | 블로그 | slow/moderate/quick/hot oven → °F/°C. `oven-temp-converter.html` 확장으로 대체 가능(오후에 판단) |
-| P1-4 | `guides/complete-vintage-recipe-guide.html` | 가이드 | 위 3개 묶는 7번째 Guide |
-| P2-1 | `blog/measurement-conversion-word-problems.html` | 블로그 | 워드프라블럼 클러스터 4번째(→ 8번째 Guide 승격 요건 근접) |
-| P3-1 | `tools/cheese-converter.html` | 툴 | 선택. handychefdom 선점으로 불리 |
-| P4-1 | `blog/how-long-to-cook-brisket.html` | 블로그 | 기존 how-long-to-cook 클러스터 빈칸 |
-| P4-2 | `blog/how-long-to-cook-meatloaf.html` | 블로그 | 상동 |
-| P4-3 | `blog/how-long-to-cook-ribs.html` | 블로그 | 선택 |
+| P1-1 | `tools/can-size-converter.html` | 툴 신규 | #10/#303/#2½/15oz 등 → 컵·oz·g. 유럽 400g/800g 캔 대응 포함 |
+| P1-2 | `blog/vintage-recipe-measurements.html` | 블로그 신규 | gill, teacup, wineglass, butter the size of an egg/walnut, knob, saltspoon |
+| P1-3 | `tools/oven-temp-converter.html` | **기존 확장(신규 아님)** | 기존 FAQ 1건 → 정식 섹션으로 확장. 페이지 수 증가 없음 |
+| P1-4 | `guides/complete-vintage-recipe-guide.html` | 가이드 신규 | 위 3개 묶는 7번째 Guide |
+| P4-1 | `blog/how-long-to-cook-brisket.html` | 블로그 신규 | 기존 how-long-to-cook 클러스터 빈칸. 저리스크 |
+| P4-2 | 미정(ground-beef 확장 or 신규) | 판단 필요 | 위 중복 경고 참고 |
+| P2-1 | `blog/measurement-conversion-word-problems.html` | 블로그 신규 | 워드프라블럼 클러스터 4번째 |
+| P3-1 | `tools/cheese-converter.html` | 툴 신규(선택) | handychefdom 선점으로 불리 |
+| P4-3 | `blog/how-long-to-cook-ribs.html` | 블로그 신규(선택) | |
 
-**증감 계산**
-- P1만: 툴 22 / 블로그 56 / 가이드 7 = **85페이지** (+4)
-- P1+P2: 툴 22 / 블로그 57 / 가이드 7 = **86페이지** (+5)
-- P1+P2+P4(2건): 툴 22 / 블로그 59 / 가이드 7 = **88페이지** (+7)
-- 전부(P3·P4-3 포함): 툴 23 / 블로그 60 / 가이드 7 = **90페이지** (+9)
+**증감 계산(P1-3이 확장으로 바뀌어 이전 기록보다 1개 줄었음)**
+- P1만: 툴 22 / 블로그 55 / 가이드 7 = **84페이지** (+3)
+- P1+P4(brisket+meatloaf): 툴 22 / 블로그 57 / 가이드 7 = **86페이지** (+5)
+- P1+P4+P2: 툴 22 / 블로그 58 / 가이드 7 = **87페이지** (+6)
+- 전부(P3·P4-3 포함): 툴 23 / 블로그 59 / 가이드 7 = **89페이지** (+8)
 
-**권장 실행 순서**: P1 4개 먼저(클러스터+Guide 한 번에 완성) → P4 2개(기존 클러스터 빈칸, 저리스크) → P2 1개 → 여유 시 P3·P4-3.
+**권장 실행 순서**: P1 3개+확장1 먼저(클러스터+7번째 Guide 한 번에 완성) → P4(brisket 우선, meatloaf는 판단 후) → P2 → 여유 시 P3.
+
+**작업 시 반드시 지킬 것(과거 사고 재발 방지)**
+1. 읽기시간은 실제 단어수 ÷145 로 검산해서 `blog-meta`에 반영 (4번 섹션 스크립트 사용). 과거 10개 페이지가 최대 5분까지 어긋난 적 있음.
+2. Guide 발행 시 가이드가 링크한 페이지는 **전부** 되돌아오는 링크를 넣을 것("최소 2개" 기준과 별개). 과거 누락으로 47개 파일 일괄 보강한 적 있음.
+3. 발행 후 div 밸런스 / JSON-LD 파싱 / sitemap XML / 개수정합(tools·blogs·guides vs nav.js vs sitemap) / 고아페이지 전부 검증.
 
 #### 🔑 이번 서칭에서 확립된 판정 원칙 (다음 세션도 이걸 기준으로 쓸 것)
 **"계산기"로 검색되는 주제는 예외 없이 콘텐츠팜이 선점했다. 뚫리는 건 경쟁자가 계산기팜이 아닌 다른 업종(포럼 / .edu 익스텐션 / 향수·역사 사이트 / 교육·워크시트 사이트)인 주제뿐이다.** 워드프라블럼 클러스터(경쟁자=수학 학습지 사이트)가 성공한 것, 캔사이즈·빈티지용어(경쟁자=포럼·향수사이트)가 통과한 것 모두 같은 이유. **신규 후보를 낼 때 "이 쿼리를 지금 누가 차지하고 있는가"의 업종부터 확인할 것** — 경쟁 강도보다 경쟁자 업종이 더 정확한 신호.

@@ -101,6 +101,7 @@ const BLOGS = [
   { name: "How to Check Grill Temperature Without a Thermometer", url: "/blog/how-to-check-grill-temperature-without-a-thermometer.html", desc: "The hand test estimates grate temperature in seconds — how to do it, the full seconds-to-degrees chart, and when to trust it.", date: "2026-07-27" },
   { name: "Vintage Recipe Measurements Decoded", url: "/blog/vintage-recipe-measurements.html", desc: "What is a gill, a teacup, or 'butter the size of an egg' in modern measurements? Decode every common vintage recipe term.", date: "2026-07-27" },
   { name: "Vintage & British Ingredient Names Decoded", url: "/blog/vintage-ingredient-names.html", desc: "What is caster sugar, self-raising flour, or saleratus in modern American terms? Decode old and British ingredient names.", date: "2026-07-27" },
+  { name: "How Long to Cook Brisket", url: "/blog/how-long-to-cook-brisket.html", desc: "Exact brisket cook times by weight and oven temperature, why it needs a much higher internal temp than other beef, and how to tell when it's done.", date: "2026-07-27" },
   { name: "How Long to Cook Tempeh and Seitan", url: "/blog/how-long-to-cook-tempeh-seitan.html", desc: "Tempeh and seitan cook times for pan-searing, baking, air frying, and steaming — no recipe, just the times and temperatures you need.", date: "2026-07-24" },
 ];
 

@@ -80,6 +80,24 @@ echo "nav.js GUIDES: $(sed -n '/const GUIDES/,/^];/p' assets/js/nav.js | grep -c
 
 ## 3. 사이트 구조 변경 이력
 
+### 2026-07-27 (11차): 신규 클러스터 재탐색 실패 → 기존 클러스터 빈칸 메우기로 전환, 2건 발행
+- 사용자 지시: "신규를 해야 된다. 지금은 키워드/롱테일 키워드를 **먼저 점거**해야 뭘 해볼 수 있는 상황이다."
+- **신규 클러스터 후보 4건 추가 검증, 3건 기각**:
+  | 후보 | 기각 사유 |
+  |---|---|
+  | 채소·과일 환산(양파 1개=몇 컵) | cookingconverter.com(회피리스트) + kitchencalculator.app(전용 계산기 도메인) + howmuchisin + alibaba 콘텐츠팜 2개 + Tasting Table |
+  | 피클링 브라인 비율 | missvickie·best-calculators·mycalcbuddy(**3개 다 회피리스트**) + superglobalcalculator + formulafactory.tools. 게다가 보툴리즘 YMYL |
+  | 호주/영국 계량 차이(20ml 스푼) | cookingconverter.com 전용 가이드 + kitchencalculator.app 전용 글 + Nigella Lawson. 자사 `how-to-convert-a-recipe-to-metric`과도 중복 |
+  | 조리도구 용량(더치오븐 몇 쿼트) | **경쟁자 프로필은 유리**(Le Creuset·Lodge 등 브랜드와 제품리뷰 사이트뿐, 계산기팜 0개). 단 브랜드 권위가 압도적이고 "뭘 사야 하나"는 제품추천 콘텐츠라 계산기 사이트 정체성에서 벗어남 → **보류**(기각 아님, 나중에 재검토 가능) |
+- **중요 인식**: 최근 15건 이상 검증 결과 "계산기"로 검색되는 요리 주제는 사실상 전부 콘텐츠팜이 선점 완료. **신규 클러스터 발굴은 수확체감 구간에 진입**했다고 보는 게 정확함.
+- **방향 전환 — 기존 클러스터 빈칸이 실제로 제일 유리함**: 07-27(9차) P4(브리스킷)가 무난했던 이유가 신규 영토 진입이 아니라 이미 11페이지로 점거 중인 `how-long-to-cook` 클러스터의 빈칸이었기 때문. 이 클러스터는 경쟁자가 **레시피 블로그**뿐이고 계산기팜이 없음 — 우리는 '레퍼런스 차트'로 접근해 차별화 가능.
+- **신규 발행 2건**:
+  1. `blog/how-long-to-cook-ribs.html`(895단어): 갈비 종류(baby back/St.Louis/spare/country-style/beef back) × 오븐온도(250/275/300°F) 교차표, 145°F vs 190-203°F 결과 비교, 벤드 테스트(온도계 없이 판정), 실버스킨 제거, 3-2-1 메소드가 baby back엔 과한 이유
+  2. `blog/how-long-to-cook-chicken-wings.html`(834단어): 오븐온도(350/400/425/450 + 냉동) × 통날개/드러메트 교차표. **차별화 핵심 — 경쟁 블로그는 전부 "165°F까지"로 끝나는데, 우리는 165°F가 안전 최소치일 뿐 날개엔 잘못된 목표(175-185°F에서 지방·결합조직 렌더링돼야 껍질이 바삭)라는 점을 정면으로 다룸**. 베이킹파우더 원리(표면 pH↑ → 갈변 촉진)
+- **클러스터 일관성 확보**: brisket(195-205°F) → ribs(190-203°F) → wings(175-185°F)로 "안전 최소온도 ≠ 맛있는 온도, 콜라겐/지방 렌더링이 진짜 목표"라는 동일 논리를 세 페이지에 걸쳐 연결하고 상호링크함. 이건 개별 레시피 블로그가 못 하는 구조적 강점 — 앞으로 이 클러스터를 확장할 때도 이 논리를 축으로 삼을 것.
+- **현재 사이트 구조**: 툴 22 + 블로그 60 + 가이드 7 = **총 89페이지**.
+- **다음 세션 남은 빈칸 후보**(미검증): 닭다리(drumsticks), 로스트비프, 미트볼, 관자/생선 필렛 일반. 통닭은 07-20에 콘텐츠팜으로 기각됨.
+
 ### 2026-07-27 (10차): 표 스타일 깨짐 버그 수정 — 신규 페이지 체크리스트에 추가할 항목 발견
 - 사용자가 `can-size-converter.html`의 "Complete Can Size Chart" 표가 간격 없이 좁게 나온다고 스크린샷 지적.
 - **원인**: `style.css`의 표 스타일(패딩/테두리/헤더배경)이 `.blog-content table/th/td`로 스코프돼 있어서, 표가 `.blog-content` div **밖**에 있으면 순수 마크업만 남아 스타일이 전혀 안 먹힘. 이 사이트는 표를 두 가지 방식으로 처리해왔음: (a) `<table style="...">`로 직접 인라인 스타일(구식 패턴), (b) `.blog-content` 안에 넣어서 CSS 상속(신식 패턴) — 이번에 `can-size-converter.html`과 `grill-temperature-calculator.html`을 만들 때 참고 표(Reference Chart)를 `.blog-content` 밖, `chart-header-row` 다음에 배치하면서 (a)도 (b)도 아닌 상태로 방치함.

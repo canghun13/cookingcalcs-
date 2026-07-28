@@ -116,10 +116,35 @@ echo "nav.js GUIDES: $(sed -n '/const GUIDES/,/^];/p' assets/js/nav.js | grep -c
 | 와인 등 요리 대체재 | 재료 하나당 이미 블로그 6개+ — 재료별 확장 자체가 불가능 |
 | 푸드코스트%/수율(AP·EP) | 경쟁자가 레스토랑 SaaS(meez, MarketMan, Apicbase — 콘텐츠마케팅 예산 큰 B2B) + 조리학교 교재(CIA, pressbooks). **추가로 이건 B2B 식당용이라 우리 사이트(가정 요리) 방향성을 흐림 — 두 이유로 기각** |
 
-#### 📋 미검증 — 다음 라운드 후보 (아직 web_search 안 돌림, 넘겨짚지 말 것)
-- 고기 클러스터 갭: 갈비(ribs)/브리스킷/미트로프/닭날개 (통닭은 07-20에 콘텐츠팜으로 이미 기각됨)
-- 계량 클러스터 갭: 꿀·시럽 등 끈적한 재료 계량
-- 냉장/냉동 보관기간(신규 축) — FoodSafety.gov·USDA·StillTasty가 있을 가능성 높아 보이나 미확인
+#### 📋 미검증 3건 → 검증 완료 (2026-07-27 8차 후반)
+| 후보 | 경쟁 현황 | 판정 |
+|---|---|---|
+| **고기 클러스터 갭(브리스킷/미트로프/갈비)** | 레시피 블로그 위주(theroastedroot, eatsimplefood, essenceofyum, lovetoknow, strandquistfamilyfarm) + **howlongtocook.org(전용 도메인, 우리 how-long-to-cook 시리즈 직접 경쟁자)**. 계산기 콘텐츠팜은 없음 | **채택(P4)** — 신규 영토 진입이 아니라 **이미 우리가 11페이지로 점거 중인 클러스터의 빈칸 메우기**라 리스크 낮음. 단 howlongtocook.org를 회피리스트에 추가할 것 |
+| **끈적한 재료 계량(꿀/시럽/당밀)** | Taste of Home, Serious Eats(AOL), Cuisine at Home 등 대형 미디어의 "팁" 콘텐츠가 장악 + 실제 환산 데이터는 **cookingconverter.com(회피리스트)** 보유 | **기각** — 계산기 니치가 아니라 팁 콘텐츠 니치이고, 그 쪽은 대형 미디어가 잡고 있음. 환산 데이터 쪽은 회피리스트 도메인 선점 |
+| **냉장/냉동 보관기간** | **USDA/FSIS(정부 최상위 권위)** + GoodRx(대형 헬스 도메인) + statefoodsafety.com + freshstoragetips.com·easytemperature.com(전용 도메인 2개) + thewholefork.com | **기각** — 포화 + 식품안전=YMYL 영역이라 권위도 요구치가 특히 높음. 우리가 못 이김 |
+
+#### 📐 오후 작업 실제 페이지 구성 (확정)
+**현재: 툴 21 + 블로그 54 + 가이드 6 = 81페이지**
+
+| 순위 | 파일 | 종류 | 비고 |
+|---|---|---|---|
+| P1-1 | `tools/can-size-converter.html` | 툴 | #10/#303/#2½/15oz 등 → 컵·oz·g. 유럽 400g/800g 캔 대응 포함 |
+| P1-2 | `blog/vintage-recipe-measurements.html` | 블로그 | gill, teacup, wineglass, butter the size of an egg/walnut, knob, saltspoon |
+| P1-3 | `blog/old-oven-temperature-terms.html` | 블로그 | slow/moderate/quick/hot oven → °F/°C. `oven-temp-converter.html` 확장으로 대체 가능(오후에 판단) |
+| P1-4 | `guides/complete-vintage-recipe-guide.html` | 가이드 | 위 3개 묶는 7번째 Guide |
+| P2-1 | `blog/measurement-conversion-word-problems.html` | 블로그 | 워드프라블럼 클러스터 4번째(→ 8번째 Guide 승격 요건 근접) |
+| P3-1 | `tools/cheese-converter.html` | 툴 | 선택. handychefdom 선점으로 불리 |
+| P4-1 | `blog/how-long-to-cook-brisket.html` | 블로그 | 기존 how-long-to-cook 클러스터 빈칸 |
+| P4-2 | `blog/how-long-to-cook-meatloaf.html` | 블로그 | 상동 |
+| P4-3 | `blog/how-long-to-cook-ribs.html` | 블로그 | 선택 |
+
+**증감 계산**
+- P1만: 툴 22 / 블로그 56 / 가이드 7 = **85페이지** (+4)
+- P1+P2: 툴 22 / 블로그 57 / 가이드 7 = **86페이지** (+5)
+- P1+P2+P4(2건): 툴 22 / 블로그 59 / 가이드 7 = **88페이지** (+7)
+- 전부(P3·P4-3 포함): 툴 23 / 블로그 60 / 가이드 7 = **90페이지** (+9)
+
+**권장 실행 순서**: P1 4개 먼저(클러스터+Guide 한 번에 완성) → P4 2개(기존 클러스터 빈칸, 저리스크) → P2 1개 → 여유 시 P3·P4-3.
 
 #### 🔑 이번 서칭에서 확립된 판정 원칙 (다음 세션도 이걸 기준으로 쓸 것)
 **"계산기"로 검색되는 주제는 예외 없이 콘텐츠팜이 선점했다. 뚫리는 건 경쟁자가 계산기팜이 아닌 다른 업종(포럼 / .edu 익스텐션 / 향수·역사 사이트 / 교육·워크시트 사이트)인 주제뿐이다.** 워드프라블럼 클러스터(경쟁자=수학 학습지 사이트)가 성공한 것, 캔사이즈·빈티지용어(경쟁자=포럼·향수사이트)가 통과한 것 모두 같은 이유. **신규 후보를 낼 때 "이 쿼리를 지금 누가 차지하고 있는가"의 업종부터 확인할 것** — 경쟁 강도보다 경쟁자 업종이 더 정확한 신호.
@@ -802,6 +827,9 @@ git push https://x-access-token:${TOKEN}@github.com/canghun13/cookingcalcs-.git 
   - **인스턴트팟/압력솥 시간**: earthtoveg.com + crunchmilk(기존)
   - **치즈 변환**: handychefdom(기존 리스트, 전용 치즈계산기 보유), challengeanswer.com
   - **푸드코스트%/수율(B2B)**: getmeez.com, marketman.com, apicbase.com, foodcosttools.com — **단 이건 경쟁 외에 "가정 요리 사이트 정체성을 벗어남"이라는 이유로도 기각한 건이니, 나중에 누가 다시 제안해도 방향성 문제부터 지적할 것**
+  - **끈적한 재료 계량(꿀/시럽/당밀)**: 환산 데이터는 cookingconverter.com(기존 리스트) 선점, "측정 팁" 쪽은 Taste of Home·Serious Eats·Cuisine at Home 등 대형 미디어 장악 → 기각
+  - **냉장/냉동 보관기간**: freshstoragetips.com, easytemperature.com(전용 도메인 2개) + thewholefork.com, statefoodsafety.com + **USDA/FSIS·GoodRx**. 포화 + 식품안전 YMYL이라 권위도 요구치 높음 → 기각
+  - **조리시간 전용 도메인 추가 발견**: howlongtocook.org — 우리 `how-long-to-cook-*` 시리즈의 직접 경쟁자. 이 시리즈 확장할 때마다 확인할 것
 - **신규 후보 판정 시 1순위 체크(2026-07-27 확립)**: 경쟁 "강도"보다 경쟁자 "업종"을 먼저 볼 것. 계산기 콘텐츠팜이 차지한 쿼리는 뚫기 어렵고, 포럼/.edu/향수·역사사이트/교육워크시트 사이트가 차지한 쿼리는 우리가 인터랙티브 툴+구조화 콘텐츠로 이길 수 있음(워드프라블럼·캔사이즈·빈티지용어가 이 케이스).
 - **판단 기준 추가 완화(2026-07-27)**: 사용자가 명시적으로 지시 — "우리 기준은 구글 첫페이지에 뜨는 것 정도다. 경쟁 사이트가 만만하거나 우리보다 아래면 치고 들어가도 되고, 경쟁이 세도 우리가 이기는데 굳이 안 할 이유가 없다." 즉 위 회피 리스트(콘텐츠팜 클러스터) 도메인이 경쟁자로 있어도 자동 기각하지 말고, 우리 콘텐츠 품질(인터랙티브 툴, 데이터 기반 비교표, FAQPage 등)로 실제 1페이지 진입이 가능하다고 판단되면 진행할 것. 07-27(6차) 베이킹 팬 사이즈 변환이 이 기준으로 진행한 첫 사례(calckitchen.com 등 경쟁 있었음). **다만 이 기준으로 발행한 페이지는 다음 세션에서 GSC 순위를 특별히 확인해서 실제로 이 판단이 맞았는지 검증할 것** — 근거 없이 계속 완화만 하지 말고 데이터로 확인.
 - **thin content 절대 금지**: 환산표 + 설명 + FAQ 필수, 800~1200단어 (600에서 상향됨)

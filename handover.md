@@ -80,6 +80,24 @@ echo "nav.js GUIDES: $(sed -n '/const GUIDES/,/^];/p' assets/js/nav.js | grep -c
 
 ## 3. 사이트 구조 변경 이력
 
+### 2026-07-27 (9차): 오후 작업 큐 실행 완료 — P1(신규 클러스터+7번째 Guide) + P4(브리스킷) + P2(워드프라블럼)
+- 08차에서 픽해둔 오후 작업 큐를 순서대로 실행. 시작 전 각 파일 실제 중복 확인은 08차에서 이미 끝내둔 상태였음(재확인 불필요, 그대로 반영).
+- **P1 — "옛날 레시피 해독" 신규 클러스터 + 7번째 Guide 승격**:
+  - `tools/can-size-converter.html`: #1~#10 캔 10종 + EU 400g/800g 드롭다운 선택형, 컵/oz/ml 환산. FAQ 3개
+  - `blog/vintage-recipe-measurements.html`(604단어): gill/teacup/wineglass/tumbler, butter size of egg/walnut/knob, saltspoon/dessertspoon/pinch 3개 표
+  - `blog/vintage-ingredient-names.html`(673단어): caster sugar/self-raising flour/saleratus/corn flour 등. corn flour UK-US 혼동 위험 별도 강조
+  - `tools/oven-temp-converter.html` **확장**(신규 아님 — 기존 FAQ 1건이 이미 있어 자기잠식 방지 목적으로 정식 섹션화)
+  - `guides/complete-vintage-recipe-guide.html`(527단어) — 7번째 Guide, 참조 6개 페이지 전부 상호링크
+- **P4 — 고기 클러스터 빈칸 메우기**:
+  - `blog/how-long-to-cook-brisket.html`(843단어) 신규: 무게×오븐온도 표, 195-205°F가 필요한 이유(콜라겐), 스톨 현상, 지방면 방향, 그릴/스모커 전환
+  - 미트로프는 **신규 발행 안 함** — `how-long-to-cook-ground-beef.html`에 이미 표가 있어서 확장(freeform vs loaf pan 시간차, 가금류 165°F 차이 추가)으로 처리. 자기잠식 회피 판단이 맞았음(08차에서 미리 확인해둔 덕분에 시간 절약됨)
+- **P2 — Word Problems 클러스터 4번째**:
+  - `blog/measurement-conversion-word-problems.html`(685단어): 컵↔테이블스푼, 그램↔컵(밀도차), ml↔컵, 파운드↔버터스틱 등 7개 워드프라블럼 + 흔한 실수 4가지
+  - Word Problems 클러스터가 4건(블로그3+툴1)으로 완성 — 8번째 Guide 승격 요건 근접. **단 08차에 기록한 수익성 경고 유효**: 기존 클러스터가 순위는 좋아도(6-9위) 클릭은 0이었음. 다음 세션에서 GSC 확인 시 이 클러스터의 실제 트래픽 기여를 반드시 재점검할 것
+- 체크리스트 전 항목(nav.js/sitemap/llms.txt/상호링크) 매 단계마다 반영, 읽기시간 145wpm 검산 전부 통과, div/JSON-LD/개수정합/고아페이지 검증 전부 통과.
+- **현재 사이트 구조(07-27 최종)**: 툴 22 + 블로그 58 + 가이드 7 = **총 87페이지** (세션 시작 시 81페이지 → +6, 08차 예상치와 정확히 일치).
+- **남은 선택 항목(P3)**: 치즈 변환 툴 — handychefdom(회피리스트)이 이미 전용 계산기 보유해 우선순위 낮음으로 08차에 분류됨. 사용자가 요청하면 진행.
+
 ### 2026-07-27 (8차): 신규 클러스터 대규모 서칭 — 픽 확정 (작업은 오후 세션에서 실행)
 - 사용자 지시: "다양하게 다 뚫어보고 방향성 흐려지는 거 아니면 다 픽해놔. 롱테일 단 점거하는 게 좋다. 오늘 오후에 작업한다." → **이번 세션은 검증+픽만, 실제 발행은 다음(오후) 세션에서 진행할 것.**
 - 후보 11건을 head term으로 직접 web_search 검증(07-27 7차 교훈 반영 — guide성 문구가 아니라 "X calculator" 헤드텀 자체를 돌릴 것).

@@ -109,6 +109,7 @@ const BLOGS = [
   { name: "How Long to Cook Chicken Drumsticks", url: "/blog/how-long-to-cook-chicken-drumsticks.html", desc: "Drumstick cook times at 375, 400, 425, and 450°F, why dark meat is better past 165°F, and how drumsticks compare to thighs and wings.", date: "2026-07-27" },
   { name: "How Long to Cook Meatballs", url: "/blog/how-long-to-cook-meatballs.html", desc: "Meatball cook times by size and oven temperature, why some recipes say 160°F and others 165°F, and what causes dry meatballs.", date: "2026-07-27" },
   { name: "How Long to Cook Pork Tenderloin", url: "/blog/how-long-to-cook-pork-tenderloin.html", desc: "Pork tenderloin cook times by weight, oven temperature, and searing method, plus the tenderloin vs loin mix-up that causes most timing problems.", date: "2026-07-27" },
+  { name: "How Long to Bake White Fish", url: "/blog/how-long-to-bake-white-fish.html", desc: "Bake times for cod, tilapia, haddock, halibut, and other white fish by thickness, plus the 10-minute-per-inch rule explained.", date: "2026-07-27" },
   { name: "How Long to Cook Tempeh and Seitan", url: "/blog/how-long-to-cook-tempeh-seitan.html", desc: "Tempeh and seitan cook times for pan-searing, baking, air frying, and steaming — no recipe, just the times and temperatures you need.", date: "2026-07-24" },
 ];
 

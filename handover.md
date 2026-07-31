@@ -80,6 +80,59 @@ echo "nav.js GUIDES: $(sed -n '/const GUIDES/,/^];/p' assets/js/nav.js | grep -c
 
 ## 3. 사이트 구조 변경 이력
 
+### 2026-07-27 (13차): 신규 4건 발행 (Candy 계산기 + 조리시간 3건) — 91→95페이지
+사전 검증된 P1~P4를 순서대로 전부 실행 완료. 중단 없이 끝까지 진행됨.
+
+**P1 — `tools/candy-temperature-calculator.html`(신규 툴)**: 13개 캔디 드롭다운 →
+목표온도/단계/냉수테스트. 8단계 전체 참고표. 차별화: 온도=수분함량 원리,
+**고도 보정(1,000ft당 -2°F, 경쟁 차트 대부분이 빠뜨림)**, 일반온도계 vs 캔디온도계 구분.
+- 검증 배경: WebstaurantStore/MasterClass/ThermoPro 등 전부 정적 차트만 보유,
+  인터랙티브 계산기 0개 — grill-temperature-calculator와 동일한 승리 패턴 확인.
+
+**P2 — `blog/how-long-to-cook-pork-tenderloin.html`(신규)**: 무게×온도 교차표 +
+시어링 후 별도 표. 차별화: 조리시간 8분~1시간15분 편차의 원인 4가지 중 최대 원인인
+**tenderloin vs loin 혼동**을 구분표로 정리. **이 클러스터의 예외 사례로 명시**
+(brisket/ribs는 안전최소온도 넘겨야 맛있는데, tenderloin은 lean이라 반대로 145°F
+넘기면 퍽퍽해짐) — brisket 페이지와 대조 링크해 클러스터 논리를 오히려 강화함.
+tenderloin vs loin **비교 전용 페이지는 만들지 않음**(1차 기각 유지).
+
+**P3 — `blog/how-long-to-bake-white-fish.html`(신규)**: cod/haddock/tilapia/halibut/
+pollock/catfish/perch 7종×두께 교차표. 자사 해산물 클러스터 갭(salmon/shrimp만 있고
+흰살생선 전무) 메움. 차별화: 10분/인치 규칙이 왜 흰살생선 전반에 통하는지(lean이라
+지방에 의한 열전달 차이가 작음) 설명, 연어와 대조(연어는 지방으로 버티지만 흰살생선은
+안 됨).
+
+**P4 — `blog/how-long-to-cook-pork-shoulder.html`(신규)**: 무게×온도 교차표.
+차별화: 파운드당 30분~2시간(4배) 편차의 핵심 원인이 **슬라이스(180°F) vs
+pulled(195-205°F) 목표 미구분**이라는 것을 정리 — brisket/ribs와 같은 콜라겐 로직의
+가장 큰 사례로 클러스터에 편입.
+- 신규 회피 도메인: quickcooktime.com(조리시간 전용 계산기, howlongtocook.org와 동류) — 9번 섹션에 기록.
+
+**부수 작업**: P2·P3가 `complete-meat-cooking-temperature-guide.html` 마스터 리스트에
+누락된 것을 P4 작업 중 발견해 함께 백필함.
+
+**9번 회피 리스트 추가 확정**(사전 검증 완료, 앞으로 이 후보들 절대 재시도 말 것):
+- 튀김 기름 온도 차트 — missvickie·superglobalcalculator(회피리스트) + airfryerpoint 선점
+- 브라인 계산기 — best-calculators·gigacalculator·innovicat·simplifycalc·usecalcpro·
+  utils.com·pitmaster.tools·destination-bbq. 전용 계산기 8개+, 이 프로젝트에서 확인된 것 중 최악
+- 로스트비프 조리시간 — Certified Angus Beef·RecipeTips가 차트 선점(12차 기각)
+- quickcooktime.com — 조리시간 전용 계산기 도메인(howlongtocook.org와 동류, how-long-to-cook
+  시리즈 확장할 때마다 확인할 것)
+
+**신규 확립 판정 패턴(다음 세션 최우선 적용 기준)**: "권위 사이트들이 정적 차트만
+갖고 있고 인터랙티브 계산기가 없는 니치"가 가장 승산 높음. grill-temperature-calculator와
+candy-temperature-calculator 둘 다 이 패턴으로 성공. 신규 후보 탐색 시 이 기준을
+경쟁강도 확인보다 먼저 적용할 것 — "차트는 있는데 계산기는 없다"가 핵심 신호.
+
+**현재 사이트 구조**: 툴 23 + 블로그 65 + 가이드 7 = **총 95페이지**.
+
+**다음 세션 미검증 후보**: 프라임립, 관자(scallops), 통오리, 콘비프,
+조리도구 용량(더치오븐/슬로우쿠커 — 경쟁자가 브랜드뿐이고 계산기팜 없으나
+"뭘 사야 하나"류 제품추천 콘텐츠라 사이트 정체성 이탈 우려로 보류 중, 재검토 필요시
+"몇 인분이면 몇 쿼트가 적당한가" 같은 계산기형 각도로 재구성 검토).
+how-long-to-cook 클러스터가 15건으로 커졌으니 별도 파생 페이지보다 신선한 축(재료 종류
+확장 등)을 우선 탐색할 것 — 이 클러스터 안에서 계속 파생시키면 수확체감 위험.
+
 ### 2026-07-27 (12차): 미트볼 신규 발행, 로스트비프 기각
 - **로스트비프 검증 후 기각**: web_search 결과 Certified Angus Beef(certifiedangusbeef.com/en/cooking/timetables), RecipeTips.com(recipetips.com/kitchen-tips/t--1542/roast-beef-cook-time.asp)이 이미 부위별·중량별 조리시간 차트를 보유 — 우리의 '레퍼런스 차트' 차별화 각도가 선점된 상태. 9번 섹션 회피 리스트에 추가할 것.
 - **미트볼 판단**: `how-long-to-cook-ground-beef.html`의 기존 미트볼 커버리지는 표 2행+문장 일부(~40단어)뿐이었음. 신규 스펙(크기×온도 12칸 교차표, 160/165°F 온도 혼선 정리, 오븐/팬/소스 비교, 냉동 처리, 퍽퍽함 원인, FAQ 4개)이 기존 대비 20배 이상 깊어져 **신규 페이지 발행**으로 진행(단순 확장 아님).
@@ -904,6 +957,9 @@ git push https://x-access-token:${TOKEN}@github.com/canghun13/cookingcalcs-.git 
   - **냉장/냉동 보관기간**: freshstoragetips.com, easytemperature.com(전용 도메인 2개) + thewholefork.com, statefoodsafety.com + **USDA/FSIS·GoodRx**. 포화 + 식품안전 YMYL이라 권위도 요구치 높음 → 기각
   - **조리시간 전용 도메인 추가 발견**: howlongtocook.org — 우리 `how-long-to-cook-*` 시리즈의 직접 경쟁자. 이 시리즈 확장할 때마다 확인할 것
   - **로스트비프(roast beef) 조리시간**: certifiedangusbeef.com(부위별 타임테이블 보유), recipetips.com(중량별 차트 보유) — '레퍼런스 차트' 각도가 이미 선점됨. how-long-to-cook 시리즈 확장 시 이 항목은 건너뛸 것
+  - **튀김 기름 온도 차트**: missvickie.com·superglobalcalculator.com(둘 다 회피리스트) + airfryerpoint.com(전용 도메인)이 선점
+  - **브라인(brine) 계산기**: best-calculators.com·gigacalculator.com·innovicat.com(전부 기존 회피리스트) + simplifycalc.com·usecalcpro.com·utils.com·pitmaster.tools·destination-bbq.com 전용 계산기 8개+ 확인 — 이 프로젝트에서 확인된 것 중 가장 심하게 포화됨
+  - **quickcooktime.com**: 조리시간 전용 계산기 도메인(howlongtocook.org와 동류). how-long-to-cook 시리즈 확장할 때마다 확인할 것
 - **신규 후보 판정 시 1순위 체크(2026-07-27 확립)**: 경쟁 "강도"보다 경쟁자 "업종"을 먼저 볼 것. 계산기 콘텐츠팜이 차지한 쿼리는 뚫기 어렵고, 포럼/.edu/향수·역사사이트/교육워크시트 사이트가 차지한 쿼리는 우리가 인터랙티브 툴+구조화 콘텐츠로 이길 수 있음(워드프라블럼·캔사이즈·빈티지용어가 이 케이스).
 - **판단 기준 추가 완화(2026-07-27)**: 사용자가 명시적으로 지시 — "우리 기준은 구글 첫페이지에 뜨는 것 정도다. 경쟁 사이트가 만만하거나 우리보다 아래면 치고 들어가도 되고, 경쟁이 세도 우리가 이기는데 굳이 안 할 이유가 없다." 즉 위 회피 리스트(콘텐츠팜 클러스터) 도메인이 경쟁자로 있어도 자동 기각하지 말고, 우리 콘텐츠 품질(인터랙티브 툴, 데이터 기반 비교표, FAQPage 등)로 실제 1페이지 진입이 가능하다고 판단되면 진행할 것. 07-27(6차) 베이킹 팬 사이즈 변환이 이 기준으로 진행한 첫 사례(calckitchen.com 등 경쟁 있었음). **다만 이 기준으로 발행한 페이지는 다음 세션에서 GSC 순위를 특별히 확인해서 실제로 이 판단이 맞았는지 검증할 것** — 근거 없이 계속 완화만 하지 말고 데이터로 확인.
 - **thin content 절대 금지**: 환산표 + 설명 + FAQ 필수, 800~1200단어 (600에서 상향됨)

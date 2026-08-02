@@ -27,8 +27,10 @@ const { TOOLS, BLOGS, GUIDES, ccBuildHeader, ccBuildMobileNav, ccBuildFooter } =
 const ROOT = __dirname;
 const START = '<!-- CC:STATIC-CHROME:START (build-static.js 자동 생성 — 직접 수정하지 말 것) -->';
 const END = '<!-- CC:STATIC-CHROME:END -->';
-const GRID_START = '<!-- CC:STATIC-CARDS:START (build-static.js 자동 생성) -->';
-const GRID_END = '<!-- CC:STATIC-CARDS:END -->';
+// 한 파일에 카드 컨테이너가 2개 이상 있을 수 있으므로(index.html의 blog-grid/guides-grid)
+// 마커에 반드시 컨테이너 id를 포함시킨다. id 없이 공용 마커를 쓰면 두 블록이 서로를 덮어쓴다.
+const gridStart = id => `<!-- CC:STATIC-CARDS:${id}:START (build-static.js 자동 생성) -->`;
+const gridEnd = id => `<!-- CC:STATIC-CARDS:${id}:END -->`;
 
 function fmtDate(d) {
   if (!d) return '';
@@ -130,17 +132,34 @@ function injectCards(rel, containerId, items, renderer) {
 
   const render = renderer || cardHTML;
   const cards = items.map(render).join('');
+  const GRID_START = gridStart(containerId);
+  const GRID_END = gridEnd(containerId);
   const block = `${GRID_START}${cards}${GRID_END}`;
 
-  // id="..."를 가진 컨테이너의 여는 태그를 찾아 내용을 통째로 교체
+  // 2회차 이후: 이전에 생성한 마커 블록만 통째로 교체한다.
+  // (컨테이너 정규식을 다시 쓰면 카드 안의 중첩 </div>에 걸려 마크업이 깨진다 —
+  //  2026-08-02에 실제로 목록 페이지 4개가 이 방식으로 깨졌음)
+  const s = html.indexOf(GRID_START);
+  const e = html.indexOf(GRID_END);
+  if (s !== -1 && e !== -1) {
+    html = html.slice(0, s) + block + html.slice(e + GRID_END.length);
+    fs.writeFileSync(abs, html, 'utf8');
+    return { rel, containerId, ok: true, count: items.length, mode: '마커 교체' };
+  }
+
+  // 최초 1회: 빈 컨테이너의 내용을 채운다.
+  // 컨테이너가 비어 있거나 <p>플레이스홀더</p>만 있는 경우에만 안전하므로,
+  // 내부에 <div>가 있으면 중단한다.
   const openRe = new RegExp(`(<div[^>]*id="${containerId}"[^>]*>)([\\s\\S]*?)(</div>)`);
-  if (!openRe.test(html)) {
-    return { rel, containerId, ok: false, reason: '컨테이너 없음' };
+  const m = html.match(openRe);
+  if (!m) return { rel, containerId, ok: false, reason: '컨테이너 없음' };
+  if (m[2].includes('<div')) {
+    return { rel, containerId, ok: false, reason: '컨테이너에 중첩 div 존재 — 마커 없이 덮어쓰면 위험' };
   }
   html = html.replace(openRe, `$1\n${block}\n    $3`);
 
   fs.writeFileSync(abs, html, 'utf8');
-  return { rel, containerId, ok: true, count: items.length };
+  return { rel, containerId, ok: true, count: items.length, mode: '최초 삽입' };
 }
 
 // ── 실행 ──────────────────────────────────────────────────────

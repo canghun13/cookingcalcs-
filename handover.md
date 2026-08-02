@@ -80,6 +80,97 @@ echo "nav.js GUIDES: $(sed -n '/const GUIDES/,/^];/p' assets/js/nav.js | grep -c
 
 ## 3. 사이트 구조 변경 이력
 
+### 2026-08-02 (14차): 🚨 애드센스 "가치 없는 콘텐츠" 거절 대응 — 정적 렌더링 전환 (구조 대수술)
+
+> **다음 세션에서 가장 먼저 읽어야 할 항목.** 이 세션에서 사이트의 렌더링 방식이 근본적으로 바뀌었고,
+> 앞으로 페이지를 추가할 때마다 **반드시 빌드 스크립트를 돌려야 한다.**
+
+#### 무슨 일이 있었나
+애드센스에서 `cookingcalcs.com`에 대해 **"가치가 별로 없는 콘텐츠"**로 게재 거부 판정.
+사이트 전반을 점검한 결과 **콘텐츠 자체는 문제가 아니었음** — 102페이지 중 대부분이
+600~1700단어에 표·FAQ·JSON-LD까지 완비돼 있었음. 문제는 전부 **"크롤러 눈에 어떻게 보이는가"**였음.
+
+#### 진단된 원인 4가지
+1. **헤더/네비/푸터가 전 페이지에서 nav.js 런타임 주입** ← 최대 원인.
+   정적 HTML에 `<header>`/`<nav>`/`<footer>`가 **단 한 페이지도 없었음**.
+   JS를 실행하지 않는 크롤러(애드센스 심사 포함)에게는 사이트 전체가
+   **네비게이션도 푸터도 없는 고립 문서 더미**로 보였음.
+2. **목록 페이지 3개가 사실상 빈 페이지**: 정적 기준 본문이
+   `/blog/` 21단어, `/tools/` 25단어, `/guides/` 29단어, **내부링크 0개**. 카드가 전부 JS 렌더링이었음.
+3. **홈페이지가 정적 기준으로 "Blog posts coming soon" / "Guides coming soon"** 표시.
+   실제로는 블로그 65개·가이드 7개를 보유한 상태에서 "준비 중"이라고 말하고 있었음.
+4. **프라이버시 정책에 광고 관련 고지 전무**. Google Analytics만 언급하고
+   애드센스·서드파티 광고 쿠키·개인 맞춤 광고 옵트아웃이 하나도 없었음 → **정책 직접 위반**.
+
+#### 조치 내용
+**(1) `assets/js/nav.js` 리팩터링 — 단일 소스 유지**
+- 헤더/모바일메뉴/푸터 마크업을 `ccBuildHeader()` / `ccBuildMobileNav()` / `ccBuildFooter()`
+  최상위 함수로 분리하고 `module.exports` 추가 → Node에서 `require` 가능.
+- GA 블록을 `typeof document !== 'undefined'` 가드로 감싸 Node 실행 시 죽지 않게 함.
+- **주입 전 `.site-header` / `.site-footer` 존재 여부를 확인해 이미 있으면 건너뜀**(중복 방지).
+  정적 마크업이 없는 페이지에서는 기존처럼 폴백 주입되므로 하위 호환됨.
+
+**(2) `build-static.js` 신규 추가 (repo 루트)**
+- nav.js의 빌더 함수를 **그대로 재사용**해 102개 전 HTML에 헤더/모바일메뉴/푸터를 정적 삽입.
+- 목록 카드 정적 삽입: `index.html`(블로그6+가이드7), `blog/index.html`(65),
+  `guides/index.html`(7), `tools/index.html`(23).
+- `tools/index.html`의 `TOOL_ICONS` 맵을 **파싱해서** 사용 → 아이콘 정의를 두 곳에 두지 않음.
+- `<!-- CC:STATIC-CHROME:START/END -->`, `<!-- CC:STATIC-CARDS:START/END -->` 주석 마커로 감싸
+  재실행 시 기존 블록을 제거 후 재삽입 → **멱등성 보장(2회 연속 실행해도 중복 안 생김, 검증함)**.
+
+**(3) 프라이버시 정책 전면 재작성** (120단어 → 약 700단어)
+- Google AdSense 사용 명시, 서드파티 광고 쿠키 설명, 개인 맞춤 광고 옵트아웃 3경로
+  (Google Ads Settings / aboutads.info / NAI), Google 파트너 사이트 정책 링크.
+- EEA·UK·스위스 이용자 권리, 아동 개인정보(13세 미만), 외부 링크 면책, 정책 변경 조항 추가.
+
+**(4) 부수 수정**
+- `about.html` 메타설명의 **"no ads"** 문구 제거 — 광고 게재 사이트와 정면 모순이라 정책 리스크였음.
+- `tools/index.html` 메타설명 "14 free calculators" → **23**으로 갱신(실제 개수와 불일치했음).
+- `TOOL_ICONS`에 누락돼 있던 신규 툴 4개 아이콘 추가(grill/pan-size/can-size/candy).
+- `contact.html` 27단어 → 약 400단어(오류 제보 방법, 정확성 정책, 응답 시간, 식품안전 면책).
+- `contact.html`·`privacy-policy.html` 메타설명 추가(둘 다 누락돼 있었음).
+- `ads.txt` 신규 추가: `google.com, pub-5592663499707350, DIRECT, f08c47fec0942fa0`
+
+#### 결과 (정적 기준 = JS 미실행 크롤러가 보는 것)
+| 페이지 | 이전 | 이후 |
+|---|---|---|
+| `index.html` | 484단어 / 내부링크 22 | **1,604단어 / 169** |
+| `blog/index.html` | 21단어 / 0 | **2,683단어 / 199** |
+| `tools/index.html` | 25단어 / 0 | **899단어 / 157** |
+| `guides/index.html` | 29단어 / 0 | **976단어 / 141** |
+| 전 페이지 | 600단어 미만 8개 | **600단어 미만 0개** |
+
+#### ⚠️ 앞으로 반드시 지킬 것 (신규 페이지 추가 시)
+1. `assets/js/nav.js`의 TOOLS/BLOGS/GUIDES 배열에 항목 추가 (기존과 동일)
+2. sitemap.xml / llms.txt 반영 (기존과 동일)
+3. **`node build-static.js` 실행** ← 신규 필수 단계.
+   안 돌리면 새 페이지에 헤더/푸터가 정적으로 안 들어가고, 목록 페이지 카드도 갱신 안 됨.
+   (브라우저에선 nav.js 폴백으로 보이니 육안으로는 멀쩡해 보임 → **놓치기 쉬우니 주의**)
+4. 커밋 전 검증:
+```bash
+node build-static.js
+# 전 페이지 header/mobileNav/footer가 정확히 1개씩인지
+for f in $(find . -name "*.html" -not -path "./.git/*"); do
+  h=$(grep -c 'class="site-header"' "$f"); m=$(grep -c 'id="mobileNav"' "$f"); ft=$(grep -c 'class="site-footer"' "$f")
+  [ "$h" != "1" ] || [ "$m" != "1" ] || [ "$ft" != "1" ] && echo "이상: $f h=$h m=$m f=$ft"
+done
+# JS 없이 본문 단어수 확인(600 미만 없어야 함)
+python3 -c "
+from bs4 import BeautifulSoup; import glob
+for fp in sorted(glob.glob('*.html')+glob.glob('blog/*.html')+glob.glob('tools/*.html')+glob.glob('guides/*.html')):
+    s=BeautifulSoup(open(fp,encoding='utf-8').read(),'html.parser')
+    [t.decompose() for t in s(['script','style'])]
+    w=len(s.find('body').get_text(' ',strip=True).split())
+    if w<600: print(w, fp)"
+```
+
+#### 다음 단계
+- 애드센스 콘솔에서 **"문제를 수정했음을 확인합니다" 체크 후 검토 요청** 제출 필요(사용자 작업).
+- 재심사는 보통 며칠~2주 소요. 거절 사유가 또 나오면 이번 4가지 외 다른 원인일 가능성이 높으니
+  거절 화면의 세부 문구를 그대로 확인할 것.
+- 배지: `index.html` `<main>` 안에만 존재하며 다른 페이지엔 없음(푸터 정적화와 무관하게 홈 전용 유지됨).
+  단 **launchbison 배지는 사용자가 `display:none` 처리한 상태**(이미지 깨짐 때문). 사용자 판단이므로 건드리지 말 것.
+
 ### 2026-07-27 (13차): 신규 4건 발행 (Candy 계산기 + 조리시간 3건) — 91→95페이지
 사전 검증된 P1~P4를 순서대로 전부 실행 완료. 중단 없이 끝까지 진행됨.
 
@@ -739,6 +830,12 @@ for table in soup.find_all('table'):
 - [ ] `llms.txt`에 항목 추가
 - [ ] `index.html`(홈) 툴 카드 섹션에 카드 추가 (툴인 경우만) + 개수 숫자(`stat-num`) 갱신
 - [ ] `tools/index.html`의 `TOOL_ICONS` 객체에 신규 툴 아이콘 추가 (툴인 경우만)
+- [ ] 🚨 **`node build-static.js` 실행** (2026-08-02 14차부터 필수)
+  - 헤더/모바일메뉴/푸터 정적 삽입 + 목록 페이지(`blog/` `tools/` `guides/` `index.html`) 카드 갱신
+  - **안 돌리면 새 페이지에 정적 헤더/푸터가 없어서 애드센스 재거절 위험**. 브라우저에선 nav.js 폴백으로
+    멀쩡해 보이므로 육안 확인만으로는 절대 못 잡음 — 반드시 실행하고 아래 검증까지 돌릴 것
+  - 검증: 전 페이지 `site-header`/`mobileNav`/`site-footer` 각 1개 + JS 없이 본문 600단어 이상
+    (구체 명령은 3번 섹션의 `2026-08-02 (14차)` 항목 참고)
 - [ ] **내부 링크 최소 2곳 확보**: 관련된 기존 블로그/툴 본문에 "Related Guides"(블로그) 또는 "Related Tools & Guides"(툴) 형태로 역방향 링크 추가
 - [ ] **(Guides 신규 발행 시 추가 필수)** 가이드 본문에서 링크로 언급한 페이지는 "최소 2곳" 기준과 별개로 **전부 다** 가이드로 되돌아오는 링크를 넣을 것 — 07-18(7차)에서 이걸 빠뜨렸다가 사용자 지적으로 47개 파일 일괄 보강한 적 있음(3번 섹션 참고). 필러페이지는 클러스터 전체 상호링크가 핵심.
 - [ ] **분량 800~1200단어** (억지로 채우지 않기, FAQ 3개+환산표+실질정보로 자연스럽게 도달)

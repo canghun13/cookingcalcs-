@@ -7,17 +7,19 @@
 // ── GA ──────────────────────────────────────────────────────
 // GA_ID는 Google Analytics 연결 후 교체
 const GA_ID = 'G-QZT8PVVY5E';
-(function () {
-  var s = document.createElement('script');
-  s.async = true;
-  s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
-  document.head.appendChild(s);
-})();
+if (typeof document !== 'undefined') {
+  (function () {
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+    document.head.appendChild(s);
+  })();
 
-window.dataLayer = window.dataLayer || [];
-function gtag() { dataLayer.push(arguments); }
-gtag('js', new Date());
-gtag('config', GA_ID);
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = function gtag() { dataLayer.push(arguments); };
+  gtag('js', new Date());
+  gtag('config', GA_ID);
+}
 
 // ── 툴 목록 (추가 시 여기만 수정) ───────────────────────────
 const TOOLS = [
@@ -126,22 +128,22 @@ const GUIDES = [
 ];
 
 
-// ── 메뉴 렌더링 ─────────────────────────────────────────────
-document.addEventListener('DOMContentLoaded', function () {
+/* ── 공용 마크업 빌더 ────────────────────────────────────────
+   헤더/모바일메뉴/푸터는 이제 빌드 스크립트(tools/build-static.js)가
+   각 HTML 파일에 정적으로 구워 넣는다. 아래 함수들이 그 단일 소스이며,
+   브라우저에서는 정적 마크업이 없는 경우에만 폴백으로 주입된다.
+   → 정적 마크업을 바꾸려면 이 함수를 고치고 빌드 스크립트를 다시 돌릴 것.
+   ──────────────────────────────────────────────────────────── */
+function ccNavItems() {
+  return {
+    toolItems: TOOLS.map(t => `<li><a href="${t.url}">${t.name}</a></li>`).join(''),
+    blogItems: BLOGS.map(b => `<li><a href="${b.url}">${b.name}</a></li>`).join(''),
+    guideItems: GUIDES.map(g => `<li><a href="${g.url}">${g.name}</a></li>`).join('')
+  };
+}
 
-  const toolItems = TOOLS.map(t =>
-    `<li><a href="${t.url}">${t.name}</a></li>`
-  ).join('');
-
-  const blogItems = BLOGS.map(b =>
-    `<li><a href="${b.url}">${b.name}</a></li>`
-  ).join('');
-
-  const guideItems = GUIDES.map(g =>
-    `<li><a href="${g.url}">${g.name}</a></li>`
-  ).join('');
-
-  const header = `
+function ccBuildHeader() {
+  return `
   <header class="site-header">
     <div class="header-inner">
       <a href="/" class="logo">🍳 CookingCalcs</a>
@@ -159,8 +161,11 @@ document.addEventListener('DOMContentLoaded', function () {
       </button>
     </div>
   </header>`;
+}
 
-  const mobileNav = `
+function ccBuildMobileNav() {
+  const { toolItems, blogItems, guideItems } = ccNavItems();
+  return `
   <nav class="mobile-nav" id="mobileNav">
     <ul class="nav-list">
       <li><a href="/" class="nav-link">Home</a></li>
@@ -189,8 +194,10 @@ document.addEventListener('DOMContentLoaded', function () {
     </ul>
   </nav>
   <div class="nav-overlay" id="navOverlay"></div>`;
+}
 
-  const footer = `
+function ccBuildFooter() {
+  return `
   <footer class="site-footer">
     <div class="footer-inner">
       <div class="footer-brand">
@@ -236,11 +243,25 @@ document.addEventListener('DOMContentLoaded', function () {
       <p>© ${new Date().getFullYear()} CookingCalcs. For informational purposes only.</p>
     </div>
   </footer>`;
+}
 
-  // 삽입
-  document.body.insertAdjacentHTML('afterbegin', header);
-  document.querySelector('.site-header').insertAdjacentHTML('afterend', mobileNav);
-  document.body.insertAdjacentHTML('beforeend', footer);
+// Node(빌드 스크립트)에서 정적 마크업 생성용으로 사용
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = { TOOLS, BLOGS, GUIDES, ccBuildHeader, ccBuildMobileNav, ccBuildFooter };
+}
+
+// ── 메뉴 렌더링 ─────────────────────────────────────────────
+if (typeof document !== 'undefined') document.addEventListener('DOMContentLoaded', function () {
+
+  // 정적 마크업이 이미 있으면 주입하지 않는다(중복 방지).
+  // 빌드 스크립트를 안 돌린 페이지에서만 폴백으로 주입된다.
+  if (!document.querySelector('.site-header')) {
+    document.body.insertAdjacentHTML('afterbegin', ccBuildHeader());
+    document.querySelector('.site-header').insertAdjacentHTML('afterend', ccBuildMobileNav());
+  }
+  if (!document.querySelector('.site-footer')) {
+    document.body.insertAdjacentHTML('beforeend', ccBuildFooter());
+  }
 
   // 현재 페이지 경로
   const currentPath = window.location.pathname;

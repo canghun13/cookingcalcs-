@@ -1,4 +1,4 @@
-# CookingCalcs 현황 및 인수인계 (2026-07-27 기준)
+# CookingCalcs 현황 및 인수인계 (2026-08-03 기준)
 
 이 문서는 2026-07-24 버전 인수인계 문서를 기반으로, 이후 진행된 모든 작업 내역을 반영해 갱신한 버전입니다. 새 세션에서는 이 문서만 보고 바로 작업 이어가면 됩니다.
 
@@ -84,6 +84,94 @@ echo "nav.js GUIDES: $(sed -n '/const GUIDES/,/^];/p' assets/js/nav.js | grep -c
 ---
 
 ## 3. 사이트 구조 변경 이력
+
+### 2026-08-03 (16차): 공격적 확장 세션 — 신규 2건 + 보강 1건 발행, 15차 오판 정정, IndexNow 도입
+
+> 15차(같은 날 앞 세션)의 판단 오류를 사용자가 강하게 지적해서 시작한 세션. 15차는 "구글 노출 95%
+> 붕괴"를 사업 최우선 위기로 잘못 판단하고 신규 발행을 보류했었음 — **이 판단이 틀렸음.** 이 사이트의
+> 실제 트래픽은 구글이 아니라 Bing/Yahoo/AI검색/Direct이고(GSC 3개월 클릭 5건 vs GA4 28일 세션 309),
+> KPI는 GA4 세션·활성사용자로 봐야 한다는 게 이 세션에서 확정됨(위 0번/15차 섹션에 반영 완료).
+
+#### P0 — 15차 판단 오류 정정 (완료)
+1. **구글 노출 붕괴 등급 하향**: "사업 최우선 위기" → "구글 채널 한정 이슈, 3개월 클릭 5건짜리라 사업
+   영향 미미". GA4 기준으로는 같은 기간 세션·활성사용자 계속 우상향 중이었음.
+2. **sitemap lastmod 오판 정정**: 15차가 "102개 전부 08-02로 갱신해야 함"이라고 잘못 판단했던 것을
+   정정 — 헤더/푸터 같은 보일러플레이트 변경은 구글 사이트맵 가이드라인상 lastmod 갱신 대상이 아님.
+   08-02에 **실질적으로 본문이 바뀐 5개만**(`privacy-policy.html`, `contact.html`, `blog/index.html`,
+   `tools/index.html`, `guides/index.html`) lastmod를 2026-08-02로 갱신하고 나머지 97개는 그대로 둠.
+3. 09번 섹션 회피 리스트가 "구글 SERP 기준"으로 만들어진 것임을 명시하고, 자동 기각 근거로 쓰지
+   말라고 정정(Bing/AI 검색 기준에서는 구글 상위 콘텐츠팜 존재가 우리 노출과 거의 무관).
+
+#### P1 — IndexNow 도입 (Bing/Yahoo 즉시 색인 요청, 신규 인프라)
+- repo 루트에 IndexNow 인증 키 파일 추가(`2418ccf7...b3333.txt`, 64자리 16진수).
+- `notify-indexnow.js` 신규: 발행 URL을 IndexNow API(`https://api.indexnow.org/indexnow`)에 POST.
+  `--sitemap` 옵션으로 전체 URL 일괄 제출도 가능.
+- **이 개발 환경의 egress 방화벽이 `api.indexnow.org`를 막고 있어**(`x-deny-reason: host_not_allowed`)
+  Claude가 이 스크립트를 실행해도 항상 실패함 — curl과 node 양쪽으로 실제 확인함, 되는 척하지 않음.
+  **사용자가 자신의 PC/서버에서 직접 실행해야 실제 제출됨.** 4번 체크리스트에 curl 명령 전문 추가함.
+
+#### P2-1 — 신규 발행: `blog/how-long-to-cook-ham.html` (Gammon & Ham)
+- how-long-to-cook 클러스터의 갭. 사이트 전체 재확인 결과 gammon/ham 콘텐츠 0건.
+- GSC "gammon cooking calculator" 노출 있음, GB 노출 3위(1,658회)·GA4 사용자 2위(27명) — UK 트래픽 활용.
+- 차별화: gammon(raw)과 ham(조리 후)의 UK식 구분 + 미국 마트 ham 대부분이 이미 fully-cooked라
+  '조리'가 아니라 '재가열'이라는 사실이 만드는 실제 온도 기준 차이를 US(USDA fresh ham 145°F/63°C)
+  vs UK(gammon 70-75°C) 대조표로 정리 — 기존 pork-chops 페이지의 국가별 규정 비교 패턴과 동일 논리.
+  경쟁 6곳(procalculator.co.uk, calculatorsonline.co.uk, meatcookingtimecalculator.com 등) 전부
+  이 각도를 다루지 않음.
+- 1,295단어, FAQ 5개, 표 2개. 기존 `tools/meat-temperature-guide.html`의 ham-fresh/ham-cooked
+  수치와 완전히 일치시켜 사이트 내 수치 충돌 없음. 체크리스트 전항목 반영, 역방향 링크 5곳.
+
+#### P2-2 — 신규 발행: `tools/egg-weight-converter.html` (Egg Weight & Volume Converter)
+- GSC 관련 쿼리 19종+ 확인(how many ml in one egg, tablespoons in one egg, eggs to grams,
+  volume of egg 등). GA4 최고 트래픽 페이지가 egg-converter(134회)라 토픽 권위 활용.
+- 기존 egg-converter(사이즈↔사이즈)·how-many-eggs-in-a-cup(컵)과 자사 중복 재확인 — 0건.
+- 차별화: 경쟁 계산기 대부분(egg.foodnutrify.com 등, 회피리스트)이 '개수→무게' 단방향뿐인데,
+  이 툴은 5개 입력필드(개수/g/oz/ml/tbsp)가 전부 상호 양방향 — 액란 200g→대란 4개처럼 역방향 계산 가능.
+- 수치는 전부 기존 `tools/egg-converter.html`의 in-shell 무게(43/50/57/64/71g)를 단일 출처로 재사용,
+  껍질손실 12%·흰자:노른자 66:34 비율로 파생. JS 로직 Node로 2000회 랜덤 시뮬레이션 크래시 0건.
+  FAQ 수치 전부 계산값과 대조 검증(오차 발견해 1건 수정: 중란 티스푼 값).
+- 852단어, FAQ 6개, 표 1개. **모바일 반응형 미디어쿼리 최초 누락을 발행 전에 발견해서 수정함**
+  (`.tool-form-grid`에 `@media(max-width:600px)` 추가 — 이 사이트에서 반복된 버그 패턴이라 처음부터
+  체크리스트로 잡았어야 했던 것, 다음에도 신규 그리드 만들 때 첫 항목으로 확인할 것).
+- **부수 수정**: `index.html`의 `stat-num`이 19로 표시돼 있었는데 실제 툴 개수는 이미 23개였던
+  드리프트(원인 불명, 여러 세션 전부터 방치돼 있었던 것으로 보임) — 24로 정정하며 같이 바로잡음.
+- 체크리스트 전항목 반영, 역방향 링크 3곳(egg-converter/how-many-eggs-in-a-cup/how-to-substitute-egg-sizes).
+
+#### P2-3 — 영국식 계량 각도(기획했으나 진행 안 함, 이미 커버됨)
+- GSC 클러스터(cups to tablespoons uk 50위, 3/4 cup in grams uk 51위, teaspoons in tablespoon uk
+  77.5위, gas mark 관련 다수) 재확인 결과 **이미 완전히 커버돼 있었음**:
+  `tools/cups-to-tablespoons.html`, `tools/tablespoon-to-teaspoon.html`, `tools/cups-to-grams.html`,
+  `blog/tablespoon-to-teaspoon-guide.html`에 US/UK/AU 정확 수치(US tbsp 14.79ml, AU tbsp 20ml,
+  UK tbsp 15ml, US cup 236.6ml, AU/CA cup 250ml) FAQ가 전부 이미 있었고, gas mark는
+  `tools/oven-temp-converter.html`이 인터랙티브 계산기로 이미 실시간 대응 중. 계란 UK사이즈 쿼리도
+  `how-to-substitute-egg-sizes.html`에 이미 전용 섹션 있음(07-10 세션에서 처리됨).
+  **진짜 갭이 없어서 신규/보강 둘 다 진행 안 함** — 자사 중복 먼저 확인하라는 원칙이 실제로 작동한 사례.
+
+#### P2-4 — 보강: `tools/liquid-converter.html`에 cc 별칭 추가
+- GSC "30cc to tablespoons"(38위), "20 cc to tablespoon"(43위), "30cc to tbsp"(40위) — 사이트 전체
+  재확인(이전 grep이 `CC:STATIC-CHROME` 마커 때문에 오탐 났던 것 word-boundary로 재검증) 결과 진짜 갭.
+- 1cc=1ml이라 신규 필드/로직 불필요 — ml 필드 레이블에 "(ml / cc)" 병기 + FAQ 1건으로 충분.
+  20cc≈1⅓tbsp, 30cc≈2tbsp로 실제 계산해서 명시.
+
+#### P3 — AI검색 최적화 패턴 (이번에 신규 도입, 신규 발행 2건에 적용)
+- H1 직후 2-3문장 직답 문단에 구체 수치 명시(예: "A 4 kg (9 lb) bone-in gammon needs about...").
+- 표 헤더에 단위 명시("Weight (lb / kg)" 등, "Weight" 단독 금지).
+- 수치 출처를 JSON-LD뿐 아니라 본문 문장으로도 명시(USDA, 7 CFR 56 등).
+- **기존 페이지 retrofit은 이번 세션에 안 함** — 신규 2건에만 적용, 다음 세션에서 고트래픽 기존
+  페이지(raw-to-cooked-weight, cost-per-serving 등)에 소급 적용 검토 여지 있음.
+
+#### 최종 상태
+**툴 24 + 블로그 66 + 가이드 7 = 총 97페이지** (세션 시작 95 → +2 신규, cc 보강은 페이지 수 불변).
+검증: 개수정합 전부 일치(tools 24/blogs 66/guides 7/sitemap 104, nav.js 전부 일치), 신규/수정 파일
+전부 JSON-LD 파싱·div 밸런스·sitemap XML 유효성 통과, noindex 0건, canonical 누락 0건, chrome
+(header/mobileNav/footer) 전 페이지 각 1개, node build-static.js 정상 실행(104페이지 처리).
+
+**참고(이번 세션 범위 밖으로 남겨둔 것)**: build-static.js의 빈줄 누적 버그(기능 영향 없음, 15차에서
+처음 발견, 재실행마다 재현됨)는 이번에도 손대지 않음 — 우선순위 낮음으로 계속 이월.
+
+**다음 세션 우선순위**: (1) IndexNow 실제 제출은 사용자 PC에서, (2) P3 패턴을 고트래픽 기존 페이지에
+소급 적용 검토, (3) 새 채널(Bing/AI) 유입이 실제로 늘고 있는지 다음 GA4 자료로 확인, (4) Media.net/
+Ezoic 등 비-애드센스 수익화 채널 검토(12번 섹션 참고, 이번 세션엔 코드 추가 안 함).
 
 ### 2026-08-03 (15차): GSC 노출 붕괴 확인(구글 채널 한정, 영향 미미) + 전략 재정렬 — 분석 전용, 콘텐츠 변경 0건
 

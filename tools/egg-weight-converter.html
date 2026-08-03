@@ -3,19 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Weight Converter – g, oz, lb, kg | CookingCalcs</title>
-  <meta name="description" content="Convert between grams, ounces, pounds, and kilograms instantly. Perfect for cooking and baking with recipes that use different measurement systems.">
-  <link rel="canonical" href="https://cookingcalcs.com/tools/weight-converter.html">
+  <title>Egg Weight & Volume Converter – Grams, ml, Tablespoons, Ounces – CookingCalcs</title>
+  <meta name="description" content="Convert eggs to grams, ml, tablespoons, or ounces — or go the other way and find out how many eggs a given weight of liquid egg equals. Whole egg, white, or yolk, any USDA size.">
+  <link rel="canonical" href="https://cookingcalcs.com/tools/egg-weight-converter.html">
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="/assets/css/style.css">
   <script src="/assets/js/nav.js" defer></script>
+  <style>
+    @media(max-width:600px) { .tool-form-grid { grid-template-columns:1fr !important; } }
+  </style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  "name": "Weight Converter",
-  "url": "https://cookingcalcs.com/tools/weight-converter.html",
-  "description": "Convert between grams, ounces, pounds, and kilograms instantly. Perfect for cooking and baking with recipes that use different measurement systems.",
+  "name": "Egg Weight & Volume Converter",
+  "url": "https://cookingcalcs.com/tools/egg-weight-converter.html",
+  "description": "Convert between egg count, grams, ounces, milliliters, and tablespoons for whole eggs, egg whites, or egg yolks — in either direction, for any USDA egg size.",
   "applicationCategory": "UtilitiesApplication",
   "operatingSystem": "Any",
   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
@@ -29,51 +32,56 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "How many grams in an ounce?",
+      "name": "How many ml in one egg?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "There are 28.35 grams in 1 ounce. For quick mental math: 1 oz ≈ 28g, 4 oz ≈ 113g, 8 oz (half pound) ≈ 227g, 16 oz (1 pound) ≈ 454g."
+        "text": "About 48 ml for one large egg cracked out of the shell (roughly 50g, and egg is close enough to the density of water that grams and milliliters are nearly interchangeable). A medium egg is about 43 ml, and a jumbo egg is about 60 ml."
       }
     },
     {
       "@type": "Question",
-      "name": "How many ounces in a pound?",
+      "name": "How many tablespoons in one egg?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "1 pound = 16 ounces = 453.6 grams. This is one of the most useful cooking conversions to memorize, since US recipes often switch between the two units for meat and produce."
+        "text": "About 3 tablespoons for one whole large egg out of the shell. Broken down further, that's roughly 2 tablespoons of white and 1 tablespoon of yolk. Medium eggs are closer to 3 tablespoons as well (just under); jumbo eggs run closer to 4 tablespoons."
       }
     },
     {
       "@type": "Question",
-      "name": "How many grams in a pound?",
+      "name": "How many grams is 4 large eggs?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "There are 453.6 grams in 1 pound, typically rounded to 454g in cooking. Half a pound is 227g; a quarter pound is 113g. Most useful when buying meat listed in pounds and a recipe specifies grams."
+        "text": "About 200g cracked out of the shell (4 × 50g). In the shell, 4 large eggs weigh closer to 228g (4 × 57g), since the shell itself is roughly 12% of the total weight."
       }
     },
     {
       "@type": "Question",
-      "name": "How do I convert kilograms to pounds?",
+      "name": "How do I convert eggs to grams for a recipe?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Multiply kilograms by 2.205 to get pounds. For a quick estimate, multiply by 2.2. So 1kg ≈ 2.2 lbs, 2kg ≈ 4.4 lbs, 0.5kg ≈ 1.1 lbs. To go from pounds to kilograms, divide by 2.205."
+        "text": "Multiply the egg count by the shelled weight for your size: about 38g (small), 44g (medium), 50g (large), 56g (extra large), or 62g (jumbo) per whole egg. This matters most when a recipe is written by weight (common in professional and European baking) rather than by egg count."
       }
     },
     {
       "@type": "Question",
-      "name": "Is this converter for dry or liquid ingredients?",
+      "name": "I have liquid egg — how many eggs does 200g equal?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "This converter handles weight only — grams, ounces, pounds, and kilograms apply to any physical substance regardless of whether it's dry or liquid. For liquid volume conversions (cups, milliliters, fluid ounces), use the Liquid Converter . For ingredient-specific weights like cups of flour or sugar, use the Cups to Grams Calculator ."
+        "text": "200g of whole liquid egg equals about 4 large eggs (200 ÷ 50g). This reverse direction — starting from a weight or carton of liquid egg and working out how many shell eggs it represents — is exactly what the calculator on this page is built for."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the volume of one egg?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A large egg's edible contents (white plus yolk, no shell) measure about 48 ml, or roughly 3 tablespoons — about 2 tablespoons of white and 1 tablespoon of yolk. The whole egg with shell displaces slightly more, but the edible-volume figure is what matters for recipes."
       }
     }
   ]
 }
 </script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
-<style>
-  @media(max-width:600px) { .tool-form-grid { grid-template-columns:1fr !important; } }
-</style>
 </head>
 <body>
 <!-- CC:STATIC-CHROME:START (build-static.js 자동 생성 — 직접 수정하지 말 것) -->
@@ -124,157 +132,160 @@
   </nav>
   <div class="nav-overlay" id="navOverlay"></div>
 <!-- CC:STATIC-CHROME:END -->
-
-
-
-
-
-
-
-
-
-
 <main>
   <div class="tool-page">
-    <h1>Weight Converter</h1>
-    <p class="tool-desc">Convert between grams, ounces, pounds, and kilograms instantly. Enter any amount in any unit and the rest update automatically.</p>
+    <h1>Egg Weight & Volume Converter</h1>
+    <p class="tool-desc">Convert eggs to grams, ounces, milliliters, or tablespoons — or work backward from a weight of liquid egg to find out how many eggs it equals. Choose a size and part below; every field updates the others automatically.</p>
 
     <div class="tool-card-inner">
       <div class="tool-form-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1.5rem;">
+        <div class="form-group">
+          <label for="eggSize">Egg Size</label>
+          <select id="eggSize" onchange="onSelectChange()">
+            <option value="small">Small</option>
+            <option value="medium">Medium</option>
+            <option value="large" selected>Large</option>
+            <option value="xl">Extra Large</option>
+            <option value="jumbo">Jumbo</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="eggPart">Part</label>
+          <select id="eggPart" onchange="onSelectChange()">
+            <option value="whole" selected>Whole egg</option>
+            <option value="white">White only</option>
+            <option value="yolk">Yolk only</option>
+          </select>
+        </div>
+      </div>
 
+      <div class="tool-form-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1.5rem;">
+        <div class="form-group">
+          <label for="eggs">Number of Eggs</label>
+          <input type="number" id="eggs" min="0" step="any" placeholder="0" oninput="convertFrom('eggs')">
+        </div>
         <div class="form-group">
           <label for="grams">Grams (g)</label>
           <input type="number" id="grams" min="0" step="any" placeholder="0" oninput="convertFrom('grams')">
         </div>
-
         <div class="form-group">
           <label for="ounces">Ounces (oz)</label>
           <input type="number" id="ounces" min="0" step="any" placeholder="0" oninput="convertFrom('ounces')">
         </div>
-
         <div class="form-group">
-          <label for="pounds">Pounds (lb)</label>
-          <input type="number" id="pounds" min="0" step="any" placeholder="0" oninput="convertFrom('pounds')">
+          <label for="ml">Milliliters (ml)</label>
+          <input type="number" id="ml" min="0" step="any" placeholder="0" oninput="convertFrom('ml')">
         </div>
-
         <div class="form-group">
-          <label for="kg">Kilograms (kg)</label>
-          <input type="number" id="kg" min="0" step="any" placeholder="0" oninput="convertFrom('kg')">
+          <label for="tbsp">Tablespoons (tbsp)</label>
+          <input type="number" id="tbsp" min="0" step="any" placeholder="0" oninput="convertFrom('tbsp')">
         </div>
-
       </div>
 
       <button class="btn-primary" onclick="clearAll()">Clear</button>
+      <p style="margin-top:0.75rem; font-size:0.85rem; color:var(--muted);">All weights are for egg out of the shell (edible portion only). Shell adds roughly 12% to whole-egg weight — see the table below for in-shell figures.</p>
     </div>
 
-    <!-- Reference Chart -->
     <div style="margin-top:3rem;">
-      <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin-bottom:1rem;">Common Weight Conversions</h2>
+      <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin-bottom:1rem;">Egg Weight Reference (In-Shell vs Edible Portion)</h2>
       <table style="width:100%; border-collapse:collapse;">
         <thead>
           <tr style="background:var(--sand-dark);">
-            <th style="padding:0.75rem 1rem; text-align:left; border-bottom:1px solid var(--border);">Grams</th>
-            <th style="padding:0.75rem 1rem; text-align:center; border-bottom:1px solid var(--border);">Ounces</th>
-            <th style="padding:0.75rem 1rem; text-align:center; border-bottom:1px solid var(--border);">Pounds</th>
-            <th style="padding:0.75rem 1rem; text-align:center; border-bottom:1px solid var(--border);">Kilograms</th>
+            <th style="padding:0.75rem 1rem; text-align:left; border-bottom:1px solid var(--border);">Size</th>
+            <th style="padding:0.75rem 1rem; text-align:center; border-bottom:1px solid var(--border);">In-Shell (g)</th>
+            <th style="padding:0.75rem 1rem; text-align:center; border-bottom:1px solid var(--border);">Edible Whole (g)</th>
+            <th style="padding:0.75rem 1rem; text-align:center; border-bottom:1px solid var(--border);">White (g)</th>
+            <th style="padding:0.75rem 1rem; text-align:center; border-bottom:1px solid var(--border);">Yolk (g)</th>
           </tr>
         </thead>
         <tbody>
-          <tr><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">28g</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">1 oz</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">0.063 lb</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">0.028 kg</td></tr>
-          <tr style="background:var(--sand);"><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">100g</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">3.53 oz</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">0.22 lb</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">0.1 kg</td></tr>
-          <tr><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">113g</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">4 oz</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">0.25 lb</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">0.113 kg</td></tr>
-          <tr style="background:var(--sand);"><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">227g</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">8 oz</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">0.5 lb</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">0.227 kg</td></tr>
-          <tr><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">454g</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">16 oz</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">1 lb</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">0.454 kg</td></tr>
-          <tr style="background:var(--sand);"><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">500g</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">17.6 oz</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">1.1 lb</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">0.5 kg</td></tr>
-          <tr><td style="padding:0.65rem 1rem;">1000g</td><td style="text-align:center; padding:0.65rem;">35.3 oz</td><td style="text-align:center; padding:0.65rem;">2.2 lb</td><td style="text-align:center; padding:0.65rem;">1 kg</td></tr>
+          <tr><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">Small</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">43g</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">38g</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">25g</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">13g</td></tr>
+          <tr style="background:var(--sand);"><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">Medium</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">50g</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">44g</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">29g</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">15g</td></tr>
+          <tr><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">Large</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">57g</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">50g</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">33g</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">17g</td></tr>
+          <tr style="background:var(--sand);"><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">Extra Large</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">64g</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">56g</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">37g</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">19g</td></tr>
+          <tr><td style="padding:0.65rem 1rem;">Jumbo</td><td style="text-align:center; padding:0.65rem;">71g</td><td style="text-align:center; padding:0.65rem;">62g</td><td style="text-align:center; padding:0.65rem;">41g</td><td style="text-align:center; padding:0.65rem;">21g</td></tr>
         </tbody>
       </table>
+      <p style="margin-top:1rem; color:var(--muted); font-size:0.9rem;">In-shell weights follow USDA egg grading standards (7 CFR 56); edible-portion and white/yolk splits are derived from those figures using standard shell-loss (~12%) and white-to-yolk (~66:34) ratios used across professional baking references. The same in-shell weights are used throughout CookingCalcs, including on the <a href="/tools/egg-converter.html">Egg Size Converter</a>.</p>
     </div>
 
-    <!-- Related -->
+    <div style="margin-top:3rem;">
+      <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin-bottom:1rem;">How to Use This Calculator</h2>
+      <p>Pick your egg size and which part you're measuring (whole egg, white only, or yolk only), then type a number into any one field — eggs, grams, ounces, milliliters, or tablespoons — and the rest fill in automatically. Changing the size or part recalculates everything from whatever you last typed, so you can switch from "large" to "extra large" mid-conversion without starting over. To go in reverse, just start from the grams, ounces, ml, or tbsp field instead of the eggs field: type in a weight or volume of liquid egg and the "Number of Eggs" field tells you what it equals.</p>
+    </div>
+
+    <div style="margin-top:3rem;">
+      <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin-bottom:1rem;">Why Grams and Milliliters Are Nearly the Same for Eggs</h2>
+      <p>Whole liquid egg has a density of about 1.03 g/ml — close enough to water (1.00 g/ml) that for kitchen purposes, treating grams and milliliters as equal introduces less than a 3% error. That's why a 50g large egg measures out to roughly 48-50 ml; the small gap comes entirely from that density difference, not from any meaningful volume/weight distinction. This is also why weighing eggs on a kitchen scale is just as accurate as measuring them by volume, and considerably faster when you're working with fractions of an egg.</p>
+    </div>
+
+    <div style="margin-top:3rem;">
+      <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin-bottom:1rem;">Going Backward: From a Carton of Liquid Egg to a Number of Eggs</h2>
+      <p>Most egg converters only work in one direction — enter an egg count, get a weight. This one also works the other way: enter a weight or volume of liquid egg (from a carton of egg substitute, leftover beaten egg, or a recipe written in grams) and it tells you how many shell eggs of your chosen size that represents. This matters for recipes that specify liquid egg by weight — common in commercial baking, egg-white-heavy recipes like macarons or meringues, and recipes converted from metric — where "how many eggs is this" isn't obvious from the number alone.</p>
+    </div>
+
+    <div style="margin-top:3rem; padding:1.5rem; background:var(--tomato-light); border-radius:var(--radius-lg);">
+      <h2 style="font-family:'Playfair Display',serif; margin-bottom:0.75rem;">Frequently Asked Questions</h2>
+      <div style="margin-bottom:1rem;">
+        <h3 style="font-size:1rem; margin-bottom:0.3rem;">How many ml in one egg?</h3>
+        <p style="margin:0;">About 48 ml for one large egg cracked out of the shell (roughly 50g, and egg is close enough to the density of water that grams and milliliters are nearly interchangeable). A medium egg is about 43 ml, and a jumbo egg is about 60 ml.</p>
+      </div>
+      <div style="margin-bottom:1rem;">
+        <h3 style="font-size:1rem; margin-bottom:0.3rem;">How many tablespoons in one egg?</h3>
+        <p style="margin:0;">About 3 tablespoons for one whole large egg out of the shell. Broken down further, that's roughly 2 tablespoons of white and 1 tablespoon of yolk. Medium eggs are closer to 3 tablespoons as well (just under); jumbo eggs run closer to 4 tablespoons.</p>
+      </div>
+      <div style="margin-bottom:1rem;">
+        <h3 style="font-size:1rem; margin-bottom:0.3rem;">How many grams is 4 large eggs?</h3>
+        <p style="margin:0;">About 200g cracked out of the shell (4 × 50g). In the shell, 4 large eggs weigh closer to 228g (4 × 57g), since the shell itself is roughly 12% of the total weight.</p>
+      </div>
+      <div style="margin-bottom:1rem;">
+        <h3 style="font-size:1rem; margin-bottom:0.3rem;">How do I convert eggs to grams for a recipe?</h3>
+        <p style="margin:0;">Multiply the egg count by the shelled weight for your size: about 38g (small), 44g (medium), 50g (large), 56g (extra large), or 62g (jumbo) per whole egg. This matters most when a recipe is written by weight (common in professional and European baking) rather than by egg count.</p>
+      </div>
+      <div style="margin-bottom:1rem;">
+        <h3 style="font-size:1rem; margin-bottom:0.3rem;">I have liquid egg — how many eggs does 200g equal?</h3>
+        <p style="margin:0;">200g of whole liquid egg equals about 4 large eggs (200 ÷ 50g). This reverse direction — starting from a weight or carton of liquid egg and working out how many shell eggs it represents — is exactly what the calculator on this page is built for.</p>
+      </div>
+      <div>
+        <h3 style="font-size:1rem; margin-bottom:0.3rem;">What is the volume of one egg?</h3>
+        <p style="margin:0;">A large egg's edible contents (white plus yolk, no shell) measure about 48 ml, or roughly 3 tablespoons — about 2 tablespoons of white and 1 tablespoon of yolk. The whole egg with shell displaces slightly more, but the edible-volume figure is what matters for recipes.</p>
+      </div>
+    </div>
+
     <div style="margin-top:3rem; padding:1.5rem; background:var(--tomato-light); border-radius:var(--radius-lg);">
       <h3 style="font-family:'Playfair Display',serif; margin-bottom:0.75rem;">Related Tools & Guides</h3>
       <ul style="list-style:none; display:flex; flex-direction:column; gap:0.5rem;">
+        <li><a href="/tools/egg-converter.html" style="color:var(--tomato-dark); font-weight:500;">→ Egg Size Converter</a></li>
+        <li><a href="/blog/how-many-eggs-in-a-cup.html" style="color:var(--tomato-dark); font-weight:500;">→ How Many Eggs in a Cup?</a></li>
+        <li><a href="/blog/how-to-substitute-egg-sizes.html" style="color:var(--tomato-dark); font-weight:500;">→ How to Substitute Egg Sizes in Recipes</a></li>
         <li><a href="/guides/complete-baking-conversion-guide.html" style="color:var(--tomato-dark); font-weight:500;">→ The Complete Baking Measurement & Conversion Guide</a></li>
-        <li><a href="/tools/cups-to-grams.html" style="color:var(--tomato-dark); font-weight:500;">→ Cups to Grams Calculator</a></li>
-        <li><a href="/blog/how-many-cups-in-a-pound-of-flour.html" style="color:var(--tomato-dark); font-weight:500;">→ How Many Cups in a Pound of Flour?</a></li>
-        <li><a href="/blog/how-to-measure-butter.html" style="color:var(--tomato-dark); font-weight:500;">→ How to Measure Butter: Sticks, Cups, and Grams</a></li>
       </ul>
-    </div>
-
-    <div class="blog-content" style="margin-top:3rem;">
-      <h2>How to Use This Converter</h2>
-      <p>Type a number into any field and all other units update instantly. You can start from grams, ounces, pounds, or kilograms — whichever unit your recipe uses. Clear the fields with the Clear button to start a new conversion.</p>
-
-      <h2>When You Need Weight Conversions in the Kitchen</h2>
-      <p>The most common situation is following a recipe from a different country. US recipes often use pounds and ounces, while UK, Australian, and European recipes use grams and kilograms. Meat and produce labels at the grocery store are often in pounds, while cooking guides may give quantities in grams. This converter bridges all of those.</p>
-      <p>Weight conversions are also useful when scaling recipes. If a recipe calls for 8oz of chicken and you have a kitchen scale set to grams, knowing that 8oz = 227g saves you from doing mental math mid-cook.</p>
-
-      <h2>Common Weight Conversion Reference</h2>
-      <table>
-        <thead><tr><th>Oz</th><th>Grams</th><th>Pounds</th></tr></thead>
-        <tbody>
-          <tr><td>1 oz</td><td>28g</td><td>0.063 lb</td></tr>
-          <tr><td>2 oz</td><td>57g</td><td>0.125 lb</td></tr>
-          <tr><td>4 oz</td><td>113g</td><td>0.25 lb</td></tr>
-          <tr><td>8 oz</td><td>227g</td><td>0.5 lb</td></tr>
-          <tr><td>12 oz</td><td>340g</td><td>0.75 lb</td></tr>
-          <tr><td>16 oz</td><td>454g</td><td>1 lb</td></tr>
-          <tr><td>32 oz</td><td>907g</td><td>2 lb</td></tr>
-        </tbody>
-      </table>
-
-      <h2>Why Weighing Beats Measuring Cups</h2>
-      <p>For baking especially, weight is more accurate than volume. A cup of flour can weigh anywhere from 120g to 160g depending on how it's scooped, how settled it is in the bag, and the humidity. A cup of brown sugar packed tightly weighs more than one loosely filled. When a recipe gives gram weights, use them — the results are more consistent every time.</p>
-      <p>For more on this, see <a href="/blog/why-weigh-ingredients-baking.html">Why You Should Weigh Ingredients for Baking</a>.</p>
-
-      <h2>Frequently Asked Questions</h2>
-      <h3>How many grams in an ounce?</h3>
-      <p>There are 28.35 grams in 1 ounce. For quick mental math: 1 oz ≈ 28g, 4 oz ≈ 113g, 8 oz (half pound) ≈ 227g, 16 oz (1 pound) ≈ 454g.</p>
-
-      <h3>How many ounces in a pound?</h3>
-      <p>1 pound = 16 ounces = 453.6 grams. This is one of the most useful cooking conversions to memorize, since US recipes often switch between the two units for meat and produce.</p>
-
-      <h3>How many grams in a pound?</h3>
-      <p>There are 453.6 grams in 1 pound, typically rounded to 454g in cooking. Half a pound is 227g; a quarter pound is 113g. Most useful when buying meat listed in pounds and a recipe specifies grams.</p>
-
-      <h3>How do I convert kilograms to pounds?</h3>
-      <p>Multiply kilograms by 2.205 to get pounds. For a quick estimate, multiply by 2.2. So 1kg ≈ 2.2 lbs, 2kg ≈ 4.4 lbs, 0.5kg ≈ 1.1 lbs. To go from pounds to kilograms, divide by 2.205.</p>
-
-      <h3>Is this converter for dry or liquid ingredients?</h3>
-      <p>This converter handles weight only — grams, ounces, pounds, and kilograms apply to any physical substance regardless of whether it's dry or liquid. For liquid volume conversions (cups, milliliters, fluid ounces), use the <a href="/tools/liquid-converter.html">Liquid Converter</a>. For ingredient-specific weights like cups of flour or sugar, use the <a href="/tools/cups-to-grams.html">Cups to Grams Calculator</a>.</p>
-
-      <h2>Meat and Protein Portion Sizes by Weight</h2>
-      <p>Grocery meat labels are almost always in pounds or ounces, but many nutrition and recipe guides think in grams. A standard single protein portion is 4-6 oz (113-170g) of meat, fish, or poultry per person — useful to know when scaling a recipe up or down for a specific number of servings.</p>
-      <table>
-        <thead><tr><th>Serving Size</th><th>Oz</th><th>Grams</th></tr></thead>
-        <tbody>
-          <tr><td>Small portion</td><td>4 oz</td><td>113g</td></tr>
-          <tr><td>Standard portion</td><td>6 oz</td><td>170g</td></tr>
-          <tr><td>Large portion</td><td>8 oz</td><td>227g</td></tr>
-        </tbody>
-      </table>
-
-      <h3>Why do US recipes use ounces and pounds while others use grams?</h3>
-      <p>It comes down to which measurement system a country adopted. The US never fully switched to the metric system, so pounds and ounces remain standard in American recipes and grocery labeling. Most of the rest of the world uses the metric system (grams, kilograms), which is part of why converting between the two is such a common need for anyone cooking from international recipes.</p>
-
-      <h3>How accurate do I need to be when converting weight for cooking?</h3>
-      <p>For most cooking, rounding to the nearest gram or ounce is more than accurate enough — a few grams of difference in a pound of meat or a cup of flour won't noticeably change a dish. Precision matters more in baking, where ratios between ingredients (especially leavening agents) are more sensitive to small changes.</p>
-
-      <h2>Buying Meat by Weight: Price Per Pound vs Price Per Kilogram</h2>
-      <p>When comparing prices between US and international grocery listings, remember that a price per kilogram needs to be divided by roughly 2.2 to compare fairly against a US price per pound — otherwise the kilogram price looks misleadingly higher for the same actual cost per unit of meat. This comes up often when comparing recipe costs or grocery prices across countries that use different weight-based pricing conventions.</p>
     </div>
   </div>
 </main>
 
 <script>
-const rates = { grams: 1, ounces: 28.3495, pounds: 453.592, kg: 1000 };
+// In-shell weights (g) — same figures used on tools/egg-converter.html, single source of truth
+const SHELL_WEIGHT = { small: 43, medium: 50, large: 57, xl: 64, jumbo: 71 };
+const SHELL_LOSS = 0.88;   // edible portion as a fraction of in-shell weight
+const WHITE_SHARE = 0.66;  // white as a fraction of edible portion
+const YOLK_SHARE = 0.34;   // yolk as a fraction of edible portion
+
+function gramsPerEgg(size, part) {
+  const edible = SHELL_WEIGHT[size] * SHELL_LOSS;
+  if (part === 'white') return edible * WHITE_SHARE;
+  if (part === 'yolk') return edible * YOLK_SHARE;
+  return edible; // whole
+}
+
+// rates: grams per 1 unit of that field. "eggs" rate is recalculated on select change.
+const rates = { eggs: gramsPerEgg('large', 'whole'), grams: 1, ounces: 28.3495, ml: 1.03, tbsp: 15.23 };
 
 function round(val) {
   if (val === 0) return '';
-  if (val >= 100) return parseFloat(val.toFixed(2));
-  if (val >= 1) return parseFloat(val.toFixed(3));
-  return parseFloat(val.toFixed(4));
+  if (val >= 100) return parseFloat(val.toFixed(1));
+  if (val >= 1) return parseFloat(val.toFixed(2));
+  return parseFloat(val.toFixed(3));
 }
 
 function convertFrom(source) {
@@ -288,20 +299,23 @@ function convertFrom(source) {
   }
 }
 
+function onSelectChange() {
+  const size = document.getElementById('eggSize').value;
+  const part = document.getElementById('eggPart').value;
+  rates.eggs = gramsPerEgg(size, part);
+
+  // Re-derive displayed values from whichever field currently holds a number
+  const order = ['eggs', 'grams', 'ounces', 'ml', 'tbsp'];
+  for (const id of order) {
+    const v = parseFloat(document.getElementById(id).value);
+    if (!isNaN(v) && v >= 0) { convertFrom(id); return; }
+  }
+}
+
 function clearAll() {
-  ['grams','ounces','pounds','kg'].forEach(id => document.getElementById(id).value = '');
+  ['eggs','grams','ounces','ml','tbsp'].forEach(id => document.getElementById(id).value = '');
 }
 </script>
-
-
-
-
-
-
-
-
-
-
 <!-- CC:STATIC-CHROME:START (build-static.js 자동 생성 — 직접 수정하지 말 것) -->
   <footer class="site-footer">
     <div class="footer-inner">

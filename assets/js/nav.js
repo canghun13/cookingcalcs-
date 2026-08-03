@@ -28,6 +28,7 @@ const TOOLS = [
   { name: "Tablespoon to Teaspoon", url: "/tools/tablespoon-to-teaspoon.html" },
   { name: "Weight Converter", url: "/tools/weight-converter.html" },
   { name: "Egg Size Converter", url: "/tools/egg-converter.html" },
+  { name: "Egg Weight & Volume Converter", url: "/tools/egg-weight-converter.html" },
   { name: "Recipe Multiplier", url: "/tools/recipe-multiplier.html" },
   { name: "Cooking Time Calculator", url: "/tools/cooking-time-calculator.html" },
   { name: "Meat Temperature Guide", url: "/tools/meat-temperature-guide.html" },

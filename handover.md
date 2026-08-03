@@ -157,8 +157,11 @@ echo "nav.js GUIDES: $(sed -n '/const GUIDES/,/^];/p' assets/js/nav.js | grep -c
 - H1 직후 2-3문장 직답 문단에 구체 수치 명시(예: "A 4 kg (9 lb) bone-in gammon needs about...").
 - 표 헤더에 단위 명시("Weight (lb / kg)" 등, "Weight" 단독 금지).
 - 수치 출처를 JSON-LD뿐 아니라 본문 문장으로도 명시(USDA, 7 CFR 56 등).
-- **기존 페이지 retrofit은 이번 세션에 안 함** — 신규 2건에만 적용, 다음 세션에서 고트래픽 기존
-  페이지(raw-to-cooked-weight, cost-per-serving 등)에 소급 적용 검토 여지 있음.
+- **기존 페이지 retrofit도 같은 세션 안에서 마저 진행함**(처음엔 "다음 세션"으로 미뤘다가, 사용자가
+  "계속"이라고 해서 이어감): `tools/raw-to-cooked-weight.html`(노출 1,134·GA4 3위 트래픽)와
+  `tools/cost-per-serving.html`(노출 754)의 인트로 문단을 구체 수치 직답형으로 교체(치킨 100g→75g,
+  쌀 100g→300g, \$12÷4인분=\$3.00 등 — 전부 기존 FACTORS 값 재사용, 새 수치 없음). sitemap lastmod
+  2건 08-03 갱신. 커밋 `b03a211`.
 
 #### 최종 상태
 **툴 24 + 블로그 66 + 가이드 7 = 총 97페이지** (세션 시작 95 → +2 신규, cc 보강은 페이지 수 불변).
@@ -169,9 +172,10 @@ echo "nav.js GUIDES: $(sed -n '/const GUIDES/,/^];/p' assets/js/nav.js | grep -c
 **참고(이번 세션 범위 밖으로 남겨둔 것)**: build-static.js의 빈줄 누적 버그(기능 영향 없음, 15차에서
 처음 발견, 재실행마다 재현됨)는 이번에도 손대지 않음 — 우선순위 낮음으로 계속 이월.
 
-**다음 세션 우선순위**: (1) IndexNow 실제 제출은 사용자 PC에서, (2) P3 패턴을 고트래픽 기존 페이지에
-소급 적용 검토, (3) 새 채널(Bing/AI) 유입이 실제로 늘고 있는지 다음 GA4 자료로 확인, (4) Media.net/
-Ezoic 등 비-애드센스 수익화 채널 검토(12번 섹션 참고, 이번 세션엔 코드 추가 안 함).
+**다음 세션 우선순위**: (1) IndexNow 실제 제출은 사용자 PC에서, (2) 새 채널(Bing/AI) 유입이 실제로
+늘고 있는지 다음 GA4 자료로 확인, (3) Media.net/Ezoic 등 비-애드센스 수익화 채널 검토(12번 섹션
+참고, 이번 세션엔 코드 추가 안 함), (4) P3 패턴을 다른 고트래픽 페이지(meal-cost-calculator,
+egg-converter 등)로 추가 확장할지 다음 GSC 데이터로 반응 보고 판단.
 
 ### 2026-08-03 (15차): GSC 노출 붕괴 확인(구글 채널 한정, 영향 미미) + 전략 재정렬 — 분석 전용, 콘텐츠 변경 0건
 

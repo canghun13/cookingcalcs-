@@ -96,20 +96,34 @@ function collectHtmlFiles() {
   return out;
 }
 
-function stripBlock(html, start, end) {
-  const s = html.indexOf(start);
-  const e = html.indexOf(end);
+function stripBlock(html, start, end, eatSide) {
+  let s = html.indexOf(start);
+  let e = html.indexOf(end);
   if (s === -1 || e === -1) return html;
-  return html.slice(0, s) + html.slice(e + end.length);
+  e = e + end.length;
+  // 2026-08-03: 실측(Node 시뮬레이션 + 실제 파일 diff)으로 확인한 두 가지 별개의 누적 방향.
+  // (1) 헤더: <body> 바로 뒤에 블록을 끼워넣으면서 원래 있던 콘텐츠가 블록 뒤로 밀려나는데,
+  //     strip이 그 밀려난 개행을 못 지워서 <main> 앞에 개행이 계속 쌓임 → 블록 뒤(trailing)를 먹어야 함.
+  // (2) 푸터: </body> 앞에 블록을 끼워넣으면서 원래 있던 개행(</main> 뒤)이 블록 앞에 그대로 남는데,
+  //     strip 후 재삽입할 때마다 그 개행이 누적됨 → 블록 앞(leading)을 먹어야 함.
+  // 처음에 헤더=leading/푸터=trailing으로 잘못 짚었다가 실제 파일로 재검증해서 반대임을 확인함 —
+  // 절대 다시 헷갈리지 말 것: 헤더는 trailing, 푸터는 leading.
+  if (eatSide === 'leading') {
+    while (s > 0 && html[s - 1] === '\n') s -= 1;
+  } else if (eatSide === 'trailing') {
+    while (e < html.length && html[e] === '\n') e += 1;
+  }
+  return html.slice(0, s) + html.slice(e);
 }
 
 function injectChrome(rel) {
   const abs = path.join(ROOT, rel);
   let html = fs.readFileSync(abs, 'utf8');
 
-  // 재실행 가능하도록 기존 자동생성 블록 제거 후 다시 삽입
-  html = stripBlock(html, START, END);
-  html = stripBlock(html, START, END); // 헤더/푸터 두 블록
+  // 재실행 가능하도록 기존 자동생성 블록 제거 후 다시 삽입.
+  // 첫 번째로 발견되는 START/END 쌍 = 헤더(trailing eat), 두 번째 쌍 = 푸터(leading eat).
+  html = stripBlock(html, START, END, 'trailing');
+  html = stripBlock(html, START, END, 'leading');
 
   if (!/<body[^>]*>/.test(html) || !html.includes('</body>')) {
     return { rel, ok: false, reason: 'body 태그 없음' };

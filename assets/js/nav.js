@@ -113,6 +113,7 @@ const BLOGS = [
   { name: "How Long to Cook Pork Tenderloin", url: "/blog/how-long-to-cook-pork-tenderloin.html", desc: "Pork tenderloin cook times by weight, oven temperature, and searing method, plus the tenderloin vs loin mix-up that causes most timing problems.", date: "2026-07-27" },
   { name: "How Long to Bake White Fish", url: "/blog/how-long-to-bake-white-fish.html", desc: "Bake times for cod, tilapia, haddock, halibut, and other white fish by thickness, plus the 10-minute-per-inch rule explained.", date: "2026-07-27" },
   { name: "How Long to Cook Pork Shoulder", url: "/blog/how-long-to-cook-pork-shoulder.html", desc: "Pork shoulder cook times by weight and oven temperature, why estimates range so widely, and slicing vs pulling temperature.", date: "2026-07-27" },
+  { name: "How Long to Cook Gammon & Ham", url: "/blog/how-long-to-cook-ham.html", desc: "Gammon and ham cook times by weight, boiling vs roasting vs slow cooker, and why safe internal temperature differs between raw gammon, fresh ham, and fully cooked ham.", date: "2026-08-03" },
   { name: "How Long to Cook Tempeh and Seitan", url: "/blog/how-long-to-cook-tempeh-seitan.html", desc: "Tempeh and seitan cook times for pan-searing, baking, air frying, and steaming — no recipe, just the times and temperatures you need.", date: "2026-07-24" },
 ];
 

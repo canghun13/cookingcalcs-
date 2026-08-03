@@ -936,6 +936,23 @@ for table in soup.find_all('table'):
 - [ ] **분량 800~1200단어** (억지로 채우지 않기, FAQ 3개+환산표+실질정보로 자연스럽게 도달)
 - [ ] **FAQ 섹션은 `blog-content` div 안에, 한 번만** — 복사-붙여넣기로 중복되거나 CTA 박스 안에 잘못 중첩되지 않도록 작성 후 반드시 확인
 - [ ] Search Console에 sitemap 재제출 (사용자가 직접 수행)
+- [ ] 🆕 **`node notify-indexnow.js <신규/보강 URL...>` 실행** (2026-08-03 15차부터, Bing/Yahoo 즉시 색인 요청)
+  - **이 개발환경(egress 방화벽)은 api.indexnow.org를 막고 있어 Claude가 실행해도 항상 실패한다**
+    (`x-deny-reason: host_not_allowed`). 스크립트가 실패해도 코드 문제가 아니니 당황하지 말 것.
+  - **사용자가 자신의 PC/서버에서 직접 실행해야 실제로 제출됨.** 방법 2가지:
+    1. `git pull` 후 로컬에서 `node notify-indexnow.js <URL1> <URL2> ...`
+    2. 또는 curl로 직접:
+       ```bash
+       curl -X POST https://api.indexnow.org/indexnow -H "Content-Type: application/json" -d '{
+         "host": "cookingcalcs.com",
+         "key": "2418ccf79ce498437d212ccbeec13acfa57b7f0de6de7d324b937badb91b3333",
+         "keyLocation": "https://cookingcalcs.com/2418ccf79ce498437d212ccbeec13acfa57b7f0de6de7d324b937badb91b3333.txt",
+         "urlList": ["https://cookingcalcs.com/blog/새페이지.html"]
+       }'
+       ```
+  - 키 파일(`2418ccf79ce498437d212ccbeec13acfa57b7f0de6de7d324b937badb91b3333.txt`)은 repo 루트에 이미 커밋됨,
+    배포되면 `https://cookingcalcs.com/그키.txt`로 접근 가능해야 정상(200 응답 + 파일 내용이 키 문자열과 일치).
+  - **"제출했다"고 보고하지 말 것** — 이 환경에서 성공한 적이 한 번도 없다. 실행 결과(HTTP 상태코드)를 그대로 보고할 것.
 
 ### 보강 작업 시 추가
 - [ ] `nav.js` 해당 항목 `date`를 보강일로 갱신

@@ -35,8 +35,10 @@
   <url><loc>https://cookingcalcs.com/tools/weekly-meal-prep-cost-calculator.html</loc><lastmod>2026-07-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://cookingcalcs.com/tools/slow-cooker-converter.html</loc><lastmod>2026-07-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://cookingcalcs.com/tools/herb-converter.html</loc><lastmod>2026-07-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://cookingcalcs.com/tools/kitchen-math-generator.html</loc><lastmod>2026-07-24</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://cookingcalcs.com/tools/grill-temperature-calculator.html</loc><lastmod>2026-07-27</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://cookingcalcs.com/tools/kitchen-math-generator.html</loc>
+    <lastmod>2026-08-10</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://cookingcalcs.com/tools/grill-temperature-calculator.html</loc>
+    <lastmod>2026-08-10</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://cookingcalcs.com/tools/pan-size-converter.html</loc><lastmod>2026-07-27</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://cookingcalcs.com/tools/can-size-converter.html</loc>
     <lastmod>2026-08-10</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -85,7 +87,8 @@
   <url><loc>https://cookingcalcs.com/blog/unit-price-word-problems.html</loc><lastmod>2026-07-24</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://cookingcalcs.com/blog/recipe-scaling-word-problems.html</loc><lastmod>2026-07-24</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://cookingcalcs.com/blog/lamb-chops-vs-pork-chops.html</loc><lastmod>2026-07-24</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://cookingcalcs.com/blog/salmon-vs-shrimp.html</loc><lastmod>2026-07-24</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://cookingcalcs.com/blog/salmon-vs-shrimp.html</loc>
+    <lastmod>2026-08-10</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://cookingcalcs.com/blog/bacon-vs-sausage.html</loc><lastmod>2026-07-24</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://cookingcalcs.com/blog/turkey-breast-vs-chicken-breast.html</loc><lastmod>2026-07-24</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://cookingcalcs.com/blog/turkey-breast-vs-whole-chicken.html</loc><lastmod>2026-07-27</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
@@ -93,7 +96,8 @@
     <lastmod>2026-08-10</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://cookingcalcs.com/blog/charcoal-vs-gas-grill-temperature.html</loc>
     <lastmod>2026-08-10</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://cookingcalcs.com/blog/how-to-check-grill-temperature-without-a-thermometer.html</loc><lastmod>2026-07-27</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://cookingcalcs.com/blog/how-to-check-grill-temperature-without-a-thermometer.html</loc>
+    <lastmod>2026-08-10</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://cookingcalcs.com/blog/vintage-recipe-measurements.html</loc>
     <lastmod>2026-08-10</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://cookingcalcs.com/blog/vintage-ingredient-names.html</loc>

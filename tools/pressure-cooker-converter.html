@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slow Cooker to Instant Pot Converter — 8 Hrs Low = ~24 Min</title>
+  <meta name="description" content="Convert slow cooker times to pressure cooker minutes and back. 8 hours on Low ≈ 24 minutes at high pressure. Includes a per-food chart and pressure-up time.">
+  <link rel="canonical" href="https://cookingcalcs.com/tools/pressure-cooker-converter.html">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script src="/assets/js/nav.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Slow Cooker to Pressure Cooker Time Converter",
+  "url": "https://cookingcalcs.com/tools/pressure-cooker-converter.html",
+  "description": "Convert slow cooker cooking times to electric pressure cooker (Instant Pot) minutes at high pressure, or convert pressure cooker times back to slow cooker Low and High.",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "provider": { "@type": "Organization", "name": "CookingCalcs", "url": "https://cookingcalcs.com" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I convert slow cooker time to Instant Pot time?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Convert the slow cooker time to its High-setting equivalent first, then multiply those hours by about 6 to get pressure cooking minutes. Since 1 hour on High is roughly 2 to 2.5 hours on Low, an 8-hour Low recipe is about 4 hours on High, which works out to roughly 24 minutes at high pressure. Treat the result as a starting point and confirm doneness with a thermometer for meat."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the converted time include the time it takes to come to pressure?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Pressure cooking time only starts counting once the pot has reached pressure, and building pressure typically takes 5 to 20 minutes depending on how full the pot is and how cold the contents are. Natural release adds another 10 to 20 minutes on top. Budget roughly 20 to 40 minutes of extra clock time beyond the cooking minutes this converter gives you."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to change the liquid when converting a slow cooker recipe?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Usually yes, and often in the opposite direction from what people expect. A pressure cooker needs a minimum amount of thin liquid to generate steam — commonly about 1 cup for a 6-quart model and 2 cups for an 8-quart, though you should check your manual. Slow cooker recipes that rely on the meat's own juices may not have enough, so you may need to add liquid rather than reduce it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can every slow cooker recipe be pressure cooked?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Braises, stews, soups, beans, and tough cuts convert well because both methods use moist heat to break down connective tissue. Dairy-heavy sauces can separate under pressure, delicate vegetables turn to mush, and anything meant to thicken by evaporation won't reduce in a sealed pot. Add dairy, quick-cooking vegetables, and thickeners after pressure cooking finishes rather than at the start."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is a stovetop pressure cooker the same as an Instant Pot?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not quite. Stovetop pressure cookers typically run at a higher PSI than electric models, so they cook somewhat faster. If you're using a stovetop pressure cooker with a time written for an electric one, a common starting adjustment is to reduce the cooking time by roughly 15 percent on longer cooks, then check doneness early."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to adjust pressure cooking time for high altitude?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Water boils at a lower temperature as elevation rises, so the pot reaches a lower actual cooking temperature. A widely used rule is to add about 5 percent to the cooking time for every 1,000 feet above 2,000 feet of elevation. At 5,000 feet, that means a 20-minute cook becomes roughly 23 minutes."
+      }
+    }
+  ]
+}
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+<style>
+  @media(max-width:600px) { .pc-toggle { grid-template-columns:1fr !important; } .pc-result-grid { grid-template-columns:1fr !important; } }
+</style>
+</head>
+<body>
+<!-- CC:STATIC-CHROME:START (build-static.js 자동 생성 — 직접 수정하지 말 것) -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="logo">🍳 CookingCalcs</a>
+      <nav class="main-nav" id="mainNav">
+        <ul class="nav-list">
+          <li><a href="/" class="nav-link">Home</a></li>
+          <li><a href="/tools/" class="nav-link">Tools</a></li>
+          <li><a href="/blog/" class="nav-link">Blog</a></li>
+          <li><a href="/guides/" class="nav-link">Guides</a></li>
+          <li><a href="/about.html" class="nav-link">About</a></li>
+        </ul>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <nav class="mobile-nav" id="mobileNav">
+    <ul class="nav-list">
+      <li><a href="/" class="nav-link">Home</a></li>
+      <li class="nav-has-dropdown">
+        <button class="nav-link nav-btn" aria-expanded="false">Tools ▾</button>
+        <ul class="nav-dropdown">
+          <li><a href="/tools/" class="nav-dropdown-all">View All Tools →</a></li>
+          <li><a href="/tools/cups-to-grams.html">Cups to Grams</a></li><li><a href="/tools/oven-temp-converter.html">Oven Temperature Converter</a></li><li><a href="/tools/tablespoon-to-teaspoon.html">Tablespoon to Teaspoon</a></li><li><a href="/tools/weight-converter.html">Weight Converter</a></li><li><a href="/tools/egg-converter.html">Egg Size Converter</a></li><li><a href="/tools/egg-weight-converter.html">Egg Weight & Volume Converter</a></li><li><a href="/tools/recipe-multiplier.html">Recipe Multiplier</a></li><li><a href="/tools/cooking-time-calculator.html">Cooking Time Calculator</a></li><li><a href="/tools/meat-temperature-guide.html">Meat Temperature Guide</a></li><li><a href="/tools/meal-cost-calculator.html">Meal Cost Calculator</a></li><li><a href="/tools/cost-per-serving.html">Cost Per Serving</a></li><li><a href="/tools/liquid-converter.html">Liquid Converter</a></li><li><a href="/tools/butter-converter.html">Butter Converter</a></li><li><a href="/tools/baking-substitutions.html">Baking Substitutions</a></li><li><a href="/tools/cups-to-tablespoons.html">Cups to Tablespoons</a></li><li><a href="/tools/raw-to-cooked-weight.html">Raw to Cooked Weight</a></li><li><a href="/tools/weekly-meal-prep-cost-calculator.html">Weekly Meal Prep Cost Calculator</a></li><li><a href="/tools/slow-cooker-converter.html">Slow Cooker Time Converter</a></li><li><a href="/tools/herb-converter.html">Fresh to Dried Herb Converter</a></li><li><a href="/tools/kitchen-math-generator.html">Kitchen Math Practice Problem Generator</a></li><li><a href="/tools/grill-temperature-calculator.html">Grill Temperature & Time Calculator</a></li><li><a href="/tools/pan-size-converter.html">Baking Pan Size Converter</a></li><li><a href="/tools/can-size-converter.html">Can Size Converter</a></li><li><a href="/tools/pressure-cooker-converter.html">Slow Cooker to Pressure Cooker Converter</a></li><li><a href="/tools/candy-temperature-calculator.html">Candy & Sugar Stage Temperature Calculator</a></li>
+        </ul>
+      </li>
+      <li class="nav-has-dropdown">
+        <button class="nav-link nav-btn" aria-expanded="false">Blog ▾</button>
+        <ul class="nav-dropdown">
+          <li><a href="/blog/" class="nav-dropdown-all">View All Posts →</a></li>
+          <li><a href="/blog/cups-to-grams-guide.html">Cups to Grams Guide</a></li><li><a href="/blog/why-weigh-ingredients-baking.html">Why Weigh Ingredients When Baking</a></li><li><a href="/blog/oven-temperature-conversion-guide.html">Oven Temperature Conversion Guide</a></li><li><a href="/blog/how-to-scale-a-recipe.html">How to Scale a Recipe</a></li><li><a href="/blog/baking-measurement-mistakes.html">Baking Measurement Mistakes</a></li><li><a href="/blog/meat-internal-temperature-guide.html">Meat Internal Temperature Guide</a></li><li><a href="/blog/how-to-cut-grocery-bill.html">How to Cut Your Grocery Bill</a></li><li><a href="/blog/how-to-calculate-cost-per-serving.html">How to Calculate Cost Per Serving</a></li><li><a href="/blog/average-cost-of-a-home-cooked-meal.html">Average Cost of a Home-Cooked Meal</a></li><li><a href="/blog/how-long-to-cook-chicken-breast.html">How Long to Cook Chicken Breast</a></li><li><a href="/blog/cooking-measurement-guide.html">Cooking Measurement Guide</a></li><li><a href="/blog/meat-cooking-temperatures-explained.html">Meat Cooking Temperatures Explained</a></li><li><a href="/blog/how-to-meal-prep-on-a-budget.html">How to Meal Prep on a Budget</a></li><li><a href="/blog/how-many-cups-in-a-pound-of-flour.html">How Many Cups in a Pound of Flour?</a></li><li><a href="/blog/how-to-measure-butter.html">How to Measure Butter</a></li><li><a href="/blog/how-long-to-cook-salmon.html">How Long to Cook Salmon</a></li><li><a href="/blog/how-many-grams-in-a-cup-of-rice.html">How Many Grams in a Cup of Rice?</a></li><li><a href="/blog/how-long-to-cook-shrimp.html">How Long to Cook Shrimp</a></li><li><a href="/blog/how-to-calculate-meal-prep-cost-for-a-week.html">How to Calculate Meal Prep Cost for a Week</a></li><li><a href="/blog/grocery-budget-tips.html">Grocery Budget Tips That Actually Work</a></li><li><a href="/blog/tablespoon-vs-teaspoon.html">Tablespoon vs Teaspoon: What's the Difference?</a></li><li><a href="/blog/how-to-substitute-egg-sizes.html">How to Substitute Egg Sizes in Recipes</a></li><li><a href="/blog/how-long-to-cook-ground-beef.html">How Long to Cook Ground Beef</a></li><li><a href="/blog/what-is-a-serving-size.html">What Is a Serving Size? A Practical Guide</a></li><li><a href="/blog/tablespoon-to-teaspoon-guide.html">Tablespoons to Teaspoons: Full Conversion Guide</a></li><li><a href="/blog/how-to-reduce-a-recipe.html">How to Reduce a Recipe to Fewer Servings</a></li><li><a href="/blog/how-many-grams-in-a-cup-of-sugar.html">How Many Grams in a Cup of Sugar?</a></li><li><a href="/blog/how-long-to-cook-bacon.html">How Long to Cook Bacon</a></li><li><a href="/blog/how-long-to-cook-steak.html">How Long to Cook Steak</a></li><li><a href="/blog/how-many-eggs-in-a-cup.html">How Many Eggs in a Cup?</a></li><li><a href="/blog/how-to-reduce-a-recipe-by-half.html">How to Cut a Recipe in Half</a></li><li><a href="/blog/how-long-to-cook-pork-chops.html">How Long to Cook Pork Chops</a></li><li><a href="/blog/how-many-grams-in-a-cup-of-oats.html">How Many Grams in a Cup of Oats?</a></li><li><a href="/blog/how-many-cups-in-a-pound-of-sugar.html">How Many Cups in a Pound of Sugar?</a></li><li><a href="/blog/how-long-to-cook-lamb-chops.html">How Long to Cook Lamb Chops</a></li><li><a href="/blog/how-long-to-cook-turkey-breast.html">How Long to Cook Turkey Breast</a></li><li><a href="/blog/how-many-cups-in-a-quart-pint-gallon.html">How Many Cups in a Quart, Pint, and Gallon?</a></li><li><a href="/blog/how-to-convert-a-recipe-to-metric.html">How to Convert a Recipe to Metric</a></li><li><a href="/blog/how-long-to-cook-chicken-thighs.html">How Long to Cook Chicken Thighs</a></li><li><a href="/blog/how-to-calculate-cooking-time.html">How to Calculate Cooking Time for Meat</a></li><li><a href="/blog/is-your-oven-running-hot-or-cold.html">Is Your Oven Running Hot or Cold? How to Test It</a></li><li><a href="/blog/how-long-can-food-sit-out.html">How Long Can Food Sit Out? The 2-Hour Rule Explained</a></li><li><a href="/blog/fresh-vs-dried-herbs.html">Fresh vs Dried Herbs: When to Use Each and How to Swap Them</a></li><li><a href="/blog/unit-price-word-problems.html">Unit Price Word Problems: How to Find the Better Grocery Deal</a></li><li><a href="/blog/recipe-scaling-word-problems.html">Recipe Scaling Word Problems: Doubling, Halving & Fractions</a></li><li><a href="/blog/lamb-chops-vs-pork-chops.html">Lamb Chops vs Pork Chops: Cooking Time & Temperature Differences</a></li><li><a href="/blog/salmon-vs-shrimp.html">Salmon vs Shrimp: Cooking Time Differences</a></li><li><a href="/blog/bacon-vs-sausage.html">Bacon vs Sausage: Cooking Time & Temperature Differences</a></li><li><a href="/blog/turkey-breast-vs-chicken-breast.html">Turkey Breast vs Chicken Breast: Cooking Time & Temperature Differences</a></li><li><a href="/blog/turkey-breast-vs-whole-chicken.html">Turkey Breast vs Whole Chicken: Which Cooks Faster?</a></li><li><a href="/blog/direct-vs-indirect-heat-grilling.html">Direct vs Indirect Heat: When to Use Each</a></li><li><a href="/blog/charcoal-vs-gas-grill-temperature.html">Charcoal vs Gas Grill: Temperature Differences</a></li><li><a href="/blog/how-to-check-grill-temperature-without-a-thermometer.html">How to Check Grill Temperature Without a Thermometer</a></li><li><a href="/blog/vintage-recipe-measurements.html">Vintage Recipe Measurements Decoded</a></li><li><a href="/blog/vintage-ingredient-names.html">Vintage & British Ingredient Names Decoded</a></li><li><a href="/blog/how-long-to-cook-brisket.html">How Long to Cook Brisket</a></li><li><a href="/blog/measurement-conversion-word-problems.html">Measurement Conversion Word Problems</a></li><li><a href="/blog/how-long-to-cook-ribs.html">How Long to Cook Ribs</a></li><li><a href="/blog/how-long-to-cook-chicken-wings.html">How Long to Cook Chicken Wings</a></li><li><a href="/blog/how-long-to-cook-chicken-drumsticks.html">How Long to Cook Chicken Drumsticks</a></li><li><a href="/blog/how-long-to-cook-meatballs.html">How Long to Cook Meatballs</a></li><li><a href="/blog/how-long-to-cook-pork-tenderloin.html">How Long to Cook Pork Tenderloin</a></li><li><a href="/blog/how-long-to-bake-white-fish.html">How Long to Bake White Fish</a></li><li><a href="/blog/how-long-to-cook-pork-shoulder.html">How Long to Cook Pork Shoulder</a></li><li><a href="/blog/how-long-to-cook-ham.html">How Long to Cook Gammon & Ham</a></li><li><a href="/blog/how-long-to-cook-tempeh-seitan.html">How Long to Cook Tempeh and Seitan</a></li>
+        </ul>
+      </li>
+      <li class="nav-has-dropdown">
+        <button class="nav-link nav-btn" aria-expanded="false">Guides ▾</button>
+        <ul class="nav-dropdown">
+          <li><a href="/guides/" class="nav-dropdown-all">View All Guides →</a></li>
+          <li><a href="/guides/complete-meal-prep-budget-guide.html">The Complete Meal Prep & Grocery Budget Guide</a></li><li><a href="/guides/complete-meat-cooking-temperature-guide.html">The Complete Meat Cooking & Temperature Guide</a></li><li><a href="/guides/complete-baking-conversion-guide.html">The Complete Baking Measurement & Conversion Guide</a></li><li><a href="/guides/complete-recipe-scaling-guide.html">The Complete Recipe Scaling & Serving Guide</a></li><li><a href="/guides/complete-protein-comparison-guide.html">The Complete Protein Comparison & Swap Guide</a></li><li><a href="/guides/complete-grilling-guide.html">The Complete Grilling Guide</a></li><li><a href="/guides/complete-vintage-recipe-guide.html">The Complete Vintage Recipe Guide</a></li>
+        </ul>
+      </li>
+      <li><a href="/about.html" class="nav-link">About</a></li>
+    </ul>
+  </nav>
+  <div class="nav-overlay" id="navOverlay"></div>
+<!-- CC:STATIC-CHROME:END -->
+<main>
+  <div class="tool-page">
+    <h1>Slow Cooker to Pressure Cooker Time Converter</h1>
+    <p class="tool-desc">Turn any slow cooker recipe into electric pressure cooker (Instant Pot) minutes — or convert a pressure cooker time back to slow cooker Low and High.</p>
+
+    <div class="tool-box">
+      <div class="pc-toggle" style="display:grid; grid-template-columns:1fr 1fr; gap:0.75rem; margin-bottom:1.25rem;">
+        <button type="button" id="btnSlowToPc" onclick="setMode('slowToPc')" style="padding:0.65rem; border-radius:8px; border:1.5px solid var(--tomato); background:var(--tomato); color:#fff; font-weight:600; cursor:pointer;">Slow Cooker → Pressure</button>
+        <button type="button" id="btnPcToSlow" onclick="setMode('pcToSlow')" style="padding:0.65rem; border-radius:8px; border:1.5px solid var(--tomato); background:none; color:var(--tomato-dark); font-weight:600; cursor:pointer;">Pressure → Slow Cooker</button>
+      </div>
+
+      <div id="slowInputs">
+        <div class="form-group">
+          <label for="slowHours">Slow cooker time — hours</label>
+          <input type="number" id="slowHours" min="0" placeholder="e.g. 8" oninput="convert()">
+        </div>
+        <div class="form-group">
+          <label for="slowSetting">Setting</label>
+          <select id="slowSetting" onchange="convert()">
+            <option value="low">Low</option>
+            <option value="high">High</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="pcInputs" style="display:none;">
+        <div class="form-group">
+          <label for="pcMinutes">Pressure cooking time — minutes (at high pressure)</label>
+          <input type="number" id="pcMinutes" min="0" placeholder="e.g. 25" oninput="convert()">
+        </div>
+      </div>
+
+      <div id="result" style="display:none; margin-top:1.5rem;">
+        <div id="resultPc" style="display:none;">
+          <div class="result-box">
+            <div class="result-num" id="resPcOut"></div>
+            <div class="result-label">Pressure Cooker – High Pressure</div>
+          </div>
+        </div>
+        <div id="resultSlow" class="pc-result-grid" style="display:none; grid-template-columns:1fr 1fr; gap:1rem;">
+          <div class="result-box">
+            <div class="result-num" id="resLow"></div>
+            <div class="result-label">Slow Cooker – Low</div>
+          </div>
+          <div class="result-box">
+            <div class="result-num" id="resHigh"></div>
+            <div class="result-label">Slow Cooker – High</div>
+          </div>
+        </div>
+        <p id="pressureNote" style="text-align:center; margin-top:1rem; color:var(--mid); font-size:0.9rem;">Cooking time only — add 5-20 minutes for the pot to come to pressure, plus release time.</p>
+      </div>
+    </div>
+
+    <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin:2rem 0 1rem;">Full Conversion Chart</h2>
+    <table>
+      <thead>
+        <tr><th>Slow Cooker – Low</th><th>Slow Cooker – High</th><th>Pressure Cooker (High)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>2 hours</td><td>1 hour</td><td>~6 minutes</td></tr>
+        <tr><td>3 hours</td><td>1½ hours</td><td>~9 minutes</td></tr>
+        <tr><td>4 hours</td><td>2 hours</td><td>~12 minutes</td></tr>
+        <tr><td>5 hours</td><td>2½ hours</td><td>~15 minutes</td></tr>
+        <tr><td>6 hours</td><td>3 hours</td><td>~18 minutes</td></tr>
+        <tr><td>7 hours</td><td>3½ hours</td><td>~21 minutes</td></tr>
+        <tr><td>8 hours</td><td>4 hours</td><td>~24 minutes</td></tr>
+        <tr><td>10 hours</td><td>5 hours</td><td>~30 minutes</td></tr>
+        <tr><td>12 hours</td><td>6 hours</td><td>~36 minutes</td></tr>
+      </tbody>
+    </table>
+    <p style="color:var(--mid); font-size:0.92rem;">Based on the widely used rule that slow cooker hours on High × 6 ≈ pressure cooking minutes, with 1 hour on High treated as roughly 2 hours on Low — the same Low/High ratio used in our <a href="/tools/slow-cooker-converter.html">Slow Cooker Time Converter</a>.</p>
+
+    <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin:2rem 0 1rem;">Pressure Cooking Times by Food</h2>
+    <p>The formula above works well for whole recipes, but for a single ingredient it's usually more accurate to start from a known per-food time. These are typical high-pressure times for an electric pressure cooker.</p>
+    <table>
+      <thead>
+        <tr><th>Food</th><th>Pressure Time (High)</th><th>Slow Cooker Equivalent (Low)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Whole chicken</td><td>~6 min per lb</td><td>6-7 hours</td></tr>
+        <tr><td>Chicken breast (boneless)</td><td>8-10 min</td><td>3-4 hours</td></tr>
+        <tr><td>Chicken thighs (bone-in)</td><td>12-15 min</td><td>4-6 hours</td></tr>
+        <tr><td>Beef roast / chuck</td><td>~15 min per lb</td><td>8-10 hours</td></tr>
+        <tr><td>Pork shoulder (cubed)</td><td>35-45 min</td><td>8-10 hours</td></tr>
+        <tr><td>Beef stew meat</td><td>20-25 min</td><td>7-8 hours</td></tr>
+        <tr><td>Dried beans (unsoaked)</td><td>25-40 min</td><td>6-8 hours</td></tr>
+        <tr><td>Dried beans (soaked)</td><td>8-12 min</td><td>3-4 hours</td></tr>
+        <tr><td>Potatoes (cubed)</td><td>4-8 min</td><td>3-4 hours</td></tr>
+        <tr><td>Soups &amp; broths</td><td>15-30 min</td><td>6-8 hours</td></tr>
+      </tbody>
+    </table>
+    <p style="color:var(--mid); font-size:0.92rem;">Times are for food at refrigerator temperature in an electric pressure cooker. Frozen ingredients take longer to come to pressure and may need extra cooking time. For meat, always confirm with the <a href="/tools/meat-temperature-guide.html">safe internal temperature</a> rather than the clock.</p>
+
+    <!-- Related Tools & Guides -->
+    <div style="margin-top:2rem; padding:1.25rem; background:var(--tomato-light); border-radius:var(--radius-lg);">
+      <h2 style="font-family:'Playfair Display',serif; font-size:1.25rem; margin:0 0 0.75rem;">Related Tools &amp; Guides</h2>
+      <ul style="margin:0; padding-left:1.1rem; line-height:1.9;">
+        <li><a href="/tools/slow-cooker-converter.html">Slow Cooker Time Converter</a></li>
+        <li><a href="/tools/cooking-time-calculator.html">Cooking Time Calculator</a></li>
+        <li><a href="/tools/meat-temperature-guide.html">Meat Temperature Guide</a></li>
+        <li><a href="/guides/complete-meat-cooking-temperature-guide.html">The Complete Meat Cooking &amp; Temperature Guide</a></li>
+        <li><a href="/blog/how-to-calculate-cooking-time.html">How to Calculate Cooking Time for Meat</a></li>
+      </ul>
+    </div>
+
+    <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin:2rem 0 1rem;">How to Use This Converter</h2>
+    <p>Pick a direction — Slow Cooker → Pressure if you're adapting a crockpot recipe for an Instant Pot or other electric pressure cooker, or Pressure → Slow Cooker if you have a pressure cooker recipe you'd rather leave to cook all day. Enter the time you already know and the converter estimates the equivalent. Because slow cooker recipes are usually written for Low, the converter accepts either setting and handles the Low-to-High step for you.</p>
+
+    <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin:2rem 0 1rem;">Why Pressure Cooking Is So Much Faster</h2>
+    <p>A sealed pressure cooker traps steam, which raises the internal pressure and, with it, the boiling point of water. Instead of topping out at 212°F the way an open pot does, the environment inside reaches roughly 250°F at high pressure. That higher temperature drives the same connective-tissue breakdown that makes slow cooking work, but it does the job in a fraction of the time — which is why an 8-hour braise compresses into well under half an hour of actual cooking.</p>
+    <p>This is the mirror image of what a slow cooker does. A slow cooker's Low setting runs around 190-200°F and High around 290-300°F, both relying on long exposure at gentle heat. A pressure cooker gets to a higher temperature than either and simply spends far less time there. Both end up in the same place for tough cuts; they just take opposite routes.</p>
+
+    <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin:2rem 0 1rem;">The Time the Converter Doesn't Show You</h2>
+    <p>The single most common surprise when switching from a slow cooker is that pressure cooking minutes are not the same as clock minutes. The cooking time only begins once the pot has actually reached pressure, and getting there takes 5 to 20 minutes depending on how full the pot is, how cold the contents are, and how much liquid is inside. Releasing the pressure adds more: a quick release vents in a couple of minutes, while a natural release can take 10 to 20 minutes as the pot cools on its own.</p>
+    <p>In practice, budget roughly 20 to 40 minutes of extra clock time on top of whatever cooking time this converter gives you. A recipe that converts to "25 minutes" realistically occupies closer to an hour from start to serving. That's still dramatically faster than eight hours in a slow cooker, but it matters if you're timing side dishes — and it's the reason a 6-minute pressure time doesn't actually mean dinner in 6 minutes.</p>
+    <p>Which release you use isn't only about time, either. Natural release lets the food continue cooking gently as pressure drops, which suits large cuts of meat and anything you want to stay tender. Quick release stops the cooking abruptly, which is what you want for vegetables, seafood, and pasta that would otherwise overshoot. If a recipe specifies one, the timing assumes it.</p>
+
+    <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin:2rem 0 1rem;">What to Change Besides the Time</h2>
+    <p><strong>Liquid usually goes up, not down.</strong> This trips up people who have learned to cut liquid for the slow cooker. A slow cooker traps moisture and needs less added liquid than an oven recipe; a pressure cooker also traps moisture, but it needs a minimum volume of thin liquid to generate steam in the first place — commonly about 1 cup for a 6-quart pot and 2 cups for an 8-quart, though your manual is the authority. A slow cooker recipe that relies on a roast's own juices may not clear that minimum.</p>
+    <p><strong>Thick sauces go in at the end.</strong> Tomato paste, cornstarch slurries, roux, and heavy dairy can scorch on the bottom or trigger a burn warning, and dairy can separate under pressure. Pressure cook with thin liquid, then stir the thickeners in afterwards using the sauté function.</p>
+    <p><strong>Nothing reduces in a sealed pot.</strong> A slow cooker loses a little moisture over eight hours; a pressure cooker loses essentially none. If the original recipe expected the sauce to concentrate, it won't — plan to simmer it down uncovered after cooking.</p>
+    <p><strong>Delicate ingredients go in late.</strong> Quick-cooking vegetables, fresh herbs, and seafood turn to mush at the times that tough cuts need. Cook the long-cooking components first, release pressure, then add the delicate ones for a short second cook or just to warm through.</p>
+
+    <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin:2rem 0 1rem;">Stovetop vs Electric, and Altitude</h2>
+    <p>Almost every pressure cooking time you'll find online — including the ones on this page — assumes an electric pressure cooker such as an Instant Pot. Stovetop pressure cookers generally operate at a higher PSI, so they run hotter and finish sooner. A reasonable starting adjustment is to trim about 15% off the cooking time for longer cooks and check early; for short cooks of only a few minutes the difference is usually small enough to ignore.</p>
+    <p>Elevation works the other way. Because water boils at a lower temperature as altitude rises, the pot reaches a lower actual cooking temperature even at the same pressure setting. The common adjustment is to add roughly 5% to the cooking time for every 1,000 feet above 2,000 feet — so at 5,000 feet a 20-minute cook becomes about 23 minutes, and at 8,000 feet closer to 26. This is the same underlying physics that makes candy and sugar work stages shift at elevation, covered in our <a href="/tools/candy-temperature-calculator.html">Candy &amp; Sugar Stage Temperature Calculator</a>.</p>
+
+    <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin:2rem 0 1rem;">Frequently Asked Questions</h2>
+    <div class="faq-section">
+      <h3>How do I convert slow cooker time to Instant Pot time?</h3>
+      <p>Convert the slow cooker time to its High-setting equivalent first, then multiply those hours by about 6 to get pressure cooking minutes. Since 1 hour on High is roughly 2 to 2.5 hours on Low, an 8-hour Low recipe is about 4 hours on High, which works out to roughly 24 minutes at high pressure. Treat the result as a starting point and confirm doneness with a thermometer for meat.</p>
+
+      <h3>Does the converted time include the time it takes to come to pressure?</h3>
+      <p>No. Pressure cooking time only starts counting once the pot has reached pressure, and building pressure typically takes 5 to 20 minutes depending on how full the pot is and how cold the contents are. Natural release adds another 10 to 20 minutes on top. Budget roughly 20 to 40 minutes of extra clock time beyond the cooking minutes this converter gives you.</p>
+
+      <h3>Do I need to change the liquid when converting a slow cooker recipe?</h3>
+      <p>Usually yes, and often in the opposite direction from what people expect. A pressure cooker needs a minimum amount of thin liquid to generate steam — commonly about 1 cup for a 6-quart model and 2 cups for an 8-quart, though you should check your manual. Slow cooker recipes that rely on the meat's own juices may not have enough, so you may need to add liquid rather than reduce it.</p>
+
+      <h3>Can every slow cooker recipe be pressure cooked?</h3>
+      <p>No. Braises, stews, soups, beans, and tough cuts convert well because both methods use moist heat to break down connective tissue. Dairy-heavy sauces can separate under pressure, delicate vegetables turn to mush, and anything meant to thicken by evaporation won't reduce in a sealed pot. Add dairy, quick-cooking vegetables, and thickeners after pressure cooking finishes rather than at the start.</p>
+
+      <h3>Is a stovetop pressure cooker the same as an Instant Pot?</h3>
+      <p>Not quite. Stovetop pressure cookers typically run at a higher PSI than electric models, so they cook somewhat faster. If you're using a stovetop pressure cooker with a time written for an electric one, a common starting adjustment is to reduce the cooking time by roughly 15 percent on longer cooks, then check doneness early.</p>
+
+      <h3>Do I need to adjust pressure cooking time for high altitude?</h3>
+      <p>Yes. Water boils at a lower temperature as elevation rises, so the pot reaches a lower actual cooking temperature. A widely used rule is to add about 5 percent to the cooking time for every 1,000 feet above 2,000 feet of elevation. At 5,000 feet, that means a 20-minute cook becomes roughly 23 minutes.</p>
+    </div>
+  </div>
+</main>
+
+<script>
+  var mode = 'slowToPc';
+
+  function setMode(m) {
+    mode = m;
+    var slowBtn = document.getElementById('btnSlowToPc');
+    var pcBtn = document.getElementById('btnPcToSlow');
+    var on = 'var(--tomato)';
+    if (m === 'slowToPc') {
+      slowBtn.style.background = on; slowBtn.style.color = '#fff';
+      pcBtn.style.background = 'none'; pcBtn.style.color = 'var(--tomato-dark)';
+      document.getElementById('slowInputs').style.display = '';
+      document.getElementById('pcInputs').style.display = 'none';
+    } else {
+      pcBtn.style.background = on; pcBtn.style.color = '#fff';
+      slowBtn.style.background = 'none'; slowBtn.style.color = 'var(--tomato-dark)';
+      document.getElementById('slowInputs').style.display = 'none';
+      document.getElementById('pcInputs').style.display = '';
+    }
+    convert();
+  }
+
+  function fmtHours(h) {
+    if (h >= 1) {
+      var whole = Math.floor(h);
+      var frac = h - whole;
+      var label = whole + (whole === 1 ? ' hr' : ' hrs');
+      if (frac >= 0.25 && frac < 0.75) label += ' 30 min';
+      else if (frac >= 0.75) label = (whole + 1) + ((whole + 1) === 1 ? ' hr' : ' hrs');
+      return label;
+    }
+    return Math.round(h * 60) + ' min';
+  }
+
+  function convert() {
+    var result = document.getElementById('result');
+    var resPc = document.getElementById('resultPc');
+    var resSlow = document.getElementById('resultSlow');
+    var note = document.getElementById('pressureNote');
+
+    if (mode === 'slowToPc') {
+      var hrs = parseFloat(document.getElementById('slowHours').value);
+      if (isNaN(hrs) || hrs <= 0) { result.style.display = 'none'; return; }
+      var setting = document.getElementById('slowSetting').value;
+      var highHours = (setting === 'low') ? hrs / 2 : hrs;
+      var mins = Math.round(highHours * 6);
+      document.getElementById('resPcOut').textContent = mins + ' min';
+      resPc.style.display = '';
+      resSlow.style.display = 'none';
+      note.textContent = 'Cooking time only — add 5-20 minutes for the pot to come to pressure, plus release time.';
+      result.style.display = '';
+    } else {
+      var mins2 = parseFloat(document.getElementById('pcMinutes').value);
+      if (isNaN(mins2) || mins2 <= 0) { result.style.display = 'none'; return; }
+      var highH = mins2 / 6;
+      var lowH = highH * 2;
+      document.getElementById('resLow').textContent = fmtHours(lowH);
+      document.getElementById('resHigh').textContent = fmtHours(highH);
+      resPc.style.display = 'none';
+      resSlow.style.display = 'grid';
+      note.textContent = 'Approximate — confirm doneness with a thermometer, especially for meat and poultry.';
+      result.style.display = '';
+    }
+  }
+</script>
+<!-- CC:STATIC-CHROME:START (build-static.js 자동 생성 — 직접 수정하지 말 것) -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="/" class="logo">🍳 CookingCalcs</a>
+        <p>Free cooking calculators & tools for every kitchen.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Tools</h4>
+          <ul>
+            <li><a href="/tools/cups-to-grams.html">Cups to Grams</a></li><li><a href="/tools/oven-temp-converter.html">Oven Temperature Converter</a></li><li><a href="/tools/tablespoon-to-teaspoon.html">Tablespoon to Teaspoon</a></li><li><a href="/tools/weight-converter.html">Weight Converter</a></li><li><a href="/tools/egg-converter.html">Egg Size Converter</a></li><li><a href="/tools/egg-weight-converter.html">Egg Weight & Volume Converter</a></li>
+            <li><a href="/tools/">View All Tools →</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Blog</h4>
+          <ul>
+            <li><a href="/blog/how-long-to-cook-tempeh-seitan.html">How Long to Cook Tempeh and Seitan</a></li><li><a href="/blog/measurement-conversion-word-problems.html">Measurement Conversion Word Problems</a></li><li><a href="/blog/vintage-ingredient-names.html">Vintage & British Ingredient Names Decoded</a></li><li><a href="/blog/vintage-recipe-measurements.html">Vintage Recipe Measurements Decoded</a></li><li><a href="/blog/how-to-check-grill-temperature-without-a-thermometer.html">How to Check Grill Temperature Without a Thermometer</a></li><li><a href="/blog/charcoal-vs-gas-grill-temperature.html">Charcoal vs Gas Grill: Temperature Differences</a></li>
+            <li><a href="/blog/">View All Posts →</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Guides</h4>
+          <ul>
+            <li><a href="/guides/complete-vintage-recipe-guide.html">The Complete Vintage Recipe Guide</a></li><li><a href="/guides/complete-grilling-guide.html">The Complete Grilling Guide</a></li><li><a href="/guides/complete-recipe-scaling-guide.html">The Complete Recipe Scaling & Serving Guide</a></li><li><a href="/guides/complete-protein-comparison-guide.html">The Complete Protein Comparison & Swap Guide</a></li><li><a href="/guides/complete-baking-conversion-guide.html">The Complete Baking Measurement & Conversion Guide</a></li><li><a href="/guides/complete-meat-cooking-temperature-guide.html">The Complete Meat Cooking & Temperature Guide</a></li>
+            <li><a href="/guides/">View All Guides →</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Site</h4>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/blog/">Blog</a></li>
+            <li><a href="/guides/">Guides</a></li>
+            <li><a href="/about.html">About</a></li>
+            <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 CookingCalcs. For informational purposes only.</p>
+    </div>
+  </footer>
+<!-- CC:STATIC-CHROME:END -->
+</body>
+</html>

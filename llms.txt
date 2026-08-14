@@ -25,6 +25,7 @@ CookingCalcs covers unit conversion, recipe scaling, cooking times and temperatu
 - [Grill Temperature & Time Calculator](https://cookingcalcs.com/tools/grill-temperature-calculator.html): Find the right grill zone, temperature, hand-test count, and time for burgers, steak, chicken, ribs, seafood, and vegetables, plus how wind and cold weather change the numbers.
 - [Baking Pan Size Converter](https://cookingcalcs.com/tools/pan-size-converter.html): Convert any baking recipe to a different pan size — exact scaling factor, the water-fill method for odd pans, whether to split into multiple pans, and how bake time changes.
 - [Can Size Converter](https://cookingcalcs.com/tools/can-size-converter.html): What does a #10 can, #303 can, or #2½ can actually hold? Convert any standard US or metric can size to cups, ounces, and milliliters, plus how modern retail sizes map to the old numbers and drained vs undrained volume.
+- [Slow Cooker to Pressure Cooker Converter](https://cookingcalcs.com/tools/pressure-cooker-converter.html): Convert slow cooker times to electric pressure cooker (Instant Pot) minutes and back. Includes a per-food pressure time chart, pressure-up and release time, liquid minimums, and altitude adjustment.
 - [Candy & Sugar Stage Temperature Calculator](https://cookingcalcs.com/tools/candy-temperature-calculator.html): Find the exact target temperature and sugar stage for any candy, plus the cold water test and altitude adjustment.
 
 ## Guides

@@ -47,6 +47,7 @@ const TOOLS = [
   { name: "Baking Pan Size Converter", url: "/tools/pan-size-converter.html" },
   { name: "Can Size Converter", url: "/tools/can-size-converter.html" },
   { name: "Slow Cooker to Pressure Cooker Converter", url: "/tools/pressure-cooker-converter.html" },
+  { name: "High Altitude Cooking Calculator", url: "/tools/altitude-cooking-calculator.html" },
   { name: "Candy & Sugar Stage Temperature Calculator", url: "/tools/candy-temperature-calculator.html" },
 ];
 

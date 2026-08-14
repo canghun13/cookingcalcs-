@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>High Altitude Cooking Calculator — Water Boils at 203°F at 5,000 ft</title>
+  <meta name="description" content="Enter your elevation to get the boiling point, how much longer boiled and simmered food takes, pressure cooker and frying adjustments — and what needs no change at all.">
+  <link rel="canonical" href="https://cookingcalcs.com/tools/altitude-cooking-calculator.html">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script src="/assets/js/nav.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "High Altitude Cooking Time Calculator",
+  "url": "https://cookingcalcs.com/tools/altitude-cooking-calculator.html",
+  "description": "Calculate the boiling point of water at your elevation and how to adjust boiling, simmering, braising, pressure cooking, and deep frying times for high altitude.",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "provider": { "@type": "Organization", "name": "CookingCalcs", "url": "https://cookingcalcs.com" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "At what temperature does water boil at high altitude?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The boiling point drops by roughly 2°F for every 1,000 feet of elevation. Water boils at 212°F at sea level, about 208°F at 2,000 feet, about 203°F at 5,000 feet, and about 193°F at 10,000 feet. Because boiling water is cooler at elevation, anything cooked in it takes longer even though the pot is still at a full boil."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to increase the oven temperature at high altitude?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not for roasting meat and poultry. Oven air temperature is unaffected by elevation, so roasting times and temperatures stay the same and you should follow sea-level instructions. Baking is the exception — leavened batters and doughs do need adjustment because lower air pressure lets them rise faster and dry out sooner."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much longer does food take to cook at high altitude?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For moist-heat methods — boiling, simmering, braising, steaming — expect up to 25 percent more time at high elevation. Dried beans and rice are affected the most and can take dramatically longer, while pasta usually just needs a few extra minutes because it cooks in excess water rather than absorbing it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why won't my dried beans soften at high altitude?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Boiling water at high elevation is simply not hot enough to break the beans down at a normal rate. Beans that take 1 to 2 hours at sea level can take 3 to 4 hours or more above about 8,000 feet, and the water may evaporate before they finish. Soaking beforehand becomes close to mandatory, and a pressure cooker is the reliable fix since it raises the temperature above the open-air boiling point."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I lower my deep frying temperature at high altitude?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Reduce the oil temperature by about 3°F for every 1,000 feet of elevation. Moisture inside the food escapes faster at altitude, so at a normal frying temperature the exterior browns before the interior is cooked through. Lowering the oil temperature gives the inside time to catch up."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is a meat thermometer still accurate at high altitude?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. A thermometer reads actual temperature and does not need recalibrating for elevation. Safe internal temperatures for meat and poultry are unchanged at altitude — what changes is how long the food takes to reach them, which is exactly why a thermometer matters more at elevation, not less."
+      }
+    }
+  ]
+}
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+<style>
+  @media(max-width:600px) { .alt-result-grid { grid-template-columns:1fr !important; } }
+</style>
+</head>
+<body>
+<!-- CC:STATIC-CHROME:START (build-static.js 자동 생성 — 직접 수정하지 말 것) -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="logo">🍳 CookingCalcs</a>
+      <nav class="main-nav" id="mainNav">
+        <ul class="nav-list">
+          <li><a href="/" class="nav-link">Home</a></li>
+          <li><a href="/tools/" class="nav-link">Tools</a></li>
+          <li><a href="/blog/" class="nav-link">Blog</a></li>
+          <li><a href="/guides/" class="nav-link">Guides</a></li>
+          <li><a href="/about.html" class="nav-link">About</a></li>
+        </ul>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <nav class="mobile-nav" id="mobileNav">
+    <ul class="nav-list">
+      <li><a href="/" class="nav-link">Home</a></li>
+      <li class="nav-has-dropdown">
+        <button class="nav-link nav-btn" aria-expanded="false">Tools ▾</button>
+        <ul class="nav-dropdown">
+          <li><a href="/tools/" class="nav-dropdown-all">View All Tools →</a></li>
+          <li><a href="/tools/cups-to-grams.html">Cups to Grams</a></li><li><a href="/tools/oven-temp-converter.html">Oven Temperature Converter</a></li><li><a href="/tools/tablespoon-to-teaspoon.html">Tablespoon to Teaspoon</a></li><li><a href="/tools/weight-converter.html">Weight Converter</a></li><li><a href="/tools/egg-converter.html">Egg Size Converter</a></li><li><a href="/tools/egg-weight-converter.html">Egg Weight & Volume Converter</a></li><li><a href="/tools/recipe-multiplier.html">Recipe Multiplier</a></li><li><a href="/tools/cooking-time-calculator.html">Cooking Time Calculator</a></li><li><a href="/tools/meat-temperature-guide.html">Meat Temperature Guide</a></li><li><a href="/tools/meal-cost-calculator.html">Meal Cost Calculator</a></li><li><a href="/tools/cost-per-serving.html">Cost Per Serving</a></li><li><a href="/tools/liquid-converter.html">Liquid Converter</a></li><li><a href="/tools/butter-converter.html">Butter Converter</a></li><li><a href="/tools/baking-substitutions.html">Baking Substitutions</a></li><li><a href="/tools/cups-to-tablespoons.html">Cups to Tablespoons</a></li><li><a href="/tools/raw-to-cooked-weight.html">Raw to Cooked Weight</a></li><li><a href="/tools/weekly-meal-prep-cost-calculator.html">Weekly Meal Prep Cost Calculator</a></li><li><a href="/tools/slow-cooker-converter.html">Slow Cooker Time Converter</a></li><li><a href="/tools/herb-converter.html">Fresh to Dried Herb Converter</a></li><li><a href="/tools/kitchen-math-generator.html">Kitchen Math Practice Problem Generator</a></li><li><a href="/tools/grill-temperature-calculator.html">Grill Temperature & Time Calculator</a></li><li><a href="/tools/pan-size-converter.html">Baking Pan Size Converter</a></li><li><a href="/tools/can-size-converter.html">Can Size Converter</a></li><li><a href="/tools/pressure-cooker-converter.html">Slow Cooker to Pressure Cooker Converter</a></li><li><a href="/tools/altitude-cooking-calculator.html">High Altitude Cooking Calculator</a></li><li><a href="/tools/candy-temperature-calculator.html">Candy & Sugar Stage Temperature Calculator</a></li>
+        </ul>
+      </li>
+      <li class="nav-has-dropdown">
+        <button class="nav-link nav-btn" aria-expanded="false">Blog ▾</button>
+        <ul class="nav-dropdown">
+          <li><a href="/blog/" class="nav-dropdown-all">View All Posts →</a></li>
+          <li><a href="/blog/cups-to-grams-guide.html">Cups to Grams Guide</a></li><li><a href="/blog/why-weigh-ingredients-baking.html">Why Weigh Ingredients When Baking</a></li><li><a href="/blog/oven-temperature-conversion-guide.html">Oven Temperature Conversion Guide</a></li><li><a href="/blog/how-to-scale-a-recipe.html">How to Scale a Recipe</a></li><li><a href="/blog/baking-measurement-mistakes.html">Baking Measurement Mistakes</a></li><li><a href="/blog/meat-internal-temperature-guide.html">Meat Internal Temperature Guide</a></li><li><a href="/blog/how-to-cut-grocery-bill.html">How to Cut Your Grocery Bill</a></li><li><a href="/blog/how-to-calculate-cost-per-serving.html">How to Calculate Cost Per Serving</a></li><li><a href="/blog/average-cost-of-a-home-cooked-meal.html">Average Cost of a Home-Cooked Meal</a></li><li><a href="/blog/how-long-to-cook-chicken-breast.html">How Long to Cook Chicken Breast</a></li><li><a href="/blog/cooking-measurement-guide.html">Cooking Measurement Guide</a></li><li><a href="/blog/meat-cooking-temperatures-explained.html">Meat Cooking Temperatures Explained</a></li><li><a href="/blog/how-to-meal-prep-on-a-budget.html">How to Meal Prep on a Budget</a></li><li><a href="/blog/how-many-cups-in-a-pound-of-flour.html">How Many Cups in a Pound of Flour?</a></li><li><a href="/blog/how-to-measure-butter.html">How to Measure Butter</a></li><li><a href="/blog/how-long-to-cook-salmon.html">How Long to Cook Salmon</a></li><li><a href="/blog/how-many-grams-in-a-cup-of-rice.html">How Many Grams in a Cup of Rice?</a></li><li><a href="/blog/how-long-to-cook-shrimp.html">How Long to Cook Shrimp</a></li><li><a href="/blog/how-to-calculate-meal-prep-cost-for-a-week.html">How to Calculate Meal Prep Cost for a Week</a></li><li><a href="/blog/grocery-budget-tips.html">Grocery Budget Tips That Actually Work</a></li><li><a href="/blog/tablespoon-vs-teaspoon.html">Tablespoon vs Teaspoon: What's the Difference?</a></li><li><a href="/blog/how-to-substitute-egg-sizes.html">How to Substitute Egg Sizes in Recipes</a></li><li><a href="/blog/how-long-to-cook-ground-beef.html">How Long to Cook Ground Beef</a></li><li><a href="/blog/what-is-a-serving-size.html">What Is a Serving Size? A Practical Guide</a></li><li><a href="/blog/tablespoon-to-teaspoon-guide.html">Tablespoons to Teaspoons: Full Conversion Guide</a></li><li><a href="/blog/how-to-reduce-a-recipe.html">How to Reduce a Recipe to Fewer Servings</a></li><li><a href="/blog/how-many-grams-in-a-cup-of-sugar.html">How Many Grams in a Cup of Sugar?</a></li><li><a href="/blog/how-long-to-cook-bacon.html">How Long to Cook Bacon</a></li><li><a href="/blog/how-long-to-cook-steak.html">How Long to Cook Steak</a></li><li><a href="/blog/how-many-eggs-in-a-cup.html">How Many Eggs in a Cup?</a></li><li><a href="/blog/how-to-reduce-a-recipe-by-half.html">How to Cut a Recipe in Half</a></li><li><a href="/blog/how-long-to-cook-pork-chops.html">How Long to Cook Pork Chops</a></li><li><a href="/blog/how-many-grams-in-a-cup-of-oats.html">How Many Grams in a Cup of Oats?</a></li><li><a href="/blog/how-many-cups-in-a-pound-of-sugar.html">How Many Cups in a Pound of Sugar?</a></li><li><a href="/blog/how-long-to-cook-lamb-chops.html">How Long to Cook Lamb Chops</a></li><li><a href="/blog/how-long-to-cook-turkey-breast.html">How Long to Cook Turkey Breast</a></li><li><a href="/blog/how-many-cups-in-a-quart-pint-gallon.html">How Many Cups in a Quart, Pint, and Gallon?</a></li><li><a href="/blog/how-to-convert-a-recipe-to-metric.html">How to Convert a Recipe to Metric</a></li><li><a href="/blog/how-long-to-cook-chicken-thighs.html">How Long to Cook Chicken Thighs</a></li><li><a href="/blog/how-to-calculate-cooking-time.html">How to Calculate Cooking Time for Meat</a></li><li><a href="/blog/is-your-oven-running-hot-or-cold.html">Is Your Oven Running Hot or Cold? How to Test It</a></li><li><a href="/blog/how-long-can-food-sit-out.html">How Long Can Food Sit Out? The 2-Hour Rule Explained</a></li><li><a href="/blog/fresh-vs-dried-herbs.html">Fresh vs Dried Herbs: When to Use Each and How to Swap Them</a></li><li><a href="/blog/unit-price-word-problems.html">Unit Price Word Problems: How to Find the Better Grocery Deal</a></li><li><a href="/blog/recipe-scaling-word-problems.html">Recipe Scaling Word Problems: Doubling, Halving & Fractions</a></li><li><a href="/blog/lamb-chops-vs-pork-chops.html">Lamb Chops vs Pork Chops: Cooking Time & Temperature Differences</a></li><li><a href="/blog/salmon-vs-shrimp.html">Salmon vs Shrimp: Cooking Time Differences</a></li><li><a href="/blog/bacon-vs-sausage.html">Bacon vs Sausage: Cooking Time & Temperature Differences</a></li><li><a href="/blog/turkey-breast-vs-chicken-breast.html">Turkey Breast vs Chicken Breast: Cooking Time & Temperature Differences</a></li><li><a href="/blog/turkey-breast-vs-whole-chicken.html">Turkey Breast vs Whole Chicken: Which Cooks Faster?</a></li><li><a href="/blog/direct-vs-indirect-heat-grilling.html">Direct vs Indirect Heat: When to Use Each</a></li><li><a href="/blog/charcoal-vs-gas-grill-temperature.html">Charcoal vs Gas Grill: Temperature Differences</a></li><li><a href="/blog/how-to-check-grill-temperature-without-a-thermometer.html">How to Check Grill Temperature Without a Thermometer</a></li><li><a href="/blog/vintage-recipe-measurements.html">Vintage Recipe Measurements Decoded</a></li><li><a href="/blog/vintage-ingredient-names.html">Vintage & British Ingredient Names Decoded</a></li><li><a href="/blog/how-long-to-cook-brisket.html">How Long to Cook Brisket</a></li><li><a href="/blog/measurement-conversion-word-problems.html">Measurement Conversion Word Problems</a></li><li><a href="/blog/how-long-to-cook-ribs.html">How Long to Cook Ribs</a></li><li><a href="/blog/how-long-to-cook-chicken-wings.html">How Long to Cook Chicken Wings</a></li><li><a href="/blog/how-long-to-cook-chicken-drumsticks.html">How Long to Cook Chicken Drumsticks</a></li><li><a href="/blog/how-long-to-cook-meatballs.html">How Long to Cook Meatballs</a></li><li><a href="/blog/how-long-to-cook-pork-tenderloin.html">How Long to Cook Pork Tenderloin</a></li><li><a href="/blog/how-long-to-bake-white-fish.html">How Long to Bake White Fish</a></li><li><a href="/blog/how-long-to-cook-pork-shoulder.html">How Long to Cook Pork Shoulder</a></li><li><a href="/blog/how-long-to-cook-ham.html">How Long to Cook Gammon & Ham</a></li><li><a href="/blog/how-long-to-cook-tempeh-seitan.html">How Long to Cook Tempeh and Seitan</a></li>
+        </ul>
+      </li>
+      <li class="nav-has-dropdown">
+        <button class="nav-link nav-btn" aria-expanded="false">Guides ▾</button>
+        <ul class="nav-dropdown">
+          <li><a href="/guides/" class="nav-dropdown-all">View All Guides →</a></li>
+          <li><a href="/guides/complete-meal-prep-budget-guide.html">The Complete Meal Prep & Grocery Budget Guide</a></li><li><a href="/guides/complete-meat-cooking-temperature-guide.html">The Complete Meat Cooking & Temperature Guide</a></li><li><a href="/guides/complete-baking-conversion-guide.html">The Complete Baking Measurement & Conversion Guide</a></li><li><a href="/guides/complete-recipe-scaling-guide.html">The Complete Recipe Scaling & Serving Guide</a></li><li><a href="/guides/complete-protein-comparison-guide.html">The Complete Protein Comparison & Swap Guide</a></li><li><a href="/guides/complete-grilling-guide.html">The Complete Grilling Guide</a></li><li><a href="/guides/complete-vintage-recipe-guide.html">The Complete Vintage Recipe Guide</a></li>
+        </ul>
+      </li>
+      <li><a href="/about.html" class="nav-link">About</a></li>
+    </ul>
+  </nav>
+  <div class="nav-overlay" id="navOverlay"></div>
+<!-- CC:STATIC-CHROME:END -->
+<main>
+  <div class="tool-page">
+    <h1>High Altitude Cooking Calculator</h1>
+    <p class="tool-desc">Enter your elevation to see the boiling point where you live, how much longer boiled and simmered food will take, and which cooking methods need no adjustment at all.</p>
+
+    <div class="tool-box">
+      <div class="form-group">
+        <label for="elevation">Your elevation</label>
+        <input type="number" id="elevation" min="0" placeholder="e.g. 5280" oninput="calc()">
+      </div>
+      <div class="form-group">
+        <label for="unit">Unit</label>
+        <select id="unit" onchange="calc()">
+          <option value="ft">Feet</option>
+          <option value="m">Meters</option>
+        </select>
+      </div>
+
+      <div id="result" style="display:none; margin-top:1.5rem;">
+        <div class="alt-result-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+          <div class="result-box">
+            <div class="result-num" id="resBoil"></div>
+            <div class="result-label">Water Boils At</div>
+          </div>
+          <div class="result-box">
+            <div class="result-num" id="resTime"></div>
+            <div class="result-label">Add to Boiled / Simmered Time</div>
+          </div>
+        </div>
+        <div style="margin-top:1rem; padding:1rem; background:var(--tomato-light); border-radius:var(--radius-lg);">
+          <p style="margin:0 0 0.5rem;"><strong>Pressure cooking:</strong> <span id="resPressure"></span></p>
+          <p style="margin:0 0 0.5rem;"><strong>Deep frying oil:</strong> <span id="resFry"></span></p>
+          <p style="margin:0;"><strong>Oven roasting &amp; grilling:</strong> <span id="resOven"></span></p>
+        </div>
+        <p style="text-align:center; margin-top:1rem; color:var(--mid); font-size:0.9rem;">Starting points, not guarantees — confirm meat and poultry with a thermometer, which stays accurate at any elevation.</p>
+      </div>
+    </div>
+
+    <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin:2rem 0 1rem;">Boiling Point by Elevation</h2>
+    <table>
+      <thead>
+        <tr><th>Elevation</th><th>Water Boils At</th><th>Added Time (Moist Heat)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Sea level</td><td>212°F / 100°C</td><td>None</td></tr>
+        <tr><td>1,000 ft (305 m)</td><td>210°F / 99°C</td><td>Negligible</td></tr>
+        <tr><td>2,000 ft (610 m)</td><td>208°F / 98°C</td><td>~5%</td></tr>
+        <tr><td>3,000 ft (914 m)</td><td>206°F / 97°C</td><td>~8%</td></tr>
+        <tr><td>4,000 ft (1,219 m)</td><td>204°F / 96°C</td><td>~10%</td></tr>
+        <tr><td>5,000 ft (1,524 m)</td><td>203°F / 95°C</td><td>~13%</td></tr>
+        <tr><td>6,000 ft (1,829 m)</td><td>201°F / 94°C</td><td>~15%</td></tr>
+        <tr><td>7,000 ft (2,134 m)</td><td>199°F / 93°C</td><td>~18%</td></tr>
+        <tr><td>8,000 ft (2,438 m)</td><td>197°F / 92°C</td><td>~20%</td></tr>
+        <tr><td>10,000 ft (3,048 m)</td><td>193°F / 89°C</td><td>~25%</td></tr>
+      </tbody>
+    </table>
+    <p style="color:var(--mid); font-size:0.92rem;">Boiling point falls roughly 2°F per 1,000 feet. The added-time column applies to moist-heat cooking only — boiling, simmering, braising, and steaming.</p>
+
+    <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin:2rem 0 1rem;">What Altitude Changes — and What It Doesn't</h2>
+    <p>This is the part most high-altitude advice gets muddled, and it's worth being precise about, because adjusting the wrong thing causes as many problems as adjusting nothing.</p>
+    <table>
+      <thead>
+        <tr><th>Method</th><th>Affected?</th><th>What to Do</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Boiling, simmering, braising, steaming</td><td>Yes — significantly</td><td>Add up to 25% time; expect more evaporation</td></tr>
+        <tr><td>Dried beans, brown rice</td><td>Yes — the most affected</td><td>Soak beans; add substantial time, or pressure cook</td></tr>
+        <tr><td>Pressure cooking</td><td>Yes — mildly</td><td>Add ~5% time per 1,000 ft above 2,000 ft</td></tr>
+        <tr><td>Deep frying</td><td>Yes</td><td>Lower oil temp ~3°F per 1,000 ft</td></tr>
+        <tr><td>Baking (leavened batters, doughs)</td><td>Yes — complex</td><td>Adjust leavening, liquid, sugar, temperature</td></tr>
+        <tr><td><strong>Oven roasting meat &amp; poultry</strong></td><td><strong>No</strong></td><td>Use sea-level times and temperatures</td></tr>
+        <tr><td><strong>Grilling, searing, pan-frying</strong></td><td><strong>No</strong></td><td>No change — dry heat is unaffected</td></tr>
+        <tr><td><strong>Safe internal temperatures</strong></td><td><strong>No</strong></td><td>Unchanged; thermometer stays accurate</td></tr>
+      </tbody>
+    </table>
+    <p>The dividing line is water. Any method that cooks food using water at its boiling point is limited by how hot that water can get, and at elevation it simply can't get as hot. Dry-heat methods — roasting, grilling, searing — run at oven or grill temperatures well above boiling, and those temperatures don't change with elevation. That's why the USDA's food safety guidance tells high-altitude cooks to follow sea-level instructions for oven roasting while treating boiled and simmered foods differently.</p>
+
+    <!-- Related Tools & Guides -->
+    <div style="margin-top:2rem; padding:1.25rem; background:var(--tomato-light); border-radius:var(--radius-lg);">
+      <h2 style="font-family:'Playfair Display',serif; font-size:1.25rem; margin:0 0 0.75rem;">Related Tools &amp; Guides</h2>
+      <ul style="margin:0; padding-left:1.1rem; line-height:1.9;">
+        <li><a href="/tools/pressure-cooker-converter.html">Slow Cooker to Pressure Cooker Converter</a></li>
+        <li><a href="/tools/candy-temperature-calculator.html">Candy &amp; Sugar Stage Temperature Calculator</a></li>
+        <li><a href="/tools/oven-temp-converter.html">Oven Temperature Converter</a></li>
+        <li><a href="/tools/meat-temperature-guide.html">Meat Temperature Guide</a></li>
+        <li><a href="/blog/how-to-calculate-cooking-time.html">How to Calculate Cooking Time for Meat</a></li>
+      </ul>
+    </div>
+
+    <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin:2rem 0 1rem;">Why Lower Pressure Means Cooler Boiling Water</h2>
+    <p>Water boils when its vapour pressure matches the pressure of the air pushing down on it. At sea level that balance is struck at 212°F. Climb higher and there's less atmosphere overhead, so the water needs less energy to escape — it reaches that balance point sooner, at a lower temperature. Denver, at roughly 5,280 feet, boils water at about 202°F; at 10,000 feet it's down near 193°F.</p>
+    <p>The counterintuitive part is that the pot still looks exactly the same. It bubbles, it steams, it is unmistakably boiling. Turning up the burner doesn't help either, because once water reaches its boiling point the extra heat goes into producing steam faster rather than raising the temperature. A rolling boil at 8,000 feet is genuinely about 15°F cooler than a rolling boil at sea level, and no amount of extra flame will close that gap.</p>
+
+    <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin:2rem 0 1rem;">The Foods That Cause the Most Trouble</h2>
+    <p><strong>Dried beans</strong> are the worst offender by a wide margin. Beans need sustained high heat to break down, and at elevation the water may never get hot enough to soften them before it boils away. Beans that take an hour or two at sea level can run three to four hours above 8,000 feet, and some cooks find they never fully soften at all. Soaking overnight stops being optional, and keeping a kettle of hot water on hand to top up the pot matters more than the recipe suggests.</p>
+    <p><strong>Rice</strong> is difficult for a related reason: rice cooks by absorbing a measured amount of water, so if that water evaporates faster and cooks cooler, the grains hydrate unevenly. Adding roughly 15-20% more liquid and a few extra minutes is the standard fix. Brown rice, which already takes far longer, can need up to 20 additional minutes.</p>
+    <p><strong>Pasta</strong> is easier than its reputation suggests. Because pasta boils in excess water rather than absorbing a fixed amount, the lower temperature just means it takes longer — usually a few extra minutes over the package time. The real risk is trusting the box: al dente timing written for sea level will leave you with a chalky centre at 7,000 feet.</p>
+    <p><strong>Eggs</strong> surprise people. A soft-boiled egg timed at three minutes at sea level comes out noticeably underdone at altitude, and hard-boiled eggs need several extra minutes. The safe internal temperature hasn't moved; the water delivering the heat is just cooler.</p>
+
+    <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin:2rem 0 1rem;">Why a Pressure Cooker Is the Practical Fix</h2>
+    <p>A pressure cooker sidesteps the entire problem. By sealing the pot and trapping steam, it raises the internal pressure above the thin outside air and pushes the boiling point back up — well past 212°F, typically around 250°F at high pressure. That's why beans and rice, the two foods most punished by elevation, become straightforward again in a pressure cooker regardless of where you live.</p>
+    <p>Pressure cookers do still need a small altitude adjustment, because the pressure inside is measured relative to the thinner air outside. The common guidance is to add about 5% to the cooking time for every 1,000 feet above 2,000 feet. Colorado State University Extension tested electric pressure cookers between 3,000 and 10,000 feet and found this adjustment wasn't always necessary for every food — it mattered most for dried beans, rice, and heating milk. They also noted that longer cooks at elevation may need a little extra liquid, and that some foods benefit from 5-10 minutes of natural release even when a recipe calls for quick release. Our <a href="/tools/pressure-cooker-converter.html">pressure cooker converter</a> covers the base times to adjust from.</p>
+
+    <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin:2rem 0 1rem;">Frequently Asked Questions</h2>
+    <div class="faq-section">
+      <h3>At what temperature does water boil at high altitude?</h3>
+      <p>The boiling point drops by roughly 2°F for every 1,000 feet of elevation. Water boils at 212°F at sea level, about 208°F at 2,000 feet, about 203°F at 5,000 feet, and about 193°F at 10,000 feet. Because boiling water is cooler at elevation, anything cooked in it takes longer even though the pot is still at a full boil.</p>
+
+      <h3>Do I need to increase the oven temperature at high altitude?</h3>
+      <p>Not for roasting meat and poultry. Oven air temperature is unaffected by elevation, so roasting times and temperatures stay the same and you should follow sea-level instructions. Baking is the exception — leavened batters and doughs do need adjustment because lower air pressure lets them rise faster and dry out sooner.</p>
+
+      <h3>How much longer does food take to cook at high altitude?</h3>
+      <p>For moist-heat methods — boiling, simmering, braising, steaming — expect up to 25 percent more time at high elevation. Dried beans and rice are affected the most and can take dramatically longer, while pasta usually just needs a few extra minutes because it cooks in excess water rather than absorbing it.</p>
+
+      <h3>Why won't my dried beans soften at high altitude?</h3>
+      <p>Boiling water at high elevation is simply not hot enough to break the beans down at a normal rate. Beans that take 1 to 2 hours at sea level can take 3 to 4 hours or more above about 8,000 feet, and the water may evaporate before they finish. Soaking beforehand becomes close to mandatory, and a pressure cooker is the reliable fix since it raises the temperature above the open-air boiling point.</p>
+
+      <h3>Should I lower my deep frying temperature at high altitude?</h3>
+      <p>Yes. Reduce the oil temperature by about 3°F for every 1,000 feet of elevation. Moisture inside the food escapes faster at altitude, so at a normal frying temperature the exterior browns before the interior is cooked through. Lowering the oil temperature gives the inside time to catch up.</p>
+
+      <h3>Is a meat thermometer still accurate at high altitude?</h3>
+      <p>Yes. A thermometer reads actual temperature and does not need recalibrating for elevation. Safe internal temperatures for meat and poultry are unchanged at altitude — what changes is how long the food takes to reach them, which is exactly why a thermometer matters more at elevation, not less.</p>
+    </div>
+  </div>
+</main>
+
+<script>
+  function calc() {
+    var val = parseFloat(document.getElementById('elevation').value);
+    var unit = document.getElementById('unit').value;
+    var result = document.getElementById('result');
+    if (isNaN(val) || val < 0) { result.style.display = 'none'; return; }
+
+    var ft = (unit === 'm') ? val * 3.28084 : val;
+
+    // 끓는점: 1000ft당 약 1.9°F 하강
+    var boilF = 212 - (ft / 1000) * 1.9;
+    var boilC = (boilF - 32) * 5 / 9;
+    document.getElementById('resBoil').textContent = Math.round(boilF) + '°F / ' + Math.round(boilC) + '°C';
+
+    // 습열 조리 추가 시간: 2000ft 미만은 무시, 이후 완만히 증가해 10000ft에서 25%
+    var addPct = 0;
+    if (ft > 1000) addPct = Math.min(25, ((ft - 1000) / 9000) * 25);
+    document.getElementById('resTime').textContent = (addPct < 1) ? 'Negligible' : '+' + Math.round(addPct) + '%';
+
+    // 압력조리: 2000ft 초과분에 대해 1000ft당 5%
+    var pcPct = ft > 2000 ? ((ft - 2000) / 1000) * 5 : 0;
+    document.getElementById('resPressure').textContent = (pcPct < 1)
+      ? 'No adjustment needed at this elevation.'
+      : 'Add about ' + Math.round(pcPct) + '% to pressure cooking time.';
+
+    // 튀김 기름: 1000ft당 3°F 인하
+    var fryDrop = (ft / 1000) * 3;
+    document.getElementById('resFry').textContent = (fryDrop < 2)
+      ? 'No meaningful change at this elevation.'
+      : 'Lower oil temperature by about ' + Math.round(fryDrop) + '°F.';
+
+    document.getElementById('resOven').textContent = 'No change — use sea-level times and temperatures.';
+
+    result.style.display = '';
+  }
+</script>
+<!-- CC:STATIC-CHROME:START (build-static.js 자동 생성 — 직접 수정하지 말 것) -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="/" class="logo">🍳 CookingCalcs</a>
+        <p>Free cooking calculators & tools for every kitchen.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Tools</h4>
+          <ul>
+            <li><a href="/tools/cups-to-grams.html">Cups to Grams</a></li><li><a href="/tools/oven-temp-converter.html">Oven Temperature Converter</a></li><li><a href="/tools/tablespoon-to-teaspoon.html">Tablespoon to Teaspoon</a></li><li><a href="/tools/weight-converter.html">Weight Converter</a></li><li><a href="/tools/egg-converter.html">Egg Size Converter</a></li><li><a href="/tools/egg-weight-converter.html">Egg Weight & Volume Converter</a></li>
+            <li><a href="/tools/">View All Tools →</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Blog</h4>
+          <ul>
+            <li><a href="/blog/how-long-to-cook-tempeh-seitan.html">How Long to Cook Tempeh and Seitan</a></li><li><a href="/blog/measurement-conversion-word-problems.html">Measurement Conversion Word Problems</a></li><li><a href="/blog/vintage-ingredient-names.html">Vintage & British Ingredient Names Decoded</a></li><li><a href="/blog/vintage-recipe-measurements.html">Vintage Recipe Measurements Decoded</a></li><li><a href="/blog/how-to-check-grill-temperature-without-a-thermometer.html">How to Check Grill Temperature Without a Thermometer</a></li><li><a href="/blog/charcoal-vs-gas-grill-temperature.html">Charcoal vs Gas Grill: Temperature Differences</a></li>
+            <li><a href="/blog/">View All Posts →</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Guides</h4>
+          <ul>
+            <li><a href="/guides/complete-vintage-recipe-guide.html">The Complete Vintage Recipe Guide</a></li><li><a href="/guides/complete-grilling-guide.html">The Complete Grilling Guide</a></li><li><a href="/guides/complete-recipe-scaling-guide.html">The Complete Recipe Scaling & Serving Guide</a></li><li><a href="/guides/complete-protein-comparison-guide.html">The Complete Protein Comparison & Swap Guide</a></li><li><a href="/guides/complete-baking-conversion-guide.html">The Complete Baking Measurement & Conversion Guide</a></li><li><a href="/guides/complete-meat-cooking-temperature-guide.html">The Complete Meat Cooking & Temperature Guide</a></li>
+            <li><a href="/guides/">View All Guides →</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Site</h4>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/blog/">Blog</a></li>
+            <li><a href="/guides/">Guides</a></li>
+            <li><a href="/about.html">About</a></li>
+            <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 CookingCalcs. For informational purposes only.</p>
+    </div>
+  </footer>
+<!-- CC:STATIC-CHROME:END -->
+</body>
+</html>

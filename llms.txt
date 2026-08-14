@@ -28,6 +28,9 @@ CookingCalcs covers unit conversion, recipe scaling, cooking times and temperatu
 - [Slow Cooker to Pressure Cooker Converter](https://cookingcalcs.com/tools/pressure-cooker-converter.html): Convert slow cooker times to electric pressure cooker (Instant Pot) minutes and back. Includes a per-food pressure time chart, pressure-up and release time, liquid minimums, and altitude adjustment.
 - [High Altitude Cooking Calculator](https://cookingcalcs.com/tools/altitude-cooking-calculator.html): Enter your elevation for the boiling point, added time for boiled and simmered food, pressure cooker and deep frying adjustments, and which methods need no change at all.
 - [Air Fryer Cooking Times by Food](https://cookingcalcs.com/tools/air-fryer-cooking-times.html): Per-food air fryer temperatures and times for 13 foods with safe internal temps, plus the three temperature bands and why the flat 25°F conversion rule misfires.
+- [The Complete Appliance Cooking Guide](https://cookingcalcs.com/guides/complete-appliance-cooking-guide.html): Slow cooker, pressure cooker, air fryer, and oven as one system — moist vs dry heat, how times convert between them, and which to use tonight.
+- [Slow Cooker vs Pressure Cooker](https://cookingcalcs.com/blog/slow-cooker-vs-pressure-cooker.html): Which to use for what, why pressure minutes are not clock minutes, and what does not convert cleanly between them.
+- [Air Fryer vs Oven](https://cookingcalcs.com/blog/air-fryer-vs-oven.html): An air fryer is a small convection oven with a strong fan. Batch size, crisping, preheat, energy, and when the oven still wins.
 - [Candy & Sugar Stage Temperature Calculator](https://cookingcalcs.com/tools/candy-temperature-calculator.html): Find the exact target temperature and sugar stage for any candy, plus the cold water test and altitude adjustment.
 
 ## Guides

@@ -31,6 +31,7 @@ CookingCalcs covers unit conversion, recipe scaling, cooking times and temperatu
 - [The Complete Appliance Cooking Guide](https://cookingcalcs.com/guides/complete-appliance-cooking-guide.html): Slow cooker, pressure cooker, air fryer, and oven as one system — moist vs dry heat, how times convert between them, and which to use tonight.
 - [Slow Cooker vs Pressure Cooker](https://cookingcalcs.com/blog/slow-cooker-vs-pressure-cooker.html): Which to use for what, why pressure minutes are not clock minutes, and what does not convert cleanly between them.
 - [Air Fryer vs Oven](https://cookingcalcs.com/blog/air-fryer-vs-oven.html): An air fryer is a small convection oven with a strong fan. Batch size, crisping, preheat, energy, and when the oven still wins.
+- [High Altitude Baking Adjustments by Elevation](https://cookingcalcs.com/blog/high-altitude-baking-adjustments.html): Leavening, liquid, sugar, flour and oven temperature changes at 3,000 / 5,000 / 7,000+ ft, which bakes are affected most, and which order to try the fixes in.
 - [Candy & Sugar Stage Temperature Calculator](https://cookingcalcs.com/tools/candy-temperature-calculator.html): Find the exact target temperature and sugar stage for any candy, plus the cold water test and altitude adjustment.
 
 ## Guides

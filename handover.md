@@ -1,4 +1,4 @@
-# CookingCalcs 현황 및 인수인계 (2026-08-24 기준)
+# CookingCalcs 현황 및 인수인계 (2026-08-31 기준)
 
 이 문서는 2026-07-24 버전 인수인계 문서를 기반으로, 이후 진행된 모든 작업 내역을 반영해 갱신한 버전입니다. 새 세션에서는 이 문서만 보고 바로 작업 이어가면 됩니다.
 
@@ -97,6 +97,47 @@ echo "nav.js GUIDES: $(sed -n '/const GUIDES/,/^];/p' assets/js/nav.js | grep -c
 ---
 
 ## 3. 사이트 구조 변경 이력
+
+### 2026-08-31 (22차): 신규 클러스터 — 남은 음식 리히팅 (툴1+블로그1+가이드1)
+
+> 21차와 동일 지시: 키워드 넓게 → 리스트 → 경쟁강도 → 강하면 롱테일 → 웬만하면 클러스터.
+> GSC 안에서만 보지 말고 문서수 적고 관심 있는 것을 찾을 것.
+
+#### 경쟁도 판정
+| 후보 | 판정 | 근거 |
+|---|---|---|
+| 도우 프루핑/발효 | **기각** | thebakingcalculator·superglobalcalculator·tooliro·usecalcpro·joteo·sourdougharchive·sourdoughratio·thesourdoughjourney + **missvickie(회피리스트) 계산기 2개**. 계산기팜+사워도우 전용 도메인 이중 포화 |
+| 에어프라이어 리히팅 단독 | **기각** | air-fryer-convert·airfryerjourny·airfryfoods·converttoairfryer·airfryconverter·airfryercalculator.net·airfrypro 등 전용 도메인 7곳. **19차의 "에어프라이어 축은 요새" 판정과 일치** |
+| **리히팅 "방식 교차" 축** | **채택** | 경쟁자가 FSIS·UNL·Texas DSHS·NC State·Fairfax County·UC Extension 등 **.gov/.edu 안전 PDF**와 일반 블로그뿐. 계산기팜 없음 |
+
+#### ★ 차별화 — 구조적 빈틈 두 개
+1. **gov/edu는 "165°F까지"만 말하고 음식별·방식별 소요시간을 주지 않는다.** 에어프라이어팜은
+   한 방식만 다룬다. **4개 방식(오븐/에어프라이어/전자레인지/스토브)을 음식별로 나란히 놓은
+   비교표가 어디에도 없음** → 우리 `how-long-to-cook-*` 20여 개와 같은 포맷으로 구현.
+2. **"165°F(내부 목표)"와 "오븐 설정 온도"를 시중 콘텐츠가 계속 혼동시킨다.** 오븐을 165°F에
+   맞추는 실수를 유발함. 두 숫자를 표로 명시 분리한 게 롱테일 진입점.
+   관통 논리: **"조리 온도보다 30-50°F 낮게"** — 생식품은 표면을 말리는 게 목적이지만
+   남은 음식은 이미 표면이 말라 있으므로 같은 열을 주면 겉이 먼저 상한다.
+
+#### 식품안전 정확성 (YMYL 인접이라 USDA/FSIS 기준만 사용)
+165°F 내부 · 소스류 rolling boil · 전자레인지는 덮고 중간에 젓고 2분 정치 ·
+**슬로우쿠커/워밍드로어는 리히팅에 부적합**(Texas DSHS) · 냉장 3~4일 · 냉동은 해동 없이 가능 ·
+**리히팅이 2시간 룰을 무효화하지 못한다**(기존 `how-long-can-food-sit-out`과 연결).
+
+#### 산출물
+- `tools/reheating-calculator.html` (866단어) — 음식 선택 → 4방식 나란히 비교 + 권장 방식 표시
+- `blog/how-long-to-reheat-leftovers.html` (1,067단어) — 15개 음식 × 4방식 시간표
+- `guides/complete-leftover-reheating-guide.html` (964단어) — 허브
+
+가이드 고유값: "리히팅은 재조리가 아니다"를 조직 원리로 삼고, 두 온도 분리 표 +
+텍스처 목표별 방식 선택 표 + 증상별 진단표. 개별 페이지 요약이 되지 않게 함.
+
+#### 정합성 검증
+계산기와 블로그의 음식별 온도·시간 일치를 스크립트로 대조(피자·감자튀김·프라이드치킨·밥·
+스테이크 전부 OK). 기존 `air-fryer-cooking-times`·`how-long-can-food-sit-out`과 충돌 없음.
+
+#### 사이트 규모
+툴 28→**29**, 블로그 71→**72**, 가이드 10→**11**, sitemap 116→**119**.
 
 ### 2026-08-24 (21차): 신규 클러스터 발굴 — 채소 로스팅 (툴1+블로그2+가이드1)
 

@@ -49,6 +49,7 @@ const TOOLS = [
   { name: "Slow Cooker to Pressure Cooker Converter", url: "/tools/pressure-cooker-converter.html" },
   { name: "High Altitude Cooking Calculator", url: "/tools/altitude-cooking-calculator.html" },
   { name: "Vegetable Roasting Calculator", url: "/tools/vegetable-roasting-calculator.html" },
+  { name: "Leftover Reheating Calculator", url: "/tools/reheating-calculator.html" },
   { name: "Air Fryer Cooking Times by Food", url: "/tools/air-fryer-cooking-times.html" },
   { name: "Candy & Sugar Stage Temperature Calculator", url: "/tools/candy-temperature-calculator.html" },
 ];
@@ -101,6 +102,7 @@ const BLOGS = [
   { name: "Recipe Scaling Word Problems: Doubling, Halving & Fractions", url: "/blog/recipe-scaling-word-problems.html", desc: "Step-by-step recipe scaling word problems — doubling, halving, tripling, gram-based scaling, and scaling with fractions and mixed numbers.", date: "2026-08-10" },
   { name: "Lamb Chops vs Pork Chops: Cooking Time & Temperature Differences", url: "/blog/lamb-chops-vs-pork-chops.html", desc: "Lamb chops and pork chops cook to different target temperatures and different speeds. Side-by-side times for pan-searing, grilling, and air frying.", date: "2026-07-24" },
   { name: "High Altitude Baking Adjustments by Elevation", url: "/blog/high-altitude-baking-adjustments.html", desc: "Above 3,000 ft cakes rise fast then collapse. What to change to leavening, liquid, sugar, flour and oven temperature at 3,000, 5,000 and 7,000+ feet.", date: "2026-08-14" },
+  { name: "How Long to Reheat Leftovers", url: "/blog/how-long-to-reheat-leftovers.html", desc: "Reheating times for 15 foods across oven, air fryer, microwave and stovetop side by side, with the method that gives the best result marked for each.", date: "2026-08-31" },
   { name: "How Long to Roast Vegetables", url: "/blog/how-long-to-roast-vegetables.html", desc: "Roasting times for 20 vegetables at 425°F with the cut size each assumes, the four density groups, and adjustments for 400°F, 450°F and convection.", date: "2026-08-24" },
   { name: "Roasting Vegetables Together: When to Add Each One", url: "/blog/roasting-vegetables-together.html", desc: "Potatoes need 35 minutes, asparagus 12 — so add the asparagus at minute 23. The subtraction that makes mixed sheet-pan vegetables finish together.", date: "2026-08-24" },
   { name: "Slow Cooker vs Pressure Cooker: Which to Use for What", url: "/blog/slow-cooker-vs-pressure-cooker.html", desc: "Both break down tough cuts with moist heat, but one takes 8 hours and the other 25 minutes. Which dishes suit each, what converts cleanly, and what doesn't.", date: "2026-08-14" },
@@ -135,6 +137,7 @@ const GUIDES = [
   { name: "The Complete Recipe Scaling & Serving Guide", url: "/guides/complete-recipe-scaling-guide.html", desc: "Everything about scaling a recipe up or down, halving, converting to metric, and figuring out real serving sizes, plus a full worked example, organized in one reference.", date: "2026-08-10" },
   { name: "The Complete Protein Comparison & Swap Guide", url: "/guides/complete-protein-comparison-guide.html", desc: "Every protein-vs-protein comparison on the site in one place, plus the one rule that decides whether you can swap two proteins 1:1 or need to start over.", date: "2026-07-27" },
   { name: "The Complete Grilling Guide", url: "/guides/complete-grilling-guide.html", desc: "Every grill zone, temperature, hand-test count, and time on the site in one reference — direct vs indirect heat, charcoal vs gas, a fuel-choice guide, and checking temperature without a thermometer.", date: "2026-08-10" },
+  { name: "The Complete Leftover Reheating Guide", url: "/guides/complete-leftover-reheating-guide.html", desc: "Why reheating is not re-cooking, the 165°F vs oven-setting confusion, which method suits which food, and the safety rules reheating cannot undo.", date: "2026-08-31" },
   { name: "The Complete Vegetable Roasting Guide", url: "/guides/complete-vegetable-roasting-guide.html", desc: "Times for 20 vegetables, the four density groups, staggering for one pan, cut size, temperature, and the crowding rule — every roasting variable in one reference.", date: "2026-08-24" },
   { name: "The Complete Egg Conversion Guide", url: "/guides/complete-egg-conversion-guide.html", desc: "Every egg conversion in one place: sizes, weights, cups, whites and yolks, UK vs US, and what to do when the recipe wants a size you don't have.", date: "2026-08-17" },
   { name: "The Complete Appliance Cooking Guide", url: "/guides/complete-appliance-cooking-guide.html", desc: "Slow cooker, pressure cooker, air fryer, and oven in one reference — what each does to food, how times convert between them, and which to reach for tonight.", date: "2026-08-14" },

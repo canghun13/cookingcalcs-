@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Oven Temperature Converter (°F, °C, Gas Mark) – CookingCalcs</title>
-  <meta name="description" content="Convert oven temperatures between Fahrenheit, Celsius, and Gas Mark instantly. Includes a full conversion chart for baking and roasting.">
-  <link rel="canonical" href="https://cookingcalcs.com/tools/oven-temp-converter.html">
+  <title>Oven Sharing Calculator — Two Dishes, Different Temperatures</title>
+  <meta name="description" content="Enter each dish's temperature and time and get one compromise oven setting, adjusted times for each, and when to put each dish in so they finish together.">
+  <link rel="canonical" href="https://cookingcalcs.com/tools/oven-sharing-calculator.html">
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="/assets/css/style.css">
   <script src="/assets/js/nav.js" defer></script>
@@ -13,9 +13,9 @@
 {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  "name": "Oven Temperature Converter",
-  "url": "https://cookingcalcs.com/tools/oven-temp-converter.html",
-  "description": "Convert oven temperatures between Fahrenheit, Celsius, and Gas Mark instantly. Includes a full conversion chart for baking and roasting.",
+  "name": "Oven Sharing Calculator",
+  "url": "https://cookingcalcs.com/tools/oven-sharing-calculator.html",
+  "description": "Calculate a single compromise oven temperature for two or three dishes that call for different temperatures, with adjusted cooking times and a staggered start order.",
   "applicationCategory": "UtilitiesApplication",
   "operatingSystem": "Any",
   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
@@ -29,58 +29,42 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "What is 350°F in Celsius?",
+      "name": "Can you bake two things at different temperatures at the same time?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "350°F is 177°C, or Gas Mark 4. This is the most common baking temperature for cakes, cookies, and muffins."
+        "text": "Usually yes, if the two temperatures are within about 50°F of each other. Set the oven to roughly the midpoint and adjust each dish's time — the one that wanted the higher temperature needs longer, the one that wanted lower needs less. Beyond a 50°F gap the compromise degrades both dishes, and cooking them in sequence gives a better result."
       }
     },
     {
       "@type": "Question",
-      "name": "What is 180°C in Fahrenheit?",
+      "name": "How do I adjust cooking time when I change the oven temperature?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "180°C is 356°F, which rounds to 350°F in most recipes. Gas Mark 4."
+        "text": "A widely used estimate is to multiply the original time by the original temperature divided by the new temperature. A dish that needed 30 minutes at 400°F, cooked at 425°F instead, becomes 30 × (400 ÷ 425) ≈ 28 minutes. Treat the result as a checkpoint to start testing doneness, not a finish line."
       }
     },
     {
       "@type": "Question",
-      "name": "What is Gas Mark 6 in Celsius?",
+      "name": "Does cooking two dishes at once make everything take longer?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Gas Mark 6 is 200°C (400°F). Good for roasting vegetables, chicken pieces, and fish."
+        "text": "Yes, modestly. More food in the cavity absorbs more heat and blocks airflow, and the door is open longer while you load. Budget roughly 10% extra for two dishes and 15% for three, then check doneness rather than trusting the clock."
       }
     },
     {
       "@type": "Question",
-      "name": "Why do some recipes say \"slow,\" \"moderate,\" or \"hot\" oven?",
+      "name": "Which oven rack is hotter, top or bottom?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Older recipes — especially British ones — often describe oven temperature by feel rather than number. A slow oven is 300–325°F (150–160°C), a moderate oven is around 350°F (180°C), a hot oven is 400–425°F (200–220°C), and a very hot oven is 450°F (230°C) or above."
+        "text": "Both, in different ways, which is why advice on this conflicts. In most home ovens the heating element sits at the bottom, so the lower rack receives more direct radiant heat — good for crisping bases. But hot air rises, so the ambient air near the top of the cavity is generally hotter and the upper rack is closer to the broiler, which is better for browning tops."
       }
     },
     {
       "@type": "Question",
-      "name": "Should I preheat before checking the actual temperature with a thermometer?",
+      "name": "Which dishes should never share an oven?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes — always let the oven fully preheat (including the extra few minutes most ovens need after the \"preheated\" beep) before taking a thermometer reading. Checking too early will show a lower temperature than the oven eventually reaches once fully heated."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Does oven temperature accuracy matter more for baking or roasting?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Baking is far more sensitive. Cakes, cookies, and bread rely on precise temperature for structure, rise, and browning within a narrow window. Roasting meat and vegetables is more forgiving, since you're typically checking for doneness with a thermometer or visual cues rather than relying purely on time and temperature."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Do I need to adjust cooking time as well as temperature when converting?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Usually not for a straight Fahrenheit-to-Celsius or Gas Mark conversion — those describe the same actual heat, just in different units, so the time in the recipe still applies. Time adjustments are only needed when you're deliberately changing the temperature itself (for example, baking at a lower temperature to prevent over-browning), or when converting between conventional and convection settings, since convection ovens cook faster at the same set temperature. See the conventional vs convection section above for that specific adjustment."
+        "text": "Anything where the temperature is doing structural work: puff pastry, pie crust, choux, soufflé, and bread that needs a specific initial oven spring. These rely on hitting an exact temperature at an exact moment, and a compromise setting changes the result rather than just the timing. Cook them alone and use the oven for other dishes before or after."
       }
     }
   ]
@@ -92,7 +76,13 @@
       .ref-table th { background:var(--sand-dark); padding:0.7rem 0.9rem; text-align:left; font-weight:600; border:1px solid var(--border); }
       .ref-table td { padding:0.7rem 0.9rem; border:1px solid var(--border); vertical-align:top; }
       .ref-table tbody tr:nth-child(even) td { background:#fbfaf8; }
-  @media(max-width:600px) { .oven-result-grid { grid-template-columns: 1fr !important; } }
+      .dish-row { display:grid; grid-template-columns:1fr 1fr 1fr; gap:0.6rem; margin-bottom:0.6rem; align-items:end; }
+      .verdict { padding:0.9rem 1rem; border-radius:10px; margin-bottom:1rem; font-weight:600; }
+      .v-ok { background:var(--tomato-light); color:var(--tomato-dark); }
+      .v-warn { background:#fff4e5; color:#8a5300; }
+      .tl-row { display:flex; gap:0.9rem; padding:0.65rem 0; border-bottom:1px solid var(--border); }
+      .tl-time { min-width:100px; font-weight:700; color:var(--tomato-dark); }
+      @media(max-width:600px){ .dish-row { grid-template-columns:1fr; } .tl-time { min-width:84px; } }
 </style>
 </head>
 <body>
@@ -146,202 +136,185 @@
 <!-- CC:STATIC-CHROME:END -->
 <main>
   <div class="tool-page">
-    <h1>Oven Temperature Converter</h1>
-    <p class="tool-desc">Convert between Fahrenheit, Celsius, and Gas Mark. Whether you're following a British recipe or baking from a US cookbook, get the right temperature instantly.</p>
+    <h1>Oven Sharing Calculator</h1>
+    <p class="tool-desc">Two dishes, two different temperatures, one oven. Enter what each recipe asks for and this works out a single setting, adjusted times, and the order they go in.</p>
 
     <div class="tool-box">
-      <div class="form-group">
-        <label for="tempInput">Temperature</label>
-        <input type="number" id="tempInput" placeholder="e.g. 350" oninput="convertTemp()">
-      </div>
-      <div class="form-group">
-        <label for="tempUnit">Convert from</label>
-        <select id="tempUnit" onchange="convertTemp()">
-          <option value="F">Fahrenheit (°F)</option>
-          <option value="C">Celsius (°C)</option>
-          <option value="G">Gas Mark</option>
-        </select>
-      </div>
+      <div id="dishes"></div>
+      <button type="button" onclick="addDish()" id="addBtn" style="padding:0.5rem 0.9rem; border-radius:8px; border:1.5px solid var(--tomato); background:none; color:var(--tomato-dark); font-weight:600; cursor:pointer; margin-bottom:1rem;">+ Add a third dish</button>
 
       <div id="result" style="display:none;">
-        <div class="oven-result-grid" style="display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin-top:1.5rem;">
-          <div class="result-box">
-            <div class="result-num" id="resF"></div>
-            <div class="result-label">Fahrenheit</div>
-          </div>
-          <div class="result-box">
-            <div class="result-num" id="resC"></div>
-            <div class="result-label">Celsius</div>
-          </div>
-          <div class="result-box">
-            <div class="result-num" id="resG"></div>
-            <div class="result-label">Gas Mark</div>
-          </div>
+        <div id="verdict" class="verdict"></div>
+        <div class="result-box" style="margin-bottom:1rem;">
+          <div class="result-num" id="compTemp"></div>
+          <div class="result-label">Set your oven to this</div>
         </div>
-        <p id="heatDesc" style="text-align:center; margin-top:1rem; color:var(--mid); font-size:0.9rem;"></p>
+        <h3 style="font-family:'Playfair Display',serif; font-size:1.1rem; margin:1rem 0 0.4rem;">Your timeline</h3>
+        <div id="timeline"></div>
+        <p id="crowdNote" style="margin-top:0.9rem; color:var(--mid); font-size:0.9rem;"></p>
       </div>
+      <p id="emptyMsg" style="color:var(--mid); font-size:0.9rem;">Enter a temperature and time for both dishes.</p>
     </div>
 
-    <!-- Conversion Chart -->
-    <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin:2rem 0 1rem;">Full Oven Temperature Chart</h2>
-    <table style="width:100%; border-collapse:collapse; font-size:0.9rem; background:#fff; border-radius:12px; overflow:hidden;">
-        <thead>
-          <tr style="background:var(--sand-dark);">
-            <th style="padding:0.75rem 1rem; text-align:left; border-bottom:1px solid var(--border);">Description</th>
-            <th style="padding:0.75rem 1rem; text-align:center; border-bottom:1px solid var(--border);">°F</th>
-            <th style="padding:0.75rem 1rem; text-align:center; border-bottom:1px solid var(--border);">°C</th>
-            <th style="padding:0.75rem 1rem; text-align:center; border-bottom:1px solid var(--border);">Gas Mark</th>
-          </tr>
-        </thead>
-        <tbody id="chartBody"></tbody>
-      </table>
+    <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin:2rem 0 1rem;">How Far Apart Is Too Far?</h2>
+    <p>The compromise only works while both dishes stay inside their tolerance. Past that, you're not sharing an oven — you're cooking two dishes badly.</p>
+    <table class="ref-table">
+      <thead><tr><th>Gap between temperatures</th><th>Verdict</th><th>What to do</th></tr></thead>
+      <tbody>
+        <tr><td><strong>0-25°F</strong></td><td>Share freely</td><td>Set the midpoint. Time changes are small enough to ignore for most dishes</td></tr>
+        <tr><td><strong>26-50°F</strong></td><td>Share with adjustment</td><td>Set the midpoint, adjust each time, stagger the start, check early</td></tr>
+        <tr><td><strong>51-75°F</strong></td><td>Marginal</td><td>Use the <em>lower</em> temperature and extend the hotter dish. Accept less browning on it</td></tr>
+        <tr><td><strong>Over 75°F</strong></td><td>Don't share</td><td>Cook in sequence. Hold the first dish covered, or reheat it briefly at the end</td></tr>
+      </tbody>
+    </table>
 
-    <div style="margin-top:3rem; padding:1.5rem; background:var(--tomato-light); border-radius:var(--radius-lg);">
-      <h3 style="font-family:'Playfair Display',serif; margin-bottom:0.75rem;">Related Guides</h3>
-      <ul style="list-style:none; display:flex; flex-direction:column; gap:0.5rem;">
-        <li><a href="/guides/complete-oven-sharing-guide.html" style="color:var(--tomato-dark); font-weight:500;">→ The Complete Oven Sharing Guide</a></li>
-        <li><a href="/guides/complete-vegetable-roasting-guide.html" style="color:var(--tomato-dark); font-weight:500;">→ The Complete Vegetable Roasting Guide</a></li>
-        <li><a href="/guides/complete-appliance-cooking-guide.html" style="color:var(--tomato-dark); font-weight:500;">→ The Complete Appliance Cooking Guide</a></li>
-        <li><a href="/blog/high-altitude-baking-adjustments.html" style="color:var(--tomato-dark); font-weight:500;">→ High Altitude Baking Adjustments</a></li>
-        <li><a href="/guides/complete-baking-conversion-guide.html" style="color:var(--tomato-dark); font-weight:500;">→ The Complete Baking Measurement & Conversion Guide</a></li>
-        <li><a href="/blog/is-your-oven-running-hot-or-cold.html" style="color:var(--tomato-dark); font-weight:500;">→ Is Your Oven Running Hot or Cold? How to Test It</a></li>
-        <li><a href="/blog/oven-temperature-conversion-guide.html" style="color:var(--tomato-dark); font-weight:500;">→ Oven Temperature Conversion Guide</a></li>
-        <li><a href="/blog/why-weigh-ingredients-baking.html" style="color:var(--tomato-dark); font-weight:500;">→ Why Weighing Ingredients Makes You a Better Baker</a></li>
-        <li><a href="/tools/slow-cooker-converter.html" style="color:var(--tomato-dark); font-weight:500;">→ Slow Cooker Time Converter</a></li>
-        <li><a href="/tools/pan-size-converter.html" style="color:var(--tomato-dark); font-weight:500;">→ Baking Pan Size Converter</a></li>
-        <li><a href="/tools/candy-temperature-calculator.html" style="color:var(--tomato-dark); font-weight:500;">→ Candy & Sugar Stage Temperature Calculator</a></li>
-        <li><a href="/guides/complete-vintage-recipe-guide.html" style="color:var(--tomato-dark); font-weight:500;">→ The Complete Vintage Recipe Guide</a></li>
+    <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin:2rem 0 1rem;">The Time Formula</h2>
+    <p>When you move a dish off its intended temperature, the time moves with it. The estimate in wide use is straightforward:</p>
+    <p style="font-size:1.05rem; padding:1rem 1.2rem; background:var(--tomato-light); border-radius:var(--radius-lg);"><strong>New time = original time × (original temp ÷ new temp)</strong></p>
+    <p>A gratin that wanted 30 minutes at 400°F, cooked at 425°F instead: 30 × (400 ÷ 425) ≈ <strong>28 minutes</strong>. A casserole that wanted 45 minutes at 350°F, now at 375°F: 45 × (350 ÷ 375) = <strong>42 minutes</strong>.</p>
+    <p>It's an estimate, not physics — real cooking time depends on the dish's density, depth, and starting temperature as much as on the oven setting. Published rules of thumb vary from "10-15% per 25°F" to this ratio, which for a 25°F change gives closer to 6-7%. Use the number as the moment to <em>start checking</em>, and finish on doneness cues or a thermometer rather than the timer.</p>
+
+    <!-- Related Tools & Guides -->
+    <div style="margin-top:2rem; padding:1.25rem; background:var(--tomato-light); border-radius:var(--radius-lg);">
+      <h2 style="font-family:'Playfair Display',serif; font-size:1.25rem; margin:0 0 0.75rem;">Related Tools &amp; Guides</h2>
+      <ul style="margin:0; padding-left:1.1rem; line-height:1.9;">
+        <li><a href="/guides/complete-oven-sharing-guide.html">The Complete Oven Sharing Guide</a></li>
+        <li><a href="/blog/baking-two-things-at-different-temperatures.html">Baking Two Things at Different Temperatures</a></li>
+        <li><a href="/blog/oven-rack-positions-explained.html">Oven Rack Positions Explained</a></li>
+        <li><a href="/tools/oven-temp-converter.html">Oven Temperature Converter</a></li>
+        <li><a href="/tools/vegetable-roasting-calculator.html">Vegetable Roasting Calculator</a></li>
       </ul>
     </div>
 
-    <div class="blog-content" style="margin-top:3rem;">
-      <h2>How to Use This Converter</h2>
-      <p>Enter a temperature, select the unit you're converting from, and the converter instantly shows the equivalent in Fahrenheit, Celsius, and Gas Mark. The full reference chart below the converter covers the most common oven settings used in recipes.</p>
+    <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin:2rem 0 1rem;">Which Rack for Which Dish</h2>
+    <p>Advice on this contradicts itself constantly — some sources say the top rack is hottest, others say the bottom. Both are describing something real, and the reason is that ovens deliver two different kinds of heat.</p>
+    <table class="ref-table">
+      <thead><tr><th>Rack</th><th>What it gives you</th><th>Put here</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Bottom</strong></td><td>Direct radiant heat from the element below</td><td>Pizza, pie, bread — anything needing a crisp base</td></tr>
+        <tr><td><strong>Middle</strong></td><td>The most even heat in the cavity</td><td>Cakes, casseroles, roasts, anything uncertain</td></tr>
+        <tr><td><strong>Top</strong></td><td>Hotter ambient air, closer to the broiler</td><td>Browning tops, gratins, finishing under a broil</td></tr>
+      </tbody>
+    </table>
+    <p>So when two dishes share an oven, put the one that wanted the <em>higher</em> temperature on the rack that suits what it needs from the extra heat — the bottom if it needs a crisp base, the top if it needs a browned surface. Stagger them left and right rather than stacking one directly above the other, so air can move, and swap their positions at the halfway mark since nearly every home oven has a hot side.</p>
 
-      <h2>Conventional vs Convection Ovens</h2>
-      <p>If your oven has a fan (convection or fan-assisted mode), reduce the recipe temperature by 25°F (about 15°C), or reduce the cooking time by around 20–25%. Fan ovens circulate hot air more efficiently, which means food cooks faster and more evenly — but also more quickly browns or dries out if you don't adjust.</p>
-      <p>When a recipe doesn't specify, assume it was written for a conventional (non-fan) oven.</p>
+    <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin:2rem 0 1rem;">What Not to Compromise</h2>
+    <p>Some dishes treat temperature as a structural instruction rather than a speed setting. Puff pastry needs high heat to convert its water to steam fast enough to push the layers apart. Choux needs it to set before it collapses. Soufflé and bread rely on a specific initial rise. Drop the temperature on any of these and you don't get a slower version — you get a different, worse result.</p>
+    <p>These get the oven to themselves. Everything else in the meal can go in before or after, and most sides reheat well enough that sequencing costs you very little. Our <a href="/blog/how-long-to-reheat-leftovers.html">reheating times</a> cover bringing an early dish back up to temperature at the end.</p>
 
-      <h2>Why Your Oven's Real Temperature May Differ From the Dial</h2>
-      <p>Most home ovens run 15-25°F off from their displayed setting, and older ovens can be off by even more. If baked goods consistently brown too fast or too slow compared to a recipe's expected time, your oven's actual temperature — not the recipe — is usually the culprit. An inexpensive oven thermometer left inside the oven shows the real temperature, letting you adjust your dial setting to compensate rather than guessing.</p>
+    <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin:2rem 0 1rem;">Frequently Asked Questions</h2>
+    <div class="faq-section">
+      <h3>Can you bake two things at different temperatures at the same time?</h3>
+      <p>Usually yes, if the two temperatures are within about 50°F of each other. Set the oven to roughly the midpoint and adjust each dish's time — the one that wanted the higher temperature needs longer, the one that wanted lower needs less. Beyond a 50°F gap the compromise degrades both dishes, and cooking them in sequence gives a better result.</p>
 
-      <h2>Adjusting for High Altitude</h2>
-      <p>Above roughly 3,000 feet, lower air pressure changes how baked goods rise and how quickly moisture evaporates. Standard adjustments include increasing oven temperature by 15-25°F and reducing sugar and leavening slightly. This mainly affects baking (cakes, breads, soufflés) more than general roasting, where the temperature adjustments in this guide still apply normally.</p>
+      <h3>How do I adjust cooking time when I change the oven temperature?</h3>
+      <p>A widely used estimate is to multiply the original time by the original temperature divided by the new temperature. A dish that needed 30 minutes at 400°F, cooked at 425°F instead, becomes 30 × (400 ÷ 425) ≈ 28 minutes. Treat the result as a checkpoint to start testing doneness, not a finish line.</p>
 
-      <h2>Gas Mark Explained</h2>
-      <p>Gas Mark is a UK-specific scale used on gas ovens, running from ¼ (very low) to 9 (very high). Unlike Fahrenheit and Celsius, Gas Mark isn't a linear temperature scale — it's a numbered dial setting that roughly corresponds to specific temperature bands. Gas Mark 4 (350°F/177°C) is the most common baking setting, while Gas Mark 6 (400°F/200°C) and above are typically used for roasting and browning.</p>
+      <h3>Does cooking two dishes at once make everything take longer?</h3>
+      <p>Yes, modestly. More food in the cavity absorbs more heat and blocks airflow, and the door is open longer while you load. Budget roughly 10% extra for two dishes and 15% for three, then check doneness rather than trusting the clock.</p>
 
-      <h2>Old Recipe Oven Terms, Decoded</h2>
-      <p>Before ovens had numbered dials, recipes described heat by feel — a habit that carried on in British and older American cookbooks well after thermostats became standard. If you've inherited a recipe that just says "bake in a moderate oven," here's what each term means in actual degrees:</p>
-      <table class="ref-table">
-        <thead><tr><th>Old Term</th><th>°F</th><th>°C</th><th>Gas Mark</th></tr></thead>
-        <tbody>
-          <tr><td>Very slow oven</td><td>250-275°F</td><td>120-135°C</td><td>½-1</td></tr>
-          <tr><td>Slow oven</td><td>300-325°F</td><td>150-160°C</td><td>2-3</td></tr>
-          <tr><td>Moderate oven</td><td>350°F</td><td>175-180°C</td><td>4</td></tr>
-          <tr><td>Moderately hot oven</td><td>375°F</td><td>190°C</td><td>5</td></tr>
-          <tr><td>Hot oven</td><td>400-425°F</td><td>200-220°C</td><td>6-7</td></tr>
-          <tr><td>Very hot oven</td><td>450°F+</td><td>230°C+</td><td>8-9</td></tr>
-        </tbody>
-      </table>
-      <p>These bands are approximate by design — a recipe that says "moderate oven" was never meant to require the precision of a modern digital thermostat, so treat 350°F as a safe default when a recipe just says "moderate" with no further detail. For other vintage recipe terms (measurements like a gill or a teacup, or old can sizes), see <a href="/blog/vintage-recipe-measurements.html">Vintage Recipe Measurements Decoded</a> and the <a href="/tools/can-size-converter.html">Can Size Converter</a>.</p>
+      <h3>Which oven rack is hotter, top or bottom?</h3>
+      <p>Both, in different ways, which is why advice on this conflicts. In most home ovens the heating element sits at the bottom, so the lower rack receives more direct radiant heat — good for crisping bases. But hot air rises, so the ambient air near the top of the cavity is generally hotter and the upper rack is closer to the broiler, which is better for browning tops.</p>
 
-      <h2>Frequently Asked Questions</h2>
-      <h3>What is 350°F in Celsius?</h3>
-      <p>350°F is 177°C, or Gas Mark 4. This is the most common baking temperature for cakes, cookies, and muffins.</p>
-
-      <h3>What is 180°C in Fahrenheit?</h3>
-      <p>180°C is 356°F, which rounds to 350°F in most recipes. Gas Mark 4.</p>
-
-      <h3>What is Gas Mark 6 in Celsius?</h3>
-      <p>Gas Mark 6 is 200°C (400°F). Good for roasting vegetables, chicken pieces, and fish.</p>
-
-      <h3>Why do some recipes say "slow," "moderate," or "hot" oven?</h3>
-      <p>Older recipes — especially British ones — often describe oven temperature by feel rather than number. A slow oven is 300–325°F (150–160°C), a moderate oven is around 350°F (180°C), a hot oven is 400–425°F (200–220°C), and a very hot oven is 450°F (230°C) or above.</p>
-
-      <h3>Should I preheat before checking the actual temperature with a thermometer?</h3>
-      <p>Yes — always let the oven fully preheat (including the extra few minutes most ovens need after the "preheated" beep) before taking a thermometer reading. Checking too early will show a lower temperature than the oven eventually reaches once fully heated.</p>
-
-      <h3>Does oven temperature accuracy matter more for baking or roasting?</h3>
-      <p>Baking is far more sensitive. Cakes, cookies, and bread rely on precise temperature for structure, rise, and browning within a narrow window. Roasting meat and vegetables is more forgiving, since you're typically checking for doneness with a thermometer or visual cues rather than relying purely on time and temperature.</p>
-
-      <h3>Do I need to adjust cooking time as well as temperature when converting?</h3>
-      <p>Usually not for a straight Fahrenheit-to-Celsius or Gas Mark conversion — those describe the same actual heat, just in different units, so the time in the recipe still applies. Time adjustments are only needed when you're deliberately changing the temperature itself (for example, baking at a lower temperature to prevent over-browning), or when converting between conventional and convection settings, since convection ovens cook faster at the same set temperature. See the conventional vs convection section above for that specific adjustment.</p>
-
-      <h2>Broiler Temperatures: An Exception to the Chart</h2>
-      <p>Broiling doesn't fit neatly into the Fahrenheit/Celsius/Gas Mark chart above because most home ovens don't let you set a specific broil temperature — broil is simply the highest heat setting, typically equivalent to 500-550°F (260-288°C), applied from above rather than surrounding the food. When a recipe says "broil," it means use this dedicated high-heat top-down setting, not the highest number on your regular bake dial.</p>
-
-      <h3>What's the difference between "bake" and "broil" settings?</h3>
-      <p>Bake heats from the bottom (and often circulates air throughout) for slow, even cooking. Broil heats from the top only, at very high heat, mimicking a grill from above — ideal for browning, melting cheese, or finishing a dish quickly. Never leave food unattended under a broiler, since the high, direct heat can go from perfectly browned to burnt within a minute or two.</p>
+      <h3>Which dishes should never share an oven?</h3>
+      <p>Anything where the temperature is doing structural work: puff pastry, pie crust, choux, soufflé, and bread that needs a specific initial oven spring. These rely on hitting an exact temperature at an exact moment, and a compromise setting changes the result rather than just the timing. Cook them alone and use the oven for other dishes before or after.</p>
     </div>
   </div>
 </main>
 
 <script>
-const chart = [
-  { desc: 'Very Cool', F: 225, C: 107, G: '¼' },
-  { desc: 'Very Cool', F: 250, C: 121, G: '½' },
-  { desc: 'Cool', F: 275, C: 135, G: 1 },
-  { desc: 'Cool', F: 300, C: 149, G: 2 },
-  { desc: 'Warm', F: 325, C: 163, G: 3 },
-  { desc: 'Moderate', F: 350, C: 177, G: 4 },
-  { desc: 'Moderately Hot', F: 375, C: 190, G: 5 },
-  { desc: 'Hot', F: 400, C: 204, G: 6 },
-  { desc: 'Hot', F: 425, C: 218, G: 7 },
-  { desc: 'Very Hot', F: 450, C: 232, G: 8 },
-  { desc: 'Very Hot', F: 475, C: 246, G: 9 },
-];
+  var count = 0;
 
-// Build chart table
-const tbody = document.getElementById('chartBody');
-chart.forEach((row, i) => {
-  const tr = document.createElement('tr');
-  if (i % 2 !== 0) tr.style.background = 'var(--sand)';
-  tr.innerHTML = `
-    <td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">${row.desc}</td>
-    <td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">${row.F}°F</td>
-    <td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">${row.C}°C</td>
-    <td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">Gas ${row.G}</td>
-  `;
-  tbody.appendChild(tr);
-});
-
-function getHeatDesc(F) {
-  if (F <= 250) return 'Very cool oven — good for meringues and slow drying.';
-  if (F <= 300) return 'Cool oven — ideal for slow roasting and delicate pastries.';
-  if (F <= 325) return 'Warm oven — good for custards and cheesecakes.';
-  if (F <= 375) return 'Moderate oven — perfect for most cakes and cookies.';
-  if (F <= 400) return 'Moderately hot — great for bread, muffins, and roasted vegetables.';
-  if (F <= 425) return 'Hot oven — ideal for pizza and crispy roasted meats.';
-  return 'Very hot oven — great for searing and high-heat roasting.';
-}
-
-function convertTemp() {
-  const val = parseFloat(document.getElementById('tempInput').value);
-  const unit = document.getElementById('tempUnit').value;
-  if (isNaN(val)) { document.getElementById('result').style.display = 'none'; return; }
-
-  let F, C, G;
-  if (unit === 'F') {
-    F = val;
-    C = Math.round((F - 32) * 5 / 9);
-    G = Math.round((F - 250) / 25);
-  } else if (unit === 'C') {
-    C = val;
-    F = Math.round(C * 9 / 5 + 32);
-    G = Math.round((F - 250) / 25);
-  } else {
-    G = val;
-    F = Math.round(G * 25 + 250);
-    C = Math.round((F - 32) * 5 / 9);
+  function addDish(label) {
+    if (count >= 3) return;
+    count++;
+    var n = count;
+    var wrap = document.createElement('div');
+    wrap.className = 'dish-row';
+    wrap.innerHTML =
+      '<div class="form-group" style="margin:0;"><label for="name' + n + '">Dish ' + n + '</label>' +
+      '<input type="text" id="name' + n + '" placeholder="e.g. Roast potatoes" oninput="calc()"></div>' +
+      '<div class="form-group" style="margin:0;"><label for="temp' + n + '">Recipe temp (°F)</label>' +
+      '<input type="number" id="temp' + n + '" min="150" max="550" placeholder="400" oninput="calc()"></div>' +
+      '<div class="form-group" style="margin:0;"><label for="time' + n + '">Recipe time (min)</label>' +
+      '<input type="number" id="time' + n + '" min="1" placeholder="30" oninput="calc()"></div>';
+    document.getElementById('dishes').appendChild(wrap);
+    if (count >= 3) document.getElementById('addBtn').style.display = 'none';
   }
 
-  document.getElementById('resF').textContent = F + '°F';
-  document.getElementById('resC').textContent = C + '°C';
-  document.getElementById('resG').textContent = 'Gas ' + (G < 1 ? '¼' : G);
-  document.getElementById('heatDesc').textContent = getHeatDesc(F);
-  document.getElementById('result').style.display = 'block';
-}
+  function readDishes() {
+    var out = [];
+    for (var i = 1; i <= count; i++) {
+      var t = parseFloat(document.getElementById('temp' + i).value);
+      var m = parseFloat(document.getElementById('time' + i).value);
+      if (isNaN(t) || isNaN(m) || t <= 0 || m <= 0) continue;
+      var nm = document.getElementById('name' + i).value.trim() || ('Dish ' + i);
+      out.push({ n: nm, t: t, m: m });
+    }
+    return out;
+  }
+
+  function calc() {
+    var d = readDishes();
+    var res = document.getElementById('result');
+    var empty = document.getElementById('emptyMsg');
+    if (d.length < 2) { res.style.display = 'none'; empty.style.display = ''; return; }
+    empty.style.display = 'none';
+
+    var temps = d.map(function (x) { return x.t; });
+    var hi = Math.max.apply(null, temps), lo = Math.min.apply(null, temps);
+    var gap = hi - lo;
+
+    var comp, vClass, vText;
+    if (gap <= 25) {
+      comp = Math.round(((hi + lo) / 2) / 5) * 5;
+      vClass = 'v-ok';
+      vText = 'Only ' + gap + '°F apart — these share an oven comfortably.';
+    } else if (gap <= 50) {
+      comp = Math.round(((hi + lo) / 2) / 5) * 5;
+      vClass = 'v-ok';
+      vText = gap + '°F apart — workable. Use the midpoint and check both early.';
+    } else if (gap <= 75) {
+      comp = lo;
+      vClass = 'v-warn';
+      vText = gap + '°F apart — marginal. Using the lower temperature and extending the hotter dish; expect less browning on it.';
+    } else {
+      comp = lo;
+      vClass = 'v-warn';
+      vText = gap + '°F apart — too far to share well. Cook these in sequence instead; the times below assume the lower setting if you go ahead anyway.';
+    }
+
+    document.getElementById('compTemp').textContent = comp + '°F';
+    var v = document.getElementById('verdict');
+    v.className = 'verdict ' + vClass;
+    v.textContent = vText;
+
+    var crowd = d.length >= 3 ? 1.15 : 1.10;
+    var items = d.map(function (x) {
+      return { n: x.n, t: x.t, m: Math.round(x.m * (x.t / comp) * crowd) };
+    });
+    items.sort(function (a, b) { return b.m - a.m; });
+
+    var total = items[0].m;
+    var html = '';
+    items.forEach(function (it) {
+      var at = total - it.m;
+      var when = at === 0 ? 'Start (0 min)' : 'At ' + at + ' min';
+      var moved = it.t === comp ? 'no change' : (it.t > comp ? 'wanted ' + it.t + '°F — needs longer' : 'wanted ' + it.t + '°F — comes out sooner');
+      html += '<div class="tl-row"><div class="tl-time">' + when + '</div><div><strong>' + it.n + '</strong>' +
+              '<br><span style="color:var(--mid); font-size:0.86rem;">' + it.m + ' min at ' + comp + '°F · ' + moved + '</span></div></div>';
+    });
+    html += '<div class="tl-row" style="border-bottom:none;"><div class="tl-time">' + total + ' min</div><div><strong>Everything is done</strong></div></div>';
+    document.getElementById('timeline').innerHTML = html;
+
+    document.getElementById('crowdNote').textContent =
+      'Times include about ' + Math.round((crowd - 1) * 100) + '% added for a fuller oven. Stagger the dishes side to side rather than stacking them, and swap their positions halfway through. Check doneness rather than trusting the clock.';
+
+    res.style.display = '';
+  }
+
+  addDish();
+  addDish();
 </script>
 <!-- CC:STATIC-CHROME:START (build-static.js 자동 생성 — 직접 수정하지 말 것) -->
   <footer class="site-footer">

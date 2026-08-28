@@ -3,22 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>How Many Cups in a Pound of Sugar? (All Types) – CookingCalcs</title>
-  <meta name="description" content="1 pound of granulated sugar = 2¼ cups. Exact cup counts for brown, powdered, and coconut sugar per pound, with a full conversion table for baking.">
-  <link rel="canonical" href="https://cookingcalcs.com/blog/how-many-cups-in-a-pound-of-sugar.html">
+  <title>Meal Timeline Planner — What Time to Start Each Dish</title>
+  <meta name="description" content="Enter your serving time and each dish's prep, cook and rest time. Get a backwards schedule with exact start times, plus warnings when two dishes want the oven at once.">
+  <link rel="canonical" href="https://cookingcalcs.com/tools/meal-timeline-planner.html">
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="/assets/css/style.css">
   <script src="/assets/js/nav.js" defer></script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "How Many Cups in a Pound of Sugar? (All Types)",
-  "description": "1 pound of granulated sugar = 2¼ cups. Exact cup counts for brown, powdered, and coconut sugar per pound, with a full conversion table for baking.",
-  "datePublished": "2026-06-23",
-  "dateModified": "2026-07-13",
-  "author": { "@type": "Organization", "name": "CookingCalcs", "url": "https://cookingcalcs.com" },
-  "publisher": { "@type": "Organization", "name": "CookingCalcs", "url": "https://cookingcalcs.com" }
+  "@type": "WebApplication",
+  "name": "Meal Timeline Planner",
+  "url": "https://cookingcalcs.com/tools/meal-timeline-planner.html",
+  "description": "Work backwards from your serving time to get an exact start time for every dish, including prep, cooking and resting, with oven conflict detection.",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "provider": { "@type": "Organization", "name": "CookingCalcs", "url": "https://cookingcalcs.com" }
 }
 </script>
 <script type="application/ld+json">
@@ -28,34 +29,42 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "How many cups are in a 2-pound bag of sugar?",
+      "name": "How do I work out what time to start cooking?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A 2-pound bag of granulated white sugar contains approximately 4½ cups. A 2-pound bag of powdered sugar contains approximately 7–8 cups."
+        "text": "Start at your serving time and subtract backwards for each dish: first its resting time, then its cooking time, then its prep time. That gives the moment prep has to begin. Doing this for every dish and sorting the results tells you the order of the whole meal and which dish starts first."
       }
     },
     {
       "@type": "Question",
-      "name": "How many cups are in a 5-pound bag of sugar?",
+      "name": "Does resting time count as part of the schedule?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A standard 5-pound bag of granulated sugar contains approximately 11¼ cups. This is why many large baking recipes list \"1 bag of sugar\" rather than a cup amount — the bag itself is the measurement unit."
+        "text": "Yes, and it is the most useful block in the whole plan. A roast that needs 30 minutes of rest leaves the oven 30 minutes before serving, which hands you an empty oven at exactly the moment your sides need heat. Treating the rest as dead time is why sides so often arrive lukewarm."
       }
     },
     {
       "@type": "Question",
-      "name": "Is a cup of brown sugar the same weight as a cup of white sugar?",
+      "name": "How do I know if my plan fits in one oven?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "When packed, yes — both weigh approximately 200g per cup. Unpacked, brown sugar weighs slightly less per cup due to its moisture content and how it settles. Recipes that call for brown sugar almost always mean packed, so the standard comparison holds."
+        "text": "Lay out each oven dish's in-and-out window and look for overlaps. Two dishes overlapping at similar temperatures is usually fine. Two overlapping dishes needing temperatures more than about 50°F apart is a genuine conflict — move one earlier, cook it before the roast, or reheat it at the end."
       }
     },
     {
       "@type": "Question",
-      "name": "How many cups of powdered sugar are in a 1-pound box?",
+      "name": "Why does everything take longer than my plan says?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A 1-pound box of powdered sugar contains approximately 3½ cups unsifted, or up to 4 cups if sifted. Domino and C&H both note 3½ cups per pound on their packaging."
+        "text": "Two reasons usually. A fuller oven cooks more slowly because the food absorbs heat and blocks airflow, and prep almost always takes longer than people estimate — especially chopping for several dishes at once. Build in a buffer of 15 to 30 minutes for a multi-dish meal rather than scheduling to the minute."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What should I cook first when everything needs the oven?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Anything that needs resting, since it frees the oven while it rests, and anything that reheats well. Cook the dishes that lose their texture fastest — roast vegetables, anything crisp — last, so they come out closest to serving."
       }
     }
   ]
@@ -67,6 +76,12 @@
       .ref-table th { background:var(--sand-dark); padding:0.7rem 0.9rem; text-align:left; font-weight:600; border:1px solid var(--border); }
       .ref-table td { padding:0.7rem 0.9rem; border:1px solid var(--border); vertical-align:top; }
       .ref-table tbody tr:nth-child(even) td { background:#fbfaf8; }
+      .mt-row { display:grid; grid-template-columns:1.6fr 1fr 1fr 1fr 1.1fr; gap:0.5rem; margin-bottom:0.55rem; align-items:end; }
+      .mt-row label { font-size:0.78rem; }
+      .tl-item { display:flex; gap:0.85rem; padding:0.65rem 0; border-bottom:1px solid var(--border); }
+      .tl-clock { min-width:82px; font-weight:700; color:var(--tomato-dark); }
+      .warnbox { padding:0.85rem 1rem; border-radius:10px; background:#fff4e5; color:#8a5300; margin-bottom:1rem; font-size:0.9rem; }
+      @media(max-width:700px){ .mt-row { grid-template-columns:1fr 1fr; } .tl-clock { min-width:70px; } }
 </style>
 </head>
 <body>
@@ -119,97 +134,190 @@
   <div class="nav-overlay" id="navOverlay"></div>
 <!-- CC:STATIC-CHROME:END -->
 <main>
-  <article class="blog-page">
-    <span class="blog-card-tag">Conversions</span>
-    <h1>How Many Cups in a Pound of Sugar?</h1>
-    <div class="blog-meta">June 2026 · 7 min read</div>
-    <div class="blog-content">
-      <p>One pound of granulated white sugar equals 2¼ cups. That's the number printed on most sugar bags in the US, and it's the figure bakers and recipe developers use as the standard. But it changes depending on the type of sugar — powdered sugar packs far more loosely, and brown sugar is typically measured packed.</p>
+  <div class="tool-page">
+    <h1>Meal Timeline Planner</h1>
+    <p class="tool-desc">Tell it when you want to eat and what you're making. It works backwards and gives every dish a start time — and warns you when two of them want the oven at the same moment.</p>
 
-      <h2>Cups Per Pound by Sugar Type</h2>
-      <table class="ref-table">
-        <thead><tr><th>Sugar Type</th><th>Cups per pound</th><th>Notes</th></tr></thead>
-        <tbody>
-          <tr><td>Granulated white sugar</td><td>2¼ cups</td><td>Spoon and level</td></tr>
-          <tr><td>Brown sugar (light or dark)</td><td>2¼ cups</td><td>Packed into cup</td></tr>
-          <tr><td>Powdered sugar (confectioners')</td><td>3½–4 cups</td><td>Sifted; 3½ cups unsifted</td></tr>
-          <tr><td>Raw sugar (turbinado/demerara)</td><td>2 cups</td><td>Larger crystals, denser</td></tr>
-          <tr><td>Coconut sugar</td><td>2½ cups</td><td>Spoon and level</td></tr>
-          <tr><td>Caster sugar (superfine)</td><td>2¼ cups</td><td>Same as granulated by weight</td></tr>
-        </tbody>
-      </table>
-      <p>All measurements assume a standard US cup (237ml). Packed brown sugar means pressing firmly into the cup until the sugar holds the cup's shape when turned out.</p>
-
-      <h2>Why Powdered Sugar Is So Different</h2>
-      <p>Powdered sugar (also called confectioners' sugar or icing sugar) is granulated sugar ground to an extremely fine powder with a small amount of cornstarch added. Because the particles are so tiny, they pack loosely and leave a lot of air space in the measuring cup. The result is that 1 pound of powdered sugar takes up 3½–4 cups of volume — nearly double the space of the same weight of granulated sugar.</p>
-      <p>Whether it's sifted or not matters too: sifted powdered sugar takes up more space because sifting breaks up clumps and adds air. If a recipe says "1 cup powdered sugar, sifted," measure first then sift. If it says "1 cup sifted powdered sugar," sift first then measure.</p>
-
-      <h2>Pounds to Cups Conversion Table</h2>
-      <table class="ref-table">
-        <thead><tr><th>Pounds</th><th>Granulated (cups)</th><th>Brown sugar (cups)</th><th>Powdered (cups)</th></tr></thead>
-        <tbody>
-          <tr><td>¼ lb</td><td>½ cup + 1 tbsp</td><td>½ cup + 1 tbsp</td><td>¾–1 cup</td></tr>
-          <tr><td>½ lb</td><td>1⅛ cups</td><td>1⅛ cups</td><td>1¾–2 cups</td></tr>
-          <tr><td>¾ lb</td><td>1¾ cups</td><td>1¾ cups</td><td>2½–3 cups</td></tr>
-          <tr><td>1 lb</td><td>2¼ cups</td><td>2¼ cups</td><td>3½–4 cups</td></tr>
-          <tr><td>2 lb</td><td>4½ cups</td><td>4½ cups</td><td>7–8 cups</td></tr>
-          <tr><td>5 lb</td><td>11¼ cups</td><td>11¼ cups</td><td>17–20 cups</td></tr>
-        </tbody>
-      </table>
-
-      <h2>Grams Per Cup for Each Sugar Type</h2>
-      <p>If you're working with a kitchen scale, these gram weights are more precise than cup measurements:</p>
-      <table class="ref-table">
-        <thead><tr><th>Sugar Type</th><th>1 cup (g)</th><th>½ cup (g)</th><th>¼ cup (g)</th></tr></thead>
-        <tbody>
-          <tr><td>Granulated white</td><td>200g</td><td>100g</td><td>50g</td></tr>
-          <tr><td>Brown sugar (packed)</td><td>200g</td><td>100g</td><td>50g</td></tr>
-          <tr><td>Powdered sugar (unsifted)</td><td>120g</td><td>60g</td><td>30g</td></tr>
-          <tr><td>Powdered sugar (sifted)</td><td>115g</td><td>58g</td><td>29g</td></tr>
-          <tr><td>Raw/turbinado sugar</td><td>225g</td><td>113g</td><td>56g</td></tr>
-          <tr><td>Coconut sugar</td><td>180g</td><td>90g</td><td>45g</td></tr>
-        </tbody>
-      </table>
-      <p>For the full sugar conversion guide including more cup fractions and all common types, see our <a href="/blog/how-many-grams-in-a-cup-of-sugar.html">How Many Grams in a Cup of Sugar</a> guide.</p>
-
-      <h2>How to Measure Sugar for Baking</h2>
-      <p><strong>Granulated and caster sugar:</strong> Spoon into the measuring cup and level off with a straight edge. Sugar doesn't compact much, so you can also scoop directly — the difference is small. Do not pack granulated sugar.</p>
-      <p><strong>Brown sugar:</strong> Pack firmly into the measuring cup, pressing with a spoon or your fingers until the sugar holds the shape of the cup when turned out. This is how brown sugar is always measured unless a recipe specifically says "loosely packed."</p>
-      <p><strong>Powdered sugar:</strong> For the most consistent results, spoon powdered sugar into the cup rather than scooping, then level off. Scooping compacts the sugar and can add 20–30% more than intended.</p>
-      <p><strong>Best practice:</strong> Use a kitchen scale. 200g of granulated sugar is always 200g, regardless of how you fill the measuring cup.</p>
-
-      <h2>Frequently Asked Questions</h2>
-      <h3>How many cups are in a 2-pound bag of sugar?</h3>
-      <p>A 2-pound bag of granulated white sugar contains approximately 4½ cups. A 2-pound bag of powdered sugar contains approximately 7–8 cups.</p>
-
-      <h3>How many cups are in a 5-pound bag of sugar?</h3>
-      <p>A standard 5-pound bag of granulated sugar contains approximately 11¼ cups. This is why many large baking recipes list "1 bag of sugar" rather than a cup amount — the bag itself is the measurement unit.</p>
-
-      <h3>Is a cup of brown sugar the same weight as a cup of white sugar?</h3>
-      <p>When packed, yes — both weigh approximately 200g per cup. Unpacked, brown sugar weighs slightly less per cup due to its moisture content and how it settles. Recipes that call for brown sugar almost always mean packed, so the standard comparison holds.</p>
-
-      <h3>How many cups of powdered sugar are in a 1-pound box?</h3>
-      <p>A 1-pound box of powdered sugar contains approximately 3½ cups unsifted, or up to 4 cups if sifted. Domino and C&H both note 3½ cups per pound on their packaging.</p>
-
-      <h2>Substituting Sugar Types by Weight, Not Volume</h2>
-      <p>Because granulated, brown, and powdered sugar all weigh different amounts per cup, substituting one for another using volume alone changes the actual sugar content of a recipe. If a recipe calls for 1 cup granulated sugar (200g) and you want to use brown sugar instead, use ¾ cup packed brown sugar rather than a full cup, since brown sugar is denser and a full cup would add extra sweetness and moisture. Converting by weight (aim for the same gram amount regardless of type) keeps a substitution accurate.</p>
-
-      <h3>Does opened sugar lose weight or absorb moisture over time?</h3>
-      <p>Sugar is fairly stable in sealed storage, but once opened, it can absorb ambient moisture and clump, especially brown sugar, which has added molasses that attracts humidity. Clumped sugar doesn't measure accurately by volume since it packs differently than fresh sugar — breaking up clumps before measuring, or weighing instead, avoids this inconsistency.</p>
-
-      <div style="margin-top:2rem; padding:1.25rem; background:var(--tomato-light); border-radius:var(--radius-lg);">
-        <h3 style="font-family:'Playfair Display',serif; margin-bottom:0.75rem;">Related Tools & Guides</h3>
-        <ul style="list-style:none; display:flex; flex-direction:column; gap:0.5rem;">
-        <li><a href="/guides/complete-baking-conversion-guide.html" style="color:var(--tomato-dark); font-weight:500;">→ The Complete Baking Measurement & Conversion Guide</a></li>
-          <li><a href="/tools/cups-to-grams.html" style="color:var(--tomato-dark); font-weight:500;">→ Cups to Grams Calculator</a></li>
-          <li><a href="/blog/how-many-grams-in-a-cup-of-sugar.html" style="color:var(--tomato-dark); font-weight:500;">→ How Many Grams in a Cup of Sugar?</a></li>
-          <li><a href="/blog/how-many-cups-in-a-pound-of-flour.html" style="color:var(--tomato-dark); font-weight:500;">→ How Many Cups in a Pound of Flour?</a></li>
-          <li><a href="/blog/baking-measurement-mistakes.html" style="color:var(--tomato-dark); font-weight:500;">→ Common Baking Measurement Mistakes</a></li>
-        </ul>
+    <div class="tool-box">
+      <div class="form-group">
+        <label for="serveTime">Serving time</label>
+        <input type="time" id="serveTime" value="18:30" onchange="calc()">
       </div>
+
+      <label style="display:block; font-weight:600; margin:1.1rem 0 0.5rem;">Your dishes</label>
+      <div id="rows"></div>
+      <button type="button" id="addBtn" onclick="addRow()" style="padding:0.5rem 0.9rem; border-radius:8px; border:1.5px solid var(--tomato); background:none; color:var(--tomato-dark); font-weight:600; cursor:pointer; margin-bottom:1rem;">+ Add a dish</button>
+
+      <div id="result" style="display:none;">
+        <div id="warnings"></div>
+        <h3 style="font-family:'Playfair Display',serif; font-size:1.15rem; margin:0.5rem 0 0.4rem;">Your schedule</h3>
+        <div id="timeline"></div>
+        <p id="startNote" style="margin-top:0.9rem; color:var(--mid); font-size:0.9rem;"></p>
+      </div>
+      <p id="emptyMsg" style="color:var(--mid); font-size:0.9rem;">Fill in a cook time for at least one dish.</p>
     </div>
-  </article>
+
+    <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin:2rem 0 1rem;">The Subtraction</h2>
+    <p>Every guide to timing a meal says the same three words — work backwards — and then leaves you to do the arithmetic while holding a knife. The arithmetic itself is simple:</p>
+    <p style="font-size:1.05rem; padding:1rem 1.2rem; background:var(--tomato-light); border-radius:var(--radius-lg);"><strong>Start prep at = serving time − rest − cook − prep</strong></p>
+    <p>A chicken needing 15 minutes of prep, 80 minutes in the oven and 20 minutes of rest, for a 6:30pm dinner: it goes in the oven at 4:50, out at 6:10, and prep starts at 4:35. Run that for every dish, sort by start time, and the whole afternoon has a shape.</p>
+    <p>What makes it worth computing rather than eyeballing is that the dishes interact. Two of them want the oven at once. One of them frees the oven while it rests. A side that takes 20 minutes doesn't need thinking about until 6:10. Those relationships are invisible until the times are lined up next to each other.</p>
+
+    <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin:2rem 0 1rem;">Resting Time Is the Most Valuable Block in the Plan</h2>
+    <p>A roast that rests for 30 minutes leaves the oven half an hour before you serve. That isn't a delay — it's an empty oven handed to you at precisely the moment every side dish needs heat, at whatever temperature you like.</p>
+    <p>Most meal-timing problems dissolve once you plan around that window instead of treating it as dead time. Roast potatoes go in when the meat comes out. Gratins get their browning pass. Anything cooked earlier gets brought back up. Cooks who skip the rest end up carving a roast that leaks its juices onto the board <em>and</em> serving lukewarm sides — losing on both counts.</p>
+    <p>Resting times sit in our <a href="/tools/meat-temperature-guide.html">meat temperature guide</a>, and the reason carryover happens at all is covered in <a href="/blog/how-to-calculate-cooking-time.html">how to calculate cooking time</a>.</p>
+
+    <!-- Related Tools & Guides -->
+    <div style="margin-top:2rem; padding:1.25rem; background:var(--tomato-light); border-radius:var(--radius-lg);">
+      <h2 style="font-family:'Playfair Display',serif; font-size:1.25rem; margin:0 0 0.75rem;">Related Tools &amp; Guides</h2>
+      <ul style="margin:0; padding-left:1.1rem; line-height:1.9;">
+        <li><a href="/guides/complete-meal-timing-guide.html">The Complete Meal Timing Guide</a></li>
+        <li><a href="/blog/how-to-time-a-meal.html">How to Time a Meal So Everything Finishes Together</a></li>
+        <li><a href="/tools/oven-sharing-calculator.html">Oven Sharing Calculator</a></li>
+        <li><a href="/tools/cooking-time-calculator.html">Cooking Time Calculator</a></li>
+        <li><a href="/tools/reheating-calculator.html">Leftover Reheating Calculator</a></li>
+      </ul>
+    </div>
+
+    <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin:2rem 0 1rem;">When the Oven Can't Take It</h2>
+    <p>The moment a plan usually breaks is two dishes needing the oven at overlapping times at temperatures that don't get along. The planner above flags this, and the fix depends on how far apart they are.</p>
+    <table class="ref-table">
+      <thead><tr><th>Temperature gap</th><th>Do this</th></tr></thead>
+      <tbody>
+        <tr><td>Under 50°F</td><td>Share the oven at the midpoint and adjust both times — see the <a href="/tools/oven-sharing-calculator.html">oven sharing calculator</a></td></tr>
+        <tr><td>Over 50°F</td><td>Move one dish out of the overlap: cook it before the roast, or during the roast's rest</td></tr>
+        <tr><td>One dish can't compromise</td><td>Pastry, bread, soufflé and choux cook alone. Schedule them first, then reheat if needed</td></tr>
+      </tbody>
+    </table>
+    <p>The escape hatch for nearly all of these is that most side dishes reheat well. Cooking something an hour early and bringing it back up for ten minutes costs very little — see <a href="/blog/how-long-to-reheat-leftovers.html">how long to reheat leftovers</a> — while trying to force everything into the same hour costs a lot.</p>
+
+    <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin:2rem 0 1rem;">Build In a Buffer</h2>
+    <p>Two things reliably push a plan late, and neither is the recipe's fault. A fuller oven cooks more slowly, because the food absorbs heat and the dishes block airflow around each other — allow roughly 10% for two dishes and 15% for three. And prep takes longer than anyone estimates, especially when you're chopping for four dishes rather than one.</p>
+    <p>For a multi-dish meal, add 15 to 30 minutes of slack rather than scheduling to the minute. If it turns out you're early, that's a drink before dinner. If you're late with no buffer, everything after the delay is late too.</p>
+
+    <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin:2rem 0 1rem;">Frequently Asked Questions</h2>
+    <div class="faq-section">
+      <h3>How do I work out what time to start cooking?</h3>
+      <p>Start at your serving time and subtract backwards for each dish: first its resting time, then its cooking time, then its prep time. That gives the moment prep has to begin. Doing this for every dish and sorting the results tells you the order of the whole meal and which dish starts first.</p>
+
+      <h3>Does resting time count as part of the schedule?</h3>
+      <p>Yes, and it is the most useful block in the whole plan. A roast that needs 30 minutes of rest leaves the oven 30 minutes before serving, which hands you an empty oven at exactly the moment your sides need heat. Treating the rest as dead time is why sides so often arrive lukewarm.</p>
+
+      <h3>How do I know if my plan fits in one oven?</h3>
+      <p>Lay out each oven dish's in-and-out window and look for overlaps. Two dishes overlapping at similar temperatures is usually fine. Two overlapping dishes needing temperatures more than about 50°F apart is a genuine conflict — move one earlier, cook it before the roast, or reheat it at the end.</p>
+
+      <h3>Why does everything take longer than my plan says?</h3>
+      <p>Two reasons usually. A fuller oven cooks more slowly because the food absorbs heat and blocks airflow, and prep almost always takes longer than people estimate — especially chopping for several dishes at once. Build in a buffer of 15 to 30 minutes for a multi-dish meal rather than scheduling to the minute.</p>
+
+      <h3>What should I cook first when everything needs the oven?</h3>
+      <p>Anything that needs resting, since it frees the oven while it rests, and anything that reheats well. Cook the dishes that lose their texture fastest — roast vegetables, anything crisp — last, so they come out closest to serving.</p>
+    </div>
+  </div>
 </main>
+
+<script>
+  var n = 0;
+
+  function addRow(name, prep, cook, rest, temp) {
+    if (n >= 6) return;
+    n++;
+    var i = n;
+    var d = document.createElement('div');
+    d.className = 'mt-row';
+    d.innerHTML =
+      '<div class="form-group" style="margin:0;"><label for="nm' + i + '">Dish</label><input type="text" id="nm' + i + '" value="' + (name || '') + '" placeholder="Roast chicken" oninput="calc()"></div>' +
+      '<div class="form-group" style="margin:0;"><label for="pp' + i + '">Prep (min)</label><input type="number" id="pp' + i + '" min="0" value="' + (prep === undefined ? '' : prep) + '" placeholder="15" oninput="calc()"></div>' +
+      '<div class="form-group" style="margin:0;"><label for="ck' + i + '">Cook (min)</label><input type="number" id="ck' + i + '" min="0" value="' + (cook === undefined ? '' : cook) + '" placeholder="80" oninput="calc()"></div>' +
+      '<div class="form-group" style="margin:0;"><label for="rs' + i + '">Rest (min)</label><input type="number" id="rs' + i + '" min="0" value="' + (rest === undefined ? '' : rest) + '" placeholder="20" oninput="calc()"></div>' +
+      '<div class="form-group" style="margin:0;"><label for="tp' + i + '">Oven °F (blank = no oven)</label><input type="number" id="tp' + i + '" min="150" max="550" value="' + (temp === undefined ? '' : temp) + '" placeholder="400" oninput="calc()"></div>';
+    document.getElementById('rows').appendChild(d);
+    if (n >= 6) document.getElementById('addBtn').style.display = 'none';
+  }
+
+  function fmt(mins) {
+    var m = ((mins % 1440) + 1440) % 1440;
+    var h = Math.floor(m / 60), mm = m % 60;
+    var ap = h >= 12 ? 'PM' : 'AM';
+    var h12 = h % 12; if (h12 === 0) h12 = 12;
+    return h12 + ':' + (mm < 10 ? '0' : '') + mm + ' ' + ap;
+  }
+
+  function calc() {
+    var sv = document.getElementById('serveTime').value;
+    var res = document.getElementById('result');
+    var empty = document.getElementById('emptyMsg');
+    if (!sv) { res.style.display = 'none'; empty.style.display = ''; return; }
+    var parts = sv.split(':');
+    var serve = parseInt(parts[0], 10) * 60 + parseInt(parts[1], 10);
+
+    var dishes = [];
+    for (var i = 1; i <= n; i++) {
+      var cook = parseFloat(document.getElementById('ck' + i).value);
+      if (isNaN(cook) || cook <= 0) continue;
+      var prep = parseFloat(document.getElementById('pp' + i).value); if (isNaN(prep)) prep = 0;
+      var rest = parseFloat(document.getElementById('rs' + i).value); if (isNaN(rest)) rest = 0;
+      var tp = parseFloat(document.getElementById('tp' + i).value); if (isNaN(tp)) tp = null;
+      var nm = document.getElementById('nm' + i).value.trim() || ('Dish ' + i);
+      var outAt = serve - rest;
+      var inAt = outAt - cook;
+      dishes.push({ nm: nm, prep: prep, cook: cook, rest: rest, tp: tp, prepAt: inAt - prep, inAt: inAt, outAt: outAt });
+    }
+
+    if (dishes.length === 0) { res.style.display = 'none'; empty.style.display = ''; return; }
+    empty.style.display = 'none';
+
+    // 오븐 충돌 검사
+    var warns = [];
+    var ov = dishes.filter(function (d) { return d.tp !== null; });
+    for (var a = 0; a < ov.length; a++) {
+      for (var b = a + 1; b < ov.length; b++) {
+        var x = ov[a], y = ov[b];
+        var overlap = x.inAt < y.outAt && y.inAt < x.outAt;
+        if (!overlap) continue;
+        var gap = Math.abs(x.tp - y.tp);
+        if (gap > 50) {
+          warns.push('<strong>' + x.nm + '</strong> (' + x.tp + '°F) and <strong>' + y.nm + '</strong> (' + y.tp + '°F) overlap in the oven and are ' + gap + '°F apart — too far to share. Move one out of the overlap, or cook it during the resting window.');
+        } else if (gap > 0) {
+          warns.push('<strong>' + x.nm + '</strong> (' + x.tp + '°F) and <strong>' + y.nm + '</strong> (' + y.tp + '°F) overlap in the oven but are only ' + gap + '°F apart — share at the midpoint and adjust both times.');
+        }
+      }
+    }
+    // 레스팅 창 안내
+    var rested = dishes.filter(function (d) { return d.rest >= 15 && d.tp !== null; });
+    if (rested.length) {
+      var r = rested[0];
+      warns.push('<strong>' + r.nm + '</strong> leaves the oven at ' + fmt(r.outAt) + ' and rests until ' + fmt(serve) + ' — that is a free ' + r.rest + '-minute oven window for sides or reheating.');
+    }
+    document.getElementById('warnings').innerHTML = warns.map(function (w) { return '<div class="warnbox">' + w + '</div>'; }).join('');
+
+    // 이벤트 타임라인
+    var ev = [];
+    dishes.forEach(function (d) {
+      if (d.prep > 0) ev.push({ t: d.prepAt, txt: 'Start prep — <strong>' + d.nm + '</strong> (' + d.prep + ' min)' });
+      ev.push({ t: d.inAt, txt: (d.tp !== null ? 'Into the oven at ' + d.tp + '°F' : 'Start cooking') + ' — <strong>' + d.nm + '</strong> (' + d.cook + ' min)' });
+      ev.push({ t: d.outAt, txt: (d.rest > 0 ? 'Out, rest ' + d.rest + ' min' : 'Done') + ' — <strong>' + d.nm + '</strong>' });
+    });
+    ev.push({ t: serve, txt: '<strong>Serve</strong>' });
+    ev.sort(function (p, q) { return p.t - q.t; });
+
+    document.getElementById('timeline').innerHTML = ev.map(function (e) {
+      return '<div class="tl-item"><div class="tl-clock">' + fmt(e.t) + '</div><div>' + e.txt + '</div></div>';
+    }).join('');
+
+    var first = ev[0].t;
+    var span = serve - first;
+    document.getElementById('startNote').textContent =
+      'First thing happens at ' + fmt(first) + ' — that is ' + Math.floor(span / 60) + 'h ' + (span % 60) + 'm before serving. Add 15-30 minutes of buffer on top; a fuller oven cooks slower and prep always runs long.';
+
+    res.style.display = '';
+  }
+
+  addRow('Roast chicken', 15, 80, 20, 400);
+  addRow('Roast potatoes', 10, 45, 0, 425);
+  addRow('Green beans', 5, 12, 0, '');
+  calc();
+</script>
 <!-- CC:STATIC-CHROME:START (build-static.js 자동 생성 — 직접 수정하지 말 것) -->
   <footer class="site-footer">
     <div class="footer-inner">

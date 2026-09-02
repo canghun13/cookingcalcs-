@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kitchen Math Practice Problem Generator – CookingCalcs</title>
-  <meta name="description" content="Generate unlimited random kitchen math word problems — unit price comparisons, cost per serving, and recipe scaling — with instant step-by-step answers. Free practice tool for students and teachers.">
-  <link rel="canonical" href="https://cookingcalcs.com/tools/kitchen-math-generator.html">
+  <title>Deep Frying Batch Calculator — How Much Food Per Batch</title>
+  <meta name="description" content="Enter your oil volume and how much food you're frying. Get the maximum safe batch size, how many batches, expected temperature drop, and total time.">
+  <link rel="canonical" href="https://cookingcalcs.com/tools/deep-frying-calculator.html">
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="/assets/css/style.css">
   <script src="/assets/js/nav.js" defer></script>
@@ -13,9 +13,9 @@
 {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  "name": "Kitchen Math Practice Problem Generator",
-  "url": "https://cookingcalcs.com/tools/kitchen-math-generator.html",
-  "description": "Generate unlimited random kitchen math word problems — unit price comparisons, cost per serving, and recipe scaling — with instant step-by-step answers.",
+  "name": "Deep Frying Batch Calculator",
+  "url": "https://cookingcalcs.com/tools/deep-frying-calculator.html",
+  "description": "Calculate the maximum food per batch for your oil volume, the number of batches needed, expected oil temperature drop, and total frying time.",
   "applicationCategory": "UtilitiesApplication",
   "operatingSystem": "Any",
   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
@@ -29,40 +29,57 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Is this generator free to use?",
+      "name": "How much food can I fry at once?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, completely free with no sign-up or limit. Generate as many problems as you need for classroom worksheets, homework help, or self-practice."
+        "text": "A widely cited working ratio is about 1 part food to 6 parts oil by volume, which has been shown to keep the oil's temperature recovery short. For 6 cups of oil that means roughly 1 cup of food per batch. Going heavier drops the oil temperature further and for longer, and food sitting in cool oil absorbs it instead of crisping."
       }
     },
     {
       "@type": "Question",
-      "name": "Can I use these problems for a classroom worksheet?",
+      "name": "How much does the oil temperature drop when I add food?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes — generate several problems, note down the ones you want, and build your own worksheet. Each problem comes with a hidden step-by-step solution you can reveal to build an answer key."
+        "text": "It depends almost entirely on how much you add relative to the oil. Commercial batch-frying data from Oklahoma State University Extension reports drops of roughly 86 to 104°F when a full load goes into a commercial fryer, with frozen food dropping it further. A home pot with a modest batch will see far less, but the direction is the same — more food means a bigger drop."
       }
     },
     {
       "@type": "Question",
-      "name": "What math skills do these problems practice?",
+      "name": "Why does overcrowding make fried food greasy?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Unit price problems practice division and comparing decimals. Cost per serving problems practice unit conversion (pounds to ounces) combined with division and multiplication. Recipe scaling problems practice multiplying fractions and mixed numbers by a scaling factor."
+        "text": "Hot oil crisps food by flashing the surface moisture to steam, which forms a crust fast enough that little oil gets in. If the oil drops too far, that crust forms slowly and the food sits in the oil far longer, absorbing it. Greasy fried food is almost always a temperature problem, not an oil-quality problem."
       }
     },
     {
       "@type": "Question",
-      "name": "Why use real grocery items instead of generic numbers?",
+      "name": "Should I let the oil recover between batches?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Word problems set in a familiar, real-world context (buying groceries, adjusting a recipe) are generally easier to reason through than abstract number problems, since the units and the goal are concrete rather than arbitrary."
+        "text": "Yes. Give it a minute or two to come back to the target temperature before the next batch goes in, and check with a thermometer rather than guessing. Starting a batch in cool oil compounds the problem, because that batch drops the temperature again from an already low starting point."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do frozen foods change the batch size?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "They should. Frozen food pulls far more heat out of the oil than refrigerated food and also carries surface ice that causes spattering. Cut the batch size down and expect a longer recovery between batches. Never add anything frozen that is wet on the outside — shake off loose ice first."
       }
     }
   ]
 }
 </script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+<style>
+      .ref-table { width:100%; border-collapse:collapse; font-size:0.875rem; background:#fff; }
+      .ref-table th { background:var(--sand-dark); padding:0.7rem 0.9rem; text-align:left; font-weight:600; border:1px solid var(--border); }
+      .ref-table td { padding:0.7rem 0.9rem; border:1px solid var(--border); vertical-align:top; }
+      .ref-table tbody tr:nth-child(even) td { background:#fbfaf8; }
+      .df-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+      .warnbox { padding:0.85rem 1rem; border-radius:10px; background:#fff4e5; color:#8a5300; margin-bottom:1rem; font-size:0.9rem; }
+      @media(max-width:600px){ .df-grid { grid-template-columns:1fr; } }
+</style>
 </head>
 <body>
 <!-- CC:STATIC-CHROME:START (build-static.js 자동 생성 — 직접 수정하지 말 것) -->
@@ -115,178 +132,159 @@
 <!-- CC:STATIC-CHROME:END -->
 <main>
   <div class="tool-page">
-    <h1>Kitchen Math Practice Problem Generator</h1>
-    <p class="tool-desc">Pick a problem type and generate a fresh, randomized word problem every time — with a step-by-step answer you can reveal when you're ready. Free, unlimited, no sign-up.</p>
+    <h1>Deep Frying Batch Calculator</h1>
+    <p class="tool-desc">Every guide says "don't overcrowd the pot" and none of them says how much that actually is. Enter your oil and your food, and this works it out.</p>
 
     <div class="tool-box">
       <div class="form-group">
-        <label for="problemType">Problem Type</label>
-        <select id="problemType">
-          <option value="unitprice">Unit Price Comparison</option>
-          <option value="costperserving">Cost Per Serving</option>
-          <option value="scaling">Recipe Scaling</option>
+        <label for="oilAmt">Oil in the pot (cups)</label>
+        <input type="number" id="oilAmt" min="1" step="0.5" value="6" oninput="calc()">
+      </div>
+      <div class="form-group">
+        <label for="foodAmt">Total food to fry (cups)</label>
+        <input type="number" id="foodAmt" min="0.25" step="0.25" value="4" oninput="calc()">
+      </div>
+      <div class="form-group">
+        <label for="foodState">Food is</label>
+        <select id="foodState" onchange="calc()">
+          <option value="room">Room temperature</option>
+          <option value="fridge" selected>Refrigerator cold</option>
+          <option value="frozen">Frozen</option>
         </select>
       </div>
+      <div class="form-group">
+        <label for="fryTime">Frying time per batch (min)</label>
+        <input type="number" id="fryTime" min="0.5" step="0.5" value="4" oninput="calc()">
+      </div>
 
-      <button class="btn-primary" onclick="generateProblem()" style="width:100%;">🎲 Generate New Problem</button>
-
-      <div class="result-box" id="problemBox" style="display:none; margin-top:1.5rem;">
-        <div id="problemText" style="font-size:1.05rem; line-height:1.6; margin-bottom:1rem;"></div>
-        <button class="btn-secondary" onclick="toggleAnswer()" id="answerToggle" style="width:100%;">Show Step-by-Step Answer</button>
-        <div id="answerText" style="display:none; margin-top:1rem; padding:1rem; background:var(--sand); border-radius:var(--radius); line-height:1.7;"></div>
+      <div id="result" style="display:none; margin-top:1.4rem;">
+        <div id="warn"></div>
+        <div class="df-grid">
+          <div class="result-box">
+            <div class="result-num" id="batchSize"></div>
+            <div class="result-label">Max per batch</div>
+          </div>
+          <div class="result-box">
+            <div class="result-num" id="batchCount"></div>
+            <div class="result-label">Batches needed</div>
+          </div>
+        </div>
+        <div class="df-grid" style="margin-top:1rem;">
+          <div class="result-box">
+            <div class="result-num" id="tempDrop"></div>
+            <div class="result-label">Expected temp drop</div>
+          </div>
+          <div class="result-box">
+            <div class="result-num" id="totalTime"></div>
+            <div class="result-label">Total time incl. recovery</div>
+          </div>
+        </div>
+        <p id="note" style="margin-top:1rem; color:var(--mid); font-size:0.9rem;"></p>
       </div>
     </div>
 
+    <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin:2rem 0 1rem;">The Ratio Behind the Numbers</h2>
+    <p>The useful figure almost nobody quotes is a <strong>food-to-oil ratio of about 1:6 by volume</strong>. That proportion has been shown to minimise the time a fryer needs to recover its temperature, which is the whole game — the faster the oil comes back, the less oil ends up inside the food.</p>
+    <p>In a home pot that translates simply. Six cups of oil means about one cup of food at a time. Eight cups of oil means a cup and a third. It sounds like less food than you expect, and that mismatch is exactly why home frying so often comes out greasy.</p>
+
+    <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin:2rem 0 1rem;">Why Overcrowding Ruins Fried Food</h2>
+    <p>Hot oil crisps food by flashing the moisture at its surface into steam. That steam pushing outward is what stops oil moving inward, and it's why properly fried food absorbs surprisingly little fat. The crust forms before the oil has a chance to get in.</p>
+    <p>Drop the oil temperature too far and that sequence breaks. The crust forms slowly, the steam barrier is weak, and the food sits in the oil much longer than it should — soaking it up the entire time. <strong>Greasy fried food is nearly always a temperature problem rather than an oil problem</strong>, and the temperature problem is nearly always a batch-size problem.</p>
+    <p>Commercial data gives a sense of the scale involved: Oklahoma State University Extension reports that adding a full product load to a commercial batch fryer drops the oil roughly <strong>86 to 104°F</strong>, and further for frozen food. A home pot with a sensible batch won't see anything like that, but the mechanism is identical and a badly overloaded pot gets closer to it than most cooks realise.</p>
+
     <!-- Related Tools & Guides -->
-    <div style="margin-top:3rem; padding:1.5rem; background:var(--tomato-light); border-radius:var(--radius-lg);">
-      <h3 style="font-family:'Playfair Display',serif; margin-bottom:0.5rem;">Related Tools & Guides</h3>
-      <ul style="list-style:none; display:flex; flex-direction:column; gap:0.5rem; margin-top:0.75rem;">
-        <li><a href="/blog/unit-price-word-problems.html" style="color:var(--tomato-dark); font-weight:500;">→ Unit Price Word Problems (Worked Examples)</a></li>
-        <li><a href="/blog/recipe-scaling-word-problems.html" style="color:var(--tomato-dark); font-weight:500;">→ Recipe Scaling Word Problems (Worked Examples)</a></li>
-        <li><a href="/blog/measurement-conversion-word-problems.html" style="color:var(--tomato-dark); font-weight:500;">→ Measurement Conversion Word Problems</a></li>
-        <li><a href="/tools/cost-per-serving.html" style="color:var(--tomato-dark); font-weight:500;">→ Cost Per Serving Calculator</a></li>
-        <li><a href="/tools/recipe-multiplier.html" style="color:var(--tomato-dark); font-weight:500;">→ Recipe Multiplier Calculator</a></li>
+    <div style="margin-top:2rem; padding:1.25rem; background:var(--tomato-light); border-radius:var(--radius-lg);">
+      <h2 style="font-family:'Playfair Display',serif; font-size:1.25rem; margin:0 0 0.75rem;">Related Tools &amp; Guides</h2>
+      <ul style="margin:0; padding-left:1.1rem; line-height:1.9;">
+        <li><a href="/guides/complete-deep-frying-guide.html">The Complete Deep Frying Guide</a></li>
+        <li><a href="/blog/deep-frying-temperature-chart.html">Deep Frying Temperatures and Times by Food</a></li>
+        <li><a href="/blog/how-much-oil-for-deep-frying.html">How Much Oil Do You Need for Deep Frying?</a></li>
+        <li><a href="/tools/altitude-cooking-calculator.html">High Altitude Cooking Calculator</a></li>
+        <li><a href="/tools/air-fryer-cooking-times.html">Air Fryer Cooking Times by Food</a></li>
       </ul>
     </div>
 
-    <!-- How to Use -->
-    <div class="blog-content" style="margin-top:3rem;">
-      <h2>How This Generator Works</h2>
-      <p>Choose a problem type, click "Generate New Problem," and a new randomized word problem appears with realistic grocery items and numbers. Try to solve it yourself first, then click "Show Step-by-Step Answer" to check your work and see exactly how each number was used. Click "Generate New Problem" again for a fresh one — there's no limit, so use it for as much practice as you need.</p>
+    <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin:2rem 0 1rem;">Recovery Between Batches</h2>
+    <p>The calculator adds recovery time between batches because that time is real and it adds up. After a batch comes out, the oil needs a minute or two to climb back to its target before the next one goes in. Skipping it compounds the problem: the second batch starts from a lower temperature and pulls it lower still.</p>
+    <table class="ref-table">
+      <thead><tr><th>Food going in</th><th>Batch size</th><th>Recovery</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td>Room temperature</td><td>Full 1:6</td><td>~1 min</td><td>Smallest heat draw</td></tr>
+        <tr><td>Refrigerator cold</td><td>Full 1:6</td><td>~1½ min</td><td>Standard case for most home frying</td></tr>
+        <tr><td>Frozen</td><td>Reduce by about a third</td><td>~2½ min</td><td>Much larger heat draw, plus surface ice</td></tr>
+      </tbody>
+    </table>
+    <p>Use a clip-on or probe thermometer throughout rather than only at the start. Oil temperature moves constantly during a frying session, and the moment you stop watching it is usually the moment a batch goes in too early.</p>
 
-      <h2>The Three Problem Types</h2>
-      <p><strong>Unit Price Comparison</strong> gives you two package sizes and prices for the same item and asks which is the better deal per unit. This practices division and comparing decimals — see more <a href="/blog/unit-price-word-problems.html">worked unit price examples</a> if you want extra practice with the method first.</p>
-      <p><strong>Cost Per Serving</strong> gives you a price per pound and a serving size in ounces, and asks for the cost of one serving. This practices converting between pounds and ounces along with division and multiplication — see the <a href="/tools/cost-per-serving.html">cost per serving calculator</a> for the reverse direction (enter your own numbers instead of a random problem).</p>
-      <p><strong>Recipe Scaling</strong> gives you a fractional ingredient amount and a scaling instruction (double, halve, triple, or a custom factor), and asks for the new amount. This practices multiplying fractions and mixed numbers — see more <a href="/blog/recipe-scaling-word-problems.html">worked scaling examples</a> for the step-by-step method.</p>
+    <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin:2rem 0 1rem;">Frozen Food Needs Extra Care</h2>
+    <p>Frozen food pulls far more heat from the oil than refrigerated food, which is why the calculator cuts the batch size when you select it. It also carries surface ice, and ice hitting hot oil causes violent spattering. Shake off any loose ice before the food goes anywhere near the pot, and lower it in rather than dropping it.</p>
+    <p>Don't thaw first, though — thawing leaves the surface wetter than the frozen state did, which makes the spattering worse rather than better. Straight from the freezer, well shaken, in a smaller batch, is the right approach.</p>
 
-      <h2>Sample Problems (One From Each Type)</h2>
-      <p>Here's one static example of each problem type, so you can see the format before generating your own — the live tool above generates a fresh set of numbers and items every time you click.</p>
-      <p><strong>Unit Price Comparison:</strong> A 12 oz box of pasta costs $2.40. A 16 oz box of the same brand costs $2.88. Which is the better deal per ounce?<br>
-      <em>Answer:</em> 12 oz box: $2.40 ÷ 12 = $0.20/oz. 16 oz box: $2.88 ÷ 16 = $0.18/oz. The 16 oz box is the better deal per ounce.</p>
-      <p><strong>Cost Per Serving:</strong> You buy chicken thighs at $2.80 per pound. Each serving uses 6 ounces. What does one serving cost?<br>
-      <em>Answer:</em> $2.80 ÷ 16 oz = $0.175/oz. 6 oz × $0.175 = <strong>$1.05 per serving</strong>.</p>
-      <p><strong>Recipe Scaling:</strong> A recipe calls for 1⅓ cups of broth and serves 4. You need to serve 10. How much broth do you need?<br>
-      <em>Answer:</em> Scaling factor: 10 ÷ 4 = 2.5. 1⅓ cups = 4/3 cups. 4/3 × 2.5 = <strong>3⅓ cups</strong>.</p>
+    <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin:2rem 0 1rem;">Altitude Lowers Your Target Temperature</h2>
+    <p>Frying is one of the cooking methods elevation genuinely affects. Moisture inside the food escapes faster in thinner air, so at a normal frying temperature the outside browns before the inside is cooked through. The standard adjustment is to <strong>lower the oil temperature by about 3°F for every 1,000 feet</strong> of elevation — at 5,000 feet a 375°F target becomes closer to 360°F. Our <a href="/tools/altitude-cooking-calculator.html">altitude cooking calculator</a> works it out for your elevation.</p>
 
-      <h2>Why Practice With Grocery and Recipe Problems</h2>
-      <p>Unit price, cost-per-serving, and recipe-scaling problems are some of the most common "real-world math" word problems taught in consumer math and pre-algebra classes, because they use skills — division, ratios, fractions — in a context most people actually encounter: figuring out which size to buy, or adjusting a recipe for a different number of servings. Practicing with realistic numbers and real grocery items builds the same skill as an abstract worksheet, but ties it to something concrete.</p>
+    <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin:2rem 0 1rem;">Frequently Asked Questions</h2>
+    <div class="faq-section">
+      <h3>How much food can I fry at once?</h3>
+      <p>A widely cited working ratio is about 1 part food to 6 parts oil by volume, which has been shown to keep the oil's temperature recovery short. For 6 cups of oil that means roughly 1 cup of food per batch. Going heavier drops the oil temperature further and for longer, and food sitting in cool oil absorbs it instead of crisping.</p>
 
-      <h2>Tips for Solving These Problems</h2>
-      <p><strong>Write down what you're solving for before you start.</strong> Unit price problems ask "which is cheaper per unit," not "which costs less overall" — those are different questions with different answers, since a bigger package almost always costs more in total even when it's the better deal per ounce.</p>
-      <p><strong>Convert to the same unit before you divide.</strong> If one number is in pounds and the other is in ounces, convert first (1 pound = 16 ounces). Dividing before converting is the single most common source of wrong answers in these problem types.</p>
-      <p><strong>Estimate before you calculate.</strong> A quick mental estimate (is this roughly $0.20 or $2.00 per ounce?) catches decimal-point errors immediately — if your calculated answer is ten times bigger or smaller than your estimate, you likely made an arithmetic slip somewhere.</p>
-      <p><strong>For scaling problems, convert mixed numbers to improper fractions first.</strong> Multiplying 2⅓ directly by a fraction is error-prone; converting it to 7/3 first makes the multiplication straightforward.</p>
+      <h3>How much does the oil temperature drop when I add food?</h3>
+      <p>It depends almost entirely on how much you add relative to the oil. Commercial batch-frying data from Oklahoma State University Extension reports drops of roughly 86 to 104°F when a full load goes into a commercial fryer, with frozen food dropping it further. A home pot with a modest batch will see far less, but the direction is the same — more food means a bigger drop.</p>
 
-      <h2>Frequently Asked Questions</h2>
-      <h3>Is this generator free to use?</h3>
-      <p>Yes, completely free with no sign-up or limit. Generate as many problems as you need for classroom worksheets, homework help, or self-practice.</p>
+      <h3>Why does overcrowding make fried food greasy?</h3>
+      <p>Hot oil crisps food by flashing the surface moisture to steam, which forms a crust fast enough that little oil gets in. If the oil drops too far, that crust forms slowly and the food sits in the oil far longer, absorbing it. Greasy fried food is almost always a temperature problem, not an oil-quality problem.</p>
 
-      <h3>Can I use these problems for a classroom worksheet?</h3>
-      <p>Yes — generate several problems, note down the ones you want, and build your own worksheet. Each problem comes with a hidden step-by-step solution you can reveal to build an answer key.</p>
+      <h3>Should I let the oil recover between batches?</h3>
+      <p>Yes. Give it a minute or two to come back to the target temperature before the next batch goes in, and check with a thermometer rather than guessing. Starting a batch in cool oil compounds the problem, because that batch drops the temperature again from an already low starting point.</p>
 
-      <h3>What math skills do these problems practice?</h3>
-      <p>Unit price problems practice division and comparing decimals. Cost per serving problems practice unit conversion (pounds to ounces) combined with division and multiplication. Recipe scaling problems practice multiplying fractions and mixed numbers by a scaling factor.</p>
-
-      <h3>Why use real grocery items instead of generic numbers?</h3>
-      <p>Word problems set in a familiar, real-world context (buying groceries, adjusting a recipe) are generally easier to reason through than abstract number problems, since the units and the goal are concrete rather than arbitrary.</p>
-
-      <h3>Are the sample problems on this page the same ones the generator makes?</h3>
-      <p>The three static examples above show the format and difficulty level, but the live generator creates new items, prices, and numbers each time you click — there's no fixed pool of problems, so you won't see the exact same numbers twice in a row.</p>
+      <h3>Do frozen foods change the batch size?</h3>
+      <p>They should. Frozen food pulls far more heat out of the oil than refrigerated food and also carries surface ice that causes spattering. Cut the batch size down and expect a longer recovery between batches. Never add anything frozen that is wet on the outside — shake off loose ice first.</p>
     </div>
   </div>
 </main>
 
 <script>
-const FOODS = ['cereal', 'rice', 'pasta', 'coffee', 'olive oil', 'peanut butter', 'orange juice', 'flour', 'sugar', 'granola', 'trail mix', 'oatmeal', 'honey', 'crackers', 'shredded cheese'];
-const PROTEINS = ['chicken breast', 'ground beef', 'salmon', 'pork chops', 'shrimp', 'turkey breast', 'ground turkey', 'steak', 'bacon', 'lamb chops'];
-const SCALE_INGREDIENTS = ['flour', 'sugar', 'butter', 'milk', 'oil', 'broth', 'cocoa powder', 'brown sugar', 'heavy cream', 'chopped nuts'];
+  function calc() {
+    var oil = parseFloat(document.getElementById('oilAmt').value);
+    var food = parseFloat(document.getElementById('foodAmt').value);
+    var state = document.getElementById('foodState').value;
+    var fry = parseFloat(document.getElementById('fryTime').value);
+    var res = document.getElementById('result');
+    if (isNaN(oil) || isNaN(food) || isNaN(fry) || oil <= 0 || food <= 0 || fry <= 0) { res.style.display = 'none'; return; }
 
-const FRACTIONS = [
-  { v: 0.25, s: '¼', unit: 'cup' }, { v: 1/3, s: '⅓', unit: 'cup' }, { v: 0.5, s: '½', unit: 'cup' },
-  { v: 2/3, s: '⅔', unit: 'cup' }, { v: 0.75, s: '¾', unit: 'cup' }, { v: 1, s: '1', unit: 'cup' },
-  { v: 1.25, s: '1¼', unit: 'cups' }, { v: 1.5, s: '1½', unit: 'cups' }, { v: 1.75, s: '1¾', unit: 'cups' },
-  { v: 2, s: '2', unit: 'cups' }, { v: 2 + 1/3, s: '2⅓', unit: 'cups' }, { v: 2.5, s: '2½', unit: 'cups' }
-];
-const FACTORS = [
-  { v: 2, s: 'double it (×2)' }, { v: 3, s: 'triple it (×3)' }, { v: 0.5, s: 'make half of it (×½)' },
-  { v: 1.5, s: 'make 1.5 times as much (×1.5)' }, { v: 1/3, s: 'make a third of it (×⅓)' }, { v: 4, s: 'quadruple it (×4)' }
-];
+    // 1:6 food-to-oil ratio; frozen food draws more heat so batch is cut
+    var factor = (state === 'frozen') ? 0.67 : 1;
+    var batch = (oil / 6) * factor;
+    var batches = Math.ceil(food / batch);
+    var recovery = (state === 'frozen') ? 2.5 : (state === 'fridge' ? 1.5 : 1);
 
-function rand(min, max) { return Math.random() * (max - min) + min; }
-function randInt(min, max) { return Math.floor(rand(min, max + 1)); }
-function pick(arr) { return arr[randInt(0, arr.length - 1)]; }
-function money(n) { return '$' + n.toFixed(2); }
+    // 실제 사용 배치량 기준 부하율
+    var perBatch = food / batches;
+    var load = perBatch / oil;              // food:oil 실제 비율
+    var baseDrop = (state === 'frozen') ? 60 : (state === 'fridge' ? 45 : 30);
+    var drop = Math.round(baseDrop * (load / (1 / 6)));
 
-function toFractionString(n) {
-  const denominators = [1, 2, 3, 4, 8, 16];
-  let best = { diff: Infinity, str: n.toFixed(3) };
-  for (const d of denominators) {
-    const num = Math.round(n * d);
-    const diff = Math.abs(n - num / d);
-    if (diff < 0.01 && diff < best.diff) {
-      const whole = Math.floor(num / d);
-      const rem = num % d;
-      let str;
-      if (rem === 0) str = String(whole);
-      else if (whole === 0) str = `${rem}/${d}`;
-      else str = `${whole} ${rem}/${d}`;
-      best = { diff, str };
+    var total = batches * fry + (batches - 1) * recovery;
+
+    document.getElementById('batchSize').textContent = (batch >= 1 ? batch.toFixed(1) : batch.toFixed(2)) + ' cups';
+    document.getElementById('batchCount').textContent = batches + (batches === 1 ? ' batch' : ' batches');
+    document.getElementById('tempDrop').textContent = '~' + drop + '°F';
+    document.getElementById('totalTime').textContent = Math.round(total) + ' min';
+
+    var w = '';
+    if (food > oil / 6 * 4) {
+      w = '<div class="warnbox">That is a lot of food for this much oil — ' + batches + ' batches will take a while and the oil degrades as you go. Consider a bigger pot with more oil, or splitting the cooking across two sessions.</div>';
+    } else if (load > 1 / 5) {
+      w = '<div class="warnbox">Even split into batches this runs heavier than the 1:6 guideline. Expect a larger temperature drop and check the oil with a thermometer before each batch.</div>';
     }
+    document.getElementById('warn').innerHTML = w;
+
+    document.getElementById('note').textContent =
+      'Based on a 1:6 food-to-oil ratio, with ' + recovery + ' min recovery between batches. The temperature drop is an estimate that scales with how loaded each batch is — always confirm with a thermometer rather than the clock.';
+
+    res.style.display = '';
   }
-  return best.str;
-}
-
-function generateProblem() {
-  const type = document.getElementById('problemType').value;
-  let problemText = '', answerText = '';
-
-  if (type === 'unitprice') {
-    const item = pick(FOODS);
-    const priceA = rand(1.80, 9.00);
-    const qtyA = randInt(8, 24);
-    const priceB = rand(2.50, 14.00);
-    const qtyB = qtyA + randInt(8, 24);
-    const unitA = priceA / qtyA;
-    const unitB = priceB / qtyB;
-    const cheaper = unitA < unitB ? 'A' : 'B';
-    problemText = `A ${qtyA}-ounce package of ${item} costs ${money(priceA)} (<strong>Option A</strong>). A ${qtyB}-ounce package of the same ${item} costs ${money(priceB)} (<strong>Option B</strong>). Which is the better deal per ounce?`;
-    answerText = `Option A: ${money(priceA)} ÷ ${qtyA} oz = <strong>${money(unitA)}/oz</strong><br>Option B: ${money(priceB)} ÷ ${qtyB} oz = <strong>${money(unitB)}/oz</strong><br><br><strong>Option ${cheaper} is the better deal</strong>, at ${money(cheaper === 'A' ? unitA : unitB)} per ounce.`;
-  } else if (type === 'costperserving') {
-    const item = pick(PROTEINS);
-    const pricePerLb = rand(2.50, 12.00);
-    const servingOz = randInt(3, 8);
-    const pricePerOz = pricePerLb / 16;
-    const cost = pricePerOz * servingOz;
-    problemText = `You purchase ${item} for ${money(pricePerLb)} per pound. Each serving uses ${servingOz} ounces. What is the cost per serving?`;
-    answerText = `Price per ounce: ${money(pricePerLb)} ÷ 16 = <strong>${money(pricePerOz)}/oz</strong><br>Cost for a ${servingOz}-ounce serving: ${servingOz} × ${money(pricePerOz)} = <strong>${money(cost)} per serving</strong>.`;
-  } else if (type === 'scaling') {
-    const ingredient = pick(SCALE_INGREDIENTS);
-    const frac = pick(FRACTIONS);
-    const factor = pick(FACTORS);
-    const result = frac.v * factor.v;
-    const resultStr = toFractionString(result);
-    problemText = `A recipe calls for ${frac.s} ${frac.unit} of ${ingredient}. You want to ${factor.s}. How much ${ingredient} do you need?`;
-    answerText = `${frac.s} × ${factor.s.match(/×[^)]+/)[0].replace('×','')} = <strong>${resultStr} ${result === 1 ? 'cup' : 'cups'}</strong> of ${ingredient}${result < 0.2 ? ` (that's about ${(result*16).toFixed(1)} tablespoons — easier to measure that way)` : ''}.`;
-  }
-
-  document.getElementById('problemText').innerHTML = problemText;
-  document.getElementById('answerText').innerHTML = answerText;
-  document.getElementById('answerText').style.display = 'none';
-  document.getElementById('answerToggle').textContent = 'Show Step-by-Step Answer';
-  document.getElementById('problemBox').style.display = 'block';
-}
-
-function toggleAnswer() {
-  const box = document.getElementById('answerText');
-  const btn = document.getElementById('answerToggle');
-  if (box.style.display === 'none') {
-    box.style.display = 'block';
-    btn.textContent = 'Hide Answer';
-  } else {
-    box.style.display = 'none';
-    btn.textContent = 'Show Step-by-Step Answer';
-  }
-}
+  calc();
 </script>
 <!-- CC:STATIC-CHROME:START (build-static.js 자동 생성 — 직접 수정하지 말 것) -->
   <footer class="site-footer">

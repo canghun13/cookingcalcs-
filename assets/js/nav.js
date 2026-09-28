@@ -57,6 +57,7 @@ const TOOLS = [
   { name: "Leftover Reheating Calculator", url: "/tools/reheating-calculator.html" },
   { name: "Air Fryer Cooking Times by Food", url: "/tools/air-fryer-cooking-times.html" },
   { name: "Candy & Sugar Stage Temperature Calculator", url: "/tools/candy-temperature-calculator.html" },
+  { name: "Yield Percentage Calculator", url: "/tools/yield-percentage-calculator.html" },
 ];
 
 const BLOGS = [
@@ -140,6 +141,8 @@ const BLOGS = [
   { name: "How Long to Cook Pork Shoulder", url: "/blog/how-long-to-cook-pork-shoulder.html", desc: "Pork shoulder cook times by weight and oven temperature, why estimates range so widely, and slicing vs pulling temperature.", date: "2026-07-27" },
   { name: "How Long to Cook Gammon & Ham", url: "/blog/how-long-to-cook-ham.html", desc: "Gammon and ham cook times by weight, boiling vs roasting vs slow cooker, and why safe internal temperature differs between raw gammon, fresh ham, and fully cooked ham.", date: "2026-08-03" },
   { name: "How Long to Cook Tempeh and Seitan", url: "/blog/how-long-to-cook-tempeh-seitan.html", desc: "Tempeh and seitan cook times for pan-searing, baking, air frying, and steaming, plus freezing/reheating and matching the method to the dish — no recipe, just the times and temperatures you need.", date: "2026-08-10" },
+  { name: "Recipe Says 2 Pounds Trimmed — How Much Do I Buy?", url: "/blog/how-much-to-buy-for-a-recipe.html", desc: "Recipes list prepped weights but shops sell whole vegetables. Divide by the yield percentage, then round to units you can actually buy.", date: "2026-09-28" },
+  { name: "Culinary Math Formulas You Actually Need", url: "/blog/culinary-math-formulas.html", desc: "Recipe conversion factor, yield percentage, edible portion cost, portion cost and food cost percentage — each with a worked example and the common mistake.", date: "2026-09-28" },
 ];
 
 // ── 가이드 목록 (Tools/Blog와 별개 — 여러 툴/블로그를 묶는 종합 허브 페이지) ──
@@ -159,6 +162,7 @@ const GUIDES = [
   { name: "The Complete Egg Conversion Guide", url: "/guides/complete-egg-conversion-guide.html", desc: "Every egg conversion in one place: sizes, weights, cups, whites and yolks, UK vs US, and what to do when the recipe wants a size you don't have.", date: "2026-08-17" },
   { name: "The Complete Appliance Cooking Guide", url: "/guides/complete-appliance-cooking-guide.html", desc: "Slow cooker, pressure cooker, air fryer, and oven in one reference — what each does to food, how times convert between them, and which to reach for tonight.", date: "2026-08-14" },
   { name: "The Complete Vintage Recipe Guide", url: "/guides/complete-vintage-recipe-guide.html", desc: "Decode any old family recipe or vintage cookbook — can sizes, measurement terms, old oven temperatures, and British/vintage ingredient names, all in one reference, with a full worked example.", date: "2026-08-10" },
+  { name: "The Complete Culinary Math Guide", url: "/guides/complete-culinary-math-guide.html", desc: "Scaling, yield percentage, cooking shrinkage and costing in one reference — the four questions culinary math answers, the order they have to be answered in, and every calculator for each.", date: "2026-09-28" },
 ];
 
 

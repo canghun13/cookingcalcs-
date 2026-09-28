@@ -3,55 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Baking Pan Size Converter – CookingCalcs</title>
-  <meta name="description" content="Convert any baking recipe to a different pan size. Get the exact scaling factor, whether to split into multiple pans, and how bake time changes — for round, square, rectangular, bundt, and loaf pans.">
-  <link rel="canonical" href="https://cookingcalcs.com/tools/pan-size-converter.html">
+  <title>Culinary Math Formulas You Actually Need (With Worked Examples)</title>
+  <meta name="description" content="Recipe conversion factor, yield percentage, EP cost, portion cost and food cost percentage — seven formulas, each with a worked example and the mistake people make.">
+  <link rel="canonical" href="https://cookingcalcs.com/blog/culinary-math-formulas.html">
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="/assets/css/style.css">
   <script src="/assets/js/nav.js" defer></script>
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "name": "Baking Pan Size Converter",
-  "url": "https://cookingcalcs.com/tools/pan-size-converter.html",
-  "description": "Convert any baking recipe to a different pan size. Get the exact scaling factor, whether to split into multiple pans, and how bake time changes.",
-  "applicationCategory": "UtilitiesApplication",
-  "operatingSystem": "Any",
-  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-  "provider": { "@type": "Organization", "name": "CookingCalcs", "url": "https://cookingcalcs.com" }
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "How do I convert a recipe from one pan size to another?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Divide the new pan's volume by the original pan's volume to get a scaling factor, then multiply every ingredient in the recipe by that number. For example, moving from an 8-inch round pan (6 cups) to a 9x13-inch pan (14 cups) means multiplying every ingredient by about 2.3."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What if the new pan is much bigger than what the recipe needs?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "If the scaling factor is above roughly 1.8-2x, consider splitting the batter across two of the original pan size instead of scaling the recipe up — it's often more reliable than guessing at a large recipe multiplication, and you avoid ending up with an unusually thin layer in an oversized pan."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Does pan size change the baking time?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. A wider, shallower pan spreads the same amount of batter thinner, so it bakes faster — start checking 10-15 minutes before the original recipe's time. A narrower, deeper pan holds batter thicker, so it takes longer — start checking 10-15 minutes after the original time. Either way, use a toothpick test rather than trusting the clock alone."
-      }
-    }
-  ]
+  "@type": "Article",
+  "headline": "Culinary Math Formulas You Actually Need",
+  "description": "The seven formulas culinary math runs on — recipe conversion factor, yield percentage, as-purchased quantity, edible portion cost, portion cost, food cost percentage and menu price — each with a worked example.",
+  "author": { "@type": "Organization", "name": "CookingCalcs" },
+  "publisher": { "@type": "Organization", "name": "CookingCalcs", "url": "https://cookingcalcs.com" },
+  "datePublished": "2026-09-28",
+  "dateModified": "2026-09-28",
+  "mainEntityOfPage": "https://cookingcalcs.com/blog/culinary-math-formulas.html"
 }
 </script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
@@ -60,7 +29,7 @@
       .ref-table th { background:var(--sand-dark); padding:0.7rem 0.9rem; text-align:left; font-weight:600; border:1px solid var(--border); }
       .ref-table td { padding:0.7rem 0.9rem; border:1px solid var(--border); vertical-align:top; }
       .ref-table tbody tr:nth-child(even) td { background:#fbfaf8; }
-  @media(max-width:600px) { .pan-form-grid { grid-template-columns:1fr !important; } }
+      .formula { padding:0.9rem 1.1rem; background:var(--sand-dark); border-radius:var(--radius-lg); font-weight:600; }
 </style>
 </head>
 <body>
@@ -114,165 +83,98 @@
 <!-- CC:STATIC-CHROME:END -->
 <main>
   <div class="tool-page">
-    <h1>Baking Pan Size Converter</h1>
-    <p class="tool-desc">Have a recipe for one pan but want to use another? Get the exact scaling factor and what changes about bake time.</p>
+    <span class="blog-card-tag">Kitchen Math</span>
+    <h1>Culinary Math Formulas You Actually Need</h1>
+    <div class="blog-meta">September 2026 · 8 min read</div>
+    <div class="blog-content">
+      <p style="font-size:1.05rem; padding:1rem 1.2rem; background:var(--tomato-light); border-radius:var(--radius-lg);">Seven formulas carry almost all of culinary math. Four of them are the same division written differently, which is why they blur together in a worksheet and why the mistakes are so consistent. Here they are with the numbers filled in.</p>
 
-    <div class="tool-box">
-      <div class="pan-form-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
-        <div class="form-group">
-          <label for="fromPan">Recipe calls for</label>
-          <select id="fromPan" onchange="calculate()">
-            <option value="round6">6" Round (2" deep) — 4 cups</option>
-            <option value="round8">8" Round (2" deep) — 6 cups</option>
-            <option value="round9" selected>9" Round (2" deep) — 8 cups</option>
-            <option value="round10">10" Round (2" deep) — 11 cups</option>
-            <option value="square8">8" Square — 8 cups</option>
-            <option value="square9">9" Square — 10 cups</option>
-            <option value="rect9x13">9x13" Rectangular — 14 cups</option>
-            <option value="rect11x7">11x7" Rectangular — 8 cups</option>
-            <option value="springform9">9" Springform — 10 cups</option>
-            <option value="bundt10">10" Bundt — 12 cups</option>
-            <option value="loaf9x5">9x5" Loaf — 8 cups</option>
-            <option value="loaf8x4">8x4" Loaf — 6 cups</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="toPan">You want to use</label>
-          <select id="toPan" onchange="calculate()">
-            <option value="round6">6" Round (2" deep) — 4 cups</option>
-            <option value="round8">8" Round (2" deep) — 6 cups</option>
-            <option value="round9">9" Round (2" deep) — 8 cups</option>
-            <option value="round10">10" Round (2" deep) — 11 cups</option>
-            <option value="square8" selected>8" Square — 8 cups</option>
-            <option value="square9">9" Square — 10 cups</option>
-            <option value="rect9x13">9x13" Rectangular — 14 cups</option>
-            <option value="rect11x7">11x7" Rectangular — 8 cups</option>
-            <option value="springform9">9" Springform — 10 cups</option>
-            <option value="bundt10">10" Bundt — 12 cups</option>
-            <option value="loaf9x5">9x5" Loaf — 8 cups</option>
-            <option value="loaf8x4">8x4" Loaf — 6 cups</option>
-          </select>
-        </div>
-      </div>
-    </div>
+      <p>Culinary math has a reputation for being harder than it is, mostly because it is taught as a list of named formulas rather than as one habit: figure out which quantity you have and which you want, then divide in the direction that gets you there. Every formula below is that habit applied to a different pair of quantities.</p>
 
-    <div id="result" style="margin-top:1.5rem;">
-      <div class="result-box">
-        <div class="result-num" id="ratioResult"></div>
-        <div class="result-label" id="ratioLabel"></div>
-      </div>
-      <div style="margin-top:1rem; padding:1rem; background:var(--sand-dark); border-radius:var(--radius); font-size:0.875rem; color:var(--ink);" id="ratioNote"></div>
-      <div id="splitWarning" style="display:none; margin-top:0.75rem; padding:0.85rem 1rem; background:#fde8e8; border-left:3px solid var(--tomato); border-radius:6px; font-size:0.85rem; color:var(--ink);"></div>
-    </div>
+      <h2>1. Recipe Conversion Factor</h2>
+      <p class="formula">RCF = desired yield ÷ original yield</p>
+      <p>Multiply every ingredient by the RCF. A muffin recipe yields 24 and you need 60: the RCF is 60 ÷ 24 = <strong>2.5</strong>, so 3 cups of flour becomes 7.5 cups.</p>
+      <p><strong>Where it goes wrong:</strong> when the portion size changes too. If the original makes 20 portions at 4 oz and you need 35 portions at 6 oz, you cannot compare 20 with 35. Convert both to total yield first — 80 oz and 210 oz — and the RCF is 210 ÷ 80 = <strong>2.625</strong>. Comparing portion counts alone would have given 1.75 and left you a third short.</p>
+      <p>The <a href="/tools/recipe-multiplier.html">recipe multiplier</a> does this arithmetic on a whole ingredient list at once.</p>
 
-    <div class="blog-content" style="margin-top:2rem;">
-      <h2>How to Use This</h2>
-      <p>Select the pan your recipe was written for and the pan you actually want to use. The calculator divides the two pans' volumes to give you a single multiplier — apply that number to every ingredient in the recipe, including leavening (baking powder/soda), which scales the same as everything else.</p>
+      <h2>2. Yield Percentage</h2>
+      <p class="formula">Yield % = (edible portion ÷ as-purchased) × 100</p>
+      <p>Five pounds of carrots, peeled and topped, come back at 4.1 pounds. 4.1 ÷ 5 = 0.82, so the yield is <strong>82%</strong>.</p>
+      <p><strong>Where it goes wrong:</strong> mixing this up with cooking shrinkage. Yield percentage is loss <em>before</em> heat — peel, seeds, stems, bone. Shrinkage is loss <em>during</em> cooking. They stack, in that order, and a costing that only counts one of them is wrong by the size of the other.</p>
 
-      <h2>Pan Volume Reference</h2>
+      <h2>3. As-Purchased Quantity</h2>
+      <p class="formula">APQ = edible portion needed ÷ yield %</p>
+      <p>A recipe calls for 32 oz of sliced pears and pears yield about 78%: 32 ÷ 0.78 = <strong>41.03 oz</strong> of whole pears.</p>
+      <p><strong>Where it goes wrong:</strong> adding the percentage instead of dividing by it. Adding 22% to 32 oz gives 39 oz, which is two ounces of pear short before you have even started, and the error grows as the yield falls. The <a href="/tools/yield-percentage-calculator.html">yield percentage calculator</a> runs it in both directions, and <a href="/blog/how-much-to-buy-for-a-recipe.html">how much to buy for a recipe</a> covers turning the answer into whole units at a shop.</p>
+
+      <h2>4. Edible Portion Cost</h2>
+      <p class="formula">EP cost = AP cost ÷ yield %</p>
+      <p>Broccoli at $1.80 a pound, bought as whole heads at a 61% yield, costs 1.80 ÷ 0.61 = <strong>$2.95</strong> for every pound that reaches the plate.</p>
+      <p><strong>Where it goes wrong:</strong> costing a recipe straight from shelf prices. Every low-yield ingredient in the dish is then under-costed, and low-yield ingredients tend to be the expensive ones — shellfish, whole fish, bone-in meat, tropical fruit. This is the formula that most often explains why a menu that looked profitable on paper is not.</p>
+
+      <h2>5. Portion Cost</h2>
+      <p class="formula">Portion cost = total recipe cost ÷ number of portions</p>
+      <p>A batch costing $48.60 that yields 18 portions works out at <strong>$2.70</strong> a portion.</p>
+      <p><strong>Where it goes wrong:</strong> using the yield the recipe claims rather than the yield you got. If the recipe says 18 portions and your pan produced 16, your real portion cost is $3.04. Recipes are optimistic about yield; pans are not. The <a href="/tools/cost-per-serving.html">cost per serving calculator</a> and <a href="/blog/how-to-calculate-cost-per-serving.html">how to calculate cost per serving</a> work through this one in detail.</p>
+
+      <h2>6. Food Cost Percentage</h2>
+      <p class="formula">Food cost % = (portion cost ÷ menu price) × 100</p>
+      <p>That $2.70 portion sold at $11.00 gives 2.70 ÷ 11.00 = <strong>24.5%</strong>.</p>
+      <p><strong>Where it goes wrong:</strong> dividing the wrong way round. Price divided by cost gives 4.07, which is a markup multiple, not a percentage, and it is a different number used for a different purpose. Food cost percentage is always the smaller number over the bigger one.</p>
+
+      <h2>7. Menu Price from a Target Food Cost</h2>
+      <p class="formula">Menu price = portion cost ÷ target food cost %</p>
+      <p>To hit a 30% food cost on that same $2.70 portion: 2.70 ÷ 0.30 = <strong>$9.00</strong>.</p>
+      <p><strong>Where it goes wrong:</strong> treating the answer as the price. It is the floor. Rounding, price psychology, what the dish next to it costs and what the market will bear all move the final number, and the formula has no opinion about any of them.</p>
+
+      <h2>All Seven Together</h2>
       <table class="ref-table">
-        <thead><tr><th>Pan</th><th>Volume</th></tr></thead>
+        <thead><tr><th>Formula</th><th>Written as</th><th>Answers</th></tr></thead>
         <tbody>
-          <tr><td>6" Round (2" deep)</td><td>4 cups</td></tr>
-          <tr><td>8" Round (2" deep)</td><td>6 cups</td></tr>
-          <tr><td>9" Round (2" deep)</td><td>8 cups</td></tr>
-          <tr><td>10" Round (2" deep)</td><td>11 cups</td></tr>
-          <tr><td>8" Square</td><td>8 cups</td></tr>
-          <tr><td>9" Square</td><td>10 cups</td></tr>
-          <tr><td>9x13" Rectangular</td><td>14 cups</td></tr>
-          <tr><td>11x7" Rectangular</td><td>8 cups</td></tr>
-          <tr><td>9" Springform</td><td>10 cups</td></tr>
-          <tr><td>10" Bundt</td><td>12 cups</td></tr>
-          <tr><td>9x5" Loaf</td><td>8 cups</td></tr>
-          <tr><td>8x4" Loaf</td><td>6 cups</td></tr>
+          <tr><td>Recipe conversion factor</td><td>desired yield ÷ original yield</td><td>What do I multiply every ingredient by?</td></tr>
+          <tr><td>Yield percentage</td><td>(EP ÷ AP) × 100</td><td>How much of what I bought is usable?</td></tr>
+          <tr><td>As-purchased quantity</td><td>EP needed ÷ yield %</td><td>How much do I have to buy?</td></tr>
+          <tr><td>Edible portion cost</td><td>AP cost ÷ yield %</td><td>What does the usable part really cost?</td></tr>
+          <tr><td>Portion cost</td><td>recipe cost ÷ portions</td><td>What does one plate cost me?</td></tr>
+          <tr><td>Food cost percentage</td><td>(portion cost ÷ price) × 100</td><td>How much of the price is ingredients?</td></tr>
+          <tr><td>Menu price</td><td>portion cost ÷ target food cost %</td><td>What must I charge to hit my target?</td></tr>
         </tbody>
       </table>
-      <p>A round pan's volume doesn't scale the way its diameter suggests — area scales with the radius squared, so a 10" round pan (78 sq in) has more than 50% more surface area than an 8" round pan (50 sq in), not 25% more. This is why eyeballing pan swaps by diameter alone is unreliable, and why the volume-based multiplier above is the more accurate approach.</p>
 
-      <h2>Why Bake Time Changes With Pan Shape</h2>
-      <p>Even when two pans hold the exact same volume, they won't necessarily bake in the same time if their shapes differ. A wider, shallower pan spreads the batter thinner, so heat reaches the center faster — start checking 10-15 minutes before the original recipe's stated time. A narrower, deeper pan holds the batter thicker, so the center takes longer to set — start checking 10-15 minutes after the original time. Only fill any pan about ⅔ full regardless of size, and bake any leftover batter as a smaller side portion (muffins or a mini loaf) rather than overfilling.</p>
+      <h2>The Pattern Worth Memorising Instead</h2>
+      <p>Four of those seven are the same move: <strong>divide by a percentage to go from the smaller quantity to the larger one</strong>. Edible portion to as-purchased. As-purchased cost to edible portion cost. Portion cost to menu price. Each time you are undoing a loss or a margin, and each time the instinct to add the percentage instead produces an answer that is too small.</p>
+      <p>The other three are plain division to get a rate: a factor, a percentage, a per-portion figure. Once the two shapes are clear, the named formulas stop needing to be memorised separately, and a worksheet turns into a question about which quantity you have.</p>
 
-      <h2>When to Split Into Multiple Pans Instead</h2>
-      <p>If the scaling factor comes out above roughly 1.8-2x, it's often more reliable to bake the recipe twice (or split the batter across two of the original pan) rather than doubling ingredients and guessing at a much longer bake time for an unfamiliar large batch. This is especially true for delicate bakes like sponge cakes, where scaling errors are harder to fix mid-bake than with a denser cake or bar recipe.</p>
-
-      <h2>When You Don't Know Your Pan's Exact Volume</h2>
-      <p>If a pan is an odd shape or an unfamiliar size not in the chart above, measure it directly rather than guessing from the dimensions printed on the box (manufacturers round inconsistently, and vintage or hand-me-down pans often don't match modern standard sizes exactly). Fill the empty pan with water, one cup at a time, counting as you go, until it's full to the rim — that count is the pan's true volume, ready to use with the scaling factor the same way as any pan in the chart. This water-fill method is also the most reliable way to check a springform or bundt pan, since their fluted or removable-bottom shapes make the standard length-times-width-times-height math unreliable.</p>
-
-      <h2>Combining Two Smaller Pans Into One Larger One</h2>
-      <p>Two 9-inch round pans (8 cups each, 16 cups combined) don't quite equal one 9x13-inch pan (14 cups) — they actually hold more, not less, which is a common source of confusion when a recipe says "use two 9-inch pans or one 9x13." In practice this works because cake layers in round pans are baked thinner and don't fill to the very top the way a rectangular pan does; if you're converting a recipe the other direction (from a 9x13 to two round pans), split the batter evenly by weight or volume rather than by eye, and expect a very slightly shorter bake time in the rounds since the batter sits shallower.</p>
+      <h2>Practising Them</h2>
+      <p>These work best with numbers you have to read out of a sentence rather than numbers already labelled. Our <a href="/tools/kitchen-math-generator.html">kitchen math problem generator</a> produces fresh practice problems in three types, and there are worked sets for <a href="/blog/unit-price-word-problems.html">unit price</a>, <a href="/blog/recipe-scaling-word-problems.html">recipe scaling</a> and <a href="/blog/measurement-conversion-word-problems.html">measurement conversion</a> if you would rather see solutions laid out step by step.</p>
 
       <h2>Frequently Asked Questions</h2>
-      <h3>How do I convert a recipe from one pan size to another?</h3>
-      <p>Divide the new pan's volume by the original pan's volume to get a scaling factor, then multiply every ingredient in the recipe by that number. For example, moving from an 8-inch round pan (6 cups) to a 9x13-inch pan (14 cups) means multiplying every ingredient by about 2.3.</p>
+      <div class="faq-section">
+        <h3>What is the recipe conversion factor formula?</h3>
+        <p>Desired yield divided by original yield. Multiply every ingredient by the result. When portion sizes differ between the two versions, convert both to total yield — portions times portion size — before dividing.</p>
+        <h3>How do you calculate yield percentage?</h3>
+        <p>Divide the edible portion weight by the as-purchased weight and multiply by 100. Five pounds of carrots yielding 4.1 pounds peeled is 82%.</p>
+        <h3>What is the difference between AP cost and EP cost?</h3>
+        <p>AP cost is what you paid per unit at the door. EP cost is what the usable portion costs, found by dividing AP cost by the yield percentage. EP cost is always the higher figure and it is the one recipe costing should use.</p>
+        <h3>How do you calculate food cost percentage?</h3>
+        <p>Portion cost divided by menu price, times 100. A $2.70 portion sold at $11.00 is a 24.5% food cost. Dividing the other way gives a markup multiple, not a percentage.</p>
+        <h3>Do these formulas work for home cooking?</h3>
+        <p>The first four do, and they are the ones that change what you put in the trolley. Portion cost is useful for meal planning; food cost percentage and menu pricing only matter if you are selling the food.</p>
+      </div>
 
-      <h3>What if the new pan is much bigger than what the recipe needs?</h3>
-      <p>If the scaling factor is above roughly 1.8-2x, consider splitting the batter across two of the original pan size instead of scaling the recipe up — it's often more reliable than guessing at a large recipe multiplication, and you avoid ending up with an unusually thin layer in an oversized pan.</p>
-
-      <h3>Does pan size change the baking time?</h3>
-      <p>Yes. A wider, shallower pan spreads the same amount of batter thinner, so it bakes faster — start checking 10-15 minutes before the original recipe's time. A narrower, deeper pan holds batter thicker, so it takes longer — start checking 10-15 minutes after the original time. Either way, use a toothpick test rather than trusting the clock alone.</p>
-    </div>
-
-    <div style="margin-top:3rem; padding:1.5rem; background:var(--tomato-light); border-radius:var(--radius-lg);">
-      <h3 style="font-family:'Playfair Display',serif; margin-bottom:0.75rem;">Related Tools & Guides</h3>
-      <ul style="list-style:none; display:flex; flex-direction:column; gap:0.5rem;">
-        <li><a href="/blog/what-size-pot-do-i-need.html" style="color:var(--tomato-dark); font-weight:500;">→ What Size Pot Do I Need?</a></li>
-        <li><a href="/guides/complete-vegetable-roasting-guide.html" style="color:var(--tomato-dark); font-weight:500;">→ The Complete Vegetable Roasting Guide</a></li>
-        <li><a href="/tools/recipe-multiplier.html" style="color:var(--tomato-dark); font-weight:500;">→ Recipe Multiplier Calculator</a></li>
-        <li><a href="/guides/complete-recipe-scaling-guide.html" style="color:var(--tomato-dark); font-weight:500;">→ The Complete Recipe Scaling & Serving Guide</a></li>
-        <li><a href="/tools/oven-temp-converter.html" style="color:var(--tomato-dark); font-weight:500;">→ Oven Temperature Converter</a></li>
-        <li><a href="/guides/complete-baking-conversion-guide.html" style="color:var(--tomato-dark); font-weight:500;">→ The Complete Baking Measurement & Conversion Guide</a></li>
-      </ul>
+      <div style="margin-top:2rem; padding:1.25rem; background:var(--tomato-light); border-radius:var(--radius-lg);">
+        <h2 style="font-family:'Playfair Display',serif; font-size:1.25rem; margin:0 0 0.75rem;">Related Guides</h2>
+        <ul style="margin:0; padding-left:1.1rem; line-height:1.9;">
+          <li><a href="/guides/complete-culinary-math-guide.html">The Complete Culinary Math Guide</a></li>
+          <li><a href="/tools/yield-percentage-calculator.html">Yield Percentage Calculator</a></li>
+          <li><a href="/blog/how-much-to-buy-for-a-recipe.html">Recipe Says 2 Pounds Trimmed — How Much Do I Buy?</a></li>
+          <li><a href="/tools/kitchen-math-generator.html">Kitchen Math Problem Generator</a></li>
+          <li><a href="/guides/complete-recipe-scaling-guide.html">The Complete Recipe Scaling Guide</a></li>
+        </ul>
+      </div>
     </div>
   </div>
 </main>
-
-<script>
-const pans = {
-  round6: { name: '6" Round (2" deep)', cups: 4 },
-  round8: { name: '8" Round (2" deep)', cups: 6 },
-  round9: { name: '9" Round (2" deep)', cups: 8 },
-  round10: { name: '10" Round (2" deep)', cups: 11 },
-  square8: { name: '8" Square', cups: 8 },
-  square9: { name: '9" Square', cups: 10 },
-  rect9x13: { name: '9x13" Rectangular', cups: 14 },
-  rect11x7: { name: '11x7" Rectangular', cups: 8 },
-  springform9: { name: '9" Springform', cups: 10 },
-  bundt10: { name: '10" Bundt', cups: 12 },
-  loaf9x5: { name: '9x5" Loaf', cups: 8 },
-  loaf8x4: { name: '8x4" Loaf', cups: 6 },
-};
-
-function calculate() {
-  const from = pans[document.getElementById('fromPan').value];
-  const to = pans[document.getElementById('toPan').value];
-  if (!from || !to) return;
-  const ratio = to.cups / from.cups;
-  const pct = Math.round((ratio - 1) * 100);
-
-  document.getElementById('ratioResult').textContent = ratio.toFixed(2) + '×';
-  document.getElementById('ratioLabel').textContent = `${from.name} → ${to.name}`;
-
-  let note;
-  if (ratio > 1.05) {
-    note = `Multiply every ingredient by ${ratio.toFixed(2)} (about ${pct}% more of everything, including leavening).`;
-  } else if (ratio < 0.95) {
-    note = `Multiply every ingredient by ${ratio.toFixed(2)} (about ${Math.abs(pct)}% less of everything, including leavening).`;
-  } else {
-    note = `These pans hold nearly the same volume — use the recipe as written. Bake time may still shift slightly if the shapes differ a lot.`;
-  }
-  document.getElementById('ratioNote').textContent = note;
-
-  const warningEl = document.getElementById('splitWarning');
-  if (ratio >= 1.8) {
-    warningEl.textContent = `This is a large jump (${ratio.toFixed(2)}×) — consider baking two batches in the original pan instead of scaling ingredients this far up, especially for delicate cakes.`;
-    warningEl.style.display = 'block';
-  } else {
-    warningEl.style.display = 'none';
-  }
-}
-
-document.addEventListener('DOMContentLoaded', calculate);
-</script>
 <!-- CC:STATIC-CHROME:START (build-static.js 자동 생성 — 직접 수정하지 말 것) -->
   <footer class="site-footer">
     <div class="footer-inner">

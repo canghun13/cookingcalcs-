@@ -3,55 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Baking Pan Size Converter – CookingCalcs</title>
-  <meta name="description" content="Convert any baking recipe to a different pan size. Get the exact scaling factor, whether to split into multiple pans, and how bake time changes — for round, square, rectangular, bundt, and loaf pans.">
-  <link rel="canonical" href="https://cookingcalcs.com/tools/pan-size-converter.html">
+  <title>Recipe Says 2 Pounds Trimmed — How Much Do I Buy?</title>
+  <meta name="description" content="Recipes list prepped weights; shops sell whole vegetables. How to work backwards from a trimmed quantity to a shopping list, with yields and typical unit weights.">
+  <link rel="canonical" href="https://cookingcalcs.com/blog/how-much-to-buy-for-a-recipe.html">
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="/assets/css/style.css">
   <script src="/assets/js/nav.js" defer></script>
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "name": "Baking Pan Size Converter",
-  "url": "https://cookingcalcs.com/tools/pan-size-converter.html",
-  "description": "Convert any baking recipe to a different pan size. Get the exact scaling factor, whether to split into multiple pans, and how bake time changes.",
-  "applicationCategory": "UtilitiesApplication",
-  "operatingSystem": "Any",
-  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-  "provider": { "@type": "Organization", "name": "CookingCalcs", "url": "https://cookingcalcs.com" }
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "How do I convert a recipe from one pan size to another?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Divide the new pan's volume by the original pan's volume to get a scaling factor, then multiply every ingredient in the recipe by that number. For example, moving from an 8-inch round pan (6 cups) to a 9x13-inch pan (14 cups) means multiplying every ingredient by about 2.3."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What if the new pan is much bigger than what the recipe needs?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "If the scaling factor is above roughly 1.8-2x, consider splitting the batter across two of the original pan size instead of scaling the recipe up — it's often more reliable than guessing at a large recipe multiplication, and you avoid ending up with an unusually thin layer in an oversized pan."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Does pan size change the baking time?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. A wider, shallower pan spreads the same amount of batter thinner, so it bakes faster — start checking 10-15 minutes before the original recipe's time. A narrower, deeper pan holds batter thicker, so it takes longer — start checking 10-15 minutes after the original time. Either way, use a toothpick test rather than trusting the clock alone."
-      }
-    }
-  ]
+  "@type": "Article",
+  "headline": "Recipe Says 2 Pounds Trimmed — How Much Do I Buy?",
+  "description": "How to convert a recipe's prepped quantity into a shopping list: divide by the yield percentage, then round to the whole units a shop actually sells.",
+  "author": { "@type": "Organization", "name": "CookingCalcs" },
+  "publisher": { "@type": "Organization", "name": "CookingCalcs", "url": "https://cookingcalcs.com" },
+  "datePublished": "2026-09-28",
+  "dateModified": "2026-09-28",
+  "mainEntityOfPage": "https://cookingcalcs.com/blog/how-much-to-buy-for-a-recipe.html"
 }
 </script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
@@ -60,7 +29,6 @@
       .ref-table th { background:var(--sand-dark); padding:0.7rem 0.9rem; text-align:left; font-weight:600; border:1px solid var(--border); }
       .ref-table td { padding:0.7rem 0.9rem; border:1px solid var(--border); vertical-align:top; }
       .ref-table tbody tr:nth-child(even) td { background:#fbfaf8; }
-  @media(max-width:600px) { .pan-form-grid { grid-template-columns:1fr !important; } }
 </style>
 </head>
 <body>
@@ -114,165 +82,87 @@
 <!-- CC:STATIC-CHROME:END -->
 <main>
   <div class="tool-page">
-    <h1>Baking Pan Size Converter</h1>
-    <p class="tool-desc">Have a recipe for one pan but want to use another? Get the exact scaling factor and what changes about bake time.</p>
+    <span class="blog-card-tag">Kitchen Math</span>
+    <h1>Recipe Says 2 Pounds Trimmed — How Much Do I Buy?</h1>
+    <div class="blog-meta">September 2026 · 8 min read</div>
+    <div class="blog-content">
+      <p style="font-size:1.05rem; padding:1rem 1.2rem; background:var(--tomato-light); border-radius:var(--radius-lg);"><strong>Divide, don't add.</strong> A recipe asking for 2 pounds of peeled butternut squash needs 2 ÷ 0.66 = <strong>3.03 pounds of whole squash</strong>, not 2 pounds plus a bit. Then round up to whole units, because shops sell squashes, not decimals.</p>
 
-    <div class="tool-box">
-      <div class="pan-form-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
-        <div class="form-group">
-          <label for="fromPan">Recipe calls for</label>
-          <select id="fromPan" onchange="calculate()">
-            <option value="round6">6" Round (2" deep) — 4 cups</option>
-            <option value="round8">8" Round (2" deep) — 6 cups</option>
-            <option value="round9" selected>9" Round (2" deep) — 8 cups</option>
-            <option value="round10">10" Round (2" deep) — 11 cups</option>
-            <option value="square8">8" Square — 8 cups</option>
-            <option value="square9">9" Square — 10 cups</option>
-            <option value="rect9x13">9x13" Rectangular — 14 cups</option>
-            <option value="rect11x7">11x7" Rectangular — 8 cups</option>
-            <option value="springform9">9" Springform — 10 cups</option>
-            <option value="bundt10">10" Bundt — 12 cups</option>
-            <option value="loaf9x5">9x5" Loaf — 8 cups</option>
-            <option value="loaf8x4">8x4" Loaf — 6 cups</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="toPan">You want to use</label>
-          <select id="toPan" onchange="calculate()">
-            <option value="round6">6" Round (2" deep) — 4 cups</option>
-            <option value="round8">8" Round (2" deep) — 6 cups</option>
-            <option value="round9">9" Round (2" deep) — 8 cups</option>
-            <option value="round10">10" Round (2" deep) — 11 cups</option>
-            <option value="square8" selected>8" Square — 8 cups</option>
-            <option value="square9">9" Square — 10 cups</option>
-            <option value="rect9x13">9x13" Rectangular — 14 cups</option>
-            <option value="rect11x7">11x7" Rectangular — 8 cups</option>
-            <option value="springform9">9" Springform — 10 cups</option>
-            <option value="bundt10">10" Bundt — 12 cups</option>
-            <option value="loaf9x5">9x5" Loaf — 8 cups</option>
-            <option value="loaf8x4">8x4" Loaf — 6 cups</option>
-          </select>
-        </div>
-      </div>
-    </div>
+      <p>Recipes are written from the cook's side of the cutting board. "Two pounds of peeled, cubed butternut squash." "Three cups of chopped onion." "One pound of trimmed green beans." Shops sell from the other side: whole squashes with skin and seeds, onions in papery jackets, beans with their stem ends on. Somewhere between the recipe and the checkout, somebody has to do a conversion, and getting it wrong is how you end up back at the shop halfway through cooking.</p>
 
-    <div id="result" style="margin-top:1.5rem;">
-      <div class="result-box">
-        <div class="result-num" id="ratioResult"></div>
-        <div class="result-label" id="ratioLabel"></div>
-      </div>
-      <div style="margin-top:1rem; padding:1rem; background:var(--sand-dark); border-radius:var(--radius); font-size:0.875rem; color:var(--ink);" id="ratioNote"></div>
-      <div id="splitWarning" style="display:none; margin-top:0.75rem; padding:0.85rem 1rem; background:#fde8e8; border-left:3px solid var(--tomato); border-radius:6px; font-size:0.85rem; color:var(--ink);"></div>
-    </div>
+      <h2>The One Piece of Arithmetic</h2>
+      <p>Every ingredient has a <strong>yield percentage</strong>: the share of the whole thing that survives peeling, coring, stemming and trimming. Butternut squash is about 66%. Onions are about 89%. A whole head of cauliflower is about 55%, because the leaves and core are most of what you carry home.</p>
+      <p>To go from a recipe quantity to a shopping quantity you <em>divide</em> by that percentage:</p>
+      <p style="padding:0.9rem 1.1rem; background:var(--sand-dark); border-radius:var(--radius-lg);"><strong>Buy = what the recipe needs ÷ yield percentage</strong></p>
+      <p>The instinct to add a percentage instead is the mistake worth naming, because it always under-buys and the error gets worse as the yield gets lower. Two pounds of squash plus 34% is 2.68 pounds. Two pounds divided by 0.66 is 3.03. At cauliflower's 55% yield the gap is bigger still: adding 45% to a pound gives 1.45 pounds, dividing gives 1.82, and you are nearly half a head short.</p>
+      <p>The <a href="/tools/yield-percentage-calculator.html">yield percentage calculator</a> runs this in both directions and carries the price through, if you would rather not do it on your phone at the vegetable aisle.</p>
 
-    <div class="blog-content" style="margin-top:2rem;">
-      <h2>How to Use This</h2>
-      <p>Select the pan your recipe was written for and the pan you actually want to use. The calculator divides the two pans' volumes to give you a single multiplier — apply that number to every ingredient in the recipe, including leavening (baking powder/soda), which scales the same as everything else.</p>
-
-      <h2>Pan Volume Reference</h2>
+      <h2>Then Round to Something You Can Actually Buy</h2>
+      <p>3.03 pounds of butternut squash is a number, not a purchase. Squashes in a supermarket run roughly 2 to 3 pounds each, so this is one large one, or a small one plus most of another. That second step — converting a weight into units on a shelf — is where a chart of typical sizes saves a lot of standing around guessing.</p>
       <table class="ref-table">
-        <thead><tr><th>Pan</th><th>Volume</th></tr></thead>
+        <thead><tr><th>Item</th><th>Typical single unit</th><th>Yield</th></tr></thead>
         <tbody>
-          <tr><td>6" Round (2" deep)</td><td>4 cups</td></tr>
-          <tr><td>8" Round (2" deep)</td><td>6 cups</td></tr>
-          <tr><td>9" Round (2" deep)</td><td>8 cups</td></tr>
-          <tr><td>10" Round (2" deep)</td><td>11 cups</td></tr>
-          <tr><td>8" Square</td><td>8 cups</td></tr>
-          <tr><td>9" Square</td><td>10 cups</td></tr>
-          <tr><td>9x13" Rectangular</td><td>14 cups</td></tr>
-          <tr><td>11x7" Rectangular</td><td>8 cups</td></tr>
-          <tr><td>9" Springform</td><td>10 cups</td></tr>
-          <tr><td>10" Bundt</td><td>12 cups</td></tr>
-          <tr><td>9x5" Loaf</td><td>8 cups</td></tr>
-          <tr><td>8x4" Loaf</td><td>6 cups</td></tr>
+          <tr><td>Onion, medium</td><td>about 4 oz / 110 g</td><td>89%</td></tr>
+          <tr><td>Onion, large</td><td>about 5-6 oz / 150 g</td><td>89%</td></tr>
+          <tr><td>Russet potato, medium</td><td>about 6 oz / 170 g</td><td>81%</td></tr>
+          <tr><td>Sweet potato, medium</td><td>about 4.5 oz / 130 g</td><td>80%</td></tr>
+          <tr><td>Carrot, medium</td><td>about 2 oz / 60 g</td><td>82%</td></tr>
+          <tr><td>Celery, one stalk</td><td>about 1.5 oz / 40 g</td><td>75%</td></tr>
+          <tr><td>Bell pepper, medium</td><td>about 4 oz / 120 g</td><td>65%</td></tr>
+          <tr><td>Tomato, medium</td><td>about 4.5 oz / 125 g</td><td>91%</td></tr>
+          <tr><td>Zucchini, medium</td><td>about 7 oz / 195 g</td><td>95%</td></tr>
+          <tr><td>Butternut squash</td><td>2-3 lb / 0.9-1.4 kg</td><td>66%</td></tr>
+          <tr><td>Broccoli, one head</td><td>about 1 lb / 450 g</td><td>61%</td></tr>
+          <tr><td>Cauliflower, one head</td><td>about 1.3 lb / 590 g</td><td>55%</td></tr>
+          <tr><td>Lemon, medium</td><td>about 3.5 oz / 100 g</td><td>3 tbsp juice</td></tr>
+          <tr><td>Lime, medium</td><td>about 2.4 oz / 67 g</td><td>2 tbsp juice</td></tr>
         </tbody>
       </table>
-      <p>A round pan's volume doesn't scale the way its diameter suggests — area scales with the radius squared, so a 10" round pan (78 sq in) has more than 50% more surface area than an 8" round pan (50 sq in), not 25% more. This is why eyeballing pan swaps by diameter alone is unreliable, and why the volume-based multiplier above is the more accurate approach.</p>
+      <p style="color:var(--mid); font-size:0.92rem;">Supermarket produce varies enough that these are working estimates, not specifications. Weigh once if the quantity really matters.</p>
 
-      <h2>Why Bake Time Changes With Pan Shape</h2>
-      <p>Even when two pans hold the exact same volume, they won't necessarily bake in the same time if their shapes differ. A wider, shallower pan spreads the batter thinner, so heat reaches the center faster — start checking 10-15 minutes before the original recipe's stated time. A narrower, deeper pan holds the batter thicker, so the center takes longer to set — start checking 10-15 minutes after the original time. Only fill any pan about ⅔ full regardless of size, and bake any leftover batter as a smaller side portion (muffins or a mini loaf) rather than overfilling.</p>
+      <h2>Three Worked Examples</h2>
+      <p><strong>Two pounds of peeled, cubed butternut squash.</strong> 2 ÷ 0.66 = 3.03 lb as purchased. At 2 to 3 pounds a squash, buy one large one and accept a little spare, or two small ones and roast the rest.</p>
+      <p><strong>Three cups of chopped onion.</strong> Volume first: a cup of chopped onion weighs about 160 g, so three cups is 480 g of prepped onion. Divide by the 89% yield: 480 ÷ 0.89 = 539 g, about 1.2 pounds. At roughly 150 g for a large onion, that is <strong>four large onions</strong> — noticeably more than the three most people would reach for.</p>
+      <p><strong>Half a cup of lemon juice.</strong> Here the weight route is the wrong route. Juice is measured by volume, and a medium lemon gives about 3 tablespoons. Half a cup is 8 tablespoons, so 8 ÷ 3 = 2.7, meaning <strong>three lemons</strong>. Yield percentages are for solids; for juice, count fruit.</p>
 
-      <h2>When to Split Into Multiple Pans Instead</h2>
-      <p>If the scaling factor comes out above roughly 1.8-2x, it's often more reliable to bake the recipe twice (or split the batter across two of the original pan) rather than doubling ingredients and guessing at a much longer bake time for an unfamiliar large batch. This is especially true for delicate bakes like sponge cakes, where scaling errors are harder to fix mid-bake than with a denser cake or bar recipe.</p>
+      <h2>Trim Loss Is Only the First Loss</h2>
+      <p>Yield percentage stops at the cutting board. If the recipe measures the ingredient <em>cooked</em>, there is a second shrink waiting after it.</p>
+      <p>Spinach makes the point painfully. A pound of untrimmed spinach loses its stems and coarse leaves first, leaving about 12 ounces. Then it hits the pan and collapses to roughly a quarter of that. A recipe asking for "one cup of cooked spinach" has quietly asked for a bag that looked absurd at the till. Apply the yield percentage first to get to trimmed weight, then apply cooking shrinkage — the <a href="/tools/raw-to-cooked-weight.html">raw to cooked weight converter</a> handles that second step for vegetables, meat and grains.</p>
+      <p>Meat has the same two-stage structure: what the butcher's bone and fat cost you, then what the pan takes. If you are scaling a recipe up for a crowd, both losses scale with it, which is why big-batch shopping lists built by simply multiplying the original tend to come up short.</p>
 
-      <h2>When You Don't Know Your Pan's Exact Volume</h2>
-      <p>If a pan is an odd shape or an unfamiliar size not in the chart above, measure it directly rather than guessing from the dimensions printed on the box (manufacturers round inconsistently, and vintage or hand-me-down pans often don't match modern standard sizes exactly). Fill the empty pan with water, one cup at a time, counting as you go, until it's full to the rim — that count is the pan's true volume, ready to use with the scaling factor the same way as any pan in the chart. This water-fill method is also the most reliable way to check a springform or bundt pan, since their fluted or removable-bottom shapes make the standard length-times-width-times-height math unreliable.</p>
+      <h2>When the Recipe Doesn't Say Which It Means</h2>
+      <p>"Two cups of chopped tomatoes" is unambiguous — chopped is a prepped state, so that is edible portion. "Two large tomatoes" is as-purchased, and no conversion is needed. The awkward one is "1 pound of tomatoes, chopped", where the comma is doing a lot of work: it usually means buy a pound and chop it, not chop until you have a pound.</p>
+      <p>The rule that resolves most of them: <strong>if the quantity comes before the preparation word, it is as-purchased; if the preparation word comes first, it is edible portion.</strong> "1 pound carrots, grated" means weigh then grate. "1 pound grated carrot" means grate then weigh, and you need about 1.2 pounds of carrots to get there. It is a small distinction that changes a recipe's outcome more often than it should.</p>
 
-      <h2>Combining Two Smaller Pans Into One Larger One</h2>
-      <p>Two 9-inch round pans (8 cups each, 16 cups combined) don't quite equal one 9x13-inch pan (14 cups) — they actually hold more, not less, which is a common source of confusion when a recipe says "use two 9-inch pans or one 9x13." In practice this works because cake layers in round pans are baked thinner and don't fill to the very top the way a rectangular pan does; if you're converting a recipe the other direction (from a 9x13 to two round pans), split the batter evenly by weight or volume rather than by eye, and expect a very slightly shorter bake time in the rounds since the batter sits shallower.</p>
+      <h2>The Whole-Versus-Pre-Cut Decision</h2>
+      <p>Yield is also the honest way to compare pre-cut produce against the whole thing, and it does not always favour the whole thing. A 3 pound pineapple at $3.99 works out at $1.33 a pound as purchased, and at a 38% yield that is $3.50 for every pound of fruit you eat. Pre-cut pineapple at $5.99 a pound is still the more expensive option, but the real gap is $2.49, not $4.66 — less dramatic than the shelf price suggests.</p>
+      <p>Run the same sum on something with a high yield and pre-cut looks much worse: pre-washed spinach barely beats loose spinach on labour, and loses badly on price per usable ounce. Low-yield, fiddly items are where the convenience premium is closest to fair.</p>
 
       <h2>Frequently Asked Questions</h2>
-      <h3>How do I convert a recipe from one pan size to another?</h3>
-      <p>Divide the new pan's volume by the original pan's volume to get a scaling factor, then multiply every ingredient in the recipe by that number. For example, moving from an 8-inch round pan (6 cups) to a 9x13-inch pan (14 cups) means multiplying every ingredient by about 2.3.</p>
+      <div class="faq-section">
+        <h3>How much whole butternut squash do I need for 2 pounds of cubes?</h3>
+        <p>About 3 pounds. Butternut yields roughly 66% after the skin, seeds and stem come off, and 2 ÷ 0.66 = 3.03 pounds. In practice that is one large squash.</p>
+        <h3>How many onions make 3 cups chopped?</h3>
+        <p>Four large onions. Three cups of chopped onion weighs about 480 g; at an 89% yield you need 539 g of whole onion, and a large onion runs around 150 g.</p>
+        <h3>Does a recipe weight mean before or after trimming?</h3>
+        <p>Read the word order. "1 pound carrots, grated" means weigh first and prepare after. "1 pound grated carrot" means the pound is the prepared weight, so you need to buy more than a pound.</p>
+        <h3>How many lemons do I need for half a cup of juice?</h3>
+        <p>Three medium lemons. Each gives about 3 tablespoons, and half a cup is 8 tablespoons. Juice is a volume yield, so count fruit rather than using the weight-based yield percentage.</p>
+      </div>
 
-      <h3>What if the new pan is much bigger than what the recipe needs?</h3>
-      <p>If the scaling factor is above roughly 1.8-2x, consider splitting the batter across two of the original pan size instead of scaling the recipe up — it's often more reliable than guessing at a large recipe multiplication, and you avoid ending up with an unusually thin layer in an oversized pan.</p>
-
-      <h3>Does pan size change the baking time?</h3>
-      <p>Yes. A wider, shallower pan spreads the same amount of batter thinner, so it bakes faster — start checking 10-15 minutes before the original recipe's time. A narrower, deeper pan holds batter thicker, so it takes longer — start checking 10-15 minutes after the original time. Either way, use a toothpick test rather than trusting the clock alone.</p>
-    </div>
-
-    <div style="margin-top:3rem; padding:1.5rem; background:var(--tomato-light); border-radius:var(--radius-lg);">
-      <h3 style="font-family:'Playfair Display',serif; margin-bottom:0.75rem;">Related Tools & Guides</h3>
-      <ul style="list-style:none; display:flex; flex-direction:column; gap:0.5rem;">
-        <li><a href="/blog/what-size-pot-do-i-need.html" style="color:var(--tomato-dark); font-weight:500;">→ What Size Pot Do I Need?</a></li>
-        <li><a href="/guides/complete-vegetable-roasting-guide.html" style="color:var(--tomato-dark); font-weight:500;">→ The Complete Vegetable Roasting Guide</a></li>
-        <li><a href="/tools/recipe-multiplier.html" style="color:var(--tomato-dark); font-weight:500;">→ Recipe Multiplier Calculator</a></li>
-        <li><a href="/guides/complete-recipe-scaling-guide.html" style="color:var(--tomato-dark); font-weight:500;">→ The Complete Recipe Scaling & Serving Guide</a></li>
-        <li><a href="/tools/oven-temp-converter.html" style="color:var(--tomato-dark); font-weight:500;">→ Oven Temperature Converter</a></li>
-        <li><a href="/guides/complete-baking-conversion-guide.html" style="color:var(--tomato-dark); font-weight:500;">→ The Complete Baking Measurement & Conversion Guide</a></li>
-      </ul>
+      <div style="margin-top:2rem; padding:1.25rem; background:var(--tomato-light); border-radius:var(--radius-lg);">
+        <h2 style="font-family:'Playfair Display',serif; font-size:1.25rem; margin:0 0 0.75rem;">Related Guides</h2>
+        <ul style="margin:0; padding-left:1.1rem; line-height:1.9;">
+          <li><a href="/guides/complete-culinary-math-guide.html">The Complete Culinary Math Guide</a></li>
+          <li><a href="/tools/yield-percentage-calculator.html">Yield Percentage Calculator</a></li>
+          <li><a href="/blog/culinary-math-formulas.html">Culinary Math Formulas You Actually Need</a></li>
+          <li><a href="/guides/complete-recipe-scaling-guide.html">The Complete Recipe Scaling Guide</a></li>
+          <li><a href="/tools/raw-to-cooked-weight.html">Raw to Cooked Weight Converter</a></li>
+        </ul>
+      </div>
     </div>
   </div>
 </main>
-
-<script>
-const pans = {
-  round6: { name: '6" Round (2" deep)', cups: 4 },
-  round8: { name: '8" Round (2" deep)', cups: 6 },
-  round9: { name: '9" Round (2" deep)', cups: 8 },
-  round10: { name: '10" Round (2" deep)', cups: 11 },
-  square8: { name: '8" Square', cups: 8 },
-  square9: { name: '9" Square', cups: 10 },
-  rect9x13: { name: '9x13" Rectangular', cups: 14 },
-  rect11x7: { name: '11x7" Rectangular', cups: 8 },
-  springform9: { name: '9" Springform', cups: 10 },
-  bundt10: { name: '10" Bundt', cups: 12 },
-  loaf9x5: { name: '9x5" Loaf', cups: 8 },
-  loaf8x4: { name: '8x4" Loaf', cups: 6 },
-};
-
-function calculate() {
-  const from = pans[document.getElementById('fromPan').value];
-  const to = pans[document.getElementById('toPan').value];
-  if (!from || !to) return;
-  const ratio = to.cups / from.cups;
-  const pct = Math.round((ratio - 1) * 100);
-
-  document.getElementById('ratioResult').textContent = ratio.toFixed(2) + '×';
-  document.getElementById('ratioLabel').textContent = `${from.name} → ${to.name}`;
-
-  let note;
-  if (ratio > 1.05) {
-    note = `Multiply every ingredient by ${ratio.toFixed(2)} (about ${pct}% more of everything, including leavening).`;
-  } else if (ratio < 0.95) {
-    note = `Multiply every ingredient by ${ratio.toFixed(2)} (about ${Math.abs(pct)}% less of everything, including leavening).`;
-  } else {
-    note = `These pans hold nearly the same volume — use the recipe as written. Bake time may still shift slightly if the shapes differ a lot.`;
-  }
-  document.getElementById('ratioNote').textContent = note;
-
-  const warningEl = document.getElementById('splitWarning');
-  if (ratio >= 1.8) {
-    warningEl.textContent = `This is a large jump (${ratio.toFixed(2)}×) — consider baking two batches in the original pan instead of scaling ingredients this far up, especially for delicate cakes.`;
-    warningEl.style.display = 'block';
-  } else {
-    warningEl.style.display = 'none';
-  }
-}
-
-document.addEventListener('DOMContentLoaded', calculate);
-</script>
 <!-- CC:STATIC-CHROME:START (build-static.js 자동 생성 — 직접 수정하지 말 것) -->
   <footer class="site-footer">
     <div class="footer-inner">

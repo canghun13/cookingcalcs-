@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Meal Timeline Planner — What Time to Start Each Dish</title>
-  <meta name="description" content="Enter your serving time and each dish's prep, cook and rest time. Get a backwards schedule with exact start times, plus warnings when two dishes want the oven at once.">
-  <link rel="canonical" href="https://cookingcalcs.com/tools/meal-timeline-planner.html">
+  <title>Yield Percentage Calculator — How Much to Buy After Trim</title>
+  <meta name="description" content="Turn as-purchased weight into edible portion, or work backwards to find how much to buy. Yield percentages for 51 fruits and vegetables, plus true cost per usable pound.">
+  <link rel="canonical" href="https://cookingcalcs.com/tools/yield-percentage-calculator.html">
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="/assets/css/style.css">
   <script src="/assets/js/nav.js" defer></script>
@@ -13,9 +13,9 @@
 {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  "name": "Meal Timeline Planner",
-  "url": "https://cookingcalcs.com/tools/meal-timeline-planner.html",
-  "description": "Work backwards from your serving time to get an exact start time for every dish, including prep, cooking and resting, with oven conflict detection.",
+  "name": "Yield Percentage Calculator",
+  "url": "https://cookingcalcs.com/tools/yield-percentage-calculator.html",
+  "description": "Convert as-purchased weight to edible portion weight and back, using published yield percentages for fruits and vegetables. Also shows trim waste and the real cost per usable pound.",
   "applicationCategory": "UtilitiesApplication",
   "operatingSystem": "Any",
   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
@@ -29,42 +29,42 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "How do I work out what time to start cooking?",
+      "name": "What is yield percentage in cooking?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Start at your serving time and subtract backwards for each dish: first its resting time, then its cooking time, then its prep time. That gives the moment prep has to begin. Doing this for every dish and sorting the results tells you the order of the whole meal and which dish starts first."
+        "text": "Yield percentage is the share of what you bought that survives trimming, peeling, coring and boning. It is the edible portion quantity divided by the as-purchased quantity, times 100. A butternut squash with a 66% yield gives 1.32 pounds of usable flesh from a 2 pound squash; the other 0.68 pound is skin, seeds and stem."
       }
     },
     {
       "@type": "Question",
-      "name": "Does resting time count as part of the schedule?",
+      "name": "How do I calculate how much produce to buy?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, and it is the most useful block in the whole plan. A roast that needs 30 minutes of rest leaves the oven 30 minutes before serving, which hands you an empty oven at exactly the moment your sides need heat. Treating the rest as dead time is why sides so often arrive lukewarm."
+        "text": "Divide the trimmed weight your recipe needs by the yield percentage expressed as a decimal. A recipe calling for 2 pounds of peeled butternut squash at 66% yield needs 2 ÷ 0.66, which is about 3.03 pounds of whole squash. Then round up to the nearest whole unit you can actually buy."
       }
     },
     {
       "@type": "Question",
-      "name": "How do I know if my plan fits in one oven?",
+      "name": "Is yield percentage the same as cooking shrinkage?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Lay out each oven dish's in-and-out window and look for overlaps. Two dishes overlapping at similar temperatures is usually fine. Two overlapping dishes needing temperatures more than about 50°F apart is a genuine conflict — move one earlier, cook it before the roast, or reheat it at the end."
+        "text": "No, and the two stack. Yield percentage covers loss before cooking — peel, seeds, stems, bone, fat you trim off. Shrinkage is moisture and fat lost during cooking. A pound of whole spinach loses stems first, then loses most of its remaining weight in the pan. Apply the yield percentage to get to trimmed weight, then apply shrinkage to get to cooked weight."
       }
     },
     {
       "@type": "Question",
-      "name": "Why does everything take longer than my plan says?",
+      "name": "Why do published yield percentage charts disagree?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Two reasons usually. A fuller oven cooks more slowly because the food absorbs heat and blocks airflow, and prep almost always takes longer than people estimate — especially chopping for several dishes at once. Build in a buffer of 15 to 30 minutes for a multi-dish meal rather than scheduling to the minute."
+        "text": "Because yield depends on the grade and size you bought, the season, and how aggressively the person with the knife trims. Strawberries are listed at 94% in one industry table and 87% in a culinary textbook — that gap is how much green shoulder gets hulled away. Treat any chart as a starting figure and replace it with your own number once you have weighed a real batch."
       }
     },
     {
       "@type": "Question",
-      "name": "What should I cook first when everything needs the oven?",
+      "name": "How does yield percentage change the cost of an ingredient?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Anything that needs resting, since it frees the oven while it rests, and anything that reheats well. Cook the dishes that lose their texture fastest — roast vegetables, anything crisp — last, so they come out closest to serving."
+        "text": "The price on the shelf is the as-purchased cost; what you actually pay per usable pound is that price divided by the yield. Pineapple at $2.00 a pound with a 38% yield costs $5.26 per pound of usable fruit. This is the single biggest reason a recipe costs more than adding up shelf prices suggests."
       }
     }
   ]
@@ -76,12 +76,9 @@
       .ref-table th { background:var(--sand-dark); padding:0.7rem 0.9rem; text-align:left; font-weight:600; border:1px solid var(--border); }
       .ref-table td { padding:0.7rem 0.9rem; border:1px solid var(--border); vertical-align:top; }
       .ref-table tbody tr:nth-child(even) td { background:#fbfaf8; }
-      .mt-row { display:grid; grid-template-columns:1.6fr 1fr 1fr 1fr 1.1fr; gap:0.5rem; margin-bottom:0.55rem; align-items:end; }
-      .mt-row label { font-size:0.78rem; }
-      .tl-item { display:flex; gap:0.85rem; padding:0.65rem 0; border-bottom:1px solid var(--border); }
-      .tl-clock { min-width:82px; font-weight:700; color:var(--tomato-dark); }
-      .warnbox { padding:0.85rem 1rem; border-radius:10px; background:#fff4e5; color:#8a5300; margin-bottom:1rem; font-size:0.9rem; }
-      @media(max-width:700px){ .mt-row { grid-template-columns:1fr 1fr; } .tl-clock { min-width:70px; } }
+      .yp-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+      .yp-note { padding:0.85rem 1rem; border-radius:10px; background:#fff4e5; color:#8a5300; margin-bottom:1rem; font-size:0.9rem; }
+      @media(max-width:600px){ .yp-grid { grid-template-columns:1fr; } }
 </style>
 </head>
 <body>
@@ -135,188 +132,285 @@
 <!-- CC:STATIC-CHROME:END -->
 <main>
   <div class="tool-page">
-    <h1>Meal Timeline Planner</h1>
-    <p class="tool-desc">Tell it when you want to eat and what you're making. It works backwards and gives every dish a start time — and warns you when two of them want the oven at the same moment.</p>
+    <h1>Yield Percentage Calculator</h1>
+    <p class="tool-desc">Pick an ingredient and say which direction you need. The calculator converts between as-purchased weight and trimmed, edible weight, shows how much you throw away, and works out what the usable portion really costs per pound.</p>
 
     <div class="tool-box">
       <div class="form-group">
-        <label for="serveTime">Serving time</label>
-        <input type="time" id="serveTime" value="18:30" onchange="calc()">
+        <label for="item">Ingredient</label>
+        <select id="item" onchange="syncYield()">
+          <optgroup label="Vegetables">
+            <option value="56">Asparagus</option>
+            <option value="88">Beans, green or wax</option>
+            <option value="76">Beets, with tops</option>
+            <option value="61">Broccoli, whole heads</option>
+            <option value="95">Broccoli crowns or florets</option>
+            <option value="74">Brussels sprouts</option>
+            <option value="79">Cabbage, green or red</option>
+            <option value="82">Carrots, jumbo unpeeled</option>
+            <option value="55">Cauliflower, whole</option>
+            <option value="75">Celery</option>
+            <option value="73">Cucumber, peeled</option>
+            <option value="95">Cucumber, unpeeled</option>
+            <option value="81">Eggplant</option>
+            <option value="60">Fennel</option>
+            <option value="80">Ginger root</option>
+            <option value="74">Kale</option>
+            <option value="75">Leeks</option>
+            <option value="97">Mushrooms, button</option>
+            <option value="89">Onion, jumbo yellow or red</option>
+            <option value="70">Onions, green (scallions)</option>
+            <option value="85">Parsnips</option>
+            <option value="38">Peas, green in the pod</option>
+            <option value="85">Peas, snap or snow</option>
+            <option value="65">Peppers, bell (green or red)</option>
+            <option value="81" selected>Potato, russet or Yukon Gold</option>
+            <option value="63">Radishes</option>
+            <option value="85">Rutabaga</option>
+            <option value="74">Spinach, untrimmed</option>
+            <option value="66">Squash, butternut or acorn</option>
+            <option value="95">Squash, zucchini or yellow</option>
+            <option value="80">Sweet potato</option>
+            <option value="91">Tomatoes, round</option>
+            <option value="81">Turnips</option>
+          </optgroup>
+          <optgroup label="Fruit">
+            <option value="72">Avocado</option>
+            <option value="66">Banana</option>
+            <option value="96">Blackberries</option>
+            <option value="43">Cantaloupe</option>
+            <option value="62">Cherries</option>
+            <option value="96">Grapes</option>
+            <option value="48">Honeydew</option>
+            <option value="36">Lemons, for juice</option>
+            <option value="47">Limes, for juice</option>
+            <option value="69">Mango</option>
+            <option value="44">Oranges, segmented</option>
+            <option value="65">Papaya</option>
+            <option value="76">Peaches</option>
+            <option value="78">Pears</option>
+            <option value="38">Pineapple</option>
+            <option value="94">Plums</option>
+            <option value="94">Strawberries, hulled</option>
+            <option value="52">Watermelon</option>
+          </optgroup>
+          <optgroup label="Other">
+            <option value="custom">Something else — I'll enter the yield</option>
+          </optgroup>
+        </select>
       </div>
 
-      <label style="display:block; font-weight:600; margin:1.1rem 0 0.5rem;">Your dishes</label>
-      <div id="rows"></div>
-      <button type="button" id="addBtn" onclick="addRow()" style="padding:0.5rem 0.9rem; border-radius:8px; border:1.5px solid var(--tomato); background:none; color:var(--tomato-dark); font-weight:600; cursor:pointer; margin-bottom:1rem;">+ Add a dish</button>
-
-      <div id="result" style="display:none;">
-        <div id="warnings"></div>
-        <h3 style="font-family:'Playfair Display',serif; font-size:1.15rem; margin:0.5rem 0 0.4rem;">Your schedule</h3>
-        <div id="timeline"></div>
-        <p id="startNote" style="margin-top:0.9rem; color:var(--mid); font-size:0.9rem;"></p>
+      <div class="form-group">
+        <label for="yieldPct">Yield percentage</label>
+        <input type="number" id="yieldPct" min="1" max="100" step="0.1" value="81" oninput="calc()">
       </div>
-      <p id="emptyMsg" style="color:var(--mid); font-size:0.9rem;">Fill in a cook time for at least one dish.</p>
+
+      <div class="form-group">
+        <label for="dir">What are you working out?</label>
+        <select id="dir" onchange="calc()">
+          <option value="ap2ep">I'm buying this much — how much is usable?</option>
+          <option value="ep2ap">My recipe needs this much trimmed — how much do I buy?</option>
+        </select>
+      </div>
+
+      <div class="yp-grid">
+        <div class="form-group">
+          <label for="wt" id="wtLabel">Weight you're buying</label>
+          <input type="number" id="wt" min="0" step="0.01" value="3" oninput="calc()">
+        </div>
+        <div class="form-group">
+          <label for="unit">Unit</label>
+          <select id="unit" onchange="calc()">
+            <option value="lb" selected>pounds</option>
+            <option value="oz">ounces</option>
+            <option value="kg">kilograms</option>
+            <option value="g">grams</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="price">Shelf price per pound or kilogram (optional)</label>
+        <input type="number" id="price" min="0" step="0.01" placeholder="e.g. 1.99" oninput="calc()">
+      </div>
+
+      <div id="result" style="display:none; margin-top:1.4rem;">
+        <div id="warn"></div>
+        <div class="yp-grid">
+          <div class="result-box">
+            <div class="result-num" id="answer"></div>
+            <div class="result-label" id="answerLabel"></div>
+          </div>
+          <div class="result-box">
+            <div class="result-num" id="waste"></div>
+            <div class="result-label">Trim you throw away</div>
+          </div>
+        </div>
+        <div class="yp-grid" style="margin-top:1rem;">
+          <div class="result-box">
+            <div class="result-num" id="ypOut"></div>
+            <div class="result-label">Yield percentage used</div>
+          </div>
+          <div class="result-box">
+            <div class="result-num" id="epCost">—</div>
+            <div class="result-label" id="epCostLabel">Real cost per usable unit</div>
+          </div>
+        </div>
+        <p id="note" style="margin-top:1rem; color:var(--mid); font-size:0.9rem;"></p>
+      </div>
     </div>
 
-    <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin:2rem 0 1rem;">The Subtraction</h2>
-    <p>Every guide to timing a meal says the same three words — work backwards — and then leaves you to do the arithmetic while holding a knife. The arithmetic itself is simple:</p>
-    <p style="font-size:1.05rem; padding:1rem 1.2rem; background:var(--tomato-light); border-radius:var(--radius-lg);"><strong>Start prep at = serving time − rest − cook − prep</strong></p>
-    <p>A chicken needing 15 minutes of prep, 80 minutes in the oven and 20 minutes of rest, for a 6:30pm dinner: it goes in the oven at 4:50, out at 6:10, and prep starts at 4:35. Run that for every dish, sort by start time, and the whole afternoon has a shape.</p>
-    <p>What makes it worth computing rather than eyeballing is that the dishes interact. Two of them want the oven at once. One of them frees the oven while it rests. A side that takes 20 minutes doesn't need thinking about until 6:10. Those relationships are invisible until the times are lined up next to each other.</p>
+    <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin:2rem 0 1rem;">The Two Formulas Behind It</h2>
+    <p>Everything on this page comes from one relationship between what you buy and what you can actually cook with. Kitchens call the first figure the <strong>as-purchased quantity</strong> (APQ) and the second the <strong>edible portion quantity</strong> (EPQ).</p>
+    <p>Going forward, from the shopping bag to the cutting board: <strong>EPQ = APQ × yield%</strong>. Going backwards, from the recipe to the shopping list: <strong>APQ = EPQ ÷ yield%</strong>. The second one is the one people get wrong, because the instinct is to add a percentage rather than divide by one. A recipe needing 2 pounds of peeled butternut squash at 66% yield does not need 2 pounds plus 34% — it needs 2 ÷ 0.66, which is 3.03 pounds, and that is a whole extra pound of squash.</p>
 
-    <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin:2rem 0 1rem;">Resting Time Is the Most Valuable Block in the Plan</h2>
-    <p>A roast that rests for 30 minutes leaves the oven half an hour before you serve. That isn't a delay — it's an empty oven handed to you at precisely the moment every side dish needs heat, at whatever temperature you like.</p>
-    <p>Most meal-timing problems dissolve once you plan around that window instead of treating it as dead time. Roast potatoes go in when the meat comes out. Gratins get their browning pass. Anything cooked earlier gets brought back up. Cooks who skip the rest end up carving a roast that leaks its juices onto the board <em>and</em> serving lukewarm sides — losing on both counts.</p>
-    <p>Resting times sit in our <a href="/tools/meat-temperature-guide.html">meat temperature guide</a>, and the reason carryover happens at all is covered in <a href="/blog/how-to-calculate-cooking-time.html">how to calculate cooking time</a>.</p>
+    <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin:2rem 0 1rem;">Yield Percentages by Ingredient</h2>
+    <p>These are the figures the calculator uses. Vegetable yields follow the Chefs Resources average produce yield table; fruit yields follow the US Foods produce yield table. Both assume standard restaurant prep — peeled, cored, stemmed, seeded where that applies.</p>
+    <table class="ref-table">
+      <thead><tr><th>Ingredient</th><th>Yield</th><th>What the loss is</th></tr></thead>
+      <tbody>
+        <tr><td>Lemons, for juice</td><td>36%</td><td>Peel, pith, pulp, seeds</td></tr>
+        <tr><td>Pineapple</td><td>38%</td><td>Skin, crown, core</td></tr>
+        <tr><td>Peas, green in the pod</td><td>38%</td><td>Pods</td></tr>
+        <tr><td>Cantaloupe</td><td>43%</td><td>Rind and seed cavity</td></tr>
+        <tr><td>Oranges, segmented</td><td>44%</td><td>Peel, pith, membrane</td></tr>
+        <tr><td>Watermelon</td><td>52%</td><td>Rind</td></tr>
+        <tr><td>Cauliflower, whole</td><td>55%</td><td>Leaves and core</td></tr>
+        <tr><td>Asparagus</td><td>56%</td><td>Woody ends</td></tr>
+        <tr><td>Broccoli, whole heads</td><td>61%</td><td>Thick stalk and leaves</td></tr>
+        <tr><td>Peppers, bell</td><td>65%</td><td>Stem, core, seeds, ribs</td></tr>
+        <tr><td>Squash, butternut or acorn</td><td>66%</td><td>Skin, seeds, stem</td></tr>
+        <tr><td>Banana</td><td>66%</td><td>Peel</td></tr>
+        <tr><td>Avocado</td><td>72%</td><td>Skin and stone</td></tr>
+        <tr><td>Spinach, untrimmed</td><td>74%</td><td>Stems and damaged leaves</td></tr>
+        <tr><td>Celery</td><td>75%</td><td>Base, leaves, tough outer ribs</td></tr>
+        <tr><td>Peaches</td><td>76%</td><td>Skin and stone</td></tr>
+        <tr><td>Pears</td><td>78%</td><td>Skin and core</td></tr>
+        <tr><td>Sweet potato</td><td>80%</td><td>Skin and ends</td></tr>
+        <tr><td>Potato, russet or Yukon Gold</td><td>81%</td><td>Skin and eyes</td></tr>
+        <tr><td>Onion, jumbo</td><td>89%</td><td>Papery skin, root, top</td></tr>
+        <tr><td>Tomatoes, round</td><td>91%</td><td>Core and stem scar</td></tr>
+        <tr><td>Strawberries, hulled</td><td>94%</td><td>Green tops</td></tr>
+        <tr><td>Zucchini or yellow squash</td><td>95%</td><td>Ends only</td></tr>
+        <tr><td>Mushrooms, button</td><td>97%</td><td>Stem bases</td></tr>
+      </tbody>
+    </table>
+    <p style="color:var(--mid); font-size:0.92rem;">The full list in the dropdown runs to 51 entries. Anything not listed can be entered by hand with the custom option.</p>
 
     <!-- Related Tools & Guides -->
     <div style="margin-top:2rem; padding:1.25rem; background:var(--tomato-light); border-radius:var(--radius-lg);">
       <h2 style="font-family:'Playfair Display',serif; font-size:1.25rem; margin:0 0 0.75rem;">Related Tools &amp; Guides</h2>
       <ul style="margin:0; padding-left:1.1rem; line-height:1.9;">
-        <li><a href="/guides/complete-meal-timing-guide.html">The Complete Meal Timing Guide</a></li>
-        <li><a href="/blog/how-to-time-a-meal.html">How to Time a Meal So Everything Finishes Together</a></li>
-        <li><a href="/tools/oven-sharing-calculator.html">Oven Sharing Calculator</a></li>
-        <li><a href="/tools/cooking-time-calculator.html">Cooking Time Calculator</a></li>
-        <li><a href="/tools/reheating-calculator.html">Leftover Reheating Calculator</a></li>
+        <li><a href="/guides/complete-culinary-math-guide.html">The Complete Culinary Math Guide</a></li>
+        <li><a href="/blog/how-much-to-buy-for-a-recipe.html">Recipe Says 2 Pounds Trimmed — How Much Do I Buy?</a></li>
+        <li><a href="/blog/culinary-math-formulas.html">Culinary Math Formulas You Actually Need</a></li>
+        <li><a href="/tools/raw-to-cooked-weight.html">Raw to Cooked Weight Converter</a></li>
+        <li><a href="/tools/cost-per-serving.html">Cost Per Serving Calculator</a></li>
+        <li><a href="/tools/recipe-multiplier.html">Recipe Multiplier</a></li>
       </ul>
     </div>
 
-    <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin:2rem 0 1rem;">When the Oven Can't Take It</h2>
-    <p>The moment a plan usually breaks is two dishes needing the oven at overlapping times at temperatures that don't get along. The planner above flags this, and the fix depends on how far apart they are.</p>
-    <table class="ref-table">
-      <thead><tr><th>Temperature gap</th><th>Do this</th></tr></thead>
-      <tbody>
-        <tr><td>Under 50°F</td><td>Share the oven at the midpoint and adjust both times — see the <a href="/tools/oven-sharing-calculator.html">oven sharing calculator</a></td></tr>
-        <tr><td>Over 50°F</td><td>Move one dish out of the overlap: cook it before the roast, or during the roast's rest</td></tr>
-        <tr><td>One dish can't compromise</td><td>Pastry, bread, soufflé and choux cook alone. Schedule them first, then reheat if needed</td></tr>
-      </tbody>
-    </table>
-    <p>The escape hatch for nearly all of these is that most side dishes reheat well. Cooking something an hour early and bringing it back up for ten minutes costs very little — see <a href="/blog/how-long-to-reheat-leftovers.html">how long to reheat leftovers</a> — while trying to force everything into the same hour costs a lot.</p>
+    <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin:2rem 0 1rem;">Trim Loss and Cooking Loss Are Two Different Losses</h2>
+    <p>This is the part almost every chart skips. Yield percentage stops at the cutting board. It tells you how much usable raw ingredient you have once the peel, seeds and woody ends are in the bin. It says nothing about what happens once heat is involved.</p>
+    <p>Spinach is the clearest case. Buy a pound of untrimmed spinach and roughly 74% of it survives stemming, so you have about 12 ounces of leaves. Then you wilt it, and those 12 ounces collapse to something closer to 3. Two separate losses, applied one after the other, and a recipe that asks for "1 cup cooked spinach" has quietly asked you to buy far more than a cup of anything.</p>
+    <p>The order matters: apply yield percentage first to get from as-purchased to trimmed, then apply cooking shrinkage to get from trimmed to cooked. The <a href="/tools/raw-to-cooked-weight.html">raw to cooked weight converter</a> handles the second half for meat, grains and vegetables.</p>
 
-    <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin:2rem 0 1rem;">Build In a Buffer</h2>
-    <p>Two things reliably push a plan late, and neither is the recipe's fault. A fuller oven cooks more slowly, because the food absorbs heat and the dishes block airflow around each other — allow roughly 10% for two dishes and 15% for three. And prep takes longer than anyone estimates, especially when you're chopping for four dishes rather than one.</p>
-    <p>For a multi-dish meal, add 15 to 30 minutes of slack rather than scheduling to the minute. If it turns out you're early, that's a drink before dinner. If you're late with no buffer, everything after the delay is late too.</p>
+    <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin:2rem 0 1rem;">What the Ingredient Really Costs</h2>
+    <p>Enter a shelf price and the calculator divides it by the yield. That single division is why recipe costing done from shelf prices always comes out too low.</p>
+    <p>Pineapple at $2.00 a pound looks cheaper than strawberries at $4.00 a pound. After yield, the pineapple costs $5.26 per usable pound and the strawberries cost $4.26. The comparison flips. Anyone pricing a menu, or just deciding between whole and pre-cut produce at the store, is comparing the wrong two numbers until yield is in the calculation. The <a href="/tools/cost-per-serving.html">cost per serving calculator</a> takes it the rest of the way to a per-portion figure.</p>
+
+    <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin:2rem 0 1rem;">Treat Any Chart as a Starting Number</h2>
+    <p>Published yield tables disagree with each other, and the disagreement is not a mistake. Strawberries appear at 94% in the US Foods table and 87% in a culinary mathematics textbook. Both are right for the kitchen that measured them: the gap is how much green shoulder gets cut away with the hull.</p>
+    <p>Yield moves with grade, size, season and the person holding the knife. Large onions yield better than small ones because the papery skin is a smaller share of the whole. Late-season celery has more to strip off. If an ingredient matters to your costs, run one yield test — weigh it whole, prep it as you normally would, weigh the usable part, divide — and use your own figure from then on. The charts are for the ingredients you buy once.</p>
 
     <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin:2rem 0 1rem;">Frequently Asked Questions</h2>
     <div class="faq-section">
-      <h3>How do I work out what time to start cooking?</h3>
-      <p>Start at your serving time and subtract backwards for each dish: first its resting time, then its cooking time, then its prep time. That gives the moment prep has to begin. Doing this for every dish and sorting the results tells you the order of the whole meal and which dish starts first.</p>
-
-      <h3>Does resting time count as part of the schedule?</h3>
-      <p>Yes, and it is the most useful block in the whole plan. A roast that needs 30 minutes of rest leaves the oven 30 minutes before serving, which hands you an empty oven at exactly the moment your sides need heat. Treating the rest as dead time is why sides so often arrive lukewarm.</p>
-
-      <h3>How do I know if my plan fits in one oven?</h3>
-      <p>Lay out each oven dish's in-and-out window and look for overlaps. Two dishes overlapping at similar temperatures is usually fine. Two overlapping dishes needing temperatures more than about 50°F apart is a genuine conflict — move one earlier, cook it before the roast, or reheat it at the end.</p>
-
-      <h3>Why does everything take longer than my plan says?</h3>
-      <p>Two reasons usually. A fuller oven cooks more slowly because the food absorbs heat and blocks airflow, and prep almost always takes longer than people estimate — especially chopping for several dishes at once. Build in a buffer of 15 to 30 minutes for a multi-dish meal rather than scheduling to the minute.</p>
-
-      <h3>What should I cook first when everything needs the oven?</h3>
-      <p>Anything that needs resting, since it frees the oven while it rests, and anything that reheats well. Cook the dishes that lose their texture fastest — roast vegetables, anything crisp — last, so they come out closest to serving.</p>
+      <h3>What is yield percentage in cooking?</h3>
+      <p>It is the share of what you bought that survives trimming, peeling, coring and boning — edible portion quantity divided by as-purchased quantity, times 100. A butternut squash at 66% yield gives 1.32 pounds of usable flesh from a 2 pound squash, with the other 0.68 pound going to skin, seeds and stem.</p>
+      <h3>How do I calculate how much produce to buy?</h3>
+      <p>Divide the trimmed weight your recipe needs by the yield expressed as a decimal, then round up to whole units you can actually buy. Two pounds of peeled butternut needs 2 ÷ 0.66 = 3.03 pounds of whole squash, which in practice means one large squash or two small ones.</p>
+      <h3>Is yield percentage the same as cooking shrinkage?</h3>
+      <p>No, and the two stack. Yield covers loss before cooking; shrinkage covers moisture and fat lost during cooking. Apply yield first to reach trimmed weight, then shrinkage to reach cooked weight.</p>
+      <h3>Why do published yield percentage charts disagree?</h3>
+      <p>Because yield depends on grade, size, season and how hard the cook trims. Treat any published figure as a starting point and replace it with your own once you have weighed a real batch.</p>
+      <h3>How does yield percentage change the cost of an ingredient?</h3>
+      <p>Divide the shelf price by the yield to get the true cost per usable pound. Pineapple at $2.00 a pound with a 38% yield actually costs $5.26 for every pound of fruit that reaches the plate.</p>
     </div>
   </div>
 </main>
-
 <script>
-  var n = 0;
-
-  function addRow(name, prep, cook, rest, temp) {
-    if (n >= 6) return;
-    n++;
-    var i = n;
-    var d = document.createElement('div');
-    d.className = 'mt-row';
-    d.innerHTML =
-      '<div class="form-group" style="margin:0;"><label for="nm' + i + '">Dish</label><input type="text" id="nm' + i + '" value="' + (name || '') + '" placeholder="Roast chicken" oninput="calc()"></div>' +
-      '<div class="form-group" style="margin:0;"><label for="pp' + i + '">Prep (min)</label><input type="number" id="pp' + i + '" min="0" value="' + (prep === undefined ? '' : prep) + '" placeholder="15" oninput="calc()"></div>' +
-      '<div class="form-group" style="margin:0;"><label for="ck' + i + '">Cook (min)</label><input type="number" id="ck' + i + '" min="0" value="' + (cook === undefined ? '' : cook) + '" placeholder="80" oninput="calc()"></div>' +
-      '<div class="form-group" style="margin:0;"><label for="rs' + i + '">Rest (min)</label><input type="number" id="rs' + i + '" min="0" value="' + (rest === undefined ? '' : rest) + '" placeholder="20" oninput="calc()"></div>' +
-      '<div class="form-group" style="margin:0;"><label for="tp' + i + '">Oven °F (blank = no oven)</label><input type="number" id="tp' + i + '" min="150" max="550" value="' + (temp === undefined ? '' : temp) + '" placeholder="400" oninput="calc()"></div>';
-    document.getElementById('rows').appendChild(d);
-    if (n >= 6) document.getElementById('addBtn').style.display = 'none';
-  }
-
-  function fmt(mins) {
-    var m = ((mins % 1440) + 1440) % 1440;
-    var h = Math.floor(m / 60), mm = m % 60;
-    var ap = h >= 12 ? 'PM' : 'AM';
-    var h12 = h % 12; if (h12 === 0) h12 = 12;
-    return h12 + ':' + (mm < 10 ? '0' : '') + mm + ' ' + ap;
-  }
-
-  function calc() {
-    var sv = document.getElementById('serveTime').value;
-    var res = document.getElementById('result');
-    var empty = document.getElementById('emptyMsg');
-    if (!sv) { res.style.display = 'none'; empty.style.display = ''; return; }
-    var parts = sv.split(':');
-    var serve = parseInt(parts[0], 10) * 60 + parseInt(parts[1], 10);
-
-    var dishes = [];
-    for (var i = 1; i <= n; i++) {
-      var cook = parseFloat(document.getElementById('ck' + i).value);
-      if (isNaN(cook) || cook <= 0) continue;
-      var prep = parseFloat(document.getElementById('pp' + i).value); if (isNaN(prep)) prep = 0;
-      var rest = parseFloat(document.getElementById('rs' + i).value); if (isNaN(rest)) rest = 0;
-      var tp = parseFloat(document.getElementById('tp' + i).value); if (isNaN(tp)) tp = null;
-      var nm = document.getElementById('nm' + i).value.trim() || ('Dish ' + i);
-      var outAt = serve - rest;
-      var inAt = outAt - cook;
-      dishes.push({ nm: nm, prep: prep, cook: cook, rest: rest, tp: tp, prepAt: inAt - prep, inAt: inAt, outAt: outAt });
-    }
-
-    if (dishes.length === 0) { res.style.display = 'none'; empty.style.display = ''; return; }
-    empty.style.display = 'none';
-
-    // 오븐 충돌 검사
-    var warns = [];
-    var ov = dishes.filter(function (d) { return d.tp !== null; });
-    for (var a = 0; a < ov.length; a++) {
-      for (var b = a + 1; b < ov.length; b++) {
-        var x = ov[a], y = ov[b];
-        var overlap = x.inAt < y.outAt && y.inAt < x.outAt;
-        if (!overlap) continue;
-        var gap = Math.abs(x.tp - y.tp);
-        if (gap > 50) {
-          warns.push('<strong>' + x.nm + '</strong> (' + x.tp + '°F) and <strong>' + y.nm + '</strong> (' + y.tp + '°F) overlap in the oven and are ' + gap + '°F apart — too far to share. Move one out of the overlap, or cook it during the resting window.');
-        } else if (gap > 0) {
-          warns.push('<strong>' + x.nm + '</strong> (' + x.tp + '°F) and <strong>' + y.nm + '</strong> (' + y.tp + '°F) overlap in the oven but are only ' + gap + '°F apart — share at the midpoint and adjust both times.');
-        }
-      }
-    }
-    // 레스팅 창 안내
-    var rested = dishes.filter(function (d) { return d.rest >= 15 && d.tp !== null; });
-    if (rested.length) {
-      var r = rested[0];
-      warns.push('<strong>' + r.nm + '</strong> leaves the oven at ' + fmt(r.outAt) + ' and rests until ' + fmt(serve) + ' — that is a free ' + r.rest + '-minute oven window for sides or reheating.');
-    }
-    document.getElementById('warnings').innerHTML = warns.map(function (w) { return '<div class="warnbox">' + w + '</div>'; }).join('');
-
-    // 이벤트 타임라인
-    var ev = [];
-    dishes.forEach(function (d) {
-      if (d.prep > 0) ev.push({ t: d.prepAt, txt: 'Start prep — <strong>' + d.nm + '</strong> (' + d.prep + ' min)' });
-      ev.push({ t: d.inAt, txt: (d.tp !== null ? 'Into the oven at ' + d.tp + '°F' : 'Start cooking') + ' — <strong>' + d.nm + '</strong> (' + d.cook + ' min)' });
-      ev.push({ t: d.outAt, txt: (d.rest > 0 ? 'Out, rest ' + d.rest + ' min' : 'Done') + ' — <strong>' + d.nm + '</strong>' });
-    });
-    ev.push({ t: serve, txt: '<strong>Serve</strong>' });
-    ev.sort(function (p, q) { return p.t - q.t; });
-
-    document.getElementById('timeline').innerHTML = ev.map(function (e) {
-      return '<div class="tl-item"><div class="tl-clock">' + fmt(e.t) + '</div><div>' + e.txt + '</div></div>';
-    }).join('');
-
-    var first = ev[0].t;
-    var span = serve - first;
-    document.getElementById('startNote').textContent =
-      'First thing happens at ' + fmt(first) + ' — that is ' + Math.floor(span / 60) + 'h ' + (span % 60) + 'm before serving. Add 15-30 minutes of buffer on top; a fuller oven cooks slower and prep always runs long.';
-
-    res.style.display = '';
-  }
-
-  addRow('Roast chicken', 15, 80, 20, 400);
-  addRow('Roast potatoes', 10, 45, 0, 425);
-  addRow('Green beans', 5, 12, 0, '');
+function syncYield() {
+  var sel = document.getElementById('item');
+  var v = sel.value;
+  if (v !== 'custom') { document.getElementById('yieldPct').value = v; }
   calc();
+}
+function fmt(n) {
+  if (!isFinite(n)) return '—';
+  if (n >= 100) return n.toFixed(0);
+  if (n >= 10) return n.toFixed(1);
+  return n.toFixed(2);
+}
+function calc() {
+  var y = parseFloat(document.getElementById('yieldPct').value);
+  var wt = parseFloat(document.getElementById('wt').value);
+  var unit = document.getElementById('unit').value;
+  var dir = document.getElementById('dir').value;
+  var price = parseFloat(document.getElementById('price').value);
+  var res = document.getElementById('result');
+
+  document.getElementById('wtLabel').textContent =
+    dir === 'ap2ep' ? "Weight you're buying" : 'Trimmed weight the recipe needs';
+
+  if (!(y > 0) || y > 100 || !(wt > 0)) { res.style.display = 'none'; return; }
+  res.style.display = 'block';
+
+  var f = y / 100;
+  var answer, waste, label;
+  if (dir === 'ap2ep') {
+    answer = wt * f;
+    waste = wt - answer;
+    label = 'Usable after trimming';
+  } else {
+    answer = wt / f;
+    waste = answer - wt;
+    label = 'Buy this much whole';
+  }
+
+  document.getElementById('answer').textContent = fmt(answer) + ' ' + unit;
+  document.getElementById('answerLabel').textContent = label;
+  document.getElementById('waste').textContent = fmt(waste) + ' ' + unit;
+  document.getElementById('ypOut').textContent = fmt(y) + '%';
+
+  var perUnit = (unit === 'kg' || unit === 'g') ? 'kg' : 'lb';
+  document.getElementById('epCostLabel').textContent = 'Real cost per usable ' + perUnit;
+  if (price > 0) {
+    document.getElementById('epCost').textContent = '$' + (price / f).toFixed(2);
+  } else {
+    document.getElementById('epCost').textContent = '—';
+  }
+
+  var warn = document.getElementById('warn');
+  if (y < 50) {
+    warn.innerHTML = '<div class="yp-note">At ' + fmt(y) + '% yield, more than half of what you buy goes in the bin. Check whether a pre-cut or frozen version is cheaper per usable pound before you commit to the whole product.</div>';
+  } else {
+    warn.innerHTML = '';
+  }
+
+  var note;
+  if (dir === 'ap2ep') {
+    note = 'Buying ' + fmt(wt) + ' ' + unit + ' leaves about ' + fmt(answer) + ' ' + unit +
+      ' of trimmed ingredient. That figure is still raw — if the recipe measures the ingredient cooked, apply shrinkage on top.';
+  } else {
+    note = 'Round up, not to the nearest number: you can buy three onions, not 2.7. This figure is also as-purchased weight, so it assumes the recipe quantity was given trimmed.';
+  }
+  if (price > 0) {
+    var total = (dir === 'ap2ep' ? wt : answer) * price;
+    note += ' At $' + price.toFixed(2) + ' per ' + perUnit + ', the purchase costs about $' + total.toFixed(2) + '.';
+  }
+  document.getElementById('note').textContent = note;
+}
+document.addEventListener('DOMContentLoaded', calc);
 </script>
 <!-- CC:STATIC-CHROME:START (build-static.js 자동 생성 — 직접 수정하지 말 것) -->
   <footer class="site-footer">

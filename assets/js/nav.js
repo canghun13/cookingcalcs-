@@ -143,6 +143,7 @@ const BLOGS = [
   { name: "How Long to Cook Tempeh and Seitan", url: "/blog/how-long-to-cook-tempeh-seitan.html", desc: "Tempeh and seitan cook times for pan-searing, baking, air frying, and steaming, plus freezing/reheating and matching the method to the dish — no recipe, just the times and temperatures you need.", date: "2026-08-10" },
   { name: "Recipe Says 2 Pounds Trimmed — How Much Do I Buy?", url: "/blog/how-much-to-buy-for-a-recipe.html", desc: "Recipes list prepped weights but shops sell whole vegetables. Divide by the yield percentage, then round to units you can actually buy.", date: "2026-09-28" },
   { name: "Culinary Math Formulas You Actually Need", url: "/blog/culinary-math-formulas.html", desc: "Recipe conversion factor, yield percentage, edible portion cost, portion cost and food cost percentage — each with a worked example and the common mistake.", date: "2026-09-28" },
+  { name: "Cost Per Serving Word Problems (With Answers)", url: "/blog/cost-per-serving-word-problems.html", desc: "Worked answers for price-per-pound and ounces-per-serving problems, plus yield-adjusted cost, recipe costing and food cost percentage.", date: "2026-10-05" },
 ];
 
 // ── 가이드 목록 (Tools/Blog와 별개 — 여러 툴/블로그를 묶는 종합 허브 페이지) ──

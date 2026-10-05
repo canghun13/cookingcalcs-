@@ -1,4 +1,4 @@
-# CookingCalcs 현황 및 인수인계 (2026-09-28 기준)
+# CookingCalcs 현황 및 인수인계 (2026-10-05 기준)
 
 이 문서는 2026-07-24 버전 인수인계 문서를 기반으로, 이후 진행된 모든 작업 내역을 반영해 갱신한 버전입니다. 새 세션에서는 이 문서만 보고 바로 작업 이어가면 됩니다.
 
@@ -12,11 +12,12 @@
    만든 것이므로 **더 이상 자동 기각 근거로 쓰지 말 것** — "우리가 더 정확하고 구조화된 답을 낼 수 있는가"로 판정할 것.
    자세한 내용은 3번 섹션 `2026-08-03 (15차)`의 "★ 전략 재정렬" 항목을 볼 것.
 0-2. 🚨 **기본 전략: 공격적 확장(신규 클러스터 발행). 이건 바뀌지 않는다**
-   - **Bing이 주력 채널이다.** 09-28 기준 Bing 노출 **27,985**·클릭 **306**·CTR 1.09%·평균 약 6위 /
-     구글 3개월 노출 10,732·클릭 **5**·평균 50~90위. 구글은 완전 정체이고 Bing만 매주 성장 중.
+   - **Bing이 주력 채널이다.** 10-05 기준 Bing 노출 **36,502**·클릭 **379**·CTR 1.04%·평균 약 6위 /
+     구글 3개월 노출 11,127·클릭 **5**·평균 50~90위. 구글은 완전 정체이고 Bing만 매주 성장 중.
    - 🚨 **구글에서 우리가 상위권(10위 이내)에 드는 주제는 "요리 수학 문장형 문제" 하나뿐이다(32차 실측).**
      검색어 1,000개 중 10위 이내는 `you purchase beef at $6 per pound...` 류 4개(노출 54·40·14·3, 순위 6.4~9.7)뿐이고
      나머지는 전부 40~90위다. **구글 쪽 신규는 이 결(다단계 계산·문장형)로만 노려라.** 상세는 3번 섹션 32차.
+     **33차: Bing에서도 같은 결이 클릭으로 이어짐**("food costing math problems for students" 2/2 클릭 등).
    - 🚨🚨 **CTR을 가르는 것은 순위가 아니라 "답이 한 줄로 끝나는가"다(30차 실측).**
      `butter-converter` 4,489노출→13클릭(1클릭당 345노출) vs `average-cost-of-a-home-cooked-meal`
      126노출→13클릭(1클릭당 10노출). **효율 35.6배 차이.**
@@ -36,9 +37,9 @@
      진단은 부분적으로만 맞았다(보강한 17개 중 9개가 여전히 미색인). 자세한 건 20차 항목.
    - 🚨 **공격적 확장(신규 클러스터 발행)이 기본 전략이다. 크롤링 예산이나 CTR을 근거로
      발행 속도를 늦추자는 제안을 하지 말 것.** 미크롤링은 코드로 고칠 게 없는 항목일 뿐이다.
-   - **총수익 9개월 연속 0**(32차 기준). 애드센스 심사 중이며 CMP(유럽 규정 메시지)는 게시 완료.
+   - **총수익 0 지속**(33차 기준). 애드센스 심사 중이며 CMP(유럽 규정 메시지)는 게시 완료.
      승인 후 **자동 광고를 켜야 광고가 나간다**(광고 유닛 ins 태그 0개, 자동광고 전용 구조).
-   - **봇 의심 트래픽 계속 증가**: GA4 28일 중국 315·싱가포르 247인데 GSC 중국 노출은 2건뿐.
+   - **봇 의심 트래픽 계속 증가**: GA4 28일 중국 342·싱가포르 321(활성의 46%)인데 GSC 중국 노출은 2건뿐.
      검색 유입이 아니다. 애드센스 승인 후 무효 트래픽으로 문제될 수 있으니 매주 확인할 것.
 0-1. 🚨 **수익화(광고망/제휴/애드센스 재심사) 판단 절차**: 특정 사이트를 미리 정해두지 않는다.
    판단이 선 세션이 직접 조사해서 사용자에게 먼저 제안하는 방식 — 12번 섹션 필독.
@@ -222,6 +223,72 @@ echo "nav.js GUIDES: $(sed -n '/const GUIDES/,/^];/p' assets/js/nav.js | grep -c
   잡히면 **"툴은 있는데 질문형 페이지가 없는 쿼리"를 찾아 채우는 패턴**이 검증된다.
   현재 후보: `tablespoon-to-teaspoon-guide` 182노출 클릭0 7.02위,
   `how-many-grams-in-a-cup-of-oats` 207노출 클릭0 5.18위.
+
+### 2026-10-05 (33차): 주간 점검 — 요리수학 수요가 Bing에서도 확인됨. 원가 워드프라블럼 신설 + 문제생성기 2유형 추가·답안 버그 수정
+
+> 데이터: GSC Performance/Coverage(발견됨·크롤링됨) 10-05, Bing PageTraffic+Keyword 10-05, GA4 28일(09-07~10-04).
+
+#### 채널 현황
+| | 09-21 | 09-28 | 10-05 |
+|---|---|---|---|
+| Bing 노출 | 22,741 | 27,985 | **36,502** (+30%) |
+| Bing 클릭 | 257 | 306 | **379** (+24%) |
+| 구글 노출/클릭(3개월) | 10,594/5 | 10,732/5 | **11,127/5** |
+
+GA4: 30일 활성 1,427 · **총수익 0** · click 6 · scroll 43 · 재방문 사실상 0(주차별 유지 0~2명).
+국가 US 508 / **CN 342 / SG 321** → 봇 의심 663명 = **46%**(전주 41%). 계속 증가. 승인 후 무효트래픽 리스크.
+Direct 795 > Organic 682. **"AI Assistant" 채널 10세션 첫 등장**.
+
+#### 30차 "한 줄 법칙" 4주 연속
+tablespoon-to-teaspoon-guide 1,212→2,004→2,558→**4,044노출 / 클릭 1 / 0.02%**. butter-converter 9,374/20/0.21%.
+반면 how-to-substitute-egg-sizes **2,505/119/4.75%**, average-cost 240/16/6.67%, altitude 11/4/36%,
+meatballs 33/3/9%, baking-two-things-at-different-temperatures 2/2/**100%·1위**, can-size-converter 1,252/22/1.76%.
+
+#### ★ 32차 판단 재확인 — 요리수학/문장형 수요가 Bing에서도 클릭으로 이어진다
+| Bing 검색어 | 노출 | 클릭 | 순위 |
+|---|---|---|---|
+| food costing math problems for students | 2 | **2** | 4.0 |
+| cooking math | 4 | 1 | 4.0 |
+| baking measurements conversion practice | 4 | 1 | 3.8 |
+| what problems can occur when ingredients are measured incorrectly... | 5 | 1 | 1.8 |
+| what must you consider first when scaling a recipe up or down?... | 4 | 0 | 4.0 |
+| you prepared a recipe that yields 8 servings... what number to divide | 2 | 0 | 8.0 |
+
+구글 쪽은 여전히 `you purchase beef at $6 per pound...` 류 4개만 6~10위(전 페이지 중 유일). **구글·Bing 양쪽에서 같은 결이 나온다.**
+32차 신규 4페이지는 아직 Coverage 목록에도 없음(미발견) · Bing 미등장 · GA4 조회 2~4회.
+
+#### 경쟁도 판정
+| 후보 | 판정 | 근거 |
+|---|---|---|
+| 정육 수율 테스트(butcher's yield) 계산기 | **기각** | misekit·foodcosttools·jatechnologysolutions(Meat Cutting Test Calculator)·calculator.academy(Butcher Yield Calculator)·beef.foodnutrify·calculatorbuilders — **전용 계산기 4개 이상** |
+| **원가(cost per serving) 워드프라블럼** | **채택** | 1페이지 scribd·chegg·TPT·meez 블로그뿐. 계산기팜·회피리스트 0. **구글이 이미 6~10위에 올려주는 바로 그 질문형**인데 지금은 툴 페이지(cost-per-serving)가 받고 있고 **풀이 페이지가 없었다** |
+
+#### 산출물
+- **신규** `blog/cost-per-serving-word-problems.html` (1,290단어) — 4단계: ① 파운드당 가격+온스 서빙
+  (**GSC 검색어 숫자 그대로**: beef $6/6oz=$2.25, potatoes $1.60/8oz=$0.80, butter $3.20/2oz=$0.40, cheese $4/4oz=$1.00)
+  ② 패키지→서빙 수 ③ **수율 반영 원가**(브로콜리·파인애플, 32차 수율표와 동일값) ④ 레시피 원가→푸드코스트%→메뉴가.
+  FAQ에 Bing 질문형("yields 8 servings, what number do you divide by") 그대로 반영. 전 숫자 python 재계산 일치.
+- **보강** `tools/kitchen-math-generator.html` — 문제 유형 3→**5개**(수율 반영 원가, 푸드코스트%/메뉴가 추가).
+  🚨 **기존 버그 수정**: 가격을 반올림 안 된 float로 생성해서 답안 단계가 안 맞았다
+  (예: "$0.46/oz × 6 = $2.79"처럼 보이는 경우). 가격을 센트 단위로 반올림해 생성하고, 원가는
+  "온스÷16=파운드 → ×단가 → 마지막에 반올림" 방식으로 표시하도록 변경. 단가 비교는 소수 3자리.
+  node로 5유형 실행 검증 — 모든 단계 산술 일치.
+- 허브(`complete-culinary-math-guide`)·formulas 블로그·cost-per-serving 툴·unit-price/how-to-calculate-cost-per-serving
+  블로그에 상호링크. 홈 생성기 카드 문구 갱신.
+
+#### 구글 색인 (제공 자료 기준)
+'발견됨-미색인' **49개**(변화 없음, 전부 1970-01-01). '크롤링됨-미색인' `complete-baking-conversion-guide` 1개 —
+**검증 요청했지만 최종 크롤링 여전히 07-19, 아직 처리 안 됨.** Bing에선 4.96위·CTR 5.56%.
+**코드로 고칠 게 없으며 발행 속도를 늦추는 근거로 쓰지 말 것**(0-2).
+
+#### 사이트 규모
+툴 35, 블로그 82→**83**, 가이드 16, sitemap 140→**141**.
+
+#### 다음 세션 참고
+- 요리수학 클러스터(32~33차)가 구글 색인/노출을 받는지 우선 확인 — `yield-percentage-calculator`,
+  `culinary-math-formulas`, `cost-per-serving-word-problems`.
+- 같은 결로 확장할 후보(미검증): 수율·EP원가 워드프라블럼, 레시피 환산계수(RCF) 워드프라블럼.
+  단 RCF는 `recipe-scaling-word-problems`와 중복 여부 먼저 확인할 것.
 
 ### 2026-09-28 (32차): 주간 점검 — ★★ 구글이 우리를 상위권에 올려주는 유일한 주제 발견. 요리수학 클러스터 신설(툴1+블로그2+가이드1)
 

@@ -83,7 +83,7 @@ const BLOGS = [
   { name: "How to Calculate Meal Prep Cost for a Week", url: "/blog/how-to-calculate-meal-prep-cost-for-a-week.html", desc: "Step-by-step guide to calculating exactly how much your weekly meal prep costs, with a cost per serving formula and tips to reduce spend.", date: "2026-07-09" },
   { name: "Grocery Budget Tips That Actually Work", url: "/blog/grocery-budget-tips.html", desc: "Practical grocery budgeting strategies to cut your food bill without eating badly.", date: "2026-07-09" },
   { name: "Tablespoon vs Teaspoon: What's the Difference?", url: "/blog/tablespoon-vs-teaspoon.html", desc: "How many teaspoons in a tablespoon? Clear answers plus a full conversion chart.", date: "2026-07-09" },
-  { name: "How to Substitute Egg Sizes in Recipes", url: "/blog/how-to-substitute-egg-sizes.html", desc: "Learn how to substitute medium, large, extra-large, and jumbo eggs in any recipe, including UK vs US size differences. Includes a conversion chart in both directions.", date: "2026-07-10" },
+  { name: "How to Substitute Egg Sizes in Recipes", url: "/blog/how-to-substitute-egg-sizes.html", desc: "Learn how to substitute small, medium, large, extra-large, and jumbo eggs in any recipe — full 1 to 12 egg tables in both directions, plus UK vs US size differences.", date: "2026-10-12" },
   { name: "How Long to Cook Ground Beef", url: "/blog/how-long-to-cook-ground-beef.html", desc: "Exact cook times for ground beef on the stovetop, in the oven, and in the air fryer.", date: "2026-06-07" },
   { name: "What Is a Serving Size? A Practical Guide", url: "/blog/what-is-a-serving-size.html", desc: "What does a serving size actually mean? Learn how to estimate serving sizes and how it affects your cost per serving.", date: "2026-06-07" },
   { name: "How Many Teaspoons in a Tablespoon?", url: "/blog/tablespoon-to-teaspoon-guide.html", desc: "1 tablespoon = 3 teaspoons. Both directions, every fraction from ⅛ to 2 tbsp, decimals, cups and millilitres.", date: "2026-09-07" },
@@ -144,6 +144,7 @@ const BLOGS = [
   { name: "Recipe Says 2 Pounds Trimmed — How Much Do I Buy?", url: "/blog/how-much-to-buy-for-a-recipe.html", desc: "Recipes list prepped weights but shops sell whole vegetables. Divide by the yield percentage, then round to units you can actually buy.", date: "2026-09-28" },
   { name: "Culinary Math Formulas You Actually Need", url: "/blog/culinary-math-formulas.html", desc: "Recipe conversion factor, yield percentage, edible portion cost, portion cost and food cost percentage — each with a worked example and the common mistake.", date: "2026-09-28" },
   { name: "Cost Per Serving Word Problems (With Answers)", url: "/blog/cost-per-serving-word-problems.html", desc: "Worked answers for price-per-pound and ounces-per-serving problems, plus yield-adjusted cost, recipe costing and food cost percentage.", date: "2026-10-05" },
+  { name: "Recipe Conversion Factor (RCF) Word Problems", url: "/blog/recipe-conversion-factor-word-problems.html", desc: "Worked RCF problems: new yield ÷ old yield, portion size changes, turning decimals into measurable amounts, and what an RCF never scales.", date: "2026-10-12" },
 ];
 
 // ── 가이드 목록 (Tools/Blog와 별개 — 여러 툴/블로그를 묶는 종합 허브 페이지) ──

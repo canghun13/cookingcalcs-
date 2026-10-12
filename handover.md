@@ -1,4 +1,4 @@
-# CookingCalcs 현황 및 인수인계 (2026-10-05 기준)
+# CookingCalcs 현황 및 인수인계 (2026-10-12 기준)
 
 이 문서는 2026-07-24 버전 인수인계 문서를 기반으로, 이후 진행된 모든 작업 내역을 반영해 갱신한 버전입니다. 새 세션에서는 이 문서만 보고 바로 작업 이어가면 됩니다.
 
@@ -12,8 +12,8 @@
    만든 것이므로 **더 이상 자동 기각 근거로 쓰지 말 것** — "우리가 더 정확하고 구조화된 답을 낼 수 있는가"로 판정할 것.
    자세한 내용은 3번 섹션 `2026-08-03 (15차)`의 "★ 전략 재정렬" 항목을 볼 것.
 0-2. 🚨 **기본 전략: 공격적 확장(신규 클러스터 발행). 이건 바뀌지 않는다**
-   - **Bing이 주력 채널이다.** 10-05 기준 Bing 노출 **36,502**·클릭 **379**·CTR 1.04%·평균 약 6위 /
-     구글 3개월 노출 11,127·클릭 **5**·평균 50~90위. 구글은 완전 정체이고 Bing만 매주 성장 중.
+   - **Bing이 주력 채널이다.** 10-12 기준 Bing 노출 **47,528**·클릭 **474**·CTR 1.00%·평균 약 6위 /
+     구글 3개월 노출 10,859·클릭 **5**·평균 50~90위. 구글은 완전 정체이고 Bing만 매주 성장 중.
    - 🚨 **구글에서 우리가 상위권(10위 이내)에 드는 주제는 "요리 수학 문장형 문제" 하나뿐이다(32차 실측).**
      검색어 1,000개 중 10위 이내는 `you purchase beef at $6 per pound...` 류 4개(노출 54·40·14·3, 순위 6.4~9.7)뿐이고
      나머지는 전부 40~90위다. **구글 쪽 신규는 이 결(다단계 계산·문장형)로만 노려라.** 상세는 3번 섹션 32차.
@@ -46,7 +46,7 @@
      발행 속도를 늦추자는 제안을 하지 말 것.** 미크롤링은 코드로 고칠 게 없는 항목일 뿐이다.
    - **총수익 0 지속**(33차 기준). 애드센스 심사 중이며 CMP(유럽 규정 메시지)는 게시 완료.
      승인 후 **자동 광고를 켜야 광고가 나간다**(광고 유닛 ins 태그 0개, 자동광고 전용 구조).
-   - **봇 의심 트래픽 계속 증가**: GA4 28일 중국 342·싱가포르 321(활성의 46%)인데 GSC 중국 노출은 2건뿐.
+   - **봇 의심 트래픽 계속 증가**: GA4 28일 싱가포르 410·중국 354(활성의 47%)인데 GSC 중국 노출은 2건뿐.
      검색 유입이 아니다. 애드센스 승인 후 무효 트래픽으로 문제될 수 있으니 매주 확인할 것.
    - 🚨 **애드센스 승인 → 자동광고 켤 때 반드시 같이 할 것 (10-06 사용자 합의)**: Cloudflare WAF 커스텀 규칙
      `(ip.src.country in {"CN" "SG"} and not cf.client.bot)` → Action **Managed Challenge**. 검증봇(구글·Bing·애드센스
@@ -242,6 +242,50 @@ echo "nav.js GUIDES: $(sed -n '/const GUIDES/,/^];/p' assets/js/nav.js | grep -c
   잡히면 **"툴은 있는데 질문형 페이지가 없는 쿼리"를 찾아 채우는 패턴**이 검증된다.
   현재 후보: `tablespoon-to-teaspoon-guide` 182노출 클릭0 7.02위,
   `how-many-grams-in-a-cup-of-oats` 207노출 클릭0 5.18위.
+
+### 2026-10-12 (34차): 주간 점검 — 최대 클릭 페이지(계란 대체) 1~12개 표 보강 + RCF 워드프라블럼 신설
+
+> 데이터: GSC Performance/Coverage 10-12, Bing PageTraffic+Keyword 10-12, GA4 28일(09-14~10-11).
+> 🚨 이번 주 Coverage zip은 파일명 `_1`이 '크롤링됨-미색인', 무접미사가 '발견됨-미색인'으로 **지난주와 반대**였다. 메타데이터.csv의 '문제' 값으로 판별할 것.
+
+#### 채널 현황
+| | 09-28 | 10-05 | 10-12 |
+|---|---|---|---|
+| Bing 노출 | 27,985 | 36,502 | **47,528** (+30%) |
+| Bing 클릭 | 306 | 379 | **474** (+25%) |
+| 구글 노출/클릭(3개월) | 10,732/5 | 11,127/5 | **10,859/5** |
+
+GA4 30일 활성 1,625 · 총수익 0 · click 8 · scroll 58. US 581 / **SG 410 / CN 354 → 봇 의심 764명 = 47%**(계속 증가).
+'AI Assistant' 채널 12세션.
+
+#### 색인 — 7월 말 크롤링 중단 패턴 그대로
+'발견됨-미색인' **53개** = 기존 49 + **32차 요리수학 4페이지가 발견됐지만 크롤링 0**. 33차 cost-per-serving-word-problems는 아직 미발견.
+'크롤링됨-미색인' `complete-baking-conversion-guide` 1개(최종 07-19). → 사이트맵은 정상적으로 읽히고 있고, 크롤링만 안 오는 상태.
+
+#### Bing 성과
+how-to-substitute-egg-sizes **2,916/142/4.87%**(사이트 최대 클릭원) · egg-converter 3,311/64 · egg-weight-converter 2,035/36 ·
+can-size-converter 2,093/33 · average-cost 368/18/4.89% · kitchen-math-generator 86/2 · **culinary-math-formulas 14노출 6.07위(32차 페이지 Bing 진입)**.
+"what to do when baking 2 dishes at different temps" 1.5위 2클릭(오븐공유 클러스터). tablespoon-to-teaspoon-guide 5,143/1 — 한 줄 법칙 5주째.
+
+#### 판단
+- **보강 우선(수익 관점)**: 클릭이 실제로 나는 1위 페이지인데 표가 6개에서 끝나고 small·XL 표가 없었다. Bing 롱테일이 정확히
+  그 빈칸을 묻고 있었다 — "quiche calls for 12 jumbo eggs", "pound cake 6 extra large for 12 regular", "2 small eggs equals how many large",
+  "how many small eggs equal 1 large"(16노출). 새 계란 페이지는 만들지 않음(계란 5페이지가 이미 흰자/노른자·부피법·UK/US까지 커버 → 잠식 위험).
+- **신규**: RCF(레시피 환산계수) 워드프라블럼. 1페이지가 isbe.net PDF·OER pressbooks 2종·LibreTexts·quizlet·Centennial·UWyo Extension·meez 블로그뿐 —
+  계산기팜·회피리스트 0. 기존 `recipe-scaling-word-problems`는 가정용 분수 배수(¾컵×2) 문제만 있고 RCF·포션크기 변경·yield 0회 → 중복 아님.
+
+#### 산출물
+- **보강** `blog/how-to-substitute-egg-sizes.html` (1,528→2,071단어) — "Every Size, 1 to 12 Eggs" 섹션: ①레시피 large N개 → small/medium/XL/jumbo 몇 개
+  ②가진 계란 N개 → large 몇 개, 1~12개 전부, 정확값(괄호) 병기. 상단 무게표(껍질 제외 35/44/50/56/63g)로 계산해 **기존 표와 전부 일치**
+  (4 large→5 medium, 6 large→5 jumbo, 3 jumbo≈3.8 large 등). Bing 질문형 FAQ 4개 추가(JSON-LD 포함). dateModified·nav date·sitemap·읽기시간 갱신.
+- **신규** `blog/recipe-conversion-factor-word-problems.html` (1,271단어) — 4단계: 포션 수 변경 / **포션 크기 변경(20×4oz→50×3oz=1.875, 포션수 비교 시 2.5로 1/3 과다)** /
+  소수를 계량 단위로(2.625컵=2컵+10큰술) / RCF+수율. "RCF를 적용하면 안 되는 것" 표(온도·시간·팬·간·증발). 전 숫자 python 재계산 일치.
+- 요리수학 허브·formulas·recipe-scaling-word-problems·cost-per-serving-word-problems·recipe-multiplier·complete-recipe-scaling-guide에 상호링크.
+  🚨 **주의**: 텍스트 첫 매치로 링크 넣으면 정적 크롬(헤더/푸터 목록) 안에 들어가고 build-static이 지워버린다 — 이번에 scaling guide에서 한 번 발생해 재삽입함.
+  삽입 위치는 반드시 본문(크롬 블록 제외) 기준으로 찾을 것.
+
+#### 사이트 규모
+툴 35, 블로그 83→**84**, 가이드 16, sitemap 141→**142**.
 
 ### 2026-10-05 (33차): 주간 점검 — 요리수학 수요가 Bing에서도 확인됨. 원가 워드프라블럼 신설 + 문제생성기 2유형 추가·답안 버그 수정
 

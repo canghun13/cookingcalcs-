@@ -56,7 +56,7 @@
      즉석 승인 광고망(팝언더류)은 애드센스 심사에 악영향이라 제외. 아마존 제휴는 사용자가 원치 않음.
    - 🆕 **(10-07~08 사용자 결정, 한참 뒤 일)** 애드센스만 기다리지 않고 **Media.net 투트랙**. 사용자가 GPA Vault에서 먼저
      신청해봤고, 결과와 무관하게 이 사이트도 신청 예정. 그 전에 사용자가 Cloudflare 업무용 이메일을 만들면
-     **"contact 이메일 바꿔라" 요청 시 `canghun13@naver.com` 전부 교체**(사이트 내에선 `contact.html` 1곳뿐, handover 제외).
+     ✅ **10-13 완료**: `contact.html` 이메일을 `contact@cookingcalcs.com`으로 교체(Cloudflare Email Routing → canghun13@gmail.com 전달).
      개인정보처리방침은 이미 "제3자 광고 네트워크" 일반 문구 있음 → 신청 전 수정 불필요.
      승인 시: ads.txt 줄 추가 + 본문 중간 광고 1개로 시작 + 개인정보처리방침에 Media.net 명시.
      둘 다 승인되면 애드센스 자동광고(전면광고 OFF, 앵커 ON) + Media.net 본문 1개, 페이지당 총 3~4개 이하.
@@ -78,7 +78,7 @@
 | DNS | Cloudflare (Always Use HTTPS 활성화 완료) |
 | GA 측정 ID | G-QZT8PVVY5E |
 | AdSense ID | ca-pub-5592663499707350 |
-| 연락처 이메일 | canghun13@naver.com |
+| 연락처 이메일 | contact@cookingcalcs.com (Cloudflare Email Routing → canghun13@gmail.com, 10-13 변경. 이전 canghun13@naver.com) |
 | Git 커밋 계정 | `canghun13` / `canghun13@naver.com` (push 시 이 설정 사용) |
 
 **관련 사이트**: `mywellnesscalc.com` (건강/웰니스 계산기, 사용자가 별도로 운영) — 2026-07-11부터 두 사이트 간 교차 내부링크 진행 중 (8-7번 참고).

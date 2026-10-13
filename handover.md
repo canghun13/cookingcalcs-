@@ -1,4 +1,4 @@
-# CookingCalcs 현황 및 인수인계 (2026-10-12 기준)
+# CookingCalcs 현황 및 인수인계 (2026-10-13 기준)
 
 이 문서는 2026-07-24 버전 인수인계 문서를 기반으로, 이후 진행된 모든 작업 내역을 반영해 갱신한 버전입니다. 새 세션에서는 이 문서만 보고 바로 작업 이어가면 됩니다.
 
@@ -28,6 +28,7 @@
      **② 신규는 "답이 한 줄로 안 끝나는 주제"에만 발행할 것**(판단·비교·절차·다단계 계산).
      21~29차 클러스터가 정확히 그 형태이므로 **전략 자체는 이미 맞다.** 상세는 3번 섹션 30차.
    - 후보를 정할 때 **missvickie·agentcalc·calckitchen·crunchmilk·easytemperature(회피리스트)를 먼저 검색**할 것.
+     **(35차 추가 관찰)** handychefdom·cupstogramscalculator·earthbondhon·joteo·gramstocups도 단일 재료 변환 계산기를 대량으로 깔고 있다.
      콩(27차)·소금(29차)·베이킹파우더(30차)·prime rib(31차)·해동(32차) **5주 연속** 선점당했다.
    - 🚨 **채택된 후보의 공통 패턴: 1페이지를 계산기팜이 아니라 교과서·.edu·PDF·포럼이 채우고 있는 주제.**
      27차 딥프라잉(.edu Extension+특허), 32차 요리수학(OER 교과서+CIA PDF+TPT 워크시트)이 둘 다 이 형태였다.
@@ -243,6 +244,51 @@ echo "nav.js GUIDES: $(sed -n '/const GUIDES/,/^];/p' assets/js/nav.js | grep -c
   잡히면 **"툴은 있는데 질문형 페이지가 없는 쿼리"를 찾아 채우는 패턴**이 검증된다.
   현재 후보: `tablespoon-to-teaspoon-guide` 182노출 클릭0 7.02위,
   `how-many-grams-in-a-cup-of-oats` 207노출 클릭0 5.18위.
+
+### 2026-10-13 (35차): 신규 클러스터 — 대인원 요리(케이터링 팬·포션 스쿱) 툴1+블로그2+가이드1
+
+> 사용자 지시: "GSC/Bing 안에서만 보지 말고 구글·네이버·레딧 등에서 문서수 적고 관심 있는 것" → 키워드 넓게 → 리스트 → 경쟁도 → 롱테일 → 클러스터.
+> 레딧은 WebFetch 차단(SITE_BLOCKED) → 우회하지 않고 검색 결과·포럼 글(thefreshloaf, bbq-brethren, kitchenknifeforums, scoolinary)로 관심 신호 수집.
+> 네이버는 미사용 — 사이트가 영어·미국 트래픽이라 한국어 관심사가 유입으로 이어지지 않음(사용자에게 보고함).
+
+#### 후보 판정 (12건 → 1개 클러스터 채택)
+| 후보 | 판정 | 근거 |
+|---|---|---|
+| 젤라틴 판↔가루(블룸) | 기각 | **missvickie** + handychefdom + gelatincalculator.com + bakecalcs.uk + earthbondhon |
+| 전분/루 농도(얼마나 넣나) | 기각 | **missvickie** + handychefdom ×3 + cupstogramscalculator + chefkilo |
+| 꿀·메이플→설탕 대체 | 기각 | **missvickie** + joteo + cupstogramscalculator + ultimatefinancecalculator + earthbondhon |
+| 쿠키 스쿱 → 개수 | 기각 | **missvickie** + gramstocups + kulkalotar + cupstogramscalculator + handychefdom |
+| 추수감사절 오븐 스케줄 | 기각 | mykitchenescapades·utily·destination-bbq·boring-math·marysprintables 생성기 (+자사 meal-timeline·oven-sharing이 이미 커버) |
+| 이스트 환산 / 염지 비율 | 기각 | 전용 계산기 다수(traditionaloven, bakingchart / rouxbe 등) |
+| 건조식품 수율 | 기각 | **agentcalc** + growandstore + homesteadcalc |
+| 전자레인지 와트 환산 | 기각 | **missvickie** + 7곳 |
+| 발효 소금% | 기각 | **missvickie** + 전용 5곳 |
+| 레스토랑 par stock | 기각 | B2B SaaS 블로그 일색 + calcbee, 대상 독자 아님 |
+| **포션 스쿱(#8=½컵) / 케이터링 팬 몇 인분** | **채택** | 스쿱: 1페이지 **USDA FBG 표·주 보건당국 PDF·LibreTexts·cbord 포스터**뿐. 하프팬: **BBQ 포럼 글·포일팬 판매사 블로그·업소 메뉴**, 계산기는 무명 2곳(calculate-this, feedmyguests). 회피리스트 0 |
+
+🚨 **신규 계산기팜 도메인 (회피리스트 보강 후보)**: handychefdom, cupstogramscalculator, earthbondhon, joteo, gramstocups.
+이번에 기각한 10건 중 7건에 missvickie/agentcalc가 있었다. **단일 재료 변환·비율은 사실상 전부 계산기팜이 점령** — 남은 빈자리는 급식·케이터링처럼 "기관 자료와 포럼만 있는" 영역이다.
+
+#### 차별화
+**"팬이 인분을 정하는 게 아니라 스쿱이 정한다."** BBQ 포럼에서 같은 팬이 콩 60~70명 vs 맥앤치즈 40명으로 갈린 걸 숫자로 설명
+(풀팬 딥 274 fl oz 서비스 용량 ÷ 4oz = 68 / ÷ 6.5oz ≈ 40). 판매사 블로그는 "10~15인분" 같은 막연한 숫자만 주고 포션 가정을 안 밝힘.
+
+#### 산출물
+- `tools/catering-pan-calculator.html` (1,164단어) — 포일 하프/풀/서드 7종 + 스테인리스 호텔팬 7종 + 9×13. 스쿱(#6~#16)/온스 또는 조각 크기(3×4~2×2) →
+  팬당 인분·필요 팬 수·여유분. 포일팬은 림 용량×80%, 호텔팬은 공개 범위 하한(공급사 권고) 사용.
+- `blog/how-many-servings-in-a-half-pan.html` (995단어) — 깊이별·음식별·하객수(20~100)별 하프팬 수, 케이터러 "10~15인분"의 정체
+- `blog/portion-scoop-sizes.html` (1,049단어) — USDA Food Buying Guide Table 13 기준 #6~#100 전체표, 배치÷스쿱=인분, 부피≠무게, 베이킹용
+- `guides/complete-cooking-for-a-crowd-guide.html` (1,346단어) — 6단계(인분→부피→레시피 환산→장비→팬·스쿱→보관 140°F/2시간) + BBQ 40명 워크드 예제 + 진단표.
+  가이드가 링크한 11개 페이지 전부 역링크 확인(recipe-multiplier·pot-size·oven-sharing·meal-timeline·batch-cooking·cost-per-serving·how-long-can-food-sit-out·RCF 블로그 + 신규 3).
+
+**데이터 출처**: 스쿱 = USDA FBG Table 13, 팬 용량 = GoFoodservice 호텔팬·포일팬 가이드(림 기준, 서비스 80% 권고), 2시간·140°F = 기존 how-long-can-food-sit-out과 동일값.
+**검증 중 발견·수정 3건**: ① 계산기 소수 오차로 50명×1.1이 56인분으로 올림 → `-1e-9` 보정, ② #10 스쿱을 3.2 fl oz(32÷10)로 넣었다가 USDA ⅜컵=3 fl oz로 정정,
+③ 본문 표 2칸(풀팬 미디엄 6oz, 9×13 4oz)을 계산기 내림 결과에 맞춰 정정. 머핀 스쿱 표현도 "½~⅔ 채움"으로 완화.
+
+**수익 관점**: 파티·케이터링 의도라 광고 단가 좋은 편(포일팬·채핑디시·파티용품). 11~12월 연말 파티 시즌 직전 발행.
+
+#### 사이트 규모
+툴 35→**36**, 블로그 84→**86**, 가이드 16→**17**, sitemap 142→**146**. 홈 stat-num 36.
 
 ### 2026-10-12 (34차): 주간 점검 — 최대 클릭 페이지(계란 대체) 1~12개 표 보강 + RCF 워드프라블럼 신설
 

@@ -58,6 +58,7 @@ const TOOLS = [
   { name: "Air Fryer Cooking Times by Food", url: "/tools/air-fryer-cooking-times.html" },
   { name: "Candy & Sugar Stage Temperature Calculator", url: "/tools/candy-temperature-calculator.html" },
   { name: "Yield Percentage Calculator", url: "/tools/yield-percentage-calculator.html" },
+  { name: "Catering Pan Calculator", url: "/tools/catering-pan-calculator.html" },
 ];
 
 const BLOGS = [
@@ -145,6 +146,8 @@ const BLOGS = [
   { name: "Culinary Math Formulas You Actually Need", url: "/blog/culinary-math-formulas.html", desc: "Recipe conversion factor, yield percentage, edible portion cost, portion cost and food cost percentage — each with a worked example and the common mistake.", date: "2026-09-28" },
   { name: "Cost Per Serving Word Problems (With Answers)", url: "/blog/cost-per-serving-word-problems.html", desc: "Worked answers for price-per-pound and ounces-per-serving problems, plus yield-adjusted cost, recipe costing and food cost percentage.", date: "2026-10-05" },
   { name: "Recipe Conversion Factor (RCF) Word Problems", url: "/blog/recipe-conversion-factor-word-problems.html", desc: "Worked RCF problems: new yield ÷ old yield, portion size changes, turning decimals into measurable amounts, and what an RCF never scales.", date: "2026-10-12" },
+  { name: "How Many People Does a Half Pan Feed?", url: "/blog/how-many-servings-in-a-half-pan.html", desc: "A deep half pan feeds about 25 as a side and 17 as a main. Servings by food, pan depth and number of dishes, plus half pans needed for 20 to 100 guests.", date: "2026-10-13" },
+  { name: "Portion Scoop Sizes: What #8, #12 and #16 Mean", url: "/blog/portion-scoop-sizes.html", desc: "Disher numbers decoded with the full USDA chart from #6 to #100, which scoop to use for what, and how many servings a batch gives.", date: "2026-10-13" },
 ];
 
 // ── 가이드 목록 (Tools/Blog와 별개 — 여러 툴/블로그를 묶는 종합 허브 페이지) ──
@@ -165,6 +168,7 @@ const GUIDES = [
   { name: "The Complete Appliance Cooking Guide", url: "/guides/complete-appliance-cooking-guide.html", desc: "Slow cooker, pressure cooker, air fryer, and oven in one reference — what each does to food, how times convert between them, and which to reach for tonight.", date: "2026-08-14" },
   { name: "The Complete Vintage Recipe Guide", url: "/guides/complete-vintage-recipe-guide.html", desc: "Decode any old family recipe or vintage cookbook — can sizes, measurement terms, old oven temperatures, and British/vintage ingredient names, all in one reference, with a full worked example.", date: "2026-08-10" },
   { name: "The Complete Culinary Math Guide", url: "/guides/complete-culinary-math-guide.html", desc: "Scaling, yield percentage, cooking shrinkage and costing in one reference — the four questions culinary math answers, the order they have to be answered in, and every calculator for each.", date: "2026-09-28" },
+  { name: "The Complete Cooking for a Crowd Guide", url: "/guides/complete-cooking-for-a-crowd-guide.html", desc: "Portions, recipe scaling, pots, pans, scoops and buffet safety in one reference — the order to plan a party meal in, with the calculator for each step.", date: "2026-10-13" },
 ];
 
 

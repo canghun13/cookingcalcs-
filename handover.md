@@ -57,6 +57,7 @@
    - 🆕 **(10-07~08 사용자 결정, 한참 뒤 일)** 애드센스만 기다리지 않고 **Media.net 투트랙**. 사용자가 GPA Vault에서 먼저
      신청해봤고, 결과와 무관하게 이 사이트도 신청 예정. 그 전에 사용자가 Cloudflare 업무용 이메일을 만들면
      ✅ **10-13 완료**: `contact.html` 이메일을 `contact@cookingcalcs.com`으로 교체(Cloudflare Email Routing → canghun13@gmail.com 전달).
+     ✅ **10-13 Media.net 신청 제출**(공식 사이트 문의 양식, Publisher/Media Owner, 연락처 contact@cookingcalcs.com). 답신 대기 중 — 메일로 연락 옴.
      개인정보처리방침은 이미 "제3자 광고 네트워크" 일반 문구 있음 → 신청 전 수정 불필요.
      승인 시: ads.txt 줄 추가 + 본문 중간 광고 1개로 시작 + 개인정보처리방침에 Media.net 명시.
      둘 다 승인되면 애드센스 자동광고(전면광고 OFF, 앵커 ON) + Media.net 본문 1개, 페이지당 총 3~4개 이하.

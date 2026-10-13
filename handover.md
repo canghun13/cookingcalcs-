@@ -2376,6 +2376,9 @@ for table in soup.find_all('table'):
   - 키 파일(`2418ccf79ce498437d212ccbeec13acfa57b7f0de6de7d324b937badb91b3333.txt`)은 repo 루트에 이미 커밋됨,
     배포되면 `https://cookingcalcs.com/그키.txt`로 접근 가능해야 정상(200 응답 + 파일 내용이 키 문자열과 일치).
   - **"제출했다"고 보고하지 말 것** — 이 환경에서 성공한 적이 한 번도 없다. 실행 결과(HTTP 상태코드)를 그대로 보고할 것.
+  - 🆕 (10-13) **WebFetch로 GET 방식 핑은 나간다**: `https://api.indexnow.org/indexnow?url=<URL>&key=2418ccf79ce498437d212ccbeec13acfa57b7f0de6de7d324b937badb91b3333`
+    (URL 하나당 한 번). 단 응답 상태코드가 안 보이고, **일부러 틀린 키를 넣어도 똑같은 응답**이라 접수 여부를 확인할 수 없다.
+    → 발행 시 WebFetch 핑은 해두되 "확인 불가"로 보고하고, **사용자용 로컬 명령어도 매번 보고 끝에 같이 줄 것**(34·35차에서 빠뜨렸다가 지적받음).
 
 ### 보강 작업 시 추가
 - [ ] `nav.js` 해당 항목 `date`를 보강일로 갱신

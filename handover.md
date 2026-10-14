@@ -276,6 +276,14 @@ echo "nav.js GUIDES: $(sed -n '/const GUIDES/,/^];/p' assets/js/nav.js | grep -c
 - 기존 "최신 블로그 6·최신 가이드 6" 자동 목록 삭제 → 사이트 전역 링크가 발행마다 바뀌지 않음. 툴 개수는 `TOOLS.length` 자동.
 - CSS는 style.css FOOTER 블록(flex) + 768/480 미디어쿼리 교체. 146개 페이지 build-static으로 재생성.
 
+**36차 추가 — 메인 섹션 재배치 + Tools 섹션 축소** (사용자: "Cooking Calculators → Tools, 툴 전부 나열은 많고 더 늘어날 것")
+- 순서: 히어로 → **Tools** → 상황별 시작점(+All guides 버튼) → Quick Reference → Blog → How We Get Our Numbers → CTA → Listed on.
+- Tools: 22개 카드 나열 → **고정 8개 카드**(cups-to-grams·oven-temp·recipe-multiplier·meat-temp·cooking-time·catering-pan·butter·cost-per-serving) + **검색창** + "See all N tools" 버튼.
+  검색은 `nav.js`의 `TOOL_KW`(툴 URL별 키워드, 단어 앞부분 일치) + `ccToolMatch()` 사용 → 메인 드롭다운 6개, Enter 시 1개면 바로 이동, 아니면 `/tools/?q=` (툴 목록 페이지가 q 파라미터 지원).
+  ➜ **신규 툴 추가 시 `TOOL_KW`에도 키워드 한 줄 추가할 것.** 툴 개수(`#tool-count`, `#tool-count-2`)는 JS가 `TOOLS.length`로 자동 갱신.
+- 메인 Guides 카드 그리드 삭제(상황별 시작점과 중복) → `build-static.js`에서 index guides-grid 주입 제거.
+- tools/index.html h1 "Cooking Calculators" → "Kitchen Tools & Calculators".
+
 ### 2026-10-13 (35차): 신규 클러스터 — 대인원 요리(케이터링 팬·포션 스쿱) 툴1+블로그2+가이드1
 
 > 사용자 지시: "GSC/Bing 안에서만 보지 말고 구글·네이버·레딧 등에서 문서수 적고 관심 있는 것" → 키워드 넓게 → 리스트 → 경쟁도 → 롱테일 → 클러스터.

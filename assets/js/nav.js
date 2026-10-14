@@ -61,6 +61,51 @@ const TOOLS = [
   { name: "Catering Pan Calculator", url: "/tools/catering-pan-calculator.html" },
 ];
 
+// ── 툴 검색 키워드 (메인·툴 목록 검색용, 툴 이름에 없는 단어만) ─────────
+const TOOL_KW = {
+  "/tools/cups-to-grams.html": "flour sugar rice oats grams cup weight baking ingredient",
+  "/tools/oven-temp-converter.html": "celsius fahrenheit gas mark 350 oven",
+  "/tools/tablespoon-to-teaspoon.html": "tbsp tsp spoon measurement",
+  "/tools/weight-converter.html": "ounces pounds grams kg oz lb",
+  "/tools/egg-converter.html": "eggs large medium jumbo substitute",
+  "/tools/egg-weight-converter.html": "eggs grams ml whites yolks",
+  "/tools/recipe-multiplier.html": "scale scaling double half servings resize recipe",
+  "/tools/cooking-time-calculator.html": "roast chicken turkey beef pork ham minutes per pound",
+  "/tools/meat-temperature-guide.html": "chicken steak beef pork turkey fish safe internal doneness thermometer",
+  "/tools/meal-cost-calculator.html": "price budget money recipe cost",
+  "/tools/cost-per-serving.html": "price budget money portion",
+  "/tools/liquid-converter.html": "ml liters fluid ounces quarts gallons milk water",
+  "/tools/butter-converter.html": "stick grams tablespoons",
+  "/tools/baking-substitutions.html": "buttermilk baking soda powder replace swap",
+  "/tools/cups-to-tablespoons.html": "tbsp cup spoon",
+  "/tools/raw-to-cooked-weight.html": "rice pasta meat chicken shrink yield dry",
+  "/tools/weekly-meal-prep-cost-calculator.html": "budget grocery money week",
+  "/tools/slow-cooker-converter.html": "crockpot crock pot low high",
+  "/tools/herb-converter.html": "basil parsley oregano dried fresh spices",
+  "/tools/kitchen-math-generator.html": "worksheet practice problems culinary school",
+  "/tools/grill-temperature-calculator.html": "bbq barbecue charcoal gas grill steak burger",
+  "/tools/pan-size-converter.html": "cake pan baking dish 9x13 round square",
+  "/tools/can-size-converter.html": "tin can number 10 ounces",
+  "/tools/pressure-cooker-converter.html": "instant pot",
+  "/tools/altitude-cooking-calculator.html": "high altitude elevation boiling baking",
+  "/tools/vegetable-roasting-calculator.html": "vegetables potatoes carrots broccoli roast",
+  "/tools/oven-sharing-calculator.html": "two dishes different temperatures same oven",
+  "/tools/meal-timeline-planner.html": "schedule dinner timing thanksgiving",
+  "/tools/deep-frying-calculator.html": "oil fry fryer temperature",
+  "/tools/pot-size-calculator.html": "quarts stock pot soup pasta",
+  "/tools/batch-cooking-planner.html": "freezer meal prep batch",
+  "/tools/reheating-calculator.html": "leftovers microwave oven reheat",
+  "/tools/air-fryer-cooking-times.html": "airfryer fries wings chicken",
+  "/tools/candy-temperature-calculator.html": "sugar syrup soft ball hard crack caramel fudge",
+  "/tools/yield-percentage-calculator.html": "trim waste produce chef",
+  "/tools/catering-pan-calculator.html": "party crowd buffet half pan hotel pan servings people guests"
+};
+function ccToolMatch(t, q) {
+  // 단어 앞부분 일치(예: "rice"가 "price"에 걸리지 않게)
+  const words = (t.name + ' ' + (TOOL_KW[t.url] || '')).toLowerCase().split(/[^a-z0-9]+/).filter(Boolean);
+  return q.toLowerCase().split(/[^a-z0-9]+/).filter(Boolean).every(w => words.some(h => h.startsWith(w)));
+}
+
 const BLOGS = [
   { name: "Cups to Grams Guide", url: "/blog/cups-to-grams-guide.html", desc: "Convert cups to grams for flour, sugar, butter, and more with our complete reference guide.", date: "2026-07-09" },
   { name: "Why Weigh Ingredients When Baking", url: "/blog/why-weigh-ingredients-baking.html", desc: "Discover why professional bakers always use a scale — and how it makes your recipes more consistent.", date: "2026-07-09" },

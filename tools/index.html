@@ -110,8 +110,8 @@
 <!-- CC:STATIC-CHROME:END -->
 <main>
   <section class="section">
-    <h1 class="section-title">Cooking Calculators</h1>
-    <p class="section-sub">Free kitchen tools for conversions, recipe scaling, cook times, and meal costs.</p>
+    <h1 class="section-title">Kitchen Tools &amp; Calculators</h1>
+    <p class="section-sub">Free kitchen tools for conversions, recipe scaling, cook times, party portions and food costs.</p>
 
     <div class="tool-search-wrap">
       <span class="tool-search-icon">🔍</span>
@@ -383,10 +383,14 @@ document.addEventListener('DOMContentLoaded', function () {
     if (typeof TOOLS === 'undefined') return [];
     if (!q) return TOOLS;
     const lower = q.toLowerCase();
-    return TOOLS.filter(t => t.name.toLowerCase().includes(lower));
+    const words = lower.split(/\s+/).filter(Boolean);
+    if (typeof ccToolMatch === 'function') return TOOLS.filter(t => ccToolMatch(t, q));
+    return TOOLS.filter(t => words.every(w => t.name.toLowerCase().includes(w)));
   }
 
-  renderCards(filterTools(''));
+  const q0 = new URLSearchParams(location.search).get('q');
+  if (q0) input.value = q0;
+  renderCards(filterTools(input.value.trim()));
 
   input.addEventListener('input', function () {
     renderCards(filterTools(this.value.trim()));

@@ -197,7 +197,7 @@ if (missingIcons.length) {
 
 const results = [
   injectCards('index.html', 'blog-grid', sortByDateDesc(BLOGS).slice(0, 6)),
-  injectCards('index.html', 'guides-grid', sortByDateDesc(GUIDES)),
+  // index.html 가이드 그리드는 2026-10-14 제거(상황별 시작점 섹션으로 대체)
   injectCards(path.join('blog', 'index.html'), 'blog-list', sortByDateDesc(BLOGS)),
   injectCards(path.join('guides', 'index.html'), 'guides-grid', sortByDateDesc(GUIDES)),
   injectCards(path.join('tools', 'index.html'), 'tool-list', TOOLS, t => toolCardHTML(t, icons)),

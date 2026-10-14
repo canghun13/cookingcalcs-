@@ -271,6 +271,11 @@ echo "nav.js GUIDES: $(sed -n '/const GUIDES/,/^];/p' assets/js/nav.js | grep -c
   + "People ask" 질문 칩 6개 + 오른쪽 **SVG 저울·볼·계량컵 그림**(모바일에선 위로) + 모눈 배경.
 - `stats-bar` 삭제. **툴 개수는 이제 히어로 아래 신뢰 문구의 `<strong id="tool-count">36</strong>`** — 툴 추가 시 여기 숫자 갱신.
 
+**36차 추가 — 푸터 재설계** (사용자: "리스트가 다 있을 필요가 있나, 깔끔하게")
+- `nav.js` `ccBuildFooter()` 교체: 브랜드+설명+contact 메일 | **Popular(고정 5개: cups-to-grams·oven-temp·meat-temp·recipe-multiplier·catering-pan)** | Explore(All N Tools·Blog·Guides·About) / 하단 바 ©·Privacy·Contact.
+- 기존 "최신 블로그 6·최신 가이드 6" 자동 목록 삭제 → 사이트 전역 링크가 발행마다 바뀌지 않음. 툴 개수는 `TOOLS.length` 자동.
+- CSS는 style.css FOOTER 블록(flex) + 768/480 미디어쿼리 교체. 146개 페이지 build-static으로 재생성.
+
 ### 2026-10-13 (35차): 신규 클러스터 — 대인원 요리(케이터링 팬·포션 스쿱) 툴1+블로그2+가이드1
 
 > 사용자 지시: "GSC/Bing 안에서만 보지 말고 구글·네이버·레딧 등에서 문서수 적고 관심 있는 것" → 키워드 넓게 → 리스트 → 경쟁도 → 롱테일 → 클러스터.

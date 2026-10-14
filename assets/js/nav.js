@@ -241,50 +241,45 @@ function ccBuildMobileNav() {
 }
 
 function ccBuildFooter() {
+  // 2026-10-14 개편: 전체 목록 나열 대신 고정 인기 툴 5개 + 탐색 링크만 (사이트 전역 링크가 매주 바뀌지 않게)
+  const popular = [
+    ['Cups to Grams', '/tools/cups-to-grams.html'],
+    ['Oven Temperature Converter', '/tools/oven-temp-converter.html'],
+    ['Meat Temperature Guide', '/tools/meat-temperature-guide.html'],
+    ['Recipe Multiplier', '/tools/recipe-multiplier.html'],
+    ['Catering Pan Calculator', '/tools/catering-pan-calculator.html']
+  ];
   return `
   <footer class="site-footer">
     <div class="footer-inner">
       <div class="footer-brand">
         <a href="/" class="logo">🍳 CookingCalcs</a>
-        <p>Free cooking calculators & tools for every kitchen.</p>
+        <p>Calculators, charts and step-by-step guides for everyday cooking. Every formula is shown, with figures from USDA and published sources.</p>
+        <a class="footer-mail" href="mailto:contact@cookingcalcs.com">contact@cookingcalcs.com</a>
       </div>
-      <div class="footer-links">
+      <nav class="footer-nav" aria-label="Footer">
         <div class="footer-col">
-          <h4>Tools</h4>
+          <h4>Popular</h4>
           <ul>
-            ${TOOLS.slice(0, 6).map(t => `<li><a href="${t.url}">${t.name}</a></li>`).join('') || '<li>Coming soon</li>'}
-            <li><a href="/tools/">View All Tools →</a></li>
+            ${popular.map(([n, u]) => `<li><a href="${u}">${n}</a></li>`).join('')}
           </ul>
         </div>
         <div class="footer-col">
-          <h4>Blog</h4>
+          <h4>Explore</h4>
           <ul>
-            ${[...BLOGS].sort((a,b) => (b.date||'') > (a.date||'') ? 1 : -1).slice(0, 6).map(b => `<li><a href="${b.url}">${b.name}</a></li>`).join('') || '<li>Coming soon</li>'}
-            <li><a href="/blog/">View All Posts →</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Guides</h4>
-          <ul>
-            ${[...GUIDES].sort((a,b) => (b.date||'') > (a.date||'') ? 1 : -1).slice(0, 6).map(g => `<li><a href="${g.url}">${g.name}</a></li>`).join('') || '<li>Coming soon</li>'}
-            <li><a href="/guides/">View All Guides →</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Site</h4>
-          <ul>
-            <li><a href="/">Home</a></li>
+            <li><a href="/tools/">All ${TOOLS.length} Tools</a></li>
             <li><a href="/blog/">Blog</a></li>
             <li><a href="/guides/">Guides</a></li>
             <li><a href="/about.html">About</a></li>
-            <li><a href="/privacy-policy.html">Privacy Policy</a></li>
-            <li><a href="/contact.html">Contact</a></li>
           </ul>
         </div>
-      </div>
+      </nav>
     </div>
     <div class="footer-bottom">
-      <p>© ${new Date().getFullYear()} CookingCalcs. For informational purposes only.</p>
+      <div class="footer-bottom-inner">
+        <p>© ${new Date().getFullYear()} CookingCalcs · For informational purposes only.</p>
+        <p class="footer-legal"><a href="/privacy-policy.html">Privacy Policy</a><a href="/contact.html">Contact</a></p>
+      </div>
     </div>
   </footer>`;
 }

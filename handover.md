@@ -1,4 +1,4 @@
-# CookingCalcs 현황 및 인수인계 (2026-10-13 기준)
+# CookingCalcs 현황 및 인수인계 (2026-10-14 기준)
 
 이 문서는 2026-07-24 버전 인수인계 문서를 기반으로, 이후 진행된 모든 작업 내역을 반영해 갱신한 버전입니다. 새 세션에서는 이 문서만 보고 바로 작업 이어가면 됩니다.
 
@@ -244,6 +244,26 @@ echo "nav.js GUIDES: $(sed -n '/const GUIDES/,/^];/p' assets/js/nav.js | grep -c
   잡히면 **"툴은 있는데 질문형 페이지가 없는 쿼리"를 찾아 채우는 패턴**이 검증된다.
   현재 후보: `tablespoon-to-teaspoon-guide` 182노출 클릭0 7.02위,
   `how-many-grams-in-a-cup-of-oats` 207노출 클릭0 5.18위.
+
+### 2026-10-14 (36차): 메인 페이지 개편 — 상황별 시작점 · 주방 빠른 참조(SVG 2개) · 수치 출처 블록
+
+> 사용자 요청: "메인에 간단한 정보가 나오면 좋겠다, 이미지도 가능하냐, 애드센스 승인에 도움되게. 상단 메뉴는 살리고."
+
+- **유지**: 헤더/모바일메뉴/푸터(build-static 자동 영역), 히어로, 툴 카드 22개, 블로그·가이드 카드 그리드, CTA.
+- **추가 3섹션**:
+  1. `#start` "Start With What You're Cooking" — 상황별 가이드 6개(레시피 스케일링·대인원·베이킹 변환·고기 안전·식사 타이밍·예산)
+  2. `#reference` "Kitchen Quick Reference" — 컵/큰술/작은술 **SVG 사다리 그림**, 부피 환산, 버터·밀가루·설탕 g, **계란 사이즈 SVG(무게 세제곱근 비례)**,
+     오븐 °F/°C/가스, 고기 안전 온도, 대인원(#8 스쿱·하프팬·2시간). **모든 값은 기존 페이지 값 그대로**(cups-to-grams 120/200/220/90g,
+     오븐가이드 표, meat-temperature-guide, 계란 대체표 35/44/50/56/63g, 4 large→5 medium/3 jumbo).
+  3. `#how-we-work` "How We Get Our Numbers" — 출처(USDA·FBG·제조사 스펙), 계산식 공개, 사이트 전체 수치 일관성, 정정 메일. (E-E-A-T 신뢰 신호)
+- 히어로 문구 확장, 통계 "0 Sign-ups" → "100+ Guides & articles"(블로그 86+가이드 17).
+- 디렉토리 배지 10개 → 작은 "Listed on" 스트립(26px, lazy-load). **링크는 전부 유지**(배지 조건부 등록 가능성 때문에 삭제 안 함).
+
+🚨 **레이아웃 함정 (다음 세션 필독)**: `nav.js`가 `main` 안의 **모든 table에 inline으로 min-width:360px + 셀 white-space:nowrap**을 강제한다.
+그리드 카드 안의 작은 표는 그대로 두면 가로 넘침이 난다(이번에 데스크톱 1318px/모바일 426px 넘침 발생). 메인에서는 `.qr-card table{min-width:0 !important}`,
+`.qr-card td{white-space:normal !important}`, 그리드 자식 `min-width:0`으로 해결. **카드/그리드 안에 표를 넣을 땐 같은 예외 처리를 할 것.**
+검증: Playwright(`executablePath: /opt/pw-browsers/chromium-1194/chrome-linux/chrome`)로 1280/390px에서 `scrollWidth == viewport` + 스크린샷 육안 확인.
+⚠️ 로컬 서버 끌 때 `pkill -f "http.server ..."`를 쓰면 같은 문자열이 든 셸 자체가 죽는다 — PID로 kill할 것.
 
 ### 2026-10-13 (35차): 신규 클러스터 — 대인원 요리(케이터링 팬·포션 스쿱) 툴1+블로그2+가이드1
 

@@ -78,6 +78,54 @@
       text-decoration: none;
     }
     .btn-white:hover { opacity: 0.9; transform: translateY(-2px); }
+
+    /* Start here / Quick reference / How we work (homepage, added 2026-10-14) */
+    .start-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; }
+    .start-card { display:block; padding:1.2rem 1.25rem; background:#fff; border:1px solid var(--border); border-radius:var(--radius); text-decoration:none; color:var(--ink); transition:border-color .15s, transform .15s; }
+    .start-card:hover { border-color:var(--tomato); transform:translateY(-2px); }
+    .start-card h3 { font-size:1.02rem; margin:0 0 .35rem; color:var(--charcoal); }
+    .start-card p { font-size:.9rem; color:var(--mid); margin:0; }
+    .start-card span { display:inline-block; margin-top:.6rem; font-size:.85rem; font-weight:600; color:var(--tomato-dark); }
+    .qr-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.25rem; }
+    .start-grid > *, .qr-grid > *, .trust-grid > * { min-width:0; }
+    .qr-card .table-scroll-wrap { overflow-x:auto; max-width:100%; }
+    .qr-card table { min-width:0 !important; }
+    .qr-card td { white-space:normal !important; }
+    .qr-card .table-scroll-hint { display:none !important; }
+    .qr-card { background:#fff; border:1px solid var(--border); border-radius:var(--radius); padding:1.2rem 1.25rem; }
+    .qr-card.wide { grid-column:span 2; }
+    .qr-card h3 { font-size:1.02rem; margin:0 0 .75rem; color:var(--charcoal); }
+    .qr-card table { width:100%; border-collapse:collapse; font-size:.88rem; }
+    .qr-card td { padding:.38rem .2rem; border-bottom:1px solid var(--border); }
+    .qr-card tr:last-child td { border-bottom:none; }
+    .qr-card td:last-child { text-align:right; font-weight:600; color:var(--charcoal); }
+    .qr-card .qr-more { display:inline-block; margin-top:.75rem; font-size:.85rem; font-weight:600; color:var(--tomato-dark); text-decoration:none; }
+    .qr-svg { width:100%; height:auto; display:block; }
+    .qr-svg .sv-cup { fill:var(--tomato); }
+    .qr-svg .sv-tbsp { fill:var(--tomato-light); stroke:var(--tomato); stroke-width:1; }
+    .qr-svg .sv-tsp { fill:var(--sand-dark); stroke:#cfc6b8; stroke-width:.6; }
+    .qr-svg .sv-egg { fill:#f6efe4; stroke:#cbb89b; stroke-width:1.5; }
+    .qr-svg .sv-egg-hi { fill:var(--tomato-light); stroke:var(--tomato); stroke-width:2; }
+    .qr-svg .sv-label { font-size:13px; fill:var(--ink); font-family:'Plus Jakarta Sans',sans-serif; }
+    .qr-svg .sv-num { font-size:13px; font-weight:700; fill:var(--charcoal); font-family:'Plus Jakarta Sans',sans-serif; }
+    .trust-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:1.25rem; }
+    .trust-item { background:#fff; border:1px solid var(--border); border-radius:var(--radius); padding:1.2rem 1.25rem; }
+    .trust-item h3 { font-size:1rem; margin:0 0 .4rem; color:var(--charcoal); }
+    .trust-item p { font-size:.92rem; color:var(--ink); margin:0; line-height:1.6; }
+    .listed-strip { padding:1.25rem 1rem 2rem; max-width:1200px; margin:0 auto; text-align:center; }
+    .listed-strip p { font-size:.8rem; color:var(--muted); margin:0 0 .5rem; text-transform:uppercase; letter-spacing:.06em; }
+    .listed-strip img { height:26px !important; width:auto; margin:.2rem .25rem; opacity:.85; vertical-align:middle; }
+    @media (max-width: 900px) {
+      .start-grid, .qr-grid { grid-template-columns:repeat(2,1fr); }
+    }
+    @media (max-width: 600px) {
+      .start-grid, .qr-grid, .trust-grid { grid-template-columns:1fr; }
+      .qr-card.wide { grid-column:auto; }
+      .qr-card table { table-layout:fixed; font-size:.84rem; }
+      .qr-card td:first-child { width:50%; }
+      .qr-svg .sv-label, .qr-svg .sv-num { font-size:22px; }
+      .qr-svg.eggs .sv-label, .qr-svg.eggs .sv-num { font-size:19px; }
+    }
   </style>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
 </head>
@@ -135,7 +183,7 @@
   <section class="hero">
     <span class="hero-badge">🍳 Free Kitchen Tools</span>
     <h1>Every cooking calculator<br><em>you'll ever need</em></h1>
-    <p class="hero-sub">Convert measurements, scale recipes, calculate cooking times, meal costs, and more — all in one place.</p>
+    <p class="hero-sub">Calculators, quick-reference charts and step-by-step guides for everyday cooking — measurements, recipe scaling, cooking times, food costs and cooking for a crowd. Free, no sign-up.</p>
     <a href="#tools" class="btn-primary">Explore Tools ↓</a>
   </section>
 
@@ -146,14 +194,30 @@
       <div class="stat-label">Free Tools</div>
     </div>
     <div class="stat">
-      <div class="stat-num">0</div>
-      <div class="stat-label">Sign-ups needed</div>
+      <div class="stat-num">100+</div>
+      <div class="stat-label">Guides &amp; articles</div>
     </div>
     <div class="stat">
       <div class="stat-num">100%</div>
       <div class="stat-label">Free forever</div>
     </div>
   </div>
+
+  <!-- START HERE -->
+  <section class="section" id="start">
+    <h2 class="section-title">Start With What You're Cooking</h2>
+    <p class="section-sub">Each guide walks through one kind of kitchen problem in order, with the calculator for every step.</p>
+    <div class="start-grid">
+      <a class="start-card" href="/guides/complete-recipe-scaling-guide.html"><h3>Scaling a recipe up or down</h3><p>Doubling, halving, or feeding 10 from a recipe for 4 — and what doesn't scale.</p><span>Recipe scaling guide →</span></a>
+      <a class="start-card" href="/guides/complete-cooking-for-a-crowd-guide.html"><h3>Cooking for a crowd</h3><p>Portions per person, how many pans, which scoop, and keeping a buffet safe.</p><span>Cooking for a crowd guide →</span></a>
+      <a class="start-card" href="/guides/complete-baking-conversion-guide.html"><h3>Converting baking measurements</h3><p>Cups to grams, tablespoons to teaspoons, butter, eggs and oven temperatures.</p><span>Baking conversion guide →</span></a>
+      <a class="start-card" href="/guides/complete-meat-cooking-temperature-guide.html"><h3>Cooking meat safely</h3><p>Safe internal temperatures, cook times by weight, and resting.</p><span>Meat temperature guide →</span></a>
+      <a class="start-card" href="/guides/complete-meal-timing-guide.html"><h3>Getting dinner on the table at once</h3><p>Working backwards from serving time when dishes cook at different speeds.</p><span>Meal timing guide →</span></a>
+      <a class="start-card" href="/guides/complete-meal-prep-budget-guide.html"><h3>Spending less on food</h3><p>Cost per serving, weekly meal prep budgets and grocery math.</p><span>Meal prep budget guide →</span></a>
+    </div>
+  </section>
+
+  <div class="divider"></div>
 
   <!-- TOOLS SECTION -->
   <section class="section" id="tools">
@@ -323,6 +387,169 @@
     </div>
     <div style="text-align:center; margin-top:2rem;">
       <a href="/tools/" style="color:var(--tomato-dark); font-weight:600; font-size:1rem;">View All Tools →</a>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- QUICK REFERENCE -->
+  <section class="section" id="reference">
+    <h2 class="section-title">Kitchen Quick Reference</h2>
+    <p class="section-sub">The numbers people look up most, in one place. Each card links to the full chart and calculator.</p>
+    <div class="qr-grid">
+      <div class="qr-card wide">
+        <h3>Cups, tablespoons and teaspoons</h3>
+        <svg class="qr-svg" viewBox="0 -14 640 190" role="img" aria-labelledby="ladderT ladderD" xmlns="http://www.w3.org/2000/svg">
+<title id="ladderT">One cup equals 16 tablespoons equals 48 teaspoons</title>
+<desc id="ladderD">Three bars of equal length: one cup as a single block, the same length split into 16 tablespoons, and split again into 48 teaspoons.</desc>
+<rect class="sv-cup" x="20.00" y="18" width="600.00" height="26" rx="4"/>
+<text class="sv-label" x="20" y="13">1 cup  ·  8 fl oz  ·  about 240 ml</text>
+<rect class="sv-tbsp" x="20.00" y="72" width="37.50" height="26" rx="2"/>
+<rect class="sv-tbsp" x="57.50" y="72" width="37.50" height="26" rx="2"/>
+<rect class="sv-tbsp" x="95.00" y="72" width="37.50" height="26" rx="2"/>
+<rect class="sv-tbsp" x="132.50" y="72" width="37.50" height="26" rx="2"/>
+<rect class="sv-tbsp" x="170.00" y="72" width="37.50" height="26" rx="2"/>
+<rect class="sv-tbsp" x="207.50" y="72" width="37.50" height="26" rx="2"/>
+<rect class="sv-tbsp" x="245.00" y="72" width="37.50" height="26" rx="2"/>
+<rect class="sv-tbsp" x="282.50" y="72" width="37.50" height="26" rx="2"/>
+<rect class="sv-tbsp" x="320.00" y="72" width="37.50" height="26" rx="2"/>
+<rect class="sv-tbsp" x="357.50" y="72" width="37.50" height="26" rx="2"/>
+<rect class="sv-tbsp" x="395.00" y="72" width="37.50" height="26" rx="2"/>
+<rect class="sv-tbsp" x="432.50" y="72" width="37.50" height="26" rx="2"/>
+<rect class="sv-tbsp" x="470.00" y="72" width="37.50" height="26" rx="2"/>
+<rect class="sv-tbsp" x="507.50" y="72" width="37.50" height="26" rx="2"/>
+<rect class="sv-tbsp" x="545.00" y="72" width="37.50" height="26" rx="2"/>
+<rect class="sv-tbsp" x="582.50" y="72" width="37.50" height="26" rx="2"/>
+<text class="sv-label" x="20" y="67">16 tablespoons  ·  1 tbsp ≈ 15 ml</text>
+<rect class="sv-tsp" x="20.00" y="126" width="12.50" height="26" rx="2"/>
+<rect class="sv-tsp" x="32.50" y="126" width="12.50" height="26" rx="2"/>
+<rect class="sv-tsp" x="45.00" y="126" width="12.50" height="26" rx="2"/>
+<rect class="sv-tsp" x="57.50" y="126" width="12.50" height="26" rx="2"/>
+<rect class="sv-tsp" x="70.00" y="126" width="12.50" height="26" rx="2"/>
+<rect class="sv-tsp" x="82.50" y="126" width="12.50" height="26" rx="2"/>
+<rect class="sv-tsp" x="95.00" y="126" width="12.50" height="26" rx="2"/>
+<rect class="sv-tsp" x="107.50" y="126" width="12.50" height="26" rx="2"/>
+<rect class="sv-tsp" x="120.00" y="126" width="12.50" height="26" rx="2"/>
+<rect class="sv-tsp" x="132.50" y="126" width="12.50" height="26" rx="2"/>
+<rect class="sv-tsp" x="145.00" y="126" width="12.50" height="26" rx="2"/>
+<rect class="sv-tsp" x="157.50" y="126" width="12.50" height="26" rx="2"/>
+<rect class="sv-tsp" x="170.00" y="126" width="12.50" height="26" rx="2"/>
+<rect class="sv-tsp" x="182.50" y="126" width="12.50" height="26" rx="2"/>
+<rect class="sv-tsp" x="195.00" y="126" width="12.50" height="26" rx="2"/>
+<rect class="sv-tsp" x="207.50" y="126" width="12.50" height="26" rx="2"/>
+<rect class="sv-tsp" x="220.00" y="126" width="12.50" height="26" rx="2"/>
+<rect class="sv-tsp" x="232.50" y="126" width="12.50" height="26" rx="2"/>
+<rect class="sv-tsp" x="245.00" y="126" width="12.50" height="26" rx="2"/>
+<rect class="sv-tsp" x="257.50" y="126" width="12.50" height="26" rx="2"/>
+<rect class="sv-tsp" x="270.00" y="126" width="12.50" height="26" rx="2"/>
+<rect class="sv-tsp" x="282.50" y="126" width="12.50" height="26" rx="2"/>
+<rect class="sv-tsp" x="295.00" y="126" width="12.50" height="26" rx="2"/>
+<rect class="sv-tsp" x="307.50" y="126" width="12.50" height="26" rx="2"/>
+<rect class="sv-tsp" x="320.00" y="126" width="12.50" height="26" rx="2"/>
+<rect class="sv-tsp" x="332.50" y="126" width="12.50" height="26" rx="2"/>
+<rect class="sv-tsp" x="345.00" y="126" width="12.50" height="26" rx="2"/>
+<rect class="sv-tsp" x="357.50" y="126" width="12.50" height="26" rx="2"/>
+<rect class="sv-tsp" x="370.00" y="126" width="12.50" height="26" rx="2"/>
+<rect class="sv-tsp" x="382.50" y="126" width="12.50" height="26" rx="2"/>
+<rect class="sv-tsp" x="395.00" y="126" width="12.50" height="26" rx="2"/>
+<rect class="sv-tsp" x="407.50" y="126" width="12.50" height="26" rx="2"/>
+<rect class="sv-tsp" x="420.00" y="126" width="12.50" height="26" rx="2"/>
+<rect class="sv-tsp" x="432.50" y="126" width="12.50" height="26" rx="2"/>
+<rect class="sv-tsp" x="445.00" y="126" width="12.50" height="26" rx="2"/>
+<rect class="sv-tsp" x="457.50" y="126" width="12.50" height="26" rx="2"/>
+<rect class="sv-tsp" x="470.00" y="126" width="12.50" height="26" rx="2"/>
+<rect class="sv-tsp" x="482.50" y="126" width="12.50" height="26" rx="2"/>
+<rect class="sv-tsp" x="495.00" y="126" width="12.50" height="26" rx="2"/>
+<rect class="sv-tsp" x="507.50" y="126" width="12.50" height="26" rx="2"/>
+<rect class="sv-tsp" x="520.00" y="126" width="12.50" height="26" rx="2"/>
+<rect class="sv-tsp" x="532.50" y="126" width="12.50" height="26" rx="2"/>
+<rect class="sv-tsp" x="545.00" y="126" width="12.50" height="26" rx="2"/>
+<rect class="sv-tsp" x="557.50" y="126" width="12.50" height="26" rx="2"/>
+<rect class="sv-tsp" x="570.00" y="126" width="12.50" height="26" rx="2"/>
+<rect class="sv-tsp" x="582.50" y="126" width="12.50" height="26" rx="2"/>
+<rect class="sv-tsp" x="595.00" y="126" width="12.50" height="26" rx="2"/>
+<rect class="sv-tsp" x="607.50" y="126" width="12.50" height="26" rx="2"/>
+<text class="sv-label" x="20" y="121">48 teaspoons  ·  3 tsp = 1 tbsp</text>
+</svg>
+        <a class="qr-more" href="/tools/liquid-converter.html">Liquid measurement converter →</a>
+      </div>
+      <div class="qr-card">
+        <h3>Volume equivalents</h3>
+        <table>
+          <tr><td>1 cup</td><td>16 tbsp</td></tr>
+          <tr><td>½ cup</td><td>8 tbsp</td></tr>
+          <tr><td>¼ cup</td><td>4 tbsp</td></tr>
+          <tr><td>1 tbsp</td><td>3 tsp</td></tr>
+          <tr><td>1 cup</td><td>about 240 ml</td></tr>
+        </table>
+        <a class="qr-more" href="/blog/tablespoon-to-teaspoon-guide.html">Tablespoons to teaspoons →</a>
+      </div>
+      <div class="qr-card">
+        <h3>Butter, flour and sugar</h3>
+        <table>
+          <tr><td>1 stick butter</td><td>½ cup · 8 tbsp · 113 g</td></tr>
+          <tr><td>1 cup all-purpose flour</td><td>120 g</td></tr>
+          <tr><td>1 cup white sugar</td><td>200 g</td></tr>
+          <tr><td>1 cup brown sugar</td><td>220 g</td></tr>
+          <tr><td>1 cup rolled oats</td><td>90 g</td></tr>
+        </table>
+        <a class="qr-more" href="/tools/cups-to-grams.html">Cups to grams for 100+ ingredients →</a>
+      </div>
+      <div class="qr-card wide">
+        <h3>Egg sizes, drawn to scale</h3>
+        <svg class="qr-svg eggs" viewBox="0 0 520 150" role="img" aria-labelledby="eggT eggD" xmlns="http://www.w3.org/2000/svg">
+<title id="eggT">US egg sizes compared by shelled weight</title>
+<desc id="eggD">Five eggs drawn to scale by weight: small 35 grams, medium 44, large 50, extra-large 56 and jumbo 63 grams without the shell.</desc>
+<ellipse class="sv-egg" cx="43.6" cy="71.1" rx="25.6" ry="32.9"/>
+<text class="sv-label" text-anchor="middle" x="43.6" y="122">Small</text>
+<text class="sv-num" text-anchor="middle" x="43.6" y="140">35 g</text>
+<ellipse class="sv-egg" cx="126.9" cy="68.5" rx="27.7" ry="35.5"/>
+<text class="sv-label" text-anchor="middle" x="126.9" y="122">Medium</text>
+<text class="sv-num" text-anchor="middle" x="126.9" y="140">44 g</text>
+<ellipse class="sv-egg-hi" cx="213.4" cy="67.0" rx="28.9" ry="37.0"/>
+<text class="sv-label" text-anchor="middle" x="213.4" y="122">Large</text>
+<text class="sv-num" text-anchor="middle" x="213.4" y="140">50 g</text>
+<ellipse class="sv-egg" cx="302.3" cy="65.6" rx="30.0" ry="38.4"/>
+<text class="sv-label" text-anchor="middle" x="302.3" y="122">X-Large</text>
+<text class="sv-num" text-anchor="middle" x="302.3" y="140">56 g</text>
+<ellipse class="sv-egg" cx="393.4" cy="64.0" rx="31.2" ry="40.0"/>
+<text class="sv-label" text-anchor="middle" x="393.4" y="122">Jumbo</text>
+<text class="sv-num" text-anchor="middle" x="393.4" y="140">63 g</text>
+</svg>
+        <p style="font-size:.85rem; color:var(--mid); margin:.6rem 0 0;">Shelled weights. Four large eggs make about 1 cup; for 4 large eggs use 5 medium or 3 jumbo.</p>
+        <a class="qr-more" href="/blog/how-to-substitute-egg-sizes.html">Egg substitution tables, 1 to 12 eggs →</a>
+      </div>
+      <div class="qr-card">
+        <h3>Oven temperatures</h3>
+        <table>
+          <tr><td>325°F</td><td>160°C · Gas 3</td></tr>
+          <tr><td>350°F</td><td>180°C · Gas 4</td></tr>
+          <tr><td>375°F</td><td>190°C · Gas 5</td></tr>
+          <tr><td>400°F</td><td>200°C · Gas 6</td></tr>
+          <tr><td>425°F</td><td>220°C · Gas 7</td></tr>
+        </table>
+        <a class="qr-more" href="/tools/oven-temp-converter.html">Oven temperature converter →</a>
+      </div>
+      <div class="qr-card">
+        <h3>Safe internal temperatures</h3>
+        <table>
+          <tr><td>Chicken, turkey</td><td>165°F · 74°C</td></tr>
+          <tr><td>Ground beef, pork</td><td>160°F · 71°C</td></tr>
+          <tr><td>Beef, pork, lamb cuts</td><td>145°F · 63°C + rest</td></tr>
+          <tr><td>Fish</td><td>145°F · 63°C</td></tr>
+        </table>
+        <a class="qr-more" href="/tools/meat-temperature-guide.html">Full meat temperature chart →</a>
+      </div>
+      <div class="qr-card">
+        <h3>Feeding a crowd</h3>
+        <table>
+          <tr><td>#8 scoop</td><td>½ cup</td></tr>
+          <tr><td>Deep half pan, side</td><td>about 25 servings</td></tr>
+          <tr><td>Deep half pan, main</td><td>about 17 servings</td></tr>
+          <tr><td>Food out at room temp</td><td>2 hours max</td></tr>
+        </table>
+        <a class="qr-more" href="/tools/catering-pan-calculator.html">Catering pan calculator →</a>
+      </div>
     </div>
   </section>
 
@@ -538,26 +765,41 @@
     </div>
   </section>
 
+  <div class="divider"></div>
+
+  <!-- HOW WE GET OUR NUMBERS -->
+  <section class="section" id="how-we-work">
+    <h2 class="section-title">How We Get Our Numbers</h2>
+    <p class="section-sub">A calculator is only as good as the figures behind it.</p>
+    <div class="trust-grid">
+      <div class="trust-item"><h3>Published sources first</h3><p>Safe temperatures follow USDA food safety guidance. Scoop sizes and produce yields come from the USDA Food Buying Guide and industry yield tables; pan capacities from manufacturer specifications. Where sources disagree, the page says so and shows the range.</p></div>
+      <div class="trust-item"><h3>The working is on the page</h3><p>Tool pages explain the formula behind the answer and include worked examples, so you can check a result by hand — or adapt it when your situation doesn't match the defaults.</p></div>
+      <div class="trust-item"><h3>One number, everywhere</h3><p>A stick of butter is 113 g on every page that mentions it. When we add a page, its figures are checked against the existing charts and calculators so the site doesn't contradict itself.</p></div>
+      <div class="trust-item"><h3>Corrections welcome</h3><p>If a number looks wrong for your kitchen, email <a href="mailto:contact@cookingcalcs.com" style="color:var(--tomato-dark);">contact@cookingcalcs.com</a>. More about the site is on the <a href="/about.html" style="color:var(--tomato-dark);">About page</a>.</p></div>
+    </div>
+  </section>
+
   <!-- CTA STRIP -->
   <div class="cta-strip">
     <h2>Cook smarter, not harder.</h2>
     <p>Bookmark CookingCalcs and have every kitchen tool at your fingertips.</p>
     <a href="#tools" class="btn-white">Browse all tools →</a>
   </div>
-  <div style="padding:2rem;max-width: 1200px;margin: 0 auto;text-align:center;">
+  <div class="listed-strip">
+    <p>Listed on</p>
     <a href="https://newtool.site/item/cookingcalcs" target="_blank" rel="noopener noreferrer">
-      <img src="https://newtool.site/badges/newtool-light.svg" style="display:inline-block" alt="Featured on NewTool.site" height = "36px" width = "auto" />
+      <img loading="lazy" src="https://newtool.site/badges/newtool-light.svg" style="display:inline-block" alt="Featured on NewTool.site" height = "36px" width = "auto" />
     </a>
     <a href="https://www.foundrlist.com/product/cookingcalcs?utm_source=badge&amp;utm_medium=embed" target="_blank" rel="noopener">
-      <img src="https://www.foundrlist.com/api/badge/cookingcalcs" style="display:inline-block" alt="Featured on FoundrList" height="36px" />
+      <img loading="lazy" src="https://www.foundrlist.com/api/badge/cookingcalcs" style="display:inline-block" alt="Featured on FoundrList" height="36px" />
     </a>
-    <a href="https://fazier.com" target="_blank"><img src="https://fazier.com/api/v1//public/badges/launch_badges.svg?badge_type=featured&theme=light" style="display:inline-block" height="36px" alt="Fazier badge" /></a>
+    <a href="https://fazier.com" target="_blank"><img loading="lazy" src="https://fazier.com/api/v1//public/badges/launch_badges.svg?badge_type=featured&theme=light" style="display:inline-block" height="36px" alt="Fazier badge" /></a>
     <a href="https://findly.tools/cookingcalcs?utm_source=cookingcalcs" target="_blank" rel="noopener noreferrer" style="display:inline-block">
-      <img src="https://findly.tools/badges/findly-tools-badge-light.svg" alt="Featured on Findly.tools" height="36px" />
+      <img loading="lazy" src="https://findly.tools/badges/findly-tools-badge-light.svg" alt="Featured on Findly.tools" height="36px" />
     </a>
-    <a href="https://twelve.tools" target="_blank"><img src="https://twelve.tools/badge0-white.svg" alt="Featured on Twelve Tools" height="36px" style="display:inline-block"></a>
+    <a href="https://twelve.tools" target="_blank"><img loading="lazy" src="https://twelve.tools/badge0-white.svg" alt="Featured on Twelve Tools" height="36px" style="display:inline-block"></a>
     <a href="https://pitchwall.co/product/cookingcalcs?utm_source=badge" target="_blank">
-      <img
+      <img loading="lazy"
         src="https://pitchwall.co/images/listed/pitchwall-light.png"
         height="36px"
         alt="Listed on PitchWall"
@@ -565,16 +807,16 @@
       />
     </a>
     <a href="https://kittylaunch.com/p/cookingcalcs-toolkit" target="_blank" rel="noopener">
-      <img src="https://kittylaunch.com/api/public/badges/launch_badge.svg?theme=light&name=CookingCalcs%20Toolkit" height="36px" alt="CookingCalcs Toolkit on KittyLaunch" data-kittylaunch-badge="1" style="display:inline-block" />
+      <img loading="lazy" src="https://kittylaunch.com/api/public/badges/launch_badge.svg?theme=light&name=CookingCalcs%20Toolkit" height="36px" alt="CookingCalcs Toolkit on KittyLaunch" data-kittylaunch-badge="1" style="display:inline-block" />
     </a>
     <a href="https://sellwithboost.com" target="_blank" rel="noopener noreferrer">
-      <img src="https://sellwithboost.com/badge/listing.svg" alt="Listed on Sell With boost" style="height: 36px; width: auto;display:inline-block" />
+      <img loading="lazy" src="https://sellwithboost.com/badge/listing.svg" alt="Listed on Sell With boost" style="height: 36px; width: auto;display:inline-block" />
     </a>
     <a href="https://launchbison.com" target="_blank" rel="noopener">
-      <img src="https://launchbison.com/badge-light.svg" alt="Featured on Launchbison" style="height: 36px; width: auto;display:inline-block;display:none;" />
+      <img loading="lazy" src="https://launchbison.com/badge-light.svg" alt="Featured on Launchbison" style="height: 36px; width: auto;display:inline-block;display:none;" />
     </a>
     <a href="https://boostdomainrating.com/item/cookingcalcs.com?utm_source=badge" target="_blank" rel="noopener noreferrer">
-    	<img src="https://boostdomainrating.com/api/badge/cookingcalcs.com" alt="CookingCalcs – Free Cooking Calculators & Kitchen Tools - Domain Rating" style="height: 36px; width: auto;display:inline-block"/>
+    	<img loading="lazy" src="https://boostdomainrating.com/api/badge/cookingcalcs.com" alt="CookingCalcs – Free Cooking Calculators & Kitchen Tools - Domain Rating" style="height: 36px; width: auto;display:inline-block"/>
     </a>
   </div>
 </main>

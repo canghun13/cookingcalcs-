@@ -265,6 +265,12 @@ echo "nav.js GUIDES: $(sed -n '/const GUIDES/,/^];/p' assets/js/nav.js | grep -c
 검증: Playwright(`executablePath: /opt/pw-browsers/chromium-1194/chrome-linux/chrome`)로 1280/390px에서 `scrollWidth == viewport` + 스크린샷 육안 확인.
 ⚠️ 로컬 서버 끌 때 `pkill -f "http.server ..."`를 쓰면 같은 문자열이 든 셸 자체가 죽는다 — PID로 kill할 것.
 
+**36차 추가 — 히어로 재설계** (사용자: "다른 사이트들(EcoEnergyCalc·GPA)과 히어로 형태가 비슷하다, 다른 느낌으로")
+- 가운데 정렬 배지+2줄 대형 제목+버튼 1개+숫자 3개 줄 → **왼쪽 정렬 2단** `.hero2`(CSS는 index.html `<style>` 안, style.css 무수정):
+  키커 라인 + "Kitchen math, worked out." + **메인에서 바로 쓰는 컵→g 미니 변환기**(`hc()`, 값은 cups-to-grams와 동일 120/200/220/227/90/185/240, 버터는 stick 표시)
+  + "People ask" 질문 칩 6개 + 오른쪽 **SVG 저울·볼·계량컵 그림**(모바일에선 위로) + 모눈 배경.
+- `stats-bar` 삭제. **툴 개수는 이제 히어로 아래 신뢰 문구의 `<strong id="tool-count">36</strong>`** — 툴 추가 시 여기 숫자 갱신.
+
 ### 2026-10-13 (35차): 신규 클러스터 — 대인원 요리(케이터링 팬·포션 스쿱) 툴1+블로그2+가이드1
 
 > 사용자 지시: "GSC/Bing 안에서만 보지 말고 구글·네이버·레딧 등에서 문서수 적고 관심 있는 것" → 키워드 넓게 → 리스트 → 경쟁도 → 롱테일 → 클러스터.

@@ -127,6 +127,60 @@
       .qr-svg .sv-label, .qr-svg .sv-num { font-size:22px; }
       .qr-svg.eggs .sv-label, .qr-svg.eggs .sv-num { font-size:19px; }
     }
+
+    /* HERO v2 (2026-10-14) */
+    .hero2-wrap { background-color:var(--sand); background-image:linear-gradient(rgba(232,65,42,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(232,65,42,.07) 1px, transparent 1px); background-size:28px 28px; border-bottom:1px solid var(--border); }
+    .hero2 { max-width:1200px; margin:0 auto; padding:3.5rem 2rem 1.5rem; display:grid; grid-template-columns:1.2fr .8fr; gap:3rem; align-items:center; }
+    .hero2 > * { min-width:0; }
+    .hero2-kicker { display:flex; align-items:center; gap:.6rem; font-size:.78rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--tomato-dark); margin:0 0 1rem; }
+    .hero2-kicker::before { content:""; width:28px; height:2px; background:var(--tomato); display:inline-block; }
+    .hero2 h1 { font-family:'Playfair Display',serif; font-size:clamp(2.3rem,5vw,3.6rem); font-weight:600; line-height:1.1; letter-spacing:-.02em; color:var(--charcoal); margin:0 0 1rem; text-align:left; }
+    .hero2-mark { white-space:nowrap; background:linear-gradient(transparent 60%, rgba(232,65,42,.25) 60%); padding:0 .1em; }
+    .hero2-sub { font-size:1.08rem; line-height:1.7; color:var(--ink); max-width:560px; margin:0 0 1.6rem; }
+    .hero2-conv { background:#fff; border:1px solid var(--border); border-radius:var(--radius-lg); padding:1.1rem 1.2rem; box-shadow:var(--shadow); max-width:560px; }
+    .hero2-conv-row { display:flex; flex-wrap:wrap; align-items:center; gap:.5rem; }
+    .hero2-conv input, .hero2-conv select { font-family:'Plus Jakarta Sans',sans-serif; font-size:1rem; padding:.55rem .7rem; border:1.5px solid var(--border); border-radius:10px; background:var(--sand); color:var(--charcoal); }
+    .hero2-conv input { width:5.2rem; }
+    .hero2-conv input:focus, .hero2-conv select:focus { outline:none; border-color:var(--tomato); }
+    .hero2-of { color:var(--mid); font-size:.95rem; }
+    .hero2-out { display:flex; align-items:baseline; flex-wrap:wrap; gap:.6rem; margin:.85rem 0 .35rem; }
+    .hero2-out span { font-family:'Playfair Display',serif; font-size:2.1rem; font-weight:600; color:var(--tomato-dark); line-height:1; }
+    .hero2-out small { font-size:.9rem; color:var(--mid); }
+    .hero2-more { font-size:.85rem; font-weight:600; color:var(--tomato-dark); text-decoration:none; }
+    .hero2-chips { display:flex; flex-wrap:wrap; align-items:center; gap:.45rem; margin-top:1.3rem; max-width:600px; }
+    .hero2-chips span { font-size:.82rem; color:var(--mid); margin-right:.15rem; }
+    .hero2-chips a { font-size:.82rem; color:var(--ink); text-decoration:none; background:#fff; border:1px solid var(--border); border-radius:8px; padding:.35rem .65rem; transition:border-color .15s, color .15s; }
+    .hero2-chips a:hover { border-color:var(--tomato); color:var(--tomato-dark); }
+    .hero2-visual { display:flex; justify-content:center; }
+    .hero2-art { width:100%; max-width:420px; height:auto; }
+    .hero2-art .ha-base { fill:var(--charcoal); }
+    .hero2-art .ha-plate { fill:#cfc6b8; }
+    .hero2-art .ha-screen { fill:#e8f1e4; }
+    .hero2-art .ha-screen-text { font:700 22px 'Courier New',monospace; fill:#1e1e1e; }
+    .hero2-art .ha-btn { fill:#4a4a4a; }
+    .hero2-art .ha-bowl { fill:var(--sand-dark); stroke:#cbb89b; stroke-width:2; }
+    .hero2-art .ha-rim { fill:#efe7da; stroke:#cbb89b; stroke-width:2; }
+    .hero2-art .ha-flour { fill:#fff; }
+    .hero2-art .ha-dust circle { fill:#e6ddcf; }
+    .hero2-art .ha-cup { fill:var(--tomato); }
+    .hero2-art .ha-cup-handle { fill:var(--tomato-dark); }
+    .hero2-art .ha-cup-line { stroke:#fff; stroke-width:2.5; stroke-linecap:round; opacity:.85; }
+    .hero2-art .ha-cup-text { font:700 13px 'Plus Jakarta Sans',sans-serif; fill:#fff; }
+    .hero2-art .ha-spoon { fill:var(--tomato-light); stroke:var(--tomato); stroke-width:2; }
+    .hero2-art .ha-spoon2 { fill:#fff; stroke:var(--tomato); stroke-width:2; }
+    .hero2-trust { max-width:1200px; margin:0 auto; padding:.4rem 2rem 1.6rem; font-size:.88rem; color:var(--mid); }
+    .hero2-trust strong { color:var(--charcoal); }
+    .hero2-trust a { color:var(--tomato-dark); font-weight:600; text-decoration:none; }
+    @media (max-width: 900px) {
+      .hero2 { grid-template-columns:1fr; gap:1.5rem; padding:2.5rem 1.25rem 1rem; }
+      .hero2-visual { order:-1; }
+      .hero2-art { max-width:260px; }
+      .hero2-trust { padding:.4rem 1.25rem 1.4rem; }
+    }
+    @media (max-width: 480px) {
+      .hero2-art { max-width:200px; }
+      .hero2-conv-row select#hcIng { flex:1 1 100%; }
+    }
   </style>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
 </head>
@@ -180,28 +234,74 @@
   <div class="nav-overlay" id="navOverlay"></div>
 <!-- CC:STATIC-CHROME:END -->
 <main>
-  <!-- HERO -->
-  <section class="hero">
-    <span class="hero-badge">🍳 Free Kitchen Tools</span>
-    <h1>Every cooking calculator<br><em>you'll ever need</em></h1>
-    <p class="hero-sub">Calculators, quick-reference charts and step-by-step guides for everyday cooking — measurements, recipe scaling, cooking times, food costs and cooking for a crowd. Free, no sign-up.</p>
-    <a href="#tools" class="btn-primary">Explore Tools ↓</a>
-  </section>
+  <!-- HERO (redesigned 2026-10-14: left-aligned, live converter, no stats bar) -->
+  <div class="hero2-wrap">
+    <section class="hero2">
+      <div class="hero2-copy">
+        <p class="hero2-kicker">Kitchen calculators &amp; reference</p>
+        <h1>Kitchen math, <span class="hero2-mark">worked out.</span></h1>
+        <p class="hero2-sub">Conversions, recipe scaling, cooking times and party portions — with the formula shown on every page, so you can check the answer and trust it.</p>
 
-  <!-- STATS -->
-  <div class="stats-bar">
-    <div class="stat">
-      <div class="stat-num">36</div>
-      <div class="stat-label">Free Tools</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">100+</div>
-      <div class="stat-label">Guides &amp; articles</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">100%</div>
-      <div class="stat-label">Free forever</div>
-    </div>
+        <div class="hero2-conv" aria-label="Quick cups to grams converter">
+          <div class="hero2-conv-row">
+            <input id="hcAmt" type="number" min="0" step="0.25" value="1" aria-label="Amount" oninput="hc()">
+            <select id="hcUnit" aria-label="Unit" onchange="hc()">
+              <option value="1">cups</option>
+              <option value="0.0625">tbsp</option>
+              <option value="0.0208333">tsp</option>
+            </select>
+            <span class="hero2-of">of</span>
+            <select id="hcIng" aria-label="Ingredient" onchange="hc()">
+              <option value="120">all-purpose flour</option>
+              <option value="200">white sugar</option>
+              <option value="220">brown sugar</option>
+              <option value="227">butter</option>
+              <option value="90">rolled oats</option>
+              <option value="185">white rice</option>
+              <option value="240">water or milk</option>
+            </select>
+          </div>
+          <div class="hero2-out"><span id="hcG">120 g</span><small id="hcEq">= 16 tbsp = 48 tsp</small></div>
+          <a class="hero2-more" href="/tools/cups-to-grams.html">100+ more ingredients in the cups to grams converter →</a>
+        </div>
+
+        <div class="hero2-chips">
+          <span>People ask:</span>
+          <a href="/tools/cups-to-tablespoons.html">Tablespoons in a cup</a>
+          <a href="/blog/how-to-substitute-egg-sizes.html">Medium eggs for large</a>
+          <a href="/tools/oven-temp-converter.html">350°F in °C</a>
+          <a href="/tools/meat-temperature-guide.html">Safe chicken temperature</a>
+          <a href="/blog/how-many-servings-in-a-half-pan.html">How many a half pan feeds</a>
+          <a href="/blog/how-long-can-food-sit-out.html">How long food can sit out</a>
+        </div>
+      </div>
+      <div class="hero2-visual">
+      <svg class="hero2-art" viewBox="0 0 420 340" role="img" aria-labelledby="heroArtT" xmlns="http://www.w3.org/2000/svg">
+        <title id="heroArtT">A bowl of flour on a kitchen scale reading 120 grams, with a one-cup measure and measuring spoons</title>
+        <g class="ha-dust"><circle cx="150" cy="96" r="3"/><circle cx="176" cy="78" r="2"/><circle cx="244" cy="70" r="2.5"/><circle cx="268" cy="92" r="2"/><circle cx="205" cy="60" r="1.8"/></g>
+        <g transform="rotate(-24 340 92)">
+          <rect class="ha-cup" x="300" y="58" width="78" height="70" rx="10"/>
+          <rect class="ha-cup-handle" x="376" y="74" width="34" height="14" rx="7"/>
+          <line class="ha-cup-line" x1="312" y1="80" x2="334" y2="80"/><line class="ha-cup-line" x1="312" y1="96" x2="328" y2="96"/><line class="ha-cup-line" x1="312" y1="112" x2="334" y2="112"/>
+          <text class="ha-cup-text" x="358" y="122" text-anchor="middle">1 cup</text>
+        </g>
+        <g>
+          <circle class="ha-spoon" cx="58" cy="112" r="20"/><rect class="ha-spoon" x="74" y="107" width="54" height="10" rx="5"/>
+          <circle class="ha-spoon2" cx="46" cy="158" r="14"/><rect class="ha-spoon2" x="57" y="154" width="40" height="8" rx="4"/>
+        </g>
+        <path class="ha-bowl" d="M100 150 Q104 222 210 224 Q316 222 320 150 Z"/>
+        <ellipse class="ha-rim" cx="210" cy="150" rx="110" ry="18"/>
+        <ellipse class="ha-flour" cx="210" cy="148" rx="96" ry="12"/>
+        <path class="ha-flour" d="M150 146 Q210 112 270 146 Z"/>
+        <rect class="ha-plate" x="78" y="224" width="264" height="14" rx="7"/>
+        <rect class="ha-base" x="58" y="236" width="304" height="74" rx="20"/>
+        <rect class="ha-screen" x="150" y="254" width="120" height="38" rx="7"/>
+        <text class="ha-screen-text" x="210" y="281" text-anchor="middle">120 g</text>
+        <circle class="ha-btn" cx="102" cy="273" r="9"/><circle class="ha-btn" cx="318" cy="273" r="9"/>
+      </svg>
+      </div>
+    </section>
+    <p class="hero2-trust"><strong id="tool-count">36</strong> calculators · <strong>100+</strong> guides and charts · figures from USDA and published sources · free, no sign-up · <a href="#tools">browse all tools ↓</a></p>
   </div>
 
   <!-- START HERE -->
@@ -821,6 +921,22 @@
     </a>
   </div>
 </main>
+<script>
+function hc(){
+  var a=parseFloat(document.getElementById('hcAmt').value), u=parseFloat(document.getElementById('hcUnit').value), g=parseFloat(document.getElementById('hcIng').value);
+  var ing=document.getElementById('hcIng'), name=ing.options[ing.selectedIndex].text;
+  if(!(a>=0)){ document.getElementById('hcG').textContent='—'; document.getElementById('hcEq').textContent=''; return; }
+  var cups=a*u, grams=cups*g;
+  var gt = grams>=10 ? Math.round(grams)+' g' : (Math.round(grams*10)/10)+' g';
+  var tbsp=cups*16, tsp=cups*48;
+  function f(n){ return n>=10 ? String(Math.round(n*10)/10) : String(Math.round(n*100)/100); }
+  var eq = '= ' + f(cups) + ' cup' + (Math.abs(cups-1)<1e-9?'':'s') + ' = ' + f(tbsp) + ' tbsp = ' + f(tsp) + ' tsp';
+  if(name==='butter'){ eq += ' = ' + f(cups*2) + ' stick' + (Math.abs(cups*2-1)<1e-9?'':'s'); }
+  document.getElementById('hcG').textContent=gt;
+  document.getElementById('hcEq').textContent=eq;
+}
+document.addEventListener('DOMContentLoaded', hc);
+</script>
 <!-- CC:STATIC-CHROME:START (build-static.js 자동 생성 — 직접 수정하지 말 것) -->
   <footer class="site-footer">
     <div class="footer-inner">

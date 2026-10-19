@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Baker's Percentage Calculator — Grams to %, % to Grams, Hydration</title>
+  <meta name="description" content="Turn a bread recipe in grams into baker's percentages, or turn percentages into grams for any dough size or number of loaves. Handles multiple flours, hydration with milk and eggs, and bench loss.">
+  <link rel="canonical" href="https://cookingcalcs.com/tools/bakers-percentage-calculator.html">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script src="/assets/js/nav.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Baker's Percentage Calculator",
+  "url": "https://cookingcalcs.com/tools/bakers-percentage-calculator.html",
+  "description": "Convert a dough recipe between grams and baker's percentages. Works forward from a recipe or backward from a target dough weight, with multiple flours, true hydration and a bench-loss allowance.",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do you calculate baker's percentage?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Divide each ingredient's weight by the total flour weight and multiply by 100. Flour is always 100%. A dough with 500 g flour and 350 g water is 350 ÷ 500 × 100 = 70% water."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you find the flour weight from a total dough weight?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Add up all the percentages in the formula, then divide the dough weight you want by that total as a decimal. For 1,700 g of dough at 100% flour, 68% water, 2% salt and 1% yeast, the total is 171%, so flour = 1,700 ÷ 1.71 = 994 g."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do baker's percentages add up to more than 100?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because every ingredient is measured against the flour, not against the whole dough. Flour alone is 100%, so anything you add pushes the total above 100. A lean bread typically totals around 170%."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does milk count toward dough hydration?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Partly. Whole milk is about 88% water, whole egg about 76% and butter about 16% (USDA FoodData Central). A dough with 60% milk behaves like roughly 53% water hydration, which is why milk doughs feel stiffer than a water dough at the same percentage."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if a recipe uses two kinds of flour?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Add the flours together — the combined flour weight is 100%. A dough with 700 g bread flour and 300 g whole wheat flour is 70% bread flour and 30% whole wheat, and every other ingredient is a percentage of the 1,000 g total."
+      }
+    }
+  ]
+}
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+<style>
+      .ref-table { width:100%; border-collapse:collapse; font-size:0.875rem; background:#fff; }
+      .ref-table th { background:var(--sand-dark); padding:0.7rem 0.9rem; text-align:left; font-weight:600; border:1px solid var(--border); }
+      .ref-table td { padding:0.7rem 0.9rem; border:1px solid var(--border); vertical-align:top; }
+      .ref-table tbody tr:nth-child(even) td { background:#fbfaf8; }
+      .bp-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+      .bp-grid3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:1rem; }
+      .bp-rows { display:flex; flex-direction:column; gap:.5rem; margin:.5rem 0 .75rem; }
+      .bp-row { display:grid; grid-template-columns:minmax(0,2fr) minmax(0,1.2fr) minmax(0,1fr) 2.2rem; gap:.5rem; align-items:center; }
+      .bp-row input, .bp-row select { width:100%; min-width:0; padding:.6rem .65rem; border:1.5px solid var(--border); border-radius:10px; font-family:inherit; font-size:.95rem; background:#fff; }
+      .bp-row input:focus, .bp-row select:focus { outline:none; border-color:var(--tomato); }
+      .bp-row button { border:0; background:transparent; color:var(--muted); font-size:1.2rem; cursor:pointer; padding:0; }
+      .bp-row button:hover { color:var(--tomato-dark); }
+      .bp-head { display:grid; grid-template-columns:minmax(0,2fr) minmax(0,1.2fr) minmax(0,1fr) 2.2rem; gap:.5rem; font-size:.78rem; font-weight:600; color:var(--mid); text-transform:uppercase; letter-spacing:.05em; }
+      .bp-add { border:1.5px dashed var(--border); background:#fff; border-radius:10px; padding:.55rem .9rem; font-family:inherit; font-size:.9rem; color:var(--ink); cursor:pointer; }
+      .bp-add:hover { border-color:var(--tomato); color:var(--tomato-dark); }
+      .ref-table.wrap { min-width:0 !important; }
+      .ref-table.wrap td, .ref-table.wrap th { white-space:normal !important; }
+      .bp-note { padding:0.85rem 1rem; border-radius:10px; background:#fff4e5; color:#8a5300; margin:1rem 0 0; font-size:0.9rem; }
+      .bp-out td:nth-child(3), .bp-out td:nth-child(4), .bp-out th:nth-child(3), .bp-out th:nth-child(4) { text-align:right; }
+      .bp-out tfoot td { font-weight:700; background:var(--sand) !important; }
+      @media(max-width:600px){
+        .bp-grid, .bp-grid3 { grid-template-columns:1fr; }
+        .bp-row, .bp-head { grid-template-columns:minmax(0,1.6fr) minmax(0,1.1fr) minmax(0,.9fr) 1.8rem; gap:.35rem; }
+        .bp-row input, .bp-row select { padding:.55rem .45rem; font-size:.9rem; }
+      }
+</style>
+</head>
+<body>
+<!-- CC:STATIC-CHROME:START (build-static.js 자동 생성 — 직접 수정하지 말 것) -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="logo">🍳 CookingCalcs</a>
+      <nav class="main-nav" id="mainNav">
+        <ul class="nav-list">
+          <li><a href="/" class="nav-link">Home</a></li>
+          <li><a href="/tools/" class="nav-link">Tools</a></li>
+          <li><a href="/blog/" class="nav-link">Blog</a></li>
+          <li><a href="/guides/" class="nav-link">Guides</a></li>
+          <li><a href="/about.html" class="nav-link">About</a></li>
+        </ul>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <nav class="mobile-nav" id="mobileNav">
+    <ul class="nav-list">
+      <li><a href="/" class="nav-link">Home</a></li>
+      <li class="nav-has-dropdown">
+        <button class="nav-link nav-btn" aria-expanded="false">Tools ▾</button>
+        <ul class="nav-dropdown">
+          <li><a href="/tools/" class="nav-dropdown-all">View All Tools →</a></li>
+          <li><a href="/tools/cups-to-grams.html">Cups to Grams</a></li><li><a href="/tools/oven-temp-converter.html">Oven Temperature Converter</a></li><li><a href="/tools/tablespoon-to-teaspoon.html">Tablespoon to Teaspoon</a></li><li><a href="/tools/weight-converter.html">Weight Converter</a></li><li><a href="/tools/egg-converter.html">Egg Size Converter</a></li><li><a href="/tools/egg-weight-converter.html">Egg Weight & Volume Converter</a></li><li><a href="/tools/recipe-multiplier.html">Recipe Multiplier</a></li><li><a href="/tools/cooking-time-calculator.html">Cooking Time Calculator</a></li><li><a href="/tools/meat-temperature-guide.html">Meat Temperature Guide</a></li><li><a href="/tools/meal-cost-calculator.html">Meal Cost Calculator</a></li><li><a href="/tools/cost-per-serving.html">Cost Per Serving</a></li><li><a href="/tools/liquid-converter.html">Liquid Converter</a></li><li><a href="/tools/butter-converter.html">Butter Converter</a></li><li><a href="/tools/baking-substitutions.html">Baking Substitutions</a></li><li><a href="/tools/cups-to-tablespoons.html">Cups to Tablespoons</a></li><li><a href="/tools/raw-to-cooked-weight.html">Raw to Cooked Weight</a></li><li><a href="/tools/weekly-meal-prep-cost-calculator.html">Weekly Meal Prep Cost Calculator</a></li><li><a href="/tools/slow-cooker-converter.html">Slow Cooker Time Converter</a></li><li><a href="/tools/herb-converter.html">Fresh to Dried Herb Converter</a></li><li><a href="/tools/kitchen-math-generator.html">Kitchen Math Practice Problem Generator</a></li><li><a href="/tools/grill-temperature-calculator.html">Grill Temperature & Time Calculator</a></li><li><a href="/tools/pan-size-converter.html">Baking Pan Size Converter</a></li><li><a href="/tools/can-size-converter.html">Can Size Converter</a></li><li><a href="/tools/pressure-cooker-converter.html">Slow Cooker to Pressure Cooker Converter</a></li><li><a href="/tools/altitude-cooking-calculator.html">High Altitude Cooking Calculator</a></li><li><a href="/tools/vegetable-roasting-calculator.html">Vegetable Roasting Calculator</a></li><li><a href="/tools/oven-sharing-calculator.html">Oven Sharing Calculator</a></li><li><a href="/tools/meal-timeline-planner.html">Meal Timeline Planner</a></li><li><a href="/tools/deep-frying-calculator.html">Deep Frying Batch Calculator</a></li><li><a href="/tools/pot-size-calculator.html">Pot Size Calculator</a></li><li><a href="/tools/batch-cooking-planner.html">Batch Cooking Planner</a></li><li><a href="/tools/reheating-calculator.html">Leftover Reheating Calculator</a></li><li><a href="/tools/air-fryer-cooking-times.html">Air Fryer Cooking Times by Food</a></li><li><a href="/tools/candy-temperature-calculator.html">Candy & Sugar Stage Temperature Calculator</a></li><li><a href="/tools/yield-percentage-calculator.html">Yield Percentage Calculator</a></li><li><a href="/tools/catering-pan-calculator.html">Catering Pan Calculator</a></li><li><a href="/tools/bakers-percentage-calculator.html">Baker's Percentage Calculator</a></li>
+        </ul>
+      </li>
+      <li class="nav-has-dropdown">
+        <button class="nav-link nav-btn" aria-expanded="false">Blog ▾</button>
+        <ul class="nav-dropdown">
+          <li><a href="/blog/" class="nav-dropdown-all">View All Posts →</a></li>
+          <li><a href="/blog/cups-to-grams-guide.html">Cups to Grams Guide</a></li><li><a href="/blog/why-weigh-ingredients-baking.html">Why Weigh Ingredients When Baking</a></li><li><a href="/blog/oven-temperature-conversion-guide.html">Oven Temperature Conversion Guide</a></li><li><a href="/blog/how-to-scale-a-recipe.html">How to Scale a Recipe</a></li><li><a href="/blog/baking-measurement-mistakes.html">Baking Measurement Mistakes</a></li><li><a href="/blog/meat-internal-temperature-guide.html">Meat Internal Temperature Guide</a></li><li><a href="/blog/how-to-cut-grocery-bill.html">How to Cut Your Grocery Bill</a></li><li><a href="/blog/how-to-calculate-cost-per-serving.html">How to Calculate Cost Per Serving</a></li><li><a href="/blog/average-cost-of-a-home-cooked-meal.html">Average Cost of a Home-Cooked Meal</a></li><li><a href="/blog/how-long-to-cook-chicken-breast.html">How Long to Cook Chicken Breast</a></li><li><a href="/blog/cooking-measurement-guide.html">Cooking Measurement Guide</a></li><li><a href="/blog/meat-cooking-temperatures-explained.html">Meat Cooking Temperatures Explained</a></li><li><a href="/blog/how-to-meal-prep-on-a-budget.html">How to Meal Prep on a Budget</a></li><li><a href="/blog/how-many-cups-in-a-pound-of-flour.html">How Many Cups in a Pound of Flour?</a></li><li><a href="/blog/how-many-cups-in-a-stick-of-butter.html">How Many Cups in a Stick of Butter?</a></li><li><a href="/blog/how-to-measure-butter.html">How to Measure Butter</a></li><li><a href="/blog/how-long-to-cook-salmon.html">How Long to Cook Salmon</a></li><li><a href="/blog/how-many-grams-in-a-cup-of-rice.html">How Many Grams in a Cup of Rice?</a></li><li><a href="/blog/how-long-to-cook-shrimp.html">How Long to Cook Shrimp</a></li><li><a href="/blog/how-to-calculate-meal-prep-cost-for-a-week.html">How to Calculate Meal Prep Cost for a Week</a></li><li><a href="/blog/grocery-budget-tips.html">Grocery Budget Tips That Actually Work</a></li><li><a href="/blog/tablespoon-vs-teaspoon.html">Tablespoon vs Teaspoon: What's the Difference?</a></li><li><a href="/blog/how-to-substitute-egg-sizes.html">How to Substitute Egg Sizes in Recipes</a></li><li><a href="/blog/how-long-to-cook-ground-beef.html">How Long to Cook Ground Beef</a></li><li><a href="/blog/what-is-a-serving-size.html">What Is a Serving Size? A Practical Guide</a></li><li><a href="/blog/tablespoon-to-teaspoon-guide.html">How Many Teaspoons in a Tablespoon?</a></li><li><a href="/blog/how-to-reduce-a-recipe.html">How to Reduce a Recipe to Fewer Servings</a></li><li><a href="/blog/how-many-grams-in-a-cup-of-sugar.html">How Many Grams in a Cup of Sugar?</a></li><li><a href="/blog/how-long-to-cook-bacon.html">How Long to Cook Bacon</a></li><li><a href="/blog/how-long-to-cook-steak.html">How Long to Cook Steak</a></li><li><a href="/blog/how-many-eggs-in-a-cup.html">How Many Eggs in a Cup?</a></li><li><a href="/blog/how-to-reduce-a-recipe-by-half.html">How to Cut a Recipe in Half</a></li><li><a href="/blog/how-long-to-cook-pork-chops.html">How Long to Cook Pork Chops</a></li><li><a href="/blog/how-many-grams-in-a-cup-of-oats.html">How Many Grams in a Cup of Oats?</a></li><li><a href="/blog/how-many-cups-in-a-pound-of-sugar.html">How Many Cups in a Pound of Sugar?</a></li><li><a href="/blog/how-long-to-cook-lamb-chops.html">How Long to Cook Lamb Chops</a></li><li><a href="/blog/how-long-to-cook-turkey-breast.html">How Long to Cook Turkey Breast</a></li><li><a href="/blog/how-many-cups-in-a-quart-pint-gallon.html">How Many Cups in a Quart, Pint, and Gallon?</a></li><li><a href="/blog/how-to-convert-a-recipe-to-metric.html">How to Convert a Recipe to Metric</a></li><li><a href="/blog/how-long-to-cook-chicken-thighs.html">How Long to Cook Chicken Thighs</a></li><li><a href="/blog/how-to-calculate-cooking-time.html">How to Calculate Cooking Time for Meat</a></li><li><a href="/blog/is-your-oven-running-hot-or-cold.html">Is Your Oven Running Hot or Cold? How to Test It</a></li><li><a href="/blog/how-long-can-food-sit-out.html">How Long Can Food Sit Out? The 2-Hour Rule Explained</a></li><li><a href="/blog/fresh-vs-dried-herbs.html">Fresh vs Dried Herbs: When to Use Each and How to Swap Them</a></li><li><a href="/blog/unit-price-word-problems.html">Unit Price Word Problems: How to Find the Better Grocery Deal</a></li><li><a href="/blog/recipe-scaling-word-problems.html">Recipe Scaling Word Problems: Doubling, Halving & Fractions</a></li><li><a href="/blog/lamb-chops-vs-pork-chops.html">Lamb Chops vs Pork Chops: Cooking Time & Temperature Differences</a></li><li><a href="/blog/high-altitude-baking-adjustments.html">High Altitude Baking Adjustments by Elevation</a></li><li><a href="/blog/how-long-to-reheat-leftovers.html">How Long to Reheat Leftovers</a></li><li><a href="/blog/how-to-time-a-meal.html">How to Time a Meal So Everything Finishes Together</a></li><li><a href="/blog/baking-two-things-at-different-temperatures.html">Baking Two Things at Different Temperatures</a></li><li><a href="/blog/oven-rack-positions-explained.html">Oven Rack Positions Explained</a></li><li><a href="/blog/how-long-do-freezer-meals-last.html">How Long Do Freezer Meals Last?</a></li><li><a href="/blog/what-size-pot-do-i-need.html">What Size Pot Do I Need?</a></li><li><a href="/blog/deep-frying-temperature-chart.html">Deep Frying Temperatures and Times by Food</a></li><li><a href="/blog/how-much-oil-for-deep-frying.html">How Much Oil Do You Need for Deep Frying?</a></li><li><a href="/blog/how-long-to-roast-vegetables.html">How Long to Roast Vegetables</a></li><li><a href="/blog/roasting-vegetables-together.html">Roasting Vegetables Together: When to Add Each One</a></li><li><a href="/blog/slow-cooker-vs-pressure-cooker.html">Slow Cooker vs Pressure Cooker: Which to Use for What</a></li><li><a href="/blog/air-fryer-vs-oven.html">Air Fryer vs Oven: When Each One Wins</a></li><li><a href="/blog/salmon-vs-shrimp.html">Salmon vs Shrimp: Cooking Time Differences</a></li><li><a href="/blog/bacon-vs-sausage.html">Bacon vs Sausage: Cooking Time & Temperature Differences</a></li><li><a href="/blog/turkey-breast-vs-chicken-breast.html">Turkey Breast vs Chicken Breast: Cooking Time & Temperature Differences</a></li><li><a href="/blog/turkey-breast-vs-whole-chicken.html">Turkey Breast vs Whole Chicken: Which Cooks Faster?</a></li><li><a href="/blog/direct-vs-indirect-heat-grilling.html">Direct vs Indirect Heat: When to Use Each</a></li><li><a href="/blog/charcoal-vs-gas-grill-temperature.html">Charcoal vs Gas Grill: Temperature Differences</a></li><li><a href="/blog/how-to-check-grill-temperature-without-a-thermometer.html">How to Check Grill Temperature Without a Thermometer</a></li><li><a href="/blog/vintage-recipe-measurements.html">Vintage Recipe Measurements Decoded</a></li><li><a href="/blog/vintage-ingredient-names.html">Vintage & British Ingredient Names Decoded</a></li><li><a href="/blog/how-long-to-cook-brisket.html">How Long to Cook Brisket</a></li><li><a href="/blog/measurement-conversion-word-problems.html">Measurement Conversion Word Problems</a></li><li><a href="/blog/how-long-to-cook-ribs.html">How Long to Cook Ribs</a></li><li><a href="/blog/how-long-to-cook-chicken-wings.html">How Long to Cook Chicken Wings</a></li><li><a href="/blog/how-long-to-cook-chicken-drumsticks.html">How Long to Cook Chicken Drumsticks</a></li><li><a href="/blog/how-long-to-cook-meatballs.html">How Long to Cook Meatballs</a></li><li><a href="/blog/how-long-to-cook-pork-tenderloin.html">How Long to Cook Pork Tenderloin</a></li><li><a href="/blog/how-long-to-bake-white-fish.html">How Long to Bake White Fish</a></li><li><a href="/blog/how-long-to-cook-pork-shoulder.html">How Long to Cook Pork Shoulder</a></li><li><a href="/blog/how-long-to-cook-ham.html">How Long to Cook Gammon & Ham</a></li><li><a href="/blog/how-long-to-cook-tempeh-seitan.html">How Long to Cook Tempeh and Seitan</a></li><li><a href="/blog/how-much-to-buy-for-a-recipe.html">Recipe Says 2 Pounds Trimmed — How Much Do I Buy?</a></li><li><a href="/blog/culinary-math-formulas.html">Culinary Math Formulas You Actually Need</a></li><li><a href="/blog/cost-per-serving-word-problems.html">Cost Per Serving Word Problems (With Answers)</a></li><li><a href="/blog/recipe-conversion-factor-word-problems.html">Recipe Conversion Factor (RCF) Word Problems</a></li><li><a href="/blog/how-many-servings-in-a-half-pan.html">How Many People Does a Half Pan Feed?</a></li><li><a href="/blog/portion-scoop-sizes.html">Portion Scoop Sizes: What #8, #12 and #16 Mean</a></li><li><a href="/blog/bakers-percentage-word-problems.html">Baker's Percentage Word Problems</a></li><li><a href="/blog/food-cost-percentage-word-problems.html">Food Cost Percentage Word Problems</a></li><li><a href="/blog/duck-eggs-in-baking.html">Duck Eggs Instead of Chicken Eggs: How Many to Use</a></li>
+        </ul>
+      </li>
+      <li class="nav-has-dropdown">
+        <button class="nav-link nav-btn" aria-expanded="false">Guides ▾</button>
+        <ul class="nav-dropdown">
+          <li><a href="/guides/" class="nav-dropdown-all">View All Guides →</a></li>
+          <li><a href="/guides/complete-meal-prep-budget-guide.html">The Complete Meal Prep & Grocery Budget Guide</a></li><li><a href="/guides/complete-meat-cooking-temperature-guide.html">The Complete Meat Cooking & Temperature Guide</a></li><li><a href="/guides/complete-baking-conversion-guide.html">The Complete Baking Measurement & Conversion Guide</a></li><li><a href="/guides/complete-recipe-scaling-guide.html">The Complete Recipe Scaling & Serving Guide</a></li><li><a href="/guides/complete-protein-comparison-guide.html">The Complete Protein Comparison & Swap Guide</a></li><li><a href="/guides/complete-grilling-guide.html">The Complete Grilling Guide</a></li><li><a href="/guides/complete-leftover-reheating-guide.html">The Complete Leftover Reheating Guide</a></li><li><a href="/guides/complete-deep-frying-guide.html">The Complete Deep Frying Guide</a></li><li><a href="/guides/complete-meal-timing-guide.html">The Complete Meal Timing Guide</a></li><li><a href="/guides/complete-oven-sharing-guide.html">The Complete Oven Sharing Guide</a></li><li><a href="/guides/complete-vegetable-roasting-guide.html">The Complete Vegetable Roasting Guide</a></li><li><a href="/guides/complete-butter-conversion-guide.html">The Complete Butter Conversion Guide</a></li><li><a href="/guides/complete-egg-conversion-guide.html">The Complete Egg Conversion Guide</a></li><li><a href="/guides/complete-appliance-cooking-guide.html">The Complete Appliance Cooking Guide</a></li><li><a href="/guides/complete-vintage-recipe-guide.html">The Complete Vintage Recipe Guide</a></li><li><a href="/guides/complete-culinary-math-guide.html">The Complete Culinary Math Guide</a></li><li><a href="/guides/complete-cooking-for-a-crowd-guide.html">The Complete Cooking for a Crowd Guide</a></li>
+        </ul>
+      </li>
+      <li><a href="/about.html" class="nav-link">About</a></li>
+    </ul>
+  </nav>
+  <div class="nav-overlay" id="navOverlay"></div>
+<!-- CC:STATIC-CHROME:END -->
+<main>
+  <div class="tool-page">
+    <h1>Baker's Percentage Calculator</h1>
+    <p class="tool-desc">Work either direction. Enter a recipe in grams to see it as baker's percentages, or enter percentages and a dough size — total weight, a number of loaves or dough balls, or a flour weight — to get grams. Mark each ingredient's type and the calculator also works out true hydration from milk, eggs and butter.</p>
+
+    <div class="tool-box">
+      <div class="bp-grid">
+        <div class="form-group">
+          <label for="mode">What do you have?</label>
+          <select id="mode" onchange="modeChanged()">
+            <option value="g2p">Recipe in grams → percentages</option>
+            <option value="p2g">Percentages → grams for a dough size</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="preset">Start from a formula (optional)</label>
+          <select id="preset" onchange="loadPreset()">
+            <option value="">— keep my ingredients —</option>
+            <option value="lean">Lean bread (68% water)</option>
+            <option value="sandwich">Milk sandwich loaf</option>
+            <option value="pizza">Pizza dough (62% water)</option>
+            <option value="ciabatta">Ciabatta (80% water)</option>
+            <option value="bagel">Bagels (57% water)</option>
+            <option value="wheat">30% whole wheat bread</option>
+            <option value="brioche">Brioche</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="bp-head"><span>Ingredient</span><span>Type</span><span id="valHead">Grams</span><span></span></div>
+      <div class="bp-rows" id="rows"></div>
+      <button type="button" class="bp-add" onclick="addRow('', 'other', '')">+ Add ingredient</button>
+
+      <div id="targetBox" style="display:none; margin-top:1.25rem;">
+        <div class="form-group">
+          <label for="tmode">Size the dough by</label>
+          <select id="tmode" onchange="tmodeChanged()">
+            <option value="pieces">Number of pieces × weight each</option>
+            <option value="total">Total dough weight</option>
+            <option value="flour">Flour weight</option>
+          </select>
+        </div>
+        <div class="bp-grid3" id="piecesBox">
+          <div class="form-group"><label for="pcs">Pieces</label><input type="number" id="pcs" min="1" step="1" value="4" oninput="calc()"></div>
+          <div class="form-group"><label for="pcw">Grams each</label><input type="number" id="pcw" min="1" step="1" value="250" oninput="calc()"></div>
+          <div class="form-group"><label for="loss">Extra for bench loss (%)</label><input type="number" id="loss" min="0" max="20" step="0.5" value="2" oninput="calc()"></div>
+        </div>
+        <div class="bp-grid" id="totalBox" style="display:none;">
+          <div class="form-group"><label for="tot">Total dough (g)</label><input type="number" id="tot" min="1" step="1" value="1000" oninput="calc()"></div>
+          <div class="form-group"><label for="loss2">Extra for bench loss (%)</label><input type="number" id="loss2" min="0" max="20" step="0.5" value="0" oninput="calc()"></div>
+        </div>
+        <div class="form-group" id="flourBox" style="display:none;"><label for="fw">Total flour (g)</label><input type="number" id="fw" min="1" step="1" value="500" oninput="calc()"></div>
+      </div>
+
+      <div id="result" style="margin-top:1.4rem;">
+        <div class="bp-grid">
+          <div class="result-box"><div class="result-num" id="rFlour">—</div><div class="result-label">Total flour (100%)</div></div>
+          <div class="result-box"><div class="result-num" id="rDough">—</div><div class="result-label" id="rDoughLabel">Total dough</div></div>
+        </div>
+        <div class="bp-grid" style="margin-top:1rem;">
+          <div class="result-box"><div class="result-num" id="rHyd">—</div><div class="result-label">Hydration (water only)</div></div>
+          <div class="result-box"><div class="result-num" id="rHyd2">—</div><div class="result-label">True hydration (incl. milk, eggs, butter)</div></div>
+        </div>
+        <div style="margin-top:1rem;">
+          <table class="ref-table bp-out wrap">
+            <thead><tr><th>Ingredient</th><th>Type</th><th>Grams</th><th>Baker's %</th></tr></thead>
+            <tbody id="outBody"></tbody>
+            <tfoot><tr><td>Total</td><td></td><td id="outG"></td><td id="outP"></td></tr></tfoot>
+          </table>
+        </div>
+        <div id="warn"></div>
+      </div>
+    </div>
+
+    <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin:2rem 0 1rem;">How Baker's Percentage Works</h2>
+    <p>Baker's percentage — also called baker's math or formula percentage — writes every ingredient as a share of the flour, not of the whole dough. The flour is always 100%. Everything else is its weight divided by the flour weight, times 100.</p>
+    <p style="background:var(--sand); padding:1rem; border-radius:var(--radius); font-family:monospace;">Ingredient % = ingredient weight ÷ total flour weight × 100<br>Ingredient weight = total flour weight × ingredient % ÷ 100<br>Total flour weight = dough weight ÷ (sum of all % ÷ 100)</p>
+    <p>That is why the percentages add up to well over 100: a lean loaf of 100% flour, 68% water, 2% salt and 1% yeast totals 171%. It is also why the system is useful. Once a formula is in percentages it no longer belongs to one batch size — the same four numbers make one loaf or forty, and two formulas can be compared at a glance. A 68% dough and a 80% dough are different breads before you have weighed anything.</p>
+    <p>The calculation only works with weights. Cups of flour vary by 20% or more depending on how the cup is filled, so convert volume recipes first — the <a href="/tools/cups-to-grams.html">cups to grams converter</a> uses 120 g per cup of all-purpose flour and 130 g per cup of bread flour.</p>
+
+    <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin:2rem 0 1rem;">Working Backward From the Dough You Want</h2>
+    <p>Bakers usually know the finished size — four 250 g pizza balls, two 900 g loaves — and need the grams. Add the percentages, turn the total into a decimal, and divide:</p>
+    <div style="padding:1rem 1.1rem; border:1px solid var(--border); border-radius:var(--radius-lg); background:#fff;">
+      <p style="margin:.3rem 0;"><strong>Four 250 g pizza balls at 100% flour, 62% water, 2.8% salt, 0.2% yeast, plus 2% for dough left in the bowl.</strong></p>
+      <p style="margin:.3rem 0;">Dough needed: 4 × 250 = 1,000 g, × 1.02 = 1,020 g. Sum of percentages: 165%.</p>
+      <p style="margin:.3rem 0;">Flour = 1,020 ÷ 1.65 = <strong>618 g</strong>. Water = 618 × 0.62 = <strong>383 g</strong>. Salt = 618 × 0.028 = <strong>17.3 g</strong>. Yeast = 618 × 0.002 = <strong>1.2 g</strong>.</p>
+    </div>
+    <p style="margin-top:1rem;">The bench-loss allowance matters more than it looks. Dough sticks to the bowl, the bench and your hands; without 1–3% extra, the last ball is always light. For a single loaf it rarely matters, so leave it at zero.</p>
+
+    <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin:2rem 0 1rem;">Typical Percentages by Bread</h2>
+    <p>These are the formulas in the preset menu. They are common starting points rather than fixed rules — flour absorbs differently by brand and protein content, so adjust the water a couple of points either way.</p>
+    <table class="ref-table wrap">
+      <thead><tr><th>Dough</th><th>Water / liquid</th><th>Salt</th><th>Instant yeast</th><th>Other</th></tr></thead>
+      <tbody>
+        <tr><td>Bagels</td><td>57%</td><td>2%</td><td>1%</td><td>3% malt syrup or sugar</td></tr>
+        <tr><td>Pizza dough</td><td>62%</td><td>2.8%</td><td>0.2% (long, cool rise)</td><td>—</td></tr>
+        <tr><td>Lean bread</td><td>68%</td><td>2%</td><td>1%</td><td>—</td></tr>
+        <tr><td>30% whole wheat</td><td>75%</td><td>2%</td><td>1%</td><td>70% bread + 30% whole wheat flour</td></tr>
+        <tr><td>Ciabatta</td><td>80%</td><td>2%</td><td>0.5%</td><td>—</td></tr>
+        <tr><td>Milk sandwich loaf</td><td>60% milk</td><td>2%</td><td>1.5%</td><td>8% butter, 6% sugar</td></tr>
+        <tr><td>Brioche</td><td>50% eggs + 10% milk</td><td>2%</td><td>1.5%</td><td>50% butter, 12% sugar</td></tr>
+      </tbody>
+    </table>
+    <p style="margin-top:1rem;">Salt sits near 2% in almost every bread, and that is the most useful single check in baker's math: if a recipe works out to 4% salt, something was copied wrong. Instant yeast runs from a fraction of a percent in long, cold fermentations to 1–2% for same-day doughs. If you use active dry yeast, the usual swap is about 1.25 times the instant amount; fresh (cake) yeast is about two to three times, depending on the brand's guidance.</p>
+
+    <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin:2rem 0 1rem;">Hydration When the Liquid Isn't Water</h2>
+    <p>Hydration is the water as a percentage of flour. With plain water it is just the water's baker's percentage. Milk, eggs and butter carry water too, but not all of it, so a milk dough at "60%" is drier than a water dough at 60%. The calculator counts them using USDA FoodData Central water contents:</p>
+    <table class="ref-table">
+      <thead><tr><th>Ingredient type</th><th>Water content used</th><th>60% of it adds</th></tr></thead>
+      <tbody>
+        <tr><td>Water</td><td>100%</td><td>60% hydration</td></tr>
+        <tr><td>Whole milk</td><td>about 88%</td><td>about 53%</td></tr>
+        <tr><td>Whole egg</td><td>about 76%</td><td>about 46%</td></tr>
+        <tr><td>Butter</td><td>about 16%</td><td>about 10%</td></tr>
+      </tbody>
+    </table>
+    <p style="margin-top:1rem;">Choose <em>Other</em> for sugar, salt, yeast, oil, seeds and anything else that carries little or no water. Sugar and fat also make a dough feel softer than its hydration suggests, which is why brioche handles like a wet dough at under 50% true hydration.</p>
+
+    <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin:2rem 0 1rem;">Mistakes That Give Wrong Percentages</h2>
+    <p><strong>Dividing by the total dough instead of the flour.</strong> 350 g water in an 870 g dough is 40% of the dough, but 70% in baker's percentage. Only the flour goes underneath.</p>
+    <p><strong>Leaving one flour out.</strong> Whole wheat, rye, semolina and the flour inside a preferment all belong in the 100%. If a poolish of 200 g flour and 200 g water goes into the dough, both halves count toward the totals.</p>
+    <p><strong>Rounding yeast and salt to whole grams in small batches.</strong> 0.2% of 618 g is 1.24 g; rounding it to 1 g cuts the yeast by nearly a fifth. A 0.1 g scale is worth having for pizza and long-fermented doughs.</p>
+
+    <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin:2rem 0 1rem;">Frequently Asked Questions</h2>
+    <div class="faq-section">
+      <h3>How do you calculate baker's percentage?</h3>
+      <p>Divide each ingredient's weight by the total flour weight and multiply by 100. Flour is always 100%. A dough with 500 g flour and 350 g water is 350 ÷ 500 × 100 = 70% water.</p>
+      <h3>How do you find the flour weight from a total dough weight?</h3>
+      <p>Add up all the percentages, then divide the dough weight by that total as a decimal. For 1,700 g of dough at 100% flour, 68% water, 2% salt and 1% yeast, the total is 171%, so flour = 1,700 ÷ 1.71 = 994 g.</p>
+      <h3>Why do baker's percentages add up to more than 100?</h3>
+      <p>Because every ingredient is measured against the flour, not against the whole dough. Flour alone is 100%, so anything you add pushes the total above 100. A lean bread typically totals around 170%.</p>
+      <h3>Does milk count toward dough hydration?</h3>
+      <p>Partly. Whole milk is about 88% water, whole egg about 76% and butter about 16%. A dough with 60% milk behaves like roughly 53% water hydration, which is why milk doughs feel stiffer than a water dough at the same percentage.</p>
+      <h3>What if a recipe uses two kinds of flour?</h3>
+      <p>Add the flours together — the combined flour weight is 100%. A dough with 700 g bread flour and 300 g whole wheat flour is 70% bread flour and 30% whole wheat, and every other ingredient is a percentage of the 1,000 g total.</p>
+    </div>
+
+    <div style="margin-top:2rem; padding:1.25rem; background:var(--tomato-light); border-radius:var(--radius-lg);">
+      <h2 style="font-family:'Playfair Display',serif; font-size:1.25rem; margin:0 0 0.75rem;">Related</h2>
+      <ul style="margin:0; padding-left:1.1rem; line-height:1.9;">
+        <li><a href="/blog/bakers-percentage-word-problems.html">Baker's Percentage Word Problems (With Answers)</a></li>
+        <li><a href="/guides/complete-culinary-math-guide.html">The Complete Culinary Math Guide</a></li>
+        <li><a href="/guides/complete-baking-conversion-guide.html">The Complete Baking Measurement &amp; Conversion Guide</a></li>
+        <li><a href="/tools/cups-to-grams.html">Cups to Grams Converter</a></li>
+        <li><a href="/tools/recipe-multiplier.html">Recipe Multiplier</a></li>
+        <li><a href="/blog/why-weigh-ingredients-baking.html">Why You Should Weigh Ingredients When Baking</a></li>
+      </ul>
+    </div>
+  </div>
+</main>
+<script>
+var WATER = { flour:0, water:1, milk:0.88, egg:0.76, butter:0.16, other:0 };
+var TYPES = [['flour','Flour'],['water','Water'],['milk','Milk'],['egg','Eggs'],['butter','Butter'],['other','Other']];
+var PRESETS = {
+  lean:     [['Bread flour','flour',100],['Water','water',68],['Salt','other',2],['Instant yeast','other',1]],
+  sandwich: [['Bread flour','flour',100],['Whole milk','milk',60],['Butter','butter',8],['Sugar','other',6],['Salt','other',2],['Instant yeast','other',1.5]],
+  pizza:    [['00 or bread flour','flour',100],['Water','water',62],['Salt','other',2.8],['Instant yeast','other',0.2]],
+  ciabatta: [['Bread flour','flour',100],['Water','water',80],['Salt','other',2],['Instant yeast','other',0.5]],
+  bagel:    [['Bread flour','flour',100],['Water','water',57],['Salt','other',2],['Instant yeast','other',1],['Malt syrup or sugar','other',3]],
+  wheat:    [['Bread flour','flour',70],['Whole wheat flour','flour',30],['Water','water',75],['Salt','other',2],['Instant yeast','other',1]],
+  brioche:  [['Bread flour','flour',100],['Eggs','egg',50],['Butter','butter',50],['Whole milk','milk',10],['Sugar','other',12],['Salt','other',2],['Instant yeast','other',1.5]]
+};
+function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+function addRow(name, type, val){
+  var rows = document.getElementById('rows');
+  if (rows.children.length >= 14) return;
+  var d = document.createElement('div'); d.className = 'bp-row';
+  var opts = TYPES.map(function(t){ return '<option value="'+t[0]+'"'+(t[0]===type?' selected':'')+'>'+t[1]+'</option>'; }).join('');
+  d.innerHTML = '<input type="text" class="r-name" placeholder="Ingredient" aria-label="Ingredient name" value="'+esc(name)+'" oninput="calc()">' +
+    '<select class="r-type" aria-label="Ingredient type" onchange="calc()">'+opts+'</select>' +
+    '<input type="number" class="r-val" min="0" step="any" aria-label="Amount" value="'+(val===''?'':val)+'" oninput="calc()">' +
+    '<button type="button" aria-label="Remove ingredient" onclick="this.parentNode.remove(); calc();">×</button>';
+  rows.appendChild(d);
+  calc();
+}
+function setRows(list, asGrams, flourG){
+  document.getElementById('rows').innerHTML = '';
+  list.forEach(function(r){
+    var v = asGrams ? Math.round(r[2] * flourG / 100 * 10) / 10 : r[2];
+    addRow(r[0], r[1], v);
+  });
+}
+function readRows(){
+  var out = [];
+  document.querySelectorAll('#rows .bp-row').forEach(function(d){
+    var v = parseFloat(d.querySelector('.r-val').value);
+    out.push({ name: d.querySelector('.r-name').value.trim() || 'Ingredient', type: d.querySelector('.r-type').value, v: (v >= 0 ? v : NaN) });
+  });
+  return out;
+}
+function loadPreset(){
+  var k = document.getElementById('preset').value; if (!k) return;
+  var g = document.getElementById('mode').value === 'g2p';
+  setRows(PRESETS[k], g, 1000);
+}
+function modeChanged(){
+  var g2p = document.getElementById('mode').value === 'g2p';
+  var rows = readRows(), flour = 0;
+  // convert what's on screen to the other unit so the user keeps their formula
+  rows.forEach(function(r){ if (r.type === 'flour' && r.v > 0) flour += r.v; });
+  if (flour > 0) {
+    var list = rows.map(function(r){ return [r.name, r.type, isNaN(r.v) ? '' : r.v]; });
+    document.getElementById('rows').innerHTML = '';
+    list.forEach(function(r){
+      var v = r[2] === '' ? '' : (g2p ? Math.round(r[2] * 1000 / 100 * 10) / 10 : Math.round(r[2] / flour * 1000) / 10);
+      addRow(r[0], r[1], v);
+    });
+  }
+  document.getElementById('valHead').textContent = g2p ? 'Grams' : 'Baker’s %';
+  document.getElementById('targetBox').style.display = g2p ? 'none' : 'block';
+  calc();
+}
+function tmodeChanged(){
+  var t = document.getElementById('tmode').value;
+  document.getElementById('piecesBox').style.display = t === 'pieces' ? 'grid' : 'none';
+  document.getElementById('totalBox').style.display = t === 'total' ? 'grid' : 'none';
+  document.getElementById('flourBox').style.display = t === 'flour' ? 'block' : 'none';
+  calc();
+}
+function fg(n){ if (!isFinite(n)) return '—'; return n >= 100 ? Math.round(n).toLocaleString('en-US') : (Math.round(n * 10) / 10).toString(); }
+function fp(n){ if (!isFinite(n)) return '—'; return (n >= 10 ? Math.round(n * 10) / 10 : Math.round(n * 100) / 100) + '%'; }
+function calc(){
+  var g2p = document.getElementById('mode').value === 'g2p';
+  var rows = readRows().filter(function(r){ return !isNaN(r.v); });
+  var warn = [], flourG, items = [];
+  var flourIn = rows.filter(function(r){ return r.type === 'flour'; }).reduce(function(a, r){ return a + r.v; }, 0);
+  if (!(flourIn > 0)) {
+    ['rFlour','rDough','rHyd','rHyd2'].forEach(function(id){ document.getElementById(id).textContent = '—'; });
+    document.getElementById('outBody').innerHTML = '';
+    document.getElementById('outG').textContent = ''; document.getElementById('outP').textContent = '';
+    document.getElementById('warn').innerHTML = '<div class="bp-note">Mark at least one ingredient as <strong>Flour</strong> — baker’s percentages are measured against it.</div>';
+    return;
+  }
+  var target = null;
+  if (g2p) {
+    flourG = flourIn;
+    items = rows.map(function(r){ return { name:r.name, type:r.type, g:r.v, p:r.v / flourG * 100 }; });
+  } else {
+    if (Math.abs(flourIn - 100) > 0.05) warn.push('Your flours add up to ' + fp(flourIn) + ', not 100%. The grams below treat 100% as the total flour, so the flour rows will not match the flour total — adjust them so they sum to 100.');
+    var sumP = rows.reduce(function(a, r){ return a + r.v; }, 0);
+    var t = document.getElementById('tmode').value;
+    if (t === 'flour') {
+      flourG = parseFloat(document.getElementById('fw').value);
+    } else {
+      var dough, loss;
+      if (t === 'pieces') {
+        dough = parseFloat(document.getElementById('pcs').value) * parseFloat(document.getElementById('pcw').value);
+        loss = parseFloat(document.getElementById('loss').value) || 0;
+      } else {
+        dough = parseFloat(document.getElementById('tot').value);
+        loss = parseFloat(document.getElementById('loss2').value) || 0;
+      }
+      target = dough * (1 + loss / 100);
+      flourG = target / (sumP / 100);
+    }
+    if (!(flourG > 0)) return;
+    items = rows.map(function(r){ return { name:r.name, type:r.type, g:flourG * r.v / 100, p:r.v }; });
+  }
+  var totalG = items.reduce(function(a, i){ return a + i.g; }, 0);
+  var totalP = items.reduce(function(a, i){ return a + i.p; }, 0);
+  var waterG = items.filter(function(i){ return i.type === 'water'; }).reduce(function(a, i){ return a + i.g; }, 0);
+  var trueW = items.reduce(function(a, i){ return a + i.g * WATER[i.type]; }, 0);
+  document.getElementById('rFlour').textContent = fg(flourG) + ' g';
+  document.getElementById('rDough').textContent = fg(totalG) + ' g';
+  document.getElementById('rDoughLabel').textContent = (!g2p && target) ? 'Total dough (incl. bench-loss extra)' : 'Total dough';
+  document.getElementById('rHyd').textContent = fp(waterG / flourG * 100);
+  document.getElementById('rHyd2').textContent = fp(trueW / flourG * 100);
+  var label = {}; TYPES.forEach(function(t){ label[t[0]] = t[1]; });
+  document.getElementById('outBody').innerHTML = items.map(function(i){
+    return '<tr><td>' + esc(i.name) + '</td><td>' + label[i.type] + '</td><td>' + fg(i.g) + ' g</td><td>' + fp(i.p) + '</td></tr>';
+  }).join('');
+  document.getElementById('outG').textContent = fg(totalG) + ' g';
+  document.getElementById('outP').textContent = fp(totalP);
+  var salt = items.filter(function(i){ return /salt/i.test(i.name); }).reduce(function(a, i){ return a + i.p; }, 0);
+  if (salt > 3) warn.push('Salt is ' + fp(salt) + ' of the flour. Most breads use 1.8–2.2%; check the recipe for a typo or a unit mix-up.');
+  if (!g2p && target && document.getElementById('tmode').value === 'pieces') {
+    var pcs = parseFloat(document.getElementById('pcs').value), pcw = parseFloat(document.getElementById('pcw').value);
+    warn.push('Scale ' + fg(totalG) + ' g, then divide into ' + pcs + ' pieces of ' + fg(pcw) + ' g. The ' + fg(totalG - pcs * pcw) + ' g extra covers dough lost to the bowl and bench.');
+  }
+  document.getElementById('warn').innerHTML = warn.map(function(w){ return '<div class="bp-note">' + w + '</div>'; }).join('');
+}
+document.addEventListener('DOMContentLoaded', function(){ setRows(PRESETS.lean, true, 1000); });
+</script>
+<!-- CC:STATIC-CHROME:START (build-static.js 자동 생성 — 직접 수정하지 말 것) -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="/" class="logo">🍳 CookingCalcs</a>
+        <p>Calculators, charts and step-by-step guides for everyday cooking. Every formula is shown, with figures from USDA and published sources.</p>
+        <a class="footer-mail" href="mailto:contact@cookingcalcs.com">contact@cookingcalcs.com</a>
+      </div>
+      <nav class="footer-nav" aria-label="Footer">
+        <div class="footer-col">
+          <h4>Popular</h4>
+          <ul>
+            <li><a href="/tools/cups-to-grams.html">Cups to Grams</a></li><li><a href="/tools/oven-temp-converter.html">Oven Temperature Converter</a></li><li><a href="/tools/meat-temperature-guide.html">Meat Temperature Guide</a></li><li><a href="/tools/recipe-multiplier.html">Recipe Multiplier</a></li><li><a href="/tools/catering-pan-calculator.html">Catering Pan Calculator</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="/tools/">All 37 Tools</a></li>
+            <li><a href="/blog/">Blog</a></li>
+            <li><a href="/guides/">Guides</a></li>
+            <li><a href="/about.html">About</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-bottom-inner">
+        <p>© 2026 CookingCalcs · For informational purposes only.</p>
+        <p class="footer-legal"><a href="/privacy-policy.html">Privacy Policy</a><a href="/contact.html">Contact</a></p>
+      </div>
+    </div>
+  </footer>
+<!-- CC:STATIC-CHROME:END -->
+</body>
+</html>

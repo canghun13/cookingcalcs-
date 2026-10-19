@@ -59,6 +59,7 @@ const TOOLS = [
   { name: "Candy & Sugar Stage Temperature Calculator", url: "/tools/candy-temperature-calculator.html" },
   { name: "Yield Percentage Calculator", url: "/tools/yield-percentage-calculator.html" },
   { name: "Catering Pan Calculator", url: "/tools/catering-pan-calculator.html" },
+  { name: "Baker's Percentage Calculator", url: "/tools/bakers-percentage-calculator.html" },
 ];
 
 // ── 툴 검색 키워드 (메인·툴 목록 검색용, 툴 이름에 없는 단어만) ─────────
@@ -98,7 +99,8 @@ const TOOL_KW = {
   "/tools/air-fryer-cooking-times.html": "airfryer fries wings chicken",
   "/tools/candy-temperature-calculator.html": "sugar syrup soft ball hard crack caramel fudge",
   "/tools/yield-percentage-calculator.html": "trim waste produce chef",
-  "/tools/catering-pan-calculator.html": "party crowd buffet half pan hotel pan servings people guests"
+  "/tools/catering-pan-calculator.html": "party crowd buffet half pan hotel pan servings people guests",
+  "/tools/bakers-percentage-calculator.html": "bread dough hydration pizza flour formula bakers math sourdough poolish"
 };
 function ccToolMatch(t, q) {
   // 단어 앞부분 일치(예: "rice"가 "price"에 걸리지 않게)
@@ -193,6 +195,9 @@ const BLOGS = [
   { name: "Recipe Conversion Factor (RCF) Word Problems", url: "/blog/recipe-conversion-factor-word-problems.html", desc: "Worked RCF problems: new yield ÷ old yield, portion size changes, turning decimals into measurable amounts, and what an RCF never scales.", date: "2026-10-12" },
   { name: "How Many People Does a Half Pan Feed?", url: "/blog/how-many-servings-in-a-half-pan.html", desc: "A deep half pan feeds about 25 as a side and 17 as a main. Servings by food, pan depth and number of dishes, plus half pans needed for 20 to 100 guests.", date: "2026-10-13" },
   { name: "Portion Scoop Sizes: What #8, #12 and #16 Mean", url: "/blog/portion-scoop-sizes.html", desc: "Disher numbers decoded with the full USDA chart from #6 to #100, which scoop to use for what, and how many servings a batch gives.", date: "2026-10-13" },
+  { name: "Baker's Percentage Word Problems", url: "/blog/bakers-percentage-word-problems.html", desc: "Worked baker's math problems: percentages from grams, grams from percentages, flour from a dough weight, two flours, a poolish and milk hydration.", date: "2026-10-19" },
+  { name: "Food Cost Percentage Word Problems", url: "/blog/food-cost-percentage-word-problems.html", desc: "Plate cost ÷ menu price, pricing from a target, cost of food sold from inventory, staff meals and transfers — worked answers for each.", date: "2026-10-19" },
+  { name: "Duck Eggs Instead of Chicken Eggs: How Many to Use", url: "/blog/duck-eggs-in-baking.html", desc: "A 1–12 chart for swapping duck, quail and goose eggs by USDA weight, when the 2-for-3 rule is close enough, and how duck eggs bake.", date: "2026-10-19" },
 ];
 
 // ── 가이드 목록 (Tools/Blog와 별개 — 여러 툴/블로그를 묶는 종합 허브 페이지) ──

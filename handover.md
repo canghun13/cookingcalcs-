@@ -245,6 +245,45 @@ echo "nav.js GUIDES: $(sed -n '/const GUIDES/,/^];/p' assets/js/nav.js | grep -c
   현재 후보: `tablespoon-to-teaspoon-guide` 182노출 클릭0 7.02위,
   `how-many-grams-in-a-cup-of-oats` 207노출 클릭0 5.18위.
 
+### 2026-10-21 (39차): 같은 질문 페이지 통합(9개 → 대표 5개로 리다이렉트) + 사실 오류 정정 + title/description/제목단계 전수 정리
+
+> 사용자: "싹다 진행해 세세하게 좀 봐 하면서 그리고 다 수정해버려" (38차 점검에서 보고한 중복 5묶음 + 길이 문제 전부).
+
+#### 통합 (리다이렉트 = meta refresh 0초 + canonical + location.replace 스텁. GitHub Pages라 서버 301 불가)
+| 대표(남김) | 흡수되어 리다이렉트된 URL |
+|---|---|
+| `blog/tablespoon-to-teaspoon-guide.html` (변환기 위젯 이식) | `tools/tablespoon-to-teaspoon.html`, `blog/tablespoon-vs-teaspoon.html` |
+| `tools/butter-converter.html` | `blog/how-many-cups-in-a-stick-of-butter.html`, `blog/how-to-measure-butter.html`, `guides/complete-butter-conversion-guide.html` |
+| `tools/meat-temperature-guide.html` | `blog/meat-internal-temperature-guide.html`, `blog/meat-cooking-temperatures-explained.html` |
+| `blog/how-to-scale-a-recipe.html` | `blog/how-to-reduce-a-recipe.html` (`how-to-reduce-a-recipe-by-half`는 별개 의도라 유지) |
+| `tools/cost-per-serving.html` | `blog/how-to-calculate-cost-per-serving.html` (`meal-cost-calculator`는 재료별 입력 툴이라 유지, 제목·H1을 "Price Each Ingredient"로 차별화) |
+- 흡수 페이지의 고유 내용(이탤릭 T/t 약어·디저트스푼·레벨/수북, 250g 블록·⅓컵 자르기·연화/용융/냉버터·트러블슈팅표·보관, 스테이크 익힘표·색깔 불신·온도계 종류·캐리오버·냉동육, ⅓·¼ 축소표·계란·팬표, 부분 패키지 원가·볼로네제 예제·실수 4가지)은 전부 대표 페이지에 옮김. FAQ JSON-LD는 화면 FAQ에서 재생성.
+- 내부 링크 전부 대표 URL로 교체 + 같은 목록 중복 제거 + 앵커 문구 교체. nav.js TOOLS/BLOGS/GUIDES·TOOL_KW·TOOL_ICONS·sitemap·llms.txt에서 9개 제거. `build-static.js`는 `http-equiv="refresh"` 스텁에 크롬을 넣지 않음.
+- 🚨 **스텁 9개 파일은 삭제하지 말 것**(외부·Bing 유입 URL 보존용). sitemap에도 넣지 말 것.
+
+#### 세세히 보다가 발견해 고친 사실/계산 오류
+- tablespoon 툴: 1컵=240ml인데 1큰술=14.787ml로 계산 → **1컵이 16.23큰술로 나오던 버그** → 236.588ml로 통일.
+- cups-to-grams: 식용유 옵션값 **240g → 218g** (본문 FAQ는 218g이라 적고 계산은 240 쓰던 불일치).
+- 큰술 무게표: 밀가루 8g→7.5g, 흑설탕 13.5→13.75g (cups-to-grams 120/220g ÷16과 일치하게).
+- butter-converter: "버터가 쇼트닝보다 지방·수분이 많다" → **쇼트닝 100% 지방, 버터 약 80%**로 정정. 참조표 ¼스틱 칸 "2 tbsp/2 tbsp" 오류. 중복 표 제거.
+- meat-temperature-guide: 안전온도 차트에 **미디엄레어 135°F를 USDA 안전온도처럼 표기** → 차트는 USDA 최저(145°F)만, 익힘 정도는 별도 표로 분리하고 "USDA 최저 미만" 명시. "소고기는 130~160 어디든 안전" 문구 정정. 없는 °F/°C 토글 언급 삭제. 조리된 햄 140°F(USDA 공장 포장)/165°F(남은 햄) 구분.
+  흡수 블로그 간 스테이크 익힘 온도 충돌(웰던 160 vs 165, 미디엄레어 135 vs 130–135) → 범위표 하나로 통일.
+- 레시피 스케일: "작은 팬이면 오븐 25°F 낮춰라" 오류(올바른 크기 팬은 같은 온도) 정정, 팽창제 "늘릴 땐 덜 넣어라(75%)" ↔ "정확히" 모순 → 가정용 2~3배까지는 정확히. "중란은 점보의 절반" 오류. 9×5 식빵틀 절반 → 8×4 아님(6×3·미니). by-half 페이지도 같은 오류 2건 정정.
+- 1인분 원가 기준표가 페이지마다 달랐음 → average-cost(USDA 2026) 기준으로 cost-per-serving 표·판정 문구·meal-cost FAQ 통일. 주간 식비도 USDA 2026 수치로.
+- butter-converter 결과 g 소수 4자리 → 1자리.
+
+#### 길이·구조
+- title 60자 초과 54개 전부 60자 이내로 재작성(브랜드 접미사 제거, 핵심 키워드 유지. altitude는 "203°F Boil at 5,000 ft" 유지 — Bing CTR 13% 페이지).
+- description 160자 초과 55개 전부 재작성. 제목 단계 건너뜀 12곳 수정(툴 Related h3→h2, 결과 제목 h3→h2, 목록 페이지에 sr-only h2 추가 + style.css `.sr-only`).
+- 읽기시간(145wpm) 어긋난 9개 정정.
+
+#### 검증
+141페이지 + 스텁 9: div/table/ul/section/style/main 균형, JSON-LD 파싱, FAQ 스키마 질문 전부 화면 존재, 내부 링크 깨짐·스텁 링크 0, canonical 141/141, sitemap 141 일치.
+Playwright 282회(390/1280) JS 오류 0·가로 넘침 0·h1 1개·제목 건너뜀 0·title>60 0·desc>160 0. 리다이렉트 9개 브라우저 이동 확인, 변환기(1컵=16큰술=236.59ml, 1스틱=113.4g) 동작 확인.
+
+#### 사이트 규모
+툴 37→**36**, 블로그 89→**82**, 가이드 17→**16**, sitemap 150→**141**(+리다이렉트 스텁 9).
+
 ### 2026-10-21 (38차): 구글 색인 86개 정체 정밀 점검 (사용자 요청 "애매하게 넘어가지 말고")
 
 **확정된 사실 (repo 전체 히스토리 unshallow 후 첫 커밋일 × 10-19 Coverage × GSC 페이지 노출 대조)**

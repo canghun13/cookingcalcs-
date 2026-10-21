@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Meat Temperature Guide – Safe Internal Temps – CookingCalcs</title>
-  <meta name="description" content="Safe internal cooking temperatures for chicken, beef, pork, lamb, fish, and more. USDA-recommended temps in both °F and °C.">
+  <title>Meat Temperature Guide — USDA Safe Internal Temps &amp; Doneness</title>
+  <meta name="description" content="USDA safe internal temperatures for chicken, beef, pork, lamb, ham and fish, plus steak doneness, where to put the thermometer, carryover and rest times.">
   <link rel="canonical" href="https://cookingcalcs.com/tools/meat-temperature-guide.html">
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="/assets/css/style.css">
@@ -32,7 +32,7 @@
       "name": "What temperature is chicken done?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Chicken must reach 165°F (74°C) internally — this applies to whole birds, breasts, thighs, wings, and ground chicken. There is no safe \"medium\" for poultry."
+        "text": "165°F (74°C) in the thickest part — breasts, thighs, wings, whole birds and ground chicken alike. There is no safe \"medium\" for poultry."
       }
     },
     {
@@ -40,7 +40,7 @@
       "name": "Can pork be a little pink?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. The USDA updated its guidelines in 2011 — whole cuts of pork are safe at 145°F (63°C) with a 3-minute rest, which may leave the center slightly pink. Ground pork must reach 160°F (71°C) throughout."
+        "text": "Yes. Since 2011 the USDA has put whole cuts of pork at 145°F (63°C) with a 3-minute rest, which can leave the center slightly pink. Ground pork must reach 160°F (71°C)."
       }
     },
     {
@@ -48,23 +48,39 @@
       "name": "What temperature is medium-rare steak?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Medium-rare beef is typically 130–135°F (54–57°C). The USDA safe minimum for whole muscle beef is 145°F (63°C) with a 3-minute rest. Rare and medium-rare are widely accepted for healthy adults but carry higher risk for vulnerable populations."
+        "text": "130–135°F (54–57°C). The USDA minimum for whole cuts of beef is 145°F with a 3-minute rest, so medium-rare is a preference below the official guidance."
       }
     },
     {
       "@type": "Question",
-      "name": "Why does temperature keep rising after I remove meat from heat?",
+      "name": "Why do restaurants serve steak below the USDA minimum?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "This is carryover cooking. The outer layers of the meat are hotter than the center, and heat continues moving inward after you remove the meat from the heat source. For steaks and roasts, pull off heat about 5°F below your target and rest for 3–5 minutes."
+        "text": "Whole cuts are seared at high heat, which deals with the surface bacteria the guideline is mainly aimed at. The 145°F figure is a conservative floor for all beef; rare and medium-rare are widely eaten by healthy adults, but the USDA does not endorse them."
       }
     },
     {
       "@type": "Question",
-      "name": "Why can't chicken be medium-rare like steak?",
+      "name": "Why does temperature keep rising after I take meat off the heat?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Chicken carries a meaningful risk of Salmonella and Campylobacter that survive at lower temperatures, so there's no safe 'rare' zone the way there is for beef. Steak's main risk (E. coli) lives on the surface and is killed by searing, so the interior doneness is a preference, not a safety issue. Poultry doesn't get that same margin, which is why 165°F is a fixed requirement with no accepted range."
+        "text": "Carryover cooking: heat keeps moving from the hotter outside to the center. Pull steaks and chops about 5°F early and rest them 3–5 minutes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need a different thermometer for grilling?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. An instant-read thermometer works for every method; a leave-in probe is just more convenient for long grill or smoker cooks because the lid stays shut."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens if meat is slightly under temperature?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It depends on the meat. Undercooked poultry and ground meat are the real risks, which is why they have fixed numbers. When in doubt, return the meat to the heat and check again."
       }
     }
   ]
@@ -85,6 +101,10 @@
     #pdf-overlay h2 { margin:0.25rem 0 0.5rem !important; font-size:1.05rem !important; }
     #pdf-overlay .chart-header-row { margin:0 0 0.5rem !important; }
   }
+      .ref-table { width:100%; border-collapse:collapse; font-size:0.875rem; background:#fff; }
+      .ref-table th { background:var(--sand-dark); padding:0.7rem 0.9rem; text-align:left; font-weight:600; border:1px solid var(--border); }
+      .ref-table td { padding:0.7rem 0.9rem; border:1px solid var(--border); vertical-align:top; }
+      .ref-table tbody tr:nth-child(even) td { background:#fbfaf8; }
 </style>
 </head>
 <body>
@@ -113,21 +133,21 @@
       <li class="nav-has-dropdown">
         <button class="nav-link nav-btn" aria-expanded="false">Tools ▾</button>
         <ul class="nav-dropdown">
-          <li><a href="/tools/" class="nav-dropdown-all">All 37 Tools →</a></li>
+          <li><a href="/tools/" class="nav-dropdown-all">All 36 Tools →</a></li>
           <li><a href="/tools/cups-to-grams.html">Cups to Grams</a></li><li><a href="/tools/oven-temp-converter.html">Oven Temperature Converter</a></li><li><a href="/tools/recipe-multiplier.html">Recipe Multiplier</a></li><li><a href="/tools/meat-temperature-guide.html">Meat Temperature Guide</a></li><li><a href="/tools/egg-converter.html">Egg Size Converter</a></li><li><a href="/tools/butter-converter.html">Butter Converter</a></li><li><a href="/tools/catering-pan-calculator.html">Catering Pan Calculator</a></li><li><a href="/tools/bakers-percentage-calculator.html">Baker's Percentage Calculator</a></li>
         </ul>
       </li>
       <li class="nav-has-dropdown">
         <button class="nav-link nav-btn" aria-expanded="false">Blog ▾</button>
         <ul class="nav-dropdown">
-          <li><a href="/blog/" class="nav-dropdown-all">All 89 Posts →</a></li>
+          <li><a href="/blog/" class="nav-dropdown-all">All 82 Posts →</a></li>
           <li><a href="/blog/how-to-substitute-egg-sizes.html">How to Substitute Egg Sizes</a></li><li><a href="/blog/how-long-can-food-sit-out.html">How Long Can Food Sit Out?</a></li><li><a href="/blog/average-cost-of-a-home-cooked-meal.html">Average Cost of a Home-Cooked Meal</a></li><li><a href="/blog/how-long-to-cook-steak.html">How Long to Cook Steak</a></li><li><a href="/blog/culinary-math-formulas.html">Culinary Math Formulas</a></li>
         </ul>
       </li>
       <li class="nav-has-dropdown">
         <button class="nav-link nav-btn" aria-expanded="false">Guides ▾</button>
         <ul class="nav-dropdown">
-          <li><a href="/guides/" class="nav-dropdown-all">All 17 Guides →</a></li>
+          <li><a href="/guides/" class="nav-dropdown-all">All 16 Guides →</a></li>
           <li><a href="/guides/complete-baking-conversion-guide.html">Baking Measurement & Conversion</a></li><li><a href="/guides/complete-meat-cooking-temperature-guide.html">Meat Cooking & Temperature</a></li><li><a href="/guides/complete-recipe-scaling-guide.html">Recipe Scaling & Serving</a></li><li><a href="/guides/complete-culinary-math-guide.html">Culinary Math</a></li><li><a href="/guides/complete-cooking-for-a-crowd-guide.html">Cooking for a Crowd</a></li>
         </ul>
       </li>
@@ -155,8 +175,8 @@
           <option value="chicken-parts">Chicken (parts/breasts)</option>
           <option value="ground-chicken">Ground chicken / turkey</option>
           <option value="turkey-whole">Turkey (whole)</option>
-          <option value="beef-steaks">Beef steaks / roasts (medium-rare)</option>
-          <option value="beef-medium">Beef steaks / roasts (medium)</option>
+          <option value="beef-steaks">Beef steaks / roasts (medium-rare, below USDA min.)</option>
+          <option value="beef-medium">Beef steaks / roasts (medium, USDA minimum)</option>
           <option value="beef-welldone">Beef steaks / roasts (well done)</option>
           <option value="ground-beef">Ground beef / pork / lamb</option>
           <option value="pork-whole">Pork (chops, roasts, loin)</option>
@@ -197,11 +217,11 @@
           <tr><td colspan="4" style="padding:0.9rem 1rem 0.3rem; background:var(--tomato-light); font-weight:700; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--tomato-dark);">Poultry</td></tr>
           <tr><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">Chicken & Turkey (whole, parts, ground)</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">165°F</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">74°C</td><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">None required</td></tr>
           <tr style="background:var(--sand);"><td colspan="4" style="padding:0.9rem 1rem 0.3rem; border-top:2px solid var(--tomato); font-weight:700; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--tomato-dark);">Beef, Pork, Veal, Lamb</td></tr>
-          <tr><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">Steaks & Roasts (medium-rare)</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">135°F</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">57°C</td><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">3 min</td></tr>
-          <tr style="background:var(--sand);"><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">Steaks & Roasts (medium)</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">145°F</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">63°C</td><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">3 min</td></tr>
-          <tr><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">Steaks & Roasts (well done)</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">160°F</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">71°C</td><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">3 min</td></tr>
-          <tr style="background:var(--sand);"><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">Ground beef / pork / lamb</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">160°F</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">71°C</td><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">None required</td></tr>
+          <tr style="background:var(--sand);"><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">Beef, veal &amp; lamb steaks, roasts (USDA minimum)</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">145°F</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">63°C</td><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">3 min</td></tr>
+          <tr><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">Ground beef / pork / lamb</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">160°F</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">71°C</td><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">None required</td></tr>
           <tr><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">Pork chops, roasts, loin</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">145°F</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">63°C</td><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">3 min</td></tr>
+          <tr style="background:var(--sand);"><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">Ham, fresh or raw</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">145°F</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">63°C</td><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">3 min</td></tr>
+          <tr><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">Ham, fully cooked (to reheat)</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">140°F</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">60°C</td><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">None required</td></tr>
           <tr style="background:var(--sand);"><td colspan="4" style="padding:0.9rem 1rem 0.3rem; border-top:2px solid var(--tomato); font-weight:700; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--tomato-dark);">Seafood</td></tr>
           <tr><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">Fish</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">145°F</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">63°C</td><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">None required</td></tr>
           <tr style="background:var(--sand);"><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">Shrimp, lobster, crab</td><td colspan="2" style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">Flesh is pearly white / opaque</td><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">None required</td></tr>
@@ -225,7 +245,6 @@
         <li><a href="/blog/how-long-can-food-sit-out.html" style="color:var(--tomato-dark); font-weight:500;">→ How Long Can Food Sit Out? The 2-Hour Rule Explained</a></li>
         <li><a href="/tools/cooking-time-calculator.html" style="color:var(--tomato-dark); font-weight:500;">→ Cooking Time Calculator</a></li>
         <li><a href="/blog/how-long-to-cook-chicken-breast.html" style="color:var(--tomato-dark); font-weight:500;">→ How Long to Cook Chicken Breast at Every Temperature</a></li>
-        <li><a href="/blog/meat-cooking-temperatures-explained.html" style="color:var(--tomato-dark); font-weight:500;">→ Meat Cooking Temperatures Explained</a></li>
         <li><a href="/tools/candy-temperature-calculator.html" style="color:var(--tomato-dark); font-weight:500;">→ Candy & Sugar Stage Temperature Calculator</a></li>
         <li><a href="/tools/slow-cooker-converter.html" style="color:var(--tomato-dark); font-weight:500;">→ Slow Cooker Time Converter</a></li>
         <li><a href="/blog/how-long-to-cook-tempeh-seitan.html" style="color:var(--tomato-dark); font-weight:500;">→ How Long to Cook Tempeh and Seitan</a></li>
@@ -235,46 +254,71 @@
 
     <div class="blog-content" style="margin-top:3rem;">
       <h2>How to Use This Guide</h2>
-      <p>Use the quick lookup to find the safe internal temperature for a specific cut, or refer to the full chart below. All temperatures follow current USDA food safety guidelines. Switch between Fahrenheit and Celsius using the toggle.</p>
+      <p>Pick a meat in the quick lookup, or read the full chart. Every figure is shown in both Fahrenheit and Celsius. The chart lists the USDA safe minimum internal temperatures; the doneness table below covers how steak is usually cooked, including the rare and medium-rare steps that sit below the USDA minimum.</p>
+
+      <h2>Steak Doneness Temperatures</h2>
+      <table class="ref-table">
+        <thead><tr><th>Doneness</th><th>°F</th><th>°C</th><th>Center</th></tr></thead>
+        <tbody>
+          <tr><td>Rare</td><td>120–125°F</td><td>49–52°C</td><td>Cool red</td></tr>
+          <tr><td>Medium-rare</td><td>130–135°F</td><td>54–57°C</td><td>Warm red</td></tr>
+          <tr><td>Medium <em>(USDA minimum)</em></td><td>140–145°F</td><td>60–63°C</td><td>Warm pink</td></tr>
+          <tr><td>Medium-well</td><td>150–155°F</td><td>66–68°C</td><td>Slightly pink</td></tr>
+          <tr><td>Well done</td><td>160°F+</td><td>71°C+</td><td>Little or no pink</td></tr>
+        </tbody>
+      </table>
+      <p style="margin-top:1rem;">The USDA minimum for whole cuts of beef, veal and lamb is 145°F with a 3-minute rest. Rare and medium-rare are common in kitchens and restaurants because the contamination on a whole cut sits mainly on the surface, which searing kills, but they are below the official guidance and carry more risk for young children, pregnant people, older adults and anyone immunocompromised.</p>
 
       <h2>Where to Insert the Thermometer</h2>
-      <p>Placement matters. For whole birds, insert into the thickest part of the thigh without touching bone. For steaks and chops, insert from the side into the center of the thickest part. For ground meat patties and meatloaf, insert from the top into the center. For roasts, go into the thickest part away from bone and fat pockets.</p>
+      <p>Aim for the thickest part of the cut, away from bone, fat pockets and gristle, which heat differently from muscle and give misleading readings. For whole birds, use the innermost part of the thigh without touching bone, and check the thickest part of the breast too. For steaks, chops, chicken breasts and fish fillets, insert from the side into the center rather than straight down. For burgers and meatloaf, go into the center of the thickest part. Wait for the reading to settle — cheaper thermometers creep up for a second or two.</p>
+
+      <h2>Instant-Read vs Leave-In Thermometers</h2>
+      <p>An instant-read thermometer reads in 2–3 seconds and suits chops, burgers, chicken breasts and fish. A leave-in probe stays in the meat with the display outside the oven or grill, which is better for roasts, whole poultry and anything cooked low and slow, because you can watch the temperature without opening the door and losing heat.</p>
+
+      <h2>Why Color Isn't Reliable</h2>
+      <p>Ground beef can turn brown before it reaches 160°F, and chicken can stay slightly pink at a safe 165°F, especially near the bone. Pork at 145°F is often pink and perfectly safe, and smoke from a grill can keep meat pink however long it cooks. "Juices run clear" is a rough hint for poultry, not a safety test. The thermometer is the only check that works every time.</p>
+
+      <h2>Carryover Cooking and Resting</h2>
+      <p>Meat keeps cooking after it leaves the heat, because the outer layers are hotter than the center. A thin cutlet rises 1–2°F; a large roast can rise 5–10°F. Pull steaks and chops about 5°F below your target and roasts a little earlier, then rest them. Resting also lets the muscle fibers relax and hold on to juice that would otherwise run onto the board.</p>
+      <table class="ref-table">
+        <thead><tr><th>Cut</th><th>Rest</th></tr></thead>
+        <tbody>
+          <tr><td>Steaks and chops</td><td>3–5 minutes</td></tr>
+          <tr><td>Chicken breasts</td><td>5 minutes</td></tr>
+          <tr><td>Whole chicken</td><td>10–15 minutes</td></tr>
+          <tr><td>Large roasts, whole turkey</td><td>15–30 minutes</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Safe vs Good</h2>
+      <p>The safe temperature is a floor, not a target. A pork chop is safe at 145°F, but many cooks like it at 150–155°F. A chicken breast must reach 165°F; the way to keep it juicy is to pull it at about 160°F and let carryover finish the job, then check that it does reach 165°F. Knowing both numbers is the difference between food that is merely cooked and food that tastes good.</p>
+
+      <h2>Why Ground Meat Needs a Higher Temperature</h2>
+      <p>On a steak or chop, bacteria sit on the surface, and searing kills them. Grinding mixes that surface all the way through, so ground beef, pork and lamb must reach 160°F in the center, and ground poultry 165°F, with no doneness range.</p>
+
+      <h2>Chicken vs Pork vs Beef: Why the Numbers Differ</h2>
+      <p><strong>Poultry (165°F)</strong> commonly carries Salmonella and Campylobacter, which can be inside the meat as well as on it; 165°F kills them almost instantly, which is why poultry has one fixed number and no "medium-rare". <strong>Pork (145°F)</strong> used to be 160°F because of trichinosis. The parasite is now extremely rare in US commercial pork, so in 2011 the USDA lowered whole cuts to 145°F with a 3-minute rest — the same as beef. <strong>Whole-muscle beef and lamb (145°F)</strong> carry their main risk, E. coli, on the surface, which is why the lower doneness levels in the table above are widely eaten, even though the official minimum is 145°F.</p>
+
+      <h2>Frozen Meat and Fish</h2>
+      <p>You can cook meat straight from frozen; plan on about 50% longer than the thawed time and confirm the final temperature with a thermometer rather than the clock. Fish is done at 145°F, when the flesh turns opaque and flakes at the thickest point. Many cooks take salmon off at 125–130°F for a moist, slightly translucent center, which carries a small extra risk.</p>
 
       <h2>Frequently Asked Questions</h2>
-      <h3>What temperature is chicken done?</h3>
-      <p>Chicken must reach 165°F (74°C) internally — this applies to whole birds, breasts, thighs, wings, and ground chicken. There is no safe "medium" for poultry.</p>
-
-      <h3>Can pork be a little pink?</h3>
-      <p>Yes. The USDA updated its guidelines in 2011 — whole cuts of pork are safe at 145°F (63°C) with a 3-minute rest, which may leave the center slightly pink. Ground pork must reach 160°F (71°C) throughout.</p>
-
-      <h3>What temperature is medium-rare steak?</h3>
-      <p>Medium-rare beef is typically 130–135°F (54–57°C). The USDA safe minimum for whole muscle beef is 145°F (63°C) with a 3-minute rest. Rare and medium-rare are widely accepted for healthy adults but carry higher risk for vulnerable populations.</p>
-
-      <h3>Why does temperature keep rising after I remove meat from heat?</h3>
-      <p>This is carryover cooking. The outer layers of the meat are hotter than the center, and heat continues moving inward after you remove the meat from the heat source. For steaks and roasts, pull off heat about 5°F below your target and rest for 3–5 minutes.</p>
-
-      <h2>Why Rest Times Matter</h2>
-      <p>Resting isn't just about carryover cooking — it also lets juices redistribute throughout the meat instead of spilling out the moment you cut into it. When meat cooks, muscle fibers contract and push moisture toward the center; resting allows those fibers to relax and reabsorb some of that moisture. Cutting immediately after cooking releases juice onto the cutting board instead of staying in the meat, resulting in a drier bite even if the meat was cooked perfectly.</p>
-      <p>Larger cuts need longer rests: a roast or whole chicken benefits from 10-20 minutes, while a single steak or chop only needs 3-5 minutes.</p>
-
-      <h2>Why Ground Meat Needs a Higher Temperature Than Whole Cuts</h2>
-      <p>Whole cuts like steak and pork chops can be served below full "well-done" temperature because any surface bacteria gets killed by the sear on the outside, leaving the interior — which was never exposed to contamination — as safe as it looks. Grinding meat mixes surface bacteria throughout the interior, so ground beef, pork, and poultry must reach a higher, more thorough temperature (160°F/165°F) throughout, not just on the surface, to be considered safe.</p>
-
-      <h2>Chicken vs Pork vs Beef: Why the Safe Numbers Are So Different</h2>
-      <p>It's a common point of confusion: why is 165°F non-negotiable for chicken, while beef can be pulled at 130°F and still be considered safe? The answer isn't about which meat is "riskier" overall — it's about which specific pathogen each meat carries and how that pathogen behaves.</p>
-      <p><strong>Poultry (165°F)</strong> carries a meaningful risk of Salmonella and Campylobacter, which don't reliably die off until 165°F. That's why there's no scientifically supported "medium-rare chicken" — poultry is the one category with a single hard number and no accepted range.</p>
-      <p><strong>Pork (145°F)</strong> used to carry a 160°F recommendation because of trichinosis risk. Modern commercial pork farming has made trichinosis extremely rare in the U.S. supply, which is why the USDA lowered its guidance to 145°F with a rest back in 2011 — the same range as beef. The safe number changed not because the meat changed, but because the actual risk profile did.</p>
-      <p><strong>Whole-muscle beef (130–160°F depending on doneness)</strong> gets a range instead of a single number because its main risk (E. coli) typically lives on the surface, not throughout the muscle. Searing the outside handles that risk, so the interior can be served at whatever doneness you prefer — rare, medium-rare, or well done are all "safe" in the sense that matters; doneness beyond that is a taste choice, not a food-safety requirement.</p>
-      <p>The practical takeaway: doneness is a food-safety decision for poultry (fixed, no exceptions) but a personal-preference decision for whole-muscle beef and lamb (any point in the range is safe). Ground meat of any animal follows poultry's logic — one fixed number, not a range — because grinding spreads surface bacteria throughout the meat.</p>
-
-      <h3>Do I need a different thermometer for grilling versus oven cooking?</h3>
-      <p>No — an instant-read digital thermometer works the same way regardless of cooking method. For long cooks on a grill or smoker, a leave-in probe thermometer is more convenient since it lets you monitor temperature without repeatedly opening the lid, which lets heat escape and extends cook time.</p>
-
-      <h3>What happens if I eat meat that's slightly under temperature?</h3>
-      <p>The risk depends on the meat type and how far under temperature it is. Poultry carries the highest risk of foodborne illness (salmonella) if undercooked, which is why 165°F has no "acceptable" lower range the way beef does. For whole-muscle beef and pork, a few degrees under is a texture and safety trade-off rather than an automatic hazard, but when in doubt, return the meat to heat rather than risk it.</p>
-
-      <h3>Why can't chicken be medium-rare like steak?</h3>
-      <p>Chicken carries a meaningful risk of Salmonella and Campylobacter that survive at lower temperatures, so there's no safe "rare" zone the way there is for beef. Steak's main risk (E. coli) lives on the surface and is killed by searing, so the interior doneness is a preference, not a safety issue. Poultry doesn't get that same margin, which is why 165°F is a fixed requirement with no accepted range.</p>
+      <div class="faq-section">
+        <h3>What temperature is chicken done?</h3>
+        <p>165°F (74°C) in the thickest part — breasts, thighs, wings, whole birds and ground chicken alike. There is no safe "medium" for poultry.</p>
+        <h3>Can pork be a little pink?</h3>
+        <p>Yes. Since 2011 the USDA has put whole cuts of pork at 145°F (63°C) with a 3-minute rest, which can leave the center slightly pink. Ground pork must reach 160°F (71°C).</p>
+        <h3>What temperature is medium-rare steak?</h3>
+        <p>130–135°F (54–57°C). The USDA minimum for whole cuts of beef is 145°F with a 3-minute rest, so medium-rare is a preference below the official guidance.</p>
+        <h3>Why do restaurants serve steak below the USDA minimum?</h3>
+        <p>Whole cuts are seared at high heat, which deals with the surface bacteria the guideline is mainly aimed at. The 145°F figure is a conservative floor for all beef; rare and medium-rare are widely eaten by healthy adults, but the USDA does not endorse them.</p>
+        <h3>Why does temperature keep rising after I take meat off the heat?</h3>
+        <p>Carryover cooking: heat keeps moving from the hotter outside to the center. Pull steaks and chops about 5°F early and rest them 3–5 minutes.</p>
+        <h3>Do I need a different thermometer for grilling?</h3>
+        <p>No. An instant-read thermometer works for every method; a leave-in probe is just more convenient for long grill or smoker cooks because the lid stays shut.</p>
+        <h3>What happens if meat is slightly under temperature?</h3>
+        <p>It depends on the meat. Undercooked poultry and ground meat are the real risks, which is why they have fixed numbers. When in doubt, return the meat to the heat and check again.</p>
+      </div>
     </div>
   </div>
 </main>
@@ -285,13 +329,13 @@ const temps = {
   'chicken-parts':   { F:'165°F', C:'74°C', note:'No rest time required.' },
   'ground-chicken':  { F:'165°F', C:'74°C', note:'No rest time required.' },
   'turkey-whole':    { F:'165°F', C:'74°C', note:'Check innermost part of thigh and thickest part of breast.' },
-  'beef-steaks':     { F:'135°F', C:'57°C', note:'Rest 3 minutes before serving.' },
-  'beef-medium':     { F:'145°F', C:'63°C', note:'Rest 3 minutes before serving.' },
+  'beef-steaks':     { F:'135°F', C:'57°C', note:'Medium-rare is a doneness preference, below the USDA safe minimum of 145°F. Higher risk for young children, pregnant, older or immunocompromised people. Rest 3 minutes.' },
+  'beef-medium':     { F:'145°F', C:'63°C', note:'USDA safe minimum for whole cuts of beef, veal and lamb (medium). Rest 3 minutes before serving.' },
   'beef-welldone':   { F:'160°F', C:'71°C', note:'Rest 3 minutes before serving.' },
   'ground-beef':     { F:'160°F', C:'71°C', note:'No rest time required.' },
   'pork-whole':      { F:'145°F', C:'63°C', note:'Rest 3 minutes before serving.' },
   'ham-fresh':       { F:'145°F', C:'63°C', note:'Rest 3 minutes before serving.' },
-  'ham-cooked':      { F:'140°F', C:'60°C', note:'No rest time required.' },
+  'ham-cooked':      { F:'140°F', C:'60°C', note:'For fully cooked ham packaged in a USDA-inspected plant. Leftover or repackaged cooked ham should be reheated to 165°F.' },
   'lamb':            { F:'145°F', C:'63°C', note:'Rest 3 minutes before serving.' },
   'fish':            { F:'145°F', C:'63°C', note:'Flesh should be opaque and flake easily.' },
   'shrimp':          { F:'—', C:'—', note:'Cook until flesh is pearly white/opaque and shells are pink.' },
@@ -358,7 +402,7 @@ function printToPDF(areaId) {
         <div class="footer-col">
           <h4>Explore</h4>
           <ul>
-            <li><a href="/tools/">All 37 Tools</a></li>
+            <li><a href="/tools/">All 36 Tools</a></li>
             <li><a href="/blog/">Blog</a></li>
             <li><a href="/guides/">Guides</a></li>
             <li><a href="/about.html">About</a></li>

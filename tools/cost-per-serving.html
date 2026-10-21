@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cost Per Serving Calculator — $12 ÷ 4 Servings = $3.00</title>
-  <meta name="description" content="Divide total price by servings to get cost per serving — a $12 dish that serves 4 costs $3.00 each. Includes budget vs. average vs. premium benchmarks.">
+  <meta name="description" content="Divide total recipe cost by servings. Price the part of a package you use, a worked Bolognese example, word problems, benchmarks and common mistakes.">
   <link rel="canonical" href="https://cookingcalcs.com/tools/cost-per-serving.html">
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="/assets/css/style.css">
@@ -56,7 +56,7 @@
       "name": "How do I calculate cost per serving for meal prep?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Add up the total ingredient cost across your entire meal prep session, then divide by the total number of meals or servings produced. For a detailed breakdown by recipe, see our guide on how to calculate meal prep cost for a week ."
+        "text": "Add up the total ingredient cost across your entire meal prep session, then divide by the total number of meals or servings produced. For a detailed breakdown by recipe, see our guide on how to calculate meal prep cost for a week."
       }
     },
     {
@@ -65,6 +65,22 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Same thing — price per serving, cost per portion, and cost per serving all describe the same math: total cost divided by number of servings. This tool works for any of those framings, whether you're pricing out a single dish, a packaged product, or a restaurant portion to compare against home cooking."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does cost per serving include leftovers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — leftovers are servings. A meal that makes 4 servings costs total ÷ 4 whether you eat them tonight or for lunch tomorrow."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do restaurants work out cost per serving?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "They cost each plate the same way, then price it so food is about 28–35% of the menu price. A plate costing $4 sells for roughly $12–14. See food cost percentage word problems."
       }
     }
   ]
@@ -78,6 +94,10 @@
     #pdf-overlay .pdf-btn, #pdf-overlay .remove-btn, #pdf-overlay .add-row-btn { display:none !important; }
     #pdf-overlay input { border:none !important; padding:0 !important; background:transparent !important; box-shadow:none !important; }
   }
+      .ref-table { width:100%; border-collapse:collapse; font-size:0.875rem; background:#fff; }
+      .ref-table th { background:var(--sand-dark); padding:0.7rem 0.9rem; text-align:left; font-weight:600; border:1px solid var(--border); }
+      .ref-table td { padding:0.7rem 0.9rem; border:1px solid var(--border); vertical-align:top; }
+      .ref-table tbody tr:nth-child(even) td { background:#fbfaf8; }
 </style>
 </head>
 <body>
@@ -106,21 +126,21 @@
       <li class="nav-has-dropdown">
         <button class="nav-link nav-btn" aria-expanded="false">Tools ▾</button>
         <ul class="nav-dropdown">
-          <li><a href="/tools/" class="nav-dropdown-all">All 37 Tools →</a></li>
+          <li><a href="/tools/" class="nav-dropdown-all">All 36 Tools →</a></li>
           <li><a href="/tools/cups-to-grams.html">Cups to Grams</a></li><li><a href="/tools/oven-temp-converter.html">Oven Temperature Converter</a></li><li><a href="/tools/recipe-multiplier.html">Recipe Multiplier</a></li><li><a href="/tools/meat-temperature-guide.html">Meat Temperature Guide</a></li><li><a href="/tools/egg-converter.html">Egg Size Converter</a></li><li><a href="/tools/butter-converter.html">Butter Converter</a></li><li><a href="/tools/catering-pan-calculator.html">Catering Pan Calculator</a></li><li><a href="/tools/bakers-percentage-calculator.html">Baker's Percentage Calculator</a></li>
         </ul>
       </li>
       <li class="nav-has-dropdown">
         <button class="nav-link nav-btn" aria-expanded="false">Blog ▾</button>
         <ul class="nav-dropdown">
-          <li><a href="/blog/" class="nav-dropdown-all">All 89 Posts →</a></li>
+          <li><a href="/blog/" class="nav-dropdown-all">All 82 Posts →</a></li>
           <li><a href="/blog/how-to-substitute-egg-sizes.html">How to Substitute Egg Sizes</a></li><li><a href="/blog/how-long-can-food-sit-out.html">How Long Can Food Sit Out?</a></li><li><a href="/blog/average-cost-of-a-home-cooked-meal.html">Average Cost of a Home-Cooked Meal</a></li><li><a href="/blog/how-long-to-cook-steak.html">How Long to Cook Steak</a></li><li><a href="/blog/culinary-math-formulas.html">Culinary Math Formulas</a></li>
         </ul>
       </li>
       <li class="nav-has-dropdown">
         <button class="nav-link nav-btn" aria-expanded="false">Guides ▾</button>
         <ul class="nav-dropdown">
-          <li><a href="/guides/" class="nav-dropdown-all">All 17 Guides →</a></li>
+          <li><a href="/guides/" class="nav-dropdown-all">All 16 Guides →</a></li>
           <li><a href="/guides/complete-baking-conversion-guide.html">Baking Measurement & Conversion</a></li><li><a href="/guides/complete-meat-cooking-temperature-guide.html">Meat Cooking & Temperature</a></li><li><a href="/guides/complete-recipe-scaling-guide.html">Recipe Scaling & Serving</a></li><li><a href="/guides/complete-culinary-math-guide.html">Culinary Math</a></li><li><a href="/guides/complete-cooking-for-a-crowd-guide.html">Cooking for a Crowd</a></li>
         </ul>
       </li>
@@ -156,6 +176,7 @@
     </div>
 
     <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin:2rem 0 1rem;">Average Cost Per Serving Benchmarks</h2>
+      <p style="margin-bottom:1rem;">Per person, cooking from basic ingredients. The ranges match USDA's 2026 food-plan costs, which work out to about $3.00–5.30 per meal for an adult — see <a href="/blog/average-cost-of-a-home-cooked-meal.html">average cost of a home-cooked meal</a>.</p>
       <table style="width:100%; border-collapse:collapse; font-size:0.9rem; background:#fff; border-radius:12px; overflow:hidden;">
         <thead>
           <tr style="background:var(--sand-dark);">
@@ -166,9 +187,9 @@
           </tr>
         </thead>
         <tbody>
-          <tr><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">Breakfast</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">$0.50–1</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">$1–2.50</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">$3+</td></tr>
-          <tr style="background:var(--sand);"><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">Lunch</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">$1–2</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">$2.50–5</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">$5+</td></tr>
-          <tr><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">Dinner</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">$1.50–3</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">$3–6</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">$7+</td></tr>
+          <tr><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">Breakfast</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">$0.75–1.50</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">$1.50–3</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">$3–5</td></tr>
+          <tr style="background:var(--sand);"><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">Lunch</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">$1.50–2.50</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">$2.50–5</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">$5–8</td></tr>
+          <tr><td style="padding:0.65rem 1rem; border-bottom:1px solid var(--border);">Dinner</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">$2–3.50</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">$3.50–6.50</td><td style="text-align:center; padding:0.65rem; border-bottom:1px solid var(--border);">$7–12</td></tr>
           <tr style="background:var(--sand);"><td style="padding:0.65rem 1rem;">Snack</td><td style="text-align:center; padding:0.65rem;">$0.25–0.75</td><td style="text-align:center; padding:0.65rem;">$0.75–1.50</td><td style="text-align:center; padding:0.65rem;">$2+</td></tr>
         </tbody>
       </table>
@@ -183,7 +204,6 @@
         <li><a href="/tools/yield-percentage-calculator.html" style="color:var(--tomato-dark); font-weight:500;">Yield Percentage Calculator</a></li>
         <li><a href="/guides/complete-meal-prep-budget-guide.html" style="color:var(--tomato-dark); font-weight:500;">→ The Complete Meal Prep & Grocery Budget Guide</a></li>
         <li><a href="/tools/meal-cost-calculator.html" style="color:var(--tomato-dark); font-weight:500;">→ Meal Cost Calculator</a></li>
-        <li><a href="/blog/how-to-calculate-cost-per-serving.html" style="color:var(--tomato-dark); font-weight:500;">→ How to Calculate Cost Per Serving</a></li>
         <li><a href="/blog/how-to-meal-prep-on-a-budget.html" style="color:var(--tomato-dark); font-weight:500;">→ How to Meal Prep on a Budget</a></li>
         <li><a href="/blog/unit-price-word-problems.html" style="color:var(--tomato-dark); font-weight:500;">→ Unit Price Word Problems</a></li>
       </ul>
@@ -198,9 +218,26 @@
       <p>This calculation is especially useful when comparing home cooking to takeout or delivery. A home-cooked dinner at $3.50 per serving looks completely different against a $16 delivery order for the same dish. Cost per serving puts both on the same scale.</p>
 
       <h2>How to Calculate Cost Per Serving</h2>
-      <p>The formula is simple:</p>
-      <p style="background:var(--sand); padding:1rem; border-radius:var(--radius); font-family:monospace;">Cost per serving = Total recipe cost ÷ Number of servings</p>
-      <p>The harder part is accurately calculating the total recipe cost — especially when you're using partial packages. For example, if a recipe uses 300g of ground beef from a 500g pack that cost $6.00, the beef cost for that recipe is $6.00 × (300 ÷ 500) = $3.60, not $6.00. Use our <a href="/tools/meal-cost-calculator.html">Meal Cost Calculator</a> to handle this ingredient-by-ingredient breakdown automatically.</p>
+      <p><strong>Cost per serving = total recipe cost ÷ number of servings.</strong> The division is the easy part. The work is in the total, because you rarely use a whole package: price only the part that goes into the pot.</p>
+      <p style="background:var(--sand); padding:1rem; border-radius:var(--radius); font-family:monospace;">Cost of amount used = (package price ÷ package size) × amount used</p>
+      <p>A 5 lb bag of flour costs $4.00 and the recipe uses 2 cups (240 g, or 0.53 lb): $4.00 ÷ 5 × 0.53 = <strong>$0.42</strong>. A 500 g pack of ground beef costs $6.00 and the recipe uses 300 g: $6.00 × 300 ÷ 500 = <strong>$3.60</strong>, not $6.00. The <a href="/tools/meal-cost-calculator.html">recipe cost calculator</a> does this ingredient by ingredient.</p>
+
+      <h2>Worked Example: Spaghetti Bolognese for 4</h2>
+      <table class="ref-table">
+        <thead><tr><th>Ingredient</th><th>Amount used</th><th>Package price</th><th>Cost used</th></tr></thead>
+        <tbody>
+          <tr><td>Ground beef</td><td>1 lb</td><td>$5.99/lb</td><td>$5.99</td></tr>
+          <tr><td>Spaghetti (1 lb box)</td><td>12 oz</td><td>$1.49</td><td>$1.12</td></tr>
+          <tr><td>Canned tomatoes (28 oz)</td><td>28 oz</td><td>$1.89</td><td>$1.89</td></tr>
+          <tr><td>Onion</td><td>1 medium</td><td>$0.79</td><td>$0.79</td></tr>
+          <tr><td>Garlic, oil, herbs</td><td>small amounts</td><td>—</td><td>about $0.50</td></tr>
+          <tr><td><strong>Total</strong></td><td></td><td></td><td><strong>$10.29</strong></td></tr>
+        </tbody>
+      </table>
+      <p style="margin-top:1rem;">$10.29 ÷ 4 = <strong>$2.57 per serving</strong> — against $16–22 for the same plate in a restaurant. Stretch the same pot to 5 servings and it drops to $2.06.</p>
+
+      <h2>What to Include, and What to Skip</h2>
+      <p>Include every main ingredient and anything used in a real quantity — the full can of coconut milk, the quarter cup of olive oil in a marinade, the carton of stock. Skip pinches of salt, pepper and dried herbs; they add fractions of a cent. Cooking energy is small too: an hour in the oven costs roughly $0.10–0.25, a few cents per serving.</p>
 
       <h2>Worked Example Problems</h2>
       <p>These are the same style of price-per-serving word problems you'll see in a consumer math class — buying by the pound, dividing into ounce-sized servings. Here's how to work through them step by step.</p>
@@ -234,6 +271,12 @@
       <p><strong>Switch to cheaper proteins.</strong> Protein is usually 50–70% of a meal's cost. Chicken thighs cost significantly less than breasts. Canned tuna, eggs, lentils, and beans are all far cheaper per gram of protein than any meat.</p>
       <p><strong>Use whole ingredients.</strong> Pre-cut vegetables, marinated meats, and pre-made sauces all carry a significant convenience premium. Buying whole and prepping yourself typically cuts ingredient cost by 20–40%.</p>
 
+      <h2>Common Mistakes That Skew the Number</h2>
+      <p><strong>Comparing sticker prices instead of unit prices.</strong> A $8 twelve-pack isn't automatically cheaper than a $3 four-pack — divide by weight or count first. The <a href="/blog/unit-price-word-problems.html">unit price word problems</a> walk through it.</p>
+      <p><strong>Mixing raw and cooked weight.</strong> A pound of raw chicken breast cooks down to roughly 12 ounces. If servings are measured cooked, price the raw weight you actually needed — the <a href="/tools/raw-to-cooked-weight.html">raw to cooked weight converter</a> gives the factor.</p>
+      <p><strong>Trusting the recipe's serving count.</strong> If your household eats a "serves 6" recipe in four sittings, your real cost per serving is half as much again. Divide by the servings you actually get.</p>
+      <p><strong>Confusing cost per pound with cost per serving.</strong> The first picks the better package; the second tells you what a plate costs. A cheap-per-pound ingredient can still make an expensive plate if the recipe uses a lot of it.</p>
+
       <h2>Frequently Asked Questions</h2>
       <h3>What's a reasonable cost per serving for home cooking?</h3>
       <p>For breakfast, $0.50–2.50 is typical. For lunch, $1–5. For dinner, $1.50–6. Anything under $3 per serving for a full dinner is very good. Above $6–7 per serving for home cooking suggests you could reduce cost with different proteins or bulk ingredients.</p>
@@ -249,6 +292,11 @@
 
       <h3>Is this a price per serving calculator or a cost per portion calculator?</h3>
       <p>Same thing — price per serving, cost per portion, and cost per serving all describe the same math: total cost divided by number of servings. This tool works for any of those framings, whether you're pricing out a single dish, a packaged product, or a restaurant portion to compare against home cooking.</p>
+      <h3>Does cost per serving include leftovers?</h3>
+      <p>Yes — leftovers are servings. A meal that makes 4 servings costs total ÷ 4 whether you eat them tonight or for lunch tomorrow.</p>
+      <h3>How do restaurants work out cost per serving?</h3>
+      <p>They cost each plate the same way, then price it so food is about 28–35% of the menu price. A plate costing $4 sells for roughly $12–14. See <a href="/blog/food-cost-percentage-word-problems.html">food cost percentage word problems</a>.</p>
+
 
       </div>
   </div>
@@ -264,9 +312,9 @@ function calculate() {
   document.getElementById('resultNum').textContent = '$' + perServing.toFixed(2);
 
   let comparison = '';
-  if (perServing < 1.50) comparison = '✅ Very budget-friendly — well below average home cooking cost.';
-  else if (perServing < 3) comparison = '👍 Budget-friendly — below the average dinner cost per serving.';
-  else if (perServing < 6) comparison = '👌 Average — on par with typical home-cooked dinner costs.';
+  if (perServing < 2) comparison = '✅ Very budget-friendly — well below a typical home-cooked dinner.';
+  else if (perServing < 3.5) comparison = '👍 Budget-friendly — in the budget range for a home-cooked dinner ($2–3.50).';
+  else if (perServing < 6.5) comparison = '👌 Average — on par with a typical home-cooked dinner ($3.50–6.50).';
   else comparison = '💰 Premium — higher than average. Consider cheaper protein or bulk ingredients to reduce cost.';
 
   document.getElementById('comparison').textContent = comparison;
@@ -310,7 +358,7 @@ function printToPDF(areaId) {
         <div class="footer-col">
           <h4>Explore</h4>
           <ul>
-            <li><a href="/tools/">All 37 Tools</a></li>
+            <li><a href="/tools/">All 36 Tools</a></li>
             <li><a href="/blog/">Blog</a></li>
             <li><a href="/guides/">Guides</a></li>
             <li><a href="/about.html">About</a></li>

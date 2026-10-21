@@ -120,6 +120,9 @@ function injectChrome(rel) {
   const abs = path.join(ROOT, rel);
   let html = fs.readFileSync(abs, 'utf8');
 
+  // 2026-10-21: 통합으로 생긴 리다이렉트 스텁(meta refresh)은 크롬을 넣지 않는다.
+  if (html.includes('http-equiv="refresh"')) return { rel, ok: true, stub: true };
+
   // 재실행 가능하도록 기존 자동생성 블록 제거 후 다시 삽입.
   // 첫 번째로 발견되는 START/END 쌍 = 헤더(trailing eat), 두 번째 쌍 = 푸터(leading eat).
   html = stripBlock(html, START, END, 'trailing');

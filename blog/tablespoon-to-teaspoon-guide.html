@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>How Many Teaspoons in a Tablespoon? 1 Tbsp = 3 Tsp</title>
-  <meta name="description" content="1 tablespoon = 3 teaspoons. Full chart both directions, every fraction from &frac18; to 2 tbsp, decimals, and what changes for Australian recipes.">
+  <meta name="description" content="1 tablespoon = 3 teaspoons. Converter plus charts for every fraction, cups, ml, abbreviations (T vs t), and the 20 ml Australian tablespoon.">
   <link rel="canonical" href="https://cookingcalcs.com/blog/tablespoon-to-teaspoon-guide.html">
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="/assets/css/style.css">
@@ -16,7 +16,7 @@
   "headline": "How Many Teaspoons in a Tablespoon?",
   "description": "1 tablespoon = 3 teaspoons. Conversions in both directions, every fraction from an eighth to two tablespoons, decimals, cups and millilitres.",
   "datePublished": "2026-05-08",
-  "dateModified": "2026-09-07",
+  "dateModified": "2026-10-21",
   "author": { "@type": "Organization", "name": "CookingCalcs", "url": "https://cookingcalcs.com" },
   "publisher": { "@type": "Organization", "name": "CookingCalcs", "url": "https://cookingcalcs.com" }
 }
@@ -31,15 +31,7 @@
       "name": "How many teaspoons in 2 tablespoons?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "2 tablespoons equals 6 teaspoons. The ratio is always 3 teaspoons per tablespoon. So 2 tablespoons × 3 = 6 teaspoons. This comes up often when doubling recipes that call for 1 tablespoon of an ingredient."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How many tablespoons in ¼ cup?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "There are 4 tablespoons in ¼ cup. A full cup has 16 tablespoons, so dividing by 4 gives you 4 tablespoons per ¼ cup. This is helpful when a recipe calls for ¼ cup of an ingredient and you only have tablespoon measuring spoons available."
+        "text": "2 tablespoons equals 6 teaspoons. The ratio is always 3 teaspoons per tablespoon, so multiply the tablespoons by 3."
       }
     },
     {
@@ -47,31 +39,39 @@
       "name": "How many tablespoons in ⅓ cup?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "There are 5 tablespoons plus 1 teaspoon in ⅓ cup. This awkward number comes from the fact that 16 tablespoons (1 cup) doesn't divide evenly by 3. In practice, 5 tablespoons + 1 teaspoon is the most accurate way to measure ⅓ cup using spoons."
+        "text": "5 tablespoons plus 1 teaspoon. A cup is 16 tablespoons, which doesn't divide evenly by 3, so the extra teaspoon makes up the difference."
       }
     },
     {
       "@type": "Question",
-      "name": "How many tablespoons in ½ cup?",
+      "name": "How many ml is a tablespoon?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "There are 8 tablespoons in ½ cup. Since a full cup equals 16 tablespoons, half a cup is exactly 8. This is one of the most commonly needed conversions in baking."
+        "text": "A US tablespoon is 14.79 ml, rounded to 15 ml in recipes. A teaspoon is 4.93 ml, rounded to 5 ml. An Australian tablespoon is 20 ml."
       }
     },
     {
       "@type": "Question",
-      "name": "Is a tablespoon the same in all countries?",
+      "name": "Is a capital T tablespoon or teaspoon?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Mostly, but not exactly. A US tablespoon is 14.8ml. An Australian tablespoon is 20ml — significantly larger. UK tablespoons are typically treated as 15ml in recipes. For most cooking this difference doesn't matter, but in baking it can affect results, especially for leavening agents."
+        "text": "Capital T is tablespoon; lowercase t is teaspoon. It matters most in handwritten and older recipes, where the abbreviation is the only clue."
       }
     },
     {
       "@type": "Question",
-      "name": "How do I measure ¾ teaspoon if I don't have that size?",
+      "name": "Is a dessert spoon the same as a tablespoon?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Use ½ teaspoon + ¼ teaspoon together. Most measuring spoon sets include ¼ tsp and ½ tsp but not ¾ tsp, so combining the two is the standard approach. You can also use ¼ tsp three times."
+        "text": "No. A dessert spoon is a British measure of 2 teaspoons, about 10 ml — between a teaspoon and a tablespoon."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does \"1 tbsp\" mean level or heaping?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Level, unless the recipe says heaping or rounded. Fill the spoon and sweep the top flat with a straight edge."
       }
     }
   ]
@@ -83,6 +83,11 @@
       .ref-table th { background:var(--sand-dark); padding:0.7rem 0.9rem; text-align:left; font-weight:600; border:1px solid var(--border); }
       .ref-table td { padding:0.7rem 0.9rem; border:1px solid var(--border); vertical-align:top; }
       .ref-table tbody tr:nth-child(even) td { background:#fbfaf8; }
+      .tts-grid2 { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+      .tts-result-grid .result-num { font-size:1.6rem; white-space:nowrap; }
+      .tts-result-grid .result-box { padding:1rem .5rem; }
+      .tts-result-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:.75rem; margin-top:.5rem; }
+      @media(max-width:640px){ .tts-grid2 { grid-template-columns:1fr; } .tts-result-grid { grid-template-columns:1fr 1fr; } }
 </style>
 </head>
 <body>
@@ -111,21 +116,21 @@
       <li class="nav-has-dropdown">
         <button class="nav-link nav-btn" aria-expanded="false">Tools ▾</button>
         <ul class="nav-dropdown">
-          <li><a href="/tools/" class="nav-dropdown-all">All 37 Tools →</a></li>
+          <li><a href="/tools/" class="nav-dropdown-all">All 36 Tools →</a></li>
           <li><a href="/tools/cups-to-grams.html">Cups to Grams</a></li><li><a href="/tools/oven-temp-converter.html">Oven Temperature Converter</a></li><li><a href="/tools/recipe-multiplier.html">Recipe Multiplier</a></li><li><a href="/tools/meat-temperature-guide.html">Meat Temperature Guide</a></li><li><a href="/tools/egg-converter.html">Egg Size Converter</a></li><li><a href="/tools/butter-converter.html">Butter Converter</a></li><li><a href="/tools/catering-pan-calculator.html">Catering Pan Calculator</a></li><li><a href="/tools/bakers-percentage-calculator.html">Baker's Percentage Calculator</a></li>
         </ul>
       </li>
       <li class="nav-has-dropdown">
         <button class="nav-link nav-btn" aria-expanded="false">Blog ▾</button>
         <ul class="nav-dropdown">
-          <li><a href="/blog/" class="nav-dropdown-all">All 89 Posts →</a></li>
+          <li><a href="/blog/" class="nav-dropdown-all">All 82 Posts →</a></li>
           <li><a href="/blog/how-to-substitute-egg-sizes.html">How to Substitute Egg Sizes</a></li><li><a href="/blog/how-long-can-food-sit-out.html">How Long Can Food Sit Out?</a></li><li><a href="/blog/average-cost-of-a-home-cooked-meal.html">Average Cost of a Home-Cooked Meal</a></li><li><a href="/blog/how-long-to-cook-steak.html">How Long to Cook Steak</a></li><li><a href="/blog/culinary-math-formulas.html">Culinary Math Formulas</a></li>
         </ul>
       </li>
       <li class="nav-has-dropdown">
         <button class="nav-link nav-btn" aria-expanded="false">Guides ▾</button>
         <ul class="nav-dropdown">
-          <li><a href="/guides/" class="nav-dropdown-all">All 17 Guides →</a></li>
+          <li><a href="/guides/" class="nav-dropdown-all">All 16 Guides →</a></li>
           <li><a href="/guides/complete-baking-conversion-guide.html">Baking Measurement & Conversion</a></li><li><a href="/guides/complete-meat-cooking-temperature-guide.html">Meat Cooking & Temperature</a></li><li><a href="/guides/complete-recipe-scaling-guide.html">Recipe Scaling & Serving</a></li><li><a href="/guides/complete-culinary-math-guide.html">Culinary Math</a></li><li><a href="/guides/complete-cooking-for-a-crowd-guide.html">Cooking for a Crowd</a></li>
         </ul>
       </li>
@@ -138,19 +143,41 @@
   <article class="blog-page">
     <span class="blog-card-tag">Unit Conversion</span>
     <h1>How Many Teaspoons in a Tablespoon?</h1>
-    <div class="blog-meta">Updated September 2026 · 10 min read</div>
+    <div class="blog-meta">Updated October 2026 · 9 min read</div>
     <div class="blog-content">
-      <p style="font-size:1.05rem; padding:1rem 1.2rem; background:var(--tomato-light); border-radius:var(--radius-lg);"><strong>1 tablespoon = 3 teaspoons.</strong> That holds for US, UK, Canadian and metric recipes alike. Australia is the one exception, where a tablespoon is 4 teaspoons.</p>
-      <p>Spoon measurements come up in almost every recipe. Whether you're scaling down a recipe or just working with an unfamiliar unit, knowing how tablespoons, teaspoons, and cups relate to each other is a fundamental cooking skill.</p>
+      <p><strong>1 tablespoon = 3 teaspoons.</strong> That holds for US, UK, Canadian and metric recipes alike. Australia is the one exception, where a tablespoon is 4 teaspoons. Use the converter for any amount, or the charts below for every common fraction.</p>
+
+      <div class="tool-box" style="margin:1.25rem 0 1.5rem;">
+        <div class="tts-grid2">
+          <div class="form-group">
+            <label for="amount">Amount</label>
+            <input type="number" id="amount" min="0" step="0.25" value="1" oninput="convert()">
+          </div>
+          <div class="form-group">
+            <label for="fromUnit">Convert from</label>
+            <select id="fromUnit" onchange="convert()">
+              <option value="tbsp">Tablespoons (tbsp)</option>
+              <option value="tsp">Teaspoons (tsp)</option>
+              <option value="cup">Cups</option>
+              <option value="floz">Fluid ounces (fl oz)</option>
+              <option value="ml">Milliliters (ml)</option>
+            </select>
+          </div>
+        </div>
+        <div id="results" class="tts-result-grid">
+          <div class="result-box"><div class="result-num" id="rTbsp"></div><div class="result-label">Tablespoons</div></div>
+          <div class="result-box"><div class="result-num" id="rTsp"></div><div class="result-label">Teaspoons</div></div>
+          <div class="result-box"><div class="result-num" id="rCup"></div><div class="result-label">Cups</div></div>
+          <div class="result-box"><div class="result-num" id="rMl"></div><div class="result-label">Milliliters</div></div>
+        </div>
+      </div>
 
       <h2>The Key Relationships</h2>
       <ul>
         <li><strong>1 tablespoon = 3 teaspoons</strong></li>
-        <li><strong>1 cup = 16 tablespoons</strong></li>
-        <li><strong>1 cup = 48 teaspoons</strong></li>
-        <li><strong>½ cup = 8 tablespoons</strong></li>
-        <li><strong>¼ cup = 4 tablespoons</strong></li>
-        <li><strong>1 tablespoon = ½ fluid ounce</strong></li>
+        <li><strong>1 cup = 16 tablespoons = 48 teaspoons</strong></li>
+        <li><strong>½ cup = 8 tablespoons</strong>, <strong>¼ cup = 4 tablespoons</strong></li>
+        <li><strong>1 tablespoon = ½ fluid ounce ≈ 15 ml</strong>; 1 teaspoon ≈ 5 ml</li>
       </ul>
 
       <h2>Full Tablespoon to Teaspoon Conversion Chart</h2>
@@ -174,7 +201,7 @@
       </table>
 
       <h2>Fractions and Decimals of a Tablespoon</h2>
-      <p>Recipes and calculators write partial tablespoons both ways, and the awkward ones are the thirds — they're the reason a ⅓ tablespoon lands on a clean 1 teaspoon while ¼ and ¾ don't.</p>
+      <p>Recipes and calculators write partial tablespoons both ways. Because a tablespoon is three teaspoons, thirds are the easy fractions here — ⅓ and ⅔ of a tablespoon land exactly on 1 and 2 teaspoons. It's quarters that get messy: ¼ tbsp is ¾ tsp, which takes two spoons.</p>
       <table class="ref-table">
         <thead><tr><th>Tablespoons</th><th>Decimal</th><th>Teaspoons</th><th>How to measure it</th></tr></thead>
         <tbody>
@@ -189,10 +216,9 @@
           <tr><td>2 tbsp</td><td>2.0</td><td>6 tsp</td><td>1 fl oz</td></tr>
         </tbody>
       </table>
-      <p>Notice that thirds of a tablespoon are the <em>easy</em> ones here, which is the opposite of how thirds usually behave. Because a tablespoon is three teaspoons, ⅓ and ⅔ of one land exactly on 1 and 2 teaspoons. It's quarters that get messy — ¼ tbsp is ¾ tsp, which needs two spoons to measure.</p>
 
       <h2>Teaspoons to Tablespoons: The Other Direction</h2>
-      <p>Going the other way is just division by three, and it matters when you're scaling a recipe up and would rather measure once than count out nine teaspoons.</p>
+      <p>Divide by three. It matters when you're scaling a recipe up and would rather measure once than count out nine teaspoons.</p>
       <table class="ref-table">
         <thead><tr><th>Teaspoons</th><th>Tablespoons</th><th>Also</th></tr></thead>
         <tbody>
@@ -209,7 +235,7 @@
       </table>
 
       <h2>How Many Tablespoons in a Cup?</h2>
-      <p>There are <strong>16 tablespoons in 1 cup</strong>. This is one of the most useful kitchen conversions to memorize. Here's the full cups-to-tablespoons breakdown:</p>
+      <p>There are <strong>16 tablespoons in 1 cup</strong>. The awkward one is ⅓ cup — 5 tablespoons plus 1 teaspoon — because 16 doesn't divide by three. For larger amounts the <a href="/tools/cups-to-tablespoons.html">cups to tablespoons converter</a> does the same arithmetic.</p>
       <table class="ref-table">
         <thead><tr><th>Cups</th><th>Tbsp</th><th>Tsp</th></tr></thead>
         <tbody>
@@ -224,24 +250,9 @@
           <tr><td>2 cups</td><td>32 tbsp</td><td>96 tsp</td></tr>
         </tbody>
       </table>
-      <p>For instant conversions, use our <a href="/tools/tablespoon-to-teaspoon.html">Tablespoon to Teaspoon Converter</a>.</p>
-
-      <h2>Dry vs Liquid Measuring — Does It Matter for Spoons?</h2>
-      <p>For measuring spoons, no — the same spoon works for both dry and liquid ingredients. A tablespoon of oil and a tablespoon of flour use the same spoon. The distinction between dry and liquid measuring tools only matters for cups, not spoons.</p>
-      <p>That said, technique matters for dry ingredients. Level off a tablespoon of flour or baking powder with the back of a knife for accuracy. Scooping straight from the bag packs in more than a leveled measure.</p>
-      <p>For sticky liquids like honey or maple syrup, lightly spray the spoon with cooking spray first — the ingredient slides right out without leaving residue.</p>
-
-      <h2>When You Don't Have the Right Spoon</h2>
-      <p>If you're missing a measuring spoon size, here's how to improvise:</p>
-      <ul>
-        <li><strong>1 tablespoon</strong> = 3 teaspoons (use your teaspoon 3 times)</li>
-        <li><strong>½ tablespoon</strong> = 1½ teaspoons</li>
-        <li><strong>⅓ tablespoon</strong> = 1 teaspoon</li>
-        <li><strong>¼ teaspoon</strong> = a small pinch between thumb and two fingers</li>
-        <li><strong>⅛ teaspoon</strong> = a tiny pinch between thumb and index finger</li>
-      </ul>
 
       <h2>Metric Equivalents</h2>
+      <p>A US tablespoon is 14.79 ml and a teaspoon 4.93 ml; recipes and nutrition labels round them to 15 ml and 5 ml, and the difference never matters at spoon scale.</p>
       <table class="ref-table">
         <thead><tr><th>US Measurement</th><th>Milliliters (ml)</th></tr></thead>
         <tbody>
@@ -255,25 +266,38 @@
         </tbody>
       </table>
 
-      <h2>Tablespoon vs Teaspoon: How to Tell Them Apart</h2>
-      <p>Mixing up a tablespoon and a teaspoon is one of the most common kitchen mistakes. Since 1 tablespoon = 3 teaspoons, using the wrong one means you're adding three times too much or one-third too little of an ingredient. For salt, baking soda, or cayenne, that can ruin a dish entirely.</p>
-      <p>In recipes, tablespoon is abbreviated as <strong>tbsp</strong>, <strong>T</strong>, or <strong>Tbsp</strong>. Teaspoon is <strong>tsp</strong> or <strong>t</strong>. The capital T is tablespoon, lowercase t is teaspoon — useful for handwritten recipes.</p>
-      <p>On a measuring spoon set, the tablespoon is always the largest. Teaspoon is the second largest, followed by ½ tsp and ¼ tsp.</p>
+      <h2>Tablespoon or Teaspoon? Reading the Abbreviations</h2>
+      <p>Tablespoon is written <strong>tbsp</strong>, <strong>Tbsp</strong>, <strong>tbs</strong>, <strong>Tb</strong> or a capital <strong>T</strong>. Teaspoon is <strong>tsp</strong> or a lowercase <strong>t</strong>. In handwritten and older recipes the case is the only clue — capital T is the tablespoon — so read it carefully: mixing the two means three times too much or a third too little.</p>
+      <p>On a measuring spoon set the tablespoon is always the largest spoon, then 1 tsp, ½ tsp and ¼ tsp. A British <strong>dessert spoon</strong> sits in between: 2 teaspoons, about 10 ml. It turns up in older UK cookbooks but almost never in American recipes.</p>
+
+      <h2>Level, Heaping, and Spoons From the Drawer</h2>
+      <p>Recipe measurements are level unless the recipe says otherwise. Fill the spoon and sweep the top flat with the back of a knife; "heaping" means the ingredient mounds above the rim. For liquids, fill to the brim — a slight dome from surface tension is normal.</p>
+      <p>Cutlery isn't made to a cooking standard. A soup spoon from the drawer can hold anywhere from about 8 to 18 ml, so it is fine for stirring tea and unreliable for baking soda. Measuring spoons are cheap and remove that whole source of error.</p>
+      <p>The same spoons work for dry and liquid ingredients; the dry-versus-liquid distinction only matters for cups. For honey or syrup, a light film of oil or cooking spray on the spoon lets it slide out cleanly.</p>
+
+      <h2>When You Don't Have the Right Spoon</h2>
+      <ul>
+        <li><strong>1 tablespoon</strong> = the teaspoon three times</li>
+        <li><strong>½ tablespoon</strong> = 1½ teaspoons; <strong>⅓ tablespoon</strong> = 1 teaspoon</li>
+        <li><strong>¾ teaspoon</strong> = ½ tsp + ¼ tsp</li>
+        <li><strong>½ teaspoon</strong> without the spoon: fill a teaspoon, level it, and push half off with a knife</li>
+        <li><strong>⅛ teaspoon</strong> ≈ a small pinch between thumb and forefinger</li>
+      </ul>
 
       <h2>When Precision Really Matters</h2>
-      <p>For salt, baking soda, baking powder, and strong spices — getting it right matters a lot. A tablespoon of baking soda instead of a teaspoon will make your baked goods taste soapy and metallic. A tablespoon of cayenne instead of a teaspoon creates an inedible dish.</p>
-      <p>For olive oil, mild herbs, and other forgiving ingredients, a rough estimate is usually fine. Save the careful measuring for anything that changes the chemistry of baking or overwhelms a dish if overdone.</p>
+      <p>The 3× ratio is large compared with the amounts involved, so a spoon mix-up hurts more than a cup mix-up. A tablespoon of baking soda instead of a teaspoon makes baked goods taste soapy and metallic; a tablespoon of salt or cayenne can make a dish inedible. Oil, mild herbs and garlic are forgiving — save the careful levelling for leavening, salt and strong spices.</p>
 
       <h2>Is a Tablespoon the Same Everywhere?</h2>
-      <p>Mostly, but not exactly. A US tablespoon is 14.79ml. An Australian tablespoon is 20ml — significantly larger. A UK tablespoon is typically 15ml. For most savory cooking the difference is negligible, but if you're following an Australian baking recipe with US spoons, you may need to adjust measurements for leavening agents and spices.</p>
+      <p>Nearly. The US tablespoon is 14.79 ml and the UK and Canadian tablespoons are treated as 15 ml — the same for practical purposes. <strong>Australia uses a 20 ml tablespoon</strong>, equal to four teaspoons. Following an Australian baking recipe with US spoons, multiply the tablespoon count by about 1.33, or use 1 tbsp + 1 tsp per Australian tablespoon. Savory cooking rarely notices; leavening does.</p>
 
-      <h2>Tablespoon Conversions for Common Recipe Ingredients</h2>
+      <h2>What a Tablespoon Weighs, by Ingredient</h2>
+      <p>Approximate weights for a level US tablespoon. Scaled up by 16, these match the per-cup figures in the <a href="/tools/cups-to-grams.html">cups to grams converter</a>.</p>
       <table class="ref-table">
         <thead><tr><th>Ingredient</th><th>1 tbsp weight (approx)</th><th>Notes</th></tr></thead>
         <tbody>
-          <tr><td>All-purpose flour</td><td>8g</td><td>Leveled, not packed</td></tr>
+          <tr><td>All-purpose flour</td><td>7.5g</td><td>Spooned and leveled, not packed</td></tr>
           <tr><td>Granulated sugar</td><td>12.5g</td><td>—</td></tr>
-          <tr><td>Brown sugar</td><td>13.5g</td><td>Loosely packed</td></tr>
+          <tr><td>Brown sugar</td><td>13.75g</td><td>Packed</td></tr>
           <tr><td>Powdered sugar</td><td>7.5g</td><td>Sifted</td></tr>
           <tr><td>Butter</td><td>14g</td><td>Softened or melted</td></tr>
           <tr><td>Salt (table)</td><td>18g</td><td>Denser than kosher</td></tr>
@@ -289,37 +313,51 @@
       </table>
 
       <h2>Frequently Asked Questions</h2>
-      <h3>How many teaspoons in 2 tablespoons?</h3>
-      <p>2 tablespoons equals 6 teaspoons. The ratio is always 3 teaspoons per tablespoon. So 2 tablespoons × 3 = 6 teaspoons. This comes up often when doubling recipes that call for 1 tablespoon of an ingredient.</p>
-
-      <h3>How many tablespoons in ¼ cup?</h3>
-      <p>There are 4 tablespoons in ¼ cup. A full cup has 16 tablespoons, so dividing by 4 gives you 4 tablespoons per ¼ cup. This is helpful when a recipe calls for ¼ cup of an ingredient and you only have tablespoon measuring spoons available.</p>
-
-      <h3>How many tablespoons in ⅓ cup?</h3>
-      <p>There are 5 tablespoons plus 1 teaspoon in ⅓ cup. This awkward number comes from the fact that 16 tablespoons (1 cup) doesn't divide evenly by 3. In practice, 5 tablespoons + 1 teaspoon is the most accurate way to measure ⅓ cup using spoons.</p>
-
-      <h3>How many tablespoons in ½ cup?</h3>
-      <p>There are 8 tablespoons in ½ cup. Since a full cup equals 16 tablespoons, half a cup is exactly 8. This is one of the most commonly needed conversions in baking.</p>
-
-      <h3>Is a tablespoon the same in all countries?</h3>
-      <p>Mostly, but not exactly. A US tablespoon is 14.8ml. An Australian tablespoon is 20ml — significantly larger. UK tablespoons are typically treated as 15ml in recipes. For most cooking this difference doesn't matter, but in baking it can affect results, especially for leavening agents.</p>
-
-      <h3>How do I measure ¾ teaspoon if I don't have that size?</h3>
-      <p>Use ½ teaspoon + ¼ teaspoon together. Most measuring spoon sets include ¼ tsp and ½ tsp but not ¾ tsp, so combining the two is the standard approach. You can also use ¼ tsp three times.</p>
+      <div class="faq-section">
+        <h3>How many teaspoons in 2 tablespoons?</h3>
+        <p>2 tablespoons equals 6 teaspoons. The ratio is always 3 teaspoons per tablespoon, so multiply the tablespoons by 3.</p>
+        <h3>How many tablespoons in ⅓ cup?</h3>
+        <p>5 tablespoons plus 1 teaspoon. A cup is 16 tablespoons, which doesn't divide evenly by 3, so the extra teaspoon makes up the difference.</p>
+        <h3>How many ml is a tablespoon?</h3>
+        <p>A US tablespoon is 14.79 ml, rounded to 15 ml in recipes. A teaspoon is 4.93 ml, rounded to 5 ml. An Australian tablespoon is 20 ml.</p>
+        <h3>Is a capital T tablespoon or teaspoon?</h3>
+        <p>Capital T is tablespoon; lowercase t is teaspoon. It matters most in handwritten and older recipes, where the abbreviation is the only clue.</p>
+        <h3>Is a dessert spoon the same as a tablespoon?</h3>
+        <p>No. A dessert spoon is a British measure of 2 teaspoons, about 10 ml — between a teaspoon and a tablespoon.</p>
+        <h3>Does "1 tbsp" mean level or heaping?</h3>
+        <p>Level, unless the recipe says heaping or rounded. Fill the spoon and sweep the top flat with a straight edge.</p>
+      </div>
     </div>
 
     <div style="margin-top:2rem; padding:1.25rem; background:var(--tomato-light); border-radius:var(--radius-lg);">
-      <h3 style="font-family:'Playfair Display',serif; margin-bottom:0.75rem;">Related Guides</h3>
-      <ul style="list-style:none; display:flex; flex-direction:column; gap:0.5rem;">
-        <li><a href="/guides/complete-baking-conversion-guide.html" style="color:var(--tomato-dark); font-weight:500;">→ The Complete Baking Measurement & Conversion Guide</a></li>
+      <h2 style="font-family:'Playfair Display',serif; font-size:1.25rem; margin:0 0 0.75rem;">Related</h2>
+      <ul style="margin:0; padding-left:1.1rem; line-height:1.9;">
+        <li><a href="/tools/cups-to-tablespoons.html">Cups to Tablespoons Converter</a></li>
+        <li><a href="/tools/liquid-converter.html">Liquid Converter (cups, ml, fl oz)</a></li>
+        <li><a href="/blog/cooking-measurement-guide.html">Complete Cooking Measurement Guide</a></li>
+        <li><a href="/guides/complete-baking-conversion-guide.html">The Complete Baking Measurement &amp; Conversion Guide</a></li>
       </ul>
-    </div>
-
-    <div style="margin-top:2rem; padding:1.25rem; background:var(--tomato-light); border-radius:var(--radius-lg);">
-      <strong>Try our tool:</strong> <a href="/tools/tablespoon-to-teaspoon.html" style="color:var(--tomato-dark); font-weight:600;">Tablespoon to Teaspoon Converter →</a>
     </div>
   </article>
 </main>
+<script>
+// US customary: 1 cup = 16 tbsp = 48 tsp = 8 fl oz = 236.588 ml
+const toMl = { tbsp: 14.7868, tsp: 4.92892, cup: 236.588, floz: 29.5735, ml: 1 };
+function r2(n) { return Math.round(n * 100) / 100; }
+function convert() {
+  const amount = parseFloat(document.getElementById('amount').value);
+  const from = document.getElementById('fromUnit').value;
+  const box = document.getElementById('results');
+  if (isNaN(amount) || amount < 0) { box.style.display = 'none'; return; }
+  const ml = amount * toMl[from];
+  document.getElementById('rTbsp').textContent = r2(ml / toMl.tbsp) + ' tbsp';
+  document.getElementById('rTsp').textContent = r2(ml / toMl.tsp) + ' tsp';
+  document.getElementById('rCup').textContent = r2(ml / toMl.cup) + ' cup';
+  document.getElementById('rMl').textContent = r2(ml) + ' ml';
+  box.style.display = 'grid';
+}
+document.addEventListener('DOMContentLoaded', convert);
+</script>
 <!-- CC:STATIC-CHROME:START (build-static.js 자동 생성 — 직접 수정하지 말 것) -->
   <footer class="site-footer">
     <div class="footer-inner">
@@ -338,7 +376,7 @@
         <div class="footer-col">
           <h4>Explore</h4>
           <ul>
-            <li><a href="/tools/">All 37 Tools</a></li>
+            <li><a href="/tools/">All 36 Tools</a></li>
             <li><a href="/blog/">Blog</a></li>
             <li><a href="/guides/">Guides</a></li>
             <li><a href="/about.html">About</a></li>

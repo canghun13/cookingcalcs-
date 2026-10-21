@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Meal Cost Calculator — Total Cost & Cost Per Serving</title>
-  <meta name="description" content="Add ingredients and prices — e.g. half a $4 bag of pasta = $2 — to get your meal's exact total cost and cost per serving in seconds.">
+  <title>Meal Cost Calculator: Price Each Ingredient</title>
+  <meta name="description" content="List each ingredient, its package price and how much you used — half a $4 bag of pasta is $2 — to get the meal's total cost and cost per serving.">
   <link rel="canonical" href="https://cookingcalcs.com/tools/meal-cost-calculator.html">
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="/assets/css/style.css">
@@ -57,7 +57,7 @@
       "name": "What is a good cost per serving for dinner?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A budget home-cooked dinner typically costs $1.50–3.00 per serving. An average meal runs $3–6 per serving. Anything above $6 per serving is on the higher end for home cooking — consider cheaper proteins or bulk ingredients."
+        "text": "A budget home-cooked dinner typically costs $2–3.50 per serving and an average one $3.50–6.50; above about $7 is the generous end. USDA's 2026 food plans work out to roughly $3.00–5.30 per meal for an adult — details in average cost of a home-cooked meal."
       }
     },
     {
@@ -81,7 +81,7 @@
       "name": "Can I use this for weekly meal prep?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes — run the calculator for each recipe in your prep and note the per-serving cost. Add them up across all your meals to get your total weekly spend and average cost per meal. For a step-by-step guide, see how to calculate meal prep cost for a week ."
+        "text": "Yes — run the calculator for each recipe in your prep and note the per-serving cost. Add them up across all your meals to get your total weekly spend and average cost per meal. For a step-by-step guide, see how to calculate meal prep cost for a week."
       }
     },
     {
@@ -97,7 +97,7 @@
       "name": "What's a realistic weekly food budget per person?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "For home cooking, $50–75 per person per week is a comfortable budget that allows variety. $30–50 is achievable with batch cooking and minimal food waste. Under $30 requires careful planning but is doable with legumes, eggs, and seasonal produce as staples. Use our grocery budget tips to cut costs without sacrificing quality."
+        "text": "USDA's May 2026 food plans put an adult (19–50) at about $63–73 a week on the low-cost plan and $78–92 on the moderate plan. Spending well under that — $30–50 — is possible with batch cooking, little waste, and legumes, eggs and seasonal produce as staples. Use our grocery budget tips to cut costs without sacrificing quality."
       }
     }
   ]
@@ -131,21 +131,21 @@
       <li class="nav-has-dropdown">
         <button class="nav-link nav-btn" aria-expanded="false">Tools ▾</button>
         <ul class="nav-dropdown">
-          <li><a href="/tools/" class="nav-dropdown-all">All 37 Tools →</a></li>
+          <li><a href="/tools/" class="nav-dropdown-all">All 36 Tools →</a></li>
           <li><a href="/tools/cups-to-grams.html">Cups to Grams</a></li><li><a href="/tools/oven-temp-converter.html">Oven Temperature Converter</a></li><li><a href="/tools/recipe-multiplier.html">Recipe Multiplier</a></li><li><a href="/tools/meat-temperature-guide.html">Meat Temperature Guide</a></li><li><a href="/tools/egg-converter.html">Egg Size Converter</a></li><li><a href="/tools/butter-converter.html">Butter Converter</a></li><li><a href="/tools/catering-pan-calculator.html">Catering Pan Calculator</a></li><li><a href="/tools/bakers-percentage-calculator.html">Baker's Percentage Calculator</a></li>
         </ul>
       </li>
       <li class="nav-has-dropdown">
         <button class="nav-link nav-btn" aria-expanded="false">Blog ▾</button>
         <ul class="nav-dropdown">
-          <li><a href="/blog/" class="nav-dropdown-all">All 89 Posts →</a></li>
+          <li><a href="/blog/" class="nav-dropdown-all">All 82 Posts →</a></li>
           <li><a href="/blog/how-to-substitute-egg-sizes.html">How to Substitute Egg Sizes</a></li><li><a href="/blog/how-long-can-food-sit-out.html">How Long Can Food Sit Out?</a></li><li><a href="/blog/average-cost-of-a-home-cooked-meal.html">Average Cost of a Home-Cooked Meal</a></li><li><a href="/blog/how-long-to-cook-steak.html">How Long to Cook Steak</a></li><li><a href="/blog/culinary-math-formulas.html">Culinary Math Formulas</a></li>
         </ul>
       </li>
       <li class="nav-has-dropdown">
         <button class="nav-link nav-btn" aria-expanded="false">Guides ▾</button>
         <ul class="nav-dropdown">
-          <li><a href="/guides/" class="nav-dropdown-all">All 17 Guides →</a></li>
+          <li><a href="/guides/" class="nav-dropdown-all">All 16 Guides →</a></li>
           <li><a href="/guides/complete-baking-conversion-guide.html">Baking Measurement & Conversion</a></li><li><a href="/guides/complete-meat-cooking-temperature-guide.html">Meat Cooking & Temperature</a></li><li><a href="/guides/complete-recipe-scaling-guide.html">Recipe Scaling & Serving</a></li><li><a href="/guides/complete-culinary-math-guide.html">Culinary Math</a></li><li><a href="/guides/complete-cooking-for-a-crowd-guide.html">Cooking for a Crowd</a></li>
         </ul>
       </li>
@@ -156,7 +156,7 @@
 <!-- CC:STATIC-CHROME:END -->
 <main>
   <div class="tool-page">
-    <h1>Meal Cost Calculator</h1>
+    <h1>Meal Cost Calculator: Ingredient by Ingredient</h1>
     <p class="tool-desc">Add your ingredients and their costs to find out exactly how much your meal costs to make — and the cost per serving.</p>
 
     <div class="tool-box">
@@ -198,7 +198,7 @@
     </div>
 
     <div style="margin-top:2rem; padding:1.5rem; background:var(--tomato-light); border-radius:var(--radius-lg);">
-      <h3 style="font-family:'Playfair Display',serif; margin-bottom:0.75rem;">Related Tools & Guides</h3>
+      <h2 style="font-family:\'Playfair Display\',serif; font-size:1.17rem; margin-bottom:0.75rem;">Related Tools &amp; Guides</h2>
       <ul style="list-style:none; display:flex; flex-direction:column; gap:0.5rem;">
         <li><a href="/guides/complete-meal-prep-budget-guide.html" style="color:var(--tomato-dark); font-weight:500;">→ The Complete Meal Prep & Grocery Budget Guide</a></li>
         <li><a href="/tools/cost-per-serving.html" style="color:var(--tomato-dark); font-weight:500;">→ Cost Per Serving Calculator</a></li>
@@ -239,7 +239,7 @@
 
       <h2>Frequently Asked Questions</h2>
       <h3>What is a good cost per serving for dinner?</h3>
-      <p>A budget home-cooked dinner typically costs $1.50–3.00 per serving. An average meal runs $3–6 per serving. Anything above $6 per serving is on the higher end for home cooking — consider cheaper proteins or bulk ingredients.</p>
+      <p>A budget home-cooked dinner typically costs $2–3.50 per serving and an average one $3.50–6.50; above about $7 is the generous end. USDA's 2026 food plans work out to roughly $3.00–5.30 per meal for an adult — details in <a href="/blog/average-cost-of-a-home-cooked-meal.html">average cost of a home-cooked meal</a>.</p>
 
       <h3>How is this different from the Cost Per Serving calculator?</h3>
       <p>The <a href="/tools/cost-per-serving.html">Cost Per Serving calculator</a> is simpler — you enter a total cost and number of servings and it divides them. This Meal Cost Calculator lets you build up the cost ingredient by ingredient, which is more useful when you're planning a new recipe or trying to understand where your meal budget is going.</p>
@@ -254,7 +254,7 @@
       <p>The fastest ways: switch to cheaper protein cuts (thighs vs breast, pork vs beef), increase servings by batch cooking, and buy grains and legumes in bulk. A meal that costs $12 total is $4/serving at 3 servings but $2/serving at 6. Batch cooking is the single most effective lever. See our guide on <a href="/blog/how-to-meal-prep-on-a-budget.html">meal prepping on a budget</a> for more strategies.</p>
 
       <h3>What's a realistic weekly food budget per person?</h3>
-      <p>For home cooking, $50–75 per person per week is a comfortable budget that allows variety. $30–50 is achievable with batch cooking and minimal food waste. Under $30 requires careful planning but is doable with legumes, eggs, and seasonal produce as staples. Use our <a href="/blog/how-to-cut-grocery-bill.html">grocery budget tips</a> to cut costs without sacrificing quality.</p>
+      <p>USDA's May 2026 food plans put an adult (19–50) at about $63–73 a week on the low-cost plan and $78–92 on the moderate plan. Spending well under that — $30–50 — is possible with batch cooking, little waste, and legumes, eggs and seasonal produce as staples. Use our <a href="/blog/how-to-cut-grocery-bill.html">grocery budget tips</a> to cut costs without sacrificing quality.</p>
     </div>
   </div>
 </main>
@@ -348,7 +348,7 @@ function printToPDF(areaId) {
         <div class="footer-col">
           <h4>Explore</h4>
           <ul>
-            <li><a href="/tools/">All 37 Tools</a></li>
+            <li><a href="/tools/">All 36 Tools</a></li>
             <li><a href="/blog/">Blog</a></li>
             <li><a href="/guides/">Guides</a></li>
             <li><a href="/about.html">About</a></li>

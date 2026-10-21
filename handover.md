@@ -263,6 +263,15 @@ echo "nav.js GUIDES: $(sed -n '/const GUIDES/,/^];/p' assets/js/nav.js | grep -c
   **목적: 새로고침 88% / 검색(신규 발견) 12%** → 하루 4회 남짓을 대부분 기존 색인 페이지 재방문에 쓰고 새 URL에는 거의 안 씀. 접근 차단 아님, 순수 크롤 수요 문제.
 - robots.txt 5행 `LLMs: ...`가 GSC에서 '식별할 수 없는 구문' 오류로 표시돼 삭제함(10-21). 구글은 해당 줄만 무시하므로 색인 정체 원인은 아님 — GSC 오류 표시 제거용.
 - 참고: git 로컬 클론이 shallow(19커밋)라 첫 커밋일이 전부 09-21로 나왔음 → **날짜 분석 전 `git fetch --unshallow` 필수**.
+- **콘텐츠·코드 전수 점검 (10-21, 150페이지)**
+  - 코드: 390/1280 렌더 전 페이지 JS 오류 0·가로 넘침 0·깨진 #앵커 0·h1 정확히 1개·img alt 누락 0. FAQ 스키마 질문 전부 화면에 존재. 3페이지 이상 반복 문장 0. 미래 날짜 0.
+  - 수치 일관성(버터 113g·밀가루 120g·설탕 200g·오트 90g·1스틱=8큰술·1컵=16큰술·USDA 온도 165/160/145·햄 140): 충돌 없음.
+  - 🚨 **발견·수정**: ① **모바일 메뉴가 모든 페이지에 140여 개 제목(평균 905단어)을 넣고 있었음 → 페이지 텍스트의 46%가 150페이지 공통** → 섹션별 고정 대표 5~8개+"All N" 링크로 축소(공통 텍스트 905→147단어).
+    `nav.js ccBuildMobileNav()`의 고정 목록은 신규 발행 때 건드릴 필요 없음(전체 목록은 /tools/ /blog/ /guides/가 담당). ② egg-converter 무게가 껍질 포함(57/50/43g)인데 블로그는 껍질 제외(50/44/35g)라 충돌처럼 보였음 → title·FAQ에 "in shell / cracked" 병기.
+    ③ average-cost 제목의 "2026 Data"에 출처가 없었음 → USDA Food Plans 2026년 5월 보고서(19–50세 주간 비용 ÷21끼 = $3.02~5.32) 표·출처 추가. ④ liquid-converter 표 "1 tbsp (⅓)" → "⅓ tbsp".
+  - **미수정(사용자 판단 대기)**: 같은 질문 페이지 중복 — 큰술↔작은술 3개(tool tablespoon-to-teaspoon / blog tablespoon-to-teaspoon-guide / tablespoon-vs-teaspoon), 버터 1스틱 3개(butter-converter / how-many-cups-in-a-stick-of-butter / how-to-measure-butter),
+    고기 안전온도 3개(tool meat-temperature-guide / meat-internal-temperature-guide / meat-cooking-temperatures-explained), 레시피 줄이기 3개(how-to-reduce-a-recipe / -by-half / how-to-scale-a-recipe), 원가 3개(cost-per-serving / meal-cost-calculator / how-to-calculate-cost-per-serving).
+  - **미수정(영향 작음)**: title 65자 초과 40개(" – CookingCalcs" 접미사 포함, SERP에서 잘림), description 165자 초과 44개, 제목 단계 건너뜀 13개(툴 페이지 h1→h3). Bing CTR 영향 우려로 일괄 변경 안 함.
 
 ### 2026-10-19 (37차): 주간 점검 — 베이커스 퍼센트 툴+워드프라블럼, 푸드코스트% 워드프라블럼, 오리알 대체표 + 계란 변환기 수치 USDA 정정
 

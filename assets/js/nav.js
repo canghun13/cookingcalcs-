@@ -228,14 +228,6 @@ const GUIDES = [
    브라우저에서는 정적 마크업이 없는 경우에만 폴백으로 주입된다.
    → 정적 마크업을 바꾸려면 이 함수를 고치고 빌드 스크립트를 다시 돌릴 것.
    ──────────────────────────────────────────────────────────── */
-function ccNavItems() {
-  return {
-    toolItems: TOOLS.map(t => `<li><a href="${t.url}">${t.name}</a></li>`).join(''),
-    blogItems: BLOGS.map(b => `<li><a href="${b.url}">${b.name}</a></li>`).join(''),
-    guideItems: GUIDES.map(g => `<li><a href="${g.url}">${g.name}</a></li>`).join('')
-  };
-}
-
 function ccBuildHeader() {
   return `
   <header class="site-header">
@@ -258,7 +250,32 @@ function ccBuildHeader() {
 }
 
 function ccBuildMobileNav() {
-  const { toolItems, blogItems, guideItems } = ccNavItems();
+  // 2026-10-21: 전체 목록(140여 개) 대신 섹션별 고정 대표 페이지만 — 모든 페이지에 같은 텍스트 900단어가 붙던 문제 해결.
+  const li = (arr) => arr.map(([n, u]) => `<li><a href="${u}">${n}</a></li>`).join('');
+  const tools = [
+    ['Cups to Grams', '/tools/cups-to-grams.html'],
+    ['Oven Temperature Converter', '/tools/oven-temp-converter.html'],
+    ['Recipe Multiplier', '/tools/recipe-multiplier.html'],
+    ['Meat Temperature Guide', '/tools/meat-temperature-guide.html'],
+    ['Egg Size Converter', '/tools/egg-converter.html'],
+    ['Butter Converter', '/tools/butter-converter.html'],
+    ['Catering Pan Calculator', '/tools/catering-pan-calculator.html'],
+    ["Baker's Percentage Calculator", '/tools/bakers-percentage-calculator.html']
+  ];
+  const blogs = [
+    ['How to Substitute Egg Sizes', '/blog/how-to-substitute-egg-sizes.html'],
+    ['How Long Can Food Sit Out?', '/blog/how-long-can-food-sit-out.html'],
+    ['Average Cost of a Home-Cooked Meal', '/blog/average-cost-of-a-home-cooked-meal.html'],
+    ['How Long to Cook Steak', '/blog/how-long-to-cook-steak.html'],
+    ['Culinary Math Formulas', '/blog/culinary-math-formulas.html']
+  ];
+  const guides = [
+    ['Baking Measurement & Conversion', '/guides/complete-baking-conversion-guide.html'],
+    ['Meat Cooking & Temperature', '/guides/complete-meat-cooking-temperature-guide.html'],
+    ['Recipe Scaling & Serving', '/guides/complete-recipe-scaling-guide.html'],
+    ['Culinary Math', '/guides/complete-culinary-math-guide.html'],
+    ['Cooking for a Crowd', '/guides/complete-cooking-for-a-crowd-guide.html']
+  ];
   return `
   <nav class="mobile-nav" id="mobileNav">
     <ul class="nav-list">
@@ -266,22 +283,22 @@ function ccBuildMobileNav() {
       <li class="nav-has-dropdown">
         <button class="nav-link nav-btn" aria-expanded="false">Tools ▾</button>
         <ul class="nav-dropdown">
-          <li><a href="/tools/" class="nav-dropdown-all">View All Tools →</a></li>
-          ${toolItems || '<li class="nav-empty">Coming soon</li>'}
+          <li><a href="/tools/" class="nav-dropdown-all">All ${TOOLS.length} Tools →</a></li>
+          ${li(tools)}
         </ul>
       </li>
       <li class="nav-has-dropdown">
         <button class="nav-link nav-btn" aria-expanded="false">Blog ▾</button>
         <ul class="nav-dropdown">
-          <li><a href="/blog/" class="nav-dropdown-all">View All Posts →</a></li>
-          ${blogItems || '<li class="nav-empty">Coming soon</li>'}
+          <li><a href="/blog/" class="nav-dropdown-all">All ${BLOGS.length} Posts →</a></li>
+          ${li(blogs)}
         </ul>
       </li>
       <li class="nav-has-dropdown">
         <button class="nav-link nav-btn" aria-expanded="false">Guides ▾</button>
         <ul class="nav-dropdown">
-          <li><a href="/guides/" class="nav-dropdown-all">View All Guides →</a></li>
-          ${guideItems || '<li class="nav-empty">Coming soon</li>'}
+          <li><a href="/guides/" class="nav-dropdown-all">All ${GUIDES.length} Guides →</a></li>
+          ${li(guides)}
         </ul>
       </li>
       <li><a href="/about.html" class="nav-link">About</a></li>

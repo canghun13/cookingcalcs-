@@ -189,6 +189,7 @@ const BLOGS = [
   { name: "Baker's Percentage Word Problems", url: "/blog/bakers-percentage-word-problems.html", desc: "Worked baker's math problems: percentages from grams, grams from percentages, flour from a dough weight, two flours, a poolish and milk hydration.", date: "2026-10-19" },
   { name: "Food Cost Percentage Word Problems", url: "/blog/food-cost-percentage-word-problems.html", desc: "Plate cost ÷ menu price, pricing from a target, cost of food sold from inventory, staff meals and transfers — worked answers for each.", date: "2026-10-19" },
   { name: "Duck Eggs Instead of Chicken Eggs: How Many to Use", url: "/blog/duck-eggs-in-baking.html", desc: "A 1–12 chart for swapping duck, quail and goose eggs by USDA weight, when the 2-for-3 rule is close enough, and how duck eggs bake.", date: "2026-10-19" },
+  { name: "How Long to Cook a Turkey", url: "/blog/how-long-to-cook-a-turkey.html", desc: "Whole turkey roasting times by weight at 325°F, stuffed and unstuffed, plus kilogram times, convection, spatchcocked, thawing and resting.", date: "2026-10-26" },
 ];
 
 // ── 가이드 목록 (Tools/Blog와 별개 — 여러 툴/블로그를 묶는 종합 허브 페이지) ──

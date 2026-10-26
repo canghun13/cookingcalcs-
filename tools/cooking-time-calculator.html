@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cooking Time Calculator — By Weight, Cut & Method</title>
-  <meta name="description" content="Get accurate cooking times for chicken, beef, pork, lamb, turkey, and fish by weight and method — oven, grill, or stovetop — plus the safe temp to check.">
+  <title>Cooking Time Calculator — Meat, Ham &amp; Gammon by Weight</title>
+  <meta name="description" content="Cooking times by weight and cut for chicken, beef, pork loin, ham, gammon, lamb, turkey and fish, with the oven temperature and safe internal temp for each.">
   <link rel="canonical" href="https://cookingcalcs.com/tools/cooking-time-calculator.html">
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="/assets/css/style.css">
@@ -32,7 +32,7 @@
       "name": "How long to cook chicken breast at 400°F?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A boneless chicken breast at 400°F takes approximately 18–22 minutes for a 6oz breast and 22–26 minutes for an 8oz breast. Always verify the thickest part reaches 165°F (74°C)."
+        "text": "A 6–8 oz boneless breast takes about 20–26 minutes at 400°F; bone-in breasts take 35–45 minutes. Check that the thickest part reaches 165°F (74°C)."
       }
     },
     {
@@ -40,7 +40,31 @@
       "name": "How long to cook a whole chicken per pound?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A whole chicken roasted at 375°F needs approximately 20 minutes per pound, plus an additional 20 minutes. A 4lb chicken takes about 1 hour 20 minutes. Always check that the thigh meat reaches 165°F."
+        "text": "About 20 minutes per pound plus 15 minutes at 375°F, so a 4 lb chicken takes roughly 1 hour 35 minutes. The thigh should reach 165°F."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long do you cook gammon per kg?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Simmered: about 40 minutes per kg (20 per lb) plus 20 minutes. Roasted at 180°C: about 60 minutes per kg (30 per lb) plus 30 minutes. A 2 kg joint is roughly 1 h 40 min simmered or 2 h 30 min roasted."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long to cook a pork loin roast?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "About 20 minutes per pound at 350°F, to 145°F in the center, then rest 3 minutes. A 3 lb loin takes about an hour."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does a 10 lb turkey breast take?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "About 3 hours 20 minutes at 325°F (20 minutes per pound). Tent with foil if the skin browns before the center reaches 165°F."
       }
     },
     {
@@ -48,7 +72,23 @@
       "name": "Does resting time count as cooking time?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No — rest time starts after the meat leaves the heat. However, the internal temperature continues to rise 3–5°F during resting (carryover cooking), which is why you can pull meat off the heat just below your target temperature."
+        "text": "No. Rest starts once the meat leaves the heat, but the center keeps rising 3–5°F, which is why you can pull meat just below its target."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is the safe temperature for pork lower than it used to be?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The USDA lowered whole cuts of pork from 160°F to 145°F with a 3-minute rest in 2011, once trichinosis had become negligible in commercial pork. Older recipes still quote 160°F."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why did my meat take longer than the calculator said?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Usually an oven running cooler than its dial, a thicker-than-average cut, or meat that went in colder than assumed. If it happens every time, check the oven with a separate oven thermometer."
       }
     }
   ]
@@ -63,6 +103,10 @@
     #pdf-overlay .pdf-btn, #pdf-overlay .remove-btn, #pdf-overlay .add-row-btn { display:none !important; }
     #pdf-overlay input { border:none !important; padding:0 !important; background:transparent !important; box-shadow:none !important; }
   }
+      .ref-table { width:100%; border-collapse:collapse; font-size:0.875rem; background:#fff; }
+      .ref-table th { background:var(--sand-dark); padding:0.7rem 0.9rem; text-align:left; font-weight:600; border:1px solid var(--border); }
+      .ref-table td { padding:0.7rem 0.9rem; border:1px solid var(--border); vertical-align:top; }
+      .ref-table tbody tr:nth-child(even) td { background:#fbfaf8; }
 </style>
 </head>
 <body>
@@ -98,7 +142,7 @@
       <li class="nav-has-dropdown">
         <button class="nav-link nav-btn" aria-expanded="false">Blog ▾</button>
         <ul class="nav-dropdown">
-          <li><a href="/blog/" class="nav-dropdown-all">All 82 Posts →</a></li>
+          <li><a href="/blog/" class="nav-dropdown-all">All 83 Posts →</a></li>
           <li><a href="/blog/how-to-substitute-egg-sizes.html">How to Substitute Egg Sizes</a></li><li><a href="/blog/how-long-can-food-sit-out.html">How Long Can Food Sit Out?</a></li><li><a href="/blog/average-cost-of-a-home-cooked-meal.html">Average Cost of a Home-Cooked Meal</a></li><li><a href="/blog/how-long-to-cook-steak.html">How Long to Cook Steak</a></li><li><a href="/blog/culinary-math-formulas.html">Culinary Math Formulas</a></li>
         </ul>
       </li>
@@ -165,6 +209,7 @@
           <div class="result-label" id="timeLabel"></div>
         </div>
         <div style="margin-top:1rem; padding:1rem; background:var(--sand-dark); border-radius:var(--radius); font-size:0.875rem; color:var(--ink);">
+          <strong>Assumes:</strong> <span id="ovenTemp"></span><br>
           <strong>Safe internal temperature:</strong> <span id="safeTemp"></span><br>
           <span style="color:var(--mid); margin-top:0.25rem; display:block;">Always verify with a meat thermometer. Times are estimates and vary by oven/grill.</span>
         </div>
@@ -174,7 +219,7 @@
     </div>
 
     <div style="margin-top:3rem; padding:1.5rem; background:var(--tomato-light); border-radius:var(--radius-lg);">
-      <h2 style="font-family:\'Playfair Display\',serif; font-size:1.17rem; margin-bottom:0.75rem;">Related Tools &amp; Guides</h2>
+      <h2 style="font-family:'Playfair Display',serif; font-size:1.17rem; margin-bottom:0.75rem;">Related Tools &amp; Guides</h2>
       <ul style="list-style:none; display:flex; flex-direction:column; gap:0.5rem;">
         <li><a href="/guides/complete-meal-timing-guide.html" style="color:var(--tomato-dark); font-weight:500;">→ The Complete Meal Timing Guide</a></li>
         <li><a href="/guides/complete-oven-sharing-guide.html" style="color:var(--tomato-dark); font-weight:500;">→ The Complete Oven Sharing Guide</a></li>
@@ -199,7 +244,7 @@
     <div class="blog-content" style="margin-top:3rem;">
       <h2>How to Use This Calculator</h2>
       <p>Select the type of meat, choose the cut, enter the weight, and select your cooking method. The calculator returns an estimated cooking time and the safe internal temperature to verify with a thermometer.</p>
-      <p>Times are based on starting from room temperature. Cold meat straight from the fridge will take longer — add 10–15 minutes per pound for very cold cuts.</p>
+      <p>Each result shows the oven temperature it assumes and the minutes per pound behind it. Times assume meat straight from the fridge; a large roast that has sat out for 30–60 minutes will finish a little sooner. Gammon follows the UK rule of thumb — 20 minutes per pound plus 20 when boiled, 30 per pound plus 30 when roasted — and a boiled joint ignores the method setting.</p>
 
       <h2>Why the Cooking Method Changes the Time</h2>
       <p>The base times above assume conventional oven roasting. Grilling runs hotter than most ovens, so direct-heat grilling typically finishes about 10-15% faster than the same cut in the oven — this calculator adjusts for that automatically when you select Grill/BBQ. Pan/stovetop cooking applies direct, concentrated heat to both sides, which is faster still, but only makes sense for thinner cuts (steaks, chops, patties, fillets) — a whole roast, brisket, or leg of lamb isn't practical to pan-cook, and the calculator will flag that if you select a large cut with the Pan/Stovetop method.</p>
@@ -207,18 +252,8 @@
       <h2>Why You Still Need a Thermometer</h2>
       <p>Cooking times are estimates. Actual time varies based on your oven's accuracy, the shape of the cut, whether it was at room temperature, and how full your oven is. The only reliable way to know meat is safe is to check the internal temperature with an instant-read thermometer. Times give you a starting point; temperature tells you when it's done.</p>
 
-      <h2>Frequently Asked Questions</h2>
-      <h3>How long to cook chicken breast at 400°F?</h3>
-      <p>A boneless chicken breast at 400°F takes approximately 18–22 minutes for a 6oz breast and 22–26 minutes for an 8oz breast. Always verify the thickest part reaches 165°F (74°C).</p>
-
-      <h3>How long to cook a whole chicken per pound?</h3>
-      <p>A whole chicken roasted at 375°F needs approximately 20 minutes per pound, plus an additional 20 minutes. A 4lb chicken takes about 1 hour 20 minutes. Always check that the thigh meat reaches 165°F.</p>
-
-      <h3>Does resting time count as cooking time?</h3>
-      <p>No — rest time starts after the meat leaves the heat. However, the internal temperature continues to rise 3–5°F during resting (carryover cooking), which is why you can pull meat off the heat just below your target temperature.</p>
-
       <h2>Turkey Breast Cooking Times by Weight</h2>
-      <p>Turkey breast is one of the most common cuts people calculate cooking times for, since whole turkey breasts range widely in size. At 20 minutes per pound in a 325°F oven, here's what that looks like across common weights:</p>
+      <p>At 20 minutes per pound in a 325°F oven:</p>
       <table style="width:100%; border-collapse:collapse; margin:1rem 0;">
         <thead>
           <tr style="background:var(--sand-dark);">
@@ -233,78 +268,110 @@
           <tr style="background:var(--sand);"><td style="padding:0.55rem 1rem; border-bottom:1px solid var(--border);">10 lb</td><td style="text-align:center; padding:0.55rem;">~3h 20m</td></tr>
         </tbody>
       </table>
-      <p>These are starting-point estimates — use the calculator above for your exact weight, and always confirm doneness at 165°F in the thickest part of the breast, since bone-in vs boneless and stuffed vs unstuffed shift the actual time.</p>
+      <p>Bone-in breasts run toward the long end and boneless ones a little shorter. Confirm 165°F in the thickest part.</p>
+      <p>For a whole bird, the USDA times by weight — 2¾ to 5¼ hours depending on size and stuffing — are in <a href="/blog/how-long-to-cook-a-turkey.html">how long to cook a turkey</a>.</p>
 
       <h2>Pork Cooking Times by Cut</h2>
-      <p>Pork's safe cooking temperature dropped to 145°F (63°C) with a 3-minute rest in USDA guidance, which is lower than many older recipes assume — pork no longer needs to be cooked until fully gray throughout. A pork loin roast at 20 minutes per pound, a pork shoulder for pulled pork at roughly 60-90 minutes per pound (low and slow, until it hits 195-205°F for shredding), and 1-inch pork chops at about 18 minutes per pound are the three most commonly calculated cuts.</p>
+      <p>A pork loin roast takes about 20 minutes per pound at 350°F to reach 145°F, followed by a 3-minute rest. Pork shoulder for pulled pork is a different job: about 60–90 minutes per pound at 225–250°F, until it reaches 195–205°F and shreds. One-inch chops take 15–20 minutes at 400°F after a quick sear, whatever the pack weighs.</p>
 
-      <h3>How long does a 10 lb turkey breast take to cook?</h3>
-      <p>At 325°F, a 10 lb turkey breast takes approximately 3 hours 20 minutes (20 minutes per pound). Tent with foil if the skin browns too quickly before the center reaches 165°F. Bone-in breasts run closer to the high end of this estimate; boneless breasts often finish a bit faster.</p>
+      <h2>Ham and Gammon Times</h2>
+      <p>Gammon is raw cured pork; once cooked it becomes ham. The UK rule of thumb is 20 minutes per pound (450 g) plus 20 minutes when simmered, or 30 minutes per pound plus 30 minutes roasted at 180°C (350°F). A fully cooked US ham only needs reheating to 140°F.</p>
+      <table class="ref-table">
+        <thead><tr><th>Joint</th><th>Method</th><th>2 lb (0.9 kg)</th><th>4 lb (1.8 kg)</th><th>6 lb (2.7 kg)</th></tr></thead>
+        <tbody>
+          <tr><td>Raw gammon</td><td>Simmered</td><td>1 h</td><td>1 h 40 min</td><td>2 h 20 min</td></tr>
+          <tr><td>Raw gammon</td><td>Roasted, 350°F</td><td>1 h 30 min</td><td>2 h 30 min</td><td>3 h 30 min</td></tr>
+          <tr><td>Fresh ham, raw (US)</td><td>Roasted, 325°F</td><td>44 min*</td><td>1 h 28 min</td><td>2 h 12 min</td></tr>
+          <tr><td>Fully cooked ham, whole bone-in</td><td>Reheated, 325°F</td><td>30 min*</td><td>1 h</td><td>1 h 30 min</td></tr>
+        </tbody>
+      </table>
+      <p style="margin-top:1rem;">*Fresh and cooked hams are rarely this small; whole legs usually weigh 10–16 lb. Times by weight, soaking, glazing and slow-cooker gammon are in <a href="/blog/how-long-to-cook-ham.html">how long to cook gammon and ham</a>.</p>
 
-      <h3>Why is pork chops' safe temperature lower than it used to be?</h3>
-      <p>USDA lowered the recommended pork temperature from 160°F to 145°F (with a 3-minute rest) in 2011, once trichinosis risk from modern commercial pork became negligible. Many older cookbooks and family recipes still reference the outdated 160°F+ standard, which is part of why home-cooked pork is so often overcooked compared to what's actually necessary for safety.</p>
-      <p>Every time shown here assumes a properly calibrated oven at the stated temperature, a typically shaped cut for its weight, and a starting temperature close to refrigerator-cold. In practice, ovens run 15-25°F off their display, cuts vary in shape even at the same weight, and starting temperature (cold from the fridge vs. rested at room temperature) shifts timing by 10-15%. Use the calculated time as a guide for when to start checking with a thermometer, not as the final word on doneness.</p>
+      <h2>How Accurate Are These Times?</h2>
+      <p>Each result assumes the oven temperature shown, a typically shaped cut and meat straight from the fridge. Ovens often run 15–25°F off their dial and cuts vary in shape at the same weight, so treat the time as when to start checking with a thermometer, not when to stop. For individual pieces — breasts, thighs, chops, steaks, fillets — the calculator gives a fixed range, because six chicken breasts in one layer take no longer than two. Thickness is what changes the time.</p>
 
-      <h3>Why did my meat take longer than the calculator estimated?</h3>
-      <p>The most common causes are an oven running cooler than its display, a thicker-than-average cut, or starting from a colder temperature than assumed. If this happens consistently across multiple dishes, check your oven's actual temperature with a separate oven thermometer rather than trusting the dial.</p>
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-section">
+        <h3>How long to cook chicken breast at 400°F?</h3>
+        <p>A 6–8 oz boneless breast takes about 20–26 minutes at 400°F; bone-in breasts take 35–45 minutes. Check that the thickest part reaches 165°F (74°C).</p>
+        <h3>How long to cook a whole chicken per pound?</h3>
+        <p>About 20 minutes per pound plus 15 minutes at 375°F, so a 4 lb chicken takes roughly 1 hour 35 minutes. The thigh should reach 165°F.</p>
+        <h3>How long do you cook gammon per kg?</h3>
+        <p>Simmered: about 40 minutes per kg (20 per lb) plus 20 minutes. Roasted at 180°C: about 60 minutes per kg (30 per lb) plus 30 minutes. A 2 kg joint is roughly 1 h 40 min simmered or 2 h 30 min roasted.</p>
+        <h3>How long to cook a pork loin roast?</h3>
+        <p>About 20 minutes per pound at 350°F, to 145°F in the center, then rest 3 minutes. A 3 lb loin takes about an hour.</p>
+        <h3>How long does a 10 lb turkey breast take?</h3>
+        <p>About 3 hours 20 minutes at 325°F (20 minutes per pound). Tent with foil if the skin browns before the center reaches 165°F.</p>
+        <h3>Does resting time count as cooking time?</h3>
+        <p>No. Rest starts once the meat leaves the heat, but the center keeps rising 3–5°F, which is why you can pull meat just below its target.</p>
+        <h3>Why is the safe temperature for pork lower than it used to be?</h3>
+        <p>The USDA lowered whole cuts of pork from 160°F to 145°F with a 3-minute rest in 2011, once trichinosis had become negligible in commercial pork. Older recipes still quote 160°F.</p>
+        <h3>Why did my meat take longer than the calculator said?</h3>
+        <p>Usually an oven running cooler than its dial, a thicker-than-average cut, or meat that went in colder than assumed. If it happens every time, check the oven with a separate oven thermometer.</p>
+      </div>
       </div>
   </div>
 </main>
 
 <script>
 const data = {
+  // minsPerLb at the stated oven temperature; plus = fixed minutes added once (UK gammon rule)
   chicken: {
     cuts: [
-      { name:'Whole chicken', minsPerLb: 20, safeF: '165°F (74°C)' },
-      { name:'Chicken breast (bone-in)', minsPerLb: 30, safeF: '165°F (74°C)' },
-      { name:'Chicken breast (boneless)', minsPerLb: 25, safeF: '165°F (74°C)' },
-      { name:'Chicken thighs', minsPerLb: 30, safeF: '165°F (74°C)' },
-      { name:'Chicken wings', minsPerLb: 35, safeF: '165°F (74°C)' },
-      { name:'Chicken drumsticks', minsPerLb: 30, safeF: '165°F (74°C)' },
+      { name:'Whole chicken', minsPerLb: 20, plus: 15, oven:'375°F (190°C)', safeF: '165°F (74°C) in the thigh' },
+      { name:'Chicken breast (bone-in, 8–12 oz)', range:[35,45], oven:'375°F (190°C)', safeF: '165°F (74°C)' },
+      { name:'Chicken breast (boneless, 6–8 oz)', range:[20,26], oven:'400°F (200°C)', safeF: '165°F (74°C)' },
+      { name:'Chicken thighs (bone-in)', range:[35,45], oven:'400°F (200°C)', safeF: '165°F (74°C)' },
+      { name:'Chicken wings', range:[40,50], oven:'400°F (200°C)', safeF: '165°F (74°C)' },
+      { name:'Chicken drumsticks', range:[35,45], oven:'400°F (200°C)', safeF: '165°F (74°C)' },
     ]
   },
   beef: {
     cuts: [
-      { name:'Ribeye steak (1")', minsPerLb: 10, safeF: '145°F (63°C) medium-rare' },
-      { name:'Sirloin steak', minsPerLb: 12, safeF: '145°F (63°C) medium-rare' },
-      { name:'Whole roast (medium-rare)', minsPerLb: 15, safeF: '135°F (57°C)' },
-      { name:'Whole roast (medium)', minsPerLb: 20, safeF: '145°F (63°C)' },
-      { name:'Whole roast (well done)', minsPerLb: 25, safeF: '160°F (71°C)' },
-      { name:'Brisket', minsPerLb: 60, safeF: '195–205°F (90–96°C)' },
-      { name:'Ground beef patties', minsPerLb: 14, safeF: '160°F (71°C)' },
+      { name:'Ribeye steak (1")', range:[8,12], oven:'high heat (pan or grill)', safeF: '145°F (63°C) USDA minimum; medium-rare is 130–135°F' },
+      { name:'Sirloin steak (1")', range:[8,12], oven:'high heat (pan or grill)', safeF: '145°F (63°C) USDA minimum; medium-rare is 130–135°F' },
+      { name:'Rib or sirloin roast (medium-rare)', minsPerLb: 18, oven:'325°F (165°C)', safeF: '130–135°F (54–57°C) — below the USDA 145°F minimum' },
+      { name:'Rib or sirloin roast (medium)', minsPerLb: 22, oven:'325°F (165°C)', safeF: '145°F (63°C) + 3 min rest' },
+      { name:'Rib or sirloin roast (well done)', minsPerLb: 26, oven:'325°F (165°C)', safeF: '160°F (71°C)' },
+      { name:'Brisket', minsPerLb: 60, oven:'250°F (120°C)', safeF: '195–205°F (90–96°C) for tender slicing' },
+      { name:'Ground beef patties (¾")', range:[8,10], oven:'medium-high heat (pan or grill)', safeF: '160°F (71°C)' },
     ]
   },
   pork: {
     cuts: [
-      { name:'Pork loin roast', minsPerLb: 20, safeF: '145°F (63°C)' },
-      { name:'Pork chops (1")', minsPerLb: 18, safeF: '145°F (63°C)' },
-      { name:'Pork shoulder / Boston butt', minsPerLb: 60, safeF: '195–205°F (90–96°C)' },
-      { name:'Pork tenderloin', minsPerLb: 25, safeF: '145°F (63°C)' },
-      { name:'Ribs (baby back)', minsPerLb: 40, safeF: '190°F (88°C)' },
-      { name:'Ham (pre-cooked)', minsPerLb: 15, safeF: '140°F (60°C)' },
+      { name:'Pork loin roast', minsPerLb: 20, oven:'350°F (175°C)', safeF: '145°F (63°C) + 3 min rest' },
+      { name:'Pork chops (1", seared then oven)', range:[15,20], oven:'400°F (200°C)', safeF: '145°F (63°C) + 3 min rest' },
+      { name:'Pork shoulder / Boston butt', minsPerLb: 60, oven:'250°F (120°C)', safeF: '195–205°F (90–96°C) for pulling' },
+      { name:'Pork tenderloin', minsPerLb: 25, oven:'425°F (220°C)', safeF: '145°F (63°C) + 3 min rest' },
+      { name:'Ribs (baby back)', minsPerLb: 40, oven:'300°F (150°C)', safeF: '190–203°F (88–95°C) for tender ribs' },
+      { name:'Fresh ham, raw (bone-in leg)', minsPerLb: 22, oven:'325°F (165°C)', safeF: '145°F (63°C) + 3 min rest' },
+      { name:'Gammon joint, boiled', minsPerLb: 20, plus: 20, oven:'simmering water (not boiling hard)', safeF: '70–75°C (158–167°F), UK guidance' },
+      { name:'Gammon joint, roasted', minsPerLb: 30, plus: 30, oven:'350°F (180°C), covered', safeF: '70–75°C (158–167°F), UK guidance' },
+      { name:'Ham, fully cooked, whole bone-in (reheat)', minsPerLb: 15, oven:'325°F (165°C), covered', safeF: '140°F (60°C)' },
+      { name:'Ham, fully cooked, half or spiral (reheat)', minsPerLb: 20, oven:'325°F (165°C), covered', safeF: '140°F (60°C)' },
     ]
   },
   lamb: {
     cuts: [
-      { name:'Leg of lamb (medium)', minsPerLb: 20, safeF: '145°F (63°C)' },
-      { name:'Leg of lamb (well done)', minsPerLb: 25, safeF: '160°F (71°C)' },
-      { name:'Rack of lamb', minsPerLb: 15, safeF: '145°F (63°C)' },
-      { name:'Lamb chops', minsPerLb: 12, safeF: '145°F (63°C)' },
+      { name:'Leg of lamb (medium)', minsPerLb: 20, oven:'325°F (165°C)', safeF: '145°F (63°C) + 3 min rest' },
+      { name:'Leg of lamb (well done)', minsPerLb: 25, oven:'325°F (165°C)', safeF: '160°F (71°C)' },
+      { name:'Rack of lamb', minsPerLb: 25, oven:'375°F (190°C)', safeF: '145°F (63°C) + 3 min rest' },
+      { name:'Lamb chops (1")', range:[8,12], oven:'high heat (pan or grill)', safeF: '145°F (63°C) + 3 min rest' },
     ]
   },
   turkey: {
     cuts: [
-      { name:'Whole turkey (unstuffed)', minsPerLb: 15, safeF: '165°F (74°C)' },
-      { name:'Whole turkey (stuffed)', minsPerLb: 18, safeF: '165°F (74°C)' },
-      { name:'Turkey breast', minsPerLb: 20, safeF: '165°F (74°C)' },
+      { name:'Whole turkey (unstuffed)', minsPerLb: 15, usda:[[12,165,180],[14,180,225],[18,225,255],[20,255,270],[24,270,300]], oven:'325°F (165°C)', safeF: '165°F (74°C) in the thigh' },
+      { name:'Whole turkey (stuffed)', minsPerLb: 18, usda:[[12,180,210],[14,210,240],[18,240,255],[20,255,285],[24,285,315]], oven:'325°F (165°C)', safeF: '165°F (74°C), stuffing too' },
+      { name:'Turkey breast', minsPerLb: 20, oven:'325°F (165°C)', safeF: '165°F (74°C)' },
     ]
   },
   fish: {
     cuts: [
-      { name:'Salmon fillet', minsPerLb: 12, safeF: '145°F (63°C)' },
-      { name:'Whole fish', minsPerLb: 15, safeF: '145°F (63°C)' },
-      { name:'Cod / white fish', minsPerLb: 10, safeF: '145°F (63°C)' },
-      { name:'Shrimp', minsPerLb: 6, safeF: 'Pink and opaque' },
+      { name:'Salmon fillet (1" thick)', range:[12,15], oven:'400°F (200°C)', safeF: '145°F (63°C)' },
+      { name:'Whole fish', minsPerLb: 15, oven:'400°F (200°C)', safeF: '145°F (63°C)' },
+      { name:'Cod / white fish (1" thick)', range:[10,12], oven:'400°F (200°C)', safeF: '145°F (63°C)' },
+      { name:'Shrimp (large)', range:[4,6], oven:'high heat (pan, grill or 400°F oven)', safeF: 'Pink and opaque' },
     ]
   }
 };
@@ -312,7 +379,7 @@ const data = {
 function updateCuts() {
   const meat = document.getElementById('meat').value;
   const cutSel = document.getElementById('cut');
-  cutSel.innerHTML = data[meat].cuts.map(c => `<option value="${c.minsPerLb}|${c.safeF}">${c.name}</option>`).join('');
+  cutSel.innerHTML = data[meat].cuts.map((c, i) => `<option value="${i}">${c.name}</option>`).join('');
   calculate();
 }
 
@@ -323,18 +390,26 @@ function calculate() {
   const cutVal = cutSel.value;
   if (!cutVal || !weightInput) return;
 
-  const [minsPerLb, safeF] = cutVal.split('|');
+  const meatKey = document.getElementById('meat').value;
+  const cut = data[meatKey].cuts[parseInt(cutVal, 10)];
+  const minsPerLb = cut.minsPerLb, safeF = cut.safeF;
+  const isPiece = Array.isArray(cut.range);
   const weightLb = unit === 'kg' ? weightInput * 2.205 : weightInput;
   const method = document.getElementById('method').value;
   const methodMultiplier = { oven: 1.0, grill: 0.88, pan: 0.7 };
   const mult = methodMultiplier[method] || 1.0;
-  const totalMins = Math.round(weightLb * parseFloat(minsPerLb) * mult);
+  const isBoiled = /boiled/i.test(cut.name);
+  const totalMins = isPiece ? 0 : Math.round(weightLb * minsPerLb * (isBoiled ? 1 : mult) + (cut.plus || 0));
   const hrs = Math.floor(totalMins / 60);
   const mins = totalMins % 60;
-  const timeStr = hrs > 0 ? `${hrs}h ${mins}m` : `${mins} min`;
+  const pieceMult = /high heat|medium-high/.test(cut.oven) ? 1 : mult;
+  const fmt = m => { const h = Math.floor(m / 60), r = m % 60; return h ? (r ? `${h}h ${r}m` : `${h}h`) : `${r} min`; };
+  let usdaStr = null;
+  if (cut.usda) { const row = cut.usda.find(r => weightLb <= r[0]) || cut.usda[cut.usda.length - 1]; usdaStr = `${fmt(row[1])}–${fmt(row[2])}`; }
+  const timeStr = usdaStr ? usdaStr : isPiece ? `${Math.round(cut.range[0] * pieceMult)}–${Math.round(cut.range[1] * pieceMult)} min` : fmt(totalMins);
 
   const cutName = cutSel.selectedOptions[0] ? cutSel.selectedOptions[0].text : '';
-  const isWholeRoast = /whole|brisket|shoulder|leg of|ham|ribs/i.test(cutName);
+  const isWholeRoast = /whole|brisket|shoulder|leg of|ham|gammon|roast|ribs/i.test(cutName);
   const warningEl = document.getElementById('methodWarning');
   if (method === 'pan' && isWholeRoast) {
     warningEl.textContent = `Pan/stovetop isn't practical for a large cut like "${cutName}" — use Oven or Grill (indirect heat) instead. This estimate assumes you're using the oven/grill method regardless of the selection above.`;
@@ -347,8 +422,9 @@ function calculate() {
   }
 
   document.getElementById('timeResult').textContent = timeStr;
-  document.getElementById('timeLabel').textContent = `Estimated cooking time for ${weightInput} ${unit}`;
+  document.getElementById('timeLabel').textContent = usdaStr ? (weightLb > 24 ? 'USDA range for 20–24 lb — a larger bird will take longer; check early' : (weightLb < 8 ? 'USDA range for 8–12 lb — a smaller bird will finish sooner' : 'USDA roasting time for this weight at 325°F')) : isPiece ? 'Per batch in a single layer — for pieces, thickness sets the time, not total weight' : `Estimated cooking time for ${weightInput} ${unit}`;
   document.getElementById('safeTemp').textContent = safeF;
+  document.getElementById('ovenTemp').textContent = cut.oven + (isPiece || usdaStr ? '' : (cut.plus ? ' — ' + minsPerLb + ' min per lb plus ' + cut.plus + ' min' : ' — ' + minsPerLb + ' min per lb'));
   document.getElementById('result').style.display = 'block';
 }
 

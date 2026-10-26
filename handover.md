@@ -286,6 +286,8 @@ GA4 30일 활성 1,961 · 총수익 0 · US 732 / SG 494 / CN 357(봇 의심 43%
 #### 사이트 규모
 툴 36, 블로그 82→**83**, 가이드 16, sitemap 141→**142**.
 
+⚠️ 이번 세션은 IndexNow GET이 세션 허용목록 차단(URL_NOT_ON_ALLOWLIST)으로 **핑 미발송** — 다음 세션에서 되면 how-long-to-cook-a-turkey·cooking-time-calculator·average-cost·홈 4개를 먼저 보낼 것. sitemap lastmod는 갱신됨.
+
 ### 2026-10-21 (39차): 같은 질문 페이지 통합(9개 → 대표 5개로 리다이렉트) + 사실 오류 정정 + title/description/제목단계 전수 정리
 
 > 사용자: "싹다 진행해 세세하게 좀 봐 하면서 그리고 다 수정해버려" (38차 점검에서 보고한 중복 5묶음 + 길이 문제 전부).

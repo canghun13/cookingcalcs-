@@ -1,0 +1,31 @@
+name: IndexNow
+# sitemap.xml이 바뀐 push마다 새 URL과 lastmod가 바뀐 URL을 IndexNow(Bing·Yandex 등)에 제출한다.
+on:
+  push:
+    branches: [main]
+    paths: ['sitemap.xml']
+  workflow_dispatch:
+    inputs:
+      since:
+        description: 'git ref to compare sitemap.xml against (e.g. a commit SHA)'
+        required: false
+        default: ''
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Wait for GitHub Pages to publish
+        run: sleep 120
+      - name: Submit changed URLs
+        run: |
+          BEFORE="${{ github.event.inputs.since || github.event.before }}"
+          # 일회성 기준점: .github/indexnow-since 파일이 있으면 그 커밋 기준으로 비교(밀린 제출분 보내기용)
+          if [ -f .github/indexnow-since ]; then BEFORE="$(cat .github/indexnow-since)"; fi
+          if [ -z "$BEFORE" ] || [ "$BEFORE" = "0000000000000000000000000000000000000000" ]; then BEFORE="HEAD~1"; fi
+          node notify-indexnow.js --changed "$BEFORE"

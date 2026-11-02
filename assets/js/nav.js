@@ -81,7 +81,7 @@ const TOOL_KW = {
   "/tools/weekly-meal-prep-cost-calculator.html": "budget grocery money week",
   "/tools/slow-cooker-converter.html": "crockpot crock pot low high",
   "/tools/herb-converter.html": "basil parsley oregano dried fresh spices",
-  "/tools/kitchen-math-generator.html": "worksheet practice problems culinary school",
+  "/tools/kitchen-math-generator.html": "restaurant bill tip tax bakers percentage inventory worksheet practice problems culinary school",
   "/tools/grill-temperature-calculator.html": "bbq barbecue charcoal gas grill steak burger",
   "/tools/pan-size-converter.html": "cake pan baking dish 9x13 round square",
   "/tools/can-size-converter.html": "tin can number 10 ounces",
@@ -190,6 +190,7 @@ const BLOGS = [
   { name: "Food Cost Percentage Word Problems", url: "/blog/food-cost-percentage-word-problems.html", desc: "Plate cost ÷ menu price, pricing from a target, cost of food sold from inventory, staff meals and transfers — worked answers for each.", date: "2026-10-19" },
   { name: "Duck Eggs Instead of Chicken Eggs: How Many to Use", url: "/blog/duck-eggs-in-baking.html", desc: "A 1–12 chart for swapping duck, quail and goose eggs by USDA weight, when the 2-for-3 rule is close enough, and how duck eggs bake.", date: "2026-10-19" },
   { name: "How Long to Cook a Turkey", url: "/blog/how-long-to-cook-a-turkey.html", desc: "Whole turkey roasting times by weight at 325°F, stuffed and unstuffed, plus kilogram times, convection, spatchcocked, thawing and resting.", date: "2026-10-26" },
+  { name: "Restaurant Math Word Problems", url: "/blog/restaurant-math-word-problems.html", desc: "Adding the bill, sales tax, tips, splitting evenly or by what each person ordered, coupons, combo deals and catering per person — worked answers.", date: "2026-11-02" },
 ];
 
 // ── 가이드 목록 (Tools/Blog와 별개 — 여러 툴/블로그를 묶는 종합 허브 페이지) ──

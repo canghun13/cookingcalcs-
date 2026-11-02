@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kitchen Math Practice Problem Generator – CookingCalcs</title>
-  <meta name="description" content="Unlimited kitchen math word problems — unit price, cost per serving, scaling, yield and food cost — with step-by-step answers.">
+  <title>Kitchen Math Practice Problem Generator With Answers</title>
+  <meta name="description" content="Unlimited kitchen math word problems — unit price, cost per serving, scaling, yield, food cost, baker's percentage and restaurant bills — with answers.">
   <link rel="canonical" href="https://cookingcalcs.com/tools/kitchen-math-generator.html">
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="/assets/css/style.css">
@@ -97,7 +97,7 @@
       <li class="nav-has-dropdown">
         <button class="nav-link nav-btn" aria-expanded="false">Blog ▾</button>
         <ul class="nav-dropdown">
-          <li><a href="/blog/" class="nav-dropdown-all">All 83 Posts →</a></li>
+          <li><a href="/blog/" class="nav-dropdown-all">All 84 Posts →</a></li>
           <li><a href="/blog/how-to-substitute-egg-sizes.html">How to Substitute Egg Sizes</a></li><li><a href="/blog/how-long-can-food-sit-out.html">How Long Can Food Sit Out?</a></li><li><a href="/blog/average-cost-of-a-home-cooked-meal.html">Average Cost of a Home-Cooked Meal</a></li><li><a href="/blog/how-long-to-cook-steak.html">How Long to Cook Steak</a></li><li><a href="/blog/culinary-math-formulas.html">Culinary Math Formulas</a></li>
         </ul>
       </li>
@@ -127,6 +127,9 @@
           <option value="scaling">Recipe Scaling</option>
           <option value="yield">Cost Per Serving With Trim Loss (Yield %)</option>
           <option value="foodcost">Food Cost Percentage &amp; Menu Price</option>
+          <option value="inventory">Food Cost % From Inventory</option>
+          <option value="bakers">Baker's Percentage</option>
+          <option value="restaurantbill">Restaurant Bill: Tax, Tip &amp; Split</option>
         </select>
       </div>
 
@@ -160,12 +163,15 @@
       <h2>How This Generator Works</h2>
       <p>Choose a problem type, click "Generate New Problem," and a new randomized word problem appears with realistic grocery items and numbers. Try to solve it yourself first, then click "Show Step-by-Step Answer" to check your work and see exactly how each number was used. Click "Generate New Problem" again for a fresh one — there's no limit, so use it for as much practice as you need.</p>
 
-      <h2>The Five Problem Types</h2>
+      <h2>The Eight Problem Types</h2>
       <p><strong>Unit Price Comparison</strong> gives you two package sizes and prices for the same item and asks which is the better deal per unit. This practices division and comparing decimals — see more <a href="/blog/unit-price-word-problems.html">worked unit price examples</a> if you want extra practice with the method first.</p>
       <p><strong>Cost Per Serving</strong> gives you a price per pound and a serving size in ounces, and asks for the cost of one serving. This practices converting between pounds and ounces along with division and multiplication — see the <a href="/tools/cost-per-serving.html">cost per serving calculator</a> for the reverse direction (enter your own numbers instead of a random problem).</p>
       <p><strong>Recipe Scaling</strong> gives you a fractional ingredient amount and a scaling instruction (double, halve, triple, or a custom factor), and asks for the new amount. This practices multiplying fractions and mixed numbers — see more <a href="/blog/recipe-scaling-word-problems.html">worked scaling examples</a> for the step-by-step method.</p>
       <p><strong>Cost Per Serving With Trim Loss</strong> adds a yield percentage to the cost per serving problem — the share of a vegetable or fruit left after peeling and trimming. Divide the price by the yield first, then work out the serving. This is the version culinary arts courses use, and it practices percentages on top of unit conversion. <a href="/blog/cost-per-serving-word-problems.html">Cost per serving word problems</a> walks through it step by step.</p>
       <p><strong>Food Cost Percentage &amp; Menu Price</strong> gives a portion cost and either a menu price (find the food cost percentage) or a target percentage (find the menu price). It practices dividing in the right direction, which is where most mistakes happen — see <a href="/blog/culinary-math-formulas.html">culinary math formulas</a> for the full set.</p>
+      <p><strong>Food Cost % From Inventory</strong> gives beginning inventory, purchases, ending inventory and sales for a month, and asks for the cost of food sold and the food cost percentage. <a href="/blog/food-cost-percentage-word-problems.html">Food cost percentage word problems</a> covers staff meals and transfers too.</p>
+      <p><strong>Baker's Percentage</strong> gives a bread formula in percentages and either a flour weight or a number of dough pieces, and asks for the grams of each ingredient. The <a href="/tools/bakers-percentage-calculator.html">baker's percentage calculator</a> and <a href="/blog/bakers-percentage-word-problems.html">baker's percentage word problems</a> go further.</p>
+      <p><strong>Restaurant Bill</strong> gives a subtotal, a sales tax rate and a tip percentage, and asks what each person pays when the bill is split. <a href="/blog/restaurant-math-word-problems.html">Restaurant math word problems</a> adds coupons, combo deals and splitting by what each person ordered.</p>
 
       <h2>Sample Problems (One From Each Type)</h2>
       <p>Here's one static example of each problem type, so you can see the format before generating your own — the live tool above generates a fresh set of numbers and items every time you click.</p>
@@ -228,7 +234,7 @@ const FACTORS = [
 function rand(min, max) { return Math.random() * (max - min) + min; }
 function randInt(min, max) { return Math.floor(rand(min, max + 1)); }
 function pick(arr) { return arr[randInt(0, arr.length - 1)]; }
-function money(n) { return '$' + n.toFixed(2); }
+function money(n) { return '$' + n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); }
 function r2(n) { return Math.round(n * 100) / 100; }
 function fx(n, d) { return String(parseFloat(n.toFixed(d))); }
 const PRODUCE = [
@@ -306,6 +312,42 @@ function generateProblem() {
       problemText = `A ${dish} costs ${money(portion)} in ingredients. The owner wants a ${target}% food cost. What should the menu price be? Round to the nearest cent.`;
       answerText = `Menu price = portion cost ÷ target food cost<br>${money(portion)} ÷ ${fx(target / 100, 2)} = ${fx(price, 4)}<br><br><strong>${money(price)}</strong> — the menu price that gives a ${target}% food cost.`;
     }
+  } else if (type === 'inventory') {
+    const begin = randInt(30, 70) * 100;
+    const purchases = randInt(60, 120) * 100 + randInt(0, 9) * 10;
+    const end = randInt(25, 65) * 100;
+    const cogs = begin + purchases - end;
+    const sales = Math.round(cogs / rand(0.27, 0.36) / 100) * 100;
+    const pct = cogs / sales * 100;
+    problemText = `A restaurant starts the month with ${money(begin)} of food in inventory, buys ${money(purchases)} of food during the month, and counts ${money(end)} on the last day. Food sales for the month were ${money(sales)}. What was the cost of food sold, and the food cost percentage? Round to one decimal place.`;
+    answerText = `Cost of food sold = beginning + purchases − ending<br>${money(begin)} + ${money(purchases)} − ${money(end)} = <strong>${money(cogs)}</strong><br>Food cost % = ${money(cogs)} ÷ ${money(sales)} × 100 = <strong>${pct.toFixed(1)}%</strong>.<br><br>Dividing purchases alone would give ${(purchases / sales * 100).toFixed(1)}% — purchases are what came in, not what was used.`;
+  } else if (type === 'bakers') {
+    const water = pick([60, 62, 65, 68, 70, 72, 75]);
+    const salt = pick([1.8, 2, 2.2]);
+    const yeast = pick([0.5, 1, 1.5]);
+    if (Math.random() < 0.5) {
+      const flour = randInt(6, 30) * 50;
+      problemText = `A bread formula is 100% flour, ${water}% water, ${salt}% salt and ${yeast}% instant yeast. You have ${flour} g of flour. How many grams of water, salt and yeast do you need?`;
+      answerText = `Ingredient weight = flour × percentage ÷ 100<br>Water: ${flour} × ${water / 100} = <strong>${fx(flour * water / 100, 1)} g</strong><br>Salt: ${flour} × ${fx(salt / 100, 3)} = <strong>${fx(flour * salt / 100, 1)} g</strong><br>Yeast: ${flour} × ${fx(yeast / 100, 3)} = <strong>${fx(flour * yeast / 100, 1)} g</strong>`;
+    } else {
+      const pieces = pick([4, 6, 8, 10, 12]);
+      const each = pick([60, 80, 100, 250, 450]);
+      const sum = 100 + water + salt + yeast;
+      const dough = pieces * each;
+      const flour = dough / (sum / 100);
+      problemText = `You need ${pieces} pieces of dough weighing ${each} g each. The formula is 100% flour, ${water}% water, ${salt}% salt and ${yeast}% yeast. How much flour and water do you need? Round to the nearest gram.`;
+      answerText = `Total dough: ${pieces} × ${each} = ${dough} g. Sum of percentages: ${fx(sum, 1)}%.<br>Flour = ${dough} ÷ ${fx(sum / 100, 3)} = <strong>${Math.round(flour)} g</strong><br>Water = ${Math.round(flour)} × ${water / 100} = <strong>${Math.round(flour * water / 100)} g</strong><br><br>Multiplying the dough weight by ${water}% would be wrong — baker's percentages are of the flour, not the dough.`;
+    }
+  } else if (type === 'restaurantbill') {
+    const people = pick([2, 3, 4, 5]);
+    const subtotal = r2(rand(18, 30) * people);
+    const tax = pick([6, 6.25, 7, 7.5, 8, 8.875]);
+    const tip = pick([15, 18, 20]);
+    const taxAmt = Math.round(subtotal * tax) / 100;
+    const tipAmt = Math.round(subtotal * tip) / 100;
+    const total = subtotal + taxAmt + tipAmt;
+    problemText = `${people} friends have a restaurant bill with a subtotal of ${money(subtotal)}. Sales tax is ${tax}% and they leave a ${tip}% tip on the subtotal before tax. They split the bill evenly. How much does each person pay?`;
+    answerText = `Tax: ${money(subtotal)} × ${fx(tax / 100, 5)} = ${money(taxAmt)}<br>Tip: ${money(subtotal)} × ${fx(tip / 100, 2)} = ${money(tipAmt)}<br>Total: ${money(subtotal)} + ${money(taxAmt)} + ${money(tipAmt)} = <strong>${money(total)}</strong><br>Each: ${money(total)} ÷ ${people} = <strong>${money(total / people)}</strong>${Math.abs(Math.round(total / people * 100) * people - Math.round(total * 100)) > 0 ? ' (rounded — one person covers the leftover cent)' : ''}.`;
   } else if (type === 'scaling') {
     const ingredient = pick(SCALE_INGREDIENTS);
     const frac = pick(FRACTIONS);

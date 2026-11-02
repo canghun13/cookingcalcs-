@@ -15,10 +15,10 @@
 
    신규 발행/보강 후 체크리스트 항목으로 실행할 것 (4번 섹션 참고).
 
-   주의: 이 환경(egress 방화벽)은 api.indexnow.org로 나가는 요청을 막고 있다
-   (x-deny-reason: host_not_allowed). 즉 Claude가 이 스크립트를 실행해도
-   실제 제출은 실패한다 — 스크립트/키 파일만 커밋하고, 사용자가 자신의
-   PC나 다른 네트워크에서 직접 실행해야 한다. "제출 완료"라고 보고하지 말 것.
+   2026-11-02: GitHub Actions(.github/workflows/indexnow.yml)가 main에 sitemap.xml이
+   바뀌어 push될 때마다 자동 실행한다(--changed: 새 URL + lastmod 바뀐 URL만 제출).
+   Claude 작업 환경에서는 api.indexnow.org가 막혀 있어도 이 경로로 제출된다.
+   결과는 GitHub 저장소 Actions 탭의 "IndexNow" 실행 로그에서 확인.
    ============================================================ */
 
 const fs = require('fs');
@@ -35,6 +35,26 @@ function readSitemapUrls() {
   return matches.map(m => m[1]);
 }
 
+// --changed <ref>: sitemap.xml을 <ref> 시점과 비교해 새로 생긴 URL + lastmod가 바뀐 URL만 반환
+function sitemapMap(xml) {
+  const map = {};
+  for (const m of xml.matchAll(/<url>([\s\S]*?)<\/url>/g)) {
+    const loc = (m[1].match(/<loc>([^<]+)<\/loc>/) || [])[1];
+    const mod = (m[1].match(/<lastmod>([^<]+)<\/lastmod>/) || [])[1] || '';
+    if (loc) map[loc] = mod;
+  }
+  return map;
+}
+function changedSince(ref) {
+  const { execSync } = require('child_process');
+  let oldXml = '';
+  try { oldXml = execSync(`git show ${ref}:sitemap.xml`, { encoding: 'utf-8', stdio: ['ignore', 'pipe', 'ignore'] }); }
+  catch (e) { console.log(`기준(${ref}) sitemap 없음 — 전체 제출`); return readSitemapUrls(); }
+  const before = sitemapMap(oldXml);
+  const after = sitemapMap(fs.readFileSync(path.join(__dirname, 'sitemap.xml'), 'utf-8'));
+  return Object.keys(after).filter(u => before[u] !== after[u]);
+}
+
 async function main() {
   const args = process.argv.slice(2);
   if (args.length === 0) {
@@ -42,7 +62,11 @@ async function main() {
     process.exit(1);
   }
 
-  const urlList = args[0] === '--sitemap' ? readSitemapUrls() : args;
+  let urlList;
+  if (args[0] === '--sitemap') urlList = readSitemapUrls();
+  else if (args[0] === '--changed') urlList = changedSince(args[1] || 'HEAD~1');
+  else urlList = args;
+  if (args[0] === '--changed' && urlList.length === 0) { console.log('sitemap 변경 URL 없음 — 제출 생략.'); return; }
 
   const bad = urlList.filter(u => !u.startsWith(`https://${HOST}`));
   if (bad.length) {

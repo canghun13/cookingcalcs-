@@ -1,4 +1,4 @@
-# CookingCalcs 현황 및 인수인계 (2026-10-26 기준)
+# CookingCalcs 현황 및 인수인계 (2026-11-02 기준)
 
 이 문서는 2026-07-24 버전 인수인계 문서를 기반으로, 이후 진행된 모든 작업 내역을 반영해 갱신한 버전입니다. 새 세션에서는 이 문서만 보고 바로 작업 이어가면 됩니다.
 
@@ -12,7 +12,7 @@
    만든 것이므로 **더 이상 자동 기각 근거로 쓰지 말 것** — "우리가 더 정확하고 구조화된 답을 낼 수 있는가"로 판정할 것.
    자세한 내용은 3번 섹션 `2026-08-03 (15차)`의 "★ 전략 재정렬" 항목을 볼 것.
 0-2. 🚨 **기본 전략: 공격적 확장(신규 클러스터 발행). 이건 바뀌지 않는다**
-   - **Bing이 주력 채널이다.** 10-26 기준 Bing 노출 **68,953**·클릭 **688**·CTR 1.00%·평균 약 6위 (10-19 60,108/592) /
+   - **Bing이 주력 채널이다.** 11-02 기준 Bing 노출 **77,194**·클릭 **786**·CTR 1.02%·평균 약 6위 (10-26 68,953/688) /
      구글 3개월 노출 10,859·클릭 **5**·평균 50~90위. 구글은 완전 정체이고 Bing만 매주 성장 중.
    - 🚨 **구글에서 우리가 상위권(10위 이내)에 드는 주제는 "요리 수학 문장형 문제" 하나뿐이다(32차 실측).**
      검색어 1,000개 중 10위 이내는 `you purchase beef at $6 per pound...` 류 4개(노출 54·40·14·3, 순위 6.4~9.7)뿐이고
@@ -244,6 +244,38 @@ echo "nav.js GUIDES: $(sed -n '/const GUIDES/,/^];/p' assets/js/nav.js | grep -c
   잡히면 **"툴은 있는데 질문형 페이지가 없는 쿼리"를 찾아 채우는 패턴**이 검증된다.
   현재 후보: `tablespoon-to-teaspoon-guide` 182노출 클릭0 7.02위,
   `how-many-grams-in-a-cup-of-oats` 207노출 클릭0 5.18위.
+
+### 2026-11-02 (41차): IndexNow 자동화(GitHub Actions) + 레스토랑 계산 워드프라블럼 신규 + 문제생성기 3유형 추가 + 스케일링 WP 보강
+
+> 데이터: GSC Performance/Coverage 11-02(차트 10-30까지), Bing PageTraffic+Keyword 11-02, GA4 28일(10-05~11-01).
+> Coverage zip: 무접미사=**발견됨-미색인(61)**, `_1`=**크롤링됨-미색인(1)**. 메타데이터.csv '문제'로 판별.
+> 🚨 **작업 컨테이너가 교체됐었음** — /home/claude/cc 없어서 `git clone`으로 다시 받음(push 정상). 스크래치 스크립트(pagelib 등)도 사라져 재작성. 다음 세션도 clone부터 확인.
+
+#### 채널 현황
+| | 10-19 | 10-26 | 11-02 |
+|---|---|---|---|
+| Bing 노출 | 60,108 | 68,953 | **77,194** (+12%) |
+| Bing 클릭 | 592 | 688 | **786** (+14%) |
+| 구글 3개월 | 9,122/5 | 4,692/3 | **3,687/1** (7월분 창 밖 이탈, 일평균 순위 44.5까지 개선) |
+GA4 30일 활성 1,960 · 수익 0 · US 744 / SG 468 / CN 344. 구글: **cost-per-serving 툴 3.11위**, "beef $6/lb" 문제 **2위**, "prime rib cooking time calculator" 19위(6노출).
+Bing: egg-sizes 4,281/225(5.26%), can-size 4,495/80, catering-pan 371/16(4.31%↑), turkey-breast 622/15(추수감사절 상승).
+
+#### IndexNow — 이제 사람 손 없이 자동
+- 이 작업 환경은 api.indexnow.org가 허용목록 밖(WebFetch·curl 모두 차단). → **`.github/workflows/indexnow.yml` 추가**: main에 sitemap.xml이 바뀐 push마다 GitHub 서버에서
+  `node notify-indexnow.js --changed <이전 push>` 실행 — sitemap을 이전 커밋과 비교해 **새 URL + lastmod 바뀐 URL만** 제출. Pages 배포 대기 120초 후 실행.
+- 밀린 10-26분은 `.github/indexnow-since`(a35b554)로 이번 첫 실행에 같이 제출하고 파일은 다음 커밋에서 삭제.
+- ➜ **앞으로 신규/보강 시 sitemap lastmod만 정확히 갱신하면 제출은 자동.** Claude가 WebFetch로 핑할 필요 없음. 결과는 GitHub Actions 탭 "IndexNow" 로그.
+
+#### 신규·보강 (구글이 실제로 순위 주는 '요리수학 문장형' 결 + Bing 질문)
+- **신규** `blog/restaurant-math-word-problems.html` — 소계→세금→팁(세전)→분할, 주문별 분할(배수 = 총액÷소계, 1.275 예), 쿠폰은 세전·팁은 원가 기준, 콤보 절약률, 케이터링 1인당(서비스차지 18%).
+  Bing "maths problem solving restaurant meal prices" 5위 노출 대응. SERP: Illustrative Math·MathScore·UAB PDF·TI 교육자료 — 계산기팜 0.
+- **보강** `tools/kitchen-math-generator.html` 문제유형 5→**8**(재고 기반 푸드코스트%, 베이커스%, 레스토랑 계산서), 금액 천단위 쉼표, title/desc 갱신. 요리수학 허브·formulas의 "five types"→"eight".
+- **보강** `blog/recipe-scaling-word-problems.html`(Bing 284노출·클릭 0): 쿠키 레시피 전체 ½·⅓ 표(⅜컵=6큰술, ⅔개 계란=2큰술), 8인분→20인 라자냐(×2.5, 팬 292 sq in) — Bing "halving cookie recipe measurements problems", "how to scale recipes for different numbers of people" 대응. title "With Answers".
+- 상호링크: 요리수학 허브, food-cost WP, unit-price WP, cost-per-serving(색인됨 → 미색인 신규로 다리). llms.txt에 10-19 신규 3개 + 베이커스 계산기 누락돼 있던 것 추가.
+- **기각**: prime rib 쿠킹타임(구글 19위 노출) — 상위가 kitchprep·spice.alibaba 등 콘텐츠팜, USDA 1차 수치를 이번에 확인 못 해 계산기에 넣지 않음(31차 기각과 동일 결론).
+
+#### 사이트 규모
+툴 36, 블로그 83→**84**, 가이드 16, sitemap 142→**143**.
 
 ### 2026-10-26 (40차): 주간 점검 — 색인 보강(색인된 페이지 → 미색인 페이지 문맥 링크 18곳) + 색인된 툴 강화(쿠킹타임 계산기 개편) + 추수감사절 통칠면조 신규
 

@@ -247,6 +247,18 @@ echo "nav.js GUIDES: $(sed -n '/const GUIDES/,/^];/p' assets/js/nav.js | grep -c
   현재 후보: `tablespoon-to-teaspoon-guide` 182노출 클릭0 7.02위,
   `how-many-grams-in-a-cup-of-oats` 207노출 클릭0 5.18위.
 
+### 2026-11-03 (42차-2): 워드프라블럼 8페이지 + 문제생성기에 인쇄용 워크시트 추가 (구글용 자연 백링크 자산)
+
+- 목적: 구글 복구 레버 = 자연 백링크. 요리수학 SERP를 채운 형태(PDF·워크시트)를 우리 페이지에 붙여 교사·조리학교가 링크/배포할 자산으로 만듦.
+- 8개 블로그(`*-word-problems.html`) 각 "More Practice"(없으면 FAQ) 바로 앞에 `<h2 id="worksheet">Printable Worksheet: 8 … Problems With Answer Key</h2>`.
+  문제 8개는 전부 새 숫자(본문 예제와 비중복 확인), 답·풀이는 Python으로 전수 검산. 데이터 원본: 스크래치 `ws_data.py`(컨테이너 교체 시 사라짐 — 페이지 HTML이 원본).
+- 인쇄 방식: `assets/js/worksheet.js`(신규) — `[data-ws-print="#ws-sheet|#ws-key"]` 클릭 시 해당 블록을 `#ws-print-root`로 복제 → `body.ws-printing`에서 그것만 인쇄.
+  CSS는 style.css 끝 `PRINTABLE WORKSHEET` 블록. 답안지는 `<details>`(화면에선 접힘, 인쇄 시 펼침). 인쇄물 하단에 `CookingCalcs · cookingcalcs.com/…` 출처 표기.
+- `tools/kitchen-math-generator.html`: `generateProblem()`을 `buildProblem(type)`(문제·답 반환)으로 분리, "Make a Printable Worksheet"(5/10/15/20문제, 혼합 8유형 or 단일유형) 추가. FAQ 'classroom worksheet' 답 갱신(스키마 동일).
+- `guides/complete-culinary-math-guide.html` FAQ 앞에 8개 `#worksheet` 앵커 링크 + 생성기 링크 문단.
+- 읽기시간 재계산(단어/145), dateModified·sitemap lastmod 11-03. Playwright: 모바일/데스크톱 가로넘침 0, 인쇄 에뮬레이션 시 워크시트/답안지만 출력 확인, 생성기 10/20문제 정상.
+- 🚨 새 워드프라블럼 페이지 만들 때 이 워크시트 블록도 같이 넣을 것(머리 `<script src="/assets/js/worksheet.js" defer>` 포함). 제목·메타설명은 Bing 순위 보호 위해 안 건드림.
+
 ### 2026-11-03 (42차): 구글 색인 정체 재점검 — 사이트 밖 신호(외부링크·배지·노출 일별 추이·구글 업데이트 일정)
 
 > 사용자 요청: "bing은 괜찮은데 구글만 이상하다, 한번 쭉 점검해봐". 데이터 추가 요청 없이 기존 자료 + git 이력 + 웹으로만 판단.

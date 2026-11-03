@@ -9,6 +9,7 @@
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="/assets/css/style.css">
   <script src="/assets/js/nav.js" defer></script>
+  <script src="/assets/js/worksheet.js" defer></script>
 
 <script type="application/ld+json">
 {
@@ -19,7 +20,7 @@
   "author": { "@type": "Organization", "name": "CookingCalcs" },
   "publisher": { "@type": "Organization", "name": "CookingCalcs", "url": "https://cookingcalcs.com" },
   "datePublished": "2026-11-02",
-  "dateModified": "2026-11-02",
+  "dateModified": "2026-11-03",
   "mainEntityOfPage": "https://cookingcalcs.com/blog/restaurant-math-word-problems.html"
 }
 </script>
@@ -126,7 +127,7 @@
   <article class="blog-page">
     <span class="blog-card-tag">Kitchen Math</span>
     <h1>Restaurant Math Word Problems: Tax, Tip and Splitting the Bill</h1>
-    <div class="blog-meta">November 2026 · 7 min read</div>
+    <div class="blog-meta">November 2026 · 11 min read</div>
     <div class="blog-content">
       <p style="font-size:1.05rem; padding:1rem 1.2rem; background:var(--tomato-light); border-radius:var(--radius-lg);"><strong>Subtotal → tax → tip → split.</strong> Add the menu prices, multiply the subtotal by the tax rate, work out the tip on the subtotal before tax, then divide. The order matters: a coupon comes off before tax, and the tip is usually figured on the price before both the tax and the coupon.</p>
 
@@ -213,6 +214,46 @@
           <tr><td>Percent saved</td><td>Saving ÷ original price</td><td>Not ÷ the sale price</td></tr>
         </tbody>
       </table>
+
+      <h2 id="worksheet">Printable Worksheet: 8 Restaurant Bill Math Problems With Answer Key</h2>
+      <p>These 8 problems are new — none of them repeat the worked examples above, so they work as homework, a quiz or a warm-up. Print the worksheet and the answer key separately; the key shows the working for every answer, not just the final number.</p>
+      <div class="ws-wrap">
+        <div class="ws-actions">
+          <button type="button" class="btn-primary" data-ws-print="#ws-sheet">Print worksheet</button>
+          <button type="button" class="btn-secondary" data-ws-print="#ws-key">Print answer key</button>
+        </div>
+        <div class="ws-sheet" id="ws-sheet">
+          <h3>Restaurant Bill Math Word Problems — Worksheet</h3>
+          <div class="ws-fields"><span>Name:</span><span>Date:</span><span>Score: &nbsp;&nbsp;&nbsp;/ 8</span></div>
+          <p style="font-size:0.9rem; color:var(--mid); margin-bottom:1rem;">Unless a problem says otherwise, the tip is figured on the pre-tax subtotal. Round to the nearest cent. Show your working.</p>
+          <ol>
+          <li>You order a burger for $11.50, fries for $3.75 and a drink for $2.25. What is the subtotal?</li>
+          <li>Sales tax is 8%. What is the tax on a $17.50 subtotal, and what is the total?</li>
+          <li>The pre-tax subtotal is $42.00. What is an 18% tip?</li>
+          <li>Three friends have an $84.00 subtotal. Tax is 7.5% and they tip 20% on the subtotal. They split the total evenly. What does each person pay?</li>
+          <li>Your order is $36.00. A $5-off coupon is applied before tax, and tax is 6%. What is the total?</li>
+          <li>A caterer charges $18.50 per person for 45 guests, plus a 20% service charge. What is the total?</li>
+          <li>A combo for two costs $24.99. Ordered separately, the items are two entrées at $9.99 and a dessert at $4.50. Is the combo cheaper, and by how much?</li>
+          <li>Two diners split by what each ordered: Alex $22.00, Sam $18.00. Tax is 8% and the tip is 20% of each person's food. What does each pay?</li>
+          </ol>
+          <p class="ws-src">CookingCalcs · cookingcalcs.com/blog/restaurant-math-word-problems.html</p>
+        </div>
+        <details class="ws-key" id="ws-key">
+          <summary>Show answer key</summary>
+          <h3>Restaurant Bill Math Word Problems — Answer Key</h3>
+          <ol>
+          <li><strong>$17.50.</strong> $11.50 + $3.75 + $2.25 = $17.50.</li>
+          <li><strong>$1.40 tax; $18.90 total.</strong> $17.50 × 0.08 = $1.40. $17.50 + $1.40 = $18.90.</li>
+          <li><strong>$7.56.</strong> $42.00 × 0.18 = $7.56.</li>
+          <li><strong>$35.70 each.</strong> Tax $84 × 0.075 = $6.30. Tip $84 × 0.20 = $16.80. Total $107.10. ÷ 3 = $35.70.</li>
+          <li><strong>$32.86.</strong> $36.00 − $5.00 = $31.00. Tax $31.00 × 0.06 = $1.86. Total $32.86.</li>
+          <li><strong>$999.00.</strong> 45 × $18.50 = $832.50. Service $832.50 × 0.20 = $166.50. Total $999.00.</li>
+          <li><strong>No — the combo costs $0.51 more.</strong> Separately: $9.99 + $9.99 + $4.50 = $24.48. $24.99 − $24.48 = $0.51.</li>
+          <li><strong>Alex $28.16, Sam $23.04.</strong> Each pays food × (1 + 0.08 + 0.20) = × 1.28. $22 × 1.28 = $28.16. $18 × 1.28 = $23.04.</li>
+          </ol>
+          <p class="ws-src">CookingCalcs · cookingcalcs.com/blog/restaurant-math-word-problems.html</p>
+        </details>
+      </div>
 
       <h2>More Practice</h2>
       <p>The <a href="/tools/kitchen-math-generator.html">kitchen math problem generator</a> makes fresh restaurant bill problems with the working shown, along with unit price, cost per serving and food cost problems. For the grocery side of the same skills, see <a href="/blog/unit-price-word-problems.html">unit price word problems</a> and <a href="/blog/cost-per-serving-word-problems.html">cost per serving word problems</a>; the <a href="/guides/complete-culinary-math-guide.html">complete culinary math guide</a> collects every type.</p>

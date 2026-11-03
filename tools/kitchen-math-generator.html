@@ -9,6 +9,7 @@
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="/assets/css/style.css">
   <script src="/assets/js/nav.js" defer></script>
+  <script src="/assets/js/worksheet.js" defer></script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -40,7 +41,7 @@
       "name": "Can I use these problems for a classroom worksheet?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes — generate several problems, note down the ones you want, and build your own worksheet. Each problem comes with a hidden step-by-step solution you can reveal to build an answer key."
+        "text": "Yes. Use Make a Printable Worksheet below the generator: pick 5 to 20 problems, either one type or all eight mixed, and print the worksheet and the answer key separately. The key shows the working for every problem, and each click builds a new set, so you can give every class a different version."
       }
     },
     {
@@ -116,7 +117,7 @@
 <main>
   <div class="tool-page">
     <h1>Kitchen Math Practice Problem Generator</h1>
-    <p class="tool-desc">Pick a problem type and generate a fresh, randomized word problem every time — with a step-by-step answer you can reveal when you're ready. Free, unlimited, no sign-up.</p>
+    <p class="tool-desc">Pick a problem type and generate a fresh, randomized word problem every time — with a step-by-step answer you can reveal when you're ready. Or build a printable worksheet with an answer key. Free, unlimited, no sign-up.</p>
 
     <div class="tool-box">
       <div class="form-group">
@@ -139,6 +140,30 @@
         <div id="problemText" style="font-size:1.05rem; line-height:1.6; margin-bottom:1rem;"></div>
         <button class="btn-secondary" onclick="toggleAnswer()" id="answerToggle" style="width:100%;">Show Step-by-Step Answer</button>
         <div id="answerText" style="display:none; margin-top:1rem; padding:1rem; background:var(--sand); border-radius:var(--radius); line-height:1.7;"></div>
+      </div>
+    </div>
+
+    <div class="ws-wrap">
+      <h2 style="font-family:'Playfair Display',serif; font-size:1.17rem; margin-bottom:0.5rem;">Make a Printable Worksheet</h2>
+      <p style="font-size:0.92rem; color:var(--mid);">Build a full worksheet in one click — every problem is new, and the answer key prints on its own page with the working shown. Use the problem type above, or mix all eight types.</p>
+      <div style="display:flex; flex-wrap:wrap; gap:0.75rem; margin:1rem 0;">
+        <div class="form-group" style="flex:1 1 9rem; margin:0;">
+          <label for="wsCount">Problems</label>
+          <select id="wsCount"><option value="5">5</option><option value="10" selected>10</option><option value="15">15</option><option value="20">20</option></select>
+        </div>
+        <div class="form-group" style="flex:2 1 14rem; margin:0;">
+          <label for="wsMode">Types</label>
+          <select id="wsMode"><option value="mixed">Mixed — all eight types</option><option value="same">Same as the problem type above</option></select>
+        </div>
+      </div>
+      <button type="button" class="btn-primary" onclick="buildWorksheet()" style="width:100%;">Build Worksheet</button>
+      <div id="wsOut" style="display:none; margin-top:1.5rem;">
+        <div class="ws-actions">
+          <button type="button" class="btn-primary" data-ws-print="#ws-sheet">Print worksheet</button>
+          <button type="button" class="btn-secondary" data-ws-print="#ws-key">Print answer key</button>
+        </div>
+        <div class="ws-sheet" id="ws-sheet"></div>
+        <details class="ws-key" id="ws-key"></details>
       </div>
     </div>
 
@@ -201,7 +226,7 @@
       <p>Yes, completely free with no sign-up or limit. Generate as many problems as you need for classroom worksheets, homework help, or self-practice.</p>
 
       <h3>Can I use these problems for a classroom worksheet?</h3>
-      <p>Yes — generate several problems, note down the ones you want, and build your own worksheet. Each problem comes with a hidden step-by-step solution you can reveal to build an answer key.</p>
+      <p>Yes. Use Make a Printable Worksheet below the generator: pick 5 to 20 problems, either one type or all eight mixed, and print the worksheet and the answer key separately. The key shows the working for every problem, and each click builds a new set, so you can give every class a different version.</p>
 
       <h3>What math skills do these problems practice?</h3>
       <p>Unit price problems practice division and comparing decimals. Cost per serving problems practice unit conversion (pounds to ounces) combined with division and multiplication. Recipe scaling problems practice multiplying fractions and mixed numbers by a scaling factor. Yield problems add percentages on top of unit conversion, and food cost problems practice dividing in the right direction.</p>
@@ -265,8 +290,7 @@ function toFractionString(n) {
   return best.str;
 }
 
-function generateProblem() {
-  const type = document.getElementById('problemType').value;
+function buildProblem(type) {
   let problemText = '', answerText = '';
 
   if (type === 'unitprice') {
@@ -358,11 +382,35 @@ function generateProblem() {
     answerText = `${frac.s} × ${factor.s.match(/×[^)]+/)[0].replace('×','')} = <strong>${resultStr} ${result === 1 ? 'cup' : 'cups'}</strong> of ${ingredient}${result < 0.2 ? ` (that's about ${(result*16).toFixed(1)} tablespoons — easier to measure that way)` : ''}.`;
   }
 
-  document.getElementById('problemText').innerHTML = problemText;
-  document.getElementById('answerText').innerHTML = answerText;
+  return [problemText, answerText];
+}
+
+function generateProblem() {
+  const pa = buildProblem(document.getElementById('problemType').value);
+  document.getElementById('problemText').innerHTML = pa[0];
+  document.getElementById('answerText').innerHTML = pa[1];
   document.getElementById('answerText').style.display = 'none';
   document.getElementById('answerToggle').textContent = 'Show Step-by-Step Answer';
   document.getElementById('problemBox').style.display = 'block';
+}
+
+const WS_TYPES = ['unitprice','costperserving','scaling','yield','foodcost','inventory','bakers','restaurantbill'];
+function buildWorksheet() {
+  const n = parseInt(document.getElementById('wsCount').value, 10);
+  const mode = document.getElementById('wsMode').value;
+  const sel = document.getElementById('problemType');
+  const label = mode === 'mixed' ? 'Mixed Kitchen Math' : sel.options[sel.selectedIndex].text;
+  let qs = '', ks = '';
+  for (let i = 0; i < n; i++) {
+    const type = mode === 'mixed' ? WS_TYPES[i % WS_TYPES.length] : sel.value;
+    const pa = buildProblem(type);
+    qs += '<li>' + pa[0] + '</li>';
+    ks += '<li>' + pa[1] + '</li>';
+  }
+  const src = '<p class="ws-src">CookingCalcs · cookingcalcs.com/tools/kitchen-math-generator.html</p>';
+  document.getElementById('ws-sheet').innerHTML = '<h3>' + label + ' — Worksheet</h3><div class="ws-fields"><span>Name:</span><span>Date:</span><span>Score: &nbsp;&nbsp;&nbsp;/ ' + n + '</span></div><p style="font-size:0.9rem; color:var(--mid); margin-bottom:1rem;">Show your working. Round money to the nearest cent.</p><ol>' + qs + '</ol>' + src;
+  document.getElementById('ws-key').innerHTML = '<summary>Show answer key</summary><h3>' + label + ' — Answer Key</h3><ol>' + ks + '</ol>' + src;
+  document.getElementById('wsOut').style.display = 'block';
 }
 
 function toggleAnswer() {

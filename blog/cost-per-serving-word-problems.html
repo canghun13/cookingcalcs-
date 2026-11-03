@@ -9,6 +9,7 @@
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="/assets/css/style.css">
   <script src="/assets/js/nav.js" defer></script>
+  <script src="/assets/js/worksheet.js" defer></script>
 
 <script type="application/ld+json">
 {
@@ -19,7 +20,7 @@
   "author": { "@type": "Organization", "name": "CookingCalcs" },
   "publisher": { "@type": "Organization", "name": "CookingCalcs", "url": "https://cookingcalcs.com" },
   "datePublished": "2026-10-05",
-  "dateModified": "2026-10-05",
+  "dateModified": "2026-11-03",
   "mainEntityOfPage": "https://cookingcalcs.com/blog/cost-per-serving-word-problems.html"
 }
 </script>
@@ -126,7 +127,7 @@
   <div class="tool-page">
     <span class="blog-card-tag">Kitchen Math</span>
     <h1>Cost Per Serving Word Problems (With Step-by-Step Answers)</h1>
-    <div class="blog-meta">October 2026 · 8 min read</div>
+    <div class="blog-meta">October 2026 · 12 min read</div>
     <div class="blog-content">
       <p style="font-size:1.05rem; padding:1rem 1.2rem; background:var(--tomato-light); border-radius:var(--radius-lg);"><strong>The one move behind almost every problem here:</strong> turn ounces into a fraction of a pound by dividing by 16, then multiply by the price per pound. Beef at $6 a pound with a 6-ounce serving is 6 ÷ 16 = 0.375 lb, and 0.375 × $6.00 = <strong>$2.25</strong>.</p>
 
@@ -212,6 +213,46 @@
       <p><strong>Rounding in the middle.</strong> Rounding $3.49 ÷ 16 to $0.22 per ounce and multiplying by 5 gives $1.10; the exact answer is $1.09. Keep every digit until the last step.</p>
       <p><strong>Forgetting the yield.</strong> If a problem gives a yield percentage, it is there to be used, and it always makes the cost go up.</p>
       <p><strong>Dividing the wrong way for food cost.</strong> Food cost percentage is cost ÷ price, never price ÷ cost.</p>
+
+      <h2 id="worksheet">Printable Worksheet: 8 Cost Per Serving Problems With Answer Key</h2>
+      <p>These 8 problems are new — none of them repeat the worked examples above, so they work as homework, a quiz or a warm-up. Print the worksheet and the answer key separately; the key shows the working for every answer, not just the final number.</p>
+      <div class="ws-wrap">
+        <div class="ws-actions">
+          <button type="button" class="btn-primary" data-ws-print="#ws-sheet">Print worksheet</button>
+          <button type="button" class="btn-secondary" data-ws-print="#ws-key">Print answer key</button>
+        </div>
+        <div class="ws-sheet" id="ws-sheet">
+          <h3>Cost Per Serving Word Problems — Worksheet</h3>
+          <div class="ws-fields"><span>Name:</span><span>Date:</span><span>Score: &nbsp;&nbsp;&nbsp;/ 8</span></div>
+          <p style="font-size:0.9rem; color:var(--mid); margin-bottom:1rem;">There are 16 ounces in a pound. Round money to the nearest cent. Show your working.</p>
+          <ol>
+          <li>Chicken breast costs $3.50 per pound. Each serving is 5 ounces. What is the cost per serving?</li>
+          <li>A 2.5 lb package of ground beef costs $11.25. Each burger uses 4 ounces. How many burgers does the package make, and what does each cost?</li>
+          <li>Salmon costs $14.00 per pound. What is the cost of a 6-ounce portion?</li>
+          <li>A 4 lb whole chicken costs $1.99 per pound. Only 65% of the weight is usable meat. What is the cost of a 4-ounce serving of meat?</li>
+          <li>The ingredients for a pot of chili cost $18.60, and it makes 12 servings. What is the cost per serving?</li>
+          <li>A 16-ounce box of pasta costs $1.80. A serving is 2 ounces dry. How many servings are in the box, and what does each cost?</li>
+          <li>A 2 lb block of cheddar costs $9.60. Each sandwich uses 1.5 ounces. How many full sandwiches can you make, and what is the cheese cost per sandwich?</li>
+          <li>A recipe costs $24.00 to make and yields 8 servings. Each serving sells for $12.00. What is the cost per serving and the food cost percentage?</li>
+          </ol>
+          <p class="ws-src">CookingCalcs · cookingcalcs.com/blog/cost-per-serving-word-problems.html</p>
+        </div>
+        <details class="ws-key" id="ws-key">
+          <summary>Show answer key</summary>
+          <h3>Cost Per Serving Word Problems — Answer Key</h3>
+          <ol>
+          <li><strong>$1.09.</strong> $3.50 ÷ 16 = $0.21875 per ounce. × 5 = $1.09.</li>
+          <li><strong>10 burgers, $1.13 each.</strong> 2.5 × 16 = 40 oz. 40 ÷ 4 = 10 burgers. $11.25 ÷ 10 = $1.125, rounded to $1.13.</li>
+          <li><strong>$5.25.</strong> $14.00 ÷ 16 = $0.875 per ounce. × 6 = $5.25.</li>
+          <li><strong>$0.77.</strong> Cost = 4 × $1.99 = $7.96. Usable meat = 4 × 0.65 = 2.6 lb = 41.6 oz. $7.96 ÷ 41.6 = $0.1913 per oz. × 4 = $0.77.</li>
+          <li><strong>$1.55.</strong> $18.60 ÷ 12 = $1.55.</li>
+          <li><strong>8 servings, $0.23 each.</strong> 16 ÷ 2 = 8 servings. $1.80 ÷ 8 = $0.225, rounded to $0.23.</li>
+          <li><strong>21 sandwiches, $0.45 each.</strong> 2 × 16 = 32 oz. 32 ÷ 1.5 = 21.3, so 21 full sandwiches. $9.60 ÷ 32 = $0.30 per oz. × 1.5 = $0.45.</li>
+          <li><strong>$3.00 per serving, 25%.</strong> $24.00 ÷ 8 = $3.00. $3.00 ÷ $12.00 = 0.25 = 25%.</li>
+          </ol>
+          <p class="ws-src">CookingCalcs · cookingcalcs.com/blog/cost-per-serving-word-problems.html</p>
+        </details>
+      </div>
 
       <h2>More Practice</h2>
       <p>The <a href="/tools/kitchen-math-generator.html">kitchen math problem generator</a> makes fresh problems of each type here, including yield-adjusted cost and food cost percentage, with the working shown when you ask for it. The <a href="/tools/cost-per-serving.html">cost per serving calculator</a> checks any answer you get, and <a href="/blog/culinary-math-formulas.html">culinary math formulas</a> has every formula on one page.</p>

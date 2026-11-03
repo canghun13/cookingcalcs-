@@ -9,6 +9,7 @@
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="/assets/css/style.css">
   <script src="/assets/js/nav.js" defer></script>
+  <script src="/assets/js/worksheet.js" defer></script>
 
 <script type="application/ld+json">
 {
@@ -19,7 +20,7 @@
   "author": { "@type": "Organization", "name": "CookingCalcs" },
   "publisher": { "@type": "Organization", "name": "CookingCalcs", "url": "https://cookingcalcs.com" },
   "datePublished": "2026-10-19",
-  "dateModified": "2026-10-19",
+  "dateModified": "2026-11-03",
   "mainEntityOfPage": "https://cookingcalcs.com/blog/bakers-percentage-word-problems.html"
 }
 </script>
@@ -126,7 +127,7 @@
   <div class="tool-page">
     <span class="blog-card-tag">Kitchen Math</span>
     <h1>Baker's Percentage Word Problems With Answers</h1>
-    <div class="blog-meta">October 2026 · 11 min read</div>
+    <div class="blog-meta">October 2026 · 15 min read</div>
     <div class="blog-content">
       <p style="font-size:1.05rem; padding:1rem 1.2rem; background:var(--tomato-light); border-radius:var(--radius-lg);"><strong>Ingredient % = ingredient weight ÷ flour weight × 100.</strong> Flour is always 100%, so the formula adds up to more than 100. To go backward from a dough weight, divide by the sum of the percentages: 1,800 g of dough at 171% needs 1,800 ÷ 1.71 = 1,053 g of flour.</p>
 
@@ -216,6 +217,46 @@
       <p><strong>Forgetting the flour in a starter or poolish.</strong> Both the flour and the water inside a preferment count toward the totals.</p>
       <p><strong>Multiplying the dough weight by an ingredient's percentage.</strong> Find the flour first, then multiply the flour by each percentage.</p>
       <p><strong>Rounding small amounts to whole grams.</strong> In a 400 g flour batch, 1.5% yeast is 6 g; at 0.2% it would be 0.8 g, and rounding that to 1 g is a 25% error.</p>
+
+      <h2 id="worksheet">Printable Worksheet: 8 Baker's Percentage Problems With Answer Key</h2>
+      <p>These 8 problems are new — none of them repeat the worked examples above, so they work as homework, a quiz or a warm-up. Print the worksheet and the answer key separately; the key shows the working for every answer, not just the final number.</p>
+      <div class="ws-wrap">
+        <div class="ws-actions">
+          <button type="button" class="btn-primary" data-ws-print="#ws-sheet">Print worksheet</button>
+          <button type="button" class="btn-secondary" data-ws-print="#ws-key">Print answer key</button>
+        </div>
+        <div class="ws-sheet" id="ws-sheet">
+          <h3>Baker's Percentage Word Problems — Worksheet</h3>
+          <div class="ws-fields"><span>Name:</span><span>Date:</span><span>Score: &nbsp;&nbsp;&nbsp;/ 8</span></div>
+          <p style="font-size:0.9rem; color:var(--mid); margin-bottom:1rem;">Flour is always 100%. Round grams to one decimal place and percentages to one decimal place. Show your working.</p>
+          <ol>
+          <li>A dough uses 1,000 g flour, 680 g water, 20 g salt and 10 g yeast. Find the baker's percentage of the water, salt and yeast.</li>
+          <li>A formula is 100% flour, 65% water, 2% salt and 1.5% yeast. You have 750 g of flour. How many grams of water, salt and yeast do you need?</li>
+          <li>A formula is 100% flour, 70% water, 2% salt and 1% yeast. You want 1,384 g of dough. How much flour and water do you need?</li>
+          <li>A dough uses 900 g bread flour, 100 g whole wheat flour and 750 g water. What is the hydration, and what percentage is the whole wheat flour?</li>
+          <li>A poolish of 200 g flour and 200 g water is added to a final dough of 800 g flour and 440 g water. What is the overall hydration?</li>
+          <li>A soft roll dough uses 500 g flour and 300 g whole milk. Milk is about 88% water. What is the milk's baker's percentage, and what is the true hydration?</li>
+          <li>You need 6 loaves of 900 g each. The formula is 100% flour, 66% water, 10% sugar, 2% salt and 2% yeast. How much flour and water do you need?</li>
+          <li>A baker adds 30 g of salt to 1,250 g of flour, but the formula calls for 2% salt. What percentage was actually used, and how much salt should have gone in?</li>
+          </ol>
+          <p class="ws-src">CookingCalcs · cookingcalcs.com/blog/bakers-percentage-word-problems.html</p>
+        </div>
+        <details class="ws-key" id="ws-key">
+          <summary>Show answer key</summary>
+          <h3>Baker's Percentage Word Problems — Answer Key</h3>
+          <ol>
+          <li><strong>Water 68%, salt 2%, yeast 1%.</strong> 680 ÷ 1,000 × 100 = 68%; 20 ÷ 1,000 × 100 = 2%; 10 ÷ 1,000 × 100 = 1%.</li>
+          <li><strong>487.5 g water, 15 g salt, 11.3 g yeast.</strong> 750 × 0.65 = 487.5 g; 750 × 0.02 = 15 g; 750 × 0.015 = 11.25 g, about 11.3 g.</li>
+          <li><strong>800 g flour, 560 g water.</strong> Total percentage = 173%. Flour = 1,384 ÷ 1.73 = 800 g. Water = 800 × 0.70 = 560 g.</li>
+          <li><strong>Hydration 75%, whole wheat 10%.</strong> Total flour = 1,000 g. 750 ÷ 1,000 = 75%. 100 ÷ 1,000 = 10%.</li>
+          <li><strong>64%.</strong> Total flour = 200 + 800 = 1,000 g. Total water = 200 + 440 = 640 g. 640 ÷ 1,000 = 64%.</li>
+          <li><strong>Milk 60%, true hydration 52.8%.</strong> 300 ÷ 500 = 60%. Water in milk = 300 × 0.88 = 264 g. 264 ÷ 500 = 52.8%.</li>
+          <li><strong>3,000 g flour, 1,980 g water.</strong> Total dough = 6 × 900 = 5,400 g. Total percentage = 180%. Flour = 5,400 ÷ 1.80 = 3,000 g. Water = 3,000 × 0.66 = 1,980 g.</li>
+          <li><strong>2.4% used; 25 g was correct.</strong> 30 ÷ 1,250 = 2.4%. Correct amount = 1,250 × 0.02 = 25 g, so 5 g too much.</li>
+          </ol>
+          <p class="ws-src">CookingCalcs · cookingcalcs.com/blog/bakers-percentage-word-problems.html</p>
+        </details>
+      </div>
 
       <h2>More Practice</h2>
       <p>The <a href="/guides/complete-culinary-math-guide.html">complete culinary math guide</a> collects the other problem types that sit alongside baker's math — <a href="/blog/recipe-conversion-factor-word-problems.html">recipe conversion factors</a>, <a href="/blog/cost-per-serving-word-problems.html">cost per serving</a>, <a href="/blog/food-cost-percentage-word-problems.html">food cost percentage</a> and <a href="/tools/yield-percentage-calculator.html">yield percentage</a>. The <a href="/tools/kitchen-math-generator.html">kitchen math problem generator</a> makes fresh practice problems with the working shown.</p>

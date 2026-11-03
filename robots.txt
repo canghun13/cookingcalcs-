@@ -1,4 +1,9 @@
 User-agent: *
 Allow: /
+Disallow: /handover.md
+Disallow: /README.md
+Disallow: /build-static.js
+Disallow: /notify-indexnow.js
+Disallow: /.github/
 
 Sitemap: https://cookingcalcs.com/sitemap.xml

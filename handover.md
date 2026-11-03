@@ -266,7 +266,7 @@ echo "nav.js GUIDES: $(sed -n '/const GUIDES/,/^];/p' assets/js/nav.js | grep -c
   - 남은 8개 디렉터리 배지 전부 `rel="nofollow noopener noreferrer"` (구글 지침: 배지·상호링크는 nofollow).
   - robots.txt: `/handover.md`, `/README.md`, `/build-static.js`, `/notify-indexnow.js`, `/.github/` Disallow
     (`.nojekyll`이라 handover.md가 cookingcalcs.com/handover.md로 그대로 공개 서빙 중이었음 — 전략 문서가 심사자에게 보일 수 있음).
-- **사용자 확인 필요 1건**: boostdomainrating 등에서 **유료 백링크 패키지를 산 적 있는지**. 샀으면 그 링크 도메인 disavow 대상.
+- ✅ **사용자 확인(11-03): 유료 백링크 구매 이력 없음.** disavow 불필요. 이 질문 다시 하지 말 것.
 - mywellnesscalc 상호링크 2개(meal-cost, weekly-meal-prep)는 주제 맞는 본문 링크라 유지(과도한 교환 아님).
 - 🚨 다음 세션: 이 진단 이후에도 **발행 속도 늦추자는 제안 금지**(전략 불변). 구글용 레버는 ① 다음 core 대비 품질 유지 ② 자연 백링크
   (워드프라블럼 클러스터 = 교사·조리학교가 링크할 자산) 쪽이다. 디렉터리/런치 사이트 배지 추가는 더 하지 말 것.

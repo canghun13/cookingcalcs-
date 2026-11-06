@@ -1,4 +1,4 @@
-# CookingCalcs 현황 및 인수인계 (2026-11-03 기준)
+# CookingCalcs 현황 및 인수인계 (2026-11-06 기준)
 
 이 문서는 2026-07-24 버전 인수인계 문서를 기반으로, 이후 진행된 모든 작업 내역을 반영해 갱신한 버전입니다. 새 세션에서는 이 문서만 보고 바로 작업 이어가면 됩니다.
 
@@ -246,6 +246,22 @@ echo "nav.js GUIDES: $(sed -n '/const GUIDES/,/^];/p' assets/js/nav.js | grep -c
   잡히면 **"툴은 있는데 질문형 페이지가 없는 쿼리"를 찾아 채우는 패턴**이 검증된다.
   현재 후보: `tablespoon-to-teaspoon-guide` 182노출 클릭0 7.02위,
   `how-many-grams-in-a-cup-of-oats` 207노출 클릭0 5.18위.
+
+### 2026-11-06 (43차): 신규 3건 — 요리수학 워드프라블럼 확장 (yield / kitchen ratio / labor cost)
+
+> 사용자 요청: "색인이 좀 안되더라도 새페이지 남은세션으로 조금 해볼까?" → 구글 상위권 유일 레인(요리수학 문장형)으로만 발행.
+- **경쟁 확인(웹서치)**: ① yield percent/AP-EP 문제 SERP = OER 교과서(openwa pressbooks)·CIA PDF·wyzant·scribd → 채택.
+  ② kitchen ratio 문제 = OER·PDF 스팸팜·TES·education.com 워크시트 → 채택. ③ labor cost % practice problems = cliffsnotes·askfilo·wordwall·강의계획서 → 채택.
+  ④ par stock 문제 = Toast 등 SaaS 블로그만 → 보류. ⑤ beverage/pour cost = bevspot·backbar 등 벤더 → 보류(다음 후보, 바 수학 문장형으로 재검토 가능).
+- **중복 확인**: yield-percentage-calculator(툴, 문제 없음)·how-much-to-buy-for-a-recipe(가정용 서술)와 쿼리 다름. ratio·labor 페이지는 사이트에 없음.
+- 발행: `blog/yield-percentage-word-problems.html`, `blog/kitchen-ratio-word-problems.html`, `blog/labor-cost-percentage-word-problems.html`
+  — 각 6레벨 예제 + Quick Reference(`ref-table wrap`로 모바일 줄바꿈) + Common Mistakes + **8문제 인쇄 워크시트/답안지** + FAQ 4. 수치 전부 Python 검산.
+  - yield 수치는 사이트 yield 툴 표와 동일값 사용(broccoli 61%, butternut 66%, green beans 88%, 당근 82%, 파인애플 38% 등). 공식은 OER Culinary Math(openwa) 기준.
+  - ratio: 비네그레트 3:1, 미르포아 2:1:1, 파이도우 3-2-1, 파운드케이크 1:1:1:1, 쌀 1:2, 시럽(설탕 1컵 200g vs 물 237g로 무게비≠부피비).
+  - labor: 업계 기준 Toast(평균 30%, 25~35%, QSR 20~25%, 파인다이닝 35~45%, prime ≈60%). 연방 FLSA 40시간 초과 1.5배.
+- 연결: nav.js BLOGS +3(date 11-06), sitemap +3(**146**), llms.txt +3, culinary-math 가이드(Practice Problems 문단·목록·워크시트 문단),
+  브리지: cost-per-serving→yield, food-cost→labor, restaurant→labor·food-cost, bakers→ratio, yield 툴·how-much-to-buy→yield, 생성기 Related +3.
+- 카운트: tools 36 / **blogs 87** / guides 16 / sitemap 146 (+스텁 9). build-static 실행 완료. 전수 검증 이슈 0, Playwright 3페이지 모바일/데스크톱 가로넘침 0.
 
 ### 2026-11-03 (42차-2): 워드프라블럼 8페이지 + 문제생성기에 인쇄용 워크시트 추가 (구글용 자연 백링크 자산)
 

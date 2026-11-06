@@ -191,6 +191,9 @@ const BLOGS = [
   { name: "Duck Eggs Instead of Chicken Eggs: How Many to Use", url: "/blog/duck-eggs-in-baking.html", desc: "A 1–12 chart for swapping duck, quail and goose eggs by USDA weight, when the 2-for-3 rule is close enough, and how duck eggs bake.", date: "2026-10-19" },
   { name: "How Long to Cook a Turkey", url: "/blog/how-long-to-cook-a-turkey.html", desc: "Whole turkey roasting times by weight at 325°F, stuffed and unstuffed, plus kilogram times, convection, spatchcocked, thawing and resting.", date: "2026-10-26" },
   { name: "Restaurant Math Word Problems", url: "/blog/restaurant-math-word-problems.html", desc: "Adding the bill, sales tax, tips, splitting evenly or by what each person ordered, coupons, combo deals and catering per person — worked answers.", date: "2026-11-02" },
+  { name: "Yield Percentage Word Problems", url: "/blog/yield-percentage-word-problems.html", desc: "Worked AP, EP and edible portion cost problems with a printable worksheet.", date: "2026-11-06" },
+  { name: "Kitchen Ratio Word Problems", url: "/blog/kitchen-ratio-word-problems.html", desc: "Recipe ratio problems — vinaigrette, mirepoix, pie dough — with a printable worksheet.", date: "2026-11-06" },
+  { name: "Labor Cost Percentage Word Problems", url: "/blog/labor-cost-percentage-word-problems.html", desc: "Restaurant labor cost %, overtime and prime cost problems with a printable worksheet.", date: "2026-11-06" },
 ];
 
 // ── 가이드 목록 (Tools/Blog와 별개 — 여러 툴/블로그를 묶는 종합 허브 페이지) ──

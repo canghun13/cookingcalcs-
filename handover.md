@@ -1,4 +1,4 @@
-# CookingCalcs 현황 및 인수인계 (2026-11-06 기준)
+# CookingCalcs 현황 및 인수인계 (2026-11-09 기준)
 
 이 문서는 2026-07-24 버전 인수인계 문서를 기반으로, 이후 진행된 모든 작업 내역을 반영해 갱신한 버전입니다. 새 세션에서는 이 문서만 보고 바로 작업 이어가면 됩니다.
 
@@ -12,7 +12,7 @@
    만든 것이므로 **더 이상 자동 기각 근거로 쓰지 말 것** — "우리가 더 정확하고 구조화된 답을 낼 수 있는가"로 판정할 것.
    자세한 내용은 3번 섹션 `2026-08-03 (15차)`의 "★ 전략 재정렬" 항목을 볼 것.
 0-2. 🚨 **기본 전략: 공격적 확장(신규 클러스터 발행). 이건 바뀌지 않는다**
-   - **Bing이 주력 채널이다.** 11-02 기준 Bing 노출 **77,194**·클릭 **786**·CTR 1.02%·평균 약 6위 (10-26 68,953/688) /
+   - **Bing이 주력 채널이다.** 11-09 기준 Bing 노출 **85,788**·클릭 **856**·CTR 1.00% (11-02 77,194/786, 10-26 68,953/688) /
      구글 3개월 노출 10,859·클릭 **5**·평균 50~90위. 구글은 완전 정체이고 Bing만 매주 성장 중.
    - 🚨 **구글에서 우리가 상위권(10위 이내)에 드는 주제는 "요리 수학 문장형 문제" 하나뿐이다(32차 실측).**
      검색어 1,000개 중 10위 이내는 `you purchase beef at $6 per pound...` 류 4개(노출 54·40·14·3, 순위 6.4~9.7)뿐이고
@@ -246,6 +246,28 @@ echo "nav.js GUIDES: $(sed -n '/const GUIDES/,/^];/p' assets/js/nav.js | grep -c
   잡히면 **"툴은 있는데 질문형 페이지가 없는 쿼리"를 찾아 채우는 패턴**이 검증된다.
   현재 후보: `tablespoon-to-teaspoon-guide` 182노출 클릭0 7.02위,
   `how-many-grams-in-a-cup-of-oats` 207노출 클릭0 5.18위.
+
+### 2026-11-09 (44차): 주간 — 신규 2건(계란 흰자·노른자 by size / 메뉴 가격 책정 워드프라블럼) + 계란 컵 페이지 수치 정정
+
+> 데이터: GSC Performance/Coverage 11-09(Coverage 차트는 10-23까지), Bing PageTraffic+Keyword 11-09, GA4 28일(10-12~11-08).
+> Coverage zip: 무접미사=**발견됨-미색인(61)**, `_1`=**크롤링됨-미색인(1)** — 변화 없음. 구글 3개월 노출 3,670·클릭 2(홈 1, raw-to-cooked 1). 최근 14일 375 vs 직전 14일 369 — 정체.
+> Bing 누적 85,788/856(+8,594/+70). 상승 상위: butter-converter, quart-pint-gallon, can-size, tablespoon guide(클릭 2 — 한줄답), liquid, egg-weight, egg-substitute(+17클릭).
+> GA4: 활성 7일 454, 신규 1,844(Direct 1,027 / Organic 803), 국가 US 772·SG 469·CN 331(봇 의심 지속, SG+CN 47%). 총수익 0.
+- **수익화 판단**: Bing 클릭의 중심은 계란 사이즈 치환(how-to-substitute-egg-sizes 242클릭, egg-weight 89, egg-converter 71). 키워드에 **흰자/노른자 단독 치환·g·ml** 질의가
+  ~45개(“6 large egg whites only jumbo”, “how many eggs for 50g egg white”, “4 egg whites in ml”, “120 g yolks to number”, “2 XL eggs + 1 XL yolk only large”)인데 전용 페이지 없음 → 신규.
+  SERP: getcracking(캐나다 계란협회)·ATK·사이트맵 스팸팜(quiksilver/artplaceamerica/ntro/donutwhole) 위주, 전용 계산기 소수 → 진입 가능.
+- 신규 1: `blog/egg-whites-and-yolks-by-size.html` — 크기별 흰자/노른자 g·ml·tbsp 표, 1~12개 치환표, 계산기(개수→g/ml/tbsp+타 사이즈 개수 / g→사이즈별 개수),
+  "2 eggs + 1 yolk" 사이즈 바꾸기 예제, 컵당 개수, 정확도 중요 레시피, 보관(MN 보건부: 냉장 2~4일·냉동 12개월 / Egg Farmers of Canada: 노른자 ¼컵당 소금 ⅛tsp or 설탕 1½tsp, 해동 흰자 2tbsp=large 1개).
+  모델은 egg-weight-converter와 동일(USDA 껍질포함 43/50/57/64/71g × 0.88 × 흰자 0.66/노른자 0.34 → large 흰자 33g·노른자 17g = USDA FDC 값).
+- 🚨 정정: `blog/how-many-eggs-in-a-cup.html` 흰자·노른자 표가 위 모델·USDA와 불일치였음(large 흰자 37ml·컵당 6~7 / 본문엔 8, 노른자 15ml·12개=180ml로 컵이 안 됨).
+  → large 흰자 32ml·컵당 7½, 노른자 17ml·컵당 14로 전 사이즈 재계산, 본문·FAQ 문장 동일화. 읽기시간 5→7.
+- 신규 2(구글 레인): `blog/menu-pricing-word-problems.html` — 식재료비% / 마크업 팩터 / 예산에서 팩터 도출 / 공헌이익 가격 / 공헌이익 비교(메뉴엔지니어링) / prime cost·뷔페 플레이트코스트 + 8문제 워크시트.
+  SERP: PSU pressbooks Ch.8·opentextbc·quizalize·knowt·mheducation 퀴즈·transtutors → 채택 패턴. 공식은 PSU HMD329 Ch.8 기준.
+  재고회전율(inventory turnover) 문제는 SaaS 벤더 블로그 일색 → 보류.
+- 보류/기각: pressure-cooker "conversion chart" Bing 47~63위는 헤드텀 경쟁(페이지에 이미 전체 표 있음) → 손대지 않음. meatballs·fresh herbs 등 한줄답 쿼리 → 법칙대로 스킵.
+- 연결: nav.js +2, sitemap +2(**148**), llms.txt +2, culinary-math 가이드(목록·Practice·워크시트 문단), food-cost·labor WP·생성기 → menu pricing,
+  egg 가이드·egg-weight·egg-converter·substitute-egg-sizes·eggs-in-a-cup → 흰자/노른자 페이지. build-static 실행. 전수 검증 0, Playwright 가로넘침 0·계산기 동작 확인.
+- 카운트: tools 36 / **blogs 89** / guides 16 / sitemap 148 (+스텁 9).
 
 ### 2026-11-06 (43차): 신규 3건 — 요리수학 워드프라블럼 확장 (yield / kitchen ratio / labor cost)
 

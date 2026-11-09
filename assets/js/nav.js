@@ -194,6 +194,8 @@ const BLOGS = [
   { name: "Yield Percentage Word Problems", url: "/blog/yield-percentage-word-problems.html", desc: "Worked AP, EP and edible portion cost problems with a printable worksheet.", date: "2026-11-06" },
   { name: "Kitchen Ratio Word Problems", url: "/blog/kitchen-ratio-word-problems.html", desc: "Recipe ratio problems — vinaigrette, mirepoix, pie dough — with a printable worksheet.", date: "2026-11-06" },
   { name: "Labor Cost Percentage Word Problems", url: "/blog/labor-cost-percentage-word-problems.html", desc: "Restaurant labor cost %, overtime and prime cost problems with a printable worksheet.", date: "2026-11-06" },
+  { name: "Egg Whites and Yolks by Size", url: "/blog/egg-whites-and-yolks-by-size.html", desc: "Grams, ml and tablespoons of white and yolk for every egg size, how many to swap, and storing leftovers.", date: "2026-11-09" },
+  { name: "Menu Pricing Word Problems", url: "/blog/menu-pricing-word-problems.html", desc: "Food cost %, markup factor, contribution margin and prime cost pricing, with a printable worksheet.", date: "2026-11-09" },
 ];
 
 // ── 가이드 목록 (Tools/Blog와 별개 — 여러 툴/블로그를 묶는 종합 허브 페이지) ──

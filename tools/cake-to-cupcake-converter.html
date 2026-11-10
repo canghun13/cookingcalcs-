@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cake to Cupcake Converter: Count, Bake Time, Frosting</title>
+  <meta name="description" content="How many cupcakes a cake recipe makes — standard, mini or jumbo — with bake times, how full to fill, frosting needed, and cupcakes back to a cake pan.">
+  <link rel="canonical" href="https://cookingcalcs.com/tools/cake-to-cupcake-converter.html">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script src="/assets/js/nav.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Cake to Cupcake Converter",
+  "url": "https://cookingcalcs.com/tools/cake-to-cupcake-converter.html",
+  "description": "Convert a cake recipe into standard, mini or jumbo cupcakes — count, bake time and frosting — or work out which cake pan a cupcake recipe fills.",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "provider": {
+    "@type": "Organization",
+    "name": "CookingCalcs",
+    "url": "https://cookingcalcs.com"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How many cupcakes does a 2-layer cake recipe make?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "About 24 standard cupcakes from a recipe for two 9-inch layers, filling each liner about two-thirds to three-quarters full. The same batter makes roughly 60–72 mini cupcakes or 12 jumbo cupcakes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long do you bake cupcakes from a cake recipe?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Keep the recipe's oven temperature and bake standard cupcakes about 18–22 minutes, mini cupcakes 9–12 minutes and jumbo cupcakes about 20–25 minutes. They are done at an internal temperature of 205–210°F or when a toothpick comes out clean."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many cupcakes does a 9x13 cake recipe make?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "About 24 to 30 standard cupcakes, depending on how full you fill the liners. 9×13 recipes vary more than layer cake recipes, so measure the batter if you need an exact count: each standard cupcake takes about ¼ cup."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which cakes don't work as cupcakes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pound cake bakes up dense and heavy, sponge cake turns out short and dry, angel food cake needs its ungreased tube pan to climb, and flourless chocolate cake lacks the structure to stand on its own."
+      }
+    }
+  ]
+}
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+<style>
+      .ref-table { width:100%; border-collapse:collapse; font-size:0.875rem; background:#fff; }
+      .ref-table th { background:var(--sand-dark); padding:0.7rem 0.9rem; text-align:left; font-weight:600; border:1px solid var(--border); }
+      .ref-table td { padding:0.7rem 0.9rem; border:1px solid var(--border); vertical-align:top; }
+      .ref-table tbody tr:nth-child(even) td { background:#fbfaf8; }
+      .c2c-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; }
+      .c2c-res { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:.75rem; margin-top:.25rem; }
+      .c2c-res .result-box { padding:1rem .5rem; }
+      .c2c-res .result-num { font-size:1.5rem; white-space:nowrap; }
+      .c2c-tabs { display:flex; gap:.5rem; margin-bottom:1rem; flex-wrap:wrap; }
+      .c2c-tabs button { flex:1 1 10rem; padding:.6rem 1rem; border-radius:100px; border:2px solid var(--tomato); background:#fff; color:var(--tomato-dark); font-weight:600; cursor:pointer; font-family:inherit; }
+      .c2c-tabs button.on { background:var(--tomato); color:#fff; }
+      .c2c-note { margin-top:1rem; padding:1rem; background:var(--sand-dark); border-radius:var(--radius); font-size:0.9rem; line-height:1.6; }
+      @media(max-width:640px){ .c2c-grid { grid-template-columns:1fr; } .c2c-res .result-num { font-size:1.05rem; white-space:normal; } }
+</style>
+</head>
+<body>
+<!-- CC:STATIC-CHROME:START (build-static.js 자동 생성 — 직접 수정하지 말 것) -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="logo">🍳 CookingCalcs</a>
+      <nav class="main-nav" id="mainNav">
+        <ul class="nav-list">
+          <li><a href="/" class="nav-link">Home</a></li>
+          <li><a href="/tools/" class="nav-link">Tools</a></li>
+          <li><a href="/blog/" class="nav-link">Blog</a></li>
+          <li><a href="/guides/" class="nav-link">Guides</a></li>
+          <li><a href="/about.html" class="nav-link">About</a></li>
+        </ul>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <nav class="mobile-nav" id="mobileNav">
+    <ul class="nav-list">
+      <li><a href="/" class="nav-link">Home</a></li>
+      <li class="nav-has-dropdown">
+        <button class="nav-link nav-btn" aria-expanded="false">Tools ▾</button>
+        <ul class="nav-dropdown">
+          <li><a href="/tools/" class="nav-dropdown-all">All 37 Tools →</a></li>
+          <li><a href="/tools/cups-to-grams.html">Cups to Grams</a></li><li><a href="/tools/oven-temp-converter.html">Oven Temperature Converter</a></li><li><a href="/tools/recipe-multiplier.html">Recipe Multiplier</a></li><li><a href="/tools/meat-temperature-guide.html">Meat Temperature Guide</a></li><li><a href="/tools/egg-converter.html">Egg Size Converter</a></li><li><a href="/tools/butter-converter.html">Butter Converter</a></li><li><a href="/tools/catering-pan-calculator.html">Catering Pan Calculator</a></li><li><a href="/tools/bakers-percentage-calculator.html">Baker's Percentage Calculator</a></li>
+        </ul>
+      </li>
+      <li class="nav-has-dropdown">
+        <button class="nav-link nav-btn" aria-expanded="false">Blog ▾</button>
+        <ul class="nav-dropdown">
+          <li><a href="/blog/" class="nav-dropdown-all">All 91 Posts →</a></li>
+          <li><a href="/blog/how-to-substitute-egg-sizes.html">How to Substitute Egg Sizes</a></li><li><a href="/blog/how-long-can-food-sit-out.html">How Long Can Food Sit Out?</a></li><li><a href="/blog/average-cost-of-a-home-cooked-meal.html">Average Cost of a Home-Cooked Meal</a></li><li><a href="/blog/how-long-to-cook-steak.html">How Long to Cook Steak</a></li><li><a href="/blog/culinary-math-formulas.html">Culinary Math Formulas</a></li>
+        </ul>
+      </li>
+      <li class="nav-has-dropdown">
+        <button class="nav-link nav-btn" aria-expanded="false">Guides ▾</button>
+        <ul class="nav-dropdown">
+          <li><a href="/guides/" class="nav-dropdown-all">All 16 Guides →</a></li>
+          <li><a href="/guides/complete-baking-conversion-guide.html">Baking Measurement & Conversion</a></li><li><a href="/guides/complete-meat-cooking-temperature-guide.html">Meat Cooking & Temperature</a></li><li><a href="/guides/complete-recipe-scaling-guide.html">Recipe Scaling & Serving</a></li><li><a href="/guides/complete-culinary-math-guide.html">Culinary Math</a></li><li><a href="/guides/complete-cooking-for-a-crowd-guide.html">Cooking for a Crowd</a></li>
+        </ul>
+      </li>
+      <li><a href="/about.html" class="nav-link">About</a></li>
+    </ul>
+  </nav>
+  <div class="nav-overlay" id="navOverlay"></div>
+<!-- CC:STATIC-CHROME:END -->
+<main>
+  <div class="tool-page">
+    <h1>Cake to Cupcake Converter</h1>
+    <p class="tool-desc">Pick the cake your recipe makes and the cupcake size you want: get how many cupcakes, how long to bake them and how much frosting to make. Or go the other way and find the cake pan a cupcake recipe will fill.</p>
+
+    <div class="tool-box">
+      <div class="c2c-tabs">
+        <button type="button" id="tabA" class="on" onclick="c2cMode('a')">Cake recipe → cupcakes</button>
+        <button type="button" id="tabB" onclick="c2cMode('b')">Cupcake recipe → cake</button>
+      </div>
+      <div id="modeA">
+        <div class="c2c-grid">
+          <div class="form-group">
+            <label for="cakeSel">The recipe makes</label>
+            <select id="cakeSel" onchange="c2cA()">
+              <option value="r9x2" selected>Two 9" round layers</option>
+              <option value="r8x2">Two 8" round layers</option>
+              <option value="r6x3">Three 6" round layers</option>
+              <option value="r9x1">One 9" round or 8" square</option>
+              <option value="rect">One 9×13" sheet cake</option>
+              <option value="bundt">One 10" Bundt (12-cup)</option>
+              <option value="box">One box of cake mix</option>
+              <option value="cups">I measured the batter (cups)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="sizeA">Cupcake size</label>
+            <select id="sizeA" onchange="c2cA()">
+              <option value="std" selected>Standard (2½" liners)</option>
+              <option value="mini">Mini</option>
+              <option value="jumbo">Jumbo</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group" id="cupsWrap" style="display:none;">
+          <label for="batterCups">Cups of batter</label>
+          <input type="number" id="batterCups" min="0" step="0.25" value="6" oninput="c2cA()">
+        </div>
+        <div class="c2c-res">
+          <div class="result-box"><div class="result-num" id="aCount"></div><div class="result-label">Cupcakes</div></div>
+          <div class="result-box"><div class="result-num" id="aTime"></div><div class="result-label">Bake at 350°F</div></div>
+          <div class="result-box"><div class="result-num" id="aFrost"></div><div class="result-label">Frosting (spread)</div></div>
+        </div>
+        <div class="c2c-note" id="aNote"></div>
+      </div>
+      <div id="modeB" style="display:none;">
+        <div class="c2c-grid">
+          <div class="form-group">
+            <label for="cupN">Cupcakes the recipe makes</label>
+            <input type="number" id="cupN" min="1" step="1" value="12" oninput="c2cB()">
+          </div>
+          <div class="form-group">
+            <label for="sizeB">Cupcake size</label>
+            <select id="sizeB" onchange="c2cB()">
+              <option value="std" selected>Standard</option>
+              <option value="mini">Mini</option>
+              <option value="jumbo">Jumbo</option>
+            </select>
+          </div>
+        </div>
+        <div class="c2c-res" style="grid-template-columns:repeat(2,minmax(0,1fr));">
+          <div class="result-box"><div class="result-num" id="bCups"></div><div class="result-label">Cups of batter</div></div>
+          <div class="result-box"><div class="result-num" id="bTime"></div><div class="result-label">Cake bake time</div></div>
+        </div>
+        <div class="c2c-note" id="bNote"></div>
+      </div>
+    </div>
+
+    <div class="blog-content" style="margin-top:2rem;">
+      <h2>How Many Cupcakes a Cake Recipe Makes</h2>
+      <p>A standard cupcake takes about ¼ cup of batter (3 to 4 tablespoons), filling the liner two-thirds to three-quarters full. A recipe for two 9-inch layers makes about 6 cups of batter, which is where the familiar "24 cupcakes" comes from. Mini cupcakes take about a third as much batter each, and jumbo cupcakes about twice as much.</p>
+      <table class="ref-table">
+        <thead><tr><th>Cake recipe</th><th>Standard</th><th>Mini</th><th>Jumbo</th><th>Original cake time at 350°F</th></tr></thead>
+        <tbody>
+          <tr><td>One 9" round or 8" square</td><td>12</td><td>30–36</td><td>6</td><td>25–30 min</td></tr>
+          <tr><td>Two 8" rounds</td><td>18–24</td><td>45–72</td><td>9–12</td><td>30–35 min</td></tr>
+          <tr><td>Two 9" rounds</td><td>24</td><td>60–72</td><td>12</td><td>25–30 min</td></tr>
+          <tr><td>Three 6" rounds</td><td>24</td><td>60–72</td><td>12</td><td>25–30 min</td></tr>
+          <tr><td>One 9×13" sheet</td><td>24–30</td><td>60–90</td><td>12–15</td><td>about 30 min</td></tr>
+          <tr><td>One 10" Bundt</td><td>24</td><td>60–72</td><td>12</td><td>50–60 min</td></tr>
+          <tr><td>One box of cake mix</td><td>24</td><td>60–72</td><td>12</td><td>see box</td></tr>
+        </tbody>
+      </table>
+      <p>Counts and cake times are drawn from King Arthur Baking's and Handle the Heat's conversion guides. Recipes differ, so if an exact number matters — a party order, a school event — measure the batter in cups and use the "I measured the batter" option above.</p>
+
+      <h2>Bake Time and Temperature</h2>
+      <p>Bake cupcakes at the same temperature the cake recipe uses, usually 350°F. Only the time changes:</p>
+      <ul>
+        <li><strong>Standard cupcakes:</strong> 18–22 minutes.</li>
+        <li><strong>Mini cupcakes:</strong> 9–12 minutes.</li>
+        <li><strong>Jumbo cupcakes:</strong> 20–25 minutes.</li>
+      </ul>
+      <p>Start checking at the low end. Cupcakes are done when a toothpick in the center comes out clean or with a few dry crumbs, or at an internal temperature of 205–210°F. For flatter tops that are easier to frost, bake at 325°F and add a few minutes; for taller domes, King Arthur suggests raising the oven 25°F.</p>
+
+      <h2>How Full to Fill the Liners</h2>
+      <p>Fill standard liners two-thirds to three-quarters full. A #16 portion scoop (¼ cup) gives one standard cupcake in a single scoop, which keeps them even so they finish baking together — see <a href="/blog/portion-scoop-sizes.html">portion scoop sizes</a> for the other numbers. Overfilled liners spill and bake into mushroom tops; underfilled ones stay below the rim and look sparse once frosted.</p>
+
+      <h2>How Much Frosting You Need</h2>
+      <p>King Arthur's figures for standard cupcakes are 2 to 2½ tablespoons each for a spread top and 3 to 4 tablespoons for a tall piped swirl. That makes 24 standard cupcakes need about 3½ cups of frosting spread on, or about 5 to 6 cups piped. A frosting recipe sized for a two-layer cake (about 3 to 4 cups) is enough for 24 cupcakes spread thinly but not piped; make one and a half to two batches for piping. Mini cupcakes take roughly a third as much each, and jumbo cupcakes about twice as much.</p>
+
+      <h2>Cakes That Don't Convert Well</h2>
+      <ul>
+        <li><strong>Pound cake:</strong> too dense; the cupcakes come out heavy.</li>
+        <li><strong>Sponge and chiffon cakes:</strong> short and dry in small portions unless brushed with syrup.</li>
+        <li><strong>Angel food cake:</strong> needs an ungreased tube pan to climb.</li>
+        <li><strong>Flourless chocolate cake:</strong> no flour structure to stand up on its own.</li>
+      </ul>
+      <p>Ordinary butter and oil cakes — yellow, white, chocolate, carrot, red velvet, box mixes — convert without changing the recipe at all.</p>
+
+      <h2>Going the Other Way: Cupcakes to a Cake</h2>
+      <p>Work out the batter first: 12 standard cupcakes is about 3 cups, which fills one 9-inch round or 8-inch square; 24 standard cupcakes is about 6 cups, enough for two 9-inch rounds, a 9×13 or a 10-inch Bundt. Use the cake's normal bake time from the table above at the same temperature. For any other pan, the <a href="/tools/pan-size-converter.html">baking pan size converter</a> works out the scaling factor from pan volumes.</p>
+      <p>Muffins and quick breads follow the same logic with different times — see <a href="/blog/quick-bread-to-muffins.html">banana bread to muffins</a> — and drop cookies can become a pan of bars: <a href="/blog/cookie-dough-into-bars.html">turning cookie dough into bars</a>.</p>
+
+      <h2>Frequently Asked Questions</h2>
+      <h3>How many cupcakes does a 2-layer cake recipe make?</h3>
+      <p>About 24 standard cupcakes from a recipe for two 9-inch layers, filling each liner about two-thirds to three-quarters full. The same batter makes roughly 60–72 mini cupcakes or 12 jumbo cupcakes.</p>
+      <h3>How long do you bake cupcakes from a cake recipe?</h3>
+      <p>Keep the recipe's oven temperature and bake standard cupcakes about 18–22 minutes, mini cupcakes 9–12 minutes and jumbo cupcakes about 20–25 minutes. They are done at an internal temperature of 205–210°F or when a toothpick comes out clean.</p>
+      <h3>How many cupcakes does a 9x13 cake recipe make?</h3>
+      <p>About 24 to 30 standard cupcakes, depending on how full you fill the liners. 9×13 recipes vary more than layer cake recipes, so measure the batter if you need an exact count: each standard cupcake takes about ¼ cup.</p>
+      <h3>Which cakes don't work as cupcakes?</h3>
+      <p>Pound cake bakes up dense and heavy, sponge cake turns out short and dry, angel food cake needs its ungreased tube pan to climb, and flourless chocolate cake lacks the structure to stand on its own.</p>
+    </div>
+    <div style="margin-top:3rem; padding:1.5rem; background:var(--tomato-light); border-radius:var(--radius-lg);">
+      <h3 style="font-family:'Playfair Display',serif; margin-bottom:0.75rem;">Related Tools &amp; Guides</h3>
+      <ul style="list-style:none; display:flex; flex-direction:column; gap:0.5rem;">
+        <li><a href="/tools/pan-size-converter.html" style="color:var(--tomato-dark); font-weight:500;">→ Baking Pan Size Converter</a></li>
+        <li><a href="/blog/quick-bread-to-muffins.html" style="color:var(--tomato-dark); font-weight:500;">→ Banana Bread to Muffins (and Back)</a></li>
+        <li><a href="/blog/cookie-dough-into-bars.html" style="color:var(--tomato-dark); font-weight:500;">→ How to Turn Cookie Dough Into Bars</a></li>
+        <li><a href="/blog/portion-scoop-sizes.html" style="color:var(--tomato-dark); font-weight:500;">→ Portion Scoop Sizes</a></li>
+        <li><a href="/guides/complete-baking-conversion-guide.html" style="color:var(--tomato-dark); font-weight:500;">→ The Complete Baking Measurement &amp; Conversion Guide</a></li>
+      </ul>
+    </div>
+  </div>
+</main>
+<script>
+// Standard-cupcake counts per recipe (King Arthur Baking; Handle the Heat). Batter: standard ¼ cup, mini ⅓ of that, jumbo 2×.
+var C2C = {
+  r9x2: { std: [24, 24], label: 'two 9" rounds', time: '25–30 min' },
+  r8x2: { std: [18, 24], label: 'two 8" rounds', time: '30–35 min' },
+  r6x3: { std: [24, 24], label: 'three 6" rounds', time: '25–30 min' },
+  r9x1: { std: [12, 12], label: 'one 9" round or 8" square', time: '25–30 min' },
+  rect: { std: [24, 30], label: 'one 9×13" sheet', time: 'about 30 min' },
+  bundt: { std: [24, 24], label: 'one 10" Bundt', time: '50–60 min' },
+  box: { std: [24, 24], label: 'one box of cake mix', time: 'see box' }
+};
+var SIZE = {
+  std: { mult: [1, 1], time: '18–22 min', frost: 2.25, piped: 3.5, name: 'standard', batter: 'about ¼ cup (3–4 tbsp)' },
+  mini: { mult: [2.5, 3], time: '9–12 min', frost: 0.75, piped: 1.25, name: 'mini', batter: 'about 1–1½ tbsp' },
+  jumbo: { mult: [0.5, 0.5], time: '20–25 min', frost: 4.5, piped: 7, name: 'jumbo', batter: 'about ½ cup' }
+};
+function c2cMode(m) {
+  document.getElementById('modeA').style.display = m === 'a' ? '' : 'none';
+  document.getElementById('modeB').style.display = m === 'b' ? '' : 'none';
+  document.getElementById('tabA').className = m === 'a' ? 'on' : '';
+  document.getElementById('tabB').className = m === 'b' ? 'on' : '';
+  if (m === 'a') c2cA(); else c2cB();
+}
+function cupsTxt(c) {
+  var q = Math.round(c * 4) / 4, w = Math.floor(q), f = q - w;
+  var fr = f === 0.25 ? '¼' : f === 0.5 ? '½' : f === 0.75 ? '¾' : '';
+  return (w ? w : (fr ? '' : '0')) + fr;
+}
+function c2cA() {
+  var key = document.getElementById('cakeSel').value, s = SIZE[document.getElementById('sizeA').value];
+  document.getElementById('cupsWrap').style.display = key === 'cups' ? '' : 'none';
+  var std, label;
+  if (key === 'cups') {
+    var c = parseFloat(document.getElementById('batterCups').value) || 0;
+    std = [c * 4, c * 4]; label = c + ' cups of batter';
+  } else { std = C2C[key].std; label = C2C[key].label; }
+  var lo = Math.round(std[0] * s.mult[0]), hi = Math.round(std[1] * s.mult[1]);
+  document.getElementById('aCount').textContent = lo === hi ? String(lo) : lo + '–' + hi;
+  document.getElementById('aTime').textContent = s.time;
+  var cupsLo = lo * s.frost / 16, cupsHi = hi * s.frost / 16;
+  document.getElementById('aFrost').textContent = cupsTxt(cupsLo) === cupsTxt(cupsHi) ? cupsTxt(cupsHi) + ' cups' : cupsTxt(cupsLo) + '–' + cupsTxt(cupsHi) + ' cups';
+  document.getElementById('aNote').innerHTML = 'Batter from ' + label + ' fills ' + (lo === hi ? lo : lo + ' to ' + hi) + ' ' + s.name + ' cupcakes at ' + s.batter + ' each (liners two-thirds to three-quarters full). Keep the recipe\'s oven temperature. For a tall piped swirl instead of a spread top, make about <strong>' + cupsTxt(hi * s.piped / 16) + ' cups</strong> of frosting.';
+}
+function c2cB() {
+  var n = parseFloat(document.getElementById('cupN').value) || 0, sz = document.getElementById('sizeB').value;
+  var perStd = sz === 'std' ? 1 : sz === 'mini' ? 1 / 3 : 2;
+  var eq = n * perStd, cups = eq / 4;
+  document.getElementById('bCups').textContent = cupsTxt(cups);
+  var pan, time;
+  if (eq <= 0) { pan = '—'; time = '—'; }
+  else if (eq <= 14) { pan = 'one 9" round or one 8" square pan'; time = '25–30 min'; }
+  else if (eq <= 21) { pan = 'two 8" round pans'; time = '30–35 min'; }
+  else if (eq <= 28) { pan = 'two 9" rounds, one 9×13" pan or one 10" Bundt (about 50–60 min in the Bundt)'; time = '25–30 min'; }
+  else { var k = (eq / 24); pan = 'about ' + k.toFixed(1) + '× the batter for two 9" rounds — split it across more pans or use the pan size converter'; time = 'by pan'; }
+  document.getElementById('bTime').textContent = time;
+  document.getElementById('bNote').innerHTML = n + ' ' + (sz === 'std' ? 'standard' : sz) + ' cupcakes is about <strong>' + cupsTxt(cups) + ' cups</strong> of batter, which suits ' + pan + '. Bake at the cupcake recipe\'s temperature, fill pans no more than about two-thirds full, and test with a toothpick from the start of the time range.';
+}
+c2cA();
+</script>
+<!-- CC:STATIC-CHROME:START (build-static.js 자동 생성 — 직접 수정하지 말 것) -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="/" class="logo">🍳 CookingCalcs</a>
+        <p>Calculators, charts and step-by-step guides for everyday cooking. Every formula is shown, with figures from USDA and published sources.</p>
+        <a class="footer-mail" href="mailto:contact@cookingcalcs.com">contact@cookingcalcs.com</a>
+      </div>
+      <nav class="footer-nav" aria-label="Footer">
+        <div class="footer-col">
+          <h4>Popular</h4>
+          <ul>
+            <li><a href="/tools/cups-to-grams.html">Cups to Grams</a></li><li><a href="/tools/oven-temp-converter.html">Oven Temperature Converter</a></li><li><a href="/tools/meat-temperature-guide.html">Meat Temperature Guide</a></li><li><a href="/tools/recipe-multiplier.html">Recipe Multiplier</a></li><li><a href="/tools/catering-pan-calculator.html">Catering Pan Calculator</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="/tools/">All 37 Tools</a></li>
+            <li><a href="/blog/">Blog</a></li>
+            <li><a href="/guides/">Guides</a></li>
+            <li><a href="/about.html">About</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-bottom-inner">
+        <p>© 2026 CookingCalcs · For informational purposes only.</p>
+        <p class="footer-legal"><a href="/privacy-policy.html">Privacy Policy</a><a href="/terms.html">Terms of Use</a><a href="/contact.html">Contact</a></p>
+      </div>
+    </div>
+  </footer>
+<!-- CC:STATIC-CHROME:END -->
+</body>
+</html>

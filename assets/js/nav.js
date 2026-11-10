@@ -59,6 +59,7 @@ const TOOLS = [
   { name: "Yield Percentage Calculator", url: "/tools/yield-percentage-calculator.html" },
   { name: "Catering Pan Calculator", url: "/tools/catering-pan-calculator.html" },
   { name: "Baker's Percentage Calculator", url: "/tools/bakers-percentage-calculator.html" },
+  { name: "Cake to Cupcake Converter", url: "/tools/cake-to-cupcake-converter.html" },
 ];
 
 // ── 툴 검색 키워드 (메인·툴 목록 검색용, 툴 이름에 없는 단어만) ─────────
@@ -84,6 +85,7 @@ const TOOL_KW = {
   "/tools/kitchen-math-generator.html": "restaurant bill tip tax bakers percentage inventory worksheet practice problems culinary school",
   "/tools/grill-temperature-calculator.html": "bbq barbecue charcoal gas grill steak burger",
   "/tools/pan-size-converter.html": "cake pan baking dish 9x13 round square",
+  "/tools/cake-to-cupcake-converter.html": "cupcakes muffins mini jumbo frosting how many batter",
   "/tools/can-size-converter.html": "tin can number 10 ounces",
   "/tools/pressure-cooker-converter.html": "instant pot",
   "/tools/altitude-cooking-calculator.html": "high altitude elevation boiling baking",
@@ -196,6 +198,8 @@ const BLOGS = [
   { name: "Labor Cost Percentage Word Problems", url: "/blog/labor-cost-percentage-word-problems.html", desc: "Restaurant labor cost %, overtime and prime cost problems with a printable worksheet.", date: "2026-11-06" },
   { name: "Egg Whites and Yolks by Size", url: "/blog/egg-whites-and-yolks-by-size.html", desc: "Grams, ml and tablespoons of white and yolk for every egg size, how many to swap, and storing leftovers.", date: "2026-11-09" },
   { name: "Menu Pricing Word Problems", url: "/blog/menu-pricing-word-problems.html", desc: "Food cost %, markup factor, contribution margin and prime cost pricing, with a printable worksheet.", date: "2026-11-09" },
+  { name: "Banana Bread to Muffins (and Back)", url: "/blog/quick-bread-to-muffins.html", desc: "How many muffins a loaf recipe makes, what temperature and how long — standard, mini, jumbo and mini loaves.", date: "2026-11-10" },
+  { name: "How to Turn Cookie Dough Into Bars", url: "/blog/cookie-dough-into-bars.html", desc: "Pick the pan from the dough volume, bake at 350°F for about 2½ times the cookie time, and cut clean bars.", date: "2026-11-10" },
 ];
 
 // ── 가이드 목록 (Tools/Blog와 별개 — 여러 툴/블로그를 묶는 종합 허브 페이지) ──

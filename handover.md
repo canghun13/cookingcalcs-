@@ -247,6 +247,34 @@ echo "nav.js GUIDES: $(sed -n '/const GUIDES/,/^];/p' assets/js/nav.js | grep -c
   현재 후보: `tablespoon-to-teaspoon-guide` 182노출 클릭0 7.02위,
   `how-many-grams-in-a-cup-of-oats` 207노출 클릭0 5.18위.
 
+### 2026-11-10 (46차): 신규 클러스터 "굽는 모양 바꾸기"(케이크↔컵케이크 / 퀵브레드↔머핀 / 쿠키→바) — 툴 1 + 블로그 2
+
+> 사용자 요청: GSC 밖(구글·레딧·포럼 등)에서 문서 적고 관심 있는 키워드 폭넓게, 강하면 롱테일, 가능하면 클러스터 추가. 사용자 언급: "색인 살짝 살아났네".
+> (네이버는 한국어 검색이라 영어 사이트 타깃과 무관 → 미사용.)
+- **후보 전수(웹서치로 SERP 확인)**:
+  | 후보 | 판정 | 근거 |
+  |---|---|---|
+  | 케이크→컵케이크 변환(개수·시간) | **채택(툴)** | SERP=handletheheat·KA 블로그·cakebycourtney·food52·cakecentral 포럼. 전용 계산기 없음(cupcakejemma 일반 변환기만). pan-size-converter에 컵케이크 0 |
+  | 퀵브레드↔머핀(바나나브레드 머핀) | **채택(블로그)** | SERP=straightdope·food52·nigella Q&A·ATK·bakeorbreak·cycookery(AI팜 기사). 계산기 없음 |
+  | 쿠키 반죽→바(9x13 시간) | **채택(블로그)** | SERP=레시피 블로그·KA 블로그·tastingtable. 계산기 없음 |
+  | 케이크/쿠키 가격 책정(홈베이커) | 보류 | 정면=omni·craftybase·joteo·calculover·pages.dev 클론 계산기 다수. 롱테일(쿠키 1다스 가격)은 cakecentral 포럼 위주 → 다음 후보(사업 의도라 CPC 높음, 원가 클러스터와 연결 가능) |
+  | 프로스팅 양 | 기각 | **missvickie(회피)**·joteo 계산기 → 컵케이크 툴 안의 한 절로만 흡수(KA 수치) |
+  | 샤퀴테리 1인당 양 | 기각 | joteo·**missvickie**·everycalculators·calk-usa 계산기 |
+  | 통조림 수율(토마토 몇 파운드/쿼트) | 기각 | joteo 계산기·**kitchprep(회피)**·foundthetool·growitbuildit 표 |
+  | 머핀 크기 변환 단독 | 흡수 | superglobalcalculator(muffin fill)·AI팜 → 퀵브레드 글 안에 미니/점보 절로 포함 |
+  (과거 기각 재확인 생략: 소금·이스트·젤라틴·브라인·피클링·커피·압력솥·파티음식량·칠면조 인분·추수감사 스케줄·도우발효·콩)
+- 발행:
+  - `tools/cake-to-cupcake-converter.html` — 모드 2개(케이크 레시피→표준/미니/점보 개수·350°F 시간·프로스팅 / 컵케이크 개수→반죽 컵·맞는 케이크 팬·시간), 대조표, 채우기, 프로스팅(KA: 바르기 2~2½tbsp·파이핑 3~4tbsp), 안 되는 케이크(파운드·스펀지·엔젤푸드·플로어리스).
+    수치: KA(two 9" = 24, 미니 2배 이상, 점보 절반, 205~210°F) + Handle the Heat(팬별 개수·미니 9~12분·점보 22분·표준 18~22분). 모델: 표준 ¼컵, 미니 ⅓, 점보 2배, 미니 개수 2.5~3배.
+  - `blog/quick-bread-to-muffins.html` — 9×5 1개=표준 12(375°F 23~28 / 400°F 20~25, bakeorbreak), 미니 ~36(350°F 12~14), 점보 ~6(425°F 5분→350°F 22~25, Sally's), 미니 로프(View from Great Island), 머핀→로프 350°F 45~60.
+  - `blog/cookie-dough-into-bars.html` — KA 방법: 주재료 컵 합산→팬(4~6컵 정사각, 6~8컵 9×13, 8+ 하프시트), ¾~1", 350°F, 쿠키 시간×2½(+25°F당 2~5분). 톨하우스형 예시 ≈7컵→9×13 25~33분. 자르기 개수표.
+- 연결: nav.js TOOLS +1(TOOL_KW 포함)·BLOGS +2, tools/index TOOL_ICONS 🧁, 홈 tool-count 36→**37**, sitemap +3(**152**), llms +3,
+  pan-size-converter(관련목록 3 + FAQ 앞 문단), baking-conversion 가이드·recipe-scaling 가이드 목록, portion-scoop(#16=컵케이크, #12=머핀) 문단.
+- 🚨 **사이트맵 삽입 버그 주의**: 툴 항목은 `<url><loc>…</loc>\n    <lastmod>…` **두 줄 형식**이라 `<loc>` 줄 바로 뒤에 넣으면 XML이 깨진다(이번에 한 번 깨졌다가 바로 고침).
+  툴 삽입 시엔 `</url>` 뒤에 넣을 것. 커밋 전 `xml.dom.minidom.parseString`으로 파싱 확인 추가.
+- 다음 후보: 홈베이커 가격 책정 롱테일(쿠키 1다스·컵케이크 1다스·사워도우 한 덩이 가격 — 원가% 클러스터와 연결), 클러스터 허브 가이드("Changing the Pan or Shape") 추가 검토.
+- 카운트: **tools 37** / **blogs 91** / guides 16 / sitemap 152 (+스텁 9).
+
 ### 2026-11-10 (45차): 애드센스 승인 전 사이트 완성도 체크리스트 점검 (필수 페이지·구성·모바일·링크·브랜드)
 
 > 사용자 요청: About/Contact/개인정보처리방침/이용약관 + 메뉴·모바일·깨진링크·브랜드·문의방법 확인.

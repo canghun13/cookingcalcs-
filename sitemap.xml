@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://cookingcalcs.com/</loc><lastmod>2026-11-03</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://cookingcalcs.com/</loc><lastmod>2026-11-10</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
   <url><loc>https://cookingcalcs.com/tools/</loc><lastmod>2026-08-02</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://cookingcalcs.com/blog/</loc><lastmod>2026-08-02</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://cookingcalcs.com/guides/</loc><lastmod>2026-08-02</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://cookingcalcs.com/guides/complete-meal-prep-budget-guide.html</loc><lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://cookingcalcs.com/guides/complete-meat-cooking-temperature-guide.html</loc><lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://cookingcalcs.com/guides/complete-baking-conversion-guide.html</loc><lastmod>2026-07-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://cookingcalcs.com/guides/complete-baking-conversion-guide.html</loc><lastmod>2026-11-10</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://cookingcalcs.com/guides/complete-recipe-scaling-guide.html</loc>
-    <lastmod>2026-08-10</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <lastmod>2026-11-10</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://cookingcalcs.com/guides/complete-protein-comparison-guide.html</loc><lastmod>2026-07-27</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://cookingcalcs.com/guides/complete-grilling-guide.html</loc>
     <lastmod>2026-08-10</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -41,7 +41,8 @@
   <url><loc>https://cookingcalcs.com/tools/grill-temperature-calculator.html</loc>
     <lastmod>2026-08-10</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://cookingcalcs.com/tools/pan-size-converter.html</loc>
-    <lastmod>2026-08-10</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+    <lastmod>2026-11-10</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://cookingcalcs.com/tools/cake-to-cupcake-converter.html</loc><lastmod>2026-11-10</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://cookingcalcs.com/tools/can-size-converter.html</loc>
     <lastmod>2026-08-10</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://cookingcalcs.com/tools/pressure-cooker-converter.html</loc>
@@ -90,7 +91,7 @@
   <url><loc>https://cookingcalcs.com/blog/recipe-conversion-factor-word-problems.html</loc><lastmod>2026-11-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://cookingcalcs.com/tools/catering-pan-calculator.html</loc><lastmod>2026-10-13</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://cookingcalcs.com/blog/how-many-servings-in-a-half-pan.html</loc><lastmod>2026-10-13</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://cookingcalcs.com/blog/portion-scoop-sizes.html</loc><lastmod>2026-10-13</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://cookingcalcs.com/blog/portion-scoop-sizes.html</loc><lastmod>2026-11-10</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://cookingcalcs.com/guides/complete-cooking-for-a-crowd-guide.html</loc><lastmod>2026-10-13</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://cookingcalcs.com/tools/bakers-percentage-calculator.html</loc><lastmod>2026-10-19</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://cookingcalcs.com/blog/bakers-percentage-word-problems.html</loc><lastmod>2026-11-06</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
@@ -188,4 +189,6 @@
   <url><loc>https://cookingcalcs.com/blog/labor-cost-percentage-word-problems.html</loc><lastmod>2026-11-09</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://cookingcalcs.com/blog/egg-whites-and-yolks-by-size.html</loc><lastmod>2026-11-09</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://cookingcalcs.com/blog/menu-pricing-word-problems.html</loc><lastmod>2026-11-09</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://cookingcalcs.com/blog/quick-bread-to-muffins.html</loc><lastmod>2026-11-10</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://cookingcalcs.com/blog/cookie-dough-into-bars.html</loc><lastmod>2026-11-10</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 </urlset>

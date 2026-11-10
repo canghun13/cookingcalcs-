@@ -261,6 +261,10 @@ echo "nav.js GUIDES: $(sed -n '/const GUIDES/,/^];/p' assets/js/nav.js | grep -c
   → **다음 세션 과제**: 트래픽 상위 페이지(butter, liquid, can-size, egg-substitute, cups-to-grams, turkey, food-sit-out 등)에 1차 출처 링크 한 줄씩 보강.
 - 점검 결과(이상 없음): Contact(메일 링크·정정 안내·응답시간·식품안전 고지), 개인정보처리방침(GA·AdSense·쿠키·EEA·아동·외부링크), 헤더(Home/Tools/Blog/Guides/About)+모바일 햄버거,
   푸터(메일·Popular·Explore·Privacy/Terms/Contact) 전 페이지 동일, 내부 깨진 링크 0·앵커(#worksheet) 0·http 링크 0, 홈 구성(히어로→Tools→Start→Quick Reference→Blog→How We Get Our Numbers→CTA).
+- **전 페이지 모바일(360px)·데스크톱 스윕(159페이지)**: 헤더·푸터 누락 0, 내부 이미지 깨짐 0, JS 에러 0, 햄버거 메뉴 정상.
+  가로넘침 2건 발견·수정: `meal-cost-calculator`(9px)·`weekly-meal-prep-cost-calculator`(1px) — 원인 ① 열 머리줄의 인라인 `display:grid`가 모바일 `display:none`을 이겨서
+  4칸 머리줄이 화면 밖으로 나감 → 모바일에선 `!important`로 한 줄 범례(flex)로 표시, ② 결과 박스 2칸 그리드가 360px에서 넘침 → `repeat(2,minmax(0,1fr))` +
+  style.css 끝에 `@media(max-width:420px)` 결과 박스 패딩/숫자 크기 축소(전 사이트 공통). 행 입력칸에 aria-label 추가.
 - 외부 링크 생존 여부는 이 환경에서 직접 요청이 막혀(프록시 허용목록) 자동 확인 불가 — 외부 링크 수 자체가 적음(디렉터리 배지 8 + 정책 링크 + USDA).
 
 ### 2026-11-09 (44차): 주간 — 신규 2건(계란 흰자·노른자 by size / 메뉴 가격 책정 워드프라블럼) + 계란 컵 페이지 수치 정정

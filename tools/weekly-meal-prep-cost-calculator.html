@@ -25,7 +25,8 @@
       .meal-row input:nth-child(2) { grid-area: cost; }
       .meal-row input:nth-child(3) { grid-area: freq; }
       .meal-row .remove-btn { grid-area: remove; }
-      .meal-row-header { display:none; }
+      .meal-row-header { display:flex !important; flex-wrap:wrap; gap:0.25rem 1rem; }
+      .meal-row-header > div:empty { display:none; }
     }
     @media print {
       body > *:not(#pdf-overlay) { display:none !important; }
@@ -170,7 +171,7 @@
         <button onclick="addRow()" class="add-row-btn" style="background:none; border:2px dashed var(--border); border-radius:10px; padding:0.6rem 1rem; font-size:0.875rem; color:var(--mid); cursor:pointer; width:100%; margin-top:0.5rem; transition:border-color 0.2s, color 0.2s;" onmouseover="this.style.borderColor='var(--tomato)';this.style.color='var(--tomato)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--mid)'">+ Add meal</button>
 
         <div id="resultSection" style="display:none; margin-top:1.5rem;">
-          <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+          <div style="display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem;">
             <div class="result-box">
               <div class="result-num" id="weeklyTotal"></div>
               <div class="result-label">Weekly total</div>
@@ -268,9 +269,9 @@ function addRow(meal, cost, freq) {
   row.className = 'meal-row';
   row.id = id;
   row.innerHTML = `
-    <input type="text" placeholder="e.g. Chicken & rice bowl" value="${meal || ''}" oninput="calculate()">
-    <input type="number" min="0" step="0.01" placeholder="2.75" value="${cost || ''}" oninput="calculate()">
-    <input type="number" min="0" step="1" placeholder="5" value="${freq || ''}" oninput="calculate()">
+    <input aria-label="Meal" type="text" placeholder="e.g. Chicken & rice bowl" value="${meal || ''}" oninput="calculate()">
+    <input aria-label="Cost in dollars" type="number" min="0" step="0.01" placeholder="2.75" value="${cost || ''}" oninput="calculate()">
+    <input aria-label="Times per week" type="number" min="0" step="1" placeholder="5" value="${freq || ''}" oninput="calculate()">
     <button class="remove-btn" onclick="removeRow('${id}')">✕</button>
   `;
   document.getElementById('mealList').appendChild(row);

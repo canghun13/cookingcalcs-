@@ -25,7 +25,8 @@
       .cost-row input:nth-child(2) { grid-area: cost; }
       .cost-row input:nth-child(3) { grid-area: used; }
       .cost-row .remove-btn { grid-area: remove; }
-      .cost-row-header { display:none; }
+      .cost-row-header { display:flex !important; flex-wrap:wrap; gap:0.25rem 1rem; }
+      .cost-row-header > div:empty { display:none; }
     }
         @media print {
     body > *:not(#pdf-overlay) { display:none !important; }
@@ -182,7 +183,7 @@
       <button onclick="addRow()" style="background:none; border:2px dashed var(--border); border-radius:10px; padding:0.6rem 1rem; font-size:0.875rem; color:var(--mid); cursor:pointer; width:100%; margin-top:0.5rem; transition:border-color 0.2s, color 0.2s;" onmouseover="this.style.borderColor='var(--tomato)';this.style.color='var(--tomato)'" onmouseout="this.style.borderColor='var(--border)';this.style.color='var(--mid)'" class="add-row-btn">+ Add ingredient</button>
 
       <div id="resultSection" style="display:none; margin-top:1.5rem;">
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+        <div style="display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem;">
           <div class="result-box">
             <div class="result-num" id="totalCost"></div>
             <div class="result-label">Total meal cost</div>
@@ -269,9 +270,9 @@ function addRow(name='', cost='', used='100') {
   div.className = 'cost-row';
   div.id = 'crow-' + id;
   div.innerHTML = `
-    <input type="text" placeholder="e.g. Chicken breast" value="${name}" oninput="calculate()">
-    <input type="number" placeholder="0.00" value="${cost}" min="0" step="0.01" oninput="calculate()">
-    <input type="number" placeholder="100" value="${used}" min="1" max="100" step="1" oninput="calculate()">
+    <input aria-label="Ingredient" type="text" placeholder="e.g. Chicken breast" value="${name}" oninput="calculate()">
+    <input aria-label="Cost in dollars" type="number" placeholder="0.00" value="${cost}" min="0" step="0.01" oninput="calculate()">
+    <input aria-label="Percent used" type="number" placeholder="100" value="${used}" min="1" max="100" step="1" oninput="calculate()">
     <button class="remove-btn" onclick="removeRow(${id})">✕</button>
   `;
   document.getElementById('ingredientList').appendChild(div);

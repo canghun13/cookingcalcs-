@@ -911,3 +911,9 @@ a { color: inherit; text-decoration: none; }
   #ws-print-root .ws-fields span { border-bottom-color: #000; color: #000; }
   #ws-print-root .ws-src { display: block; margin-top: 1rem; font-size: 9pt; color: #444; }
 }
+
+/* Small phones: keep two-up result boxes inside the screen */
+@media (max-width: 420px) {
+  .result-box { padding: 1rem 0.6rem; }
+  .result-box .result-num { font-size: 1.85rem; overflow-wrap: anywhere; }
+}

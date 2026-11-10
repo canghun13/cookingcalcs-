@@ -1,4 +1,4 @@
-# CookingCalcs 현황 및 인수인계 (2026-11-09 기준)
+# CookingCalcs 현황 및 인수인계 (2026-11-10 기준)
 
 이 문서는 2026-07-24 버전 인수인계 문서를 기반으로, 이후 진행된 모든 작업 내역을 반영해 갱신한 버전입니다. 새 세션에서는 이 문서만 보고 바로 작업 이어가면 됩니다.
 
@@ -246,6 +246,22 @@ echo "nav.js GUIDES: $(sed -n '/const GUIDES/,/^];/p' assets/js/nav.js | grep -c
   잡히면 **"툴은 있는데 질문형 페이지가 없는 쿼리"를 찾아 채우는 패턴**이 검증된다.
   현재 후보: `tablespoon-to-teaspoon-guide` 182노출 클릭0 7.02위,
   `how-many-grams-in-a-cup-of-oats` 207노출 클릭0 5.18위.
+
+### 2026-11-10 (45차): 애드센스 승인 전 사이트 완성도 체크리스트 점검 (필수 페이지·구성·모바일·링크·브랜드)
+
+> 사용자 요청: About/Contact/개인정보처리방침/이용약관 + 메뉴·모바일·깨진링크·브랜드·문의방법 확인.
+- **없던 것 → 추가**: `terms.html`(Terms of Use: 정보제공용·전문조언 아님, 정확성 무보증, **워크시트는 출처줄 유지 시 수업·과외용 인쇄/배포 허용**, 링크 자유·인용 허용·전재 금지,
+  과도한 스크래핑 금지, 제3자 링크·광고, 책임제한, 변경, 연락처). sitemap 추가(**149**). 푸터 legal 줄에 Terms of Use, Explore 열에 Contact 추가(nav.js `ccBuildFooter`).
+- `404.html` 신설(noindex, canonical 없음, 사이트맵 제외) — GitHub Pages 기본 404 대신 브랜드 404 + 툴/블로그/가이드/인기툴 링크 + 신고 메일.
+- `about.html` 전면 갱신: 범위(툴/시간·온도/스케일링/비용·워크시트/가이드), **"Where the Numbers Come From" + 1차 출처 4개 링크**(FSIS 안전온도표, FoodData Central,
+  AMS 계란 등급표준 PDF, Open Washington Culinary Math), 정정 정책, 무료·광고 고지, 이메일 직접 링크. ("모든 페이지가 출처를 밝힌다" 류 과장 문구는 넣지 않음.)
+- `privacy-policy.html`: Last updated 11월, **"If You Email Us"**(메일 주소는 답장용으로만), **"Hosting and Server Logs"**(GitHub Pages·Cloudflare가 IP 등 처리) 추가, 연락처에 메일·약관 링크.
+  ⚠ Media.net은 승인 전이라 아직 명시 안 함 — 승인되면 Advertising 절에 추가.
+- 🚨 발견: 사이트 전체에서 USDA 외부 링크가 2개뿐이었음("USDA 기준"이라고 쓰면서 원문 링크 없음). 이번에 About 4개 + meat-temperature-guide(FSIS 표)·egg-converter(AMS 표준) 출처줄 추가.
+  → **다음 세션 과제**: 트래픽 상위 페이지(butter, liquid, can-size, egg-substitute, cups-to-grams, turkey, food-sit-out 등)에 1차 출처 링크 한 줄씩 보강.
+- 점검 결과(이상 없음): Contact(메일 링크·정정 안내·응답시간·식품안전 고지), 개인정보처리방침(GA·AdSense·쿠키·EEA·아동·외부링크), 헤더(Home/Tools/Blog/Guides/About)+모바일 햄버거,
+  푸터(메일·Popular·Explore·Privacy/Terms/Contact) 전 페이지 동일, 내부 깨진 링크 0·앵커(#worksheet) 0·http 링크 0, 홈 구성(히어로→Tools→Start→Quick Reference→Blog→How We Get Our Numbers→CTA).
+- 외부 링크 생존 여부는 이 환경에서 직접 요청이 막혀(프록시 허용목록) 자동 확인 불가 — 외부 링크 수 자체가 적음(디렉터리 배지 8 + 정책 링크 + USDA).
 
 ### 2026-11-09 (44차): 주간 — 신규 2건(계란 흰자·노른자 by size / 메뉴 가격 책정 워드프라블럼) + 계란 컵 페이지 수치 정정
 

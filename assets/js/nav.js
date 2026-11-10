@@ -335,6 +335,7 @@ function ccBuildFooter() {
             <li><a href="/blog/">Blog</a></li>
             <li><a href="/guides/">Guides</a></li>
             <li><a href="/about.html">About</a></li>
+            <li><a href="/contact.html">Contact</a></li>
           </ul>
         </div>
       </nav>
@@ -342,7 +343,7 @@ function ccBuildFooter() {
     <div class="footer-bottom">
       <div class="footer-bottom-inner">
         <p>© ${new Date().getFullYear()} CookingCalcs · For informational purposes only.</p>
-        <p class="footer-legal"><a href="/privacy-policy.html">Privacy Policy</a><a href="/contact.html">Contact</a></p>
+        <p class="footer-legal"><a href="/privacy-policy.html">Privacy Policy</a><a href="/terms.html">Terms of Use</a><a href="/contact.html">Contact</a></p>
       </div>
     </div>
   </footer>`;

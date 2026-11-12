@@ -257,6 +257,13 @@ echo "nav.js GUIDES: $(sed -n '/const GUIDES/,/^];/p' assets/js/nav.js | grep -c
   2. 07-25 이후 구글의 사이트 단위 품질 강등이 그대로(42차). 애드센스 "가치 없는 콘텐츠"와 같은 시기·같은 판단 — 코어 업데이트 전엔 크게 안 바뀔 가능성.
   3. **콘텐츠 페이지 144개 중 이미지·도해 0개** — 전부 글+표. 대량 생성 텍스트 사이트처럼 보이는 요인.
   4. 홈 하단 "Listed on" 런치 디렉터리 배지 8개 — 심사자 눈엔 링크 작업 흔적.
+- ✅ **(11-12 후속) 3번 실행**: 트래픽 상위·신뢰 페이지 10곳에 자체 제작 인라인 SVG 도해 추가(`<figure class="cc-fig">` + figcaption, style.css 끝 FIGURES 블록).
+  계란 크기 실측 비율(substitute-egg-sizes) / 대란 구성 껍질7·흰자33·노른자17g(egg-weight) / 버터 스틱 8tbsp 눈금(butter) / 갤런→쿼트→파인트→컵(quart-pint-gallon) /
+  계량컵 눈금 ml·fl oz(liquid) / 1컵=16tbsp·1tbsp=3tsp(tablespoon guide) / 캔 실측 비율(#300·#303·#2·#2½·#10, 표준 치수)(can-size) /
+  USDA 안전온도 눈금+위험구간(meat-temperature) / 호텔팬 풀·하프·서드·쿼터(catering-pan) / 컵케이크 채우기 선(cake-to-cupcake).
+  모든 수치는 각 페이지 기존 수치와 일치 확인. 생성 스크립트: 스크래치 `figs.py`(컨테이너 교체 시 사라짐 — 페이지 HTML이 원본). 360px 가로넘침 0.
+  → 다음 세션: 나머지 상위 페이지(egg-converter, cups-to-grams, oven-temp, turkey, food-sit-out 등)에도 같은 방식으로 확대.
+  배지 줄 제거는 승인과 무관해 **하지 않기로 함**(사용자 확인).
 - 제안(사용자 결정 대기): ① Cloudflare 봇 챌린지 규칙 지금 켜기(광고 전이라 손해 없음, 0-2 항목 규칙 그대로), ② 홈 배지 줄 제거,
   ③ 상위 트래픽 페이지부터 자체 제작 SVG 도해 추가(계란 크기 비교, 팬 크기, 컵케이크 채우기 선, 고기 온도 눈금 등), ④ 재심사는 위 반영 후 2~3주 운영 기록을 쌓고 요청.
 

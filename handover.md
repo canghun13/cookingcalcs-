@@ -1,4 +1,4 @@
-# CookingCalcs 현황 및 인수인계 (2026-11-12 기준)
+# CookingCalcs 현황 및 인수인계 (2026-11-16 기준)
 
 이 문서는 2026-07-24 버전 인수인계 문서를 기반으로, 이후 진행된 모든 작업 내역을 반영해 갱신한 버전입니다. 새 세션에서는 이 문서만 보고 바로 작업 이어가면 됩니다.
 
@@ -12,7 +12,7 @@
    만든 것이므로 **더 이상 자동 기각 근거로 쓰지 말 것** — "우리가 더 정확하고 구조화된 답을 낼 수 있는가"로 판정할 것.
    자세한 내용은 3번 섹션 `2026-08-03 (15차)`의 "★ 전략 재정렬" 항목을 볼 것.
 0-2. 🚨 **기본 전략: 공격적 확장(신규 클러스터 발행). 이건 바뀌지 않는다**
-   - **Bing이 주력 채널이다.** 11-09 기준 Bing 노출 **85,788**·클릭 **856**·CTR 1.00% (11-02 77,194/786, 10-26 68,953/688) /
+   - **Bing이 주력 채널이다.** 11-16 기준 Bing 노출 **96,081**·클릭 **954**·CTR 0.99% (11-09 85,788/856, 11-02 77,194/786) /
      구글 3개월 노출 10,859·클릭 **5**·평균 50~90위. 구글은 완전 정체이고 Bing만 매주 성장 중.
    - 🚨 **구글에서 우리가 상위권(10위 이내)에 드는 주제는 "요리 수학 문장형 문제" 하나뿐이다(32차 실측).**
      검색어 1,000개 중 10위 이내는 `you purchase beef at $6 per pound...` 류 4개(노출 54·40·14·3, 순위 6.4~9.7)뿐이고
@@ -246,6 +246,30 @@ echo "nav.js GUIDES: $(sed -n '/const GUIDES/,/^];/p' assets/js/nav.js | grep -c
   잡히면 **"툴은 있는데 질문형 페이지가 없는 쿼리"를 찾아 채우는 패턴**이 검증된다.
   현재 후보: `tablespoon-to-teaspoon-guide` 182노출 클릭0 7.02위,
   `how-many-grams-in-a-cup-of-oats` 207노출 클릭0 5.18위.
+
+### 2026-11-16 (48차): 주간 + 애드센스 재심사 전 점검 — 신규 1(옛 영국 계란 사이즈) · 수치 오류 정정 3페이지 · 도해 6곳 추가
+
+> 데이터: GSC Performance/Coverage 11-16(Coverage 차트 11-09까지), Bing PageTraffic+Keyword 11-16, GA4 28일(10-19~11-15).
+> Coverage zip: 무접미사=**발견됨-미색인(56)**, `_1`=**크롤링됨-미색인(1: complete-baking-conversion-guide)**.
+> 🆕 **구글이 오랜만에 미크롤링 URL을 가져감**: 11-09 목록에서 10개가 빠짐(air-fryer-vs-oven, bacon-vs-sausage, bakers-percentage-WP, baking-two-things, charcoal-vs-gas,
+>   cost-per-serving-WP, culinary-math-formulas, deep-frying-temperature-chart, duck-eggs, food-cost-WP). 대신 11-02~06 신규 5개가 새로 '발견됨'으로 들어와 순감 5(61→56). 사용자 체감("색인 살짝 살아남")과 일치.
+> 구글 3개월 노출 3,415·클릭 2(최근 14일 255 vs 직전 426). Bing 96,081/954(+10,293/+98) — 계란 치환 +26클릭, can-size +18, catering-pan +12, egg-weight +10.
+> GA4: 신규 1,845(Direct 1,001 / Organic 827), **SG 463 + CN 322 = 활성의 약 43%(봇 추정) — 변화 없음(Cloudflare 규칙 미적용 상태)**. 수익 0.
+- **신규**: `blog/old-uk-egg-sizes.html` — Bing 키워드 "size 1 eggs… Burford Browns", 영국 GA 84명. 옛 영국/EU 번호 사이즈 0~7(EC 1274/91 제8조: 1=70~75, 2=65~70, 3=60~65 … 7=<45 g),
+  1996-08-01 S/M/L/VL 전환(British Egg Information Service, size 3 → 오늘의 large 권장), 미국 사이즈 대응, 계산기(옛 사이즈×개수→UK M/L·US L/XL/J 개수), 스펀지 예제, 무게 맞추기 방식.
+  SERP=egginfo.co.uk·metricviews·omlet 포럼·nigella Q&A·stackexchange·AI팜 → 계산기 없음. 연결: substitute-egg-sizes(UK 절), vintage-recipe-measurements, vintage 가이드·egg 가이드 목록, nav·sitemap·llms.
+- 🚨 **수치 오류 정정(신뢰성 = 애드센스 "고품질 정보")**:
+  - `how-many-eggs-in-a-cup`: "4 large eggs = 1 cup"·"1 large egg = ¼ cup" 틀림 → **American Egg Board 기준 large 5개=1컵**(small 6, medium 5, XL 4, jumbo 4), 개당 3¼ tbsp(49 ml).
+    제목 "About 5 Large Eggs = 1 Cup"으로 변경, 표·짧은답·반 개(1⅔ tbsp/25 g)·½컵(2½개)·액상계란 FAQ 수정. nav.js 설명·baking 가이드의 "4 large eggs ≈ 1 cup"도 수정.
+    `egg-converter` 표 부피(~3/3.5/4/4.5/5 tbsp → 2½/3/3¼/3⅔/4 tbsp)도 같은 모델로 정정.
+  - `how-many-cups-in-a-pound-of-flour`: 120 g/컵이라고 써놓고 3⅓컵/lb(=136 g) — 산수 틀림. **cups-to-grams 툴 값으로 통일**(AP 120→3¾, bread 130→3½, cake 100→4½, WW 120→3¾, rye 128→~3½, almond 112→~4),
+    5 lb 백 16⅔→약 19컵, 2 lb 6⅔→7½, 2컵≈½ lb, 3컵≈¾ lb.
+  - `how-many-cups-in-a-pound-of-sugar`: 흑설탕 200 g·슈거파우더 115/120·원당 225가 `how-many-grams-in-a-cup-of-sugar`(213/220·120/130·200)와 불일치 → 후자로 통일, 파운드 환산표 재계산,
+    "흑설탕은 ¾컵만" 대체 조언 틀림 → 1컵−1큰술로, 근거 없는 "Domino·C&H 포장 표기" 문구 삭제.
+- **도해 추가 6곳**(figs.py 2차): 옛 영국 사이즈 vs 현재 UK vs US 무게축 / 메추리·닭·오리·거위 알 실측비(egg-converter) / 상온 2시간·90°F 초과 1시간(food-sit-out) /
+  파운드당 설탕 컵 / 파운드당 밀가루 컵 / 컵당 계란 개수. 누적 16페이지. 360px·1280px 가로넘침 0.
+- **애드센스 재심사 판단(사용자 결정 대기)**: 코드 측 준비는 끝(404 광고코드 제거, 스텁 0, 필수 페이지 4, 도해 16곳, 수치 정정). 남은 건 봇 43%(Cloudflare 규칙은 사용자 작업).
+- 카운트: tools 37 / **blogs 92** / guides 16 / sitemap **153** (+스텁 9).
 
 ### 2026-11-12 (47차): 애드센스 2차 거절("가치가 별로 없는 콘텐츠") — 점검 결과
 

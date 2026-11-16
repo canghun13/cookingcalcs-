@@ -132,7 +132,7 @@ const BLOGS = [
   { name: "How Many Grams in a Cup of Sugar?", url: "/blog/how-many-grams-in-a-cup-of-sugar.html", desc: "Exact gram weights for granulated, brown, powdered, and coconut sugar by cup. Includes a full conversion table for every common sugar type.", date: "2026-06-18" },
   { name: "How Long to Cook Bacon", url: "/blog/how-long-to-cook-bacon.html", desc: "Exact cook times for bacon by method and thickness — oven, stovetop, and air fryer. Includes temperature guide and tips for crispy or chewy results.", date: "2026-06-18" },
   { name: "How Long to Cook Steak", url: "/blog/how-long-to-cook-steak.html", desc: "Exact steak cook times by thickness, doneness level, and method — pan-sear, oven, and grill. Includes internal temperature guide for rare through well-done.", date: "2026-06-18" },
-  { name: "How Many Eggs in a Cup?", url: "/blog/how-many-eggs-in-a-cup.html", desc: "4 large eggs = 1 cup. Exact egg counts by size for whole eggs, whites, and yolks — plus how to measure eggs by volume.", date: "2026-07-09" },
+  { name: "How Many Eggs in a Cup?", url: "/blog/how-many-eggs-in-a-cup.html", desc: "About 5 large eggs = 1 cup. Exact egg counts by size for whole eggs, whites, and yolks — plus how to measure eggs by volume.", date: "2026-07-09" },
   { name: "How to Cut a Recipe in Half", url: "/blog/how-to-reduce-a-recipe-by-half.html", desc: "How to halve any recipe: exact amounts for eggs, leavening, spices, and canned goods. With a complete halving chart.", date: "2026-06-12" },
   { name: "How Long to Cook Pork Chops", url: "/blog/how-long-to-cook-pork-chops.html", desc: "Exact cook times for pork chops by thickness and method — oven, pan, air fryer, and grill. Plus the safe internal temperature.", date: "2026-06-12" },
   { name: "How Many Grams in a Cup of Oats?", url: "/blog/how-many-grams-in-a-cup-of-oats.html", desc: "1 cup of rolled oats = 90g. Exact gram weights for rolled, quick, steel-cut, and instant oats — dry, cooked, and cups per pound.", date: "2026-07-09" },
@@ -200,6 +200,7 @@ const BLOGS = [
   { name: "Menu Pricing Word Problems", url: "/blog/menu-pricing-word-problems.html", desc: "Food cost %, markup factor, contribution margin and prime cost pricing, with a printable worksheet.", date: "2026-11-09" },
   { name: "Banana Bread to Muffins (and Back)", url: "/blog/quick-bread-to-muffins.html", desc: "How many muffins a loaf recipe makes, what temperature and how long — standard, mini, jumbo and mini loaves.", date: "2026-11-10" },
   { name: "How to Turn Cookie Dough Into Bars", url: "/blog/cookie-dough-into-bars.html", desc: "Pick the pan from the dough volume, bake at 350°F for about 2½ times the cookie time, and cut clean bars.", date: "2026-11-10" },
+  { name: "Old UK Egg Sizes 1–7", url: "/blog/old-uk-egg-sizes.html", desc: "What a size 3 (or size 1, 2, 4) egg from an old British recipe weighs, and which UK or US egg to buy today.", date: "2026-11-16" },
 ];
 
 // ── 가이드 목록 (Tools/Blog와 별개 — 여러 툴/블로그를 묶는 종합 허브 페이지) ──

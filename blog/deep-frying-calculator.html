@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deep Frying Batch Calculator — How Much Food Per Batch</title>
+  <meta name="description" content="Enter your oil volume and how much food you're frying. Get the maximum safe batch size, how many batches, expected temperature drop, and total time.">
+  <link rel="canonical" href="https://cookingcalcs.com/blog/deep-frying-calculator.html">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script src="/assets/js/nav.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Deep Frying Batch Calculator",
+  "url": "https://cookingcalcs.com/blog/deep-frying-calculator.html",
+  "description": "Calculate the maximum food per batch for your oil volume, the number of batches needed, expected oil temperature drop, and total frying time.",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "provider": { "@type": "Organization", "name": "CookingCalcs", "url": "https://cookingcalcs.com" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much food can I fry at once?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A widely cited working ratio is about 1 part food to 6 parts oil by volume, which has been shown to keep the oil's temperature recovery short. For 6 cups of oil that means roughly 1 cup of food per batch. Going heavier drops the oil temperature further and for longer, and food sitting in cool oil absorbs it instead of crisping."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does the oil temperature drop when I add food?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It depends almost entirely on how much you add relative to the oil. Commercial batch-frying data from Oklahoma State University Extension reports drops of roughly 86 to 104°F when a full load goes into a commercial fryer, with frozen food dropping it further. A home pot with a modest batch will see far less, but the direction is the same — more food means a bigger drop."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does overcrowding make fried food greasy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Hot oil crisps food by flashing the surface moisture to steam, which forms a crust fast enough that little oil gets in. If the oil drops too far, that crust forms slowly and the food sits in the oil far longer, absorbing it. Greasy fried food is almost always a temperature problem, not an oil-quality problem."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I let the oil recover between batches?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Give it a minute or two to come back to the target temperature before the next batch goes in, and check with a thermometer rather than guessing. Starting a batch in cool oil compounds the problem, because that batch drops the temperature again from an already low starting point."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do frozen foods change the batch size?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "They should. Frozen food pulls far more heat out of the oil than refrigerated food and also carries surface ice that causes spattering. Cut the batch size down and expect a longer recovery between batches. Never add anything frozen that is wet on the outside — shake off loose ice first."
+      }
+    }
+  ]
+}
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+<style>
+      .ref-table { width:100%; border-collapse:collapse; font-size:0.875rem; background:#fff; }
+      .ref-table th { background:var(--sand-dark); padding:0.7rem 0.9rem; text-align:left; font-weight:600; border:1px solid var(--border); }
+      .ref-table td { padding:0.7rem 0.9rem; border:1px solid var(--border); vertical-align:top; }
+      .ref-table tbody tr:nth-child(even) td { background:#fbfaf8; }
+      .df-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+      .warnbox { padding:0.85rem 1rem; border-radius:10px; background:#fff4e5; color:#8a5300; margin-bottom:1rem; font-size:0.9rem; }
+      @media(max-width:600px){ .df-grid { grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+<!-- CC:STATIC-CHROME:START (build-static.js 자동 생성 — 직접 수정하지 말 것) -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="logo">🍳 CookingCalcs</a>
+      <nav class="main-nav" id="mainNav">
+        <ul class="nav-list">
+          <li><a href="/" class="nav-link">Home</a></li>
+          <li><a href="/tools/" class="nav-link">Tools</a></li>
+          <li><a href="/blog/" class="nav-link">Blog</a></li>
+          <li><a href="/guides/" class="nav-link">Guides</a></li>
+          <li><a href="/about.html" class="nav-link">About</a></li>
+        </ul>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <nav class="mobile-nav" id="mobileNav">
+    <ul class="nav-list">
+      <li><a href="/" class="nav-link">Home</a></li>
+      <li class="nav-has-dropdown">
+        <button class="nav-link nav-btn" aria-expanded="false">Tools ▾</button>
+        <ul class="nav-dropdown">
+          <li><a href="/tools/" class="nav-dropdown-all">All 37 Tools →</a></li>
+          <li><a href="/tools/cups-to-grams.html">Cups to Grams</a></li><li><a href="/tools/oven-temp-converter.html">Oven Temperature Converter</a></li><li><a href="/tools/recipe-multiplier.html">Recipe Multiplier</a></li><li><a href="/tools/meat-temperature-guide.html">Meat Temperature Guide</a></li><li><a href="/tools/egg-converter.html">Egg Size Converter</a></li><li><a href="/tools/butter-converter.html">Butter Converter</a></li><li><a href="/tools/catering-pan-calculator.html">Catering Pan Calculator</a></li><li><a href="/blog/bakers-percentage-calculator.html">Baker's Percentage Calculator</a></li>
+        </ul>
+      </li>
+      <li class="nav-has-dropdown">
+        <button class="nav-link nav-btn" aria-expanded="false">Blog ▾</button>
+        <ul class="nav-dropdown">
+          <li><a href="/blog/" class="nav-dropdown-all">All 92 Posts →</a></li>
+          <li><a href="/blog/how-to-substitute-egg-sizes.html">How to Substitute Egg Sizes</a></li><li><a href="/blog/how-long-can-food-sit-out.html">How Long Can Food Sit Out?</a></li><li><a href="/blog/average-cost-of-a-home-cooked-meal.html">Average Cost of a Home-Cooked Meal</a></li><li><a href="/blog/how-long-to-cook-steak.html">How Long to Cook Steak</a></li><li><a href="/blog/culinary-math-formulas.html">Culinary Math Formulas</a></li>
+        </ul>
+      </li>
+      <li class="nav-has-dropdown">
+        <button class="nav-link nav-btn" aria-expanded="false">Guides ▾</button>
+        <ul class="nav-dropdown">
+          <li><a href="/guides/" class="nav-dropdown-all">All 16 Guides →</a></li>
+          <li><a href="/guides/complete-baking-conversion-guide.html">Baking Measurement & Conversion</a></li><li><a href="/guides/complete-meat-cooking-temperature-guide.html">Meat Cooking & Temperature</a></li><li><a href="/guides/complete-recipe-scaling-guide.html">Recipe Scaling & Serving</a></li><li><a href="/guides/complete-culinary-math-guide.html">Culinary Math</a></li><li><a href="/guides/complete-cooking-for-a-crowd-guide.html">Cooking for a Crowd</a></li>
+        </ul>
+      </li>
+      <li><a href="/about.html" class="nav-link">About</a></li>
+    </ul>
+  </nav>
+  <div class="nav-overlay" id="navOverlay"></div>
+<!-- CC:STATIC-CHROME:END -->
+<main>
+  <div class="tool-page">
+    <h1>Deep Frying Batch Calculator</h1>
+    <p class="tool-desc">Every guide says "don't overcrowd the pot" and none of them says how much that actually is. Enter your oil and your food, and this works it out.</p>
+
+    <div class="tool-box">
+      <div class="form-group">
+        <label for="oilAmt">Oil in the pot (cups)</label>
+        <input type="number" id="oilAmt" min="1" step="0.5" value="6" oninput="calc()">
+      </div>
+      <div class="form-group">
+        <label for="foodAmt">Total food to fry (cups)</label>
+        <input type="number" id="foodAmt" min="0.25" step="0.25" value="4" oninput="calc()">
+      </div>
+      <div class="form-group">
+        <label for="foodState">Food is</label>
+        <select id="foodState" onchange="calc()">
+          <option value="room">Room temperature</option>
+          <option value="fridge" selected>Refrigerator cold</option>
+          <option value="frozen">Frozen</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="fryTime">Frying time per batch (min)</label>
+        <input type="number" id="fryTime" min="0.5" step="0.5" value="4" oninput="calc()">
+      </div>
+
+      <div id="result" style="display:none; margin-top:1.4rem;">
+        <div id="warn"></div>
+        <div class="df-grid">
+          <div class="result-box">
+            <div class="result-num" id="batchSize"></div>
+            <div class="result-label">Max per batch</div>
+          </div>
+          <div class="result-box">
+            <div class="result-num" id="batchCount"></div>
+            <div class="result-label">Batches needed</div>
+          </div>
+        </div>
+        <div class="df-grid" style="margin-top:1rem;">
+          <div class="result-box">
+            <div class="result-num" id="tempDrop"></div>
+            <div class="result-label">Expected temp drop</div>
+          </div>
+          <div class="result-box">
+            <div class="result-num" id="totalTime"></div>
+            <div class="result-label">Total time incl. recovery</div>
+          </div>
+        </div>
+        <p id="note" style="margin-top:1rem; color:var(--mid); font-size:0.9rem;"></p>
+      </div>
+    </div>
+
+    <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin:2rem 0 1rem;">The Ratio Behind the Numbers</h2>
+    <p>The useful figure almost nobody quotes is a <strong>food-to-oil ratio of about 1:6 by volume</strong>. That proportion has been shown to minimise the time a fryer needs to recover its temperature, which is the whole game — the faster the oil comes back, the less oil ends up inside the food.</p>
+    <p>In a home pot that translates simply. Six cups of oil means about one cup of food at a time. Eight cups of oil means a cup and a third. It sounds like less food than you expect, and that mismatch is exactly why home frying so often comes out greasy.</p>
+
+    <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin:2rem 0 1rem;">Why Overcrowding Ruins Fried Food</h2>
+    <p>Hot oil crisps food by flashing the moisture at its surface into steam. That steam pushing outward is what stops oil moving inward, and it's why properly fried food absorbs surprisingly little fat. The crust forms before the oil has a chance to get in.</p>
+    <p>Drop the oil temperature too far and that sequence breaks. The crust forms slowly, the steam barrier is weak, and the food sits in the oil much longer than it should — soaking it up the entire time. <strong>Greasy fried food is nearly always a temperature problem rather than an oil problem</strong>, and the temperature problem is nearly always a batch-size problem.</p>
+    <p>Commercial data gives a sense of the scale involved: Oklahoma State University Extension reports that adding a full product load to a commercial batch fryer drops the oil roughly <strong>86 to 104°F</strong>, and further for frozen food. A home pot with a sensible batch won't see anything like that, but the mechanism is identical and a badly overloaded pot gets closer to it than most cooks realise.</p>
+
+    <!-- Related Tools & Guides -->
+    <div style="margin-top:2rem; padding:1.25rem; background:var(--tomato-light); border-radius:var(--radius-lg);">
+      <h2 style="font-family:'Playfair Display',serif; font-size:1.25rem; margin:0 0 0.75rem;">Related Tools &amp; Guides</h2>
+      <ul style="margin:0; padding-left:1.1rem; line-height:1.9;">
+        <li><a href="/guides/complete-deep-frying-guide.html">The Complete Deep Frying Guide</a></li>
+        <li><a href="/blog/deep-frying-temperature-chart.html">Deep Frying Temperatures and Times by Food</a></li>
+        <li><a href="/blog/how-much-oil-for-deep-frying.html">How Much Oil Do You Need for Deep Frying?</a></li>
+        <li><a href="/blog/altitude-cooking-calculator.html">High Altitude Cooking Calculator</a></li>
+        <li><a href="/blog/air-fryer-cooking-times.html">Air Fryer Cooking Times by Food</a></li>
+      </ul>
+    </div>
+
+    <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin:2rem 0 1rem;">Recovery Between Batches</h2>
+    <p>The calculator adds recovery time between batches because that time is real and it adds up. After a batch comes out, the oil needs a minute or two to climb back to its target before the next one goes in. Skipping it compounds the problem: the second batch starts from a lower temperature and pulls it lower still.</p>
+    <table class="ref-table">
+      <thead><tr><th>Food going in</th><th>Batch size</th><th>Recovery</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td>Room temperature</td><td>Full 1:6</td><td>~1 min</td><td>Smallest heat draw</td></tr>
+        <tr><td>Refrigerator cold</td><td>Full 1:6</td><td>~1½ min</td><td>Standard case for most home frying</td></tr>
+        <tr><td>Frozen</td><td>Reduce by about a third</td><td>~2½ min</td><td>Much larger heat draw, plus surface ice</td></tr>
+      </tbody>
+    </table>
+    <p>Use a clip-on or probe thermometer throughout rather than only at the start. Oil temperature moves constantly during a frying session, and the moment you stop watching it is usually the moment a batch goes in too early.</p>
+
+    <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin:2rem 0 1rem;">Frozen Food Needs Extra Care</h2>
+    <p>Frozen food pulls far more heat from the oil than refrigerated food, which is why the calculator cuts the batch size when you select it. It also carries surface ice, and ice hitting hot oil causes violent spattering. Shake off any loose ice before the food goes anywhere near the pot, and lower it in rather than dropping it.</p>
+    <p>Don't thaw first, though — thawing leaves the surface wetter than the frozen state did, which makes the spattering worse rather than better. Straight from the freezer, well shaken, in a smaller batch, is the right approach.</p>
+
+    <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin:2rem 0 1rem;">Altitude Lowers Your Target Temperature</h2>
+    <p>Frying is one of the cooking methods elevation genuinely affects. Moisture inside the food escapes faster in thinner air, so at a normal frying temperature the outside browns before the inside is cooked through. The standard adjustment is to <strong>lower the oil temperature by about 3°F for every 1,000 feet</strong> of elevation — at 5,000 feet a 375°F target becomes closer to 360°F. Our <a href="/blog/altitude-cooking-calculator.html">altitude cooking calculator</a> works it out for your elevation.</p>
+
+    <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin:2rem 0 1rem;">Frequently Asked Questions</h2>
+    <div class="faq-section">
+      <h3>How much food can I fry at once?</h3>
+      <p>A widely cited working ratio is about 1 part food to 6 parts oil by volume, which has been shown to keep the oil's temperature recovery short. For 6 cups of oil that means roughly 1 cup of food per batch. Going heavier drops the oil temperature further and for longer, and food sitting in cool oil absorbs it instead of crisping.</p>
+
+      <h3>How much does the oil temperature drop when I add food?</h3>
+      <p>It depends almost entirely on how much you add relative to the oil. Commercial batch-frying data from Oklahoma State University Extension reports drops of roughly 86 to 104°F when a full load goes into a commercial fryer, with frozen food dropping it further. A home pot with a modest batch will see far less, but the direction is the same — more food means a bigger drop.</p>
+
+      <h3>Why does overcrowding make fried food greasy?</h3>
+      <p>Hot oil crisps food by flashing the surface moisture to steam, which forms a crust fast enough that little oil gets in. If the oil drops too far, that crust forms slowly and the food sits in the oil far longer, absorbing it. Greasy fried food is almost always a temperature problem, not an oil-quality problem.</p>
+
+      <h3>Should I let the oil recover between batches?</h3>
+      <p>Yes. Give it a minute or two to come back to the target temperature before the next batch goes in, and check with a thermometer rather than guessing. Starting a batch in cool oil compounds the problem, because that batch drops the temperature again from an already low starting point.</p>
+
+      <h3>Do frozen foods change the batch size?</h3>
+      <p>They should. Frozen food pulls far more heat out of the oil than refrigerated food and also carries surface ice that causes spattering. Cut the batch size down and expect a longer recovery between batches. Never add anything frozen that is wet on the outside — shake off loose ice first.</p>
+    </div>
+  </div>
+</main>
+
+<script>
+  function calc() {
+    var oil = parseFloat(document.getElementById('oilAmt').value);
+    var food = parseFloat(document.getElementById('foodAmt').value);
+    var state = document.getElementById('foodState').value;
+    var fry = parseFloat(document.getElementById('fryTime').value);
+    var res = document.getElementById('result');
+    if (isNaN(oil) || isNaN(food) || isNaN(fry) || oil <= 0 || food <= 0 || fry <= 0) { res.style.display = 'none'; return; }
+
+    // 1:6 food-to-oil ratio; frozen food draws more heat so batch is cut
+    var factor = (state === 'frozen') ? 0.67 : 1;
+    var batch = (oil / 6) * factor;
+    var batches = Math.ceil(food / batch);
+    var recovery = (state === 'frozen') ? 2.5 : (state === 'fridge' ? 1.5 : 1);
+
+    // 실제 사용 배치량 기준 부하율
+    var perBatch = food / batches;
+    var load = perBatch / oil;              // food:oil 실제 비율
+    var baseDrop = (state === 'frozen') ? 60 : (state === 'fridge' ? 45 : 30);
+    var drop = Math.round(baseDrop * (load / (1 / 6)));
+
+    var total = batches * fry + (batches - 1) * recovery;
+
+    document.getElementById('batchSize').textContent = (batch >= 1 ? batch.toFixed(1) : batch.toFixed(2)) + ' cups';
+    document.getElementById('batchCount').textContent = batches + (batches === 1 ? ' batch' : ' batches');
+    document.getElementById('tempDrop').textContent = '~' + drop + '°F';
+    document.getElementById('totalTime').textContent = Math.round(total) + ' min';
+
+    var w = '';
+    if (food > oil / 6 * 4) {
+      w = '<div class="warnbox">That is a lot of food for this much oil — ' + batches + ' batches will take a while and the oil degrades as you go. Consider a bigger pot with more oil, or splitting the cooking across two sessions.</div>';
+    } else if (load > 1 / 5) {
+      w = '<div class="warnbox">Even split into batches this runs heavier than the 1:6 guideline. Expect a larger temperature drop and check the oil with a thermometer before each batch.</div>';
+    }
+    document.getElementById('warn').innerHTML = w;
+
+    document.getElementById('note').textContent =
+      'Based on a 1:6 food-to-oil ratio, with ' + recovery + ' min recovery between batches. The temperature drop is an estimate that scales with how loaded each batch is — always confirm with a thermometer rather than the clock.';
+
+    res.style.display = '';
+  }
+  calc();
+</script>
+<!-- CC:STATIC-CHROME:START (build-static.js 자동 생성 — 직접 수정하지 말 것) -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="/" class="logo">🍳 CookingCalcs</a>
+        <p>Calculators, charts and step-by-step guides for everyday cooking. Every formula is shown, with figures from USDA and published sources.</p>
+        <a class="footer-mail" href="mailto:contact@cookingcalcs.com">contact@cookingcalcs.com</a>
+      </div>
+      <nav class="footer-nav" aria-label="Footer">
+        <div class="footer-col">
+          <h4>Popular</h4>
+          <ul>
+            <li><a href="/tools/cups-to-grams.html">Cups to Grams</a></li><li><a href="/tools/oven-temp-converter.html">Oven Temperature Converter</a></li><li><a href="/tools/meat-temperature-guide.html">Meat Temperature Guide</a></li><li><a href="/tools/recipe-multiplier.html">Recipe Multiplier</a></li><li><a href="/tools/catering-pan-calculator.html">Catering Pan Calculator</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="/tools/">All 37 Tools</a></li>
+            <li><a href="/blog/">Blog</a></li>
+            <li><a href="/guides/">Guides</a></li>
+            <li><a href="/about.html">About</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-bottom-inner">
+        <p>© 2026 CookingCalcs · For informational purposes only.</p>
+        <p class="footer-legal"><a href="/privacy-policy.html">Privacy Policy</a><a href="/terms.html">Terms of Use</a><a href="/contact.html">Contact</a></p>
+      </div>
+    </div>
+  </footer>
+<!-- CC:STATIC-CHROME:END -->
+</body>
+</html>

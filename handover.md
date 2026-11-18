@@ -261,7 +261,20 @@ echo "nav.js GUIDES: $(sed -n '/const GUIDES/,/^];/p' assets/js/nav.js | grep -c
   | `/guides/` | — | **1** (vintage) | **11** + baking 가이드는 **크롤링 후 색인 거부** |
   → 새 블로그 글은 절반 가까이 크롤링되는데, 7월 이후 새 툴과 가이드는 거의 안 가져감. 툴/가이드 페이지 자체(스키마·크기·FAQ·단어수)는 이전 것과 차이 없음 →
   **구글이 URL 패턴별로 가치를 예측해서 /tools/·/guides/ 신규를 후순위로 미는 것**으로 판단. 가이드는 구글이 직접 하나 크롤링해 보고 "색인 안 함" 판정까지 내림(요약·허브형이라 고유가치 낮다고 본 것).
-- 결정 대기(사용자에게 제안): ① 앞으로 새 계산기는 `/tools/`가 아니라 `/blog/` 글 안에 계산기를 넣는 형식으로 발행(egg-whites·old-uk-egg-sizes 방식),
+- ✅ **실행(사용자: "해야될 거 있으면 다 해")**:
+  1. **툴 12개 /tools/ → /blog/ 이전**(07-24 이후 발행·Bing 클릭 거의 없는 것): grill-temperature-calculator, pressure-cooker-converter, altitude-cooking-calculator,
+     air-fryer-cooking-times, vegetable-roasting-calculator, reheating-calculator, meal-timeline-planner, deep-frying-calculator, pot-size-calculator,
+     batch-cooking-planner, yield-percentage-calculator, bakers-percentage-calculator. 파일명 그대로 `blog/`로 복사(canonical·스키마 url 교체),
+     옛 `tools/*.html`은 **리다이렉트 스텁**(meta refresh 0 + canonical + location.replace) → 🚨 **스텁 총 21개, 삭제 금지·사이트맵 금지**.
+     사이트 전체 내부링크·nav.js TOOLS/TOOL_KW·tools/index TOOL_ICONS·llms.txt·sitemap(loc 교체, lastmod 11-18) 일괄 치환. 툴 목록(/tools/ 허브)에는 계속 노출(주소만 /blog/).
+     **이동 제외**(Bing 유입 있음): can-size(105클릭)·egg-weight(99)·catering-pan(31)·oven-sharing(5)·kitchen-math-generator(224노출). 이 5개는 앞으로도 이동 금지.
+  2. **가이드 12개 구글 전용 noindex**: `<meta name="googlebot" content="noindex">`(viewport 다음 줄). 대상 = 미색인 가이드 전부(appliance, baking-conversion, cooking-for-a-crowd,
+     culinary-math, deep-frying, egg-conversion, grilling, leftover-reheating, meal-timing, oven-sharing, protein-comparison, vegetable-roasting).
+     Bing·사용자에겐 그대로. 색인된 가이드 4개(meal-prep-budget, meat-temperature, recipe-scaling, vintage)는 손대지 않음. 사이트맵에는 유지(Bing용).
+     → 되돌릴 땐 그 meta 한 줄만 지우면 됨. 코어 업데이트 후 툴/블로그 색인이 풀리면 가이드 재검토.
+  3. 🚨 **발행 규칙 변경**: 앞으로 새 계산기는 `/tools/`가 아니라 **`/blog/` 경로**에 발행(계산기+본문 형식, egg-whites·old-uk-egg-sizes·cake-to-cupcake 같은 구조). 새 가이드(/guides/) 발행 중단.
+     nav.js TOOLS에는 /blog/ 주소로 등록해 툴 목록엔 계속 보이게.
+- (이전 제안 기록) ① 앞으로 새 계산기는 `/tools/`가 아니라 `/blog/` 글 안에 계산기를 넣는 형식으로 발행(egg-whites·old-uk-egg-sizes 방식),
   ② 미색인 가이드 12개에 **구글 전용** `<meta name="googlebot" content="noindex">`(Bing 유입 유지) 또는 가이드 보강, ③ Bing 유입 없는 7월 이후 툴을 /blog/ 주소로 이전(스텁) — 위험 중간.
   Bing 상위 툴(can-size·egg-weight·catering-pan)은 어떤 경우에도 주소 이동 금지.
 

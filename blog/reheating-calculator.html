@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reheating Calculator — Best Method, Temp and Time by Food</title>
+  <meta name="description" content="Pick a food and see all four reheating methods side by side — oven, air fryer, microwave, stovetop — with temperature, time, and which one to actually use.">
+  <link rel="canonical" href="https://cookingcalcs.com/blog/reheating-calculator.html">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script src="/assets/js/nav.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Leftover Reheating Calculator",
+  "url": "https://cookingcalcs.com/blog/reheating-calculator.html",
+  "description": "Compare oven, air fryer, microwave and stovetop reheating for any leftover, with temperature, time, and the recommended method for each food.",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "provider": { "@type": "Organization", "name": "CookingCalcs", "url": "https://cookingcalcs.com" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What temperature should leftovers be reheated to?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "USDA guidance is 165°F (74°C) internal temperature for leftovers, measured with a food thermometer, and the food should be steaming hot throughout. This is the temperature inside the food, not the setting on your oven — those are two different numbers that are easy to confuse."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why should I reheat at a lower temperature than I cooked at?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Raw food needs high heat to drive moisture off the surface and build a crust. A leftover already has a set, dry exterior, so hitting it with the original cooking temperature burns or toughens the outside before the centre is warm. A reheat setting roughly 30-50°F below the original cooking temperature is the usual starting point."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is it safe to reheat leftovers more than once?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Each reheat-and-cool cycle sends the food back through the temperature range where bacteria multiply, so the safest practice is to reheat only the portion you intend to eat and keep the rest cold. Repeated cycles also degrade texture badly, especially for rice, pasta and fish."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to thaw frozen leftovers before reheating?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not necessarily. USDA guidance says frozen leftovers can be reheated without thawing in a saucepan, microwave, or oven, though it takes longer. If you do thaw first, use the refrigerator, cold water, or the microwave — never the counter."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does the microwave make food soggy and unevenly hot?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Microwaves heat by exciting water molecules, so moisture moves toward the surface instead of evaporating away — the opposite of what crisping needs. They also heat unevenly, which is why food safety guidance says to cover, rotate or stir partway, and let the food stand covered for two minutes so the temperature evens out."
+      }
+    }
+  ]
+}
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+<style>
+      .ref-table { width:100%; border-collapse:collapse; font-size:0.875rem; background:#fff; }
+      .ref-table th { background:var(--sand-dark); padding:0.7rem 0.9rem; text-align:left; font-weight:600; border:1px solid var(--border); }
+      .ref-table td { padding:0.7rem 0.9rem; border:1px solid var(--border); vertical-align:top; }
+      .ref-table tbody tr:nth-child(even) td { background:#fbfaf8; }
+      .m-card { border:1.5px solid var(--border); border-radius:10px; padding:0.85rem 1rem; margin-bottom:0.6rem; background:#fff; }
+      .m-card.best { border-color:var(--tomato); background:var(--tomato-light); }
+      .m-head { display:flex; justify-content:space-between; align-items:baseline; gap:0.6rem; flex-wrap:wrap; }
+      .m-name { font-weight:700; }
+      .m-set { color:var(--tomato-dark); font-weight:600; font-size:0.92rem; }
+      .m-tag { font-size:0.72rem; text-transform:uppercase; letter-spacing:0.04em; background:var(--tomato); color:#fff; padding:0.12rem 0.45rem; border-radius:999px; }
+      .m-note { color:var(--mid); font-size:0.87rem; margin-top:0.3rem; }
+</style>
+</head>
+<body>
+<!-- CC:STATIC-CHROME:START (build-static.js 자동 생성 — 직접 수정하지 말 것) -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="logo">🍳 CookingCalcs</a>
+      <nav class="main-nav" id="mainNav">
+        <ul class="nav-list">
+          <li><a href="/" class="nav-link">Home</a></li>
+          <li><a href="/tools/" class="nav-link">Tools</a></li>
+          <li><a href="/blog/" class="nav-link">Blog</a></li>
+          <li><a href="/guides/" class="nav-link">Guides</a></li>
+          <li><a href="/about.html" class="nav-link">About</a></li>
+        </ul>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <nav class="mobile-nav" id="mobileNav">
+    <ul class="nav-list">
+      <li><a href="/" class="nav-link">Home</a></li>
+      <li class="nav-has-dropdown">
+        <button class="nav-link nav-btn" aria-expanded="false">Tools ▾</button>
+        <ul class="nav-dropdown">
+          <li><a href="/tools/" class="nav-dropdown-all">All 37 Tools →</a></li>
+          <li><a href="/tools/cups-to-grams.html">Cups to Grams</a></li><li><a href="/tools/oven-temp-converter.html">Oven Temperature Converter</a></li><li><a href="/tools/recipe-multiplier.html">Recipe Multiplier</a></li><li><a href="/tools/meat-temperature-guide.html">Meat Temperature Guide</a></li><li><a href="/tools/egg-converter.html">Egg Size Converter</a></li><li><a href="/tools/butter-converter.html">Butter Converter</a></li><li><a href="/tools/catering-pan-calculator.html">Catering Pan Calculator</a></li><li><a href="/blog/bakers-percentage-calculator.html">Baker's Percentage Calculator</a></li>
+        </ul>
+      </li>
+      <li class="nav-has-dropdown">
+        <button class="nav-link nav-btn" aria-expanded="false">Blog ▾</button>
+        <ul class="nav-dropdown">
+          <li><a href="/blog/" class="nav-dropdown-all">All 92 Posts →</a></li>
+          <li><a href="/blog/how-to-substitute-egg-sizes.html">How to Substitute Egg Sizes</a></li><li><a href="/blog/how-long-can-food-sit-out.html">How Long Can Food Sit Out?</a></li><li><a href="/blog/average-cost-of-a-home-cooked-meal.html">Average Cost of a Home-Cooked Meal</a></li><li><a href="/blog/how-long-to-cook-steak.html">How Long to Cook Steak</a></li><li><a href="/blog/culinary-math-formulas.html">Culinary Math Formulas</a></li>
+        </ul>
+      </li>
+      <li class="nav-has-dropdown">
+        <button class="nav-link nav-btn" aria-expanded="false">Guides ▾</button>
+        <ul class="nav-dropdown">
+          <li><a href="/guides/" class="nav-dropdown-all">All 16 Guides →</a></li>
+          <li><a href="/guides/complete-baking-conversion-guide.html">Baking Measurement & Conversion</a></li><li><a href="/guides/complete-meat-cooking-temperature-guide.html">Meat Cooking & Temperature</a></li><li><a href="/guides/complete-recipe-scaling-guide.html">Recipe Scaling & Serving</a></li><li><a href="/guides/complete-culinary-math-guide.html">Culinary Math</a></li><li><a href="/guides/complete-cooking-for-a-crowd-guide.html">Cooking for a Crowd</a></li>
+        </ul>
+      </li>
+      <li><a href="/about.html" class="nav-link">About</a></li>
+    </ul>
+  </nav>
+  <div class="nav-overlay" id="navOverlay"></div>
+<!-- CC:STATIC-CHROME:END -->
+<main>
+  <div class="tool-page">
+    <h1>Leftover Reheating Calculator</h1>
+    <p class="tool-desc">Pick what you're reheating and see all four methods side by side — with the one that actually suits that food marked.</p>
+
+    <div class="tool-box">
+      <div class="form-group">
+        <label for="foodSel">What are you reheating?</label>
+        <select id="foodSel" onchange="calc()">
+          <option value="">— Select a food —</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="portion">Portion size</label>
+        <select id="portion" onchange="calc()">
+          <option value="1">Single portion</option>
+          <option value="1.4">Large / family portion</option>
+        </select>
+      </div>
+
+      <div id="result" style="display:none; margin-top:1.4rem;">
+        <div id="methods"></div>
+        <div style="margin-top:1rem; padding:0.9rem 1rem; background:var(--sand-dark); border-radius:10px;">
+          <strong>Safe target:</strong> <span id="safeTarget"></span>
+        </div>
+      </div>
+    </div>
+
+    <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin:2rem 0 1rem;">The Two Numbers People Confuse</h2>
+    <p>Reheating advice mixes up two completely different temperatures, and it causes a lot of dry, disappointing food.</p>
+    <table class="ref-table">
+      <thead><tr><th></th><th>What it is</th><th>Typical value</th></tr></thead>
+      <tbody>
+        <tr><td><strong>165°F</strong></td><td>Internal temperature the food must reach — a safety target you measure with a thermometer</td><td>Fixed, for leftovers</td></tr>
+        <tr><td><strong>300-400°F</strong></td><td>The setting you put the oven or air fryer on — a tool, chosen for texture</td><td>Varies by food</td></tr>
+      </tbody>
+    </table>
+    <p>You set the second one; you verify the first one. Turning the oven to 165°F because that's the number you read is a common and genuinely counterproductive mistake — the food sits for an hour and dries out without ever getting hot in the middle.</p>
+
+    <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin:2rem 0 1rem;">Reheat Cooler Than You Cooked</h2>
+    <p>The single most useful principle: a reheat setting should be roughly <strong>30-50°F below</strong> the temperature you originally cooked the food at. Raw food needs aggressive heat to drive surface moisture off and build a crust. A leftover already has that set, dry exterior — hit it with full cooking heat and the outside toughens or burns well before the centre is warm.</p>
+    <p>This is why fried chicken that was cooked at 400°F reheats best around 375°F, and why a casserole baked at 375°F comes back at 325-350°F. It's also why the microwave, which does the opposite of drying a surface, is the wrong tool for anything you want crisp.</p>
+
+    <!-- Related Tools & Guides -->
+    <div style="margin-top:2rem; padding:1.25rem; background:var(--tomato-light); border-radius:var(--radius-lg);">
+      <h2 style="font-family:'Playfair Display',serif; font-size:1.25rem; margin:0 0 0.75rem;">Related Tools &amp; Guides</h2>
+      <ul style="margin:0; padding-left:1.1rem; line-height:1.9;">
+        <li><a href="/blog/how-long-do-freezer-meals-last.html">How Long Do Freezer Meals Last?</a></li>
+        <li><a href="/guides/complete-meal-timing-guide.html">The Complete Meal Timing Guide</a></li>
+        <li><a href="/guides/complete-leftover-reheating-guide.html">The Complete Leftover Reheating Guide</a></li>
+        <li><a href="/blog/how-long-to-reheat-leftovers.html">How Long to Reheat Leftovers</a></li>
+        <li><a href="/blog/how-long-can-food-sit-out.html">How Long Can Food Sit Out? The 2-Hour Rule</a></li>
+        <li><a href="/tools/meat-temperature-guide.html">Meat Temperature Guide</a></li>
+        <li><a href="/blog/air-fryer-cooking-times.html">Air Fryer Cooking Times by Food</a></li>
+      </ul>
+    </div>
+
+    <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin:2rem 0 1rem;">Crisp or Moist: Pick the Method First</h2>
+    <p>Every reheating decision comes down to one question — does this food need its surface dried out, or protected?</p>
+    <table class="ref-table">
+      <thead><tr><th>Goal</th><th>Foods</th><th>Method</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Restore crisp</strong></td><td>Pizza, fries, fried chicken, wings, breaded items, roast potatoes, pastry</td><td>Air fryer, then oven</td><td>Moving dry air pulls surface moisture away, re-crisping the coating</td></tr>
+        <tr><td><strong>Protect moisture</strong></td><td>Rice, pasta, casseroles, roast meat slices, fish</td><td>Stovetop or covered oven</td><td>Added liquid and a cover replace the water that reheating drives off</td></tr>
+        <tr><td><strong>Just get it hot</strong></td><td>Soup, stew, chilli, curry, sauces</td><td>Stovetop</td><td>Even heat, easy stirring, no hot and cold pockets</td></tr>
+        <tr><td><strong>Speed over texture</strong></td><td>Anything, when you have two minutes</td><td>Microwave</td><td>Fastest, but adds surface moisture rather than removing it</td></tr>
+      </tbody>
+    </table>
+    <p>The microwave isn't bad at reheating — it's bad at <em>texture</em>. For soup it's fine. For a slice of pizza it's working directly against what you want.</p>
+
+    <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin:2rem 0 1rem;">Food Safety, Briefly</h2>
+    <p>USDA guidance for leftovers is <strong>165°F internal</strong>, measured with a thermometer, with the food steaming hot throughout. Sauces, soups and gravies should be brought to a rolling boil. In a microwave, cover the food, rotate or stir partway through, and let it stand covered for two minutes afterwards so the temperature evens out — microwaves heat unevenly enough that this rest genuinely matters.</p>
+    <p>Two things worth knowing beyond the number. Slow cookers and warming drawers are <strong>not</strong> recommended for reheating, because they bring food up through the bacterial growth range too slowly; use them to hold food hot once it's already been reheated properly. And reheating doesn't undo the <a href="/blog/how-long-can-food-sit-out.html">2-hour rule</a> — food that sat out too long isn't rescued by getting hot later.</p>
+
+    <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin:2rem 0 1rem;">Frequently Asked Questions</h2>
+    <div class="faq-section">
+      <h3>What temperature should leftovers be reheated to?</h3>
+      <p>USDA guidance is 165°F (74°C) internal temperature for leftovers, measured with a food thermometer, and the food should be steaming hot throughout. This is the temperature inside the food, not the setting on your oven — those are two different numbers that are easy to confuse.</p>
+
+      <h3>Why should I reheat at a lower temperature than I cooked at?</h3>
+      <p>Raw food needs high heat to drive moisture off the surface and build a crust. A leftover already has a set, dry exterior, so hitting it with the original cooking temperature burns or toughens the outside before the centre is warm. A reheat setting roughly 30-50°F below the original cooking temperature is the usual starting point.</p>
+
+      <h3>Is it safe to reheat leftovers more than once?</h3>
+      <p>Each reheat-and-cool cycle sends the food back through the temperature range where bacteria multiply, so the safest practice is to reheat only the portion you intend to eat and keep the rest cold. Repeated cycles also degrade texture badly, especially for rice, pasta and fish.</p>
+
+      <h3>Do I need to thaw frozen leftovers before reheating?</h3>
+      <p>Not necessarily. USDA guidance says frozen leftovers can be reheated without thawing in a saucepan, microwave, or oven, though it takes longer. If you do thaw first, use the refrigerator, cold water, or the microwave — never the counter.</p>
+
+      <h3>Why does the microwave make food soggy and unevenly hot?</h3>
+      <p>Microwaves heat by exciting water molecules, so moisture moves toward the surface instead of evaporating away — the opposite of what crisping needs. They also heat unevenly, which is why food safety guidance says to cover, rotate or stir partway, and let the food stand covered for two minutes so the temperature evens out.</p>
+    </div>
+  </div>
+</main>
+
+<script>
+  // best: 'air'|'oven'|'micro'|'stove'
+  var FOODS = [
+    { n:"Pizza", best:"air", air:["350°F","3-4 min","Directly on the rack, one layer, cheese side up."],
+      oven:["375°F","8-10 min","On a preheated tray or stone for a crisp base."],
+      micro:["High","45-60 sec","Softens the crust — a last resort for pizza."],
+      stove:["Medium-low","4-6 min","Dry skillet, lid on for the last minute to melt the cheese."], safe:"Steaming hot throughout" },
+    { n:"French fries", best:"air", air:["400°F","3-5 min","Shake halfway. Highest heat of any reheat — crust is the whole point."],
+      oven:["425°F","8-10 min","Single layer on a preheated tray."],
+      micro:["High","30-45 sec","Produces limp fries. Avoid if you have any alternative."],
+      stove:["Medium-high","4-5 min","A little oil in a skillet works surprisingly well."], safe:"Steaming hot throughout" },
+    { n:"Fried chicken", best:"air", air:["375°F","5-8 min","Don't crowd the basket; skin needs airflow to re-crisp."],
+      oven:["375°F","12-15 min","On a wire rack so air reaches underneath."],
+      micro:["High","1-2 min","Ruins the coating entirely."],
+      stove:["—","—","Not practical for bone-in pieces."], safe:"165°F internal" },
+    { n:"Breaded items (nuggets, spring rolls)", best:"air", air:["350-360°F","3-5 min","Breading re-crisps fast; longer dries the filling."],
+      oven:["375°F","8-12 min","On a wire rack."],
+      micro:["High","45-60 sec","Steam from inside re-saturates the breading."],
+      stove:["Medium","3-4 min","Works for flat items in a little oil."], safe:"165°F internal" },
+    { n:"Roast potatoes / roasted vegetables", best:"air", air:["350°F","4-6 min","Toss halfway."],
+      oven:["400°F","10-15 min","Spread out; crowding steams them again."],
+      micro:["High","1-2 min","Soft, never crisp."],
+      stove:["Medium-high","4-6 min","Skillet with a little oil crisps the cut faces."], safe:"Steaming hot throughout" },
+    { n:"Roast meat slices", best:"oven", air:["300°F","3-5 min","Low heat only — high heat overcooks thin slices instantly."],
+      oven:["275-300°F","20-25 min","Add a splash of stock and cover with foil."],
+      micro:["50% power","1-2 min","Low power and a damp cover, or it turns leathery."],
+      stove:["Low","3-5 min","In a little stock or gravy, covered."], safe:"165°F internal" },
+    { n:"Steak", best:"oven", air:["300°F","3-4 min","Watch closely — easy to push past your original doneness."],
+      oven:["250°F","15-20 min","Low and slow, then sear 60 sec per side if you want the crust back."],
+      micro:["50% power","30-60 sec","Grey and tough. Not recommended."],
+      stove:["Medium-high","1-2 min","Best as a finishing sear after gentle oven warming."], safe:"Warm through; avoid overcooking" },
+    { n:"Chicken breast", best:"oven", air:["325°F","4-6 min","Cover loosely with foil to hold moisture."],
+      oven:["325°F","12-18 min","Splash of stock, covered with foil."],
+      micro:["50% power","1-2 min","Damp paper towel over the top; check often."],
+      stove:["Low","4-6 min","Sliced, in a little stock, covered."], safe:"165°F internal" },
+    { n:"Fish", best:"air", air:["375°F","4-5 min","Quick and gentle; a light spritz of oil helps."],
+      oven:["275-300°F","10-15 min","Covered, to keep it from drying."],
+      micro:["50% power","45-90 sec","Overcooks in seconds and smells strong."],
+      stove:["Low","3-4 min","Covered, with a splash of liquid."], safe:"145°F internal" },
+    { n:"Rice", best:"stove", air:["300°F","4-5 min","Only in a covered ramekin with added water."],
+      oven:["300°F","15-20 min","Covered dish, splash of water."],
+      micro:["High","1-2 min","Add a tablespoon of water, cover, stir halfway."],
+      stove:["Low","4-5 min","Splash of water, lid on — steam rehydrates the grains."], safe:"165°F internal" },
+    { n:"Pasta (sauced)", best:"stove", air:["325°F","5 min","Covered ramekin only; dry heat splits cream sauces."],
+      oven:["300°F","20 min","Covered with foil, stir halfway."],
+      micro:["High","1-2 min","Cover, stir halfway, add a splash of water."],
+      stove:["Medium-low","4-6 min","Splash of water or stock; loosens the sauce as it heats."], safe:"165°F internal" },
+    { n:"Casserole / baked pasta", best:"oven", air:["325°F","8-10 min","Only for small portions that fit the basket."],
+      oven:["350°F","20-30 min","Covered with foil, uncovered for the last 5-10 to brown the top."],
+      micro:["High","3-5 min","Stir partway; edges heat long before the centre."],
+      stove:["—","—","Not practical."], safe:"165°F internal" },
+    { n:"Soup / stew / chilli", best:"stove", air:["—","—","Air fryers can't safely handle liquids."],
+      oven:["325°F","20-30 min","Covered pot; slower than the stovetop for no benefit."],
+      micro:["High","2-4 min","Cover, stir every minute, stand 2 min after."],
+      stove:["Medium","5-10 min","Stir often and bring sauces and soups to a rolling boil."], safe:"Rolling boil" },
+    { n:"Burger patty", best:"air", air:["350°F","3-4 min","Patty only — reheat the bun separately or it dries out."],
+      oven:["350°F","8-10 min","Wrapped in foil to keep it juicy."],
+      micro:["High","45-60 sec","Fast but rubbery."],
+      stove:["Medium","3-4 min","Skillet, covered, restores some crust."], safe:"165°F internal" },
+    { n:"Bread / pastry / garlic bread", best:"oven", air:["325°F","2-3 min","Watch closely; pastry darkens fast."],
+      oven:["325-350°F","5-8 min","Loosely wrapped in foil for soft bread, uncovered for crisp crust."],
+      micro:["High","10-15 sec","Turns tough within seconds of cooling."],
+      stove:["Medium-low","2-3 min","Dry skillet works well for flatbreads."], safe:"Warm through" }
+  ];
+
+  function buildSel() {
+    var s = document.getElementById('foodSel');
+    FOODS.forEach(function (f, i) {
+      var o = document.createElement('option');
+      o.value = i; o.textContent = f.n;
+      s.appendChild(o);
+    });
+  }
+
+  function scaleTime(txt, mult) {
+    if (mult === 1) return txt;
+    return txt.replace(/(\d+)(?:\s*-\s*(\d+))?\s*(min|sec)/, function (m, a, b, unit) {
+      var lo = Math.round(parseInt(a, 10) * mult);
+      if (b) return lo + '-' + Math.round(parseInt(b, 10) * mult) + ' ' + unit;
+      return lo + ' ' + unit;
+    });
+  }
+
+  var LABEL = { air:"Air fryer", oven:"Oven", micro:"Microwave", stove:"Stovetop" };
+
+  function calc() {
+    var v = document.getElementById('foodSel').value;
+    var res = document.getElementById('result');
+    if (v === '') { res.style.display = 'none'; return; }
+    var f = FOODS[v];
+    var mult = parseFloat(document.getElementById('portion').value);
+
+    var order = [f.best].concat(['air','oven','micro','stove'].filter(function (k) { return k !== f.best; }));
+    var html = '';
+    order.forEach(function (k) {
+      var d = f[k];
+      if (!d) return;
+      var isBest = (k === f.best);
+      var time = (d[1] === '—') ? '—' : scaleTime(d[1], mult);
+      html += '<div class="m-card' + (isBest ? ' best' : '') + '">' +
+        '<div class="m-head"><span class="m-name">' + LABEL[k] + (isBest ? ' <span class="m-tag">Best</span>' : '') + '</span>' +
+        '<span class="m-set">' + d[0] + (d[0] !== '—' ? ' · ' + time : '') + '</span></div>' +
+        '<div class="m-note">' + d[2] + '</div></div>';
+    });
+    document.getElementById('methods').innerHTML = html;
+    document.getElementById('safeTarget').textContent = f.safe + '. Reheat within 2 hours of taking it out of the fridge.';
+    res.style.display = '';
+  }
+
+  buildSel();
+</script>
+<!-- CC:STATIC-CHROME:START (build-static.js 자동 생성 — 직접 수정하지 말 것) -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="/" class="logo">🍳 CookingCalcs</a>
+        <p>Calculators, charts and step-by-step guides for everyday cooking. Every formula is shown, with figures from USDA and published sources.</p>
+        <a class="footer-mail" href="mailto:contact@cookingcalcs.com">contact@cookingcalcs.com</a>
+      </div>
+      <nav class="footer-nav" aria-label="Footer">
+        <div class="footer-col">
+          <h4>Popular</h4>
+          <ul>
+            <li><a href="/tools/cups-to-grams.html">Cups to Grams</a></li><li><a href="/tools/oven-temp-converter.html">Oven Temperature Converter</a></li><li><a href="/tools/meat-temperature-guide.html">Meat Temperature Guide</a></li><li><a href="/tools/recipe-multiplier.html">Recipe Multiplier</a></li><li><a href="/tools/catering-pan-calculator.html">Catering Pan Calculator</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="/tools/">All 37 Tools</a></li>
+            <li><a href="/blog/">Blog</a></li>
+            <li><a href="/guides/">Guides</a></li>
+            <li><a href="/about.html">About</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-bottom-inner">
+        <p>© 2026 CookingCalcs · For informational purposes only.</p>
+        <p class="footer-legal"><a href="/privacy-policy.html">Privacy Policy</a><a href="/terms.html">Terms of Use</a><a href="/contact.html">Contact</a></p>
+      </div>
+    </div>
+  </footer>
+<!-- CC:STATIC-CHROME:END -->
+</body>
+</html>

@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yield Percentage Calculator — How Much to Buy After Trim</title>
+  <meta name="description" content="Convert as-purchased weight to edible portion and back for 51 fruits and vegetables, with trim waste and true cost per usable pound.">
+  <link rel="canonical" href="https://cookingcalcs.com/blog/yield-percentage-calculator.html">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script src="/assets/js/nav.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Yield Percentage Calculator",
+  "url": "https://cookingcalcs.com/blog/yield-percentage-calculator.html",
+  "description": "Convert as-purchased weight to edible portion weight and back, using published yield percentages for fruits and vegetables. Also shows trim waste and the real cost per usable pound.",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "provider": { "@type": "Organization", "name": "CookingCalcs", "url": "https://cookingcalcs.com" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is yield percentage in cooking?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yield percentage is the share of what you bought that survives trimming, peeling, coring and boning. It is the edible portion quantity divided by the as-purchased quantity, times 100. A butternut squash with a 66% yield gives 1.32 pounds of usable flesh from a 2 pound squash; the other 0.68 pound is skin, seeds and stem."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I calculate how much produce to buy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Divide the trimmed weight your recipe needs by the yield percentage expressed as a decimal. A recipe calling for 2 pounds of peeled butternut squash at 66% yield needs 2 ÷ 0.66, which is about 3.03 pounds of whole squash. Then round up to the nearest whole unit you can actually buy."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is yield percentage the same as cooking shrinkage?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No, and the two stack. Yield percentage covers loss before cooking — peel, seeds, stems, bone, fat you trim off. Shrinkage is moisture and fat lost during cooking. A pound of whole spinach loses stems first, then loses most of its remaining weight in the pan. Apply the yield percentage to get to trimmed weight, then apply shrinkage to get to cooked weight."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do published yield percentage charts disagree?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because yield depends on the grade and size you bought, the season, and how aggressively the person with the knife trims. Strawberries are listed at 94% in one industry table and 87% in a culinary textbook — that gap is how much green shoulder gets hulled away. Treat any chart as a starting figure and replace it with your own number once you have weighed a real batch."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does yield percentage change the cost of an ingredient?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The price on the shelf is the as-purchased cost; what you actually pay per usable pound is that price divided by the yield. Pineapple at $2.00 a pound with a 38% yield costs $5.26 per pound of usable fruit. This is the single biggest reason a recipe costs more than adding up shelf prices suggests."
+      }
+    }
+  ]
+}
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5592663499707350" crossorigin="anonymous"></script>
+<style>
+      .ref-table { width:100%; border-collapse:collapse; font-size:0.875rem; background:#fff; }
+      .ref-table th { background:var(--sand-dark); padding:0.7rem 0.9rem; text-align:left; font-weight:600; border:1px solid var(--border); }
+      .ref-table td { padding:0.7rem 0.9rem; border:1px solid var(--border); vertical-align:top; }
+      .ref-table tbody tr:nth-child(even) td { background:#fbfaf8; }
+      .yp-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+      .yp-note { padding:0.85rem 1rem; border-radius:10px; background:#fff4e5; color:#8a5300; margin-bottom:1rem; font-size:0.9rem; }
+      @media(max-width:600px){ .yp-grid { grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+<!-- CC:STATIC-CHROME:START (build-static.js 자동 생성 — 직접 수정하지 말 것) -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="logo">🍳 CookingCalcs</a>
+      <nav class="main-nav" id="mainNav">
+        <ul class="nav-list">
+          <li><a href="/" class="nav-link">Home</a></li>
+          <li><a href="/tools/" class="nav-link">Tools</a></li>
+          <li><a href="/blog/" class="nav-link">Blog</a></li>
+          <li><a href="/guides/" class="nav-link">Guides</a></li>
+          <li><a href="/about.html" class="nav-link">About</a></li>
+        </ul>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <nav class="mobile-nav" id="mobileNav">
+    <ul class="nav-list">
+      <li><a href="/" class="nav-link">Home</a></li>
+      <li class="nav-has-dropdown">
+        <button class="nav-link nav-btn" aria-expanded="false">Tools ▾</button>
+        <ul class="nav-dropdown">
+          <li><a href="/tools/" class="nav-dropdown-all">All 37 Tools →</a></li>
+          <li><a href="/tools/cups-to-grams.html">Cups to Grams</a></li><li><a href="/tools/oven-temp-converter.html">Oven Temperature Converter</a></li><li><a href="/tools/recipe-multiplier.html">Recipe Multiplier</a></li><li><a href="/tools/meat-temperature-guide.html">Meat Temperature Guide</a></li><li><a href="/tools/egg-converter.html">Egg Size Converter</a></li><li><a href="/tools/butter-converter.html">Butter Converter</a></li><li><a href="/tools/catering-pan-calculator.html">Catering Pan Calculator</a></li><li><a href="/blog/bakers-percentage-calculator.html">Baker's Percentage Calculator</a></li>
+        </ul>
+      </li>
+      <li class="nav-has-dropdown">
+        <button class="nav-link nav-btn" aria-expanded="false">Blog ▾</button>
+        <ul class="nav-dropdown">
+          <li><a href="/blog/" class="nav-dropdown-all">All 92 Posts →</a></li>
+          <li><a href="/blog/how-to-substitute-egg-sizes.html">How to Substitute Egg Sizes</a></li><li><a href="/blog/how-long-can-food-sit-out.html">How Long Can Food Sit Out?</a></li><li><a href="/blog/average-cost-of-a-home-cooked-meal.html">Average Cost of a Home-Cooked Meal</a></li><li><a href="/blog/how-long-to-cook-steak.html">How Long to Cook Steak</a></li><li><a href="/blog/culinary-math-formulas.html">Culinary Math Formulas</a></li>
+        </ul>
+      </li>
+      <li class="nav-has-dropdown">
+        <button class="nav-link nav-btn" aria-expanded="false">Guides ▾</button>
+        <ul class="nav-dropdown">
+          <li><a href="/guides/" class="nav-dropdown-all">All 16 Guides →</a></li>
+          <li><a href="/guides/complete-baking-conversion-guide.html">Baking Measurement & Conversion</a></li><li><a href="/guides/complete-meat-cooking-temperature-guide.html">Meat Cooking & Temperature</a></li><li><a href="/guides/complete-recipe-scaling-guide.html">Recipe Scaling & Serving</a></li><li><a href="/guides/complete-culinary-math-guide.html">Culinary Math</a></li><li><a href="/guides/complete-cooking-for-a-crowd-guide.html">Cooking for a Crowd</a></li>
+        </ul>
+      </li>
+      <li><a href="/about.html" class="nav-link">About</a></li>
+    </ul>
+  </nav>
+  <div class="nav-overlay" id="navOverlay"></div>
+<!-- CC:STATIC-CHROME:END -->
+<main>
+  <div class="tool-page">
+    <h1>Yield Percentage Calculator</h1>
+    <p class="tool-desc">Pick an ingredient and say which direction you need. The calculator converts between as-purchased weight and trimmed, edible weight, shows how much you throw away, and works out what the usable portion really costs per pound.</p>
+
+    <div class="tool-box">
+      <div class="form-group">
+        <label for="item">Ingredient</label>
+        <select id="item" onchange="syncYield()">
+          <optgroup label="Vegetables">
+            <option value="56">Asparagus</option>
+            <option value="88">Beans, green or wax</option>
+            <option value="76">Beets, with tops</option>
+            <option value="61">Broccoli, whole heads</option>
+            <option value="95">Broccoli crowns or florets</option>
+            <option value="74">Brussels sprouts</option>
+            <option value="79">Cabbage, green or red</option>
+            <option value="82">Carrots, jumbo unpeeled</option>
+            <option value="55">Cauliflower, whole</option>
+            <option value="75">Celery</option>
+            <option value="73">Cucumber, peeled</option>
+            <option value="95">Cucumber, unpeeled</option>
+            <option value="81">Eggplant</option>
+            <option value="60">Fennel</option>
+            <option value="80">Ginger root</option>
+            <option value="74">Kale</option>
+            <option value="75">Leeks</option>
+            <option value="97">Mushrooms, button</option>
+            <option value="89">Onion, jumbo yellow or red</option>
+            <option value="70">Onions, green (scallions)</option>
+            <option value="85">Parsnips</option>
+            <option value="38">Peas, green in the pod</option>
+            <option value="85">Peas, snap or snow</option>
+            <option value="65">Peppers, bell (green or red)</option>
+            <option value="81" selected>Potato, russet or Yukon Gold</option>
+            <option value="63">Radishes</option>
+            <option value="85">Rutabaga</option>
+            <option value="74">Spinach, untrimmed</option>
+            <option value="66">Squash, butternut or acorn</option>
+            <option value="95">Squash, zucchini or yellow</option>
+            <option value="80">Sweet potato</option>
+            <option value="91">Tomatoes, round</option>
+            <option value="81">Turnips</option>
+          </optgroup>
+          <optgroup label="Fruit">
+            <option value="72">Avocado</option>
+            <option value="66">Banana</option>
+            <option value="96">Blackberries</option>
+            <option value="43">Cantaloupe</option>
+            <option value="62">Cherries</option>
+            <option value="96">Grapes</option>
+            <option value="48">Honeydew</option>
+            <option value="36">Lemons, for juice</option>
+            <option value="47">Limes, for juice</option>
+            <option value="69">Mango</option>
+            <option value="44">Oranges, segmented</option>
+            <option value="65">Papaya</option>
+            <option value="76">Peaches</option>
+            <option value="78">Pears</option>
+            <option value="38">Pineapple</option>
+            <option value="94">Plums</option>
+            <option value="94">Strawberries, hulled</option>
+            <option value="52">Watermelon</option>
+          </optgroup>
+          <optgroup label="Other">
+            <option value="custom">Something else — I'll enter the yield</option>
+          </optgroup>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="yieldPct">Yield percentage</label>
+        <input type="number" id="yieldPct" min="1" max="100" step="0.1" value="81" oninput="calc()">
+      </div>
+
+      <div class="form-group">
+        <label for="dir">What are you working out?</label>
+        <select id="dir" onchange="calc()">
+          <option value="ap2ep">I'm buying this much — how much is usable?</option>
+          <option value="ep2ap">My recipe needs this much trimmed — how much do I buy?</option>
+        </select>
+      </div>
+
+      <div class="yp-grid">
+        <div class="form-group">
+          <label for="wt" id="wtLabel">Weight you're buying</label>
+          <input type="number" id="wt" min="0" step="0.01" value="3" oninput="calc()">
+        </div>
+        <div class="form-group">
+          <label for="unit">Unit</label>
+          <select id="unit" onchange="calc()">
+            <option value="lb" selected>pounds</option>
+            <option value="oz">ounces</option>
+            <option value="kg">kilograms</option>
+            <option value="g">grams</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="price">Shelf price per pound or kilogram (optional)</label>
+        <input type="number" id="price" min="0" step="0.01" placeholder="e.g. 1.99" oninput="calc()">
+      </div>
+
+      <div id="result" style="display:none; margin-top:1.4rem;">
+        <div id="warn"></div>
+        <div class="yp-grid">
+          <div class="result-box">
+            <div class="result-num" id="answer"></div>
+            <div class="result-label" id="answerLabel"></div>
+          </div>
+          <div class="result-box">
+            <div class="result-num" id="waste"></div>
+            <div class="result-label">Trim you throw away</div>
+          </div>
+        </div>
+        <div class="yp-grid" style="margin-top:1rem;">
+          <div class="result-box">
+            <div class="result-num" id="ypOut"></div>
+            <div class="result-label">Yield percentage used</div>
+          </div>
+          <div class="result-box">
+            <div class="result-num" id="epCost">—</div>
+            <div class="result-label" id="epCostLabel">Real cost per usable unit</div>
+          </div>
+        </div>
+        <p id="note" style="margin-top:1rem; color:var(--mid); font-size:0.9rem;"></p>
+      </div>
+    </div>
+
+    <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin:2rem 0 1rem;">The Two Formulas Behind It</h2>
+    <p>Everything on this page comes from one relationship between what you buy and what you can actually cook with. Kitchens call the first figure the <strong>as-purchased quantity</strong> (APQ) and the second the <strong>edible portion quantity</strong> (EPQ).</p>
+    <p>Going forward, from the shopping bag to the cutting board: <strong>EPQ = APQ × yield%</strong>. Going backwards, from the recipe to the shopping list: <strong>APQ = EPQ ÷ yield%</strong>. The second one is the one people get wrong, because the instinct is to add a percentage rather than divide by one. A recipe needing 2 pounds of peeled butternut squash at 66% yield does not need 2 pounds plus 34% — it needs 2 ÷ 0.66, which is 3.03 pounds, and that is a whole extra pound of squash.</p>
+
+    <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin:2rem 0 1rem;">Yield Percentages by Ingredient</h2>
+    <p>These are the figures the calculator uses. Vegetable yields follow the Chefs Resources average produce yield table; fruit yields follow the US Foods produce yield table. Both assume standard restaurant prep — peeled, cored, stemmed, seeded where that applies.</p>
+    <table class="ref-table">
+      <thead><tr><th>Ingredient</th><th>Yield</th><th>What the loss is</th></tr></thead>
+      <tbody>
+        <tr><td>Lemons, for juice</td><td>36%</td><td>Peel, pith, pulp, seeds</td></tr>
+        <tr><td>Pineapple</td><td>38%</td><td>Skin, crown, core</td></tr>
+        <tr><td>Peas, green in the pod</td><td>38%</td><td>Pods</td></tr>
+        <tr><td>Cantaloupe</td><td>43%</td><td>Rind and seed cavity</td></tr>
+        <tr><td>Oranges, segmented</td><td>44%</td><td>Peel, pith, membrane</td></tr>
+        <tr><td>Watermelon</td><td>52%</td><td>Rind</td></tr>
+        <tr><td>Cauliflower, whole</td><td>55%</td><td>Leaves and core</td></tr>
+        <tr><td>Asparagus</td><td>56%</td><td>Woody ends</td></tr>
+        <tr><td>Broccoli, whole heads</td><td>61%</td><td>Thick stalk and leaves</td></tr>
+        <tr><td>Peppers, bell</td><td>65%</td><td>Stem, core, seeds, ribs</td></tr>
+        <tr><td>Squash, butternut or acorn</td><td>66%</td><td>Skin, seeds, stem</td></tr>
+        <tr><td>Banana</td><td>66%</td><td>Peel</td></tr>
+        <tr><td>Avocado</td><td>72%</td><td>Skin and stone</td></tr>
+        <tr><td>Spinach, untrimmed</td><td>74%</td><td>Stems and damaged leaves</td></tr>
+        <tr><td>Celery</td><td>75%</td><td>Base, leaves, tough outer ribs</td></tr>
+        <tr><td>Peaches</td><td>76%</td><td>Skin and stone</td></tr>
+        <tr><td>Pears</td><td>78%</td><td>Skin and core</td></tr>
+        <tr><td>Sweet potato</td><td>80%</td><td>Skin and ends</td></tr>
+        <tr><td>Potato, russet or Yukon Gold</td><td>81%</td><td>Skin and eyes</td></tr>
+        <tr><td>Onion, jumbo</td><td>89%</td><td>Papery skin, root, top</td></tr>
+        <tr><td>Tomatoes, round</td><td>91%</td><td>Core and stem scar</td></tr>
+        <tr><td>Strawberries, hulled</td><td>94%</td><td>Green tops</td></tr>
+        <tr><td>Zucchini or yellow squash</td><td>95%</td><td>Ends only</td></tr>
+        <tr><td>Mushrooms, button</td><td>97%</td><td>Stem bases</td></tr>
+      </tbody>
+    </table>
+    <p style="color:var(--mid); font-size:0.92rem;">The full list in the dropdown runs to 51 entries. Anything not listed can be entered by hand with the custom option.</p>
+
+    <!-- Related Tools & Guides -->
+    <div style="margin-top:2rem; padding:1.25rem; background:var(--tomato-light); border-radius:var(--radius-lg);">
+      <h2 style="font-family:'Playfair Display',serif; font-size:1.25rem; margin:0 0 0.75rem;">Related Tools &amp; Guides</h2>
+      <ul style="margin:0; padding-left:1.1rem; line-height:1.9;">
+        <li><a href="/guides/complete-culinary-math-guide.html">The Complete Culinary Math Guide</a></li>
+        <li><a href="/blog/how-much-to-buy-for-a-recipe.html">Recipe Says 2 Pounds Trimmed — How Much Do I Buy?</a></li>
+        <li><a href="/blog/culinary-math-formulas.html">Culinary Math Formulas You Actually Need</a></li>
+        <li><a href="/tools/raw-to-cooked-weight.html">Raw to Cooked Weight Converter</a></li>
+        <li><a href="/tools/cost-per-serving.html">Cost Per Serving Calculator</a></li>
+        <li><a href="/tools/recipe-multiplier.html">Recipe Multiplier</a></li>
+      </ul>
+    </div>
+
+    <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin:2rem 0 1rem;">Trim Loss and Cooking Loss Are Two Different Losses</h2>
+    <p>This is the part almost every chart skips. Yield percentage stops at the cutting board. It tells you how much usable raw ingredient you have once the peel, seeds and woody ends are in the bin. It says nothing about what happens once heat is involved.</p>
+    <p>Spinach is the clearest case. Buy a pound of untrimmed spinach and roughly 74% of it survives stemming, so you have about 12 ounces of leaves. Then you wilt it, and those 12 ounces collapse to something closer to 3. Two separate losses, applied one after the other, and a recipe that asks for "1 cup cooked spinach" has quietly asked you to buy far more than a cup of anything.</p>
+    <p>The order matters: apply yield percentage first to get from as-purchased to trimmed, then apply cooking shrinkage to get from trimmed to cooked. The <a href="/tools/raw-to-cooked-weight.html">raw to cooked weight converter</a> handles the second half for meat, grains and vegetables.</p>
+
+    <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin:2rem 0 1rem;">What the Ingredient Really Costs</h2>
+    <p>Enter a shelf price and the calculator divides it by the yield. That single division is why recipe costing done from shelf prices always comes out too low.</p>
+    <p>Pineapple at $2.00 a pound looks cheaper than strawberries at $4.00 a pound. After yield, the pineapple costs $5.26 per usable pound and the strawberries cost $4.26. The comparison flips. Anyone pricing a menu, or just deciding between whole and pre-cut produce at the store, is comparing the wrong two numbers until yield is in the calculation. The <a href="/tools/cost-per-serving.html">cost per serving calculator</a> takes it the rest of the way to a per-portion figure.</p>
+
+    <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin:2rem 0 1rem;">Treat Any Chart as a Starting Number</h2>
+    <p>Published yield tables disagree with each other, and the disagreement is not a mistake. Strawberries appear at 94% in the US Foods table and 87% in a culinary mathematics textbook. Both are right for the kitchen that measured them: the gap is how much green shoulder gets cut away with the hull.</p>
+    <p>Yield moves with grade, size, season and the person holding the knife. Large onions yield better than small ones because the papery skin is a smaller share of the whole. Late-season celery has more to strip off. If an ingredient matters to your costs, run one yield test — weigh it whole, prep it as you normally would, weigh the usable part, divide — and use your own figure from then on. The charts are for the ingredients you buy once.</p>
+
+    <p>For practice, <a href="/blog/yield-percentage-word-problems.html">yield percentage word problems</a> works through finding the yield, as-purchased and edible portion weights, edible portion cost and two-step trim plus cooking loss, with a printable worksheet and answer key.</p>
+
+    <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin:2rem 0 1rem;">Frequently Asked Questions</h2>
+    <div class="faq-section">
+      <h3>What is yield percentage in cooking?</h3>
+      <p>It is the share of what you bought that survives trimming, peeling, coring and boning — edible portion quantity divided by as-purchased quantity, times 100. A butternut squash at 66% yield gives 1.32 pounds of usable flesh from a 2 pound squash, with the other 0.68 pound going to skin, seeds and stem.</p>
+      <h3>How do I calculate how much produce to buy?</h3>
+      <p>Divide the trimmed weight your recipe needs by the yield expressed as a decimal, then round up to whole units you can actually buy. Two pounds of peeled butternut needs 2 ÷ 0.66 = 3.03 pounds of whole squash, which in practice means one large squash or two small ones.</p>
+      <h3>Is yield percentage the same as cooking shrinkage?</h3>
+      <p>No, and the two stack. Yield covers loss before cooking; shrinkage covers moisture and fat lost during cooking. Apply yield first to reach trimmed weight, then shrinkage to reach cooked weight.</p>
+      <h3>Why do published yield percentage charts disagree?</h3>
+      <p>Because yield depends on grade, size, season and how hard the cook trims. Treat any published figure as a starting point and replace it with your own once you have weighed a real batch.</p>
+      <h3>How does yield percentage change the cost of an ingredient?</h3>
+      <p>Divide the shelf price by the yield to get the true cost per usable pound. Pineapple at $2.00 a pound with a 38% yield actually costs $5.26 for every pound of fruit that reaches the plate.</p>
+    </div>
+  </div>
+</main>
+<script>
+function syncYield() {
+  var sel = document.getElementById('item');
+  var v = sel.value;
+  if (v !== 'custom') { document.getElementById('yieldPct').value = v; }
+  calc();
+}
+function fmt(n) {
+  if (!isFinite(n)) return '—';
+  if (n >= 100) return n.toFixed(0);
+  if (n >= 10) return n.toFixed(1);
+  return n.toFixed(2);
+}
+function calc() {
+  var y = parseFloat(document.getElementById('yieldPct').value);
+  var wt = parseFloat(document.getElementById('wt').value);
+  var unit = document.getElementById('unit').value;
+  var dir = document.getElementById('dir').value;
+  var price = parseFloat(document.getElementById('price').value);
+  var res = document.getElementById('result');
+
+  document.getElementById('wtLabel').textContent =
+    dir === 'ap2ep' ? "Weight you're buying" : 'Trimmed weight the recipe needs';
+
+  if (!(y > 0) || y > 100 || !(wt > 0)) { res.style.display = 'none'; return; }
+  res.style.display = 'block';
+
+  var f = y / 100;
+  var answer, waste, label;
+  if (dir === 'ap2ep') {
+    answer = wt * f;
+    waste = wt - answer;
+    label = 'Usable after trimming';
+  } else {
+    answer = wt / f;
+    waste = answer - wt;
+    label = 'Buy this much whole';
+  }
+
+  document.getElementById('answer').textContent = fmt(answer) + ' ' + unit;
+  document.getElementById('answerLabel').textContent = label;
+  document.getElementById('waste').textContent = fmt(waste) + ' ' + unit;
+  document.getElementById('ypOut').textContent = fmt(y) + '%';
+
+  var perUnit = (unit === 'kg' || unit === 'g') ? 'kg' : 'lb';
+  document.getElementById('epCostLabel').textContent = 'Real cost per usable ' + perUnit;
+  if (price > 0) {
+    document.getElementById('epCost').textContent = '$' + (price / f).toFixed(2);
+  } else {
+    document.getElementById('epCost').textContent = '—';
+  }
+
+  var warn = document.getElementById('warn');
+  if (y < 50) {
+    warn.innerHTML = '<div class="yp-note">At ' + fmt(y) + '% yield, more than half of what you buy goes in the bin. Check whether a pre-cut or frozen version is cheaper per usable pound before you commit to the whole product.</div>';
+  } else {
+    warn.innerHTML = '';
+  }
+
+  var note;
+  if (dir === 'ap2ep') {
+    note = 'Buying ' + fmt(wt) + ' ' + unit + ' leaves about ' + fmt(answer) + ' ' + unit +
+      ' of trimmed ingredient. That figure is still raw — if the recipe measures the ingredient cooked, apply shrinkage on top.';
+  } else {
+    note = 'Round up, not to the nearest number: you can buy three onions, not 2.7. This figure is also as-purchased weight, so it assumes the recipe quantity was given trimmed.';
+  }
+  if (price > 0) {
+    var total = (dir === 'ap2ep' ? wt : answer) * price;
+    note += ' At $' + price.toFixed(2) + ' per ' + perUnit + ', the purchase costs about $' + total.toFixed(2) + '.';
+  }
+  document.getElementById('note').textContent = note;
+}
+document.addEventListener('DOMContentLoaded', calc);
+</script>
+<!-- CC:STATIC-CHROME:START (build-static.js 자동 생성 — 직접 수정하지 말 것) -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="/" class="logo">🍳 CookingCalcs</a>
+        <p>Calculators, charts and step-by-step guides for everyday cooking. Every formula is shown, with figures from USDA and published sources.</p>
+        <a class="footer-mail" href="mailto:contact@cookingcalcs.com">contact@cookingcalcs.com</a>
+      </div>
+      <nav class="footer-nav" aria-label="Footer">
+        <div class="footer-col">
+          <h4>Popular</h4>
+          <ul>
+            <li><a href="/tools/cups-to-grams.html">Cups to Grams</a></li><li><a href="/tools/oven-temp-converter.html">Oven Temperature Converter</a></li><li><a href="/tools/meat-temperature-guide.html">Meat Temperature Guide</a></li><li><a href="/tools/recipe-multiplier.html">Recipe Multiplier</a></li><li><a href="/tools/catering-pan-calculator.html">Catering Pan Calculator</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="/tools/">All 37 Tools</a></li>
+            <li><a href="/blog/">Blog</a></li>
+            <li><a href="/guides/">Guides</a></li>
+            <li><a href="/about.html">About</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-bottom-inner">
+        <p>© 2026 CookingCalcs · For informational purposes only.</p>
+        <p class="footer-legal"><a href="/privacy-policy.html">Privacy Policy</a><a href="/terms.html">Terms of Use</a><a href="/contact.html">Contact</a></p>
+      </div>
+    </div>
+  </footer>
+<!-- CC:STATIC-CHROME:END -->
+</body>
+</html>

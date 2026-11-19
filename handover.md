@@ -247,6 +247,15 @@ echo "nav.js GUIDES: $(sed -n '/const GUIDES/,/^];/p' assets/js/nav.js | grep -c
   현재 후보: `tablespoon-to-teaspoon-guide` 182노출 클릭0 7.02위,
   `how-many-grams-in-a-cup-of-oats` 207노출 클릭0 5.18위.
 
+### 2026-11-19 (51차): 색인 2차 점검 — 구글 파서 기준 HTML 검사
+
+- 새 GSC 자료 없음(11-16이 최신) → 49차(링크·경로 분석)와 다른 각도로, **HTML5 파서(html5lib, 브라우저·구글과 같은 규칙)로 전 페이지 파싱**:
+  canonical·title·meta·JSON-LD가 전부 `<head>` 안에서 읽힘(head가 중간에 끊겨 canonical이 body로 밀리는 페이지 0), 본문에 meta/canonical 0.
+  파서 오류는 3건뿐이었고 전부 `&` 미이스케이프(cookie-dough-into-bars 본문 "M&M", 홈 배지 이미지 URL 2개) → `&amp;`로 수정, 이제 0.
+- 결론: 기술적으로 색인을 막는 요소는 없음(49차 + 이번으로 링크·경로·head·스키마·파싱 모두 확인). 남은 변수는 49차 조치(툴 12개 /blog/ 이전, 가이드 구글 noindex) 효과 —
+  **다음 주 Coverage zip에서 확인할 것**: ① 이전한 12개 /blog/ 주소가 '발견됨'에 들어왔는지·크롤링됐는지, ② 옛 /tools/ 주소들이 '리디렉션 포함 페이지'로 넘어갔는지,
+  ③ 가이드 12개가 '"noindex" 태그에 의해 제외됨'으로 분류되는지.
+
 ### 2026-11-19 (50차): og/트위터 공유 메타 전 페이지 적용
 
 - 점검: og 태그는 홈에 og:title·og:description 2줄뿐, og:image는 사이트 전체 0 → 공유(카톡·페북·X·디스코드) 시 미리보기 이미지가 안 뜨던 상태.

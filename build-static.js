@@ -179,6 +179,44 @@ function injectCards(rel, containerId, items, renderer) {
   return { rel, containerId, ok: true, count: items.length, mode: '최초 삽입' };
 }
 
+// ── 3) 공유용 메타(og/twitter) 정적 삽입 (2026-11-19) ─────────────────
+// <title>, meta description, canonical에서 값을 읽어 canonical 바로 아래에 블록을 넣는다. 재실행 시 블록을 지우고 다시 넣는다.
+const OG_START = '<!-- CC:HEAD-META:START (build-static.js 자동 생성) -->';
+const OG_END = '<!-- CC:HEAD-META:END -->';
+const OG_IMAGE = 'https://cookingcalcs.com/assets/og/cookingcalcs-og.png';
+function attr(s) { return String(s).replace(/&(?!(amp|lt|gt|quot|#\d+|#x[0-9a-f]+);)/gi, '&amp;').replace(/"/g, '&quot;'); }
+function injectHeadMeta(rel) {
+  const abs = path.join(ROOT, rel);
+  let html = fs.readFileSync(abs, 'utf8');
+  if (html.includes('http-equiv="refresh"')) return { rel, ok: true, skip: 'stub' };
+  const s = html.indexOf(OG_START);
+  if (s >= 0) { const e = html.indexOf(OG_END, s); html = html.slice(0, s).replace(/\n[ \t]*$/, '') + html.slice(e + OG_END.length); }
+  const can = html.match(/<link rel="canonical" href="([^"]+)">/);
+  if (!can) { fs.writeFileSync(abs, html, 'utf8'); return { rel, ok: true, skip: 'no canonical' }; }
+  const title = (html.match(/<title>([^<]*)<\/title>/) || [])[1] || 'CookingCalcs';
+  const desc = (html.match(/<meta name="description" content="([^"]*)">/) || [])[1] || '';
+  const isArticle = /^(blog|guides)\//.test(rel.replace(/\\/g, '/')) && !/index\.html$/.test(rel);
+  const t = attr(title.trim()), d = attr(desc);
+  const block = [OG_START,
+    `  <meta property="og:type" content="${isArticle ? 'article' : 'website'}">`,
+    '  <meta property="og:site_name" content="CookingCalcs">',
+    `  <meta property="og:title" content="${t}">`,
+    `  <meta property="og:description" content="${d}">`,
+    `  <meta property="og:url" content="${can[1]}">`,
+    `  <meta property="og:image" content="${OG_IMAGE}">`,
+    '  <meta property="og:image:width" content="1200">',
+    '  <meta property="og:image:height" content="630">',
+    '  <meta property="og:image:alt" content="CookingCalcs — kitchen calculators, charts and guides">',
+    '  <meta name="twitter:card" content="summary_large_image">',
+    `  <meta name="twitter:title" content="${t}">`,
+    `  <meta name="twitter:description" content="${d}">`,
+    `  <meta name="twitter:image" content="${OG_IMAGE}">`,
+    '  ' + OG_END].join('\n');
+  html = html.replace(can[0], can[0] + '\n  ' + block);
+  fs.writeFileSync(abs, html, 'utf8');
+  return { rel, ok: true };
+}
+
 // ── 실행 ──────────────────────────────────────────────────────
 console.log('== 1) 헤더/모바일메뉴/푸터 정적 삽입 ==');
 const files = collectHtmlFiles();
@@ -210,5 +248,10 @@ for (const r of results) {
     ? `  OK   ${r.rel} #${r.containerId} — 카드 ${r.count}개`
     : `  FAIL ${r.rel} #${r.containerId}: ${r.reason}`);
 }
+
+console.log('== 3) og/twitter 메타 삽입 ==');
+let ogCount = 0;
+for (const rel of collectHtmlFiles()) { const r = injectHeadMeta(rel); if (r.ok && !r.skip) ogCount++; }
+console.log(`  ${ogCount}개 페이지에 og 메타 삽입`);
 
 console.log('\n완료. 변경 후에는 반드시 검증 스크립트를 돌릴 것.');

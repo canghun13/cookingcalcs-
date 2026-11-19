@@ -1,4 +1,4 @@
-# CookingCalcs 현황 및 인수인계 (2026-11-18 기준)
+# CookingCalcs 현황 및 인수인계 (2026-11-19 기준)
 
 이 문서는 2026-07-24 버전 인수인계 문서를 기반으로, 이후 진행된 모든 작업 내역을 반영해 갱신한 버전입니다. 새 세션에서는 이 문서만 보고 바로 작업 이어가면 됩니다.
 
@@ -246,6 +246,16 @@ echo "nav.js GUIDES: $(sed -n '/const GUIDES/,/^];/p' assets/js/nav.js | grep -c
   잡히면 **"툴은 있는데 질문형 페이지가 없는 쿼리"를 찾아 채우는 패턴**이 검증된다.
   현재 후보: `tablespoon-to-teaspoon-guide` 182노출 클릭0 7.02위,
   `how-many-grams-in-a-cup-of-oats` 207노출 클릭0 5.18위.
+
+### 2026-11-19 (50차): og/트위터 공유 메타 전 페이지 적용
+
+- 점검: og 태그는 홈에 og:title·og:description 2줄뿐, og:image는 사이트 전체 0 → 공유(카톡·페북·X·디스코드) 시 미리보기 이미지가 안 뜨던 상태.
+- 대표 이미지 `assets/og/cookingcalcs-og.png`(1200×630, 100KB) 제작 — 로고·"Kitchen math, worked out."·계량컵/계란/온도계 도해. 원본 HTML은 스크래치 `og/og.html`(Playwright 캡처).
+- `build-static.js`에 **3) og/twitter 메타 삽입** 단계 추가: 각 페이지의 `<title>`·meta description·canonical을 읽어 canonical 바로 아래
+  `<!-- CC:HEAD-META:START … -->`~`END` 블록에 og:type(blog·guides=article, 나머지 website)/site_name/title/description/url/image(+크기·alt), twitter:card(summary_large_image)/title/description/image 삽입.
+  재실행해도 블록을 지우고 다시 넣음(멱등 확인). 스텁·canonical 없는 404는 건너뜀. 홈의 옛 og 2줄은 삭제.
+  → **새 페이지는 따로 할 것 없음**: 늘 하던 대로 `node build-static.js`만 돌리면 og가 자동으로 들어간다. 제목/설명 바꾼 뒤에도 build-static 재실행 필수.
+- 결과: 153페이지 적용, og:url=canonical 일치, 중복 0, 전수 검증 0.
 
 ### 2026-11-18 (49차): 색인 전수 점검 — 미색인 57개 페이지별 분석
 

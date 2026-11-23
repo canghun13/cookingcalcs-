@@ -1,4 +1,4 @@
-# CookingCalcs 현황 및 인수인계 (2026-11-19 기준)
+# CookingCalcs 현황 및 인수인계 (2026-11-23 기준)
 
 이 문서는 2026-07-24 버전 인수인계 문서를 기반으로, 이후 진행된 모든 작업 내역을 반영해 갱신한 버전입니다. 새 세션에서는 이 문서만 보고 바로 작업 이어가면 됩니다.
 
@@ -12,7 +12,7 @@
    만든 것이므로 **더 이상 자동 기각 근거로 쓰지 말 것** — "우리가 더 정확하고 구조화된 답을 낼 수 있는가"로 판정할 것.
    자세한 내용은 3번 섹션 `2026-08-03 (15차)`의 "★ 전략 재정렬" 항목을 볼 것.
 0-2. 🚨 **기본 전략: 공격적 확장(신규 클러스터 발행). 이건 바뀌지 않는다**
-   - **Bing이 주력 채널이다.** 11-16 기준 Bing 노출 **96,081**·클릭 **954**·CTR 0.99% (11-09 85,788/856, 11-02 77,194/786) /
+   - **Bing이 주력 채널이다.** 11-23 기준 Bing 노출 **105,072**·클릭 **1,025**·CTR 0.98% (11-16 96,081/954, 11-09 85,788/856) /
      구글 3개월 노출 10,859·클릭 **5**·평균 50~90위. 구글은 완전 정체이고 Bing만 매주 성장 중.
    - 🚨 **구글에서 우리가 상위권(10위 이내)에 드는 주제는 "요리 수학 문장형 문제" 하나뿐이다(32차 실측).**
      검색어 1,000개 중 10위 이내는 `you purchase beef at $6 per pound...` 류 4개(노출 54·40·14·3, 순위 6.4~9.7)뿐이고
@@ -246,6 +246,21 @@ echo "nav.js GUIDES: $(sed -n '/const GUIDES/,/^];/p' assets/js/nav.js | grep -c
   잡히면 **"툴은 있는데 질문형 페이지가 없는 쿼리"를 찾아 채우는 패턴**이 검증된다.
   현재 후보: `tablespoon-to-teaspoon-guide` 182노출 클릭0 7.02위,
   `how-many-grams-in-a-cup-of-oats` 207노출 클릭0 5.18위.
+
+### 2026-11-23 (52차): 주간 — 신규 1(나라별 계란 사이즈) + 계란 흰자 페이지 보강(무게·부피→개수 표)
+
+> 데이터: GSC Performance(~11-20)/Coverage(차트 **11-16까지** = 49차 이전·이후 조치 반영 전), Bing 11-23, GA4 28일(10-26~11-22).
+> Coverage: 무접미사=**발견됨-미색인 62**(11-09~10 발행 6개가 새로 들어옴: cookie-bars, egg-whites, menu-pricing, quick-bread, terms, cake-to-cupcake), `_1`=크롤링됨-미색인 1(baking 가이드, 이제 googlebot noindex).
+>   크롤링돼 빠진 URL 0. 11-18 이전(툴 /blog/ 이전·가이드 noindex) 효과는 다음 주 이후 자료에서 판단.
+> 구글 3개월 노출 2,998·**클릭 4**(홈, substitute-egg-sizes, raw-to-cooked, turkey-vs-chicken-breast) — 최근 14일 노출 199.
+> Bing 105,072/1,025(+8,991/+71). can-size +26클릭, turkey-breast +16(추수감사 11-26), egg-sizes +12, catering-pan +8. 새 키워드: 계란 흰자 g/ml 질의 다수("egg whites to make 100 grams" 37노출 8.8위, "500ml egg whites in grams", "60 ml egg whites in tbsp").
+> GA4: SG 404 + CN 291 ≈ 활성의 36%(전주 43%). 수익 0.
+- **보강**: `blog/egg-whites-and-yolks-by-size.html`에 "How Many Egg Whites for a Given Weight or Volume" 표(30 g~500 ml × S/M/L/XL/J, 밀도 1.03 g/ml, 반개 단위) + 카톤 흰자 문장. 읽기시간 8→10.
+- **신규**: `blog/egg-sizes-by-country.html` — 미국·캐나다·UK/EU·호주(12개 카톤 무게 600/700/800 g)·뉴질랜드·일본(SS~LL) 그램 표, 나라별 레시피 기준 사이즈, 변환기(레시피 사이즈·나라 → 쇼핑하는 나라 사이즈 개수),
+  자주 묻는 스왑 5개. 수치: Wikipedia "Chicken egg sizes"(각국 기준 요약) + USDA, 호주 레시피 기준은 RecipeTin Eats(대란 50–55 g).
+  SERP: 위키·클론·recipetineats·biggerbolderbaking·nigella → 정면은 위키가 강함, 롱테일("US recipe in UK which eggs", "Australian 700g eggs vs US large")·변환기로 진입. 계란 클러스터(Bing 최대 수익원) 확장.
+  연결: substitute-egg-sizes(UK 절)·old-uk-egg-sizes·egg-converter(FAQ 앞)·egg 가이드 목록, nav·sitemap·llms.
+- 카운트: tools 37(12개는 /blog/ 주소) / **blogs 93** / guides 16 / sitemap **154** (+스텁 21).
 
 ### 2026-11-19 (51차): 색인 2차 점검 — 구글 파서 기준 HTML 검사
 

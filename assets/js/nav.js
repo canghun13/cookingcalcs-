@@ -201,6 +201,7 @@ const BLOGS = [
   { name: "Banana Bread to Muffins (and Back)", url: "/blog/quick-bread-to-muffins.html", desc: "How many muffins a loaf recipe makes, what temperature and how long — standard, mini, jumbo and mini loaves.", date: "2026-11-10" },
   { name: "How to Turn Cookie Dough Into Bars", url: "/blog/cookie-dough-into-bars.html", desc: "Pick the pan from the dough volume, bake at 350°F for about 2½ times the cookie time, and cut clean bars.", date: "2026-11-10" },
   { name: "Old UK Egg Sizes 1–7", url: "/blog/old-uk-egg-sizes.html", desc: "What a size 3 (or size 1, 2, 4) egg from an old British recipe weighs, and which UK or US egg to buy today.", date: "2026-11-16" },
+  { name: "Egg Sizes by Country", url: "/blog/egg-sizes-by-country.html", desc: "What a large egg weighs in the US, UK, Canada, Australia and Japan, and which eggs to buy for a foreign recipe.", date: "2026-11-23" },
 ];
 
 // ── 가이드 목록 (Tools/Blog와 별개 — 여러 툴/블로그를 묶는 종합 허브 페이지) ──

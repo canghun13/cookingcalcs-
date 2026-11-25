@@ -31,7 +31,7 @@
   "headline": "How Many Grams in a Cup of Oats? (All Types)",
   "description": "1 cup of rolled oats = 90g. Exact gram weights for rolled, quick, steel-cut, and instant oats — dry and cooked. Includes a full conversion table.",
   "datePublished": "2026-06-23",
-  "dateModified": "2026-07-13",
+  "dateModified": "2026-11-25",
   "author": { "@type": "Organization", "name": "CookingCalcs", "url": "https://cookingcalcs.com" },
   "publisher": { "@type": "Organization", "name": "CookingCalcs", "url": "https://cookingcalcs.com" }
 }
@@ -153,6 +153,40 @@
         </tbody>
       </table>
       <p>All dry weights above use a standard US cup (237ml) and the spoon-and-level method. Scooping directly from the bag can add 10–15% more oats per cup.</p>
+
+      <div class="tool-box cv-box">
+        <h3 style="font-family:'Playfair Display',serif; font-size:1.15rem; margin:0 0 .75rem;">Oats: Cups, Grams and Ounces</h3>
+        <div class="cv-grid">
+          <div class="form-group"><label for="ocType">Oat type</label>
+            <select id="ocType" onchange="ocCalc()">
+              <option value="90">Rolled oats (old-fashioned)</option>
+              <option value="85">Quick oats</option>
+              <option value="80">Instant oats</option>
+              <option value="160">Steel-cut oats</option>
+              <option value="92">Oat flour</option>
+            </select></div>
+          <div class="form-group"><label for="ocAmt">Amount</label>
+            <input type="number" id="ocAmt" min="0" step="0.25" value="1" oninput="ocCalc()"></div>
+          <div class="form-group"><label for="ocUnit">In</label>
+            <select id="ocUnit" onchange="ocCalc()">
+              <option value="cup">cups</option><option value="g">grams</option><option value="oz">ounces</option>
+            </select></div>
+        </div>
+        <div class="cv-res">
+          <div><strong id="ocC"></strong>cups</div>
+          <div><strong id="ocG"></strong>grams</div>
+          <div><strong id="ocO"></strong>ounces</div>
+          <div><strong id="ocT"></strong>tablespoons</div>
+        </div>
+        <p class="cv-note">Grams per cup from the table above (spooned and leveled). Swap oat types by weight, not by cup.</p>
+      </div>
+<script>
+function ocCalc(){var gpc=parseFloat(document.getElementById('ocType').value),a=parseFloat(document.getElementById('ocAmt').value)||0,u=document.getElementById('ocUnit').value;
+var g=u==='cup'?a*gpc:u==='g'?a:a*28.3495,c=g/gpc;
+document.getElementById('ocC').textContent=(Math.round(c*100)/100).toString();document.getElementById('ocG').textContent=Math.round(g)+' g';
+document.getElementById('ocO').textContent=(Math.round(g/28.3495*10)/10)+' oz';document.getElementById('ocT').textContent=(Math.round(c*16*10)/10).toString();}
+ocCalc();
+</script>
 
       <h2>How Many Cups of Oats in a Pound?</h2>
       <p>This is the question to ask when working from a retail bag rather than a recipe — most oat containers are sold by weight (1 lb, 2.5 lb, or the classic 18 oz canister), not by cup count. Here's how a 1 lb bag breaks down by oat type:</p>

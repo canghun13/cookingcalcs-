@@ -31,7 +31,7 @@
   "headline": "How Many Grams in a Cup of Sugar?",
   "description": "Exact gram weights for granulated, brown, powdered, and coconut sugar by cup. Includes a full conversion table for every common sugar type.",
   "datePublished": "2026-06-18",
-  "dateModified": "2026-07-13",
+  "dateModified": "2026-11-25",
   "author": { "@type": "Organization", "name": "CookingCalcs", "url": "https://cookingcalcs.com" },
   "publisher": { "@type": "Organization", "name": "CookingCalcs", "url": "https://cookingcalcs.com" }
 }
@@ -163,6 +163,44 @@
           <tr><td>Demerara sugar</td><td>220g</td><td>Larger crystal, loosely packed</td></tr>
         </tbody>
       </table>
+
+      <div class="tool-box cv-box">
+        <h3 style="font-family:'Playfair Display',serif; font-size:1.15rem; margin:0 0 .75rem;">Sugar: Cups, Grams and Ounces</h3>
+        <div class="cv-grid">
+          <div class="form-group"><label for="scType">Sugar type</label>
+            <select id="scType" onchange="scCalc()">
+              <option value="200">Granulated white</option>
+              <option value="200">Caster (superfine)</option>
+              <option value="213">Light brown, packed</option>
+              <option value="220">Dark brown, packed</option>
+              <option value="120">Powdered, sifted</option>
+              <option value="130">Powdered, unsifted</option>
+              <option value="180">Coconut sugar</option>
+              <option value="200">Raw / turbinado</option>
+              <option value="220">Demerara</option>
+            </select></div>
+          <div class="form-group"><label for="scAmt">Amount</label>
+            <input type="number" id="scAmt" min="0" step="0.25" value="1" oninput="scCalc()"></div>
+          <div class="form-group"><label for="scUnit">In</label>
+            <select id="scUnit" onchange="scCalc()">
+              <option value="cup">cups</option><option value="g">grams</option><option value="oz">ounces</option>
+            </select></div>
+        </div>
+        <div class="cv-res">
+          <div><strong id="scC"></strong>cups</div>
+          <div><strong id="scG"></strong>grams</div>
+          <div><strong id="scO"></strong>ounces</div>
+          <div><strong id="scT"></strong>tablespoons</div>
+        </div>
+        <p class="cv-note">Grams per cup from the table above. Brown sugar is packed; powdered sugar changes by about 10 g a cup depending on sifting.</p>
+      </div>
+<script>
+function scCalc(){var gpc=parseFloat(document.getElementById('scType').value),a=parseFloat(document.getElementById('scAmt').value)||0,u=document.getElementById('scUnit').value;
+var g=u==='cup'?a*gpc:u==='g'?a:a*28.3495,c=g/gpc;
+document.getElementById('scC').textContent=(Math.round(c*100)/100).toString();document.getElementById('scG').textContent=Math.round(g)+' g';
+document.getElementById('scO').textContent=(Math.round(g/28.3495*10)/10)+' oz';document.getElementById('scT').textContent=(Math.round(c*16*10)/10).toString();}
+scCalc();
+</script>
 
       <h2>Full Cups to Grams Conversion Table — Granulated Sugar</h2>
       <p>Granulated white sugar is the baseline for most recipes. Use this table for quick reference at any fraction of a cup.</p>

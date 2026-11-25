@@ -1,4 +1,4 @@
-# CookingCalcs 현황 및 인수인계 (2026-11-23 기준)
+# CookingCalcs 현황 및 인수인계 (2026-11-25 기준)
 
 이 문서는 2026-07-24 버전 인수인계 문서를 기반으로, 이후 진행된 모든 작업 내역을 반영해 갱신한 버전입니다. 새 세션에서는 이 문서만 보고 바로 작업 이어가면 됩니다.
 
@@ -246,6 +246,18 @@ echo "nav.js GUIDES: $(sed -n '/const GUIDES/,/^];/p' assets/js/nav.js | grep -c
   잡히면 **"툴은 있는데 질문형 페이지가 없는 쿼리"를 찾아 채우는 패턴**이 검증된다.
   현재 후보: `tablespoon-to-teaspoon-guide` 182노출 클릭0 7.02위,
   `how-many-grams-in-a-cup-of-oats` 207노출 클릭0 5.18위.
+
+### 2026-11-25 (53차): "가치 없는 콘텐츠" 대응 — 한 줄 답 페이지에 실사용 도구·도해 추가
+
+> 사용자 판단(확정): **직접 경험(테스트·사진) 없다고 독창성 없는 것 아님 / GA 수치는 애드센스와 무관** → 이 두 가지를 다시 근거로 들지 말 것.
+> 할 일 = "답이 한 줄로 끝나는 페이지"에 답 이상의 실질 가치를 붙이는 것. (발행 속도는 전략대로 유지)
+- 점검: 상위 단위변환 페이지 10개 확인 — butter·quart·tablespoon·liquid·weight·serving-size는 이미 900~1,500단어에 나라별 차이·계량법 등 충분.
+  **계산기·도해가 없던 곳**: grams-in-a-cup-of-rice/oats/sugar, cups-to-tablespoons → 보강.
+- `blog/how-many-grams-in-a-cup-of-rice.html`: **"How Much Rice to Cook" 계산기**(쌀 종류·인원·1인분 ½/¾/1컵 → 생쌀 컵·g·물·밥 양; 페이지 수치 g/컵·물 비율·수율 사용) + 생쌀 1컵당 밥 수율 도해.
+  🚨 오류 정정: "무게는 약 2배" → 밥은 생쌀 무게의 약 2½~3배(185 g → ~555 g). 읽기시간 5→7.
+- `blog/how-many-grams-in-a-cup-of-oats.html`·`how-many-grams-in-a-cup-of-sugar.html`: 종류별 컵↔g↔oz↔tbsp 변환기(페이지 표 값 그대로).
+- `tools/cups-to-tablespoons.html`: 컵 크기별 큰술 도해(⅓=5큰술+1작은술, ⅔=10큰술+2작은술). 도해 누적 18곳.
+- 공통 CSS `.cv-*`(style.css 끝 "INLINE CONVERTERS") — 다른 글에 변환기 넣을 때 재사용.
 
 ### 2026-11-23 (52차): 주간 — 신규 1(나라별 계란 사이즈) + 계란 흰자 페이지 보강(무게·부피→개수 표)
 

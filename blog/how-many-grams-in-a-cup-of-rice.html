@@ -31,7 +31,7 @@
   "headline": "How Many Grams in a Cup of Rice?",
   "description": "How many grams in a cup of rice? The answer varies by type. Get exact gram weights for white, brown, basmati, jasmine, and sushi rice — dry and cooked.",
   "datePublished": "2026-05-31",
-  "dateModified": "2026-07-13",
+  "dateModified": "2026-11-25",
   "author": { "@type": "Organization", "name": "CookingCalcs", "url": "https://cookingcalcs.com" },
   "publisher": { "@type": "Organization", "name": "CookingCalcs", "url": "https://cookingcalcs.com" }
 }
@@ -131,7 +131,7 @@
   <article class="blog-page">
     <span class="blog-card-tag">Unit Conversion</span>
     <h1>How Many Grams in a Cup of Rice?</h1>
-    <div class="blog-meta">Updated May 2026 · 5 min read</div>
+    <div class="blog-meta">Updated May 2026 · 7 min read</div>
     <div class="blog-content">
       <p>Rice is one of the most common ingredients where cup-to-gram conversions actually matter. Whether you're scaling a recipe, tracking nutrition, or following a recipe from a different country, knowing the exact gram weight of a cup of rice saves you from guesswork. The answer depends on the type of rice and whether it's dry or cooked.</p>
 
@@ -155,9 +155,44 @@
         </tbody>
       </table>
 
+      <div class="tool-box cv-box">
+        <h3 style="font-family:'Playfair Display',serif; font-size:1.15rem; margin:0 0 .75rem;">How Much Rice to Cook</h3>
+        <div class="cv-grid">
+          <div class="form-group"><label for="rcType">Rice</label>
+            <select id="rcType" onchange="rcCalc()">
+              <option value="185|1.75|3">Long-grain white</option>
+              <option value="185|1.75|3">Jasmine</option>
+              <option value="180|1.5|3">Basmati</option>
+              <option value="190|2.25|2.75">Brown (long-grain)</option>
+            </select></div>
+          <div class="form-group"><label for="rcPeople">People</label>
+            <input type="number" id="rcPeople" min="1" step="1" value="4" oninput="rcCalc()"></div>
+          <div class="form-group"><label for="rcPortion">Portion of cooked rice</label>
+            <select id="rcPortion" onchange="rcCalc()">
+              <option value="0.5">Side, ½ cup</option>
+              <option value="0.75" selected>Regular, ¾ cup</option>
+              <option value="1">Bowl or main, 1 cup</option>
+            </select></div>
+        </div>
+        <div class="cv-res">
+          <div><strong id="rcDry"></strong>dry rice</div>
+          <div><strong id="rcG"></strong>dry weight</div>
+          <div><strong id="rcWater"></strong>water</div>
+          <div><strong id="rcCooked"></strong>cooked</div>
+        </div>
+        <p class="cv-note">Uses the figures on this page: grams per dry cup, the water ratio for the absorption method and the cooked yield per dry cup. Brown rice yields a little less per cup, so you need more of it.</p>
+      </div>
+<script>
+function rcFrac(x){var q=Math.round(x*4)/4,w=Math.floor(q),f=q-w;var s={0:'',0.25:'¼',0.5:'½',0.75:'¾'}[f];return (w?w:'')+(s||(w?'':'0'));}
+function rcCalc(){var v=document.getElementById('rcType').value.split('|').map(Number),n=parseFloat(document.getElementById('rcPeople').value)||0,p=parseFloat(document.getElementById('rcPortion').value);
+var cooked=n*p,dry=cooked/v[2];document.getElementById('rcDry').textContent=rcFrac(dry)+' cup'+(dry>1.12?'s':'');document.getElementById('rcG').textContent=Math.round(dry*v[0])+' g';
+document.getElementById('rcWater').textContent=rcFrac(dry*v[1])+' cups';document.getElementById('rcCooked').textContent=rcFrac(cooked)+' cups';}
+rcCalc();
+</script>
+
       <h2>Grams per Cup — Cooked Rice</h2>
       <p>Cooked rice is significantly heavier than dry rice because it absorbs water during cooking. A cup of cooked white rice weighs approximately <strong>175–195g</strong>, and cooked brown rice weighs approximately <strong>195–210g</strong>.</p>
-      <p>This matters when following nutritional information or recipes that specify cooked rice. A recipe that calls for "1 cup cooked rice" is not the same as "1 cup dry rice" — dry rice roughly triples in volume and roughly doubles in weight when cooked.</p>
+      <p>This matters when following nutritional information or recipes that specify cooked rice. A recipe that calls for "1 cup cooked rice" is not the same as "1 cup dry rice" — dry rice roughly triples in volume and ends up about 2½ to 3 times its dry weight once cooked.</p>
 
       <table style="width:100%; border-collapse:collapse; margin:1.5rem 0;">
         <thead>
@@ -188,6 +223,10 @@
       </ul>
       <p>These ratios vary slightly depending on how much water you use and how long you cook it. Absorption methods typically yield a bit less than boil-and-drain methods.</p>
 
+      <figure class="cc-fig">
+        <svg viewBox="0 0 420 150" role="img" aria-label="Cooked yield from one cup of dry rice: white and basmati about 3 cups, brown about 2½ to 3 cups, wild rice about 3½ cups" xmlns="http://www.w3.org/2000/svg" style="font-family:'Plus Jakarta Sans',Arial,sans-serif"><text x="122.0" y="26.8" font-size="13" text-anchor="end" fill="#3a3a3a" font-weight="600">White, long-grain</text><rect x="130" y="10" width="172.5" height="24" rx="4" fill="#e8412a" stroke="#c0321c" stroke-width="1"/><text x="308.5" y="26.8" font-size="13" text-anchor="start" fill="#3a3a3a" font-weight="400">1 cup dry → 3 cups</text><text x="122.0" y="60.8" font-size="13" text-anchor="end" fill="#3a3a3a" font-weight="600">Basmati</text><rect x="130" y="44" width="172.5" height="24" rx="4" fill="#fde8e5" stroke="#c0321c" stroke-width="1"/><text x="308.5" y="60.8" font-size="13" text-anchor="start" fill="#3a3a3a" font-weight="400">1 cup dry → 3 cups</text><text x="122.0" y="94.8" font-size="13" text-anchor="end" fill="#3a3a3a" font-weight="600">Brown</text><rect x="130" y="78" width="158.1" height="24" rx="4" fill="#fde8e5" stroke="#c0321c" stroke-width="1"/><text x="294.1" y="94.8" font-size="13" text-anchor="start" fill="#3a3a3a" font-weight="400">1 cup dry → 2½–3 cups</text><text x="122.0" y="128.8" font-size="13" text-anchor="end" fill="#3a3a3a" font-weight="600">Wild</text><rect x="130" y="112" width="201.2" height="24" rx="4" fill="#fde8e5" stroke="#c0321c" stroke-width="1"/><text x="337.2" y="128.8" font-size="13" text-anchor="start" fill="#3a3a3a" font-weight="400">1 cup dry → 3½ cups</text></svg>
+        <figcaption>Cooked rice from 1 cup of dry rice, absorption method. Plan on about ¼ cup of dry white rice per person for a regular ¾-cup portion of cooked rice.</figcaption>
+      </figure>
       <h2>How to Measure Rice Accurately</h2>
       <p>For dry rice, use a standard dry measuring cup and level it off. Don't pack or shake the cup — rice settles slightly during measurement, which can add 5–10% extra. For anything requiring precision (nutritional tracking, scaling large batches), weigh it on a kitchen scale.</p>
       <p>For cooked rice, pack it lightly into the measuring cup. Cooked rice compresses easily, so a packed cup can weigh noticeably more than a loosely filled one.</p>

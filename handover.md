@@ -247,6 +247,21 @@ echo "nav.js GUIDES: $(sed -n '/const GUIDES/,/^];/p' assets/js/nav.js | grep -c
   현재 후보: `tablespoon-to-teaspoon-guide` 182노출 클릭0 7.02위,
   `how-many-grams-in-a-cup-of-oats` 207노출 클릭0 5.18위.
 
+### 2026-11-25 (54차): 53차 연장 — 도해 10·계산기 4 추가 + 수치 정합 정정
+
+> 원칙 동일(53차): 각 페이지 **자기 표 수치로만** 도해·계산기 작성, 새 주장 추가 금지. 상위 페이지 중 도해·도구 없던 곳을 Bing 순서로 처리.
+- **도해(cc-fig, 첫 표 바로 뒤)**: how-long-to-cook-turkey-breast(325°F 무게별 뼈있음/없음), steak(익힘 단계별 꺼낼 온도 띠·USDA 145°F 선), ribs(275°F 종류별),
+  meatballs(크기×375/425°F), shrimp(크기별 삶는 시간), chicken-breast(온도별 6 oz 뼈없음/뼈있음), brisket(145°F→스톨 160–170°F→완성 195–205°F),
+  ground-beef(팬 양별 시간), average-cost-of-a-home-cooked-meal(USDA 2026-05 1끼 단가, 두 번째 표 뒤), cooking-measurement-guide(계량컵 도해 재사용). **도해 누적 28곳.**
+  figs.py에 `rangechart()`(범위 막대) 추가 — 시간표 페이지에 재사용.
+- **계산기(.cv-box)**: portion-scoop-sizes = 스쿱 계산기(배치량·단위·스쿱 번호·인원 → 스쿱 수/1스쿱 용량/필요 배치량; 페이지 표의 레벨 용량, 예제 48·72·38과 일치).
+  recipe-scaling-WP·how-to-reduce-a-recipe-by-half = "Scale One Ingredient"(분수 입력 1 1/2·¾ 가능, 배율 ½~3 → 컵+큰술+작은술로 쪼갠 실제 계량),
+  recipe-conversion-factor-WP = RCF 계산기(원래 분량·필요 분량 → RCF와 환산). 공통 JS `rs*`/`ps*`, 4칸 그리드는 `.cv-grid.cv4`(모바일 1열).
+- **정정**: `tools/cups-to-tablespoons.html` JS 컵 240→236.588 ml(16.23큰술 나오던 오류), 표 ml 열 혼재(60/120/240 vs 79/158) → 59/118/177/237/355/473로 통일.
+  `tools/liquid-converter.html` title·description·표·본문 "240 ml = 8 fl oz" → 1컵 237 ml(240은 반올림).
+  `how-long-to-cook-ground-beef.html` "분홍기 없으면 완료·눌러서 단단하면 완료" → 색·촉감 신뢰 불가, 온도계 160°F(USDA 기준과 일치하게).
+- 읽기시간 갱신: shrimp 6→8, turkey-breast 11→13, reduce-by-half 6→8. sitemap lastmod 16개 2026-11-25.
+
 ### 2026-11-25 (53차): "가치 없는 콘텐츠" 대응 — 한 줄 답 페이지에 실사용 도구·도해 추가
 
 > 사용자 판단(확정): **직접 경험(테스트·사진) 없다고 독창성 없는 것 아님 / GA 수치는 애드센스와 무관** → 이 두 가지를 다시 근거로 들지 말 것.

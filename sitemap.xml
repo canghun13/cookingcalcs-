@@ -28,7 +28,7 @@
   <url><loc>https://cookingcalcs.com/tools/meat-temperature-guide.html</loc><lastmod>2026-11-12</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://cookingcalcs.com/tools/meal-cost-calculator.html</loc><lastmod>2026-10-21</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://cookingcalcs.com/tools/cost-per-serving.html</loc><lastmod>2026-11-02</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://cookingcalcs.com/tools/liquid-converter.html</loc><lastmod>2026-11-12</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://cookingcalcs.com/tools/liquid-converter.html</loc><lastmod>2026-11-25</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://cookingcalcs.com/tools/butter-converter.html</loc><lastmod>2026-11-12</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://cookingcalcs.com/tools/baking-substitutions.html</loc><lastmod>2026-07-27</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://cookingcalcs.com/tools/cups-to-tablespoons.html</loc><lastmod>2026-11-25</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -88,10 +88,10 @@
   <url><loc>https://cookingcalcs.com/blog/culinary-math-formulas.html</loc><lastmod>2026-11-02</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://cookingcalcs.com/guides/complete-culinary-math-guide.html</loc><lastmod>2026-11-09</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://cookingcalcs.com/blog/cost-per-serving-word-problems.html</loc><lastmod>2026-11-06</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://cookingcalcs.com/blog/recipe-conversion-factor-word-problems.html</loc><lastmod>2026-11-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://cookingcalcs.com/blog/recipe-conversion-factor-word-problems.html</loc><lastmod>2026-11-25</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://cookingcalcs.com/tools/catering-pan-calculator.html</loc><lastmod>2026-11-12</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://cookingcalcs.com/blog/how-many-servings-in-a-half-pan.html</loc><lastmod>2026-10-13</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://cookingcalcs.com/blog/portion-scoop-sizes.html</loc><lastmod>2026-11-10</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://cookingcalcs.com/blog/portion-scoop-sizes.html</loc><lastmod>2026-11-25</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://cookingcalcs.com/guides/complete-cooking-for-a-crowd-guide.html</loc><lastmod>2026-10-13</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://cookingcalcs.com/blog/bakers-percentage-calculator.html</loc><lastmod>2026-11-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://cookingcalcs.com/blog/bakers-percentage-word-problems.html</loc><lastmod>2026-11-06</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
@@ -118,30 +118,30 @@
   <url><loc>https://cookingcalcs.com/blog/how-to-scale-a-recipe.html</loc><lastmod>2026-10-21</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://cookingcalcs.com/blog/baking-measurement-mistakes.html</loc><lastmod>2026-07-13</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://cookingcalcs.com/blog/how-to-cut-grocery-bill.html</loc><lastmod>2026-07-13</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://cookingcalcs.com/blog/average-cost-of-a-home-cooked-meal.html</loc><lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://cookingcalcs.com/blog/how-long-to-cook-chicken-breast.html</loc><lastmod>2026-07-13</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://cookingcalcs.com/blog/cooking-measurement-guide.html</loc><lastmod>2026-07-13</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://cookingcalcs.com/blog/average-cost-of-a-home-cooked-meal.html</loc><lastmod>2026-11-25</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://cookingcalcs.com/blog/how-long-to-cook-chicken-breast.html</loc><lastmod>2026-11-25</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://cookingcalcs.com/blog/cooking-measurement-guide.html</loc><lastmod>2026-11-25</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://cookingcalcs.com/blog/how-to-meal-prep-on-a-budget.html</loc><lastmod>2026-07-13</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://cookingcalcs.com/blog/how-many-cups-in-a-pound-of-flour.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://cookingcalcs.com/blog/how-long-to-cook-salmon.html</loc><lastmod>2026-07-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://cookingcalcs.com/blog/how-many-grams-in-a-cup-of-rice.html</loc><lastmod>2026-11-25</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://cookingcalcs.com/blog/how-long-to-cook-shrimp.html</loc><lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://cookingcalcs.com/blog/how-long-to-cook-shrimp.html</loc><lastmod>2026-11-25</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://cookingcalcs.com/blog/how-to-calculate-meal-prep-cost-for-a-week.html</loc><lastmod>2026-07-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://cookingcalcs.com/blog/grocery-budget-tips.html</loc><lastmod>2026-07-13</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://cookingcalcs.com/blog/how-to-substitute-egg-sizes.html</loc><lastmod>2026-11-23</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://cookingcalcs.com/blog/how-long-to-cook-ground-beef.html</loc><lastmod>2026-07-27</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://cookingcalcs.com/blog/how-long-to-cook-ground-beef.html</loc><lastmod>2026-11-25</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://cookingcalcs.com/blog/what-is-a-serving-size.html</loc><lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://cookingcalcs.com/blog/tablespoon-to-teaspoon-guide.html</loc><lastmod>2026-11-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://cookingcalcs.com/blog/how-many-grams-in-a-cup-of-sugar.html</loc><lastmod>2026-11-25</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://cookingcalcs.com/blog/how-long-to-cook-bacon.html</loc><lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://cookingcalcs.com/blog/how-long-to-cook-steak.html</loc><lastmod>2026-07-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://cookingcalcs.com/blog/how-long-to-cook-steak.html</loc><lastmod>2026-11-25</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://cookingcalcs.com/blog/how-many-eggs-in-a-cup.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://cookingcalcs.com/blog/how-to-reduce-a-recipe-by-half.html</loc><lastmod>2026-10-21</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://cookingcalcs.com/blog/how-to-reduce-a-recipe-by-half.html</loc><lastmod>2026-11-25</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://cookingcalcs.com/blog/how-long-to-cook-pork-chops.html</loc><lastmod>2026-07-13</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://cookingcalcs.com/blog/how-many-grams-in-a-cup-of-oats.html</loc><lastmod>2026-11-25</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://cookingcalcs.com/blog/how-many-cups-in-a-pound-of-sugar.html</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://cookingcalcs.com/blog/how-long-to-cook-lamb-chops.html</loc><lastmod>2026-07-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://cookingcalcs.com/blog/how-long-to-cook-turkey-breast.html</loc><lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://cookingcalcs.com/blog/how-long-to-cook-turkey-breast.html</loc><lastmod>2026-11-25</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://cookingcalcs.com/blog/how-many-cups-in-a-quart-pint-gallon.html</loc><lastmod>2026-11-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://cookingcalcs.com/blog/how-to-convert-a-recipe-to-metric.html</loc><lastmod>2026-07-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://cookingcalcs.com/blog/is-your-oven-running-hot-or-cold.html</loc><lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
@@ -149,7 +149,7 @@
   <url><loc>https://cookingcalcs.com/blog/fresh-vs-dried-herbs.html</loc><lastmod>2026-07-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://cookingcalcs.com/blog/unit-price-word-problems.html</loc><lastmod>2026-11-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://cookingcalcs.com/blog/recipe-scaling-word-problems.html</loc>
-    <lastmod>2026-11-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+    <lastmod>2026-11-25</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://cookingcalcs.com/blog/lamb-chops-vs-pork-chops.html</loc><lastmod>2026-07-24</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://cookingcalcs.com/blog/salmon-vs-shrimp.html</loc>
     <lastmod>2026-08-10</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
@@ -167,13 +167,13 @@
     <lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://cookingcalcs.com/blog/vintage-ingredient-names.html</loc>
     <lastmod>2026-08-10</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://cookingcalcs.com/blog/how-long-to-cook-brisket.html</loc><lastmod>2026-07-27</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://cookingcalcs.com/blog/how-long-to-cook-brisket.html</loc><lastmod>2026-11-25</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://cookingcalcs.com/blog/measurement-conversion-word-problems.html</loc>
     <lastmod>2026-11-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://cookingcalcs.com/blog/how-long-to-cook-ribs.html</loc><lastmod>2026-07-27</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://cookingcalcs.com/blog/how-long-to-cook-ribs.html</loc><lastmod>2026-11-25</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://cookingcalcs.com/blog/how-long-to-cook-chicken-wings.html</loc><lastmod>2026-07-27</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://cookingcalcs.com/blog/how-long-to-cook-chicken-drumsticks.html</loc><lastmod>2026-07-27</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://cookingcalcs.com/blog/how-long-to-cook-meatballs.html</loc><lastmod>2026-07-27</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://cookingcalcs.com/blog/how-long-to-cook-meatballs.html</loc><lastmod>2026-11-25</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://cookingcalcs.com/blog/how-long-to-cook-pork-tenderloin.html</loc><lastmod>2026-07-27</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://cookingcalcs.com/blog/how-long-to-bake-white-fish.html</loc><lastmod>2026-07-27</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://cookingcalcs.com/blog/how-long-to-cook-pork-shoulder.html</loc><lastmod>2026-07-27</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>

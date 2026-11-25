@@ -31,7 +31,7 @@
   "headline": "How to Cut a Recipe in Half – Every Ingredient Covered",
   "description": "How to cut a recipe in half: exact amounts for every ingredient including eggs, leavening, spices, and canned goods.",
   "datePublished": "2026-06-12",
-  "dateModified": "2026-10-21",
+  "dateModified": "2026-11-25",
   "author": { "@type": "Organization", "name": "CookingCalcs", "url": "https://cookingcalcs.com" },
   "publisher": { "@type": "Organization", "name": "CookingCalcs", "url": "https://cookingcalcs.com" }
 }
@@ -137,7 +137,7 @@
   <article class="blog-page">
     <span class="blog-card-tag">Recipe Tips</span>
     <h1>How to Cut a Recipe in Half — Every Ingredient Covered</h1>
-    <div class="blog-meta">June 2026 · 6 min read</div>
+    <div class="blog-meta">June 2026 · 8 min read</div>
     <div class="blog-content">
       <p>Halving a recipe sounds simple — divide everything by 2. And for most ingredients, it is. But eggs don't split neatly, leavening behaves differently in small quantities, and a can of tomatoes comes in one size regardless of what your math says. Here's how to halve a recipe properly, ingredient by ingredient.</p>
 
@@ -163,6 +163,59 @@
           <tr><td>2 cups</td><td>1 cup</td></tr>
         </tbody>
       </table>
+      <div class="tool-box cv-box">
+        <h3 style="font-family:'Playfair Display',serif; font-size:1.15rem; margin:0 0 .75rem;">Scale One Ingredient</h3>
+        <div class="cv-grid">
+          <div class="form-group"><label for="rsAmt">Amount</label>
+            <input type="text" id="rsAmt" value="3/4" inputmode="text" oninput="rsCalc()"></div>
+          <div class="form-group"><label for="rsUnit">Unit</label>
+            <select id="rsUnit" onchange="rsCalc()">
+              <option value="cup" selected>cups</option>
+              <option value="tbsp">tablespoons</option>
+              <option value="tsp">teaspoons</option>
+              <option value="oz">ounces (weight)</option>
+              <option value="lb">pounds</option>
+              <option value="g">grams</option>
+              <option value="egg">large eggs</option>
+            </select></div>
+          <div class="form-group"><label for="rsFac">Scale by</label>
+            <select id="rsFac" onchange="rsCalc()">
+              <option value="0.5" selected>Half (×½)</option>
+              <option value="0.3333333333">Third (×⅓)</option>
+              <option value="0.25">Quarter (×¼)</option>
+              <option value="0.6666666667">Two-thirds (×⅔)</option>
+              <option value="0.75">Three-quarters (×¾)</option>
+              <option value="1.5">One and a half (×1½)</option>
+              <option value="2">Double (×2)</option>
+              <option value="3">Triple (×3)</option>
+            </select></div>
+        </div>
+        <div class="cv-res">
+          <div><strong id="rsK"></strong>factor</div>
+          <div><strong id="rsDec"></strong>exact</div>
+          <div style="grid-column:span 2"><strong id="rsRes"></strong>measure it as</div>
+        </div>
+        <p class="cv-note"><span id="rsHow"></span> Type the amount the way the recipe writes it — 1 1/2, ¾ or 0.75 all work. Volume results are broken into cups, tablespoons and teaspoons you can actually measure.</p>
+      </div>
+<script>
+function rsParse(t){t=(t||'').trim().replace(/½/g,' 1/2').replace(/⅓/g,' 1/3').replace(/⅔/g,' 2/3').replace(/¼/g,' 1/4').replace(/¾/g,' 3/4').replace(/⅛/g,' 1/8').replace(/⅜/g,' 3/8').replace(/⅝/g,' 5/8').replace(/⅞/g,' 7/8');var s=0,ok=false;t.split(/\s+/).forEach(function(p){if(!p)return;var m=p.match(/^(\d+(?:\.\d+)?)\/(\d+(?:\.\d+)?)$/);if(m){s+=parseFloat(m[1])/parseFloat(m[2]);ok=true;}else if(!isNaN(parseFloat(p))){s+=parseFloat(p);ok=true;}});return ok?s:NaN;}
+function rsVol(tsp){var e0=Math.round(tsp*8)/8,c=Math.floor(e0/48+1e-9),r0=e0-c*48,cf=[[36,'¾'],[32,'⅔'],[24,'½'],[16,'⅓'],[12,'¼'],[0,'']],best=null;
+cf.forEach(function(q){if(r0<q[0]-1e-9)return;var e=r0-q[0],out=[];if(c||q[1])out.push((c?c:'')+q[1]+' cup'+((c>1||(c==1&&q[1]))?'s':''));var tb=Math.floor(e/3+1e-9);e-=tb*3;if(tb)out.push(tb+' tbsp');var w=Math.floor(e+1e-9);e-=w;var f={0.125:'⅛',0.25:'¼',0.375:'⅜',0.5:'½',0.625:'⅝',0.75:'¾',0.875:'⅞'}[Math.round(e*8)/8]||'';if(w||f)out.push((w?w:'')+f+' tsp');
+var sc=out.length+(tb>4?(tb-4)*0.3:0);if(!best||sc<best[0]-1e-9)best=[sc,out];});
+var s=best[1].length?best[1].join(' + '):'a pinch';return (Math.abs(e0-tsp)>tsp*0.01&&best[1].length?'≈ ':'')+s;}
+function rsFmt(x){return (Math.round(x*100)/100).toString();}
+function rsCalc(){var a=rsParse(document.getElementById('rsAmt').value),u=document.getElementById('rsUnit').value,k,yo=document.getElementById('rsOld');
+if(yo){var o=parseFloat(yo.value),n=parseFloat(document.getElementById('rsNew').value);k=(o>0&&n>0)?n/o:NaN;}else{k=parseFloat(document.getElementById('rsFac').value);}
+var R=document.getElementById('rsRes'),D=document.getElementById('rsDec'),F=document.getElementById('rsK'),N=document.getElementById('rsHow');
+if(isNaN(a)||isNaN(k)||a<=0){R.textContent='–';D.textContent='–';F.textContent=isNaN(k)?'–':'×'+rsFmt(k);N.textContent='';return;}
+F.textContent='×'+rsFmt(k);var r=a*k,t={cup:48,tbsp:3,tsp:1}[u];
+if(t){D.textContent=rsFmt(r)+' '+u;R.textContent=rsVol(r*t);N.textContent='Measured with standard cups and spoons, rounded to the nearest ⅛ teaspoon.';}
+else if(u=='oz'){D.textContent=rsFmt(r)+' oz';var lb=Math.floor(r/16+1e-9);R.textContent=(lb?lb+' lb ':'')+rsFmt(r-lb*16)+' oz';N.textContent='Weight scales exactly — use a scale for anything over a few ounces.';}
+else if(u=='lb'){D.textContent=rsFmt(r)+' lb';var w=Math.floor(r+1e-9);R.textContent=(w?w+' lb ':'')+rsFmt((r-w)*16)+' oz';N.textContent='0.1 lb is 1.6 oz, so convert decimals of a pound to ounces before you weigh.';}
+else if(u=='g'){D.textContent=rsFmt(r)+' g';R.textContent=Math.round(r)+' g';N.textContent='Grams are the easiest unit to scale — round to the nearest gram.';}
+else{D.textContent=rsFmt(r)+' eggs';var whole=Math.floor(r+1e-9),part=r-whole;var eg=whole?whole+' large egg'+(whole==1?'':'s'):'';R.textContent=part<0.15?(eg||'0'):(part>0.85?(whole+1)+' large egg'+(whole==0?'':'s'):(eg?eg+' + ':'')+Math.round(part*50)+' g beaten egg');N.textContent='A large egg is about 50 g out of the shell; beat it and weigh the part you need.';}}
+rsCalc();
+</script>
       <p>For anything more complex, use our <a href="/tools/recipe-multiplier.html">Recipe Multiplier</a> — enter 0.5 as your factor and it handles every ingredient at once.</p>
 
       <h2>How to Halve Eggs</h2>

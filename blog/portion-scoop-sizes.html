@@ -34,7 +34,7 @@
   "author": { "@type": "Organization", "name": "CookingCalcs" },
   "publisher": { "@type": "Organization", "name": "CookingCalcs", "url": "https://cookingcalcs.com" },
   "datePublished": "2026-10-13",
-  "dateModified": "2026-11-10",
+  "dateModified": "2026-11-25",
   "mainEntityOfPage": "https://cookingcalcs.com/blog/portion-scoop-sizes.html"
 }
 </script>
@@ -165,6 +165,50 @@
           <tr><td><strong>#100</strong></td><td>2 tsp</td><td>⅓</td><td>Mini cookies, garnishes</td></tr>
         </tbody>
       </table>
+      <div class="tool-box cv-box">
+        <h3 style="font-family:'Playfair Display',serif; font-size:1.15rem; margin:0 0 .75rem;">Portion Scoop Calculator</h3>
+        <div class="cv-grid cv4">
+          <div class="form-group"><label for="psAmt">Batch size</label>
+            <input type="number" id="psAmt" min="0" step="any" value="2" oninput="psCalc()"></div>
+          <div class="form-group"><label for="psUnit">Unit</label>
+            <select id="psUnit" onchange="psCalc()">
+              <option value="128" selected>gallons</option>
+              <option value="32">quarts</option>
+              <option value="8">cups</option>
+              <option value="1">fl oz</option>
+            </select></div>
+          <div class="form-group"><label for="psScoop">Scoop</label>
+            <select id="psScoop" onchange="psCalc()">
+              <option value="16/3|⅔ cup">#6</option>
+              <option value="4|½ cup" selected>#8</option>
+              <option value="3|⅜ cup">#10</option>
+              <option value="8/3|⅓ cup">#12</option>
+              <option value="2|¼ cup">#16</option>
+              <option value="5/3|3⅓ tbsp">#20</option>
+              <option value="4/3|2⅔ tbsp">#24</option>
+              <option value="1|2 tbsp">#30</option>
+              <option value="5/6|1⅔ tbsp">#40</option>
+              <option value="0.625|3¾ tsp">#50</option>
+              <option value="13/24|3¼ tsp">#60</option>
+            </select></div>
+          <div class="form-group"><label for="psGuests">Guests to serve</label>
+            <input type="number" id="psGuests" min="0" step="1" value="50" oninput="psCalc()"></div>
+        </div>
+        <div class="cv-res">
+          <div><strong id="psN"></strong>level scoops</div>
+          <div><strong id="psOz"></strong>per scoop</div>
+          <div><strong id="psMeas"></strong>level measure</div>
+          <div><strong id="psNeed"></strong>batch for your guests</div>
+        </div>
+        <p class="cv-note">Uses the level capacities in the table on this page. Count on 5–10% fewer portions in practice: heaped or uneven scoops and what sticks to the pan both eat into the batch.</p>
+      </div>
+<script>
+function psFrac(x){var w=Math.floor(x+1e-9),f=x-w,m=[[0,''],[1/8,'⅛'],[1/6,'⅙'],[1/4,'¼'],[1/3,'⅓'],[3/8,'⅜'],[1/2,'½'],[5/8,'⅝'],[2/3,'⅔'],[3/4,'¾'],[5/6,'⅚'],[7/8,'⅞'],[1,'']],b=m[0];for(var i=0;i<m.length;i++){if(Math.abs(f-m[i][0])<Math.abs(f-b[0]))b=m[i];}if(b[0]==1){w+=1;}return (w?w:'')+b[1]||'0';}
+function psCalc(){var a=parseFloat(document.getElementById('psAmt').value)||0,u=parseFloat(document.getElementById('psUnit').value),s=document.getElementById('psScoop').value.split('|'),q=s[0].split('/'),oz=parseFloat(q[0])/(q[1]?parseFloat(q[1]):1),g=parseFloat(document.getElementById('psGuests').value)||0;
+var tot=a*u,n=Math.floor(tot/oz+1e-9);document.getElementById('psN').textContent=n;document.getElementById('psOz').textContent=psFrac(oz)+' fl oz';document.getElementById('psMeas').textContent=s[1];
+var need=g*oz,up=function(v){return psFrac(Math.ceil(v*4-1e-9)/4);};document.getElementById('psNeed').textContent=need>=512?up(need/128)+' gal':(need>=32?up(need/32)+' qt':up(need/8)+' cups');}
+psCalc();
+</script>
       <p style="color:var(--mid); font-size:0.92rem;">Brands vary slightly. If an exact portion matters, check your scoop by levelling water into it and pouring it into a measuring cup.</p>
 
       <h2>Why the Numbers Run Backwards</h2>
